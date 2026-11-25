@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Ukrainian <https://translate.cacti.net/projects/cacti/thold/uk/>\nLanguage: uk-UA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Ukrainian <https://translate.cacti.net/projects/cacti/thold/uk/>\nLanguage: uk-UA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -257,7 +257,7 @@ msgstr "Кожен %d день"
 
 #: includes/arrays.php
 msgid "Every Week"
-msgstr "Кожний тиждень"
+msgstr "Щотижня"
 
 #: includes/arrays.php
 #, php-format
@@ -325,7 +325,7 @@ msgstr "Кожні %d опитування"
 #: includes/arrays.php
 #, php-format
 msgid "%d Polling"
-msgstr "%d опитування"
+msgstr "%d опитувань"
 
 #: includes/arrays.php
 #, php-format
@@ -442,7 +442,7 @@ msgstr "Порогова пошта"
 
 #: includes/arrays.php
 msgid "Down Host Mail"
-msgstr "Вниз за поштою господаря"
+msgstr "Лист при недоступності вузла"
 
 #: includes/arrays.php
 msgid "Up Host Mail"
@@ -454,7 +454,7 @@ msgstr "Поріг Cmd"
 
 #: includes/arrays.php
 msgid "Down Host Cmd"
-msgstr "Командир нижнього вузла"
+msgstr "Команда при недоступності вузла"
 
 #: includes/arrays.php
 msgid "Up Host Cmd"
@@ -483,10 +483,9 @@ msgid "> %d Devices"
 msgstr "> %d пристроїв"
 
 #: includes/arrays.php
-#, fuzzy, php-format
-#| msgid "> %d %%% of Devices Globally"
+#, php-format
 msgid "> %d %% of Devices Globally"
-msgstr "> %d %%% of Пристрої по всьому світу"
+msgstr "> %d %% пристроїв глобально"
 
 #: includes/arrays.php
 #, php-format
@@ -494,10 +493,9 @@ msgid "> %d Devices in a Site"
 msgstr "> %d пристроїв на сайті"
 
 #: includes/arrays.php
-#, fuzzy, php-format
-#| msgid "> %d %%% of Devices in a Site"
+#, php-format
 msgid "> %d %% of Devices in a Site"
-msgstr "> %d %%% of пристроїв на сайті"
+msgstr "> %d %% пристроїв на майданчику"
 
 #: includes/functions.php
 msgid "< 1 Minute"
@@ -576,10 +574,9 @@ msgid "Abs Val [TIP:%s]"
 msgstr "Abs Val [ЧАЙОВІ:%s]"
 
 #: includes/functions.php
-#, fuzzy, php-format
-#| msgid "%%% Dev [AOT:%s]"
+#, php-format
 msgid "%% Dev [AOT:%s]"
-msgstr "%%% відхилення [AOT:%s]"
+msgstr "%% відх. [AOT:%s]"
 
 #: includes/functions.php
 #, php-format
@@ -794,7 +791,7 @@ msgstr "Повідомлення про пристрої: <DESCRIPTION> (<HOSTNA
 
 #: includes/polling.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
-msgstr ""
+msgstr "<br>Стан системи <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Майданчик: <SITE><br>Розташування: <LOCATION><br>Поточний час відгуку ping: <CUR_TIME> мс<br>Середній час відгуку системи: <AVG_TIME> мс<br>Доступність системи: <AVAILABILITY><br>Усього перевірок після очищення: <TOT_POLL><br>Усього невдалих перевірок: <FAIL_POLL><br>Дата останньої перевірки (Доступний): <LAST_FAIL><br>Час попередньої недоступності пристроїв: <DOWNTIME><br><br>Відомості SNMP:<br>Ім'я - <SNMP_HOSTNAME><br>Розташування - <SNMP_LOCATION><br>Час безперервної роботи - <UPTIMETEXT> (<UPTIME> мс)<br>Система - <SNMP_SYSTEM><br><br>ПРИМІТКА: <NOTES>"
 
 #: includes/polling.php
 msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
@@ -806,7 +803,7 @@ msgstr "Оффлайн"
 
 #: includes/polling.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
-msgstr ""
+msgstr "Системна помилка: <DESCRIPTION> (<HOSTNAME>) у стані <DOWN/UP><br>Майданчик: <SITE><br>Розташування: <LOCATION><br>Причина: <MESSAGE><br><br>Середній час відгуку системи: <AVG_TIME> мс<br>Доступність системи: <AVAILABILITY><br>Усього перевірок після очищення: <TOT_POLL><br>Усього невдалих перевірок: <FAIL_POLL><br>Дата останньої перевірки як Недоступний: <LAST_FAIL><br>Попередній час доступності пристроїв: <DOWNTIME><br>ПРИМІТКА: <NOTES>"
 
 #: includes/settings.php
 msgid "(actions)"
@@ -822,7 +819,7 @@ msgstr "Зберегти"
 
 #: includes/settings.php
 msgid "(add)"
-msgstr "(Адреса)"
+msgstr "(додати)"
 
 #: includes/settings.php
 msgid "Threshold Logs"
@@ -878,7 +875,7 @@ msgstr "Шаблон"
 
 #: includes/settings.php thold_graph.php
 msgid "Threshold"
-msgstr "Пороги"
+msgstr "Поріг"
 
 #: includes/settings.php
 msgid "A template with that Data Source already exists!"
@@ -933,10 +930,8 @@ msgid "Global and List Below"
 msgstr "Глобальний і список нижче"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
 msgid "Which Type of Notification List(s) should be used for Device Up/Down events?"
-msgstr "Які списки сповіщень слід повідомляти про події ввімкнення/вимкнення пристрою?"
+msgstr "Який тип списку(ів) сповіщень слід використовувати для подій «Доступний/Недоступний» пристрою?"
 
 #: includes/settings.php notify_queue.php
 msgid "Notification List"
@@ -952,11 +947,11 @@ msgstr "Кількість помилок хоста"
 
 #: includes/settings.php
 msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
-msgstr "Кількість інтервалів опитування на цьому господарі має бути зниженою, перш ніж Thold зареєструє помилку та повідомить господаря про зниження. За замовчуванням - 0 (використовуйте налаштування Cacti)"
+msgstr "Кількість інтервалів опитування, протягом яких цей вузол має бути недоступним, перш ніж Thold зафіксує помилку та повідомить про недоступність вузла. За замовчуванням 0 (використовувати налаштування Cacti)"
 
 #: includes/settings.php
 msgid "Use Cacti Setting"
-msgstr "Використовувати налаштування кактусів"
+msgstr "Використовувати налаштування Cacti"
 
 #: includes/settings.php
 #, php-format
@@ -1137,7 +1132,7 @@ msgstr "1 Процес"
 #: includes/settings.php
 #, php-format
 msgid "%d Processes"
-msgstr "%d процесів"
+msgstr "%d Процеси"
 
 #: includes/settings.php
 msgid "Logging"
@@ -1356,24 +1351,20 @@ msgid "Enable Dead/Recovering host notification"
 msgstr "Увімкнути сповіщення про смерть/відновлення хоста"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Enable Notifications"
 msgid "Single Email Notification"
-msgstr "Сповіщення"
+msgstr "Одиночне сповіщення електронною поштою"
 
 #: includes/settings.php
 msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
 msgstr "Підтримується лише для списків сповіщень і черги сповіщень.  Якщо є сповіщення про відключення пристрою в одному циклі обробки.  Надішліть лише один електронний лист репієнтам списку сповіщень для всіх пристроїв."
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Enable Notification Queue"
 msgid "Single Email Notification Subject"
-msgstr "Увімкнути чергу сповіщень"
+msgstr "Тема єдиного електронного сповіщення"
 
 #: includes/settings.php
 msgid "This is the Email Subject to be used for all Single Email Notification Emails for both Up and Down Devices."
-msgstr ""
+msgstr "Це тема електронного листа для всіх поодиноких сповіщень як про доступні, так і про недоступні пристрої."
 
 #: includes/settings.php
 msgid "Device Notification Delay Options"
@@ -1405,13 +1396,11 @@ msgstr "Це адреса електронної пошти, на яку буд�
 
 #: includes/settings.php
 msgid "Down Subject"
-msgstr "Вниз за темою"
+msgstr "Тема листа про недоступність"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be used for Down Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060NOTES&#062"
-msgstr "Це тема електронного листа, яка відображатиметься в електронному листі (МАКСИМУМ 128 символів).  Залиште порожнім для параметра за замовчуванням.  Існує кілька поширених тегів заміни, які можуть використовуватися в:<br>&# 060PHASE &#062 &# 060THRESHOLDVALUE &#062 &# 060CURRENTVALUE &#062 &# 060THRESHOLDNAME &#062 &# 060DSNAME &#062 &# 060BREACHUP &#062 &# 060REALERT &#062 &#60HOSTNAME&#62"
+msgstr "Це тема електронного листа, яка використовуватиметься для повідомлень про недоступність пристрою. Існує кілька поширених тегів підстановки, які можна використовувати:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (тривалість попереднього стану роботи у разі повідомлення про недоступність) &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
@@ -1423,21 +1412,19 @@ msgstr "Повідомлення внизу"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
-msgstr ""
+msgstr "Це повідомлення, яке відображатиметься як основний текст усіх сповіщень про доступність/недоступність пристрою (макс. 1024 символи). HTML дозволено, але його буде вилучено для суто текстових листів. Є кілька поширених тегів заміни, які можна використовувати:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (тривалість останнього стану доступності у разі повідомлення про недоступність) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
-msgstr ""
+msgstr "Системна помилка: <DESCRIPTION> (<HOSTNAME>) у стані <DOWN/UP><br><br>Майданчик: <SITE><br>Розташування: <LOCATION><br>Причина: <MESSAGE><br>Середній час відгуку системи: <AVG_TIME> мс<br>Доступність системи: <AVAILABILITY><br>Усього перевірок після очищення: <TOT_POLL><br>Усього невдалих перевірок: <FAIL_POLL><br>Дата останньої перевірки як Недоступний: <LAST_FAIL><br>Попередній час доступності пристрою: <DOWNTIME><br>ПРИМІТКИ: <NOTES><br>ПРИМІТКИ пристрою: <DNOTES>"
 
 #: includes/settings.php
 msgid "Recovering Subject"
 msgstr "Відновлення суб 'єкта"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be used for Recovering Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
-msgstr "Це тема електронного листа, яка відображатиметься в електронному листі (МАКСИМУМ 128 символів).  Залиште порожнім для параметра за замовчуванням.  Існує кілька поширених тегів заміни, які можуть використовуватися в:<br>&# 060PHASE &#062 &# 060THRESHOLDVALUE &#062 &# 060CURRENTVALUE &#062 &# 060THRESHOLDNAME &#062 &# 060DSNAME &#062 &# 060BREACHUP &#062 &# 060REALERT &#062 &#60HOSTNAME&#62"
+msgstr "Це тема електронного листа, яка використовуватиметься для повідомлень про відновлення пристрою. Існує кілька поширених тегів підстановки, які можна використовувати:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -1449,11 +1436,11 @@ msgstr "Відновлення повідомлення"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
-msgstr ""
+msgstr "Це повідомлення, яке відображатиметься як основний текст усіх сповіщень про доступність/недоступність пристрою (макс. 1024 символи). HTML дозволено, але його буде вилучено для суто текстових листів. Є кілька поширених тегів заміни, які можна використовувати:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
-msgstr ""
+msgstr "<br>Стан системи <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Майданчик: <SITE><br>Розташування: <LOCATION><br>Поточний час відгуку ping: <CUR_TIME> мс<br>Середній час відгуку системи: <AVG_TIME> мс<br>Доступність системи: <AVAILABILITY><br>Усього перевірок після очищення: <TOT_POLL><br>Усього невдалих перевірок: <FAIL_POLL><br>Дата останньої перевірки (Доступний): <LAST_FAIL><br>Час попередньої недоступності пристрою: <DOWNTIME><br><br>Відомості SNMP:<br>Ім'я - <SNMP_HOSTNAME><br>Розташування - <SNMP_LOCATION><br>Час безперервної роботи - <UPTIMETEXT> (<UPTIME> мс)<br>Система - <SNMP_SYSTEM><br><br>ПРИМІТКА: <NOTES><br>Примітки щодо пристрою: <DNOTES>"
 
 #: includes/settings.php
 msgid "Status Change Command"
@@ -1461,7 +1448,7 @@ msgstr "Команда зміни статусу"
 
 #: includes/settings.php
 msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
-msgstr ""
+msgstr "Коли пристрій змінює стан з погляду Cacti (з UP на DOWN або з DOWN на RECOVERING/UP), виконати таку команду. Ця команда НЕ повинна містити аргументів командного рядка. Проте такі змінні можна отримати з середовища скрипту:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
 
 #: includes/settings.php
 msgid "Alert/Warning Message Defaults"
@@ -1473,7 +1460,7 @@ msgstr "Повідомлення попередження про порогов�
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr ""
+msgstr "Це повідомлення, яке відображатиметься у верхній частині всіх порогових тривог (макс. 1024 символи). HTML дозволено, але його буде вилучено для суто текстових листів. Є кілька поширених тегів заміни, які можна використовувати:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
@@ -1485,7 +1472,7 @@ msgstr "Порогове попереджувальне повідомлення
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr ""
+msgstr "Це повідомлення, яке відображатиметься у верхній частині всіх порогових попереджень (макс. 1024 символи). HTML дозволено, але його буде вилучено для суто текстових листів. Є кілька поширених тегів заміни, які можна використовувати:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
@@ -1497,7 +1484,7 @@ msgstr "Порогове відновлювальне повідомлення"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr ""
+msgstr "Це повідомлення, яке відображатиметься у верхній частині всіх сповіщень про відновлення порогу (макс. 1024 символи). HTML дозволено, але його буде вилучено для суто текстових листів. Є кілька поширених тегів заміни, які можна використовувати:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
@@ -1537,7 +1524,7 @@ msgstr "Майстер створення порогового значення 
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
-msgstr "Майстер створення порогового значення [ Select a Threshold Template ]"
+msgstr "Майстер створення порогового значення [ Виберіть шаблон порогового значення ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
@@ -1608,10 +1595,8 @@ msgid "Select a Device"
 msgstr "Виберіть пристрій"
 
 #: includes/webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
 msgid "Select an Available Item"
-msgstr "Виберіть і доступний елемент"
+msgstr "Виберіть доступний елемент"
 
 #: includes/webapi.php
 msgid "Data Query Item"
@@ -1631,7 +1616,7 @@ msgstr "Важлива примітка:"
 
 #: includes/webapi.php
 msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr ""
+msgstr "Цей поріг буде створено за шаблоном. У разі використання шаблону порога вам буде запропоновано вибрати шаблон порога, шаблон графіка, пристрій і, можливо, елемент запиту даних перед появою запиту «Створити»; на цьому етапі, якщо на рівні шаблонів графіка та джерела даних дозволено перевизначення параметрів, вам буде запропоновано ввести їх. Після натискання кнопки «Створити» графік і поріг буде створено одночасно."
 
 #: includes/webapi.php
 msgid "Graph"
@@ -1697,7 +1682,7 @@ msgstr "Пристрої"
 #: notify_lists.php
 #, php-format
 msgid "ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s"
-msgstr ""
+msgstr "ПОМИЛКА: ваша адреса електронної пошти не може бути одночасно в полях «Кому» та «Прихована копія». Наведена нижче адреса некоректна!<br><br>%s"
 
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
@@ -1899,7 +1884,7 @@ msgstr "Шаблон пристрою"
 
 #: notify_lists.php
 msgid "Associated"
-msgstr "хвороб, пов’язаних з наданням"
+msgstr "Пов'язано"
 
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
@@ -2085,9 +2070,9 @@ msgstr "Очікуючі сповіщення видалено з бази да�
 #: notify_queue.php
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] "Натисніть \"Продовжити\", щоб видалити наступне сповіщення."
-msgstr[1] "Натисніть \"Продовжити\", щоб видалити всі наступні сповіщення."
-msgstr[2] "Натисніть \"Продовжити\", щоб видалити всі наступні сповіщення."
+msgstr[0] "Натисніть 'Продовжити', щоб видалити наступне сповіщення."
+msgstr[1] "Натисніть 'Продовжити', щоб видалити всі наступні сповіщення."
+msgstr[2] "Натисніть 'Продовжити', щоб видалити всі наступні сповіщення."
 
 #: notify_queue.php
 msgid "Delete Notification"
@@ -2171,7 +2156,7 @@ msgstr "Ідентифікатор об 'єкта, визначений абон
 
 #: notify_queue.php
 msgid "Event Time"
-msgstr "事件时间"
+msgstr "Час події"
 
 #: notify_queue.php
 msgid "The time of the event as defined by the caller."
@@ -2191,25 +2176,23 @@ msgstr "Чи призвело це сповіщення до помилки.  Н
 
 #: notify_queue.php
 msgid "Attempts"
-msgstr ""
+msgstr "Спроби"
 
 #: notify_queue.php
-#, fuzzy
-#| msgid "The number of Graphs for this Device"
 msgid "The number of delivery attempts made for this notification."
-msgstr "Кількість графіків для цього пристрою"
+msgstr "Кількість спроб доставки цього сповіщення."
 
 #: notify_queue.php
 msgid "Next Attempt"
-msgstr ""
+msgstr "Наступна спроба"
 
 #: notify_queue.php
 msgid "When a failed notification is eligible for its next retry."
-msgstr ""
+msgstr "Коли невдале сповіщення буде готове до наступної повторної спроби."
 
 #: notify_queue.php
 msgid "Run Time"
-msgstr "Тривалість роботи"
+msgstr "Час виконання"
 
 #: notify_queue.php
 msgid "The time in seconds it took to process the event."
@@ -2224,16 +2207,12 @@ msgid "No Notifications"
 msgstr "Немає сповіщень"
 
 #: setup.php
-#, fuzzy
-#| msgid "Toggle Threshold VRULES %s"
 msgid "Toggle Threshold VRULES Off"
-msgstr "Перемкнути порогові значення VRULES %s"
+msgstr "Вимкнути порогові значення VRULES"
 
 #: setup.php
-#, fuzzy
-#| msgid "Toggle Threshold VRULES %s"
 msgid "Toggle Threshold VRULES On"
-msgstr "Перемкнути порогові значення VRULES %s"
+msgstr "Увімкнути порогові значення VRULES"
 
 #: setup.php
 msgid "Create Threshold"
@@ -2242,7 +2221,7 @@ msgstr "Створити порогове значення"
 #: setup.php
 #, php-format
 msgid "Alert Hi for %s (%s)"
-msgstr "Вітаємо, %s (%s)"
+msgstr "Верхній поріг тривоги для %s (%s)"
 
 #: setup.php
 #, php-format
@@ -2260,28 +2239,24 @@ msgid "Warning Low for %s (%s)"
 msgstr "Низький рівень попередження для %s (%s)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Alert Hi for %s (%s %%%)"
+#, php-format
 msgid "Alert Hi for %s (%s %%)"
-msgstr "Сповіщення для %s (%s %%%)"
+msgstr "Верхнє сповіщення для %s (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Alert Low for %s (%s %%%)"
+#, php-format
 msgid "Alert Low for %s (%s %%)"
-msgstr "Низький рівень сповіщення для %s (%s %%%)"
+msgstr "Нижнє сповіщення для %s (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Warning Hi for %s (%s %%%)"
+#, php-format
 msgid "Warning Hi for %s (%s %%)"
-msgstr "Попередження Привіт для %s (%s %%%)"
+msgstr "Верхнє попередження для %s (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Warning Low for %s (%s %%%)"
+#, php-format
 msgid "Warning Low for %s (%s %%)"
-msgstr "Низький рівень попередження для %s (%s %%%)"
+msgstr "Нижнє попередження для %s (%s %%)"
 
 #: setup.php
 msgid "Threshold Alert/Warning Values"
@@ -2490,14 +2465,12 @@ msgid "Ack Required"
 msgstr "Обов 'язкова перевірка"
 
 #: thold.php thold_graph.php
-#, fuzzy
-#| msgid "Status"
 msgid "By Status"
-msgstr "Статус"
+msgstr "За статусом"
 
 #: thold.php thold_graph.php
 msgid "The current threshold status. Click a status pill to filter the list to that status."
-msgstr ""
+msgstr "Поточний стан порогу. Натисніть на індикатор стану, щоб відфільтрувати список за цим станом."
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "External ID"
@@ -2618,7 +2591,7 @@ msgstr "AHI:"
 
 #: thold.php
 msgid "ALo:"
-msgstr "оксид алюмінію:"
+msgstr "Нижній поріг тривоги:"
 
 #: thold.php
 msgid "BL Up:"
@@ -2754,7 +2727,7 @@ msgstr "Варіанти підтвердження"
 
 #: thold.php thold_templates.php
 msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
-msgstr ""
+msgstr "Існують три рівні підтвердження, які визначають порядок реагування на порушення порога:<br><br><ul><li><i>Підтвердження не потрібне</i> — якщо вибрано цей параметр, підтвердження порушення порога не вимагається.</li><li><i>Призупинення сповіщень</i> — із цим параметром після підтвердження або призупинення сповіщень для порога ви більше не отримуватимете сповіщення, доки його порушено. Згодом ви можете відновити сповіщення, поки поріг залишається порушеним.</li><li><i>Постійне підтвердження</i> — із цим параметром навіть після повернення порога до норми ви повинні підтвердити поріг і за потреби додати повідомлення оператора.</li></ul>"
 
 #: thold.php thold_templates.php
 msgid "None Required"
@@ -2862,7 +2835,7 @@ msgstr "Налаштування базової лінії"
 
 #: thold.php thold_templates.php
 msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
-msgstr ""
+msgstr "Тип базової лінії. [TIP] — час у минулому (Time in Past), [AOT] — середнє за час (Average over Time). Відсоткове відхилення — це значення у відсотках від історичного значення. Абсолютне значення — це відхилення вище або нижче базової лінії відносно історичного значення. Для типів базової лінії [TIP] значення MIN, MAX, AVG та LAST беруться з інтервалу тривалістю не більше одного дня на той момент часу."
 
 #: thold.php thold_templates.php
 msgid "Consolidation Function"
@@ -2903,7 +2876,7 @@ msgstr "Відхилення вгору"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Вказує допустиме відхилення для верхньої межі порогового значення. Якщо не встановлено, верхня межа порогового значення взагалі не перевірятиметься.  Одиниця виміру - це абсолютні значення для типу \"Абсолютне значення\" та відсоткове значення як для \"Відхилення %%\", так і для \"Плаваючого середнього %%\""
+msgstr "Вказує допустиме відхилення для верхньої межі порога. Якщо не задано, верхня межа порога взагалі не перевірятиметься. Одиницею виміру є абсолютні значення для типу «Абсолютне значення» та відсотки як для «%% відхилення», так і для «%% ковзного середнього»"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2912,7 +2885,7 @@ msgstr "Відхилення ВНИЗ"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Вказує допустиме відхилення для нижньої межі порогового значення. Якщо не встановлено, нижня межа порогового значення взагалі не перевірятиметься.  Одиниця виміру - це абсолютні значення для типу \"Абсолютне значення\" та відсоткове значення як для \"Відхилення %%\", так і для \"Плаваючого середнього %%\""
+msgstr "Вказує допустиме відхилення для нижньої межі порога. Якщо не задано, нижня межа порога взагалі не перевірятиметься. Одиницею виміру є абсолютні значення для типу «Абсолютне значення» та відсотки як для «%% відхилення», так і для «%% ковзного середнього»"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -2953,7 +2926,7 @@ msgstr "Другий елемент джерела даних, який буде
 
 #: thold.php thold_templates.php
 msgid "Show Units"
-msgstr "Показати мої уроки"
+msgstr "Показувати одиниці вимірювання"
 
 #: thold.php thold_templates.php
 msgid "Display units for very large or small numbers."
@@ -2978,7 +2951,7 @@ msgstr "Кількість десяткових цифр для відображ
 #: thold.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr ""
+msgstr "Вираз RPN — це RPN-вираз, сумісний із RRDtool.  Синтаксис включає всі наведені нижче функції, а також вирази підстановки для пристрою та запиту даних, такі як <span class=\"deviceUp\">|query_ifSpeed|</span>.  Щоб використати Джерело даних у виразі RPN, необхідно застосувати синтаксис: <span class=\"deviceUp\">|ds:dsname|</span>.  Наприклад, <span class=\"deviceUp\">|ds:traffic_in|</span> отримає поточне значення джерела даних traffic_in для RRD-файлу(ів), пов'язаного(их) із графіком. Можна включити будь-яке джерело даних графіка.<br><br>Математичні оператори: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Функції: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Оператори потоку: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Функції порівняння: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
@@ -2997,60 +2970,48 @@ msgid "Alert Subject"
 msgstr "Сповіщення суб 'єкта"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "Це тема електронного листа, яка відображатиметься в електронному листі (МАКСИМУМ 128 символів).  Залиште порожнім для параметра за замовчуванням.  Існує кілька поширених тегів заміни, які можуть використовуватися в:<br>&# 060PHASE &#062 &# 060THRESHOLDVALUE &#062 &# 060CURRENTVALUE &#062 &# 060THRESHOLDNAME &#062 &# 060DSNAME &#062 &# 060BREACHUP &#062 &# 060REALERT &#062 &#60HOSTNAME&#62"
+msgstr "Це тема електронного листа, яка відображатиметься в повідомленні (максимум 128 символів). Залиште порожнім для значення за замовчуванням. Є кілька поширених тегів заміни, які можна використовувати:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
 
 #: thold.php
 msgid "Alert Body"
 msgstr "Попередження"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Це тема електронного листа, яка відображатиметься в електронному листі (МАКСИМУМ 128 символів).  Залиште порожнім для параметра за замовчуванням.  Існує кілька поширених тегів заміни, які можуть використовуватися в:<br>&# 060PHASE &#062 &# 060THRESHOLDVALUE &#062 &# 060CURRENTVALUE &#062 &# 060THRESHOLDNAME &#062 &# 060DSNAME &#062 &# 060BREACHUP &#062 &# 060REALERT &#062 &#60HOSTNAME&#62"
+msgstr "Це повідомлення, яке відображатиметься вгорі всіх сповіщень про перевищення порогів (макс. 1024 символи). HTML дозволено, але його буде видалено для суто текстових електронних листів. Існує кілька поширених тегів підстановки, які можна використовувати:<br>напр., &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Subject"
 msgstr "Застереження"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "Це тема попередження, яка відображатиметься в електронному листі (МАКСИМУМ 128 символів).  Залиште порожнім для параметра за замовчуванням.  Існує кілька поширених тегів заміни, які можуть використовуватися в:<br>&# 060PHASE &#062 &# 060THRESHOLDVALUE &#062 &# 060CURRENTVALUE &#062 &# 060THRESHOLDNAME &#062 &# 060DSNAME &#062 &# 060BREACHUP &#062 &# 060REALERT &#062 &#60HOSTNAME&#62"
+msgstr "Це тема електронного листа з попередженням, яка відображатиметься в повідомленні після переходу у стан попередження (максимум 128 символів). Залиште порожнім для значення за замовчуванням. Є кілька поширених тегів заміни, які можна використовувати:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Body"
 msgstr "Застереження"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Це тема електронного листа, яка відображатиметься в електронному листі (МАКСИМУМ 128 символів).  Залиште порожнім для параметра за замовчуванням.  Існує кілька поширених тегів заміни, які можуть використовуватися в:<br>&# 060PHASE &#062 &# 060THRESHOLDVALUE &#062 &# 060CURRENTVALUE &#062 &# 060THRESHOLDNAME &#062 &# 060DSNAME &#062 &# 060BREACHUP &#062 &# 060REALERT &#062 &#60HOSTNAME&#62"
+msgstr "Це повідомлення, яке відображатиметься вгорі всіх попереджень про перевищення порогів (макс. 1024 символи). HTML дозволено, але його буде видалено для суто текстових електронних листів. Існує кілька поширених тегів підстановки, які можна використовувати:<br>напр., &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold.php thold_templates.php
 msgid "Restoral Subject"
 msgstr "Відновити"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "Це тема електронного листа, яка відображатиметься в електронному листі (МАКСИМУМ 128 символів).  Залиште порожнім для параметра за замовчуванням.  Існує кілька поширених тегів заміни, які можуть використовуватися в:<br>&# 060PHASE &#062 &# 060THRESHOLDVALUE &#062 &# 060CURRENTVALUE &#062 &# 060THRESHOLDNAME &#062 &# 060DSNAME &#062 &# 060BREACHUP &#062 &# 060REALERT &#062 &#60HOSTNAME&#62"
+msgstr "Це тема електронного листа, яка відображатиметься в повідомленні після повернення до норми (максимум 128 символів). Залиште порожнім для значення за замовчуванням. Є кілька поширених тегів заміни, які можна використовувати:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
 
 #: thold.php
 msgid "Restoral Email Body"
 msgstr "Відновлення тіла електронної пошти"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Це тема електронного листа, яка відображатиметься в електронному листі (МАКСИМУМ 128 символів).  Залиште порожнім для параметра за замовчуванням.  Існує кілька поширених тегів заміни, які можуть використовуватися в:<br>&# 060PHASE &#062 &# 060THRESHOLDVALUE &#062 &# 060CURRENTVALUE &#062 &# 060THRESHOLDNAME &#062 &# 060DSNAME &#062 &# 060BREACHUP &#062 &# 060REALERT &#062 &#60HOSTNAME&#62"
+msgstr "Це повідомлення, яке відображатиметься вгорі всіх сповіщень про відновлення порогів (макс. 1024 символи). HTML дозволено, але його буде видалено для суто текстових електронних листів. Існує кілька поширених тегів підстановки, які можна використовувати:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Notification List"
@@ -3086,7 +3047,7 @@ msgstr "Опис події"
 
 #: thold.php thold_templates.php
 msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
-msgstr ""
+msgstr "Ви можете налаштувати опис події, що надсилається отримувачам сповіщень SNMP, за допомогою прив'язок змінних. Можна використовувати стандартні змінні підстановки пристрою (|host_*|), запиту даних (|query_*|), а також такі прив'язки змінних:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
 
 #: thold.php thold_templates.php
 msgid "SNMP Notification - Alert Event Severity"
@@ -3138,7 +3099,7 @@ msgstr "Якщо позначено, сповіщення про порогов�
 
 #: thold.php thold_templates.php
 msgid "Priority/Level"
-msgstr "Priority-Level"
+msgstr "Пріоритет/Рівень"
 
 #: thold.php thold_templates.php
 msgid "This is the Priority Level that will be logged into your syslog messages."
@@ -3162,7 +3123,7 @@ msgstr "Команда високого тригера"
 
 #: thold.php thold_templates.php
 msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr ""
+msgstr "Якщо встановлено, і при перевищенні верхнього порога, буде виконано цю команду. Будь ласка, введіть коректну команду. Крім того, доступно кілька тегів заміни, які можна використовувати для передавання інформації з порога до скрипту. Це можна зробити як аргументи командного рядка або, що краще, через змінні середовища скрипту. Усі значення заміни з'являться в середовищі скрипту з префіксом THOLD_. Наприклад, CURRENTVALUE стане THOLD_CURRENTVALUE і так далі. Доступні змінні: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Нарешті, можна виконувати заміну для хоста, запиту даних і вводу даних. Наприклад, якщо у вас є користувацькі дані вводу даних із назвою pending, для заміни використовуйте |pending|. Для заміни запиту даних і хоста використовуйте домовленості Cacti |query_xxxx| та |host_xxxx| відповідно."
 
 #: thold.php thold_templates.php
 msgid "Low Trigger Command"
@@ -3170,7 +3131,7 @@ msgstr "Низька команда запуску"
 
 #: thold.php thold_templates.php
 msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr ""
+msgstr "Якщо встановлено, і при порушенні нижнього порога, буде виконано цю команду. Будь ласка, введіть коректну команду. Крім того, доступно кілька тегів заміни, які можна використовувати для передавання інформації з порога до скрипту. Це можна зробити як аргументи командного рядка або, що краще, через змінні середовища скрипту. Усі значення заміни з'являться в середовищі скрипту з префіксом THOLD_. Наприклад, CURRENTVALUE стане THOLD_CURRENTVALUE і так далі. Доступні змінні: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Нарешті, можна виконувати заміну для хоста, запиту даних і вводу даних. Наприклад, якщо у вас є користувацькі дані вводу даних із назвою pending, для заміни використовуйте |pending|. Для заміни запиту даних і хоста використовуйте домовленості Cacti |query_xxxx| та |host_xxxx| відповідно."
 
 #: thold.php thold_templates.php
 msgid "Norm Trigger Command"
@@ -3178,7 +3139,7 @@ msgstr "Нормальна команда запуску"
 
 #: thold.php thold_templates.php
 msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr ""
+msgstr "Якщо встановлено, коли значення Thold повертається до норми, буде виконано цю команду. Будь ласка, введіть коректну команду. Крім того, доступно кілька тегів заміни, які можна використовувати для передавання інформації з порога до скрипту. Це можна зробити як аргументи командного рядка або, що краще, через змінні середовища скрипту. Усі значення заміни з'являться в середовищі скрипту з префіксом THOLD_. Наприклад, CURRENTVALUE стане THOLD_CURRENTVALUE і так далі. Доступні змінні: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Нарешті, можна виконувати заміну для хоста, запиту даних і вводу даних. Наприклад, якщо у вас є користувацькі дані вводу даних із назвою pending, для заміни використовуйте |pending|. Для заміни запиту даних і хоста використовуйте домовленості Cacti |query_xxxx| та |host_xxxx| відповідно."
 
 #: thold.php thold_templates.php
 msgid "Other Settings"
@@ -3525,12 +3486,12 @@ msgstr "Початковий моніторинг"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Вказує допустиме відхилення для верхньої межі порогового значення. Якщо не встановлено, верхня межа порогового значення взагалі не перевірятиметься.  Одиниця виміру - це абсолютні значення для типу \"Абсолютне значення\" та відсоткове значення як для \"Відхилення %%\", так і для \"Плаваючого середнього %%\""
+msgstr "Вказує допустиме відхилення для верхньої межі порога. Якщо не задано, верхня межа порога взагалі не перевірятиметься. Одиницею виміру є абсолютні значення для типу «Абсолютне значення» та відсотки як для «%% відхилення», так і для «%% ковзного середнього»"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Вказує допустиме відхилення для нижньої межі порогового значення. Якщо не встановлено, нижня межа порогового значення взагалі не перевірятиметься.  Одиниця виміру - це абсолютні значення для типу \"Абсолютне значення\" та відсоткове значення як для \"Відхилення %%\", так і для \"Плаваючого середнього %%\""
+msgstr "Вказує допустиме відхилення для нижньої межі порога. Якщо не задано, нижня межа порога взагалі не перевірятиметься. Одиницею виміру є абсолютні значення для типу «Абсолютне значення» та відсотки як для «%% відхилення», так і для «%% ковзного середнього»"
 
 #: thold_templates.php
 #, php-format
@@ -3548,7 +3509,7 @@ msgstr "Другий елемент джерела даних, який буде
 #: thold_templates.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr ""
+msgstr "Вираз RPN — це RPN-вираз, сумісний із RRDtool.  Синтаксис включає всі наведені нижче функції, а також вирази підстановки для пристрою та запиту даних, такі як <span style=\"color:blue;\">|query_ifSpeed|</span>.  Щоб використати Джерело даних у виразі RPN, необхідно застосувати синтаксис: <span style=\"color:blue;\">|ds:dsname|</span>.  Наприклад, <span style=\"color:blue;\">|ds:traffic_in|</span> отримає поточне значення джерела даних traffic_in для RRD-файлу(ів), пов'язаного(их) із графіком. Можна включити будь-яке джерело даних графіка.<br>Математичні оператори: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Функції: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Оператори потоку: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Функції порівняння: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold_templates.php
 msgid "Upper data source to use to calculate the total value."
@@ -3568,7 +3529,7 @@ msgstr "Текст електронного сповіщення"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr ""
+msgstr "Це повідомлення, яке відображатиметься у верхній частині всіх порогових тривог (макс. 1024 символи). HTML дозволено, але його буде вилучено для суто текстових листів. Є кілька поширених тегів заміни, які можна використовувати:<br>напр., &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold_templates.php
 msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
@@ -3576,11 +3537,11 @@ msgstr "Це тема попередження, яка відображатим�
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr ""
+msgstr "Це повідомлення, яке відображатиметься у верхній частині всіх порогових попереджень (макс. 1024 символи). HTML дозволено, але його буде вилучено для суто текстових листів. Є кілька поширених тегів заміни, які можна використовувати:<br>напр., &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold_templates.php
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr ""
+msgstr "Це тема електронного листа, яка відображатиметься після відновлення до нормального стану (макс. 128 символів). Залиште порожнім для типового значення. Можна використовувати кілька поширених тегів підстановки, зокрема:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "Restoral Body"
@@ -3588,7 +3549,7 @@ msgstr "Відновити"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr ""
+msgstr "Це повідомлення, яке відображатиметься у верхній частині всіх сповіщень про відновлення порогу (макс. 1024 символи). HTML дозволено, але його буде вилучено для суто текстових листів. Є кілька поширених тегів заміни, які можна використовувати:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: thold_templates.php
 msgid "Notification List Read Only"
