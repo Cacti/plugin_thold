@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Turkish <https://translate.cacti.net/projects/cacti/thold/tr/>\nLanguage: tr-TR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Turkish <https://translate.cacti.net/projects/cacti/thold/tr/>\nLanguage: tr-TR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -28,32 +28,32 @@ msgstr "%d Yıl"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hour Ago"
-msgstr "Her%d saatte bir"
+msgstr "%d Saat Öncesinden"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hours Ago"
-msgstr "Her%d saatte bir"
+msgstr "%d Saat Öncesinden"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Day Ago"
-msgstr ""
+msgstr "%d Gün Öncesinden"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Days Ago"
-msgstr "Her%d Gün"
+msgstr "%d Gün Öncesinden"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Week Ago"
-msgstr "%d Hafta"
+msgstr "%d Hafta Öncesinden"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Weeks Ago"
-msgstr "Her%d Hafta"
+msgstr "%d Hafta Öncesinden"
 
 #: includes/arrays.php
 #, php-format
@@ -73,7 +73,7 @@ msgstr "%d Yıl"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Years Ago"
-msgstr ""
+msgstr "%d Yıl Öncesinden"
 
 #: includes/arrays.php thold_graph.php
 msgid "Down"
@@ -150,7 +150,7 @@ msgstr "Olay - Uyarı Tetikleyici"
 
 #: includes/arrays.php
 msgid "Alert Event"
-msgstr "Uyarı Hazır Ayarları"
+msgstr "Uyarı Olayı"
 
 #: includes/arrays.php
 msgid "Event - Warning Trigger"
@@ -166,7 +166,7 @@ msgstr "Etkinlik - Restoral"
 
 #: includes/arrays.php thold_graph.php
 msgid "Restoral Event"
-msgstr "Sektörel Etkinlik"
+msgstr "Normale Dönüş Olayı"
 
 #: includes/arrays.php
 msgid "Event - Acknowledge"
@@ -244,7 +244,7 @@ msgstr "Her Saat"
 #: includes/arrays.php includes/settings.php
 #, php-format
 msgid "Every %d Hours"
-msgstr "Her%d saatte bir"
+msgstr "Her %d Saatte Bir"
 
 #: includes/arrays.php
 msgid "Every Day"
@@ -253,7 +253,7 @@ msgstr "Her Gün"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Days"
-msgstr "Her%d Gün"
+msgstr "Her %d Günde Bir"
 
 #: includes/arrays.php
 msgid "Every Week"
@@ -262,7 +262,7 @@ msgstr "Her Hafta"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Weeks"
-msgstr "Her%d Hafta"
+msgstr "Her %d Haftada Bir"
 
 #: includes/arrays.php
 msgid "Every Month"
@@ -271,7 +271,7 @@ msgstr "Her Ay"
 #: includes/arrays.php
 #, php-format
 msgid "%d Minute"
-msgstr "%d dakika"
+msgstr "%d Dakika"
 
 #: includes/arrays.php
 #, php-format
@@ -320,17 +320,17 @@ msgstr "Her Oylama"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Pollings"
-msgstr "Her%d Anket"
+msgstr "Her %d Sorgulamada"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Polling"
-msgstr "%d Yoklama"
+msgstr "%d Sorgulama"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Pollings"
-msgstr "%d Anketler"
+msgstr "%d Sorgulama"
 
 #: includes/arrays.php
 msgid "High / Low"
@@ -347,38 +347,38 @@ msgstr "Zamana Dayalı"
 #: includes/arrays.php
 #, php-format
 msgid "%% Deviation Min/Max [TIP]"
-msgstr "Sapma UP"
+msgstr "%% Sapma Min/Maks [TIP]"
 
 #: includes/arrays.php
 #, php-format
 msgid "%% Deviation CF [TIP]"
-msgstr "Sapma UP"
+msgstr "%% Sapma CF [TIP]"
 
 #: includes/arrays.php
 msgid "Absolute Val Min/Max [TIP]"
-msgstr "Uyarı Değeri"
+msgstr "Mutlak Değer Min/Maks [TIP]"
 
 #: includes/arrays.php
 msgid "Absolute Val of CF [TIP]"
-msgstr "Uyarı Değeri"
+msgstr "CF Mutlak Değeri [TIP]"
 
 #: includes/arrays.php
 #, php-format
 msgid "%% Deviation Avg [AOT]"
-msgstr "Sapma UP"
+msgstr "%% Sapma Ortalaması [AOT]"
 
 #: includes/arrays.php
 #, php-format
 msgid "%% Deviation Avg of CF [AOT]"
-msgstr "Sapma UP"
+msgstr "%% CF Sapma Ortalaması [AOT]"
 
 #: includes/arrays.php
 msgid "Absolute Val Avg [AOT]"
-msgstr "Uyarı Değeri"
+msgstr "Mutlak Değer Ortalaması [AOT]"
 
 #: includes/arrays.php
 msgid "Absolute Val Avg of CF [AOT]"
-msgstr "Uyarı Değeri"
+msgstr "CF Mutlak Değer Ortalaması [AOT]"
 
 #: includes/arrays.php
 msgid "Exact Value"
@@ -406,11 +406,11 @@ msgstr "Kabul Et"
 
 #: includes/arrays.php
 msgid "Suspend Notifications"
-msgstr "SNMP Bildirimleri"
+msgstr "Bildirimleri Askıya Al"
 
 #: includes/arrays.php
 msgid "Resume Notifications"
-msgstr "SNMP Bildirimleri"
+msgstr "Bildirimleri Sürdür"
 
 #: includes/arrays.php notify_lists.php notify_queue.php setup.php
 msgid "Delete"
@@ -442,11 +442,11 @@ msgstr "Eşik"
 
 #: includes/arrays.php
 msgid "Down Host Mail"
-msgstr ""
+msgstr "Kapalı Ana Bilgisayar E-postası"
 
 #: includes/arrays.php
 msgid "Up Host Mail"
-msgstr ""
+msgstr "Aktif Cihaz E-postası"
 
 #: includes/arrays.php
 msgid "Threshold Cmd"
@@ -454,28 +454,28 @@ msgstr "Eşik"
 
 #: includes/arrays.php
 msgid "Down Host Cmd"
-msgstr ""
+msgstr "Kapalı Ana Bilgisayar Komutu"
 
 #: includes/arrays.php
 msgid "Up Host Cmd"
-msgstr ""
+msgstr "Aktif Cihaz Komutu"
 
 #: includes/arrays.php
 msgid "Auto"
-msgstr ""
+msgstr "Otomatik"
 
 #: includes/arrays.php
 msgid "0 Digits"
-msgstr ""
+msgstr "0 Basamak"
 
 #: includes/arrays.php
 msgid "1 Digit"
-msgstr ""
+msgstr "1 Basamak"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Digits"
-msgstr "%d Gün"
+msgstr "%d Basamak"
 
 #: includes/arrays.php
 #, php-format
@@ -483,10 +483,9 @@ msgid "> %d Devices"
 msgstr "> %d Cihaz"
 
 #: includes/arrays.php
-#, fuzzy, php-format
-#| msgid "> %d %%% of Devices Globally"
+#, php-format
 msgid "> %d %% of Devices Globally"
-msgstr "Cihazlar"
+msgstr "Genel olarak > %%%d cihaz"
 
 #: includes/arrays.php
 #, php-format
@@ -494,10 +493,9 @@ msgid "> %d Devices in a Site"
 msgstr "Bir Sitede > %d Cihaz"
 
 #: includes/arrays.php
-#, fuzzy, php-format
-#| msgid "> %d %%% of Devices in a Site"
+#, php-format
 msgid "> %d %% of Devices in a Site"
-msgstr "Cihazlar"
+msgstr "Bir sitedeki > %%%d cihaz"
 
 #: includes/functions.php
 msgid "< 1 Minute"
@@ -505,12 +503,12 @@ msgstr "1 dakika boyu"
 
 #: includes/functions.php
 msgid "Since Created"
-msgstr "Oluştur"
+msgstr "Oluşturulduğundan Beri"
 
 #: includes/functions.php includes/settings.php notify_lists.php thold.php
 #: thold_graph.php thold_templates.php
 msgid "Thresholds"
-msgstr "Sınırlar"
+msgstr "Eşikler"
 
 #: includes/functions.php
 msgid "Log"
@@ -542,7 +540,7 @@ msgstr "Sayfalar:"
 
 #: includes/functions.php
 msgid "Only logging, maint device"
-msgstr ""
+msgstr "Yalnızca günlükleme, bakım cihazı"
 
 #: includes/functions.php notify_lists.php notify_queue.php thold.php
 #: thold_graph.php thold_templates.php
@@ -563,7 +561,7 @@ msgstr "<html><body> Dikkatinizi gerektiren bir uyarı verildi. <br><br> <b>Ciha
 
 #: includes/functions.php
 msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "Dikkatinizi gerektiren bir Uyarı yayınlandı. <br><br> <strong>Cihaz</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Mesaj</strong> : <SUBJECT><br><br><GRAPH>"
+msgstr "<html><body>Bir Eşik normal duruma döndü. <br><br><strong>Cihaz</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Mesaj</strong>: <SUBJECT><br><br><GRAPH></body></html>"
 
 #: includes/functions.php
 #, php-format
@@ -576,10 +574,9 @@ msgid "Abs Val [TIP:%s]"
 msgstr "Mutlak Değer [TIP:%s]"
 
 #: includes/functions.php
-#, fuzzy, php-format
-#| msgid "%%% Dev [AOT:%s]"
+#, php-format
 msgid "%% Dev [AOT:%s]"
-msgstr "Sapma UP"
+msgstr "%% Sapma [AOT:%s]"
 
 #: includes/functions.php
 #, php-format
@@ -638,15 +635,15 @@ msgstr "İmkansız eşikler: 'Düşük Uyarı Eşiğine' eşit veya daha küçü
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr "İmkansız eşikler: 'Düşük Uyarı Eşiğine' eşit veya daha küçük 'Yüksek Uyarı Eşiği' <br> KAYIT GÜNCELLEME!"
+msgstr "İmkansız eşik: 'Yüksek Uyarı Eşiği', 'Yüksek Alarm Eşiği'nden büyük!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr "İmkansız eşikler: 'Düşük Uyarı Eşiğine' eşit veya daha küçük 'Yüksek Uyarı Eşiği' <br> KAYIT GÜNCELLEME!"
+msgstr "İmkansız eşik: 'Düşük Alarm Eşiği', 'Düşük Uyarı Eşiği'nden büyük!"
 
 #: includes/functions.php
 msgid "Time reference in the past must be set to positive integer value!"
-msgstr "' %s' pozitif tamsayı değerine ayarlanmış olmalı! <br> KAYIT GÜNCELLEME!"
+msgstr "Geçmişteki zaman başvurusu pozitif bir tamsayı değerine ayarlanmalıdır!"
 
 #: includes/functions.php
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
@@ -658,23 +655,23 @@ msgstr "İmkansız eşik: 'Yüksek Uyarı Eşiği' 'Düşük Uyarı Eşiği'nden
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr ""
+msgstr "Geçersiz eşik: Alarm Tetikleme Sayısı 1'den büyük veya 1'e eşit olmalıdır!"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr ""
+msgstr "Geçersiz eşik: Alarm Tetikleme Sayısı, Tetikleme Sayısından küçük veya ona eşit ya da 1'e eşit olmalıdır!"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr ""
+msgstr "Geçersiz eşik: Uyarı Tetikleme Sayısı 1'den büyük veya 1'e eşit olmalıdır!"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "İmkansız eşikler: 'Düşük Uyarı Eşiğine' eşit veya daha küçük 'Yüksek Uyarı Eşiği' <br> KAYIT GÜNCELLEME!"
+msgstr "İmkansız eşik: Uyarı Tetikleme Sayısı, Tetikleme Sayısından küçük veya ona eşit olmalı ya da 1 olarak değerlendirilmelidir!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "İmkansız eşikler: 'Düşük Uyarı Eşiğine' eşit veya daha küçük 'Yüksek Uyarı Eşiği' <br> KAYIT GÜNCELLEME!"
+msgstr "İmkansız eşik: 'Düşük Uyarı Eşiği', 'Düşük Alarm Eşiği'nden küçük!"
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
@@ -690,15 +687,15 @@ msgstr "Eşik Oluşturulmadı. Ya zaten varlar ya da eşleşen bir kombinasyon b
 
 #: includes/functions.php
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr "Mailer Hata: set adrese <b>İÇİN</b> !! <br> <i>Posta Testi</i> bağlantısını kullanıyorsanız, lütfen <b>Uyarı E-postası</b> ayarını yapın."
+msgstr "Posta Gönderici Hatası: <b>ALICI (TO)</b> adresi ayarlanmamış!!<br><i>Test Postası</i> bağlantısını kullanıyorsanız, lütfen <b>Uyarı E-postası</b> ayarını yapın."
 
 #: includes/functions.php
 msgid "Done"
-msgstr ""
+msgstr "Tamamlandı"
 
 #: includes/functions.php
 msgid "Pending"
-msgstr ""
+msgstr "Beklemede"
 
 #: includes/functions.php
 msgid "Errored"
@@ -710,11 +707,11 @@ msgstr "Yok"
 
 #: includes/functions.php
 msgid "Success"
-msgstr ""
+msgstr "Başarılı"
 
 #: includes/functions.php thold_graph.php
 msgid "Acknowledge Threshold"
-msgstr "Bilinmeyen Eşik"
+msgstr "Eşiği Onayla"
 
 #: includes/functions.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
@@ -722,7 +719,7 @@ msgstr "Aşağıdaki Eşikleri Kabul Etmek için 'Devam Et'i tıklayın."
 
 #: includes/functions.php thold.php
 msgid "Acknowledge Threshold(s)"
-msgstr "Teşekkür Şablonları"
+msgstr "Eşik(leri) Onayla"
 
 #: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
 #: thold_templates.php
@@ -748,7 +745,7 @@ msgstr "Eşik Şablonu içe aktarma sütunları, veritabanı şemasıyla eşleş
 
 #: includes/functions.php
 msgid "Imported"
-msgstr "Eklendi"
+msgstr "İçe Aktarıldı"
 
 #: includes/functions.php
 #, php-format
@@ -778,11 +775,11 @@ msgstr "Eşik Şablonu verilerini içe aktarmaya çalışırken hatalar oluştu.
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Eşik Şablonu içe aktarma verisinin XML verisi olmadığı tespit edildi."
+msgstr "Eşik Şablonu İçe Aktarma verileri XML verisi olarak bulunamadı."
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "Graph ve Threshold oluşturmaya çalışırken Eşik Şablonu Kimliği ayarlanmadı."
+msgstr "Eşik Şablonu içe aktarılırken Eşik Şablonu İçe Aktarma verileri doğru değildi."
 
 #: includes/polling.php
 msgid "SNMP not in use"
@@ -794,7 +791,7 @@ msgstr "Cihazlar haber: <DESCRIPTION> ( <HOSTNAME> ) AŞAĞI durumundan döndü"
 
 #: includes/polling.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
-msgstr "<br> sistem <DESCRIPTION> ( <HOSTNAME> ) durum: <DOWN/UP><br><br> Mevcut ping cevabı: <CUR_TIME> MS <br> Ortalama sistem yanıtı: <AVG_TIME> MS <br> Sistem kullanılabilirliği: <AVAILABILITY><br> Silinen Toplam Kontrol Sayısı: <TOT_POLL><br> Toplam Başarısız Çekler: <FAIL_POLL><br> Son Kontrol Tarihi: <LAST_FAIL><br> Daha önce AŞAĞI olan cihazlar: <DOWNTIME><br><br> SNMP Bilgisi: <br> İsim - <SNMP_HOSTNAME><br> Yer - <SNMP_LOCATION><br> Çalışma Süresi - <UPTIMETEXT> ( <UPTIME> MS) <br> Sistem - <SNMP_SYSTEM><br><br> NOT: <NOTES>"
+msgstr "<br>Sistem <DESCRIPTION> (<HOSTNAME>) durumu: <DOWN/UP><br><br>Site: <SITE><br>Konum: <LOCATION><br>Mevcut ping yanıtı: <CUR_TIME> ms<br>Ortalama sistem yanıtı: <AVG_TIME> ms<br>Sistem erişilebilirliği: <AVAILABILITY><br>Temizlemeden Bu Yana Toplam Kontrol: <TOT_POLL><br>Toplam Başarısız Kontrol: <FAIL_POLL><br>UP Olarak Kontrol Edilen Son Tarih: <LAST_FAIL><br>Cihazların Önceki DOWN Süresi: <DOWNTIME><br><br>SNMP Bilgisi:<br>Ad - <SNMP_HOSTNAME><br>Konum - <SNMP_LOCATION><br>Çalışma Süresi - <UPTIMETEXT> (<UPTIME> ms)<br>Sistem - <SNMP_SYSTEM><br><br>NOT: <NOTES>"
 
 #: includes/polling.php
 msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
@@ -806,11 +803,11 @@ msgstr "AŞAĞI"
 
 #: includes/polling.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
-msgstr "Sistem hatası : <DESCRIPTION> ( <HOSTNAME> ) <DOWN/UP><br> Sebep: <MESSAGE><br><br> Ortalama sistem yanıtı: <AVG_TIME> MS <br> Sistem kullanılabilirliği: <AVAILABILITY><br> Silinen Toplam Kontrol Sayısı: <TOT_POLL><br> Toplam Başarısız Çekler: <FAIL_POLL><br> Son Kontrol Tarihi AŞAĞI: <LAST_FAIL><br> Önceden UP için Aygıtlar: <DOWNTIME><br> NOT: <NOTES>"
+msgstr "Sistem Hatası : <DESCRIPTION> (<HOSTNAME>) durumu <DOWN/UP><br>Site: <SITE><br>Konum: <LOCATION><br>Neden: <MESSAGE><br><br>Ortalama sistem yanıt süresi : <AVG_TIME> ms<br>Sistem erişilebilirliği: <AVAILABILITY><br>Son Temizlemeden Bu Yana Toplam Kontrol: <TOT_POLL><br>Toplam Başarısız Kontrol: <FAIL_POLL><br>Son DOWN Kontrol Tarihi : <LAST_FAIL><br>Cihazların Önceki Çalışma (UP) Süresi: <DOWNTIME><br>NOT: <NOTES>"
 
 #: includes/settings.php
 msgid "(actions)"
-msgstr "Eylemler"
+msgstr "(eylemler)"
 
 #: includes/settings.php
 msgid "(edit)"
@@ -906,11 +903,11 @@ msgstr "Normal Kullanıcı"
 
 #: includes/settings.php
 msgid "Template Editor"
-msgstr "şablon siteler"
+msgstr "Şablon Düzenleyici"
 
 #: includes/settings.php
 msgid "General Administration"
-msgstr "Genel Ayarlar"
+msgstr "Genel Yönetim"
 
 #: includes/settings.php
 msgid "Device Up/Down Notification Settings"
@@ -933,10 +930,8 @@ msgid "Global and List Below"
 msgstr "Global ve Aşağıdaki Liste"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
 msgid "Which Type of Notification List(s) should be used for Device Up/Down events?"
-msgstr "Cihaz Yukarı / Aşağı olayları hakkında hangi Bildirim Listelerine bilgi verilmelidir?"
+msgstr "Cihaz Aktif/Pasif olayları için hangi Bildirim Listesi Türleri kullanılmalıdır?"
 
 #: includes/settings.php notify_queue.php
 msgid "Notification List"
@@ -952,7 +947,7 @@ msgstr "Ana Bilgisayar Arızası Sayısı"
 
 #: includes/settings.php
 msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
-msgstr "Thold bir hatayı günlüğe kaydetmeden ve Ana Bilgisayarı Kapalı olarak bildirmeden önce, bu Ana Bilgisayardaki Yoklama Aralıklarının sayısı Azaltılmalıdır. Varsayılan 0'dır (Kaktüs ayarını kullanın)"
+msgstr "Thold'un hata günlüğe kaydetmesi ve Ana Bilgisayarı Kapalı olarak bildirmesi için bu Ana Bilgisayarın Kapalı kalması gereken Poller Aralığı sayısı. Varsayılan 0'dır (Cacti ayarını kullan)"
 
 #: includes/settings.php
 msgid "Use Cacti Setting"
@@ -961,12 +956,12 @@ msgstr "Temel Ayarlar"
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Interval"
-msgstr "%d Yoklama"
+msgstr "%d Sorgulama Aralığı"
 
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Intervals"
-msgstr "%d Anketler"
+msgstr "%d Sorgulama Aralığı"
 
 #: includes/settings.php
 msgid "Alerting/Thold"
@@ -1018,11 +1013,11 @@ msgstr "Tetikleme uyar"
 
 #: includes/settings.php notify_lists.php thold.php thold_graph.php
 msgid "Breached"
-msgstr "ihlal"
+msgstr "İhlal Edildi"
 
 #: includes/settings.php notify_lists.php thold.php thold_graph.php
 msgid "Triggered"
-msgstr "Tetikleyici"
+msgstr "Tetiklendi"
 
 #: includes/settings.php notify_lists.php thold.php thold_graph.php
 #: thold_templates.php
@@ -1039,7 +1034,7 @@ msgstr "İfade Eşiklerini hesaplarken, ifHighSpeed ve ifSpeed sıfır olarak ge
 
 #: includes/settings.php
 msgid "Notification Preferences"
-msgstr "SNMP Bildirim Hazır Ayarları"
+msgstr "Bildirim Tercihleri"
 
 #: includes/settings.php
 msgid "Disable Legacy Notifications"
@@ -1075,19 +1070,19 @@ msgstr "Bu kutunun işaretlenmesi Eşikler için özel E-posta gövdelerinin kor
 
 #: includes/settings.php
 msgid "Enable Notification Queue"
-msgstr "Herhangi Bir Bildirime Göre Etkinleştir"
+msgstr "Bildirim Kuyruğunu Etkinleştir"
 
 #: includes/settings.php
 msgid "Checking this box will switch Thold from performing inline Notification to using either the Notification Daemon, or notifications performed out of band by the Notification poller."
-msgstr ""
+msgstr "Bu kutuyu işaretlemek, Thold'un satır içi Bildirim yapmasını durdurup Bildirim Arka Plan Programını veya Bildirim Poller'ı tarafından bant dışı gerçekleştirilen bildirimleri kullanmasını sağlar."
 
 #: includes/settings.php
 msgid "Enable Sending Alert Emails to Warning Notification Lists"
-msgstr "Uyarı Bildirim Listesi"
+msgstr "Uyarı Bildirim Listelerine Uyarı E-postaları Göndermeyi Etkinleştir"
 
 #: includes/settings.php
 msgid "Check this box if you wish Warning Notification List recipients to receive Alert Emails in addition to the Alert Notification list receivers.  This case is applicable when Warning Notifications goes to Administrators and Alert Notifications go to Management."
-msgstr ""
+msgstr "Uyarı Bildirim Listesi alıcılarının, Alarm Bildirim Listesi alıcılarına ek olarak Alarm E-postalarını da almasını istiyorsanız bu kutuyu işaretleyin. Bu durum, Uyarı Bildirimleri Yöneticilere ve Alarm Bildirimleri Üst Yönetime gittiğinde geçerlidir."
 
 #: includes/settings.php
 msgid "Threshold Daemon"
@@ -1107,11 +1102,11 @@ msgstr "Eşik Daemon"
 
 #: includes/settings.php
 msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
-msgstr ""
+msgstr "Bu kutuyu işaretlemek, SystemD üzerinden veya komut satırından çalışırken Eşik Arka Plan Programı (Daemon) hata ayıklamasını etkinleştirir. Bu değişiklik dinamiktir ve bir sonraki Eşik döngüsü başlar başlamaz yürürlüğe girer."
 
 #: includes/settings.php
 msgid "Daemon Down Notification Frequency"
-msgstr "Cihaz Yukarı / Aşağı Bildirim Ayarları"
+msgstr "Daemon Kapalı Bildirim Sıklığı"
 
 #: includes/settings.php
 msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
@@ -1120,11 +1115,11 @@ msgstr "Thold Daemon'un çalışmadığı tespit edilirse, bu sıklıkta bir E-p
 #: includes/settings.php
 #, php-format
 msgid "Every %d Hour"
-msgstr "Her%d saatte bir"
+msgstr "Her %d Saatte Bir"
 
 #: includes/settings.php
 msgid "Daemon Threads"
-msgstr ""
+msgstr "Arka Plan Programı İş Parçacıkları"
 
 #: includes/settings.php
 msgid "The number of daemon threads to be handled by the Threshold Daemon."
@@ -1132,12 +1127,12 @@ msgstr "Eşik Daemonu tarafından ele alınacak azami eş zamanlı işlem sayıs
 
 #: includes/settings.php
 msgid "1 Process"
-msgstr ""
+msgstr "1 İşlem"
 
 #: includes/settings.php
 #, php-format
 msgid "%d Processes"
-msgstr "%d İşlemler"
+msgstr "%d İşlem"
 
 #: includes/settings.php
 msgid "Logging"
@@ -1149,7 +1144,7 @@ msgstr "Günlük Eşik İhlalleri"
 
 #: includes/settings.php
 msgid "Enable logging of all Threshold failures to the Cacti Log."
-msgstr "Tüm Eşik hatalarının Kaktüs Günlüğüne kaydedilmesini etkinleştirin."
+msgstr "Tüm Eşik hatalarının Cacti Günlüğüne kaydedilmesini etkinleştir."
 
 #: includes/settings.php
 msgid "Show Data Source in Log"
@@ -1165,7 +1160,7 @@ msgstr "Günlük Eşik Değişiklikleri"
 
 #: includes/settings.php
 msgid "Enable logging of all Threshold changes to the Cacti Log."
-msgstr "Tüm Eşik değişikliklerinin Kaktüs Günlüğüne kaydedilmesini etkinleştir."
+msgstr "Tüm Eşik değişikliklerinin Cacti Günlüğüne kaydedilmesini etkinleştir."
 
 #: includes/settings.php
 msgid "Debug Log"
@@ -1189,7 +1184,7 @@ msgstr "Bilinmeyen Verileri Sıfır Olarak Kabul Edin"
 
 #: includes/settings.php
 msgid "When 'Consider Unknown Data as Zero' is enabled, log when it occurs"
-msgstr "Bilinmeyen Verileri Sıfır Olarak Kabul Edin"
+msgstr "'Bilinmeyen Verileri Sıfır Olarak Kabul Et' etkinleştirildiğinde, bu durum gerçekleştiğinde günlüğe kaydet"
 
 #: includes/settings.php thold.php thold_templates.php
 msgid "Syslog Settings"
@@ -1321,11 +1316,11 @@ msgstr "İşaretliyse, bu, tüm Uyarıların grafiksiz düz metin E-postalar ola
 
 #: includes/settings.php
 msgid "Send Email separately for each address"
-msgstr "Her adres için ayrı ayrı e-posta gönderin"
+msgstr "Her adres için e-postayı ayrı gönder"
 
 #: includes/settings.php
 msgid "If checked, this will cause all Emails to be sent separately for each address."
-msgstr "İşaretlenirse, bu, tüm E-postaların her adres için ayrı ayrı gönderilmesine neden olur."
+msgstr "İşaretlenirse, bu tüm E-postaların her adres için ayrı ayrı gönderilmesine neden olur."
 
 #: includes/settings.php
 msgid "From Email Address"
@@ -1356,24 +1351,20 @@ msgid "Enable Dead/Recovering host notification"
 msgstr "Ölü / Kurtarıcı ana bilgisayar bildirimini etkinleştirme"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Enable Notifications"
 msgid "Single Email Notification"
-msgstr "Herhangi Bir Bildirime Göre Etkinleştir"
+msgstr "Tekli E-posta Bildirimi"
 
 #: includes/settings.php
 msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
-msgstr ""
+msgstr "Yalnızca Bildirim Listeleri ve Bildirim Kuyruğu için desteklenir. Tek bir işleme döngüsünde Pasif Cihaz Bildirimleri varsa, tüm Cihazlar için Bildirim Listesi alıcılarına yalnızca bir E-posta gönderilir."
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Enable Notification Queue"
 msgid "Single Email Notification Subject"
-msgstr "Herhangi Bir Bildirime Göre Etkinleştir"
+msgstr "Tekli E-posta Bildirimi Konusu"
 
 #: includes/settings.php
 msgid "This is the Email Subject to be used for all Single Email Notification Emails for both Up and Down Devices."
-msgstr ""
+msgstr "Bu, hem Aktif hem de Pasif cihazlar için tüm Tekil E-posta Bildirimi e-postalarında kullanılacak E-posta Konusudur."
 
 #: includes/settings.php
 msgid "Device Notification Delay Options"
@@ -1385,11 +1376,11 @@ msgstr "Bildirim Listesi"
 
 #: includes/settings.php
 msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
-msgstr ""
+msgstr "Çok sayıda Pasif Cihaz Bildirimi gelirse, Cacti sorunun geçici olup olmadığını görmek için bu Bildirimleri göndermeden önce belirli bir süre göndermeyi duraklatabilir. Duraklatma Tetiklenmeden önceki Pasif Cihaz Bildirimleri eşik değerini seçin."
 
 #: includes/settings.php
 msgid "If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?"
-msgstr ""
+msgstr "Çok sayıda Kapalı Cihaz bildirimi akınında bildirimleri geciktirmeyi seçerseniz, bildirimlerin işlenmesine izin vermeden önce ne kadar süre beklemek istersiniz?"
 
 #: includes/settings.php
 msgid "Device Notification Email Options"
@@ -1397,7 +1388,7 @@ msgstr "Cihaz Bildirimi Seçenekleri"
 
 #: includes/settings.php
 msgid "Global Notification Email"
-msgstr "Ölü Cihaz Bildirimleri E-postası"
+msgstr "Genel Bildirim E-postası"
 
 #: includes/settings.php
 msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
@@ -1408,10 +1399,8 @@ msgid "Down Subject"
 msgstr "Aşağı Cihaz Konusu"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be used for Down Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060NOTES&#062"
-msgstr "Bu, tüm Eşik uyarılarının üstünde görüntülenecek mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;TANIM&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOT&gt;&gt;"
+msgstr "Bu, Pasif/Kapalı Cihaz İletileri için kullanılacak e-posta konusudur. Kullanılabilecek çeşitli yaygın değiştirme etiketleri vardır:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (kapalı iletisi durumunda son aktif kalma süresi) &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
@@ -1422,24 +1411,20 @@ msgid "Down Message"
 msgstr "Aşağı Cihaz Mesajı"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
-msgstr "Bu, tüm YUKARI / AŞAĞI Aygıt Mesajlarının (255 Char MAX) mesaj gövdesi olarak görüntülenecek mesajdır. HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;HOSTNAME&gt; &lt;DESCRIPTION&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;AŞAĞI / YUKARI &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;NOTES&gt;"
+msgstr "Bu, tüm Aktif / Pasif Cihaz İletilerinin ileti gövdesi olarak görüntülenecek iletidir (en fazla 1024 karakter). HTML'ye izin verilir, ancak yalnızca metin e-postalar için kaldırılır. Kullanılabilecek çeşitli yaygın değiştirme etiketleri vardır:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (kapalı iletisi durumunda son aktif kalma süresi) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
-msgstr "Sistem hatası : <DESCRIPTION> ( <HOSTNAME> ) <DOWN/UP><br> Sebep: <MESSAGE><br><br> Ortalama sistem yanıtı: <AVG_TIME> MS <br> Sistem kullanılabilirliği: <AVAILABILITY><br> Silinen Toplam Kontrol Sayısı: <TOT_POLL><br> Toplam Başarısız Çekler: <FAIL_POLL><br> Son Kontrol Tarihi AŞAĞI: <LAST_FAIL><br> Önceden UP için Aygıt: <DOWNTIME><br> NOTLAR: <NOTES><br> Cihaz notları: <DNOTES>"
+msgstr "Sistem Hatası : <DESCRIPTION> (<HOSTNAME>) durumu <DOWN/UP><br><br>Site: <SITE><br>Konum: <LOCATION><br>Neden: <MESSAGE><br>Ortalama sistem yanıt süresi: <AVG_TIME> ms<br>Sistem erişilebilirliği: <AVAILABILITY><br>Son Temizlemeden Bu Yana Toplam Kontrol: <TOT_POLL><br>Toplam Başarısız Kontrol: <FAIL_POLL><br>Son DOWN Kontrol Tarihi : <LAST_FAIL><br>Cihazın Önceki Çalışma (UP) Süresi: <DOWNTIME><br>NOTLAR: <NOTES><br>Cihaz NOTLARI: <DNOTES>"
 
 #: includes/settings.php
 msgid "Recovering Subject"
 msgstr "Aygıt Konusunu Kurtarma"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be used for Recovering Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
-msgstr "Bu, tüm Eşik uyarılarının üstünde görüntülenecek mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;TANIM&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOT&gt;&gt;"
+msgstr "Bu, Kurtarılan Cihaz İletileri için kullanılacak e-posta konusudur. Kullanılabilecek çeşitli yaygın değiştirme etiketleri vardır:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -1451,23 +1436,23 @@ msgstr "Aygıt İletisini Kurtarma"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
-msgstr "Bu, tüm YUKARI / AŞAĞI Aygıt Mesajlarının (255 Char MAX) mesaj gövdesi olarak görüntülenecek mesajdır. HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;HOSTNAME&gt; &lt;DESCRIPTION&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;AŞAĞI / YUKARI &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;NOTES&gt;"
+msgstr "Bu, tüm UP / Down Cihaz Mesajlarının mesaj gövdesi olarak görüntülenecek mesajdır (EN FAZLA 1024 Karakter). HTML'ye izin verilir, ancak yalnızca metin E-postalardan kaldırılır. Kullanılabilecek birkaç yaygın değiştirme etiketi şunlardır:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
-msgstr "<br> sistem <DESCRIPTION> ( <HOSTNAME> ) durum: <DOWN/UP><br><br> Mevcut ping cevabı: <CUR_TIME> MS <br> Ortalama sistem yanıtı: <AVG_TIME> MS <br> Sistem kullanılabilirliği: <AVAILABILITY><br> Silinen Toplam Kontrol Sayısı: <TOT_POLL><br> Toplam Başarısız Çekler: <FAIL_POLL><br> Son Kontrol Tarihi: <LAST_FAIL><br> Önceden AŞAĞI için Aygıt: <DOWNTIME><br><br> Snmp Bilgisi: <br> İsim - <SNMP_HOSTNAME><br> Yer - <SNMP_LOCATION><br> Çalışma Süresi - <UPTIMETEXT> ( <UPTIME> MS) <br> Sistem - <SNMP_SYSTEM><br><br> NOT: <NOTES><br> Cihaz Notları: <DNOTES>"
+msgstr "<br>Sistem <DESCRIPTION> (<HOSTNAME>) durumu: <DOWN/UP><br><br>Site: <SITE><br>Konum: <LOCATION><br>Mevcut ping yanıtı: <CUR_TIME> ms<br>Ortalama sistem yanıtı: <AVG_TIME> ms<br>Sistem erişilebilirliği: <AVAILABILITY><br>Temizlemeden Bu Yana Toplam Kontrol: <TOT_POLL><br>Toplam Başarısız Kontrol: <FAIL_POLL><br>UP Olarak Kontrol Edilen Son Tarih: <LAST_FAIL><br>Cihazın Önceki DOWN Süresi: <DOWNTIME><br><br>SNMP Bilgisi:<br>Ad - <SNMP_HOSTNAME><br>Konum - <SNMP_LOCATION><br>Çalışma Süresi - <UPTIMETEXT> (<UPTIME> ms)<br>Sistem - <SNMP_SYSTEM><br><br>NOT: <NOTES><br>Cihaz Notları: <DNOTES>"
 
 #: includes/settings.php
 msgid "Status Change Command"
-msgstr "Durum Değiştirme Komutu"
+msgstr "Durum Değişikliği Komutu"
 
 #: includes/settings.php
 msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
-msgstr "Bu, tüm YUKARI / AŞAĞI Aygıt Mesajlarının (255 Char MAX) mesaj gövdesi olarak görüntülenecek mesajdır. HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;HOSTNAME&gt; &lt;DESCRIPTION&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;AŞAĞI / YUKARI &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;NOTES&gt;"
+msgstr "Bir Cihaz Cacti açısından durum değiştirdiğinde (UP'tan DOWN'a veya DOWN'dan RECOVERING/UP'a), aşağıdaki komutu çalıştırın. Bu komut komut satırı argümanları İÇERMEMELİDİR. Ancak aşağıdaki değişkenler betiğin ortamından alınabilir:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
 
 #: includes/settings.php
 msgid "Alert/Warning Message Defaults"
-msgstr "Uyarı / Uyarı Mesajı Varsayılanları"
+msgstr "Alarm/Uyarı Mesajı Varsayılanları"
 
 #: includes/settings.php
 msgid "Threshold Alert Message"
@@ -1475,7 +1460,7 @@ msgstr "Eşik Uyarı Mesajı"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Bu, tüm Eşik Uyarılarının en üstünde görüntülenecek mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;TANIM&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOT&gt;&gt;"
+msgstr "Bu, tüm Eşik Uyarılarının en üstünde görüntülenecek mesajdır (EN FAZLA 1024 Karakter). HTML'ye izin verilir, ancak yalnızca metin E-postalardan kaldırılır. Kullanılabilecek birkaç yaygın değiştirme etiketi şunlardır:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
@@ -1487,7 +1472,7 @@ msgstr "Eşik Uyarı Mesajı"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Bu, tüm Eşik uyarılarının üstünde görüntülenecek mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;TANIM&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOT&gt;&gt;"
+msgstr "Bu, tüm Eşik uyarılarının en üstünde görüntülenecek mesajdır (EN FAZLA 1024 Karakter). HTML'ye izin verilir, ancak yalnızca metin E-postalardan kaldırılır. Kullanılabilecek birkaç yaygın değiştirme etiketi şunlardır:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
@@ -1499,15 +1484,15 @@ msgstr "Eşik Uyarı Mesajı"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Bu, tüm Eşik uyarılarının üstünde görüntülenecek mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;TANIM&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOT&gt;&gt;"
+msgstr "Bu, tüm Eşik normale dönüş bildirimlerinin en üstünde görüntülenecek mesajdır (EN FAZLA 1024 Karakter). HTML'ye izin verilir, ancak yalnızca metin E-postalardan kaldırılır. Kullanılabilecek birkaç yaygın değiştirme etiketi şunlardır:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
-msgstr "Dikkatinizi gerektiren bir Uyarı yayınlandı. <br><br> <strong>Cihaz</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Mesaj</strong> : <SUBJECT><br><br><GRAPH>"
+msgstr "Bir Eşik normal duruma döndü. <br><br><strong>Cihaz</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Mesaj</strong>: <SUBJECT><br><br><GRAPH>"
 
 #: includes/tab.php
 msgid "Thold"
-msgstr "Berthold"
+msgstr "Thold"
 
 #: includes/webapi.php
 msgid "Threshold(s) Already Exists - No Thresholds Created"
@@ -1571,7 +1556,7 @@ msgstr "Bir Eşik Türü Seçin"
 
 #: includes/webapi.php
 msgid "Non Templated"
-msgstr "Tapınaksız"
+msgstr "Şablonsuz"
 
 #: includes/webapi.php
 msgid "Threshold Template"
@@ -1610,10 +1595,8 @@ msgid "Select a Device"
 msgstr "Bir cihaz seçin"
 
 #: includes/webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
 msgid "Select an Available Item"
-msgstr "Seçin ve Kullanılabilir Öğe"
+msgstr "Kullanılabilir Bir Öğe Seçin"
 
 #: includes/webapi.php
 msgid "Data Query Item"
@@ -1633,7 +1616,7 @@ msgstr "Önemli Not:"
 
 #: includes/webapi.php
 msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "Bu Eşik Ayarlı <b>DEĞİLDİR</b> . Eşik Şablonu seçeneğini kullanırken, Grafikte geçersiz kılınabilir Grafiğe veya Veri Kaynağı bilgisine izin veriliyorsa, 'Oluşturma' komutunu almadan önce bir Eşik Şablonu, Grafik Şablonu, Cihaz ve muhtemelen Veri Sorgulama Öğesi bilgileri istenir ve Veri Kaynağı Şablonu seviyesi, sizden istenecektir. Ardından, 'Oluştur' düğmesine basılarak, hem Grafik hem de Eşik eşzamanlı olarak oluşturulur."
+msgstr "Bu Eşik şablona dayalı olacaktır. Eşik Şablonu seçeneğini kullanırken, 'Oluştur' istemi görüntülenmeden önce bir Eşik Şablonu, Grafik Şablonu, Cihaz ve muhtemelen Veri Sorgusu Öğesi bilgileri girmeniz istenir; bu aşamada Grafik ve Veri Kaynağı Şablonu düzeyinde geçersiz kılınabilir herhangi bir Grafik veya Veri Kaynağı bilgisine izin veriliyorsa bunlar da sizden istenir. Ardından 'Oluştur' düğmesine basıldığında hem Grafik hem de Eşik eşzamanlı olarak oluşturulur."
 
 #: includes/webapi.php
 msgid "Graph"
@@ -1690,7 +1673,7 @@ msgstr "Ön Lisans"
 
 #: notify_lists.php
 msgid "Disassociate"
-msgstr "ilişkisini"
+msgstr "İlişkiyi Kaldır"
 
 #: notify_lists.php thold_graph.php
 msgid "Devices"
@@ -1699,7 +1682,7 @@ msgstr "Cihazlar"
 #: notify_lists.php
 #, php-format
 msgid "ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s"
-msgstr ""
+msgstr "HATA: E-posta adresiniz hem Kime (To) hem de Gizli (BCC) satırlarında bulunamaz. Aşağıdaki e-posta geçersiz!<br><br>%s"
 
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
@@ -1852,7 +1835,7 @@ msgstr "Bu Bildirim Listesi için bir açıklama girin."
 
 #: notify_lists.php
 msgid "To disable all notifications from this Notification List, you can simply disable it here."
-msgstr ""
+msgstr "Bu Bildirim Listesinden gelen tüm bildirimleri devre dışı bırakmak için buradan basitçe devre dışı bırakabilirsiniz."
 
 #: notify_lists.php
 msgid "To Email Addresses"
@@ -1872,11 +1855,11 @@ msgstr "Bu Bildirim Listesi için virgülle ayrılmış bir E-posta adresi liste
 
 #: notify_lists.php
 msgid "Email Style/Format File"
-msgstr ""
+msgstr "E-posta Stili/Biçim Dosyası"
 
 #: notify_lists.php thold.php thold_templates.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr ""
+msgstr "Kullanılacak özel html sarıcısını ve CSS dosyasını seçin. Bu dosya, raporunuzu sarmak için hem html hem de CSS içeriyor. CSS&#39;den daha fazlasını içeriyorsa, özel bir <REPORT> Dosyanın içindeki etiketi kullanın. Bu biçim etiketi rapor içeriği ile değiştirilecektir. Bu dosyalar &#39;formatları&#39; dizininde bulunur."
 
 #: notify_lists.php
 msgid "Associated Devices"
@@ -1897,7 +1880,7 @@ msgstr "Yok"
 
 #: notify_lists.php
 msgid "Device Template"
-msgstr "Şablonları Sil"
+msgstr "Cihaz Şablonu"
 
 #: notify_lists.php
 msgid "Associated"
@@ -1955,7 +1938,7 @@ msgstr "Güncel ve Küresel Liste (ler)"
 
 #: notify_lists.php
 msgid "No Associated Devices Found"
-msgstr "İlişkili Aygıt Bulunamadı"
+msgstr "İlişkili Cihaz Bulunamadı"
 
 #: notify_lists.php
 msgid "Associated Thresholds"
@@ -2026,7 +2009,7 @@ msgstr "Bilinmeyen Eşik"
 
 #: notify_lists.php
 msgid "Log Only"
-msgstr "Sadece hesap aç"
+msgstr "Yalnızca Günlüğe Kaydet"
 
 #: notify_lists.php
 msgid "Editable"
@@ -2074,21 +2057,21 @@ msgstr "Bildirim Listesi Yok"
 
 #: notify_queue.php
 msgid "Notification has been Suspended.  Press the Resume button to resume it"
-msgstr ""
+msgstr "Bildirim askıya alındı. Sürdürmek için Sürdür düğmesine basın"
 
 #: notify_queue.php
 msgid "Notification has been Resumed.  Press the Suspend button to suspend it"
-msgstr ""
+msgstr "Bildirim sürdürüldü. Askıya almak için Askıya Al düğmesine basın"
 
 #: notify_queue.php
 msgid "Pending Notifications have been removed from the database.  Previously sent notification not purged will remain until they age out."
-msgstr ""
+msgstr "Bekleyen Bildirimler veritabanından kaldırıldı. Daha önce gönderilmiş ve temizlenmemiş bildirimler zaman aşımına uğrayana kadar kalacaktır."
 
 #: notify_queue.php
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] "Aşağıdaki Bildirimi silmek için 'Devam Et'i tıklayın."
-msgstr[1] "Aşağıdaki tüm Bildirimleri silmek için 'Devam Et'i tıklayın."
+msgstr[0] "Aşağıdaki bildirimi silmek için 'Devam Et'e tıklayın."
+msgstr[1] "Aşağıdaki tüm bildirimleri silmek için 'Devam Et'e tıklayın."
 
 #: notify_queue.php
 msgid "Delete Notification"
@@ -2099,43 +2082,43 @@ msgstr[1] "Bildirimleri Sil"
 #: notify_queue.php
 #, php-format
 msgid "Event Notifications [ Notifications Suspended by User: %s, %s ago ]"
-msgstr ""
+msgstr "Olay Bildirimleri [ Bildirimler Kullanıcı Tarafından Askıya Alındı: %s, %s önce ]"
 
 #: notify_queue.php
 msgid "Event Notifications"
-msgstr "Ölü Cihaz Bildirimleri"
+msgstr "Olay Bildirimleri"
 
 #: notify_queue.php
 msgid "Topic"
-msgstr ""
+msgstr "Konu"
 
 #: notify_queue.php
 msgid "Processed"
-msgstr ""
+msgstr "İşlendi"
 
 #: notify_queue.php
 msgid "Suspend"
-msgstr ""
+msgstr "Askıya Al"
 
 #: notify_queue.php
 msgid "Suspend Notification Processing"
-msgstr "SNMP Bildirimleri"
+msgstr "Bildirim İşlemeyi Askıya Al"
 
 #: notify_queue.php
 msgid "Resume"
-msgstr ""
+msgstr "Devam Et"
 
 #: notify_queue.php
 msgid "Resume Notification Processing"
-msgstr "SNMP Bildirimleri"
+msgstr "Bildirim İşlemeyi Sürdür"
 
 #: notify_queue.php
 msgid "Purge"
-msgstr ""
+msgstr "Temizle"
 
 #: notify_queue.php
 msgid "Purge Notification Queue"
-msgstr "SNMP Bildirim Hazır Ayarları"
+msgstr "Bildirim Kuyruğunu Temizle"
 
 #: notify_queue.php
 msgid "Notifications"
@@ -2151,11 +2134,11 @@ msgstr "Etkinlik Açıklaması"
 
 #: notify_queue.php
 msgid "The name of the object as defined by the caller."
-msgstr ""
+msgstr "Çağıran tarafından tanımlanan nesne adı."
 
 #: notify_queue.php
 msgid "The hostname that was the source of this event."
-msgstr "Bu Cihaz İçin Veri Kaynağı Sayısı."
+msgstr "Bu olayın kaynağı olan ana bilgisayar adı."
 
 #: notify_queue.php
 msgid "The Notification List used if any."
@@ -2163,15 +2146,15 @@ msgstr "Sadece Bildirim Listesi."
 
 #: notify_queue.php
 msgid "Object ID"
-msgstr ""
+msgstr "Nesne Kimliği"
 
 #: notify_queue.php
 msgid "The Object ID defined by the caller.  Generally its unique 'id'."
-msgstr ""
+msgstr "Çağıran tarafından tanımlanan Nesne Kimliği. Genellikle benzersiz 'id' değeridir."
 
 #: notify_queue.php
 msgid "Event Time"
-msgstr ""
+msgstr "Olay Zamanı"
 
 #: notify_queue.php
 msgid "The time of the event as defined by the caller."
@@ -2179,7 +2162,7 @@ msgstr "SNMP tarafından bildirilen Cihazın resmi çalışma süresi."
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
-msgstr ""
+msgstr "Bildirim Olayı işlendi mi."
 
 #: notify_queue.php
 msgid "Errors"
@@ -2187,53 +2170,47 @@ msgstr "Hata"
 
 #: notify_queue.php
 msgid "Did this notification result in an error.  Hover on the error column for details."
-msgstr ""
+msgstr "Bu bildirim bir hatayla sonuçlandı mı? Ayrıntılar için hata sütununun üzerine gelin."
 
 #: notify_queue.php
 msgid "Attempts"
-msgstr ""
+msgstr "Girişim Sayısı"
 
 #: notify_queue.php
-#, fuzzy
-#| msgid "The number of Graphs for this Device"
 msgid "The number of delivery attempts made for this notification."
-msgstr "Bu Cihazın Grafik Sayısı"
+msgstr "Bu bildirim için yapılan teslimat denemesi sayısı."
 
 #: notify_queue.php
 msgid "Next Attempt"
-msgstr ""
+msgstr "Sonraki Deneme"
 
 #: notify_queue.php
 msgid "When a failed notification is eligible for its next retry."
-msgstr ""
+msgstr "Başarısız bir bildirimin bir sonraki yeniden deneme için uygun olduğu zaman."
 
 #: notify_queue.php
 msgid "Run Time"
-msgstr "Zaman"
+msgstr "Çalışma Süresi"
 
 #: notify_queue.php
 msgid "The time in seconds it took to process the event."
-msgstr ""
+msgstr "Olayın işlenmesinin saniye cinsinden süresi."
 
 #: notify_queue.php
 msgid "Not Specified"
-msgstr ""
+msgstr "Belirtilmemiş"
 
 #: notify_queue.php
 msgid "No Notifications"
-msgstr "SNMP Bildirimleri"
+msgstr "Bildirim Yok"
 
 #: setup.php
-#, fuzzy
-#| msgid "Toggle Threshold VRULES %s"
 msgid "Toggle Threshold VRULES Off"
-msgstr "Geçiş Eşiği VRULES %s"
+msgstr "Eşik VRULES Değerini Kapat"
 
 #: setup.php
-#, fuzzy
-#| msgid "Toggle Threshold VRULES %s"
 msgid "Toggle Threshold VRULES On"
-msgstr "Geçiş Eşiği VRULES %s"
+msgstr "Eşik VRULES Değerini Aç"
 
 #: setup.php
 msgid "Create Threshold"
@@ -2252,36 +2229,32 @@ msgstr "%s (%s) için Uyarı Düşük"
 #: setup.php
 #, php-format
 msgid "Warning Hi for %s (%s)"
-msgstr "%s (%s) için Yüksek Uyarı"
+msgstr "%s (%s) için Üst Uyarı"
 
 #: setup.php
 #, php-format
 msgid "Warning Low for %s (%s)"
-msgstr "%s (%s) için Düşük Uyarı"
+msgstr "%s (%s) için Alt Uyarı"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Alert Hi for %s (%s %%%)"
+#, php-format
 msgid "Alert Hi for %s (%s %%)"
+msgstr "%s için Yüksek Uyarı (%%%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s %%)"
+msgstr "%s için Düşük Uyarı (%%%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s %%)"
 msgstr "%s için Yüksek Uyarı (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Alert Low for %s (%s %%%)"
-msgid "Alert Low for %s (%s %%)"
-msgstr "%s için Uyarı Düşük (%%%)"
-
-#: setup.php
-#, fuzzy, php-format
-#| msgid "Warning Hi for %s (%s %%%)"
-msgid "Warning Hi for %s (%s %%)"
-msgstr "Uyarı Merhaba%s (%s %%)"
-
-#: setup.php
-#, fuzzy, php-format
-#| msgid "Warning Low for %s (%s %%%)"
+#, php-format
 msgid "Warning Low for %s (%s %%)"
-msgstr "%s için Uyarı Düşük (%%%)"
+msgstr "%s için Düşük Uyarı (%s %%)"
 
 #: setup.php
 msgid "Threshold Alert/Warning Values"
@@ -2350,7 +2323,7 @@ msgstr "Eşik Yok"
 
 #: setup.php
 msgid "Delete Threshold Template Association"
-msgstr "Bir Eşik Şablonu Seçin"
+msgstr "Eşik Şablonu İlişkilendirmesini Sil"
 
 #: setup.php
 msgid "No Associated Threshold Templates."
@@ -2447,7 +2420,7 @@ msgstr "Aşağıdaki Eşik (ler) için Bildirimleri Devam Ettirmek İçin 'Devam
 
 #: thold.php
 msgid "Resume Notifications for Threshold(s)"
-msgstr "Bildirim Listesini Sil"
+msgstr "Eşik(ler) için Bildirimleri Sürdür"
 
 #: thold.php
 msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
@@ -2455,7 +2428,7 @@ msgstr "Aşağıdaki Eşik (ler) için Bildirimleri Askıya Almak için 'Devam E
 
 #: thold.php
 msgid "Suspend Notification for Threshold(s)"
-msgstr "Yinelenen Bildirim Listesi"
+msgstr "Eşik(ler) İçin Bildirimi Askıya Al"
 
 #: thold.php thold_templates.php
 msgid "Invalid action detected, can not proceed"
@@ -2479,7 +2452,7 @@ msgstr "Veri Şablonu"
 
 #: thold.php thold_graph.php
 msgid "Disabled at Template"
-msgstr "Veri Şablonu"
+msgstr "Şablonda Devre Dışı"
 
 #: thold.php thold_graph.php
 msgid "Disabled at Threshold"
@@ -2487,25 +2460,23 @@ msgstr "Eşiği Devre Dışı Bırak"
 
 #: thold.php thold_graph.php
 msgid "Ack Required"
-msgstr "Gerekli Gerekli"
+msgstr "Onay Gerekli"
 
 #: thold.php thold_graph.php
-#, fuzzy
-#| msgid "Status"
 msgid "By Status"
-msgstr "Durum"
+msgstr "Duruma Göre"
 
 #: thold.php thold_graph.php
 msgid "The current threshold status. Click a status pill to filter the list to that status."
-msgstr ""
+msgstr "Geçerli eşik durumu. Listeyi o duruma göre filtrelemek için bir durum etiketine tıklayın."
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "External ID"
-msgstr ""
+msgstr "Harici ID"
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function."
-msgstr ""
+msgstr "Eşik Türü. Taban Çizgisi Türleri için: [TIP], o döneme ait en fazla bir günlük süre içinden MIN, MAX, AVG ve LAST değerleriyle Geçmişteki Zamanı ifade eder. [AOT], tüm Zaman aralığı üzerindeki Ortalamayı ifade eder. İki nokta üst üste ardından MIN, MAX, AVG, LAST varsa, Değer söz konusu Birleştirme İşlevinden gelmiştir."
 
 #: thold.php
 msgid "DSName"
@@ -2525,7 +2496,7 @@ msgstr "Yüksek"
 
 #: thold.php thold_graph.php
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
-msgstr "Yüksek Uyarı / Uyarı değerleri. NOT: Temel değerler bir yüzdedir, diğer tüm değerler bir cdef tarafından değiştirilebilen görüntüleme değerleridir."
+msgstr "Yüksek Uyarı / Alarm değerleri. NOT: Temel değerler bir yüzdedir, diğer tüm değerler bir cdef tarafından değiştirilebilen görüntüleme değerleridir."
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "Low"
@@ -2533,7 +2504,7 @@ msgstr "Düşük"
 
 #: thold.php thold_graph.php
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
-msgstr "Düşük Uyarı / Uyarı değerleri. NOT: Temel değerler bir yüzdedir, diğer tüm değerler bir cdef tarafından değiştirilebilen görüntüleme değerleridir."
+msgstr "Düşük Uyarı / Alarm değerleri. NOT: Temel değerler bir yüzdedir, diğer tüm değerler bir cdef tarafından değiştirilebilen görüntüleme değerleridir."
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "Trigger"
@@ -2549,11 +2520,11 @@ msgstr "Tekrarla"
 
 #: thold.php thold_graph.php
 msgid "In State"
-msgstr "Şehir"
+msgstr "Durumda"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr "Veri kaynağının bir uyarının yükseltilmesi için Eşiğin ihlalinde bulunması gereken süre"
+msgstr "Eşiğin ihlal edilmesinden veya tetiklenmesinden bu yana geçen süre"
 
 #: thold.php thold_graph.php
 msgid "Acknowledgment required for this Threshold"
@@ -2561,24 +2532,24 @@ msgstr "Bu Eşik için Onay Gerekli"
 
 #: thold.php thold_graph.php
 msgid "No [Template:Thold]"
-msgstr "Tapınaklı Değil"
+msgstr "[Şablon:Thold] Yok"
 
 #: thold.php thold_graph.php
 msgid "No [Template]"
-msgstr "Şablonlar"
+msgstr "[Şablon] Yok"
 
 #: thold.php thold_graph.php
 msgid "No [Thold]"
-msgstr "Sınırlar"
+msgstr "[Thold] Yok"
 
 #: thold.php thold_graph.php
 #, php-format
 msgid "%d Triggers"
-msgstr "%d Tetikleyiciler"
+msgstr "%d Tetikleyici"
 
 #: thold.php thold_graph.php
 msgid "No Thresholds"
-msgstr "Sınırlar"
+msgstr "Eşik Yok"
 
 #: thold.php
 msgid "Threshold Deleted, can not Edit!"
@@ -2590,7 +2561,7 @@ msgstr "Grafik Verileri"
 
 #: thold.php
 msgid "Edit Threshold Template"
-msgstr "Eşik Şablonu Ekle"
+msgstr "Eşik Şablonunu Düzenle"
 
 #: thold.php
 msgid "Data Source Description:"
@@ -2631,11 +2602,11 @@ msgstr "BL Aşağı:"
 #: thold.php
 #, php-format
 msgid "Unknown Template ID %d"
-msgstr "Bilinmeyen Şablon Kimliği%d"
+msgstr "Bilinmeyen Şablon Kimliği %d"
 
 #: thold.php
 msgid "Not Templated"
-msgstr "Tapınaklı Değil"
+msgstr "Şablonlu Değil"
 
 #: thold.php
 #, php-format
@@ -2674,15 +2645,15 @@ msgstr "Eşiğin Oluşturulduğu Eşik Şablonunun Adı."
 
 #: thold.php
 msgid "Enabled at Template Level"
-msgstr ""
+msgstr "Şablon Düzeyinde Etkin"
 
 #: thold.php
 msgid "A Threshold must be enabled both at the Template Level and the Threshold level to be checked."
-msgstr ""
+msgstr "Bir Eşiğin denetlenebilmesi için hem Şablon Düzeyinde hem de Eşik düzeyinde etkinleştirilmiş olması gerekir."
 
 #: thold.php
 msgid "Enabled at Threshold Level"
-msgstr "Eşiği Etkinleştir"
+msgstr "Eşik Düzeyinde Etkin"
 
 #: thold.php thold_templates.php
 msgid "General Settings"
@@ -2718,19 +2689,19 @@ msgstr "Lütfen Uyarı Eşikleri için Grafik HRULE için bir Renk seçin. HRULE
 
 #: thold.php thold_templates.php
 msgid "Graph Timespan"
-msgstr "Grafik Şablonu"
+msgstr "Graph Timespan"
 
 #: thold.php thold_templates.php
 msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
-msgstr ""
+msgstr "Grafik Bitiş zamanı tetiklenme anına ayarlanır. Grafik Başlangıç zamanı, Bitiş Zamanından Grafik Zaman Aralığı çıkarılarak hesaplanır."
 
 #: thold.php thold_templates.php
 msgid "Skip Scaling on HRULEs"
-msgstr ""
+msgstr "HRULE'lerde Ölçeklendirmeyi Atla"
 
 #: thold.php thold_templates.php
 msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
-msgstr ""
+msgstr "İşaretlenirse, Grafikteki Ölçek ne Uyarı ne de İkaz HRULE'lerinden etkilenmez."
 
 #: thold.php thold_templates.php
 msgid "Weekend Exemption"
@@ -2762,7 +2733,7 @@ msgstr "Yok Gerekli"
 
 #: thold.php thold_templates.php
 msgid "Suspendible Notification"
-msgstr "SNMP Bildirimleri"
+msgstr "Askıya Alınabilir Bildirim"
 
 #: thold.php thold_templates.php
 msgid "Persistent Acknowledgment"
@@ -2790,7 +2761,7 @@ msgstr "Uyarı - Yüksek / Düşük Ayarlar"
 
 #: thold.php thold_templates.php
 msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
-msgstr ""
+msgstr "Yüksek ve Düşük Eşikler için sayısal değerler, 1'den büyük sayılar için 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y' ve 1'den küçük sayılar için 'm', 'u', 'p', 'f' soneklerini içerebilir."
 
 #: thold.php thold_templates.php
 msgid "High Threshold"
@@ -2862,11 +2833,11 @@ msgstr "Temel Ayarlar"
 
 #: thold.php thold_templates.php
 msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
-msgstr ""
+msgstr "Taban Çizgisi türü. [TIP] Geçmişteki Zaman, [AOT] Zaman İçindeki Ortalama anlamına gelir. Yüzde Sapma, geçmiş değerden yüzde olarak sapmadır. Mutlak Değer, bu geçmiş değer üzerindeki Taban Çizgisinin altında veya üstünde oluşan sapmadır. [TIP] Taban Çizgisi türleri için MIN, MAX, AVG ve LAST değerleri o zaman noktasında en fazla bir günlük zaman aralığından alınır."
 
 #: thold.php thold_templates.php
 msgid "Consolidation Function"
-msgstr ""
+msgstr "Birleştirme İşlevi"
 
 #: thold.php thold_templates.php
 msgid "Average"
@@ -2874,11 +2845,11 @@ msgstr "Ortalama (ms)"
 
 #: thold.php thold_templates.php
 msgid "Minimum"
-msgstr ""
+msgstr "Minimum"
 
 #: thold.php thold_templates.php
 msgid "Maximum"
-msgstr ""
+msgstr "Maksimum"
 
 #: thold.php thold_templates.php
 msgid "Last"
@@ -2886,7 +2857,7 @@ msgstr "Son"
 
 #: thold.php thold_templates.php
 msgid "The Consolidation function to use for the Baseline Type value calculation."
-msgstr ""
+msgstr "Taban Çizgisi Türü değer hesaplaması için kullanılacak Birleştirme işlevi."
 
 #: thold.php thold_templates.php
 msgid "Time Range"
@@ -2903,7 +2874,7 @@ msgstr "Sapma UP"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Üst sınır Eşiği için izin verilen sapma yüzdesini belirtir. Ayarlanmazsa, üst sınır Eşiği hiç kontrol edilmeyecektir"
+msgstr "Üst sınır Eşiği için izin verilen sapmayı belirtir. Ayarlanmazsa üst sınır Eşiği hiç denetlenmez. Ölçü birimi 'Mutlak Değer' Türü için mutlak değer, hem '%% Sapma' hem de '%% Kayan Ortalama' için ise Yüzdedir"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2912,7 +2883,7 @@ msgstr "Sapma aşağı"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Alt sınır Eşiği için izin verilen sapma yüzdesini belirtir. Ayarlanmazsa, alt sınır Eşiği hiç kontrol edilmeyecektir"
+msgstr "Alt sınır Eşiği için izin verilen sapmayı belirtir. Ayarlanmazsa alt sınır Eşiği hiç denetlenmez. Ölçü birimi 'Mutlak Değer' Türü için mutlak değer, hem '%% Sapma' hem de '%% Kayan Ortalama' için ise Yüzdedir"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -2953,32 +2924,32 @@ msgstr "Yüzdeyi hesaplamak için toplam değer olarak kullanılacak İkinci Ver
 
 #: thold.php thold_templates.php
 msgid "Show Units"
-msgstr ""
+msgstr "Birimleri Göster"
 
 #: thold.php thold_templates.php
 msgid "Display units for very large or small numbers."
-msgstr ""
+msgstr "Çok büyük veya küçük sayılar için birimleri görüntüle."
 
 #: thold.php thold_templates.php
 msgid "Force Units Suffix"
-msgstr ""
+msgstr "Birim Sonekini Zorla"
 
 #: thold.php thold_templates.php
 msgid "If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters."
-msgstr ""
+msgstr "Çeşitli Eşik sayfalarında ve Bildirimlerde zorunlu bir birim soneki görüntülemek istiyorsanız buraya girin. Uzunluk en fazla 10 karakterle sınırlıdır."
 
 #: thold.php thold_templates.php
 msgid "Decimal Digits to Display"
-msgstr ""
+msgstr "Görüntülenecek Ondalık Basamak Sayısı"
 
 #: thold.php thold_templates.php
 msgid "The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2."
-msgstr ""
+msgstr "Eşik ve Geçerli Değerler için görüntülenecek ondalık basamak sayısı. Varsayılan değer auto veya 2'dir."
 
 #: thold.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "Bir RPN İfadesi, RRDtool uyumlu bir RPN ifadesidir. Sözdizimi, <span class=\"deviceUp\">|query_ifSpeed|</span> gibi Cihaz ve Veri Sorgusu değiştirme ifadelerine ek olarak aşağıdaki tüm işlevleri içerir. RPN İfadesinde bir Veri Kaynağı kullanmak için şu sözdizimini kullanmalısınız: <span class=\"deviceUp\">|ds:dsname|</span>. Örneğin, <span class=\"deviceUp\">|ds:traffic_in|</span>, Grafik ile ilişkili RRDfile(lar) için traffic_in Veri Kaynağının geçerli değerini alır. Grafikteki herhangi bir Veri Kaynağı dahil edilebilir.<br><br>Matematik İşleçleri: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>İşlevler: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Akış İşleçleri: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Karşılaştırma İşlevleri: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "RPN İfadesi, RRDtool Uyumlu bir RPN İfadesidir.  Sözdizimi, <span class=\"deviceUp\">|query_ifSpeed|</span> gibi Cihaz ve Veri Sorgusu değiştirme ifadelerine ek olarak aşağıdaki tüm işlevleri içerir.  RPN İfadesinde bir Veri Kaynağı kullanmak için şu sözdizimini kullanmalısınız: <span class=\"deviceUp\">|ds:dsname|</span>.  Örneğin, <span class=\"deviceUp\">|ds:traffic_in|</span> Grafiğe bağlı RRD dosyaları için traffic_in Veri Kaynağının geçerli değerini alır. Grafikteki herhangi bir Veri Kaynağı dahil edilebilir.<br><br>Matematik Operatörleri: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>İşlevler: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Akış Operatörleri: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Karşılaştırma İşlevleri: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
@@ -2997,60 +2968,48 @@ msgid "Alert Subject"
 msgstr "Uyarı Hazır Ayarları"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "Bu, tüm Eşik uyarılarının üstünde görüntülenecek mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;TANIM&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOT&gt;&gt;"
+msgstr "Bu, e-postada görüntülenecek e-posta konusudur (en fazla 128 karakter). Varsayılan için boş bırakın. Kullanılabilecek çeşitli yaygın değiştirme etiketleri vardır:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
 
 #: thold.php
 msgid "Alert Body"
 msgstr "Uyarı e-posta gövdesi"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Bu, tüm Eşik Uyarılarının en üstünde görüntülenecek mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca e-postalardaki metinler için kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> Örneğin. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;DUR&gt; &gt;"
+msgstr "Bu, tüm Eşik Alarmlarının üst kısmında görüntülenecek iletidir (en fazla 1024 karakter). HTML'ye izin verilir, ancak yalnızca metin e-postalar için kaldırılır. Kullanılabilecek çeşitli yaygın değiştirme etiketleri vardır:<br>örn. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Subject"
-msgstr "Aygıt Konusunu Kurtarma"
+msgstr "Uyarı Konusu"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "Bu, tüm Eşik uyarılarının üstünde görüntülenecek mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;TANIM&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOT&gt;&gt;"
+msgstr "Bu, durum Uyarı (Warning) olarak değiştikten sonra e-postada görüntülenecek Uyarı E-postası konusudur (en fazla 128 karakter). Varsayılan için boş bırakın. Kullanılabilecek çeşitli yaygın değiştirme etiketleri vardır:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Body"
 msgstr "Uyarı e-posta gövdesi"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Bu, tüm Eşik Uyarılarının en üstünde görüntülenecek olan mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca e-postalardaki metinler için kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> Örneğin. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;DUR&gt; &gt;"
+msgstr "Bu, tüm Eşik Uyarılarının üst kısmında görüntülenecek iletidir (en fazla 1024 karakter). HTML'ye izin verilir, ancak yalnızca metin e-postalar için kaldırılır. Kullanılabilecek çeşitli yaygın değiştirme etiketleri vardır:<br>örn. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold.php thold_templates.php
 msgid "Restoral Subject"
-msgstr "Sektörel Etkinlik"
+msgstr "Normale Dönüş Konusu"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "Bu, tüm Eşik uyarılarının üstünde görüntülenecek mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;TANIM&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOT&gt;&gt;"
+msgstr "Bu, normale dönüş sonrasında e-postada görüntülenecek e-posta konusudur (en fazla 128 karakter). Varsayılan için boş bırakın. Kullanılabilecek çeşitli yaygın değiştirme etiketleri vardır:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
 
 #: thold.php
 msgid "Restoral Email Body"
 msgstr "Uyarı e-posta gövdesi"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Bu, tüm Eşik uyarılarının üstünde görüntülenecek mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;TANIM&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOT&gt;&gt;"
+msgstr "Bu, tüm Eşik normale dönüş bildirimlerinin üst kısmında görüntülenecek iletidir (en fazla 1024 karakter). HTML'ye izin verilir, ancak yalnızca metin e-postalar için kaldırılır. Kullanılabilecek çeşitli yaygın değiştirme etiketleri vardır:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Notification List"
@@ -3070,7 +3029,7 @@ msgstr "Bu Veri Kaynağı için Uyarılar almak üzere bir Bildirim Listesi seç
 
 #: thold.php thold_templates.php
 msgid "Style/Format File"
-msgstr ""
+msgstr "Stil/Biçim Dosyası"
 
 #: thold.php thold_templates.php
 msgid "SNMP Notification - Event Category"
@@ -3110,7 +3069,7 @@ msgstr "Uyarılar için kullanılacak önem derecesi. Düşük etki -> Kritik et
 
 #: thold.php thold_templates.php
 msgid "Notify accounts"
-msgstr "Hesapları bildir"
+msgstr "Bildirilecek Hesaplar"
 
 #: thold.php
 msgid "This is a listing of accounts that will be notified when this Threshold is breached."
@@ -3162,7 +3121,7 @@ msgstr "Yüksek Tetikleme Komutu"
 
 #: thold.php thold_templates.php
 msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "Ayarlanırsa ve bir Yüksek Eşik ihlal edilirse, bu komut çalıştırılır. Lütfen geçerli bir komut girin. Ayrıca, Eşik&#39;ten komut dosyasına bilgi aktarmak için kullanılabilecek birkaç yedek etiket vardır. İçerdikleri: &lt;TANIM&gt; &lt;HEDEF ADI&gt; &lt;SAAT&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TURUCU&gt;&gt; &gt; &lt;BREACHED_ITEMS&gt;. Son olarak, Host, Veri Sorgu ve Veri Girişi değiştirme yapılabilir. Örneğin, bekleyen, verili özel veri girişi varsa, değiştirme işlemini gerçekleştirmek için | pending |. Veri Sorgusu ve Ana Bilgisayar değiştirme için Cacti kurallarını | query_xxxx |, ve | host_xxxx | sırasıyla."
+msgstr "Ayarlanırsa ve bir Yüksek Eşik ihlal edilirse, bu komut çalıştırılır.  Lütfen geçerli bir komut girin.  Ek olarak, Eşik değerinden betiğe bilgi aktarmak için kullanılabilecek çeşitli değiştirme etiketleri mevcuttur.  Bunu komut satırında bağımsız değişken olarak veya tercihen betiğin ortam değişkenlerinde yapabilirsiniz.  Tüm değiştirme değerleri, betik ortamında THOLD_ ön ekiyle görünür.  Örneğin, CURRENTVALUE değeri THOLD_CURRENTVALUE olur ve bu şekilde devam eder.  Değişkenler şunlardır: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Son olarak, Ana Bilgisayar, Veri Sorgusu ve Veri Girişi değiştirmeleri yapılabilir.  Örneğin, pending adlı özel bir veri girişiniz varsa, değiştirmeyi yapmak için |pending| kullanın.  Veri Sorgusu ve Ana Bilgisayar değiştirmeleri için sırasıyla |query_xxxx| ve |host_xxxx| Cacti kurallarını kullanın."
 
 #: thold.php thold_templates.php
 msgid "Low Trigger Command"
@@ -3170,7 +3129,7 @@ msgstr "Düşük Tetikleme Komutu"
 
 #: thold.php thold_templates.php
 msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "Ayarlanırsa ve bir Düşük Eşik ihlal edilirse, bu komut çalıştırılır. Lütfen geçerli bir komut girin. Ayrıca, Eşik&#39;ten komut dosyasına bilgi aktarmak için kullanılabilecek birkaç yedek etiket vardır. İçerdikleri: &lt;TANIM&gt; &lt;HEDEF ADI&gt; &lt;SAAT&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TURUCU&gt;&gt; &gt; &lt;BREACHED_ITEMS&gt;. Son olarak, Host, Veri Sorgu ve Veri girişi değişimi yapılabilir. Örneğin, bekleyen, verili özel veri girişi varsa, değiştirme işlemini gerçekleştirmek için | pending |. Veri Sorgusu ve Ana Bilgisayar değiştirme için Cacti kurallarını | query_xxxx |, ve | host_xxxx | sırasıyla."
+msgstr "Ayarlanırsa ve bir Düşük Eşik ihlal edilirse, bu komut çalıştırılır. Lütfen geçerli bir komut girin.  Ek olarak, Eşik değerinden betiğe bilgi aktarmak için kullanılabilecek çeşitli değiştirme etiketleri mevcuttur.  Bunu komut satırında bağımsız değişken olarak veya tercihen betiğin ortam değişkenlerinde yapabilirsiniz.  Tüm değiştirme değerleri, betik ortamında THOLD_ ön ekiyle görünür.  Örneğin, CURRENTVALUE değeri THOLD_CURRENTVALUE olur ve bu şekilde devam eder.  Değişkenler şunlardır: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Son olarak, Ana Bilgisayar, Veri Sorgusu ve Veri girişi değiştirmeleri yapılabilir.  Örneğin, pending adlı özel bir veri girişiniz varsa, değiştirmeyi yapmak için |pending| kullanın.  Veri Sorgusu ve Ana Bilgisayar değiştirmeleri için sırasıyla |query_xxxx| ve |host_xxxx| Cacti kurallarını kullanın."
 
 #: thold.php thold_templates.php
 msgid "Norm Trigger Command"
@@ -3178,7 +3137,7 @@ msgstr "Norm Tetikleme Komutu"
 
 #: thold.php thold_templates.php
 msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "Eğer bir dergi normal bir değere düştüğünde, bu komut çalıştırılacaktır. Lütfen geçerli bir komut girin. Ayrıca, Eşik&#39;ten komut dosyasına bilgi aktarmak için kullanılabilecek birkaç yedek etiket vardır. İçerdikleri: &lt;TANIM&gt; &lt;HEDEF ADI&gt; &lt;SAAT&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TURUCU&gt;&gt; &gt; &lt;BREACHED_ITEMS&gt;. Son olarak, Host, Veri Sorgu ve Veri girişi değişimi yapılabilir. Örneğin, bekleyen, verili özel veri girişi varsa, değiştirme işlemini gerçekleştirmek için | pending |. Veri Sorgusu ve Ana Bilgisayar değiştirme için Cacti kurallarını | query_xxxx |, ve | host_xxxx | sırasıyla."
+msgstr "Ayarlanırsa, bir eşik normal bir değere geri döndüğünde bu komut çalıştırılır.  Lütfen geçerli bir komut girin.  Ek olarak, Eşik değerinden betiğe bilgi aktarmak için kullanılabilecek çeşitli değiştirme etiketleri mevcuttur.  Bunu komut satırında bağımsız değişken olarak veya tercihen betiğin ortam değişkenlerinde yapabilirsiniz.  Tüm değiştirme değerleri, betik ortamında THOLD_ ön ekiyle görünür.  Örneğin, CURRENTVALUE değeri THOLD_CURRENTVALUE olur ve bu şekilde devam eder.  Değişkenler şunlardır: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Son olarak, Ana Bilgisayar, Veri Sorgusu ve Veri girişi değiştirmeleri yapılabilir.  Örneğin, pending adlı özel bir veri girişiniz varsa, değiştirmeyi yapmak için |pending| kullanın.  Veri Sorgusu ve Ana Bilgisayar değiştirmeleri için sırasıyla |query_xxxx| ve |host_xxxx| Cacti kurallarını kullanın."
 
 #: thold.php thold_templates.php
 msgid "Other Settings"
@@ -3186,7 +3145,7 @@ msgstr "Diğer Ayarlar"
 
 #: thold.php
 msgid "Enter an Eternal ID for this Threshold."
-msgstr "Eşik için Grafiği seçin."
+msgstr "Bu Eşik için bir Eternal ID girin."
 
 #: thold.php thold_templates.php
 msgid "Operator Notes"
@@ -3202,7 +3161,7 @@ msgstr "Kullanıcıları Seç"
 
 #: thold.php
 msgid "Users Selected"
-msgstr "Seçilmiş Kullanıcılar"
+msgstr "Seçili Kullanıcılar"
 
 #: thold.php
 msgid "All Users Selected"
@@ -3210,7 +3169,7 @@ msgstr "Tüm Kullanıcılar Seçildi"
 
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
-msgstr "İzlenecek Eşiğin tipi."
+msgstr "Eşik onaylandı."
 
 #: thold_graph.php
 msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
@@ -3218,7 +3177,7 @@ msgstr "Eşik artık Uyarılar, Bildirimler oluşturmayacak veya komutları çal
 
 #: thold_graph.php
 msgid "The Threshold will restart generating Alerts."
-msgstr "Uyarı / Uyarı için Yüksek Eşik değerleri."
+msgstr "Eşik yeniden Uyarı oluşturmaya başlayacaktır."
 
 #: thold_graph.php
 msgid "Threshold Status"
@@ -3230,7 +3189,7 @@ msgstr "Eylemler"
 
 #: thold_graph.php
 msgid "Ack Detail"
-msgstr ""
+msgstr "Onay Ayrıntısı"
 
 #: thold_graph.php
 msgid "Edit Threshold"
@@ -3246,7 +3205,7 @@ msgstr "Eşiği Etkinleştir"
 
 #: thold_graph.php
 msgid "To enable the Threshold, enable the Template first"
-msgstr "Bir Eşik Şablonu Seçin"
+msgstr "Eşiği etkinleştirmek için önce Şablonu etkinleştirin"
 
 #: thold_graph.php
 msgid "View Graph"
@@ -3258,11 +3217,11 @@ msgstr "Eşik Geçmişini Görüntüle"
 
 #: thold_graph.php
 msgid "Suspend Notifications until the Threshold clears"
-msgstr "Yinelenen Bildirim Listesi"
+msgstr "Eşik Temizlenene Kadar Bildirimleri Askıya Al"
 
 #: thold_graph.php
 msgid "Resume Notifications for this breached Threshold"
-msgstr "Bildirim Listesini Sil"
+msgstr "İhlal Edilen Bu Eşik için Bildirimleri Sürdür"
 
 #: thold_graph.php
 msgid "Acknowledgement Message"
@@ -3270,15 +3229,15 @@ msgstr "Bilgilendirme"
 
 #: thold_graph.php
 msgid "Date"
-msgstr ""
+msgstr "Tarih"
 
 #: thold_graph.php
 msgid "Comment Not Found"
-msgstr ""
+msgstr "Yorum Bulunamadı"
 
 #: thold_graph.php
 msgid "Ack History"
-msgstr ""
+msgstr "Onay Geçmişi"
 
 #: thold_graph.php
 msgid "No name set"
@@ -3326,7 +3285,7 @@ msgstr "Bu Cihazın resmi ana bilgisayar adı"
 
 #: thold_graph.php
 msgid "Current (ms)"
-msgstr "Akım (ms)"
+msgstr "Mevcut (ms)"
 
 #: thold_graph.php
 msgid "The current response time for the Cacti Availability check"
@@ -3358,15 +3317,15 @@ msgstr "Grafikleri Görüntüle"
 
 #: thold_graph.php
 msgid "No Devices"
-msgstr "Cihazlar"
+msgstr "Cihaz Yok"
 
 #: thold_graph.php
 msgid "Not Up"
-msgstr "Up değil"
+msgstr "Ayakta Değil"
 
 #: thold_graph.php
 msgid "No Export Rows Found."
-msgstr ""
+msgstr "Dışa Aktarılacak Satır Bulunamadı."
 
 #: thold_graph.php
 #, php-format
@@ -3404,7 +3363,7 @@ msgstr "Seçilen Eşiklerden birini veya birkaçını değiştirme yetkiniz yok"
 #: thold_templates.php
 #, php-format
 msgid "%s (%d Thresholds)"
-msgstr "%s (%d Eşikler)"
+msgstr "%s (%d Eşik)"
 
 #: thold_templates.php
 msgid "Click 'Continue' to export the following Threshold Template(s)."
@@ -3436,7 +3395,7 @@ msgstr "Aşağıdaki Eşikleri / Etkinlikleri etkinleştirmek için 'Devam Et'i 
 
 #: thold_templates.php
 msgid "Enable Template(s)"
-msgstr "Şablonları Sil"
+msgstr "Şablon(ları) Etkinleştir"
 
 #: thold_templates.php
 msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
@@ -3444,7 +3403,7 @@ msgstr "Aşağıdaki Eşik (ler) i devre dışı bırakmak için 'Devam Et'i tı
 
 #: thold_templates.php
 msgid "Disable Template(s)"
-msgstr "Şablonları Sil"
+msgstr "Şablon(ları) Devre Dışı Bırak"
 
 #: thold_templates.php
 msgid "Threshold Template Creation Wizard"
@@ -3464,7 +3423,7 @@ msgstr "Eşik Şablonunuzu oluşturmak için lütfen 'Oluştur'a basın"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
-msgstr "Eşik Yok"
+msgstr "İstenen Eşik Şablonu bulunamadı"
 
 #: thold_templates.php
 msgid "Provide the Threshold Template a meaningful name."
@@ -3476,7 +3435,7 @@ msgstr "Önerilen Eşik Adı"
 
 #: thold_templates.php
 msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
-msgstr "Bu Şablon kullanılarak oluşturulan bir Eşik için önerilen adı girin. Standart Aygıt (| host_ * |), Veri Sorgusu (| query_ * |) ve Giriş (| input_ * |) ikame değişkenleri ve | graph_title | Grafik Başlığı için."
+msgstr "Bu Şablon kullanılarak oluşturulan bir Eşik için önerilen adı girin. Standart Aygıt (|host_*|), Veri Sorgusu (|query_*|) ve Giriş (|input_*|) yerine koyma değişkenlerinin yanı sıra Grafik Başlığı için |graph_title| kullanılabilir."
 
 #: thold_templates.php
 msgid "Data Template that you are using. (This cannot be changed)"
@@ -3525,12 +3484,12 @@ msgstr "Temel İzleme"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Üst sınır Eşiği için izin verilen sapma yüzdesini belirtir. Ayarlanmazsa, üst sınır Eşiği hiç kontrol edilmeyecektir"
+msgstr "Üst sınır Eşiği için izin verilen sapmayı belirtir. Ayarlanmazsa üst sınır Eşiği hiç denetlenmez. Ölçü birimi 'Mutlak Değer' Türü için mutlak değer, hem '%% Sapma' hem de '%% Kayan Ortalama' için ise Yüzdedir"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Alt sınır Eşiği için izin verilen sapma yüzdesini belirtir. Ayarlanmazsa, alt sınır Eşiği hiç kontrol edilmeyecektir"
+msgstr "Alt sınır Eşiği için izin verilen sapmayı belirtir. Ayarlanmazsa alt sınır Eşiği hiç denetlenmez. Ölçü birimi 'Mutlak Değer' Türü için mutlak değer, hem '%% Sapma' hem de '%% Kayan Ortalama' için ise Yüzdedir"
 
 #: thold_templates.php
 #, php-format
@@ -3548,7 +3507,7 @@ msgstr "İkinci Veri Kaynağı Öğe, yüzdesini hesaplamak için toplam değer 
 #: thold_templates.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "Bir RPN İfadesi, RRDtool uyumlu bir RPN ifadesidir. Sözdizimi, <span style=\"color:blue;\">|query_ifSpeed|</span> gibi Cihaz ve Veri Sorgusu değiştirme ifadelerine ek olarak aşağıdaki tüm işlevleri içerir. RPN İfadesinde bir Veri Kaynağı kullanmak için şu sözdizimini kullanmalısınız: <span style=\"color:blue;\">|ds:dsname|</span>. Örneğin, <span style=\"color:blue;\">|ds:traffic_in|</span>, Grafik ile ilişkili RRDfile(lar) için traffic_in Veri Kaynağının geçerli değerini alır. Grafikteki herhangi bir Veri Kaynağı dahil edilebilir.<br>Matematik İşleçleri: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>İşlevler: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Akış İşleçleri: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Karşılaştırma İşlevleri: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "RPN İfadesi, RRDtool Uyumlu bir RPN İfadesidir.  Sözdizimi, <span style=\"color:blue;\">|query_ifSpeed|</span> gibi Cihaz ve Veri Sorgusu değiştirme ifadelerine ek olarak aşağıdaki tüm işlevleri içerir.  RPN İfadesinde bir Veri Kaynağı kullanmak için şu sözdizimini kullanmalısınız: <span style=\"color:blue;\">|ds:dsname|</span>.  Örneğin, <span style=\"color:blue;\">|ds:traffic_in|</span> Grafiğe bağlı RRD dosyaları için traffic_in Veri Kaynağının geçerli değerini alır. Grafikteki herhangi bir Veri Kaynağı dahil edilebilir.<br>Matematik Operatörleri: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>İşlevler: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Akış Operatörleri: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Karşılaştırma İşlevleri: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold_templates.php
 msgid "Upper data source to use to calculate the total value."
@@ -3560,7 +3519,7 @@ msgstr "Uyarı e-postaları"
 
 #: thold_templates.php
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "Bu, tüm Eşik uyarılarının üstünde görüntülenecek mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;TANIM&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOT&gt;&gt;"
+msgstr "Bu, E-postada görüntülenecek E-posta konusudur (EN FAZLA 128 Karakter). Varsayılan değer için boş bırakın. Kullanılabilecek birkaç yaygın değiştirme etiketi şunlardır:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "Alert Email Body"
@@ -3568,19 +3527,19 @@ msgstr "Uyarı e-posta gövdesi"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Bu, tüm Eşik Uyarılarının en üstünde görüntülenecek mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca e-postalardaki metinler için kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> Örneğin. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;DUR&gt; &gt;"
+msgstr "Bu, tüm Eşik Uyarılarının en üstünde görüntülenecek mesajdır (en fazla 1024 karakter). HTML'ye izin verilir, ancak yalnızca düz metin e-postalarda kaldırılır. Kullanılabilecek birkaç yaygın değiştirme etiketi şunlardır:<br>ör. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold_templates.php
 msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "Bu, tüm Eşik uyarılarının üstünde görüntülenecek mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;TANIM&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOT&gt;&gt;"
+msgstr "Bu, E-postada görüntülenecek Uyarı konusudur (EN FAZLA 128 Karakter). Varsayılan değer için boş bırakın. Kullanılabilecek birkaç yaygın değiştirme etiketi şunlardır:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Bu, tüm Eşik Uyarılarının en üstünde görüntülenecek olan mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca e-postalardaki metinler için kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> Örneğin. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;DUR&gt; &gt;"
+msgstr "Bu, tüm Eşik Uyarılarının en üstünde görüntülenecek mesajdır (en fazla 1024 karakter). HTML'ye izin verilir, ancak yalnızca düz metin e-postalarda kaldırılır. Kullanılabilecek birkaç yaygın değiştirme etiketi şunlardır:<br>ör. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold_templates.php
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "Bu, tüm Eşik uyarılarının üstünde görüntülenecek mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;TANIM&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOT&gt;&gt;"
+msgstr "Bu, Normale Dönüş sonrasında E-postada görüntülenecek E-posta konusudur (EN FAZLA 128 Karakter). Varsayılan değer için boş bırakın. Kullanılabilecek birkaç yaygın değiştirme etiketi şunlardır:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "Restoral Body"
@@ -3588,7 +3547,7 @@ msgstr "Uyarı e-posta gövdesi"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Bu, tüm Eşik uyarılarının üstünde görüntülenecek mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;TANIM&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOT&gt;&gt;"
+msgstr "Bu, tüm Eşik normale dönüş bildirimlerinin en üstünde görüntülenecek mesajdır (EN FAZLA 1024 Karakter). HTML'ye izin verilir, ancak yalnızca metin E-postalardan kaldırılır. Kullanılabilecek birkaç yaygın değiştirme etiketi şunlardır:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: thold_templates.php
 msgid "Notification List Read Only"
@@ -3596,7 +3555,7 @@ msgstr "Sadece Bildirim Listesi"
 
 #: thold_templates.php
 msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
-msgstr "İşaretliyse, Eşik bildirimi yerel sistem günlüğünüze gönderilir."
+msgstr "İşaretlenirse, Şablondaki Eşik Bildirim Listeleri, Eşiğin bildirim listelerinin üzerine yazılır."
 
 #: thold_templates.php
 msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
@@ -3616,47 +3575,47 @@ msgstr "Bu veri kaynağına ilişkin uyarıları almak için buraya ek E-postala
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "Eşik Şablonu için Grafik Oluşturma başarısız oldu."
+msgstr "Bu Thold Şablonu için bir Eternal ID girin."
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "%d Ay,%d Gün,%d Saat,%d Dakika,%d Saniye (Ortalama)"
+msgstr "%d Ay, %d Gün, %d Saat, %d Dakika, %d Saniye (Ortalama)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "%d Ay,%d Gün,%d Saat,%d Dakika,%d Saniye"
+msgstr "%d Ay, %d Gün, %d Saat, %d Dakika, %d Saniye"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "%d Gün,%d Saat,%d Dakika,%d Saniye (Ortalama)"
+msgstr "%d Gün, %d Saat, %d Dakika, %d Saniye (Ortalama)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "%d Gün,%d Saat,%d Dakika,%d Saniye"
+msgstr "%d Gün, %d Saat, %d Dakika, %d Saniye"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "%d Saat,%d Dakika,%d Saniye (Ortalama)"
+msgstr "%d Saat, %d Dakika, %d Saniye (Ortalama)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
-msgstr "%d Saat,%d Dakika,%d Saniye"
+msgstr "%d Saat, %d Dakika, %d Saniye"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds (Average)"
-msgstr "%d Dakika,%d Saniye (Ortalama)"
+msgstr "%d Dakika, %d Saniye (Ortalama)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds"
-msgstr "%d Dakika,%d Saniye"
+msgstr "%d Dakika, %d Saniye"
 
 #: thold_templates.php
 #, php-format
@@ -3674,11 +3633,11 @@ msgstr "DS Adı"
 
 #: thold_templates.php
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
-msgstr "Yüksek Uyarı / Uyarı değerleri. NOT: Temel değerler bir yüzdedir, diğer tüm değerler bir cdef tarafından değiştirilmeyen RAW değerleridir."
+msgstr "Yüksek Uyarı / Alarm değerleri. NOT: Temel değerler bir yüzdedir, diğer tüm değerler bir cdef tarafından değiştirilmeyen RAW değerleridir."
 
 #: thold_templates.php
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
-msgstr "Düşük Uyarı / Uyarı değerleri. NOT: Temel değerler bir yüzdedir, diğer tüm değerler bir cdef tarafından değiştirilmeyen RAW değerleridir."
+msgstr "Düşük Uyarı / Alarm değerleri. NOT: Temel değerler bir yüzdedir, diğer tüm değerler bir cdef tarafından değiştirilmeyen RAW değerleridir."
 
 #: thold_templates.php
 msgid "Import Template from Local File"
