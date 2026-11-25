@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Bulgarian <https://translate.cacti.net/projects/cacti/thold/bg/>\nLanguage: bg-BG\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Bulgarian <https://translate.cacti.net/projects/cacti/thold/bg/>\nLanguage: bg-BG\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -13,7 +13,7 @@ msgstr "за неопределено време"
 #: includes/arrays.php
 #, php-format
 msgid "%d Month"
-msgstr "%d Месец"
+msgstr "%d месец"
 
 #: includes/arrays.php
 #, php-format
@@ -23,17 +23,17 @@ msgstr "%d месеца"
 #: includes/arrays.php
 #, php-format
 msgid "%d Year"
-msgstr "%d Година"
+msgstr "%d година"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hour Ago"
-msgstr "Всеки%d часа"
+msgstr "Отпреди %d час"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hours Ago"
-msgstr "Всеки%d часа"
+msgstr "Отпреди %d часа"
 
 #: includes/arrays.php
 #, php-format
@@ -43,32 +43,32 @@ msgstr "от %d ден преди"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Days Ago"
-msgstr "Всеки%d дни"
+msgstr "Отпреди %d дни"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Week Ago"
-msgstr "%d Седмица"
+msgstr "Отпреди %d седмица"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Weeks Ago"
-msgstr "Всеки%d седмици"
+msgstr "Отпреди %d седмици"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Month Ago"
-msgstr "%d Месец"
+msgstr "Отпреди %d месец"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Months Ago"
-msgstr "%d Месеци"
+msgstr "Отпреди %d месеца"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Year Ago"
-msgstr "%d Година"
+msgstr "Отпреди %d година"
 
 #: includes/arrays.php
 #, php-format
@@ -150,7 +150,7 @@ msgstr "Събитие - Предупредителен тригер"
 
 #: includes/arrays.php
 msgid "Alert Event"
-msgstr "Предварителни настройки за предупреждения"
+msgstr "Събитие за предупреждение"
 
 #: includes/arrays.php
 msgid "Event - Warning Trigger"
@@ -235,7 +235,7 @@ msgstr "През 1 минута"
 #: includes/arrays.php includes/settings.php
 #, php-format
 msgid "Every %d Minutes"
-msgstr "Всеки%d минути"
+msgstr "На всеки %d минути"
 
 #: includes/arrays.php
 msgid "Every Hour"
@@ -244,7 +244,7 @@ msgstr "Всеки час"
 #: includes/arrays.php includes/settings.php
 #, php-format
 msgid "Every %d Hours"
-msgstr "Всеки%d часа"
+msgstr "На всеки %d часа"
 
 #: includes/arrays.php
 msgid "Every Day"
@@ -253,7 +253,7 @@ msgstr "Всеки ден"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Days"
-msgstr "Всеки%d дни"
+msgstr "На всеки %d дни"
 
 #: includes/arrays.php
 msgid "Every Week"
@@ -262,7 +262,7 @@ msgstr "Всяка седмица"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Weeks"
-msgstr "Всеки%d седмици"
+msgstr "На всеки %d седмици"
 
 #: includes/arrays.php
 msgid "Every Month"
@@ -301,7 +301,7 @@ msgstr "%d дни"
 #: includes/arrays.php
 #, php-format
 msgid "%d Week"
-msgstr "%d Седмица"
+msgstr "%d седмица"
 
 #: includes/arrays.php
 #, php-format
@@ -320,17 +320,17 @@ msgstr "Всеки избирателен"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Pollings"
-msgstr "Всеки%d Анкети"
+msgstr "На всеки %d запитвания"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Polling"
-msgstr "%d Откриване"
+msgstr "%d запитване"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Pollings"
-msgstr "%d Изследвания"
+msgstr "%d запитвания"
 
 #: includes/arrays.php
 msgid "High / Low"
@@ -345,44 +345,40 @@ msgid "Time Based"
 msgstr "Базирано на време"
 
 #: includes/arrays.php
-#, fuzzy, php-format
-#| msgid "%%% Deviation Min/Max [TIP]"
+#, php-format
 msgid "%% Deviation Min/Max [TIP]"
-msgstr "Отклонение UP"
+msgstr "%% Отклонение Мин/Макс [TIP]"
 
 #: includes/arrays.php
-#, fuzzy, php-format
-#| msgid "%%% Deviation CF [TIP]"
+#, php-format
 msgid "%% Deviation CF [TIP]"
-msgstr "Отклонение UP"
+msgstr "%% Отклонение CF [TIP]"
 
 #: includes/arrays.php
 msgid "Absolute Val Min/Max [TIP]"
-msgstr "Стойност на предупреждението"
+msgstr "Абсолютна мин./макс. стойност [TIP]"
 
 #: includes/arrays.php
 msgid "Absolute Val of CF [TIP]"
-msgstr "Стойност на предупреждението"
+msgstr "Абсолютна стойност на CF [TIP]"
 
 #: includes/arrays.php
-#, fuzzy, php-format
-#| msgid "%%% Deviation Avg [AOT]"
+#, php-format
 msgid "%% Deviation Avg [AOT]"
-msgstr "Отклонение UP"
+msgstr "%% Отклонение Средно [AOT]"
 
 #: includes/arrays.php
-#, fuzzy, php-format
-#| msgid "%%% Deviation Avg of CF [AOT]"
+#, php-format
 msgid "%% Deviation Avg of CF [AOT]"
-msgstr "Отклонение UP"
+msgstr "%% Отклонение Средно на CF [AOT]"
 
 #: includes/arrays.php
 msgid "Absolute Val Avg [AOT]"
-msgstr "Стойност на предупреждението"
+msgstr "Абсолютна средна стойност [AOT]"
 
 #: includes/arrays.php
 msgid "Absolute Val Avg of CF [AOT]"
-msgstr "Стойност на предупреждението"
+msgstr "Абсолютна средна стойност на CF [AOT]"
 
 #: includes/arrays.php
 msgid "Exact Value"
@@ -410,11 +406,11 @@ msgstr "Потвърждаване"
 
 #: includes/arrays.php
 msgid "Suspend Notifications"
-msgstr "SNMP Известия"
+msgstr "Временно спиране на известията"
 
 #: includes/arrays.php
 msgid "Resume Notifications"
-msgstr "SNMP Известия"
+msgstr "Възобновяване на известията"
 
 #: includes/arrays.php notify_lists.php notify_queue.php setup.php
 msgid "Delete"
@@ -479,7 +475,7 @@ msgstr "1 цифра"
 #: includes/arrays.php
 #, php-format
 msgid "%d Digits"
-msgstr "%d дни"
+msgstr "%d цифри"
 
 #: includes/arrays.php
 #, php-format
@@ -487,10 +483,9 @@ msgid "> %d Devices"
 msgstr "> %d устройства"
 
 #: includes/arrays.php
-#, fuzzy, php-format
-#| msgid "> %d %%% of Devices Globally"
+#, php-format
 msgid "> %d %% of Devices Globally"
-msgstr "> %d %%% oе устройства в световен мащаб"
+msgstr "> %d %% от устройствата глобално"
 
 #: includes/arrays.php
 #, php-format
@@ -498,18 +493,17 @@ msgid "> %d Devices in a Site"
 msgstr "> %d Устройства в даден сайт"
 
 #: includes/arrays.php
-#, fuzzy, php-format
-#| msgid "> %d %%% of Devices in a Site"
+#, php-format
 msgid "> %d %% of Devices in a Site"
-msgstr "> %d %% на устройства в даден сайт"
+msgstr "> %d %% от устройствата в обект"
 
 #: includes/functions.php
 msgid "< 1 Minute"
-msgstr "% d Минута"
+msgstr "< 1 минута"
 
 #: includes/functions.php
 msgid "Since Created"
-msgstr "Създай"
+msgstr "От създаването"
 
 #: includes/functions.php includes/settings.php notify_lists.php thold.php
 #: thold_graph.php thold_templates.php
@@ -567,13 +561,12 @@ msgstr "<html><body> Издадено е предупреждение, коет�
 
 #: includes/functions.php
 msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "Издаден е сигнал, който изисква вашето внимание. <br><br> <strong>Устройство</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL адрес</strong> : <URL><br> <strong>Съобщение</strong> : <SUBJECT><br><br><GRAPH>"
+msgstr "<html><body>Прагът се върна към нормално състояние. <br><br><strong>Устройство</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Съобщение</strong>: <SUBJECT><br><br><GRAPH></body></html>"
 
 #: includes/functions.php
-#, fuzzy, php-format
-#| msgid "%%% Dev [TIP:%s]"
+#, php-format
 msgid "%% Dev [TIP:%s]"
-msgstr "%%% Разработка [СЪВЕТ :{ 1}]"
+msgstr "%% отклонение [СЪВЕТ:%s]"
 
 #: includes/functions.php
 #, php-format
@@ -581,10 +574,9 @@ msgid "Abs Val [TIP:%s]"
 msgstr "Абс Вал [СЪВЕТ:%s]"
 
 #: includes/functions.php
-#, fuzzy, php-format
-#| msgid "%%% Dev [AOT:%s]"
+#, php-format
 msgid "%% Dev [AOT:%s]"
-msgstr "Отклонение UP"
+msgstr "%% Откл. [AOT:%s]"
 
 #: includes/functions.php
 #, php-format
@@ -622,7 +614,7 @@ msgstr "Записът е актуализиран"
 #: includes/functions.php
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "Неуспешно намиране на свързан шаблон за график „%d“ на праг „%d“"
+msgstr "Неуспешно намиране на свързан елемент от шаблон за графика '%d' в праг '%d'"
 
 #: includes/functions.php
 #, php-format
@@ -631,35 +623,35 @@ msgstr "Праг на създаване: %s"
 
 #: includes/functions.php
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "Трябва да укажете или 'High Alert Threshold' или 'Low Alert Threshold' или и двете! <br> RECORD НЕ АКТУАЛНО!"
+msgstr "Трябва да посочите или 'Висок праг за аларма', или 'Нисък праг за аларма', или и двете!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Невъзможни прагове: „висок праг“ по-малък или равен на „нисък праг“ <br> RECORD НЕ АКТУАЛНО!"
+msgstr "Невъзможен праг: 'Висок праг за тревога' е по-малък от 'Нисък праг за тревога'!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "Невъзможни прагове: „Голям праг на предупреждение“ по-малък или равен на „Нисък праг на предупреждение“ <br> RECORD НЕ АКТУАЛНО!"
+msgstr "Невъзможен праг: 'Висок праг за предупреждение' е по-малък от 'Нисък праг за предупреждение'!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr "Невъзможни прагове: „Голям праг на предупреждение“ по-малък или равен на „Нисък праг на предупреждение“ <br> RECORD НЕ АКТУАЛНО!"
+msgstr "Невъзможен праг: 'Висок праг за предупреждение' е по-голям от 'Висок праг за тревога'!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr "Невъзможни прагове: „Голям праг на предупреждение“ по-малък или равен на „Нисък праг на предупреждение“ <br> RECORD НЕ АКТУАЛНО!"
+msgstr "Невъзможен праг: 'Нисък праг за тревога' е по-голям от 'Нисък праг за предупреждение'!"
 
 #: includes/functions.php
 msgid "Time reference in the past must be set to positive integer value!"
-msgstr "„ %s“ трябва да е с положителна цяло число! <br> RECORD НЕ АКТУАЛНО!"
+msgstr "Времевата референция в миналото трябва да бъде зададена като положително цяло число!"
 
 #: includes/functions.php
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "Трябва да посочите или „Базово отклонение UP“, или „Baseline Deviation DOWN“, или и двете! <br> RECORD НЕ АКТУАЛНО!"
+msgstr "Трябва да посочите или 'Базово отклонение НАГОРЕ', или 'Базово отклонение НАДОЛУ', или и двете!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "Невъзможен праг: „Висок праг за известяване“ е по-малък от „Нисък праг за известяване“"
+msgstr "Невъзможен праг: 'Висок праг за тревога' е по-малък от 'Нисък праг за тревога'"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
@@ -675,11 +667,11 @@ msgstr "Невъзможен праг: Броят на предупредите�
 
 #: includes/functions.php
 msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "Невъзможни прагове: „Голям праг на предупреждение“ по-малък или равен на „Нисък праг на предупреждение“ <br> RECORD НЕ АКТУАЛНО!"
+msgstr "Невъзможен праг: Броят задействания за предупреждение трябва да бъде по-малък или равен на броя задействания или да се оценява на 1!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Невъзможни прагове: „Голям праг на предупреждение“ по-малък или равен на „Нисък праг на предупреждение“ <br> RECORD НЕ АКТУАЛНО!"
+msgstr "Невъзможен праг: 'Нисък праг за предупреждение' е по-малък от 'Нисък праг за тревога'!"
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
@@ -695,7 +687,7 @@ msgstr "Не са създадени прагове. Те или вече същ
 
 #: includes/functions.php
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr "Мейлър Грешка: Не е <b>за</b> справяне <b>с</b> определени !! <br> Ако използвате връзката „ <i>Тестова поща</i> “, задайте настройката „ <b>E-mail</b> “."
+msgstr "Грешка при изпращане: Не е зададен адрес <b>ДО</b>!!<br>Ако използвате връзката <i>Тестово писмо</i>, моля, задайте настройката <b>Имейл за предупреждения</b>."
 
 #: includes/functions.php
 msgid "Done"
@@ -703,7 +695,7 @@ msgstr "Готово"
 
 #: includes/functions.php
 msgid "Pending"
-msgstr "Изчаква одобрение"
+msgstr "Изчакващо"
 
 #: includes/functions.php
 msgid "Errored"
@@ -719,7 +711,7 @@ msgstr "Готово"
 
 #: includes/functions.php thold_graph.php
 msgid "Acknowledge Threshold"
-msgstr "Неизвестен праг"
+msgstr "Потвърждаване на праг"
 
 #: includes/functions.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
@@ -799,7 +791,7 @@ msgstr "Известие за устройства: <DESCRIPTION> ( <HOSTNAME> )
 
 #: includes/polling.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
-msgstr "<br> Система <DESCRIPTION> ( <HOSTNAME> ): <DOWN/UP><br><br> Текущ отговор: <CUR_TIME> Госпожица <br> Среден отговор на системата: <AVG_TIME> Госпожица <br> Наличност на системата: <AVAILABILITY><br> Общо проверки след изчистване: <TOT_POLL><br> Общо неуспешни проверки: <FAIL_POLL><br> Регистрирана последна дата: <LAST_FAIL><br> Устройства Преди DOWN за: <DOWNTIME><br><br> Информация за SNMP: <br> Име - <SNMP_HOSTNAME><br> Местоположение - <SNMP_LOCATION><br> Непрекъснато - <UPTIMETEXT> ( <UPTIME> Госпожица) <br> Система - <SNMP_SYSTEM><br><br> ЗАБЕЛЕЖКА: <NOTES>"
+msgstr "<br>Състояние на система <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Обект: <SITE><br>Местоположение: <LOCATION><br>Текущ отговор на ping: <CUR_TIME> ms<br>Средно време за отговор на системата: <AVG_TIME> ms<br>Наличност на системата: <AVAILABILITY><br>Общо проверки след нулиране: <TOT_POLL><br>Общо неуспешни проверки: <FAIL_POLL><br>Последна дата на проверка UP: <LAST_FAIL><br>Устройства, били преди това DOWN за: <DOWNTIME><br><br>SNMP информация:<br>Име - <SNMP_HOSTNAME><br>Местоположение - <SNMP_LOCATION><br>Време на непрекъсната работа - <UPTIMETEXT> (<UPTIME> ms)<br>Система - <SNMP_SYSTEM><br><br>ЗАБЕЛЕЖКА: <NOTES>"
 
 #: includes/polling.php
 msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
@@ -811,15 +803,15 @@ msgstr "НАДОЛУ"
 
 #: includes/polling.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
-msgstr "Системна грешка : <DESCRIPTION> ( <HOSTNAME> ) е <DOWN/UP><br> Причина: <MESSAGE><br><br> Среден отговор на системата: <AVG_TIME> Госпожица <br> Наличност на системата: <AVAILABILITY><br> Общо проверки след изчистване: <TOT_POLL><br> Общо неуспешни проверки: <FAIL_POLL><br> Последна дата, проверена надолу: <LAST_FAIL><br> Устройства преди това UP за: <DOWNTIME><br> ЗАБЕЛЕЖКА: <NOTES>"
+msgstr "Системна грешка : <DESCRIPTION> (<HOSTNAME>) е <DOWN/UP><br>Обект: <SITE><br>Местоположение: <LOCATION><br>Причина: <MESSAGE><br><br>Средно време за отговор на системата : <AVG_TIME> ms<br>Наличност на системата: <AVAILABILITY><br>Общо проверки след изчистване: <TOT_POLL><br>Общо неуспешни проверки: <FAIL_POLL><br>Последна дата на проверка DOWN : <LAST_FAIL><br>Устройствата преди това бяха UP за: <DOWNTIME><br>БЕЛЕЖКА: <NOTES>"
 
 #: includes/settings.php
 msgid "(actions)"
-msgstr "Действия"
+msgstr "(действия)"
 
 #: includes/settings.php
 msgid "(edit)"
-msgstr "Редактиране..."
+msgstr "(Редактирай)"
 
 #: includes/settings.php
 msgid "(save)"
@@ -827,7 +819,7 @@ msgstr "Запази"
 
 #: includes/settings.php
 msgid "(add)"
-msgstr "ade"
+msgstr "(добавяне)"
 
 #: includes/settings.php
 msgid "Threshold Logs"
@@ -907,15 +899,15 @@ msgstr "Преглед на праговете"
 
 #: includes/settings.php
 msgid "Normal User"
-msgstr "Обикновен потребител"
+msgstr "Нормален потребител"
 
 #: includes/settings.php
 msgid "Template Editor"
-msgstr "шаблонни"
+msgstr "Редактор на шаблони"
 
 #: includes/settings.php
 msgid "General Administration"
-msgstr "Основни настройки"
+msgstr "Обща администрация"
 
 #: includes/settings.php
 msgid "Device Up/Down Notification Settings"
@@ -938,14 +930,12 @@ msgid "Global and List Below"
 msgstr "Глобален и списък по-долу"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
 msgid "Which Type of Notification List(s) should be used for Device Up/Down events?"
-msgstr "Кой списък (и) за уведомяване трябва да бъде уведомен за събитията Up / Down?"
+msgstr "Кой тип списък(ци) за известия да се използва за събития Активен/Неактивен на устройство?"
 
 #: includes/settings.php notify_queue.php
 msgid "Notification List"
-msgstr "Списък с уведомления"
+msgstr "Списък за известия"
 
 #: includes/settings.php
 msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
@@ -957,7 +947,7 @@ msgstr "Брой грешки в хоста"
 
 #: includes/settings.php
 msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
-msgstr "Броят на интервалите за анкетиране на този хост трябва да бъде намален, преди Thold да регистрира грешка и да докладва на хоста като надолу. По подразбиране е 0 (използвайте настройката за кактуси)"
+msgstr "Броят на интервалите за проверка, през които този хост трябва да е Неактивен, преди Thold да запише грешка и да докладва хоста като Неактивен. По подразбиране е 0 (използва се настройката на Cacti)"
 
 #: includes/settings.php
 msgid "Use Cacti Setting"
@@ -966,12 +956,12 @@ msgstr "Основни настройки"
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Interval"
-msgstr "%d Откриване"
+msgstr "%d интервал на запитване"
 
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Intervals"
-msgstr "%d Изследвания"
+msgstr "%d интервала на запитване"
 
 #: includes/settings.php
 msgid "Alerting/Thold"
@@ -1019,7 +1009,7 @@ msgstr "Всички"
 
 #: includes/settings.php thold.php thold_graph.php
 msgid "Breached or Triggered"
-msgstr "Предупреждение"
+msgstr "Нарушен или задействан"
 
 #: includes/settings.php notify_lists.php thold.php thold_graph.php
 msgid "Breached"
@@ -1027,7 +1017,7 @@ msgstr "нарушени"
 
 #: includes/settings.php notify_lists.php thold.php thold_graph.php
 msgid "Triggered"
-msgstr "Задействани"
+msgstr "Задействан"
 
 #: includes/settings.php notify_lists.php thold.php thold_graph.php
 #: thold_templates.php
@@ -1044,7 +1034,7 @@ msgstr "При изчисляване на праговете за изрази,
 
 #: includes/settings.php
 msgid "Notification Preferences"
-msgstr "Предварителни настройки за SNMP уведомяване"
+msgstr "Предпочитания за известия"
 
 #: includes/settings.php
 msgid "Disable Legacy Notifications"
@@ -1064,7 +1054,7 @@ msgstr "Ако е отметнато, когато създавате в Thresho
 
 #: includes/settings.php
 msgid "Enable Command Execution"
-msgstr "Активиране на командните изпълнения"
+msgstr "Активиране на изпълнението на команди"
 
 #: includes/settings.php
 msgid "Checking this box will enable the ability to run commands on Threshold breach and restoral events."
@@ -1088,7 +1078,7 @@ msgstr "Поставянето на отметка в това квадратч�
 
 #: includes/settings.php
 msgid "Enable Sending Alert Emails to Warning Notification Lists"
-msgstr "Списък с предупреждения"
+msgstr "Активиране на изпращането на имейли за предупреждения до списъците за известяване при предупреждение"
 
 #: includes/settings.php
 msgid "Check this box if you wish Warning Notification List recipients to receive Alert Emails in addition to the Alert Notification list receivers.  This case is applicable when Warning Notifications goes to Administrators and Alert Notifications go to Management."
@@ -1125,7 +1115,7 @@ msgstr "Ако се установи, че Thold Daemon не работи, из�
 #: includes/settings.php
 #, php-format
 msgid "Every %d Hour"
-msgstr "Всеки%d часа"
+msgstr "На всеки %d час"
 
 #: includes/settings.php
 msgid "Daemon Threads"
@@ -1142,7 +1132,7 @@ msgstr "1 Процес"
 #: includes/settings.php
 #, php-format
 msgid "%d Processes"
-msgstr "%d процеси"
+msgstr "%d процеса"
 
 #: includes/settings.php
 msgid "Logging"
@@ -1194,7 +1184,7 @@ msgstr "Считайте неизвестните данни за нула"
 
 #: includes/settings.php
 msgid "When 'Consider Unknown Data as Zero' is enabled, log when it occurs"
-msgstr "Считайте неизвестните данни за нула"
+msgstr "Когато е активирана опцията 'Считай неизвестните данни за нула', записвай в журнала при възникване"
 
 #: includes/settings.php thold.php thold_templates.php
 msgid "Syslog Settings"
@@ -1326,11 +1316,11 @@ msgstr "Ако е отметнато, това ще доведе до изпра
 
 #: includes/settings.php
 msgid "Send Email separately for each address"
-msgstr "Изпратете имейл отделно за всеки адрес"
+msgstr "Изпращане на имейл поотделно за всеки адрес"
 
 #: includes/settings.php
 msgid "If checked, this will cause all Emails to be sent separately for each address."
-msgstr "Ако е отметнато, това ще доведе до изпращане на всички имейли поотделно за всеки адрес."
+msgstr "Ако е отметнато, всички имейли ще се изпращат поотделно за всеки адрес."
 
 #: includes/settings.php
 msgid "From Email Address"
@@ -1361,24 +1351,20 @@ msgid "Enable Dead/Recovering host notification"
 msgstr "Активиране на известие за хост / възстановяване на хост"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Enable Notifications"
 msgid "Single Email Notification"
-msgstr "Активиране на известието за последен път"
+msgstr "Единично имейл известие"
 
 #: includes/settings.php
 msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
 msgstr "Поддържа се само за списъци с известия и опашката за известия.  Ако има известия надолу по устройството в един цикъл на обработка.  Изпратете само един имейл до списъка с известия за всички устройства."
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Enable Notification Queue"
 msgid "Single Email Notification Subject"
-msgstr "Активиране на известието за последен път"
+msgstr "Тема на единичното имейл известие"
 
 #: includes/settings.php
 msgid "This is the Email Subject to be used for all Single Email Notification Emails for both Up and Down Devices."
-msgstr ""
+msgstr "Това е темата на имейла, която ще се използва за всички единични имейл известия както за активни, така и за неактивни устройства."
 
 #: includes/settings.php
 msgid "Device Notification Delay Options"
@@ -1413,10 +1399,8 @@ msgid "Down Subject"
 msgstr "Предмет на устройството надолу"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be used for Down Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060NOTES&#062"
-msgstr "Това е съобщението, което ще се покаже в горната част на всички предупреждения за прага (255 Char MAX). HTML е разрешен, но ще бъде премахнат само за текстови имейли. Има няколко дескриптора, които могат да се използват. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "Това е темата на имейла, която ще се използва за съобщения за неактивно устройство. Има няколко често използвани етикета за заместване, които могат да се използват, включително:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (продължителност на последното активно състояние при съобщение за неактивност) &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
@@ -1427,24 +1411,20 @@ msgid "Down Message"
 msgstr "Съобщение за устройство надолу"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
-msgstr "Това е съобщението, което ще се покаже като тяло на съобщението на всички съобщения за UP / Down устройство (255 Char MAX). HTML е разрешен, но ще бъде премахнат само за текстови имейли. Има няколко дескриптора, които могат да се използват. <br> &lt;HOSTNAME&gt; &lt;DESCRIPTION&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;DOWN / UP&gt; &lt;SNMP_HOSTNAME&gt; &lt;SNMP_LOCATION&gt; &lt;SNMP_CONTACT&gt; &lt;SNMP_SYSTEM&gt; &lt;LAST_FAIL&gt; &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;ЗАБЕЛЕЖКА&gt;"
+msgstr "Това е съобщението, което ще се показва като основен текст на всички съобщения за активно/неактивно устройство (макс. 1024 знака). HTML е разрешен, но ще бъде премахнат при имейли само с обикновен текст. Има няколко често използвани етикета за заместване, които могат да се използват, включително:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (продължителност на последното активно състояние при съобщение за неактивност) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
-msgstr "Системна грешка : <DESCRIPTION> ( <HOSTNAME> ) е <DOWN/UP><br> Причина: <MESSAGE><br><br> Среден отговор на системата: <AVG_TIME> Госпожица <br> Наличност на системата: <AVAILABILITY><br> Общо проверки след изчистване: <TOT_POLL><br> Общо неуспешни проверки: <FAIL_POLL><br> Последна дата, проверена надолу: <LAST_FAIL><br> Устройство преди това UP за: <DOWNTIME><br> ЗАБЕЛЕЖКИ: <NOTES><br> Устройство ЗАБЕЛЕЖКИ: <DNOTES>"
+msgstr "Системна грешка : <DESCRIPTION> (<HOSTNAME>) е <DOWN/UP><br><br>Обект: <SITE><br>Местоположение: <LOCATION><br>Причина: <MESSAGE><br>Средно време за отговор на системата: <AVG_TIME> ms<br>Наличност на системата: <AVAILABILITY><br>Общо проверки след изчистване: <TOT_POLL><br>Общо неуспешни проверки: <FAIL_POLL><br>Последна дата на проверка DOWN : <LAST_FAIL><br>Устройството преди това беше UP за: <DOWNTIME><br>БЕЛЕЖКИ: <NOTES><br>БЕЛЕЖКИ за устройството: <DNOTES>"
 
 #: includes/settings.php
 msgid "Recovering Subject"
 msgstr "Възстановяване на тема на устройството"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be used for Recovering Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
-msgstr "Това е съобщението, което ще се покаже в горната част на всички предупреждения за прага (255 Char MAX). HTML е разрешен, но ще бъде премахнат само за текстови имейли. Има няколко дескриптора, които могат да се използват. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "Това е темата на имейла, която ще се използва за съобщения при възстановяване на устройство. Има няколко често използвани етикета за заместване, които могат да се използват, включително:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -1460,19 +1440,19 @@ msgstr "Това е съобщението, което ще се покаже к
 
 #: includes/settings.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
-msgstr "<br> Система <DESCRIPTION> ( <HOSTNAME> ): <DOWN/UP><br><br> Текущ отговор: <CUR_TIME> Госпожица <br> Среден отговор на системата: <AVG_TIME> Госпожица <br> Наличност на системата: <AVAILABILITY><br> Общо проверки след изчистване: <TOT_POLL><br> Общо неуспешни проверки: <FAIL_POLL><br> Регистрирана последна дата: <LAST_FAIL><br> По-рано DOWN за устройство: <DOWNTIME><br><br> Информация за Snmp: <br> Име - <SNMP_HOSTNAME><br> Местоположение - <SNMP_LOCATION><br> Непрекъснато - <UPTIMETEXT> ( <UPTIME> Госпожица) <br> Система - <SNMP_SYSTEM><br><br> ЗАБЕЛЕЖКА: <NOTES><br> Бележки за устройството: <DNOTES>"
+msgstr "<br>Състояние на система <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Обект: <SITE><br>Местоположение: <LOCATION><br>Текущ отговор на ping: <CUR_TIME> ms<br>Средно време за отговор на системата: <AVG_TIME> ms<br>Наличност на системата: <AVAILABILITY><br>Общо проверки след нулиране: <TOT_POLL><br>Общо неуспешни проверки: <FAIL_POLL><br>Последна дата на проверка UP: <LAST_FAIL><br>Устройство, било преди това DOWN за: <DOWNTIME><br><br>SNMP информация:<br>Име - <SNMP_HOSTNAME><br>Местоположение - <SNMP_LOCATION><br>Време на непрекъсната работа - <UPTIMETEXT> (<UPTIME> ms)<br>Система - <SNMP_SYSTEM><br><br>ЗАБЕЛЕЖКА: <NOTES><br>Бележки за устройството: <DNOTES>"
 
 #: includes/settings.php
 msgid "Status Change Command"
-msgstr "Команда за промяна на състоянието"
+msgstr "Команда при промяна на състоянието"
 
 #: includes/settings.php
 msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
-msgstr "Това е съобщението, което ще се покаже като тяло на съобщението на всички съобщения за UP / Down устройство (255 Char MAX). HTML е разрешен, но ще бъде премахнат само за текстови имейли. Има няколко дескриптора, които могат да се използват. <br> &lt;HOSTNAME&gt; &lt;DESCRIPTION&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;DOWN / UP&gt; &lt;SNMP_HOSTNAME&gt; &lt;SNMP_LOCATION&gt; &lt;SNMP_CONTACT&gt; &lt;SNMP_SYSTEM&gt; &lt;LAST_FAIL&gt; &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;ЗАБЕЛЕЖКА&gt;"
+msgstr "Когато устройство промени състоянието си от гледна точка на Cacti (от UP към DOWN или от DOWN към RECOVERING/UP), изпълни следната команда. Тази команда НЕ трябва да включва аргументи от командния ред. Следните променливи обаче могат да бъдат извлечени от средата на скрипта:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
 
 #: includes/settings.php
 msgid "Alert/Warning Message Defaults"
-msgstr "По подразбиране за предупреждение / предупреждение"
+msgstr "Настройки по подразбиране за съобщения за сигнал / предупреждение"
 
 #: includes/settings.php
 msgid "Threshold Alert Message"
@@ -1504,11 +1484,11 @@ msgstr "Съобщение за предупреждение за праг"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Това е съобщението, което ще се покаже в горната част на всички предупреждения за прага (255 Char MAX). HTML е разрешен, но ще бъде премахнат само за текстови имейли. Има няколко дескриптора, които могат да се използват. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "Това е съобщението, което ще се показва в горната част на всички известия за възстановяване на праг (макс. 1024 знака). HTML е разрешен, но ще бъде премахнат при само текстови имейли. Има няколко често използвани етикета за заместване, които могат да се използват, включително:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
-msgstr "Издаден е сигнал, който изисква вашето внимание. <br><br> <strong>Устройство</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL адрес</strong> : <URL><br> <strong>Съобщение</strong> : <SUBJECT><br><br><GRAPH>"
+msgstr "Прагът се върна към нормално състояние. <br><br><strong>Устройство</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Съобщение</strong>: <SUBJECT><br><br><GRAPH>"
 
 #: includes/tab.php
 msgid "Thold"
@@ -1615,10 +1595,8 @@ msgid "Select a Device"
 msgstr "Изберете устройство"
 
 #: includes/webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
 msgid "Select an Available Item"
-msgstr "Изберете и налична позиция"
+msgstr "Изберете наличен елемент"
 
 #: includes/webapi.php
 msgid "Data Query Item"
@@ -1638,7 +1616,7 @@ msgstr "Важна Забележка:"
 
 #: includes/webapi.php
 msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "Този праг <b>няма</b> да бъдат шаблонни. Когато използвате опцията Threshold Template, ще бъдете подканени да въведете информация за шаблона на прага, шаблона на графиката, устройството и евентуално в заявката за данни, преди да получите подканата \"Създаване\", когато е разрешена информация за графика или източник на данни в графиката и ниво на шаблон за източник на данни, ще бъдете подканени за това. След това, чрез натискане на бутона 'Създай', едновременно ще се създадат и графика и прагът."
+msgstr "Този праг ще бъде базиран на шаблон. Когато използвате опцията за шаблон на праг, ще бъдете подканени да въведете шаблон на праг, шаблон на графика, устройство и евентуално информация за елемент от заявка за данни, преди да получите подканата 'Създай', при което, ако на ниво шаблон на графика и шаблон на източник на данни е разрешено презаписване на информация за графиката или източника на данни, ще бъдете подканени да я въведете. След това, чрез натискане на бутона 'Създай', графиката и прагът ще бъдат създадени едновременно."
 
 #: includes/webapi.php
 msgid "Graph"
@@ -1691,11 +1669,11 @@ msgstr "Дублирай"
 
 #: notify_lists.php
 msgid "Associate"
-msgstr "Сложете отметка, за да свържете този атрибут с продукта"
+msgstr "Свързване"
 
 #: notify_lists.php
 msgid "Disassociate"
-msgstr "разграничи"
+msgstr "Премахване на асоциирането"
 
 #: notify_lists.php thold_graph.php
 msgid "Devices"
@@ -1704,7 +1682,7 @@ msgstr "Устройства"
 #: notify_lists.php
 #, php-format
 msgid "ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s"
-msgstr ""
+msgstr "ГРЕШКА: Не можете да имате своя имейл едновременно в полетата „До“ и „Скрито копие“ (BCC). Имейлът по-долу е невалиден!<br><br>%s"
 
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
@@ -1833,7 +1811,7 @@ msgstr "[редактиране: %s]"
 
 #: notify_lists.php
 msgid "[new]"
-msgstr "Нов"
+msgstr "[Ново]"
 
 #: notify_lists.php
 msgid "List General Settings"
@@ -1861,7 +1839,7 @@ msgstr "За да деактивирате всички известия от т
 
 #: notify_lists.php
 msgid "To Email Addresses"
-msgstr "Джибути"
+msgstr "До имейл адреси"
 
 #: notify_lists.php
 msgid "Enter a comma separated list of Email addresses for this Notification List."
@@ -1869,7 +1847,7 @@ msgstr "Въведете списък с имейл адреси, разделе
 
 #: notify_lists.php
 msgid "BCC Email Addresses"
-msgstr "Джибути"
+msgstr "Имейл адреси за скрито копие (BCC)"
 
 #: notify_lists.php
 msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
@@ -1881,7 +1859,7 @@ msgstr "Файл за стил/формат на имейл"
 
 #: notify_lists.php thold.php thold_templates.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "Изберете персонализираната html обвивка и CSS файла, който да използвате.  Този файл съдържа html и CSS, за да обгърне отчета ви.  Ако съдържа повече от просто CSS, трябва да поставите специален <REPORT> етикет вътре във файла.  Този етикет за формат ще бъде заменен от съдържанието на отчета.  Тези файлове се намират в директорията \"формати\".</REPORT>"
+msgstr "Изберете потребителската html обвивка и CSS файла, който да използвате. Този файл съдържа както html, така и CSS за пренасяне на отчета. Ако съдържа повече от просто CSS, трябва да поставите специален <REPORT> вътре във файла. Този етикет за формат ще бъде заменен от съдържанието на отчета. Тези файлове се намират в директорията &#39;formats&#39;."
 
 #: notify_lists.php
 msgid "Associated Devices"
@@ -1902,11 +1880,11 @@ msgstr "Няма"
 
 #: notify_lists.php
 msgid "Device Template"
-msgstr "Изтриване на шаблон (и)"
+msgstr "Шаблон на устройство"
 
 #: notify_lists.php
 msgid "Associated"
-msgstr "Асошиейтед"
+msgstr "Свързани"
 
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
@@ -2035,7 +2013,7 @@ msgstr "Само регистрация"
 
 #: notify_lists.php
 msgid "Editable"
-msgstr "Таблица"
+msgstr "Редактируемо"
 
 #: notify_lists.php
 msgid "Read Only"
@@ -2092,8 +2070,8 @@ msgstr "Чакащите известия са премахнати от баз�
 #: notify_queue.php
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] "Кликнете върху „Напред“, за да изтриете следното известие."
-msgstr[1] "Кликнете върху „Напред“, за да изтриете всички следни известия."
+msgstr[0] "Щракнете върху „Продължи“, за да изтриете следното уведомление."
+msgstr[1] "Щракнете върху „Продължи“, за да изтриете всички следни уведомления."
 
 #: notify_queue.php
 msgid "Delete Notification"
@@ -2108,7 +2086,7 @@ msgstr "Известия за събития [ Известията са спр�
 
 #: notify_queue.php
 msgid "Event Notifications"
-msgstr "Известия за мъртви устройства"
+msgstr "Известия за събития"
 
 #: notify_queue.php
 msgid "Topic"
@@ -2124,7 +2102,7 @@ msgstr "Прекрати"
 
 #: notify_queue.php
 msgid "Suspend Notification Processing"
-msgstr "SNMP Известия"
+msgstr "Временно спиране на обработката на известия"
 
 #: notify_queue.php
 msgid "Resume"
@@ -2132,7 +2110,7 @@ msgstr "Поднови"
 
 #: notify_queue.php
 msgid "Resume Notification Processing"
-msgstr "SNMP Известия"
+msgstr "Възобновяване на обработката на известия"
 
 #: notify_queue.php
 msgid "Purge"
@@ -2140,7 +2118,7 @@ msgstr "Изтриване"
 
 #: notify_queue.php
 msgid "Purge Notification Queue"
-msgstr "Предварителни настройки за SNMP уведомяване"
+msgstr "Изчистване на опашката за известия"
 
 #: notify_queue.php
 msgid "Notifications"
@@ -2148,7 +2126,7 @@ msgstr "Уведомления"
 
 #: notify_queue.php
 msgid "The supported notification topic."
-msgstr "Шаблон за праг."
+msgstr "Поддържаната тема за известия."
 
 #: notify_queue.php thold_graph.php
 msgid "Event Description"
@@ -2160,7 +2138,7 @@ msgstr "Името на обекта, както е дефинирано от п
 
 #: notify_queue.php
 msgid "The hostname that was the source of this event."
-msgstr "Броят на източниците на данни за това устройство."
+msgstr "Името на хоста, който е източникът на това събитие."
 
 #: notify_queue.php
 msgid "The Notification List used if any."
@@ -2180,7 +2158,7 @@ msgstr "Час на събитието"
 
 #: notify_queue.php
 msgid "The time of the event as defined by the caller."
-msgstr "Официалното работно време на устройството, както е докладвано от SNMP."
+msgstr "Времето на събитието, както е определено от извикващия."
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
@@ -2196,25 +2174,23 @@ msgstr "Това известие доведе ли до грешка.  Посо
 
 #: notify_queue.php
 msgid "Attempts"
-msgstr ""
+msgstr "Опити"
 
 #: notify_queue.php
-#, fuzzy
-#| msgid "The number of Graphs for this Device"
 msgid "The number of delivery attempts made for this notification."
-msgstr "Броят графики за това устройство"
+msgstr "Броят опити за доставка, направени за това известие."
 
 #: notify_queue.php
 msgid "Next Attempt"
-msgstr ""
+msgstr "Следващ опит"
 
 #: notify_queue.php
 msgid "When a failed notification is eligible for its next retry."
-msgstr ""
+msgstr "Кога неуспешното известие отговаря на условията за следващ повторен опит."
 
 #: notify_queue.php
 msgid "Run Time"
-msgstr "Време"
+msgstr "Време на изпълнение"
 
 #: notify_queue.php
 msgid "The time in seconds it took to process the event."
@@ -2229,16 +2205,12 @@ msgid "No Notifications"
 msgstr "Няма известия"
 
 #: setup.php
-#, fuzzy
-#| msgid "Toggle Threshold VRULES %s"
 msgid "Toggle Threshold VRULES Off"
-msgstr "Превключване на прага VRULES %s"
+msgstr "Изключване на VRULES за Праг"
 
 #: setup.php
-#, fuzzy
-#| msgid "Toggle Threshold VRULES %s"
 msgid "Toggle Threshold VRULES On"
-msgstr "Превключване на прага VRULES %s"
+msgstr "Включване на VRULES за Праг"
 
 #: setup.php
 msgid "Create Threshold"
@@ -2265,32 +2237,28 @@ msgid "Warning Low for %s (%s)"
 msgstr "Предупреждението е ниско за %s (%s)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Alert Hi for %s (%s %%%)"
+#, php-format
 msgid "Alert Hi for %s (%s %%)"
-msgstr "Сигнал Здравей за %s ( %s %%)"
+msgstr "Горно известие за %s (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Alert Low for %s (%s %%%)"
+#, php-format
 msgid "Alert Low for %s (%s %%)"
-msgstr "Сигнал за ниско за %s ( %s %%)"
+msgstr "Долно известие за %s (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Warning Hi for %s (%s %%%)"
+#, php-format
 msgid "Warning Hi for %s (%s %%)"
-msgstr "Предупреждение Здравей за %s ( %s %%)"
+msgstr "Високо предупреждение за %s (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Warning Low for %s (%s %%%)"
+#, php-format
 msgid "Warning Low for %s (%s %%)"
-msgstr "Предупреждение Ниско за %s ( %s %%)"
+msgstr "Ниско предупреждение за %s (%s %%)"
 
 #: setup.php
 msgid "Threshold Alert/Warning Values"
-msgstr "Сигнал за предупреждение / предупреждение"
+msgstr "Прагови стойности за сигнал / предупреждение"
 
 #: setup.php
 msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
@@ -2355,7 +2323,7 @@ msgstr "Прагът не съществува"
 
 #: setup.php
 msgid "Delete Threshold Template Association"
-msgstr "Изберете шаблон за праг"
+msgstr "Изтриване на връзката с шаблон за праг"
 
 #: setup.php
 msgid "No Associated Threshold Templates."
@@ -2452,7 +2420,7 @@ msgstr "Щракнете върху „Напред“, за да възобно
 
 #: thold.php
 msgid "Resume Notifications for Threshold(s)"
-msgstr "Изтриване на списъците със съобщения"
+msgstr "Възобновяване на известията за праг(ове)"
 
 #: thold.php
 msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
@@ -2460,7 +2428,7 @@ msgstr "Щракнете върху „Напред“, за да спрете �
 
 #: thold.php
 msgid "Suspend Notification for Threshold(s)"
-msgstr "Дублиращ се списък с известия"
+msgstr "Временно спиране на известието за праг(ове)"
 
 #: thold.php thold_templates.php
 msgid "Invalid action detected, can not proceed"
@@ -2484,7 +2452,7 @@ msgstr "Шаблон за данни"
 
 #: thold.php thold_graph.php
 msgid "Disabled at Template"
-msgstr "Шаблон за данни"
+msgstr "Деактивирано в шаблона"
 
 #: thold.php thold_graph.php
 msgid "Disabled at Threshold"
@@ -2495,14 +2463,12 @@ msgid "Ack Required"
 msgstr "Ack Задължително"
 
 #: thold.php thold_graph.php
-#, fuzzy
-#| msgid "Status"
 msgid "By Status"
-msgstr "Статус"
+msgstr "По състояние"
 
 #: thold.php thold_graph.php
 msgid "The current threshold status. Click a status pill to filter the list to that status."
-msgstr ""
+msgstr "Текущото състояние на прага. Щракнете върху етикет за състояние, за да филтрирате списъка по това състояние."
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "External ID"
@@ -2558,7 +2524,7 @@ msgstr "Област"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr "Времето, през което източникът на данни трябва да е в нарушение на Прага за предупреждение, което трябва да бъде повдигнат"
+msgstr "Изминалото време, откакто прагът е бил нарушен или задействан"
 
 #: thold.php thold_graph.php
 msgid "Acknowledgment required for this Threshold"
@@ -2566,24 +2532,24 @@ msgstr "Изисква се потвърждение за този праг"
 
 #: thold.php thold_graph.php
 msgid "No [Template:Thold]"
-msgstr "Не е планирано"
+msgstr "Няма [Шаблон:Thold]"
 
 #: thold.php thold_graph.php
 msgid "No [Template]"
-msgstr "Шаблон"
+msgstr "Няма [Шаблон]"
 
 #: thold.php thold_graph.php
 msgid "No [Thold]"
-msgstr "Прагове"
+msgstr "Няма [Thold]"
 
 #: thold.php thold_graph.php
 #, php-format
 msgid "%d Triggers"
-msgstr "%d Тригери"
+msgstr "%d тригера"
 
 #: thold.php thold_graph.php
 msgid "No Thresholds"
-msgstr "Прагове"
+msgstr "Няма прагове"
 
 #: thold.php
 msgid "Threshold Deleted, can not Edit!"
@@ -2595,7 +2561,7 @@ msgstr "Графични данни"
 
 #: thold.php
 msgid "Edit Threshold Template"
-msgstr "Добавете шаблон за праг"
+msgstr "Редактиране на шаблон за праг"
 
 #: thold.php
 msgid "Data Source Description:"
@@ -2636,7 +2602,7 @@ msgstr "BL Down:"
 #: thold.php
 #, php-format
 msgid "Unknown Template ID %d"
-msgstr "Идентификатор на неизвестен шаблон%d"
+msgstr "Неизвестен ID на шаблон %d"
 
 #: thold.php
 msgid "Not Templated"
@@ -2723,7 +2689,7 @@ msgstr "Моля, изберете Цвят за Графика HRULE за Пр�
 
 #: thold.php thold_templates.php
 msgid "Graph Timespan"
-msgstr "Шаблони за елементи на графиката"
+msgstr "Времеви обхват на графиката"
 
 #: thold.php thold_templates.php
 msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
@@ -2767,7 +2733,7 @@ msgstr "Не е задължително"
 
 #: thold.php thold_templates.php
 msgid "Suspendible Notification"
-msgstr "SNMP Известия"
+msgstr "Известие с възможност за временно спиране"
 
 #: thold.php thold_templates.php
 msgid "Persistent Acknowledgment"
@@ -2906,20 +2872,18 @@ msgid "Deviation UP"
 msgstr "Отклонение UP"
 
 #: thold.php
-#, fuzzy, php-format
-#| msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%%% Deviation' and '%%% Floating Average'"
+#, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Определя допустимото отклонение в проценти за горната граница на прага. Ако не е зададен, прагът на горната граница изобщо не се проверява."
+msgstr "Указва допустимото отклонение за горната граница на Праг. Ако не е зададено, горната граница на Праг изобщо няма да се проверява. Мерната единица е абсолютна стойност за тип 'Абсолютна стойност' и процент за '%% Отклонение' и '%% Плаваща средна'"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
 msgstr "Отклонение надолу"
 
 #: thold.php
-#, fuzzy, php-format
-#| msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%%% Deviation' and '%%% Floating Average'"
+#, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Задава допустимото отклонение в проценти за долния праг. Ако не е зададен, прагът на долната граница няма да се проверява изобщо."
+msgstr "Указва допустимото отклонение за долната граница на Праг. Ако не е зададено, долната граница на Праг изобщо няма да се проверява. Мерната единица е абсолютна стойност за тип 'Абсолютна стойност' и процент за '%% Отклонение' и '%% Плаваща средна'"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -2985,7 +2949,7 @@ msgstr "Броят на десетичните цифри за показван�
 #: thold.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr ""
+msgstr "RPN изразът е RPN израз, съвместим с RRDtool. Синтаксисът включва всички функции по-долу, както и заместващите изрази за устройство и заявка за данни, като например <span class=\"deviceUp\">|query_ifSpeed|</span>. За да използвате Източник на данни в RPN израза, трябва да използвате синтаксиса: <span class=\"deviceUp\">|ds:dsname|</span>. Например <span class=\"deviceUp\">|ds:traffic_in|</span> ще получи текущата стойност на Източник на данни traffic_in за RRD файла(овете), свързан(и) с графиката. Може да бъде включен всеки Източник на данни за графика.<br><br>Математически оператори: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Функции: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Оператори за поток: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Функции за сравнение: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
@@ -3001,63 +2965,51 @@ msgstr "Настройки за известията"
 
 #: thold.php
 msgid "Alert Subject"
-msgstr "Предварителни настройки за предупреждения"
+msgstr "Тема на предупреждението"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "Това е съобщението, което ще се покаже в горната част на всички предупреждения за прага (255 Char MAX). HTML е разрешен, но ще бъде премахнат само за текстови имейли. Има няколко дескриптора, които могат да се използват. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "Това е темата на имейла, която ще се показва в имейла (макс. 128 знака). Оставете празно за стойността по подразбиране. Има няколко често използвани етикета за заместване, които могат да се използват, включително:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
 
 #: thold.php
 msgid "Alert Body"
 msgstr "Орган за известяване по имейл"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Това е съобщението, което ще се покаже в горната част на всички предупреждения за прагове (255 Char MAX). HTML е позволен, но ще бъде премахнат само за текстови имейли. Има няколко дескриптора, които могат да се използват. <br> напр. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SURJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822&gt; &lt;BREACHED_ITEMS &gt;"
+msgstr "Това е съобщението, което ще се показва в горната част на всички известия за прагове (макс. 1024 знака). HTML е разрешен, но ще бъде премахнат при имейли само с обикновен текст. Има няколко често използвани етикета за заместване, които могат да се използват, включително:<br>напр. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Subject"
-msgstr "Възстановяване на тема на устройството"
+msgstr "Тема за предупреждение"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "Това е съобщението, което ще се покаже в горната част на всички предупреждения за прага (255 Char MAX). HTML е разрешен, но ще бъде премахнат само за текстови имейли. Има няколко дескриптора, които могат да се използват. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "Това е темата на предупредителния имейл, която ще се показва в имейла след преминаване в състояние на предупреждение (макс. 128 знака). Оставете празно за стойността по подразбиране. Има няколко често използвани етикета за заместване, които могат да се използват, включително:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Body"
 msgstr "Предупредително тяло на имейл"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Това е съобщението, което ще се покаже в горната част на всички предупреждения за прага (255 Char MAX). HTML е позволен, но ще бъде премахнат само за текстови имейли. Има няколко дескриптора, които могат да се използват. <br> напр. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SURJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822&gt; &lt;BREACHED_ITEMS &gt;"
+msgstr "Това е съобщението, което ще се показва в горната част на всички предупреждения за прагове (макс. 1024 знака). HTML е разрешен, но ще бъде премахнат при имейли само с обикновен текст. Има няколко често използвани етикета за заместване, които могат да се използват, включително:<br>напр. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold.php thold_templates.php
 msgid "Restoral Subject"
 msgstr "Възстановително събитие"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "Това е съобщението, което ще се покаже в горната част на всички предупреждения за прага (255 Char MAX). HTML е разрешен, но ще бъде премахнат само за текстови имейли. Има няколко дескриптора, които могат да се използват. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "Това е темата на имейла, която ще се показва в имейла след възстановяване към нормално състояние (макс. 128 знака). Оставете празно за стойността по подразбиране. Има няколко често използвани етикета за заместване, които могат да се използват, включително:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
 
 #: thold.php
 msgid "Restoral Email Body"
-msgstr "Орган за известяване по имейл"
+msgstr "Тяло на имейла за възстановяване"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Това е съобщението, което ще се покаже в горната част на всички предупреждения за прага (255 Char MAX). HTML е разрешен, но ще бъде премахнат само за текстови имейли. Има няколко дескриптора, които могат да се използват. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "Това е съобщението, което ще се показва в горната част на всички известия за възстановяване на праг (макс. 1024 знака). HTML е разрешен, но ще бъде премахнат при имейли само с обикновен текст. Има няколко често използвани етикета за заместване, които могат да се използват, включително:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Notification List"
@@ -3085,7 +3037,7 @@ msgstr "SNMP Notification - Категория на събитието"
 
 #: thold.php thold_templates.php
 msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
-msgstr "За да позволите на НДСВ по-лесно да категоризирате различни SNMP известия, моля попълнете в полето SNMP уведомления за този шаблон. Например: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+msgstr "За да позволите на NMS по-лесно да категоризира различните SNMP известия, моля, попълнете категорията, която SNMP известията за този шаблон трябва да използват. Напр.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
 
 #: thold.php thold_templates.php
 msgid "SNMP Event Description"
@@ -3117,7 +3069,7 @@ msgstr "Тежестта, която трябва да се използва з�
 
 #: thold.php thold_templates.php
 msgid "Notify accounts"
-msgstr "Известяване на профили"
+msgstr "Профили за известяване"
 
 #: thold.php
 msgid "This is a listing of accounts that will be notified when this Threshold is breached."
@@ -3169,7 +3121,7 @@ msgstr "Команда за високо задействане"
 
 #: thold.php thold_templates.php
 msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "Ако е зададена и ако е нарушен висок праг, тази команда ще се изпълни. Моля, въведете валидна команда. В допълнение, има няколко заместващи маркера, които могат да се използват за предаване на информация от Прага към скрипта. Те включват: &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SURJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822 &gt; &lt;BREACHED_ITEMS&gt;. Накрая, Host, Data Query и Data Input замяна могат да бъдат направени. Например, ако имате потребителски данни за въвеждане на данни, наречени чакащи, за да извършите използването на замяна в очакване |. За Запитване на данни и Замяна на Хост се използват конвенции Cacti | query_xxxx | и | host_xxxx | съответно."
+msgstr "Ако е зададено и е нарушен висок праг, тази команда ще бъде изпълнена. Моля, въведете валидна команда. Освен това има няколко налични етикета за заместване, които могат да се използват за предаване на информация от прага към скрипта. Можете да ги подадете като аргументи в командния ред или за предпочитане в средата на скрипта. Всички замествани стойности ще се появят в средата на скрипта с префикс THOLD_. Например CURRENTVALUE ще стане THOLD_CURRENTVALUE и т.н. Променливите включват: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Накрая могат да се правят замествания за хост, заявка за данни и входни данни. Например, ако имате потребителско поле за входни данни, наречено pending, за заместването използвайте |pending|. За заместване на заявка за данни и хост използвайте конвенциите на Cacti съответно |query_xxxx| и |host_xxxx|."
 
 #: thold.php thold_templates.php
 msgid "Low Trigger Command"
@@ -3177,7 +3129,7 @@ msgstr "Команда за ниско спусъка"
 
 #: thold.php thold_templates.php
 msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "Ако е зададена и ако се наруши нисък праг, тази команда ще се изпълни. Моля, въведете валидна команда. В допълнение, има няколко заместващи маркера, които могат да се използват за предаване на информация от Прага към скрипта. Те включват: &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SURJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822 &gt; &lt;BREACHED_ITEMS&gt;. Накрая, Host, Data Query и Data input замяна могат да бъдат направени. Например, ако имате потребителски данни за въвеждане на данни, наречени чакащи, за да извършите използването на замяна в очакване |. За Запитване на данни и Замяна на Хост се използват конвенции Cacti | query_xxxx | и | host_xxxx | съответно."
+msgstr "Ако е зададено и е нарушен нисък праг, тази команда ще бъде изпълнена. Моля, въведете валидна команда. Освен това има няколко налични етикета за заместване, които могат да се използват за предаване на информация от прага към скрипта. Можете да ги подадете като аргументи в командния ред или за предпочитане в средата на скрипта. Всички замествани стойности ще се появят в средата на скрипта с префикс THOLD_. Например CURRENTVALUE ще стане THOLD_CURRENTVALUE и т.н. Променливите включват: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Накрая могат да се правят замествания за хост, заявка за данни и входни данни. Например, ако имате потребителско поле за входни данни, наречено pending, за заместването използвайте |pending|. За заместване на заявка за данни и хост използвайте конвенциите на Cacti съответно |query_xxxx| и |host_xxxx|."
 
 #: thold.php thold_templates.php
 msgid "Norm Trigger Command"
@@ -3185,7 +3137,7 @@ msgstr "Команда за пускане на норма"
 
 #: thold.php thold_templates.php
 msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "Ако е настроено, когато една крачка се върне до нормална стойност, тази команда ще се изпълни. Моля, въведете валидна команда. В допълнение, има няколко заместващи маркера, които могат да се използват за предаване на информация от Прага към скрипта. Те включват: &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SURJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822 &gt; &lt;BREACHED_ITEMS&gt;. Накрая, Host, Data Query и Data input замяна могат да бъдат направени. Например, ако имате потребителски данни за въвеждане на данни, наречени чакащи, за да извършите използването на замяна в очакване |. За Запитване на данни и Замяна на Хост се използват конвенции Cacti | query_xxxx | и | host_xxxx | съответно."
+msgstr "Ако е зададено, когато прагът се върне към нормална стойност, тази команда ще бъде изпълнена. Моля, въведете валидна команда. Освен това има няколко налични етикета за заместване, които могат да се използват за предаване на информация от прага към скрипта. Можете да ги подадете като аргументи в командния ред или за предпочитане в средата на скрипта. Всички замествани стойности ще се появят в средата на скрипта с префикс THOLD_. Например CURRENTVALUE ще стане THOLD_CURRENTVALUE и т.н. Променливите включват: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Накрая могат да се правят замествания за хост, заявка за данни и входни данни. Например, ако имате потребителско поле за входни данни, наречено pending, за заместването използвайте |pending|. За заместване на заявка за данни и хост използвайте конвенциите на Cacti съответно |query_xxxx| и |host_xxxx|."
 
 #: thold.php thold_templates.php
 msgid "Other Settings"
@@ -3193,7 +3145,7 @@ msgstr "Други настройки"
 
 #: thold.php
 msgid "Enter an Eternal ID for this Threshold."
-msgstr "Изберете графика за прага."
+msgstr "Въведете постоянен идентификатор (Eternal ID) за този праг."
 
 #: thold.php thold_templates.php
 msgid "Operator Notes"
@@ -3217,7 +3169,7 @@ msgstr "Всички потребители са избрани"
 
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
-msgstr "Типът Праг, който ще бъде наблюдаван."
+msgstr "Прагът беше потвърден."
 
 #: thold_graph.php
 msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
@@ -3225,7 +3177,7 @@ msgstr "Прагът вече няма да генерира сигнали, и�
 
 #: thold_graph.php
 msgid "The Threshold will restart generating Alerts."
-msgstr "Високи прагови стойности за предупреждение / предупреждение."
+msgstr "Прагът ще възобнови генерирането на аларми."
 
 #: thold_graph.php
 msgid "Threshold Status"
@@ -3265,11 +3217,11 @@ msgstr "Преглед на историята на прага"
 
 #: thold_graph.php
 msgid "Suspend Notifications until the Threshold clears"
-msgstr "Дублиращ се списък с известия"
+msgstr "Временно спиране на известията, докато прагът се изчисти"
 
 #: thold_graph.php
 msgid "Resume Notifications for this breached Threshold"
-msgstr "Изтриване на списъците със съобщения"
+msgstr "Възобновяване на известията за този нарушен праг"
 
 #: thold_graph.php
 msgid "Acknowledgement Message"
@@ -3365,11 +3317,11 @@ msgstr "Преглед на графиките"
 
 #: thold_graph.php
 msgid "No Devices"
-msgstr "Устройства"
+msgstr "Няма устройства"
 
 #: thold_graph.php
 msgid "Not Up"
-msgstr "Нагоре"
+msgstr "Не е активен"
 
 #: thold_graph.php
 msgid "No Export Rows Found."
@@ -3402,7 +3354,7 @@ msgstr "Няма намерени пароли"
 
 #: thold_graph.php
 msgid "Entries"
-msgstr "Получени съобщения"
+msgstr "Записи"
 
 #: thold_templates.php
 msgid "You are not authorised to modify one or more of the Thresholds selected"
@@ -3411,7 +3363,7 @@ msgstr "Нямате право да променяте един или пове
 #: thold_templates.php
 #, php-format
 msgid "%s (%d Thresholds)"
-msgstr "%s (%d Прагове)"
+msgstr "%s (%d прага)"
 
 #: thold_templates.php
 msgid "Click 'Continue' to export the following Threshold Template(s)."
@@ -3443,7 +3395,7 @@ msgstr "Кликнете върху „Напред“, за да активир
 
 #: thold_templates.php
 msgid "Enable Template(s)"
-msgstr "Изтриване на шаблон (и)"
+msgstr "Активиране на шаблон(и)"
 
 #: thold_templates.php
 msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
@@ -3451,7 +3403,7 @@ msgstr "Кликнете върху „Напред“, за да забрани
 
 #: thold_templates.php
 msgid "Disable Template(s)"
-msgstr "Изтриване на шаблон (и)"
+msgstr "Деактивиране на шаблон(и)"
 
 #: thold_templates.php
 msgid "Threshold Template Creation Wizard"
@@ -3483,7 +3435,7 @@ msgstr "Предложено наименование на прага"
 
 #: thold_templates.php
 msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
-msgstr "Въведете предложеното име за Праг, създаден с този шаблон. Стандартни устройства (| host_ * |), данни за заявки (| query_ * |) и входни (| input_ * |) променливи за заместване могат да се използват както и | graph_title | за заглавието на графиката."
+msgstr "Въведете предложеното име за Праг, създаден чрез този шаблон. Могат да се използват стандартните променливи за заместване на устройство (|host_*|), заявка за данни (|query_*|) и входни данни (|input_*|), както и |graph_title| за заглавието на графиката."
 
 #: thold_templates.php
 msgid "Data Template that you are using. (This cannot be changed)"
@@ -3530,16 +3482,14 @@ msgid "Baseline Monitoring"
 msgstr "Базисно наблюдение"
 
 #: thold_templates.php
-#, fuzzy, php-format
-#| msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%%% Deviation' and '%%% Floating Average'"
+#, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Определя допустимото отклонение в проценти за горната граница на прага. Ако не е зададен, прагът на горната граница изобщо не се проверява."
+msgstr "Указва допустимото отклонение за горната граница на Праг. Ако не е зададено, горната граница на Праг изобщо няма да се проверява. Мерната единица е абсолютна стойност за тип 'Абсолютна стойност' и процент за '%% Отклонение' и '%% Плаваща средна'"
 
 #: thold_templates.php
-#, fuzzy, php-format
-#| msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%%% Deviation' and '%%% Floating Average'"
+#, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Задава допустимото отклонение в проценти за долния праг. Ако не е зададен, прагът на долната граница няма да се проверява изобщо."
+msgstr "Указва допустимото отклонение за долната граница на Праг. Ако не е зададено, долната граница на Праг изобщо няма да се проверява. Мерната единица е абсолютна стойност за тип 'Абсолютна стойност' и процент за '%% Отклонение' и '%% Плаваща средна'"
 
 #: thold_templates.php
 #, php-format
@@ -3557,7 +3507,7 @@ msgstr "Втори елемент от източника на данни, ко�
 #: thold_templates.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr ""
+msgstr "RPN изразът е RPN израз, съвместим с RRDtool. Синтаксисът включва всички функции по-долу, както и заместващите изрази за устройство и заявка за данни, като например <span style=\"color:blue;\">|query_ifSpeed|</span>. За да използвате Източник на данни в RPN израза, трябва да използвате синтаксиса: <span style=\"color:blue;\">|ds:dsname|</span>. Например <span style=\"color:blue;\">|ds:traffic_in|</span> ще получи текущата стойност на Източник на данни traffic_in за RRD файла(овете), свързан(и) с графиката. Може да бъде включен всеки Източник на данни за графика.<br>Математически оператори: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Функции: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Оператори за поток: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Функции за сравнение: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold_templates.php
 msgid "Upper data source to use to calculate the total value."
@@ -3569,7 +3519,7 @@ msgstr "Предупредителни имейли"
 
 #: thold_templates.php
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "Това е съобщението, което ще се покаже в горната част на всички предупреждения за прага (255 Char MAX). HTML е разрешен, но ще бъде премахнат само за текстови имейли. Има няколко дескриптора, които могат да се използват. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "Това е темата на имейла, която ще се показва в имейла (макс. 128 знака). Оставете празно за стойността по подразбиране. Има няколко често използвани етикета за заместване, които могат да се използват, включително:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "Alert Email Body"
@@ -3581,7 +3531,7 @@ msgstr "Това е съобщението, което ще се покаже в
 
 #: thold_templates.php
 msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "Това е съобщението, което ще се покаже в горната част на всички предупреждения за прага (255 Char MAX). HTML е разрешен, но ще бъде премахнат само за текстови имейли. Има няколко дескриптора, които могат да се използват. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "Това е темата за предупреждение, която ще се показва в имейла (макс. 128 знака). Оставете празно за стойността по подразбиране. Има няколко често използвани етикета за заместване, които могат да се използват, включително:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
@@ -3589,15 +3539,15 @@ msgstr "Това е съобщението, което ще се покаже в
 
 #: thold_templates.php
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "Това е съобщението, което ще се покаже в горната част на всички предупреждения за прага (255 Char MAX). HTML е разрешен, но ще бъде премахнат само за текстови имейли. Има няколко дескриптора, които могат да се използват. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "Това е темата на имейла, която ще се показва в имейла след възстановяване към нормално състояние (макс. 128 знака). Оставете празно за стойността по подразбиране. Има няколко често използвани етикета за заместване, които могат да се използват, включително:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "Restoral Body"
-msgstr "Орган за известяване по имейл"
+msgstr "Тяло на съобщението за възстановяване"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Това е съобщението, което ще се покаже в горната част на всички предупреждения за прага (255 Char MAX). HTML е разрешен, но ще бъде премахнат само за текстови имейли. Има няколко дескриптора, които могат да се използват. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "Това е съобщението, което ще се показва в горната част на всички известия за възстановяване на праг (макс. 1024 знака). HTML е разрешен, но ще бъде премахнат при само текстови имейли. Има няколко често използвани етикета за заместване, които могат да се използват, включително:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: thold_templates.php
 msgid "Notification List Read Only"
@@ -3605,7 +3555,7 @@ msgstr "Само списък с уведомления"
 
 #: thold_templates.php
 msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
-msgstr "Ако е отметнато, уведомяването за праг ще бъде изпратено до вашия локален syslog."
+msgstr "Ако е отметнато, списъците за известия при праг в шаблона ще презапишат тези на прага."
 
 #: thold_templates.php
 msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
@@ -3625,47 +3575,47 @@ msgstr "Можете да посочите тук допълнителни им�
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "Създаването на графиката е неуспешно за шаблона за праг."
+msgstr "Въведете постоянен идентификатор (Eternal ID) за този шаблон на Thold."
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "%d месеца,%d дни,%d часа,%d минути,%d секунди (средно)"
+msgstr "%d месеца, %d дни, %d часа, %d минути, %d секунди (средно)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "%d месеца,%d дни,%d часа,%d минути,%d секунди"
+msgstr "%d месеца, %d дни, %d часа, %d минути, %d секунди"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "%d дни,%d часа,%d минути,%d секунди (средно)"
+msgstr "%d дни, %d часа, %d минути, %d секунди (средно)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "%d дни,%d часа,%d минути,%d секунди"
+msgstr "%d дни, %d часа, %d минути, %d секунди"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "%d Часове,%d минути,%d секунди (средно)"
+msgstr "%d часа, %d минути, %d секунди (средно)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
-msgstr "%d Часове,%d Минути,%d Секунди"
+msgstr "%d часа, %d минути, %d секунди"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds (Average)"
-msgstr "%d минути,%d секунди (средно)"
+msgstr "%d минути, %d секунди (средно)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds"
-msgstr "%d минути,%d секунди"
+msgstr "%d минути, %d секунди"
 
 #: thold_templates.php
 #, php-format
@@ -3675,7 +3625,7 @@ msgstr "%d секунди (средно)"
 #: thold_templates.php
 #, php-format
 msgid "%d Seconds"
-msgstr "%d Секунди"
+msgstr "%d секунди"
 
 #: thold_templates.php
 msgid "DS Name"
