@@ -1,0 +1,37 @@
+# +-------------------------------------------------------------------------+
+# | Copyright (C) 2004-2026 The Cacti Group                                 |
+# |                                                                         |
+# | This program is free software; you can redistribute it and/or           |
+# | modify it under the terms of the GNU General Public License             |
+# | as published by the Free Software Foundation; either version 2          |
+# | of the License, or (at your option) any later version.                  |
+# +-------------------------------------------------------------------------+
+
+name: i18n Validation
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'locales/po/*.po'
+      - 'locales/po/*.pot'
+      - '.github/workflows/i18n-validation.yml'
+  pull_request:
+    paths:
+      - 'locales/po/*.po'
+      - 'locales/po/*.pot'
+      - '.github/workflows/i18n-validation.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  validate-i18n:
+    name: Validate Translations and POT Template
+    # The steps and scripts live in Cacti/cacti so every plugin runs the same checks.
+    uses: Cacti/cacti/.github/workflows/reusable-i18n-validation.yml@develop
