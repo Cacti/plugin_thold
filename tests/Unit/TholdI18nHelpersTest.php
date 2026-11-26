@@ -10,38 +10,47 @@
  +-------------------------------------------------------------------------+
  | Cacti: The Complete RRDtool-based Graphing Solution                     |
  +-------------------------------------------------------------------------+
+ | http://www.cacti.net/                                                   |
+ +-------------------------------------------------------------------------+
 */
 
 require_once dirname(__DIR__, 2) . '/setup.php';
 require_once dirname(__DIR__, 2) . '/includes/functions.php';
 
-it('returns translated graph timespan and acknowledgment field labels', function () {
-	expect(thold_graph_timespan_description())->toContain('Graph Timespan');
-	$labels = thold_acknowledgment_field_labels();
-	expect($labels['friendly_name'])->toBe('Acknowledgment Options')
-		->and($labels['description'])->toContain('Persistent Acknowledgment');
-});
+final class TholdI18nHelpersTest extends TestCase {
+	public function test_form_field_helpers_return_translated_definitions(): void {
+		$timespan = thold_graph_timespan_form_field([7 => 'Last Day'], '|arg1:graph_timespan|');
+		$this->assertSame('Graph Timespan', $timespan['friendly_name']);
+		$this->assertStringContainsString('Graph Timespan', $timespan['description']);
+		$this->assertSame('|arg1:graph_timespan|', $timespan['value']);
 
-it('reports threshold creation results for non-empty and empty messages', function () {
-	thold_report_template_creation_result(2, 'Threshold created');
-	thold_report_template_creation_result(0, '');
+		$ack = thold_acknowledgment_form_field('persist_ack');
+		$this->assertSame('Acknowledgment Options', $ack['friendly_name']);
+		$this->assertStringContainsString('Persistent Acknowledgment', $ack['description']);
+		$this->assertSame('persist_ack', $ack['value']);
+		$this->assertCount(3, $ack['items']);
 
-	expect(true)->toBeTrue();
-});
-
-it('invokes template creation reporting from data source and graph actions', function () {
-	$restoreBase                    = $GLOBALS['config']['base_path'] ?? null;
-	$GLOBALS['config']['base_path'] = dirname(__DIR__, 4);
-
-	CactiStubs::$requestVars['selected_items']    = serialize([10]);
-	CactiStubs::$requestVars['thold_template_id'] = 5;
-	CactiStubs::willReturnFor('db_fetch_row_prepared', 'FROM thold_template', ['id' => 5, 'data_source_name' => 'traffic_in']);
-	CactiStubs::willReturnFor('db_fetch_assoc_prepared', 'FROM data_template_rrd', []);
-
-	try {
-		expect(thold_data_source_action_execute('plugin_thold_create'))->toBe('plugin_thold_create');
-		expect(thold_graphs_action_execute('plugin_thold_create'))->toBe('plugin_thold_create');
-	} finally {
-		$GLOBALS['config']['base_path'] = $restoreBase;
+		$cdef = thold_cdef_form_field(['cdef' => 4]);
+		$this->assertSame('Threshold CDEF', $cdef['friendly_name']);
+		$this->assertSame(4, $cdef['value']);
+		$this->assertArrayHasKey(0, $cdef['array']);
 	}
-});
+
+	public function test_reports_threshold_creation_results_for_non_empty_and_empty_messages(): void {
+		thold_report_template_creation_result(2, 'Threshold created');
+		thold_report_template_creation_result(0, '');
+
+		$this->assertCount(2, CactiStubs::callsTo('raise_message'));
+	}
+
+	public function test_invokes_template_creation_reporting_from_data_source_and_graph_actions(): void {
+		CactiStubs::$requestVars['selected_items']    = serialize([10]);
+		CactiStubs::$requestVars['thold_template_id'] = 5;
+		CactiStubs::willReturnFor('db_fetch_row_prepared', 'FROM thold_template', ['id' => 5, 'data_source_name' => 'traffic_in']);
+		CactiStubs::willReturnFor('db_fetch_assoc_prepared', 'FROM data_template_rrd', []);
+
+		$this->assertSame('plugin_thold_create', thold_data_source_action_execute('plugin_thold_create'));
+		$this->assertSame('plugin_thold_create', thold_graphs_action_execute('plugin_thold_create'));
+		$this->assertCount(2, CactiStubs::callsTo('raise_message'));
+	}
+}

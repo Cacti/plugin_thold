@@ -1795,14 +1795,7 @@ function thold_edit() {
 			'default'       => '0',
 			'value'         => isset($thold_data['thold_hrule_alert']) ? $thold_data['thold_hrule_alert'] : '0'
 		],
-		'graph_timespan' => [
-			'friendly_name' => __('Graph Timespan'),
-			'method'        => 'drop_array',
-			'default'       => GT_LAST_DAY,
-			'description'   => thold_graph_timespan_description(),
-			'array'         => $graph_timespans,
-			'value'         => isset($thold_data['graph_timespan']) ? $thold_data['graph_timespan'] : '',
-		],
+		'graph_timespan' => thold_graph_timespan_form_field($graph_timespans, isset($thold_data['graph_timespan']) ? $thold_data['graph_timespan'] : ''),
 		'skipscale' => [
 			'friendly_name' => __('Skip Scaling on HRULEs', 'thold'),
 			'method'        => 'checkbox',
@@ -1824,27 +1817,7 @@ function thold_edit() {
 			'default'       => '',
 			'value'         => isset($thold_data['restored_alert']) ? $thold_data['restored_alert'] : ''
 		],
-		'acknowledgment' => [
-			'friendly_name' => thold_acknowledgment_field_labels()['friendly_name'],
-			'description'   => thold_acknowledgment_field_labels()['description'],
-			'method'        => 'radio',
-			'value'         => $acknowledgment,
-			'default'       => 'none',
-			'items'         => [
-				0 => [
-					'radio_value'   => 'none',
-					'radio_caption' => __('None Required', 'thold'),
-					],
-				1 => [
-					'radio_value'   => 'reset_ack',
-					'radio_caption' => __('Suspendible Notification', 'thold'),
-					],
-				2 => [
-					'radio_value'   => 'persist_ack',
-					'radio_caption' => __('Persistent Acknowledgment', 'thold')
-				]
-			]
-		],
+		'acknowledgment' => thold_acknowledgment_form_field($acknowledgment),
 		'thold_type' => [
 			'friendly_name' => __('Threshold Type', 'thold'),
 			'method'        => 'drop_array',
@@ -2059,14 +2032,7 @@ function thold_edit() {
 			'description'   => __('Special formatting for the given data.', 'thold'),
 			'value'         => isset($thold_data['data_type']) ? $thold_data['data_type'] : ''
 		],
-		'cdef' => [
-			'friendly_name' => __('Threshold CDEF', 'thold'),
-			'method'        => 'drop_array',
-			'default'       => 'NULL',
-			'description'   => __('Apply this CDEF before returning the data.', 'thold'),
-			'value'         => isset($thold_data['cdef']) ? $thold_data['cdef'] : 0,
-			'array'         => thold_cdef_select_usable_names()
-		],
+		'cdef' => thold_cdef_form_field($thold_data),
 		'percent_ds' => [
 			'friendly_name' => __('Percent Data Source', 'thold'),
 			'method'        => 'drop_array',

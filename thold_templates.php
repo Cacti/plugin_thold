@@ -1296,14 +1296,7 @@ function template_edit() {
 			'default'       => '0',
 			'value'         => isset($thold_data['thold_hrule_alert']) ? $thold_data['thold_hrule_alert'] : '0'
 		],
-		'graph_timespan' => [
-			'friendly_name' => __('Graph Timespan'),
-			'method'        => 'drop_array',
-			'default'       => GT_LAST_DAY,
-			'description'   => thold_graph_timespan_description(),
-			'array'         => $graph_timespans,
-			'value'         => '|arg1:graph_timespan|'
-		],
+		'graph_timespan' => thold_graph_timespan_form_field($graph_timespans, '|arg1:graph_timespan|'),
 		'skipscale' => [
 			'friendly_name' => __('Skip Scaling on HRULEs', 'thold'),
 			'method'        => 'checkbox',
@@ -1325,27 +1318,7 @@ function template_edit() {
 			'default'       => '',
 			'value'         => isset($thold_data['restored_alert']) ? $thold_data['restored_alert'] : ''
 		],
-		'acknowledgment' => [
-			'friendly_name' => thold_acknowledgment_field_labels()['friendly_name'],
-			'description'   => thold_acknowledgment_field_labels()['description'],
-			'method'        => 'radio',
-			'value'         => $acknowledgment,
-			'default'       => 'none',
-			'items'         => [
-				0 => [
-					'radio_value'   => 'none',
-					'radio_caption' => __('None Required', 'thold'),
-					],
-				1 => [
-					'radio_value'   => 'reset_ack',
-					'radio_caption' => __('Suspendible Notification', 'thold'),
-					],
-				2 => [
-					'radio_value'   => 'persist_ack',
-					'radio_caption' => __('Persistent Acknowledgment', 'thold')
-				]
-			]
-		],
+		'acknowledgment' => thold_acknowledgment_form_field($acknowledgment),
 		'thold_type' => [
 			'friendly_name' => __('Threshold Type', 'thold'),
 			'method'        => 'drop_array',

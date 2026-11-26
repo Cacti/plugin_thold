@@ -70,6 +70,20 @@ if (!defined('POLLER_VERBOSITY_MEDIUM')) {
 	define('POLLER_VERBOSITY_MEDIUM', 3);
 }
 
+if (!defined('POLLER_VERBOSITY_DEBUG')) {
+	define('POLLER_VERBOSITY_DEBUG', 5);
+}
+
+if (!defined('GT_LAST_DAY')) {
+	define('GT_LAST_DAY', 7);
+}
+
+foreach (['MESSAGE_LEVEL_NONE' => 0, 'MESSAGE_LEVEL_INFO' => 1, 'MESSAGE_LEVEL_WARN' => 2, 'MESSAGE_LEVEL_ERROR' => 3] as $name => $value) {
+	if (!defined($name)) {
+		define($name, $value);
+	}
+}
+
 /*
  * base_path has to point at the Cacti root two levels above this plugin:
  * includes/functions.php builds include paths from it at runtime.
@@ -355,6 +369,12 @@ if (!function_exists('cacti_log')) {
 		CactiStubs::$log[] = $message;
 		$GLOBALS['__test_cacti_log'][] = (string) $message;
 		CactiStubs::record('cacti_log', '', [$message, $output, $environ, $level]);
+	}
+}
+
+if (!function_exists('cacti_debug_backtrace')) {
+	function cacti_debug_backtrace($delimiter = '', $html = true, $show_args = true, $skip = 0, $depth = 0) {
+		return '';
 	}
 }
 
