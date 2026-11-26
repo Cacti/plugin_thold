@@ -553,11 +553,11 @@ msgstr "Ссылка на график в Cacti"
 
 #: includes/functions.php
 msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body><html><body>Вышло предупреждение, которое требует вашего внимания.<br><br><br><b>Устройство</b>: <ОПИСАНИЕ> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Мессендж</b>: <SUBJECT><br><br><br><GRAPH></body></html></html>"
+msgstr "<html><body>Вышло предупреждение, которое требует вашего внимания.<br><br><b>Устройство</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Сообщение</b>: <SUBJECT><br><br><GRAPH></body></html>"
 
 #: includes/functions.php
 msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body><html><body>Вышло предупреждение, требующее вашего внимания.<br><br><br><b>Устройство</b>: <ОПИСАНИЕ> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Мессендж</b>: <SUBJECT><br><br><br><GRAPH></body></html></html>"
+msgstr "<html><body>Вышло предупреждение, требующее вашего внимания.<br><br><b>Устройство</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Сообщение</b>: <SUBJECT><br><br><GRAPH></body></html>"
 
 #: includes/functions.php
 msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
@@ -623,15 +623,15 @@ msgstr "Созданный порог: %s"
 
 #: includes/functions.php
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "Вы должны указать либо 'Порог высокой тревоги', либо 'Порог низкой тревоги', либо оба!<br> Записывать НЕ ПОСЛЕДУЕТСЯ!"
+msgstr "Вы должны указать либо 'Порог высокой тревоги', либо 'Порог низкой тревоги', либо оба!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Невозможные пороги: \"Высокий порог\" меньше или равен \"Низкий порог\" <br> Записывать НЕ УДАЛИТЬСЯ!"
+msgstr "Невозможные пороги: \"Высокий порог\" меньше или равен \"Низкий порог\"!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "Невозможные пороги: 'Высокий порог предупреждения' меньше или равен 'Низкий порог предупреждения' <br> Записывать НЕ УДАЛИТЬСЯ!"
+msgstr "Невозможные пороги: 'Высокий порог предупреждения' меньше или равен 'Низкий порог предупреждения'!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
@@ -647,7 +647,7 @@ msgstr "Ссылка на время в прошлом должна быть з�
 
 #: includes/functions.php
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "Вы должны указать либо 'Baseline Deviation UP', либо 'Baseline Deviation DOWN', либо 'Baseline DeOWN', либо оба!<br>RECORD NOT UPDATED!"
+msgstr "Вы должны указать либо 'Baseline Deviation UP', либо 'Baseline Deviation DOWN', либо 'Baseline DeOWN', либо оба!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
@@ -1464,7 +1464,7 @@ msgstr "Это сообщение будет отображаться в вер�
 
 #: includes/settings.php
 msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
-msgstr "Выпущено предупреждение, требующее вашего внимания. <br><br><br><strong>Устройство</strong>: <ОПИСАНИЕ> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><br><strong>Message</strong>: <SUBJECT><br><br><br><GRAPH><SUBJECT><br><br><GRAPH>"
+msgstr "Выпущено предупреждение, требующее вашего внимания. <br><br><strong>Устройство</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Сообщение</strong>: <SUBJECT><br><br><GRAPH>"
 
 #: includes/settings.php
 msgid "Threshold Warning Message"
@@ -1476,7 +1476,7 @@ msgstr "Это сообщение будет отображаться в вер�
 
 #: includes/settings.php
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
-msgstr "Выпущено предупреждение, требующее вашего внимания. <br><br><br><strong>Устройство</strong>: <ОПИСАНИЕ> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><br><strong>Message</strong>: <SUBJECT><br><br><br><GRAPH><SUBJECT><br><br><GRAPH>"
+msgstr "Выпущено предупреждение, требующее вашего внимания. <br><br><strong>Устройство</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Сообщение</strong>: <SUBJECT><br><br><GRAPH>"
 
 #: includes/settings.php
 msgid "Threshold Restoral Message"

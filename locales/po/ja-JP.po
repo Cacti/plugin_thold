@@ -520,19 +520,19 @@ msgstr "デバイスステータス"
 
 #: includes/functions.php
 msgid "Time:"
-msgstr "時間："
+msgstr "時間:"
 
 #: includes/functions.php
 msgid "User:"
-msgstr "ユーザー："
+msgstr "ユーザー:"
 
 #: includes/functions.php
 msgid "System:"
-msgstr "システム："
+msgstr "システム:"
 
 #: includes/functions.php
 msgid "Swaps:"
-msgstr "スワップ："
+msgstr "スワップ:"
 
 #: includes/functions.php
 msgid "Pages:"
@@ -623,15 +623,15 @@ msgstr "作成されたしきい値: %s"
 
 #: includes/functions.php
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "'High Alert Threshold'または 'Low Alert Threshold'、あるいはその両方を指定する必要があります。 <br>記録は更新されていません！"
+msgstr "'High Alert Threshold'または 'Low Alert Threshold'、あるいはその両方を指定する必要があります！"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "不可能なしきい値：「低しきい値」以下の「高しきい値」 <br>記録は更新されていません！"
+msgstr "不可能なしきい値：「低しきい値」以下の「高しきい値」！"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "不可能なしきい値：「低警告しきい値」以下の「高警告しきい値」 <br>記録は更新されていません！"
+msgstr "不可能なしきい値：「低警告しきい値」以下の「高警告しきい値」！"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
@@ -647,7 +647,7 @@ msgstr "過去の時間参照は正の整数値に設定する必要がありま
 
 #: includes/functions.php
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "'Baseline Deviation UP'または 'Baseline Deviation DOWN'、あるいはその両方を指定する必要があります。 <br>記録は更新されていません！"
+msgstr "'Baseline Deviation UP'または 'Baseline Deviation DOWN'、あるいはその両方を指定する必要があります！"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
@@ -1460,7 +1460,7 @@ msgstr "しきい値アラートメッセージ"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "これは、すべてのしきい値アラート（255文字のMAX）の一番上に表示されるメッセージです。 HTMLは許可されていますが、テキストのみのEメールでは削除されます。使用できる記述子がいくつかあります。 <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "これは、すべてのしきい値アラート（255文字のMAX）の一番上に表示されるメッセージです。 HTMLは許可されていますが、テキストのみのEメールでは削除されます。使用できる記述子がいくつかあります。 <br> &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
@@ -1472,7 +1472,7 @@ msgstr "しきい値警告メッセージ"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "これは、すべてのしきい値警告（255 Char MAX）の一番上に表示されるメッセージです。 HTMLは許可されていますが、テキストのみのEメールでは削除されます。使用できる記述子がいくつかあります。 <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "これは、すべてのしきい値警告（255 Char MAX）の一番上に表示されるメッセージです。 HTMLは許可されていますが、テキストのみのEメールでは削除されます。使用できる記述子がいくつかあります。 <br> &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
@@ -1612,11 +1612,11 @@ msgstr "作成ノート"
 
 #: includes/webapi.php
 msgid "Important Note:"
-msgstr "重要："
+msgstr "重要:"
 
 #: includes/webapi.php
 msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "このしきい値はテンプレート化され<b>ません</b> 。しきい値テンプレートオプションを使用する場合、上書き可能なグラフまたはデータソース情報がグラフで許可されている場合、その時点で「作成」プロンプトを受け取る前に、しきい値テンプレート、グラフテンプレート、デバイス、および場合によってはデータクエリアイテム情報の入力を求められます。データソーステンプレートレベルの場合は、入力を求められます。次に、「作成」ボタンを押すと、グラフとしきい値の両方が同時に作成されます。"
+msgstr "このしきい値はテンプレート化されます。しきい値テンプレートオプションを使用する場合、上書き可能なグラフまたはデータソース情報がグラフで許可されている場合、その時点で「作成」プロンプトを受け取る前に、しきい値テンプレート、グラフテンプレート、デバイス、および場合によってはデータクエリアイテム情報の入力を求められます。データソーステンプレートレベルの場合は、入力を求められます。次に、「作成」ボタンを押すと、グラフとしきい値の両方が同時に作成されます。"
 
 #: includes/webapi.php
 msgid "Graph"
@@ -1720,7 +1720,7 @@ msgstr "「続行」をクリックして、通知リスト '%s' を以下のし
 
 #: notify_lists.php
 msgid "Warning Membership:"
-msgstr "警告会員："
+msgstr "警告会員:"
 
 #: notify_lists.php
 msgid "No Change"
@@ -1736,7 +1736,7 @@ msgstr "通知リスト、その他の設定を保持"
 
 #: notify_lists.php
 msgid "Alert Membership:"
-msgstr "アラートメンバーシップ："
+msgstr "アラートメンバーシップ:"
 
 #: notify_lists.php
 msgid "Associate Notification List(s)"
@@ -1781,7 +1781,7 @@ msgstr "また、デバイスのしきい値を関連付けることもできま
 
 #: notify_lists.php
 msgid "Resulting Membership:"
-msgstr "得られた会員："
+msgstr "得られた会員:"
 
 #: notify_lists.php
 msgid "Notification and Global Lists"
@@ -1789,11 +1789,11 @@ msgstr "通知リストとグローバルリスト"
 
 #: notify_lists.php
 msgid "Device Threshold Warning Membership:"
-msgstr "警告会員："
+msgstr "警告会員:"
 
 #: notify_lists.php
 msgid "Device Threshold Alert Membership:"
-msgstr "しきい値アラートメッセージ："
+msgstr "しきい値アラートメッセージ:"
 
 #: notify_lists.php
 #, php-format
@@ -1859,7 +1859,7 @@ msgstr "メールスタイル/フォーマットファイル"
 
 #: notify_lists.php thold.php thold_templates.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "使用するカスタムHTMLラッパーとCSSファイルを選択します。このファイルには、レポートをまとめるためのHTMLとCSSの両方が含まれています。それが単なるCSS以上のものを含んでいるなら、特別なものを置く必要があります<REPORT>ファイル内のタグ。このフォーマットタグはレポートの内容に置き換えられます。これらのファイルは &#39;format&#39;ディレクトリにあります。"
+msgstr "使用するカスタムHTMLラッパーとCSSファイルを選択します。このファイルには、レポートをまとめるためのHTMLとCSSの両方が含まれています。それが単なるCSS以上のものを含んでいるなら、特別なものを置く必要があります<REPORT>ファイル内のタグ。このフォーマットタグはレポートの内容に置き換えられます。これらのファイルは 'format'ディレクトリにあります。"
 
 #: notify_lists.php
 msgid "Associated Devices"
@@ -2563,23 +2563,23 @@ msgstr "しきい値テンプレートを編集"
 
 #: thold.php
 msgid "Data Source Description:"
-msgstr "データソースの説明："
+msgstr "データソースの説明:"
 
 #: thold.php
 msgid "Associated Graph (Graphs using this RRD):"
-msgstr "関連付けられたグラフ（このRRDを使ったグラフ）："
+msgstr "関連付けられたグラフ（このRRDを使ったグラフ）:"
 
 #: thold.php
 msgid "Last:"
-msgstr "最後："
+msgstr "最後:"
 
 #: thold.php
 msgid "WHi:"
-msgstr "WHi："
+msgstr "WHi:"
 
 #: thold.php
 msgid "WLo:"
-msgstr "WLo："
+msgstr "WLo:"
 
 #: thold.php
 msgid "AHi:"
@@ -2587,15 +2587,15 @@ msgstr "アラート上限:"
 
 #: thold.php
 msgid "ALo:"
-msgstr "ALo："
+msgstr "ALo:"
 
 #: thold.php
 msgid "BL Up:"
-msgstr "BLアップ："
+msgstr "BLアップ:"
 
 #: thold.php
 msgid "BL Down:"
-msgstr "BLダウン："
+msgstr "BLダウン:"
 
 #: thold.php
 #, php-format
@@ -3659,7 +3659,7 @@ msgstr "読み込み結果"
 
 #: thold_templates.php
 msgid "Cacti has imported the following items:"
-msgstr "Cactiは以下の商品を輸入しています："
+msgstr "Cactiは以下の商品を輸入しています:"
 
 #: thold_templates.php
 msgid "Import Threshold Templates"
@@ -3695,7 +3695,7 @@ msgstr "無効なファイル拡張子。"
 
 #: thold_templates.php
 msgid "NOTE:"
-msgstr "メモ："
+msgstr "メモ:"
 
 #: thold_templates.php
 msgid "ERROR:"

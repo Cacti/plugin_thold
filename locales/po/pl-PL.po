@@ -623,15 +623,15 @@ msgstr "Utworzony próg: %s"
 
 #: includes/functions.php
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "Musisz określić albo 'Wysoki próg alarmowy' lub 'Niski próg alarmowy', albo oba!<br>ZAPISZ NIE WOLNO!"
+msgstr "Musisz określić albo 'Wysoki próg alarmowy' lub 'Niski próg alarmowy', albo oba!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Niemożliwe progi: \"Wysoki próg\" mniejszy lub równy \"Niski próg\"<br>ZAPISZ NIE WOLNO!"
+msgstr "Niemożliwe progi: \"Wysoki próg\" mniejszy lub równy \"Niski próg\"!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "Niemożliwe progi: \"Wysoki próg ostrzegawczy\" mniejszy lub równy \"Niski próg ostrzegawczy\"<br>ZAPISZ NIE DOTYCZY!"
+msgstr "Niemożliwe progi: \"Wysoki próg ostrzegawczy\" mniejszy lub równy \"Niski próg ostrzegawczy\"!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
@@ -647,7 +647,7 @@ msgstr "Odniesienie czasowe w przeszłości musi być ustawione jako dodatnia li
 
 #: includes/functions.php
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "Musisz określić albo \"odchylenie bazowe w górę\" lub \"odchylenie bazowe w dół\", albo oba te elementy!<br>ZAPISZ NIE WOLNO!"
+msgstr "Musisz określić albo \"odchylenie bazowe w górę\" lub \"odchylenie bazowe w dół\", albo oba te elementy!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
@@ -1464,7 +1464,7 @@ msgstr "Jest to komunikat, który będzie wyświetlany na górze wszystkich aler
 
 #: includes/settings.php
 msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
-msgstr "Został wydany alert, który wymaga Państwa uwagi. <br><br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><br><GRAPH>"
+msgstr "Został wydany alert, który wymaga Państwa uwagi. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 
 #: includes/settings.php
 msgid "Threshold Warning Message"
@@ -1476,7 +1476,7 @@ msgstr "Jest to komunikat, który będzie wyświetlany na górze wszystkich ostr
 
 #: includes/settings.php
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
-msgstr "Zostało wydane ostrzeżenie, które wymaga Twojej uwagi. <br><br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><br><GRAPH>"
+msgstr "Zostało wydane ostrzeżenie, które wymaga Twojej uwagi. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 
 #: includes/settings.php
 msgid "Threshold Restoral Message"

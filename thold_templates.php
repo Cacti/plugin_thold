@@ -1296,14 +1296,7 @@ function template_edit() {
 			'default'       => '0',
 			'value'         => isset($thold_data['thold_hrule_alert']) ? $thold_data['thold_hrule_alert'] : '0'
 		],
-		'graph_timespan' => [
-			'friendly_name' => __('Graph Timespan'),
-			'method'        => 'drop_array',
-			'default'       => GT_LAST_DAY,
-			'description'   => __('The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan.'),
-			'array'         => $graph_timespans,
-			'value'         => '|arg1:graph_timespan|'
-		],
+		'graph_timespan' => thold_graph_timespan_form_field($graph_timespans, '|arg1:graph_timespan|'),
 		'skipscale' => [
 			'friendly_name' => __('Skip Scaling on HRULEs', 'thold'),
 			'method'        => 'checkbox',
@@ -1325,27 +1318,7 @@ function template_edit() {
 			'default'       => '',
 			'value'         => isset($thold_data['restored_alert']) ? $thold_data['restored_alert'] : ''
 		],
-		'acknowledgment' => [
-			'friendly_name' => __('Acknowledgment Options'),
-			'description'   => __('There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>'),
-			'method'        => 'radio',
-			'value'         => $acknowledgment,
-			'default'       => 'none',
-			'items'         => [
-				0 => [
-					'radio_value'   => 'none',
-					'radio_caption' => __('None Required', 'thold'),
-					],
-				1 => [
-					'radio_value'   => 'reset_ack',
-					'radio_caption' => __('Suspendible Notification', 'thold'),
-					],
-				2 => [
-					'radio_value'   => 'persist_ack',
-					'radio_caption' => __('Persistent Acknowledgment', 'thold')
-				]
-			]
-		],
+		'acknowledgment' => thold_acknowledgment_form_field($acknowledgment),
 		'thold_type' => [
 			'friendly_name' => __('Threshold Type', 'thold'),
 			'method'        => 'drop_array',

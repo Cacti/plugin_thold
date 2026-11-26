@@ -553,15 +553,15 @@ msgstr "رابط الرسم البياني في Cacti"
 
 #: includes/functions.php
 msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body>تم إصدار تنبيه يتطلب انتباهك.<br><br><b>الجهاز</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>الرابط</b>: <URL><br><b>رسالة</b>: <SUBJECT><br><br><GRAPH></GRAPH></SUBJECT></URL></HOSTNAME></DESCRIPTION></body></html>"
+msgstr "<html><body>تم إصدار تنبيه يتطلب انتباهك.<br><br><b>الجهاز</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>الرابط</b>: <URL><br><b>رسالة</b>: <SUBJECT><br><br><GRAPH></body></html>"
 
 #: includes/functions.php
 msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body>تم إصدار تحذير يتطلب انتباهك.<br><br><b>الجهاز</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>الرابط</b>: <URL><br><b>رسالة</b>: <SUBJECT><br><br><GRAPH></GRAPH></SUBJECT></URL></HOSTNAME></DESCRIPTION></body></html>"
+msgstr "<html><body>تم إصدار تحذير يتطلب انتباهك.<br><br><b>الجهاز</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>الرابط</b>: <URL><br><b>رسالة</b>: <SUBJECT><br><br><GRAPH></body></html>"
 
 #: includes/functions.php
 msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body>عاد الحد إلى الحالة الطبيعية. <br><br><strong>الجهاز</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>الرابط</strong>: <URL><br><strong>رسالة</strong>: <SUBJECT><br><br><GRAPH></GRAPH></SUBJECT></URL></HOSTNAME></DESCRIPTION></body></html>"
+msgstr "<html><body>عاد الحد إلى الحالة الطبيعية. <br><br><strong>الجهاز</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>الرابط</strong>: <URL><br><strong>رسالة</strong>: <SUBJECT><br><br><GRAPH></body></html>"
 
 #: includes/functions.php
 #, php-format
@@ -1476,7 +1476,7 @@ msgstr "هذه هي الرسالة التي سيتم عرضها في الجزء 
 
 #: includes/settings.php
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
-msgstr "تم إصدار تحذير يتطلب انتباهك. <br><br><strong>الجهاز</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>الرابط</strong>: <URL><br><strong>رسالة</strong>: <SUBJECT><br><br><GRAPH></SUBJECT></URL></HOSTNAME></DESCRIPTION>"
+msgstr "تم إصدار تحذير يتطلب انتباهك. <br><br><strong>الجهاز</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>الرابط</strong>: <URL><br><strong>رسالة</strong>: <SUBJECT><br><br><GRAPH>"
 
 #: includes/settings.php
 msgid "Threshold Restoral Message"
@@ -1488,7 +1488,7 @@ msgstr "هذه هي الرسالة التي سيتم عرضها في الجزء 
 
 #: includes/settings.php
 msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
-msgstr "عاد الحد إلى الحالة الطبيعية. <br><br><strong>الجهاز</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>الرابط</strong>: <URL><br><strong>رسالة</strong>: <SUBJECT><br><br><GRAPH></SUBJECT></URL></HOSTNAME></DESCRIPTION>"
+msgstr "عاد الحد إلى الحالة الطبيعية. <br><br><strong>الجهاز</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>الرابط</strong>: <URL><br><strong>رسالة</strong>: <SUBJECT><br><br><GRAPH>"
 
 #: includes/tab.php
 msgid "Thold"
@@ -1859,7 +1859,7 @@ msgstr "نمط البريد الإلكتروني / تنسيق الملف"
 
 #: notify_lists.php thold.php thold_templates.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "اختر ملف html المخصص وملف CSS لاستخدامه. يحتوي هذا الملف على كل من html و CSS للتفاف حول تقريرك. إذا كان يحتوي على أكثر من مجرد CSS ، فستحتاج إلى وضع خاص <REPORT> علامة داخل الملف. سيتم استبدال علامة التنسيق هذه بمحتوى التقرير. توجد هذه الملفات في دليل &quot;التنسيقات&quot;."
+msgstr "اختر ملف html المخصص وملف CSS لاستخدامه. يحتوي هذا الملف على كل من html و CSS للتفاف حول تقريرك. إذا كان يحتوي على أكثر من مجرد CSS ، فستحتاج إلى وضع خاص <REPORT> علامة داخل الملف. سيتم استبدال علامة التنسيق هذه بمحتوى التقرير. توجد هذه الملفات في دليل \"التنسيقات\"."
 
 #: notify_lists.php
 msgid "Associated Devices"

@@ -105,7 +105,7 @@ function form_save() {
 			if (array_search(trim($email), $emails, true) !== false) {
 				raise_message(
 					'duplicate_email',
-					__('ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s', $email, 'THOLD'),
+					__('ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s', $email, 'thold'),
 					MESSAGE_LEVEL_WARN
 				);
 
@@ -121,7 +121,7 @@ function form_save() {
 				if (array_search(trim($email), $bccs, true) !== false) {
 					raise_message(
 						'duplicate_email',
-						__('ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s', $email, 'THOLD'),
+						__('ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s', $email, 'thold'),
 						MESSAGE_LEVEL_WARN
 					);
 
@@ -724,8 +724,8 @@ function form_actions() {
 					<td class='textArea'>
 						<p>" . __('Click \'Continue\' to Duplicate the following Notification List(s).', 'thold') . "</p>
 						<div class='itemlist'><ul>$list</ul></div>
-					<p>" . __('New List Name') . '<br>';
-				form_text_box('name', __('New Notification List'), '', '255', '40', 'text');
+					<p>" . __('New List Name', 'thold') . '<br>';
+				form_text_box('name', __('New Notification List', 'thold'), '', '255', '40', 'text');
 
 				print '</p></td>
 				</tr>';

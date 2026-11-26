@@ -627,11 +627,11 @@ msgstr "Πρέπει να καθορίσετε είτε το 'Ανώτατο ό�
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Αδύνατα κατώτατα όρια: \"Υψηλό όριο\" μικρότερο ή ίσο με το \"Χαμηλό όριο\" <br> Η εγγραφή δεν ενημερώθηκε!"
+msgstr "Αδύνατα κατώτατα όρια: \"Υψηλό όριο\" μικρότερο ή ίσο με το \"Χαμηλό όριο\"!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
+msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης»!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
@@ -647,7 +647,7 @@ msgstr "Η χρονική αναφορά στο παρελθόν πρέπει ν
 
 #: includes/functions.php
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "Πρέπει να καθορίσετε είτε την \"Απόκλιση βασικής γραμμής UP\" είτε την \"Απόκλιση βασικής γραμμής κάτω\" ή και τα δύο! <br> Η εγγραφή δεν ενημερώθηκε!"
+msgstr "Πρέπει να καθορίσετε είτε την \"Απόκλιση βασικής γραμμής UP\" είτε την \"Απόκλιση βασικής γραμμής κάτω\" ή και τα δύο!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
@@ -931,7 +931,7 @@ msgstr "Παγκόσμια και λίστα παρακάτω"
 
 #: includes/settings.php
 msgid "Which Type of Notification List(s) should be used for Device Up/Down events?"
-msgstr "Ποιος τύπος λιστών ειδοποιήσεων θα πρέπει να χρησιμοποιείται για συμβάντα Ενεργό/Ανενεργό συσκευής;"
+msgstr "Ποιος τύπος λιστών ειδοποιήσεων θα πρέπει να χρησιμοποιείται για συμβάντα Ενεργό/Ανενεργό συσκευής?"
 
 #: includes/settings.php notify_queue.php
 msgid "Notification List"
@@ -939,7 +939,7 @@ msgstr "Λίστα ειδοποιήσεων"
 
 #: includes/settings.php
 msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
-msgstr "Ποιες λίστες ειδοποιήσεων πρέπει να ενημερώνονται σχετικά με τα συμβάντα Συσκευές προς τα πάνω / κάτω;"
+msgstr "Ποιες λίστες ειδοποιήσεων πρέπει να ενημερώνονται σχετικά με τα συμβάντα Συσκευές προς τα πάνω / κάτω?"
 
 #: includes/settings.php
 msgid "Host Failure Count"
@@ -1380,7 +1380,7 @@ msgstr "Εάν εμφανιστεί μεγάλη εισροή ειδοποιήσ
 
 #: includes/settings.php
 msgid "If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?"
-msgstr "Εάν επιλέξετε να καθυστερήσετε τις ειδοποιήσεις για μια μεγάλη είσοδο ειδοποιήσεων εκτός συσκευών, πόσο καιρό είστε διατεθειμένοι να περιμένετε πριν επιτρέψετε την επεξεργασία των ειδοποιήσεων;"
+msgstr "Εάν επιλέξετε να καθυστερήσετε τις ειδοποιήσεις για μια μεγάλη είσοδο ειδοποιήσεων εκτός συσκευών, πόσο καιρό είστε διατεθειμένοι να περιμένετε πριν επιτρέψετε την επεξεργασία των ειδοποιήσεων?"
 
 #: includes/settings.php
 msgid "Device Notification Email Options"
@@ -1460,7 +1460,7 @@ msgstr "Μήνυμα ειδοποίησης κατωφλίου"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται στο επάνω μέρος όλων των ειδοποιήσεων κατωφλίου (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
+msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται στο επάνω μέρος όλων των ειδοποιήσεων κατωφλίου (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062"
 
 #: includes/settings.php
 msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
@@ -1472,7 +1472,7 @@ msgstr "Μήνυμα προειδοποίησης κατωφλίου"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στο επάνω μέρος όλων των προειδοποιήσεων Threshold (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
+msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στο επάνω μέρος όλων των προειδοποιήσεων Threshold (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062"
 
 #: includes/settings.php
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
@@ -2287,7 +2287,7 @@ msgstr "Οι ακόλουθες πηγές δεδομένων δεν έχουν 
 
 #: setup.php
 msgid "Click 'Continue' to create Thresholds for these Data Sources?"
-msgstr "Κάντε κλικ στο κουμπί 'Συνέχεια' για να δημιουργήσετε Κατώτατα όρια για αυτές τις Πηγές Δεδομένων;"
+msgstr "Κάντε κλικ στο κουμπί 'Συνέχεια' για να δημιουργήσετε Κατώτατα όρια για αυτές τις Πηγές Δεδομένων?"
 
 #: setup.php
 msgid "Available Threshold Templates"
