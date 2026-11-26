@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Greek <https://translate.cacti.net/projects/cacti/thold/el/>\nLanguage: el-GR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Greek <https://translate.cacti.net/projects/cacti/thold/el/>\nLanguage: el-GR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -703,7 +703,7 @@ msgstr "Σφάλμα"
 
 #: includes/functions.php includes/polling.php thold.php thold_graph.php
 msgid "N/A"
-msgstr "Μη Διαθέσιμο"
+msgstr "Μη Εφαρμόσιμο"
 
 #: includes/functions.php
 msgid "Success"
@@ -863,7 +863,7 @@ msgstr "Λίστες ειδοποιήσεων (επεξεργασία)"
 
 #: includes/settings.php
 msgid "Notification Queue"
-msgstr "Λίστα ειδοποιήσεων"
+msgstr "Ουρά ειδοποιήσεων"
 
 #: includes/settings.php
 msgid "Management"
@@ -1017,7 +1017,7 @@ msgstr "Παραβιασμένα"
 
 #: includes/settings.php notify_lists.php thold.php thold_graph.php
 msgid "Triggered"
-msgstr "Ενεργοποιημένο"
+msgstr "Πυροδοτήθηκε"
 
 #: includes/settings.php notify_lists.php thold.php thold_graph.php
 #: thold_templates.php
@@ -1632,7 +1632,7 @@ msgstr "Επιλέξτε ένα γράφημα"
 
 #: includes/webapi.php thold_templates.php
 msgid "Data Source"
-msgstr "Ανεπεξέργαστη πηγή"
+msgstr "Πηγή δεδομένων"
 
 #: includes/webapi.php
 msgid "Select a Data Source for the Threshold."
@@ -1839,7 +1839,7 @@ msgstr "Για να απενεργοποιήσετε όλες τις ειδοπ�
 
 #: notify_lists.php
 msgid "To Email Addresses"
-msgstr "Διευθύνσεις ηλεκτρονικού ταχυδρομείου"
+msgstr "Διευθύνσεις ηλεκτρονικού ταχυδρομείου (Προς)"
 
 #: notify_lists.php
 msgid "Enter a comma separated list of Email addresses for this Notification List."
@@ -1847,7 +1847,7 @@ msgstr "Καταχωρίστε μια λίστα διευθύνσεων ηλεκ
 
 #: notify_lists.php
 msgid "BCC Email Addresses"
-msgstr "Διευθύνσεις ηλεκτρονικού ταχυδρομείου"
+msgstr "Διευθύνσεις ηλεκτρονικού ταχυδρομείου (BCC)"
 
 #: notify_lists.php
 msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
@@ -1922,7 +1922,7 @@ msgstr "Γραφήματα"
 
 #: notify_lists.php thold_graph.php
 msgid "Data Sources"
-msgstr "Data Sources"
+msgstr "Πηγές δεδομένων"
 
 #: notify_lists.php notify_queue.php thold_graph.php
 msgid "Hostname"
@@ -1963,7 +1963,7 @@ msgstr "Λίστα προειδοποιήσεων"
 
 #: notify_lists.php
 msgid "Alert Lists"
-msgstr "Λίστα ειδοποιήσεων"
+msgstr "Λίστες συναγερμών"
 
 #: notify_lists.php thold.php thold_graph.php thold_templates.php
 msgid "Type"
@@ -2049,7 +2049,7 @@ msgstr "Όνομα Λίστας"
 
 #: notify_lists.php
 msgid "Emails"
-msgstr "Emails"
+msgstr "Διευθύνσεις email"
 
 #: notify_lists.php
 msgid "No Notification Lists"
@@ -2114,7 +2114,7 @@ msgstr "Συνέχιση επεξεργασίας ειδοποιήσεων"
 
 #: notify_queue.php
 msgid "Purge"
-msgstr "Διαγραφή"
+msgstr "Εκκαθάριση"
 
 #: notify_queue.php
 msgid "Purge Notification Queue"
@@ -2190,7 +2190,7 @@ msgstr "Πότε μια αποτυχημένη ειδοποίηση είναι �
 
 #: notify_queue.php
 msgid "Run Time"
-msgstr "Διάρκεια"
+msgstr "Χρόνος εκτέλεσης"
 
 #: notify_queue.php
 msgid "The time in seconds it took to process the event."
@@ -3547,7 +3547,7 @@ msgstr "Φόρμα ηλεκτρονικού ταχυδρομείου ειδοπ�
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται στο επάνω μέρος όλων των ειδοποιήσεων επαναφοράς κατωφλίου (μέγιστο 1024 χαρακτήρες). Η HTML επιτρέπεται, αλλά θα αφαιρείται για email μόνο με κείμενο. Υπάρχουν διάφορες κοινές ετικέτες αντικατάστασης που μπορούν να συμπεριληφθούν:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#062 &#060DNOTES&#062"
+msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται στο επάνω μέρος όλων των ειδοποιήσεων επαναφοράς κατωφλίου (μέγιστο 1024 χαρακτήρες). Η HTML επιτρέπεται, αλλά θα αφαιρείται για email μόνο με κείμενο. Υπάρχουν διάφορες κοινές ετικέτες αντικατάστασης που μπορούν να συμπεριληφθούν:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: thold_templates.php
 msgid "Notification List Read Only"
