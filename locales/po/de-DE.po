@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: German <https://translate.cacti.net/projects/cacti/thold/de/>\nLanguage: de-DE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: German <https://translate.cacti.net/projects/cacti/thold/de/>\nLanguage: de-DE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -68,7 +68,7 @@ msgstr "%d Monate"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Year Ago"
-msgstr "%d Jahr"
+msgstr "Vor %d Jahr"
 
 #: includes/arrays.php
 #, php-format
@@ -142,7 +142,7 @@ msgstr "Benachrichtigen - Wiederherstellung"
 
 #: includes/arrays.php
 msgid "Restoral"
-msgstr "Restoral"
+msgstr "Wiederherstellung"
 
 #: includes/arrays.php
 msgid "Event - Alert Trigger"
@@ -532,7 +532,7 @@ msgstr "System:"
 
 #: includes/functions.php
 msgid "Swaps:"
-msgstr "Swaps:"
+msgstr "Wechsel:"
 
 #: includes/functions.php
 msgid "Pages:"
@@ -703,7 +703,7 @@ msgstr "Fehler"
 
 #: includes/functions.php includes/polling.php thold.php thold_graph.php
 msgid "N/A"
-msgstr "Nicht verfügbar"
+msgstr "Nicht zutreffend"
 
 #: includes/functions.php
 msgid "Success"
@@ -863,7 +863,7 @@ msgstr "Benachrichtigungslisten (bearbeiten)"
 
 #: includes/settings.php
 msgid "Notification Queue"
-msgstr "Benachrichtigungsliste"
+msgstr "Benachrichtigungswarteschlange"
 
 #: includes/settings.php
 msgid "Management"
@@ -1136,7 +1136,7 @@ msgstr "%d Prozesse"
 
 #: includes/settings.php
 msgid "Logging"
-msgstr "Logging"
+msgstr "Protokollierung"
 
 #: includes/settings.php
 msgid "Log Threshold Breaches"
@@ -1572,7 +1572,7 @@ msgstr "Wählen Sie eine Schwellenwertvorlage aus"
 
 #: includes/webapi.php
 msgid "Graph Template"
-msgstr "Graph Template"
+msgstr "Graph-Vorlage"
 
 #: includes/webapi.php
 msgid "Select a Graph Template to use for the Graph to be created."
@@ -1950,7 +1950,7 @@ msgstr "Vorlage"
 
 #: notify_lists.php
 msgid "State"
-msgstr "Bundesland"
+msgstr "Zustand"
 
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
@@ -1985,7 +1985,7 @@ msgstr "Ja"
 
 #: notify_lists.php thold.php thold_graph.php
 msgid "baseline-LOW"
-msgstr "baseline-LOW"
+msgstr "Basislinie-NIEDRIG"
 
 #: notify_lists.php thold.php thold_graph.php
 msgid "baseline-HIGH"
@@ -2162,7 +2162,7 @@ msgstr "Der Zeitpunkt des Ereignisses, wie vom Aufrufer definiert."
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
-msgstr "Wurde das Benachrichtigungsereignis verarbeitet?"
+msgstr "Gibt an, ob das Benachrichtigungsereignis verarbeitet wurde."
 
 #: notify_queue.php
 msgid "Errors"
@@ -2520,7 +2520,7 @@ msgstr "Wiederholen"
 
 #: thold.php thold_graph.php
 msgid "In State"
-msgstr "Bundesland"
+msgstr "Im Zustand"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
@@ -2883,7 +2883,7 @@ msgstr "Abweichung nach unten"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Gibt die zulässige Abweichung für den unteren Schwellenwert an. Wenn nicht gesetzt, wird der untere Schwellenwert überhaupt nicht geprüft. Die Maßeinheit ist ein absoluter Wert beim Typ „Absoluter Wert“ und ein Prozentwert sowohl bei „%% Abweichung“ als auch bei „%% Gleitender Durchschnitt“."
+msgstr "Gibt die zulässige Abweichung für den unteren Schwellenwert an. Wenn nicht gesetzt, wird der untere Schwellenwert überhaupt nicht geprüft. Die Maßeinheit ist ein absoluter Wert beim Typ „Absoluter Wert“ und ein Prozentwert sowohl bei „%% Abweichung“ als auch bei „%% Gleitender Durchschnitt“"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -3273,7 +3273,7 @@ msgstr "Das letzte Mal, als Cacti ein Problem mit diesem Gerät fand.  Sie kann 
 
 #: thold_graph.php
 msgid "Uptime"
-msgstr "Laufzeit"
+msgstr "Betriebszeit"
 
 #: thold_graph.php
 msgid "The official uptime of the Device as reported by SNMP"
@@ -3484,12 +3484,12 @@ msgstr "Basislinienüberwachung"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Gibt die zulässige Abweichung für den oberen Schwellenwert an. Wenn nicht gesetzt, wird der obere Schwellenwert überhaupt nicht geprüft. Die Maßeinheit ist ein absoluter Wert beim Typ „Absoluter Wert“ und ein Prozentwert sowohl bei „%% Abweichung“ als auch bei „%% Gleitender Durchschnitt“."
+msgstr "Gibt die zulässige Abweichung für den oberen Schwellenwert an. Wenn nicht gesetzt, wird der obere Schwellenwert überhaupt nicht geprüft. Die Maßeinheit ist ein absoluter Wert beim Typ „Absoluter Wert“ und ein Prozentwert sowohl bei „%% Abweichung“ als auch bei „%% Gleitender Durchschnitt“"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Gibt die zulässige Abweichung für den unteren Schwellenwert an. Wenn nicht gesetzt, wird der untere Schwellenwert überhaupt nicht geprüft. Die Maßeinheit ist ein absoluter Wert beim Typ „Absoluter Wert“ und ein Prozentwert sowohl bei „%% Abweichung“ als auch bei „%% Gleitender Durchschnitt“."
+msgstr "Gibt die zulässige Abweichung für den unteren Schwellenwert an. Wenn nicht gesetzt, wird der untere Schwellenwert überhaupt nicht geprüft. Die Maßeinheit ist ein absoluter Wert beim Typ „Absoluter Wert“ und ein Prozentwert sowohl bei „%% Abweichung“ als auch bei „%% Gleitender Durchschnitt“"
 
 #: thold_templates.php
 #, php-format
