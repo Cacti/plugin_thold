@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Russian <https://translate.cacti.net/projects/cacti/thold/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Russian <https://translate.cacti.net/projects/cacti/thold/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -18,7 +18,7 @@ msgstr "%d Месяц"
 #: includes/arrays.php
 #, php-format
 msgid "%d Months"
-msgstr "%d мес."
+msgstr "%d месяцев"
 
 #: includes/arrays.php
 #, php-format
@@ -68,7 +68,7 @@ msgstr "%d Месяца"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Year Ago"
-msgstr "%d Год"
+msgstr "%d год назад"
 
 #: includes/arrays.php
 #, php-format
@@ -306,7 +306,7 @@ msgstr "%d Неделя"
 #: includes/arrays.php
 #, php-format
 msgid "%d Weeks"
-msgstr "%d нед."
+msgstr "%d недель"
 
 #: includes/arrays.php
 #, php-format
@@ -707,7 +707,7 @@ msgstr "Н/Д"
 
 #: includes/functions.php
 msgid "Success"
-msgstr "Готово"
+msgstr "Успешно"
 
 #: includes/functions.php thold_graph.php
 msgid "Acknowledge Threshold"
@@ -863,7 +863,7 @@ msgstr "Списки уведомлений (редактирование)"
 
 #: includes/settings.php
 msgid "Notification Queue"
-msgstr "Список уведомлений"
+msgstr "Очередь уведомлений"
 
 #: includes/settings.php
 msgid "Management"
@@ -1372,7 +1372,7 @@ msgstr "Параметры уведомления устройства"
 
 #: includes/settings.php
 msgid "Notification Delay"
-msgstr "Список уведомлений"
+msgstr "Задержка уведомлений"
 
 #: includes/settings.php
 msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
@@ -1950,7 +1950,7 @@ msgstr "Шаблон"
 
 #: notify_lists.php
 msgid "State"
-msgstr "Область"
+msgstr "Состояние"
 
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
@@ -1971,7 +1971,7 @@ msgstr "Тип"
 
 #: notify_lists.php thold.php
 msgid "Templated"
-msgstr "Шаблон"
+msgstr "По шаблону"
 
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
@@ -2116,7 +2116,7 @@ msgstr "Возобновить уведомления"
 
 #: notify_queue.php
 msgid "Purge"
-msgstr "Очистить"
+msgstr "Вычистить"
 
 #: notify_queue.php
 msgid "Purge Notification Queue"
@@ -2124,7 +2124,7 @@ msgstr "Очистить очередь уведомлений"
 
 #: notify_queue.php
 msgid "Notifications"
-msgstr "Список уведомлений"
+msgstr "Уведомления"
 
 #: notify_queue.php
 msgid "The supported notification topic."
@@ -3679,7 +3679,7 @@ msgstr "Неполная передача файла."
 
 #: thold_templates.php
 msgid "No file uploaded."
-msgstr "Нет загруженного файла."
+msgstr "Файл не загружен."
 
 #: thold_templates.php
 msgid "Temporary folder missing."
