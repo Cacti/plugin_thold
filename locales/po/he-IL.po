@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hebrew (Israel) <https://translate.cacti.net/projects/cacti/thold/he_IL/>\nLanguage: he-IL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3));\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hebrew (Israel) <https://translate.cacti.net/projects/cacti/thold/he_IL/>\nLanguage: he-IL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3));\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -38,7 +38,7 @@ msgstr "מלפני %d שעות"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Day Ago"
-msgstr "מלפני %d ימים"
+msgstr "מלפני %d יום"
 
 #: includes/arrays.php
 #, php-format
@@ -98,7 +98,7 @@ msgstr "לא ידוע"
 #: includes/arrays.php includes/settings.php notify_lists.php thold.php
 #: thold_graph.php
 msgid "Disabled"
-msgstr "לא זמין"
+msgstr "מושבת"
 
 #: includes/arrays.php thold_graph.php
 msgid "Not Monitored"
@@ -581,7 +581,7 @@ msgstr "%% סטייה [AOT:%s]"
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [AOT:%s]"
-msgstr "Abs Val [AOT:%s]"
+msgstr "ערך מוחלט [AOT:%s]"
 
 #: includes/functions.php
 msgid "The Device ID was not set while trying to create Graph and Threshold"
@@ -703,7 +703,7 @@ msgstr "שגיאה"
 
 #: includes/functions.php includes/polling.php thold.php thold_graph.php
 msgid "N/A"
-msgstr "לא זמין"
+msgstr "לא רלוונטי"
 
 #: includes/functions.php
 msgid "Success"
@@ -1005,7 +1005,7 @@ msgstr "ברירת המחדל של סף ניהול מסנן המצב."
 
 #: includes/settings.php notify_lists.php thold.php
 msgid "Any"
-msgstr "הכל"
+msgstr "כלשהו"
 
 #: includes/settings.php thold.php thold_graph.php
 msgid "Breached or Triggered"
@@ -1119,7 +1119,7 @@ msgstr "כל %d שעה"
 
 #: includes/settings.php
 msgid "Daemon Threads"
-msgstr "Daemon Threads"
+msgstr "תהליכוני Daemon"
 
 #: includes/settings.php
 msgid "The number of daemon threads to be handled by the Threshold Daemon."
@@ -3519,7 +3519,7 @@ msgstr "מקור נתונים עליון לשימוש לחישוב הערך הכ
 
 #: thold_templates.php
 msgid "Alert Email Subject"
-msgstr "התראות דוא\"ל"
+msgstr "נושא התראת דוא\"ל"
 
 #: thold_templates.php
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
