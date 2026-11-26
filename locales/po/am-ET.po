@@ -1,0 +1,3716 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-13 09:23-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Amharic\n"
+"Language: am-ET\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: includes/arrays.php
+msgid "Indefinitely"
+msgstr "ላልተወሰነ ጊዜ"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "%d ወር"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "%d ወራት"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "%d ዓመት"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Hour Ago"
+msgstr "ከ%d ሰዓት በፊት ጀምሮ"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Hours Ago"
+msgstr "ከ%d ሰዓታት በፊት ጀምሮ"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Day Ago"
+msgstr "ከ%d ቀን በፊት ጀምሮ"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Days Ago"
+msgstr "ከ%d ቀናት በፊት ጀምሮ"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Week Ago"
+msgstr "ከ%d ሳምንት በፊት ጀምሮ"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Weeks Ago"
+msgstr "ከ%d ሳምንታት በፊት ጀምሮ"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Month Ago"
+msgstr "ከ%d ወር በፊት ጀምሮ"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Months Ago"
+msgstr "ከ%d ወራት በፊት ጀምሮ"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Year Ago"
+msgstr "ከ%d ዓመት በፊት ጀምሮ"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Years Ago"
+msgstr "ከ%d ዓመታት በፊት ጀምሮ"
+
+#: includes/arrays.php thold_graph.php
+msgid "Down"
+msgstr "የወረደ"
+
+#: includes/arrays.php thold_graph.php
+msgid "Error"
+msgstr "ስህተት"
+
+#: includes/arrays.php thold_graph.php
+msgid "Recovering"
+msgstr "በማገገም ላይ"
+
+#: includes/arrays.php thold_graph.php
+msgid "Up"
+msgstr "በመስመር ላይ"
+
+#: includes/arrays.php thold_graph.php
+msgid "Unknown"
+msgstr "ያልታወቀ"
+
+#: includes/arrays.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php
+msgid "Disabled"
+msgstr "ተሰናክሏል"
+
+#: includes/arrays.php thold_graph.php
+msgid "Not Monitored"
+msgstr "ክትትል አይደረግበትም"
+
+#: includes/arrays.php
+msgid "Notify - Alert"
+msgstr "አሳውቅ - ማንቂያ"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Alert"
+msgstr "ማንቂያ"
+
+#: includes/arrays.php
+msgid "Notify - Alert2Warning"
+msgstr "አሳውቅ - Alert2Warning"
+
+#: includes/arrays.php
+msgid "Alert2Warn"
+msgstr "ማንቂያ ወደ ማስጠንቀቂያ"
+
+#: includes/arrays.php
+msgid "Notify - Warning"
+msgstr "አሳውቅ - ማስጠንቀቂያ"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Warning"
+msgstr "ማስጠንቀቂያ"
+
+#: includes/arrays.php
+msgid "Notify - Re-Trigger"
+msgstr "አሳውቅ - ዳግም ቀስቅስ"
+
+#: includes/arrays.php
+msgid "Re-Trigger"
+msgstr "ዳግም-አስነሳ"
+
+#: includes/arrays.php
+msgid "Notify - Restoral"
+msgstr "አሳውቅ - መልሶ ማግኛ"
+
+#: includes/arrays.php
+msgid "Restoral"
+msgstr "መመለስ"
+
+#: includes/arrays.php
+msgid "Event - Alert Trigger"
+msgstr "ክስተት - የማንቂያ ቀስቃሽ"
+
+#: includes/arrays.php
+msgid "Alert Event"
+msgstr "የማንቂያ ክስተት"
+
+#: includes/arrays.php
+msgid "Event - Warning Trigger"
+msgstr "ክስተት - የማስጠንቀቂያ ቀስቃሽ"
+
+#: includes/arrays.php
+msgid "Warning Event"
+msgstr "የማስጠንቀቂያ ክስተት"
+
+#: includes/arrays.php
+msgid "Event - Restoral"
+msgstr "ክስተት - ወደነበረበት መመለስ"
+
+#: includes/arrays.php thold_graph.php
+msgid "Restoral Event"
+msgstr "የመመለስ ክስተት"
+
+#: includes/arrays.php
+msgid "Event - Acknowledge"
+msgstr "ክስተት - እውቅና መስጠት"
+
+#: includes/arrays.php
+msgid "Acknowledge Event"
+msgstr "ክስተቱን አረጋግጥ"
+
+#: includes/arrays.php
+msgid "Restore"
+msgstr "ወደነበረበት መልስ"
+
+#: includes/arrays.php
+msgid "Alert Trigger"
+msgstr "የማንቂያ ቀስቃሽ"
+
+#: includes/arrays.php
+msgid "Warn Trigger"
+msgstr "የማስጠንቀቂያ ቀስቃሽ"
+
+#: includes/arrays.php
+msgid "Alert-Warn"
+msgstr "ማንቂያ-ማስጠንቀቂያ"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Acknowledgment"
+msgstr "ማረጋገጫ"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Baseline Alert"
+msgstr "የመነሻ መስመር ማንቂያ"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Notice"
+msgstr "ማሳሰቢያ"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Ok"
+msgstr "እሺ"
+
+#: includes/arrays.php
+msgid "Emergency"
+msgstr "ድንገተኛ አደጋ"
+
+#: includes/arrays.php thold.php thold_templates.php
+msgid "Critical"
+msgstr "ወሳኝ"
+
+#: includes/arrays.php
+msgid "Info"
+msgstr "መረጃ"
+
+#: includes/arrays.php
+msgid "Debug"
+msgstr "ማረም"
+
+#: includes/arrays.php includes/functions.php
+msgid "Never"
+msgstr "ፈጽሞ"
+
+#: includes/arrays.php
+msgid "Every Minute"
+msgstr "በየደቂቃው"
+
+#: includes/arrays.php includes/settings.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "በየ %d ደቂቃዎች"
+
+#: includes/arrays.php
+msgid "Every Hour"
+msgstr "በየሰዓቱ"
+
+#: includes/arrays.php includes/settings.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "በየ %d ሰዓታት"
+
+#: includes/arrays.php
+msgid "Every Day"
+msgstr "በየቀኑ"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Days"
+msgstr "በየ %d ቀናት"
+
+#: includes/arrays.php
+msgid "Every Week"
+msgstr "በየሳምንቱ"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Weeks"
+msgstr "በየ %d ሳምንታት"
+
+#: includes/arrays.php
+msgid "Every Month"
+msgstr "በየወሩ"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Minute"
+msgstr "%d ደቂቃ"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Minutes"
+msgstr "%d ደቂቃዎች"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Hour"
+msgstr "%d ሰዓት"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Hours"
+msgstr "%d ሰዓታት"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Day"
+msgstr "%d ቀን"
+
+#: includes/arrays.php thold_graph.php
+#, php-format
+msgid "%d Days"
+msgstr "%d ቀናት"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Week"
+msgstr "%d ሳምንት"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Weeks"
+msgstr "%d ሳምንታት"
+
+#: includes/arrays.php
+#, php-format
+msgid "%0.1f Hours"
+msgstr "%0.1f ሰዓታት"
+
+#: includes/arrays.php
+msgid "Every Polling"
+msgstr "በእያንዳንዱ ፖሊንግ"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Pollings"
+msgstr "በየ %d ፖሊንጎች"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Polling"
+msgstr "%d ፖሊንግ"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Pollings"
+msgstr "%d ፖሊንጎች"
+
+#: includes/arrays.php
+msgid "High / Low"
+msgstr "ከፍተኛ / ዝቅተኛ"
+
+#: includes/arrays.php
+msgid "Baseline Deviation"
+msgstr "የመነሻ መስመር ልዩነት"
+
+#: includes/arrays.php
+msgid "Time Based"
+msgstr "በጊዜ ላይ የተመሰረተ"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Min/Max [TIP]"
+msgstr "%% ልዩነት ዝቅተኛ/ከፍተኛ [TIP]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation CF [TIP]"
+msgstr "%% ልዩነት CF [TIP]"
+
+#: includes/arrays.php
+msgid "Absolute Val Min/Max [TIP]"
+msgstr "ፍጹም እሴት ዝቅተኛ/ከፍተኛ [TIP]"
+
+#: includes/arrays.php
+msgid "Absolute Val of CF [TIP]"
+msgstr "የCF ፍጹም እሴት [TIP]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Avg [AOT]"
+msgstr "%% ልዩነት አማካይ [AOT]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Avg of CF [AOT]"
+msgstr "%% የCF ልዩነት አማካይ [AOT]"
+
+#: includes/arrays.php
+msgid "Absolute Val Avg [AOT]"
+msgstr "ፍጹም እሴት አማካይ [AOT]"
+
+#: includes/arrays.php
+msgid "Absolute Val Avg of CF [AOT]"
+msgstr "የCF ፍጹም እሴት አማካይ [AOT]"
+
+#: includes/arrays.php
+msgid "Exact Value"
+msgstr "ትክክለኛ እሴት"
+
+#: includes/arrays.php
+msgid "CDEF"
+msgstr "CDEF"
+
+#: includes/arrays.php
+msgid "Percentage"
+msgstr "መቶኛ"
+
+#: includes/arrays.php thold.php thold_templates.php
+msgid "RPN Expression"
+msgstr "የRPN አገላለጽ"
+
+#: includes/arrays.php
+msgid "Upper + Lower bytes"
+msgstr "የላይኛው + የታችኛው ባይቶች"
+
+#: includes/arrays.php
+msgid "Acknowledge"
+msgstr "አረጋግጥ"
+
+#: includes/arrays.php
+msgid "Suspend Notifications"
+msgstr "ማሳወቂያዎችን አግድ"
+
+#: includes/arrays.php
+msgid "Resume Notifications"
+msgstr "ማሳወቂያዎችን አስቀጥል"
+
+#: includes/arrays.php notify_lists.php notify_queue.php setup.php
+msgid "Delete"
+msgstr "ሰርዝ"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "አንቃ"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "አሰናክል"
+
+#: includes/arrays.php
+msgid "Reapply Suggested Names"
+msgstr "የተጠቆሙ ስሞችን እንደገና ተግብር"
+
+#: includes/arrays.php
+msgid "Propagate Template"
+msgstr "አብነት አሰራጭ"
+
+#: includes/arrays.php thold_graph.php
+msgid "Export"
+msgstr "ወደ ውጭ ላክ"
+
+#: includes/arrays.php
+msgid "Threshold Mail"
+msgstr "የገደብ ኢሜይል"
+
+#: includes/arrays.php
+msgid "Down Host Mail"
+msgstr "የወረደ አስተናጋጅ ኢሜይል"
+
+#: includes/arrays.php
+msgid "Up Host Mail"
+msgstr "ንቁ አስተናጋጅ ኢሜይል"
+
+#: includes/arrays.php
+msgid "Threshold Cmd"
+msgstr "የገደብ ትዕዛዝ"
+
+#: includes/arrays.php
+msgid "Down Host Cmd"
+msgstr "የወረደ አስተናጋጅ ትዕዛዝ"
+
+#: includes/arrays.php
+msgid "Up Host Cmd"
+msgstr "ንቁ አስተናጋጅ ትዕዛዝ"
+
+#: includes/arrays.php
+msgid "Auto"
+msgstr "ራስ-ሰር"
+
+#: includes/arrays.php
+msgid "0 Digits"
+msgstr "0 አሃዞች"
+
+#: includes/arrays.php
+msgid "1 Digit"
+msgstr "1 አሃዝ"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Digits"
+msgstr "%d አሃዞች"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d Devices"
+msgstr "> %d መሳሪያዎች"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d %% of Devices Globally"
+msgstr "> %d %% በዓለም አቀፍ ደረጃ ያሉ መሳሪያዎች"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d Devices in a Site"
+msgstr "> %d መሳሪያዎች በአንድ ጣቢያ ውስጥ"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d %% of Devices in a Site"
+msgstr "> %d %% በአንድ ጣቢያ ውስጥ ያሉ መሳሪያዎች"
+
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "< 1 ደቂቃ"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "ከተፈጠረበት ጊዜ ጀምሮ"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "ገደቦች"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "ምዝግብ"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "የመሣሪያ ሁኔታ"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "ጊዜ:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "ተጠቃሚ:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "ሥርዓት:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "ስዋፖች:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "ገጾች:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr "ምዝገባ ብቻ፣ የጥገና መሣሪያ"
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "ነባሪ"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "በCacti ውስጥ ወደ ግራፍ አገናኝ"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>ትኩረትዎን የሚሻ ማንቂያ ወጥቷል።<br><br><b>መሣሪያ</b>፦ <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>፦ <URL><br><b>መልዕክት</b>፦ <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>ትኩረትዎን የሚሻ ማስጠንቀቂያ ወጥቷል።<br><br><b>መሣሪያ</b>፦ <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>፦ <URL><br><b>መልዕክት</b>፦ <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>አንድ ገደብ ወደ መደበኛ ሁኔታ ተመልሷል። <br><br><strong>መሣሪያ</strong>፦ <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>፦ <URL><br><strong>መልዕክት</strong>፦ <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "%% ልዩነት [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "ፍጹም እሴት [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [AOT:%s]"
+msgstr "%% ልዩነት [AOT:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "ፍጹም እሴት [AOT:%s]"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "ግራፍ እና ገደብ ለመፍጠር ሲሞከር የመሣሪያ መታወቂያው አልተዘጋጀም"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "ግራፍ እና ገደብ ለመፍጠር በሚሞከርበት ጊዜ የገደብ አብነት መለያው (ID) አልተገኘም"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "ግራፍ እና ገደብ ለመፍጠር በሚሞከርበት ጊዜ የገደብ አብነት መለያው (ID) አልተዘጋጀም"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "ለገደብ አብነት ግራፍ መፍጠር አልተሳካም"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "በመሣሪያ አብነት ካርታ ስራ ምክንያት ገደብ በራስ-ሰር ተፈጥሯል"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "ፈቃድ ተከልክሏል"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "መዝገቡ ዘምኗል"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "የተገናኘ የግራፍ አብነት ንጥል '%d' በገደብ '%d' ላይ ማግኘት አልተሳካም"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "የተፈጠረ ገደብ፦ %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "'ከፍተኛ የማንቂያ ገደብ' ወይም 'ዝቅተኛ የማንቂያ ገደብ' ወይም ሁለቱንም መግለጽ አለብዎት!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "የማይቻል ገደብ፦ 'ከፍተኛ የማንቂያ ገደብ' ከ'ዝቅተኛ የማንቂያ ገደብ' ያነሰ ነው!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "የማይቻል ገደብ፦ 'ከፍተኛ የማስጠንቀቂያ ገደብ' ከ'ዝቅተኛ የማስጠንቀቂያ ገደብ' ያነሰ ነው!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "የማይቻል ገደብ፦ 'ከፍተኛ የማስጠንቀቂያ ገደብ' ከ'ከፍተኛ የማንቂያ ገደብ' የበለጠ ነው!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "የማይቻል ገደብ፦ 'ዝቅተኛ የማንቂያ ገደብ' ከ'ዝቅተኛ የማስጠንቀቂያ ገደብ' የበለጠ ነው!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "ያለፈ የጊዜ ማጣቀሻ ወደ አዎንታዊ ሙሉ ቁጥር እሴት መቀናበር አለበት!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "'የመነሻ መስመር መዛባት ወደ ላይ' ወይም 'የመነሻ መስመር መዛባት ወደ ታች' ወይም ሁለቱንም መግለጽ አለብዎት!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "የማይቻል ገደብ፦ 'ከፍተኛ የማንቂያ ገደብ' ከ'ዝቅተኛ የማንቂያ ገደብ' ያነሰ ነው"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr "የማይቻል ገደብ፦ የማንቂያ ቀስቃሽ ቆጠራ ከ 1 የሚበልጥ ወይም እኩል መሆን አለበት!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "የማይቻል ገደብ፦ የማንቂያ ቀስቃሽ ቆጠራ ከቀስቃሽ ቆጠራ ያነሰ ወይም እኩል ወይም ከ 1 ጋር እኩል መሆን አለበት!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr "የማይቻል ገደብ፦ የማስጠንቀቂያ ቀስቃሽ ቆጠራ ከ 1 የሚበልጥ ወይም እኩል መሆን አለበት!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "የማይቻል ገደብ፦ የማስጠንቀቂያ ቀስቃሽ ቆጠራ ከቀስቃሽ ቆጠራ ያነሰ ወይም እኩል ወይም ከ 1 ጋር እኩል መሆን አለበት!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "የማይቻል ገደብ፦ 'ዝቅተኛ የማስጠንቀቂያ ገደብ' ከ'ዝቅተኛ የማንቂያ ገደብ' ያነሰ ነው!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "ያልታወቀ የገደብ ዓይነት!"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "ከመሣሪያው አብነት ጋር የተያያዙ ምንም የገደብ አብነቶች የሉም።"
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "ምንም ገደብ(ቦች) አልተፈጠሩም። አስቀድመው አሉ፣ ወይም ተስማሚ ተዛማጆች አልተገኙም።"
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "የመልዕክት ላኪ ስህተት፦ ምንም የ<b>TO</b> አድራሻ አልተዘጋጀም!!<br>የ<i>ሙከራ ኢሜይል</i> አገናኝን የሚጠቀሙ ከሆነ፣ እባክዎ የ<b>ማንቂያ ኢሜይል</b> ቅንብርን ያዘጋጁ።"
+
+#: includes/functions.php
+msgid "Done"
+msgstr "ተጠናቋል"
+
+#: includes/functions.php
+msgid "Pending"
+msgstr "በመጠባበቅ ላይ"
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "ስህተት ያለባቸው"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "አይመለከትም"
+
+#: includes/functions.php
+msgid "Success"
+msgstr "ተሳክቷል"
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "ገደቡን አረጋግጥ"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "የሚከተሉትን ገደብ(ቦች) እውቅና ለመስጠት 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "ገደብ(ቦችን) አረጋግጥ"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "ይቅር"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "ቀጥል"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "የገደብ አብነት ተገዥ የውሂብ አብነት አልተገኘም!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "የገደብ አብነት ተገዥ የውሂብ ምንጭ አልተገኘም!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "የገደብ አብነት ማስመጫ አምዶች ከዳታቤዝ ንድፍ ጋር አይዛመዱም"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "ገብቷል"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "የገደብ አብነት '%s' %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "ተዘምኗል"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "አስመጣ"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "የገደብ አብነት '%s' %s አልተሳካም!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "ማዘመን"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "የገደብ አብነት ውሂብን ለማስመጣት ሲሞከር ስህተቶች አጋጥመዋል።"
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "የገደብ አብነት ማስመጫ ውሂብ XML ውሂብ ሆኖ አልተገኘም።"
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "የገደብ አብነት በሚመጣበት ጊዜ የገደብ አብነት ማስመጫ ውሂብ ትክክል አልነበረም።"
+
+#: includes/polling.php
+msgid "SNMP not in use"
+msgstr "SNMP ጥቅም ላይ አልዋለም"
+
+#: includes/polling.php
+msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
+msgstr "የመሳሪያዎች ማሳሰቢያ: <DESCRIPTION> (<HOSTNAME>) ከመቋረጥ ሁኔታ ተመልሷል"
+
+#: includes/polling.php
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
+msgstr "<br>የስርዓት <DESCRIPTION> (<HOSTNAME>) ሁኔታ፦ <DOWN/UP><br><br>ጣቢያ፦ <SITE><br>አካባቢ፦ <LOCATION><br>የአሁኑ የping ምላሽ፦ <CUR_TIME> ms<br>አማካይ የስርዓት ምላሽ፦ <AVG_TIME> ms<br>የስርዓት ተገኝነት፦ <AVAILABILITY><br>ከጸዳ ወዲህ ጠቅላላ ፍተሻዎች፦ <TOT_POLL><br>ጠቅላላ ያልተሳኩ ፍተሻዎች፦ <FAIL_POLL><br>ለመጨረሻ ጊዜ UP የተፈተሸበት ቀን፦ <LAST_FAIL><br>መሳሪያዎች ቀደም ሲል DOWN የነበሩበት ጊዜ፦ <DOWNTIME><br><br>የSNMP መረጃ፦<br>ስም - <SNMP_HOSTNAME><br>አካባቢ - <SNMP_LOCATION><br>የስራ ጊዜ - <UPTIMETEXT> (<UPTIME> ms)<br>ስርዓት - <SNMP_SYSTEM><br><br>ማስታወሻ፦ <NOTES>"
+
+#: includes/polling.php
+msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
+msgstr "የመሳሪያዎች ስህተት: <DESCRIPTION> (<HOSTNAME>) ተቋርጧል"
+
+#: includes/polling.php
+msgid "DOWN"
+msgstr "ወድቋል"
+
+#: includes/polling.php
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
+msgstr "የስርዓት ስህተት : <DESCRIPTION> (<HOSTNAME>) <DOWN/UP> ነው<br>ጣቢያ: <SITE><br>አካባቢ: <LOCATION><br>ምክንያት: <MESSAGE><br><br>አማካይ የስርዓት ምላሽ : <AVG_TIME> ms<br>የስርዓት ተገኝነት: <AVAILABILITY><br>ከጸዳ በኋላ ጠቅላላ ፍተሻዎች: <TOT_POLL><br>ጠቅላላ ያልተሳኩ ፍተሻዎች: <FAIL_POLL><br>ለመጨረሻ ጊዜ ወድቆ የተረጋገጠበት ቀን : <LAST_FAIL><br>መሳሪያዎች ቀደም ሲል የሰሩበት ጊዜ: <DOWNTIME><br>ማስታወሻ: <NOTES>"
+
+#: includes/settings.php
+msgid "(actions)"
+msgstr "(ተግባራት)"
+
+#: includes/settings.php
+msgid "(edit)"
+msgstr "(አርትዕ)"
+
+#: includes/settings.php
+msgid "(save)"
+msgstr "(አስቀምጥ)"
+
+#: includes/settings.php
+msgid "(add)"
+msgstr "(አክል)"
+
+#: includes/settings.php
+msgid "Threshold Logs"
+msgstr "የገደብ ምዝግብ ማስታወሻዎች"
+
+#: includes/settings.php
+msgid "Thresholds - Failures"
+msgstr "ገደቦች - ውድቀቶች"
+
+#: includes/settings.php
+msgid "Thresholds - Normal"
+msgstr "ገደቦች - መደበኛ"
+
+#: includes/settings.php
+msgid "Thresholds - Recovering"
+msgstr "ገደቦች - በማገገም ላይ"
+
+#: includes/settings.php
+msgid "Recent Thresholds"
+msgstr "የቅርብ ጊዜ ገደቦች"
+
+#: includes/settings.php
+msgid "Recent Device Failures"
+msgstr "የቅርብ ጊዜ የመሣሪያ ብልሽቶች"
+
+#: includes/settings.php thold_templates.php
+msgid "Threshold Templates"
+msgstr "የገደብ አብነቶች"
+
+#: includes/settings.php
+msgid "Threshold Template Import"
+msgstr "የገደብ አብነት ማስመጣት"
+
+#: includes/settings.php notify_lists.php
+msgid "Notification Lists"
+msgstr "የማሳወቂያ ዝርዝሮች"
+
+#: includes/settings.php
+msgid "Notification Lists (edit)"
+msgstr "የማሳወቂያ ዝርዝሮች (አርትዕ)"
+
+#: includes/settings.php
+msgid "Notification Queue"
+msgstr "የማሳወቂያ ወረፋ"
+
+#: includes/settings.php
+msgid "Management"
+msgstr "አስተዳደር"
+
+#: includes/settings.php notify_lists.php thold_templates.php
+msgid "Templates"
+msgstr "አብነቶች"
+
+#: includes/settings.php thold_graph.php
+msgid "Threshold"
+msgstr "ገደብ"
+
+#: includes/settings.php
+msgid "A template with that Data Source already exists!"
+msgstr "ያ የውሂብ ምንጭ ያለው አብነት አስቀድሞ አለ!"
+
+#: includes/settings.php
+msgid "Configure Thresholds"
+msgstr "ገደቦችን አዋቅር"
+
+#: includes/settings.php
+msgid "Configure Threshold Templates"
+msgstr "የገደብ አብነቶችን አዋቅር"
+
+#: includes/settings.php
+msgid "Manage Notification Lists"
+msgstr "የማሳወቂያ ዝርዝሮችን ያስተዳድሩ"
+
+#: includes/settings.php
+msgid "View Thresholds"
+msgstr "ገደቦችን ተመልከት"
+
+#: includes/settings.php
+msgid "Normal User"
+msgstr "መደበኛ ተጠቃሚ"
+
+#: includes/settings.php
+msgid "Template Editor"
+msgstr "የአብነት አርታዒ"
+
+#: includes/settings.php
+msgid "General Administration"
+msgstr "አጠቃላይ አስተዳደር"
+
+#: includes/settings.php
+msgid "Device Up/Down Notification Settings"
+msgstr "የመሣሪያ መገኘት/መቋረጥ ማሳወቂያ ቅንብሮች"
+
+#: includes/settings.php
+msgid "Threshold Up/Down Email Notification"
+msgstr "የገደብ መነሳት/መውደቅ ኢሜይል ማሳወቂያ"
+
+#: includes/settings.php notify_lists.php
+msgid "Global List"
+msgstr "ሁሉን አቀፍ ዝርዝር"
+
+#: includes/settings.php
+msgid "List Below"
+msgstr "ከታች ዘርዝር"
+
+#: includes/settings.php
+msgid "Global and List Below"
+msgstr "ሁሉን አቀፍ እና ከታች ያለው ዝርዝር"
+
+#: includes/settings.php
+msgid "Which Type of Notification List(s) should be used for Device Up/Down events?"
+msgstr "ለመሣሪያ መነሳት/መውደቅ ክስተቶች የትኛው ዓይነት የማሳወቂያ ዝርዝር(ዎች) ጥቅም ላይ መዋል አለበት?"
+
+#: includes/settings.php notify_queue.php
+msgid "Notification List"
+msgstr "የማሳወቂያ ዝርዝር"
+
+#: includes/settings.php
+msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
+msgstr "ስለ መሣሪያ መነሳት/መውደቅ ክስተቶች የትኞቹ የማሳወቂያ ዝርዝር(ዎች) ማሳወቂያ ሊደርሳቸው ይገባል?"
+
+#: includes/settings.php
+msgid "Host Failure Count"
+msgstr "የአስተናጋጅ ውድቀት ብዛት"
+
+#: includes/settings.php
+msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
+msgstr "Thold ስህተት ከመመዝገቡ እና አስተናጋጁ እንደወረደ ሪፖርት ከማድረጉ በፊት ይህ አስተናጋጅ የወረደበት የፖሊንግ ክፍተቶች ብዛት። ነባሪው 0 ነው (የ Cacti ቅንብርን ይጠቀሙ)"
+
+#: includes/settings.php
+msgid "Use Cacti Setting"
+msgstr "የ Cacti ቅንብር ይጠቀሙ"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Polling Interval"
+msgstr "%d የፖሊንግ ክፍተት"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Polling Intervals"
+msgstr "%d የፖሊንግ ክፍተቶች"
+
+#: includes/settings.php
+msgid "Alerting/Thold"
+msgstr "ማንቂያ/Thold"
+
+#: includes/settings.php notify_lists.php
+msgid "General"
+msgstr "አጠቃላይ"
+
+#: includes/settings.php
+msgid "Disable All Thresholds"
+msgstr "ሁሉንም ገደቦች አሰናክል"
+
+#: includes/settings.php
+msgid "Checking this box will disable Alerting on all Thresholds.  This can be used when it is necessary to perform maintenance on your network."
+msgstr "ይህን ሳጥን መምረጥ በሁሉም ገደቦች ላይ ማንቂያን ያሰናክላል። ይህ በአውታረ መረብዎ ላይ ጥገና ማድረግ አስፈላጊ በሚሆንበት ጊዜ ሊያገለግል ይችላል።"
+
+#: includes/settings.php
+msgid "Auto Create Thresholds"
+msgstr "ገደቦችን በራስ-ሰር ፍጠር"
+
+#: includes/settings.php
+msgid "If selected, when running either automation, or when creating/saving a Device, all Thresholds associated with the Device Template will be created."
+msgstr "ከተመረጠ፣ አውቶሜሽንን በሚያሄዱበት ጊዜ ወይም መሣሪያ በሚፈጥሩበት/በሚያስቀምጡበት ጊዜ፣ ከመሣሪያ አብነቱ ጋር የተያያዙ ሁሉም ገደቦች ይፈጠራሉ።"
+
+#: includes/settings.php
+msgid "Consider Unknown Data as Zero"
+msgstr "ያልታወቀ ውሂብን እንደ ዜሮ ውሰድ"
+
+#: includes/settings.php
+msgid "When checking Thresholds, if a Data Source returns Unknown Data ('U'), consider the value as zero for the Threshold check. You can also enable log this issue."
+msgstr "ገደቦችን በሚፈትሹበት ጊዜ፣ አንድ የውሂብ ምንጭ ያልታወቀ ውሂብ ('U') ከመለሰ፣ ለገደብ ፍተሻው እሴቱን እንደ ዜሮ ይቁጠሩት። ይህን ችግር በምዝግብ ማስታወሻ እንዲመዘገብም ማንቃት ይችላሉ።"
+
+#: includes/settings.php
+msgid "Default Management Status"
+msgstr "ነባሪ የአስተዳደር ሁኔታ"
+
+#: includes/settings.php
+msgid "Default Threshold management filter status."
+msgstr "ነባሪ የገደብ አስተዳደር ማጣሪያ ሁኔታ።"
+
+#: includes/settings.php notify_lists.php thold.php
+msgid "Any"
+msgstr "ማንኛውም"
+
+#: includes/settings.php thold.php thold_graph.php
+msgid "Breached or Triggered"
+msgstr "የተጣሰ ወይም የተቀሰቀሰ"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+msgid "Breached"
+msgstr "የተጣሰ"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+msgid "Triggered"
+msgstr "ተቀስቅሷል"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Enabled"
+msgstr "ነቅቷል"
+
+#: includes/settings.php
+msgid "Empty ifHighSpeed Default"
+msgstr "ባዶ ifHighSpeed ነባሪ"
+
+#: includes/settings.php
+msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces."
+msgstr "የአገላለጽ ገደቦችን (Expression Thresholds) በሚያሰሉበት ጊዜ፣ ifHighSpeed እና ifSpeed እንደ ዜሮ ከተመለሱ፣ በምትኩ የሚከተለውን የifHighSpeed ቅንብር ይጠቀሙ። ነባሪው ifHighSpeed ለ10GE በይነገጾች 10000 ይሆናል።"
+
+#: includes/settings.php
+msgid "Notification Preferences"
+msgstr "የማሳወቂያ ምርጫዎች"
+
+#: includes/settings.php
+msgid "Disable Legacy Notifications"
+msgstr "የቆዩ ማሳወቂያዎችን አሰናክል"
+
+#: includes/settings.php
+msgid "Checking this box will disable Legacy Alerting on all Thresholds.  Legacy Alerting is defined as any Specific Email Alerts not associated with a Notification List."
+msgstr "ይህን ሳጥን መምረጥ በሁሉም ገደቦች ላይ የቆየ ማንቂያን ያሰናክላል። የቆየ ማንቂያ ከማሳወቂያ ዝርዝር ጋር ያልተገናኘ ማንኛውም የተወሰነ የኢሜይል ማንቂያ ተብሎ ይገለጻል።"
+
+#: includes/settings.php
+msgid "Threshold Notification Templated"
+msgstr "የገደብ ማሳወቂያ በአብነት የተዘጋጀ"
+
+#: includes/settings.php
+msgid "If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template."
+msgstr "ይህ ከተመረጠ፣ የገደብ አብነት በሚፈጥሩበት ጊዜ፣ የማሳወቂያ ቅንብሮቹ በነባሪ በገደብ አብነቱ ባለቤትነት ስር ይሆናሉ።"
+
+#: includes/settings.php
+msgid "Enable Command Execution"
+msgstr "የትዕዛዝ አፈጻጸምን አንቃ"
+
+#: includes/settings.php
+msgid "Checking this box will enable the ability to run commands on Threshold breach and restoral events."
+msgstr "ይህን ሳጥን መምረጥ በገደብ ጥሰት እና መልሶ ማግኛ ክስተቶች ላይ ትዕዛዞችን የማስኬድ ችሎታን ያነቃል።"
+
+#: includes/settings.php
+msgid "Enable Per Thold Notification"
+msgstr "የእያንዳንዱን Thold ማሳወቂያ አንቃ"
+
+#: includes/settings.php
+msgid "Checking this box will enable the ability to maintain custom Email bodies for Thresholds."
+msgstr "ይህን ሳጥን መምረጥ ለገደቦች ብጁ የኢሜይል አካሎችን የማቆየት ችሎታን ያነቃል።"
+
+#: includes/settings.php
+msgid "Enable Notification Queue"
+msgstr "የማሳወቂያ ወረፋን አንቃ"
+
+#: includes/settings.php
+msgid "Checking this box will switch Thold from performing inline Notification to using either the Notification Daemon, or notifications performed out of band by the Notification poller."
+msgstr "ይህን ሳጥን መምረጥ Tholdን በመስመር ውስጥ ማሳወቂያ ከማድረግ ወደ የማሳወቂያ ዴሞንን ወይም በማሳወቂያ ፖለር በኩል ከባንድ ውጭ የሚከናወኑ ማሳወቂያዎችን ወደ መጠቀም ይቀይረዋል።"
+
+#: includes/settings.php
+msgid "Enable Sending Alert Emails to Warning Notification Lists"
+msgstr "የማስጠንቀቂያ ማሳወቂያ ዝርዝሮች ላይ የማንቂያ ኢሜይሎችን መላክን አንቃ"
+
+#: includes/settings.php
+msgid "Check this box if you wish Warning Notification List recipients to receive Alert Emails in addition to the Alert Notification list receivers.  This case is applicable when Warning Notifications goes to Administrators and Alert Notifications go to Management."
+msgstr "የማስጠንቀቂያ ማሳወቂያ ዝርዝር ተቀባዮች ከማንቂያ ማሳወቂያ ዝርዝር ተቀባዮች በተጨማሪ የማንቂያ ኢሜይሎችን እንዲቀበሉ ከፈለጉ ይህን ሳጥን ይምረጡ። ይህ ሁኔታ የማስጠንቀቂያ ማሳወቂያዎች ወደ አስተዳዳሪዎች እና የማንቂያ ማሳወቂያዎች ወደ አመራር ሲሄዱ ተግባራዊ ይሆናል።"
+
+#: includes/settings.php
+msgid "Threshold Daemon"
+msgstr "የገደብ ዴሞን"
+
+#: includes/settings.php
+msgid "Enable Threshold Daemon"
+msgstr "የገደብ ዴሞንን አንቃ"
+
+#: includes/settings.php
+msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
+msgstr "ይህን ሳጥን መምረጥ የተወሰነ የገደብ ዴሞን አጠቃቀምን ያነቃል። ይህ የስርዓት አፈጻጸምን ለመጨመር እና/ወይም የገደብ ክትትልን ወደ ተለየ አገልጋይ ለማሰራጨት ሊያገለግል ይችላል።"
+
+#: includes/settings.php
+msgid "Force Threshold Daemon Debug"
+msgstr "የገደብ ዴመን ማረሚያን አስገድድ"
+
+#: includes/settings.php
+msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
+msgstr "ይህን ሳጥን መምረጥ ከSystemD ወይም በትዕዛዝ መስመር ሲሰራ የገደብ ዴሞን ማረምን (debug) ያነቃል። ይህ ለውጥ ተለዋዋጭ ነው እና ቀጣዩ የገደብ ዑደት እንደጀመረ ወዲያውኑ ተግባራዊ ይሆናል።"
+
+#: includes/settings.php
+msgid "Daemon Down Notification Frequency"
+msgstr "የዴመን መውደቅ ማሳወቂያ ድግግሞሽ"
+
+#: includes/settings.php
+msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
+msgstr "የThold Daemon መውደቁ ከተገኘ፣ በዚህ ድግግሞሽ የኢሜይል ማሳወቂያ ላክ።"
+
+#: includes/settings.php
+#, php-format
+msgid "Every %d Hour"
+msgstr "በየ %d ሰዓት"
+
+#: includes/settings.php
+msgid "Daemon Threads"
+msgstr "የዴመን ክሮች"
+
+#: includes/settings.php
+msgid "The number of daemon threads to be handled by the Threshold Daemon."
+msgstr "በገደብ ዴሞን የሚስተናገዱ የዴሞን ክሮች ብዛት።"
+
+#: includes/settings.php
+msgid "1 Process"
+msgstr "1 ሂደት"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Processes"
+msgstr "%d ሂደቶች"
+
+#: includes/settings.php
+msgid "Logging"
+msgstr "ምዝገባ"
+
+#: includes/settings.php
+msgid "Log Threshold Breaches"
+msgstr "የገደብ ጥሰቶችን መዝግብ"
+
+#: includes/settings.php
+msgid "Enable logging of all Threshold failures to the Cacti Log."
+msgstr "ሁሉንም የገደብ ውድቀቶች ወደ Cacti መዝገብ መመዝገብ አንቃ።"
+
+#: includes/settings.php
+msgid "Show Data Source in Log"
+msgstr "የውሂብ ምንጭን በምዝግብ ማስታወሻ ውስጥ አሳይ"
+
+#: includes/settings.php
+msgid "Show the Data Source name in the Log if not present."
+msgstr "የውሂብ ምንጭ ስም ከሌለ በምዝግብ ማስታወሻው ውስጥ አሳይ።"
+
+#: includes/settings.php
+msgid "Log Threshold Changes"
+msgstr "የገደብ ለውጦችን መዝግብ"
+
+#: includes/settings.php
+msgid "Enable logging of all Threshold changes to the Cacti Log."
+msgstr "ሁሉንም የገደብ ለውጦች ወደ Cacti መዝገብ መመዝገብ አንቃ።"
+
+#: includes/settings.php
+msgid "Debug Log"
+msgstr "የማረሚያ ምዝግብ ማስታወሻ"
+
+#: includes/settings.php
+msgid "Enable logging of debug messages with Threshold"
+msgstr "የማረሚያ መልዕክቶችን ከገደብ ጋር መመዝገብ አንቃ"
+
+#: includes/settings.php
+msgid "Alert Log Retention"
+msgstr "የማንቂያ መዝገብ ማቆያ"
+
+#: includes/settings.php
+msgid "Keep Threshold Logs for this number of days."
+msgstr "የገደብ ምዝግብ ማስታወሻዎችን ለዚህ ያህል ቀናት አቆይ።"
+
+#: includes/settings.php
+msgid "Log action Consider Unknown Data as Zero"
+msgstr "የምዝግብ እርምጃ ያልታወቀ ውሂብ እንደ ዜሮ ይቆጠር"
+
+#: includes/settings.php
+msgid "When 'Consider Unknown Data as Zero' is enabled, log when it occurs"
+msgstr "'ያልታወቀ ውሂብን እንደ ዜሮ ውሰድ' ሲነቃ፣ በሚከሰትበት ጊዜ መዝግብ"
+
+#: includes/settings.php thold.php thold_templates.php
+msgid "Syslog Settings"
+msgstr "የSyslog ቅንብሮች"
+
+#: includes/settings.php
+msgid "Syslog Enabled"
+msgstr "Syslog ነቅቷል"
+
+#: includes/settings.php
+msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "ይህ ከተመረጠ፣ አዲስ ገደብ በሚፈጥሩበት ጊዜ በነባሪ አዲስ የገደብ ክስተቶች ወደ አካባቢያዊ syslogዎ ይላካሉ። ይህ ቅንብር ቅድመ-ዝግጅት ነው። ትክክለኛውን የsyslog ቁጥጥር የሚወስኑት የገደብ ቅንብሮች ናቸው።"
+
+#: includes/settings.php
+msgid "Default Priority/Level"
+msgstr "ነባሪ ቅድሚያ/ደረጃ"
+
+#: includes/settings.php
+msgid "This is the default Priority/Level that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "ይህ Thold የsyslog መልእክቶችን ለመላክ የሚጠቀምበት ነባሪ ቅድሚያ/ደረጃ ነው። ይህ ቅንብር ቀድሞ የተዘጋጀ ነው። ትክክለኛውን የsyslog ቁጥጥር የሚወስኑት የገደብ ቅንብሮች ናቸው።"
+
+#: includes/settings.php
+msgid "Default Facility"
+msgstr "ነባሪ ፋሲሊቲ"
+
+#: includes/settings.php
+msgid "This is the default Facility that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "ይህ Thold የsyslog መልእክቶችን ለመላክ የሚጠቀምበት ነባሪ Facility ነው። ይህ ቅንብር ቀድሞ የተዘጋጀ ነው። ትክክለኛውን የsyslog ቁጥጥር የሚወስኑት የገደብ ቅንብሮች ናቸው።"
+
+#: includes/settings.php
+msgid "Alert Presets"
+msgstr "የማንቂያ ቅድመ-ቅምጦች"
+
+#: includes/settings.php
+msgid "Weekend exemptions"
+msgstr "የሳምንት መጨረሻ ነፃ ማድረጊያዎች"
+
+#: includes/settings.php
+msgid "If this is checked, Thold will not run on weekends."
+msgstr "ይህ ከተመረጠ፣ Thold በሳምንቱ መጨረሻ ቀናት አይሄድም።"
+
+#: includes/settings.php
+msgid "Default Trigger Count"
+msgstr "ነባሪ የቀስቃሽ ብዛት"
+
+#: includes/settings.php
+msgid "Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised."
+msgstr "ማንቂያ እንዲነሳ የውሂብ ምንጩ ገደቡን መጣስ ያለበት ነባሪ ተከታታይ ጊዜያት ብዛት።"
+
+#: includes/settings.php
+msgid "Re-Alerting"
+msgstr "ዳግም-ማንቂያ"
+
+#: includes/settings.php
+msgid "Repeat Alert after specified number of poller cycles."
+msgstr "ከተጠቀሰው የፖለር ዑደቶች ብዛት በኋላ ማንቂያውን ድገም።"
+
+#: includes/settings.php
+msgid "Baseline Presets"
+msgstr "የመነሻ መስመር ቅድመ-ዝግጅቶች"
+
+#: includes/settings.php
+msgid "Baseline Time Range Default"
+msgstr "የመነሻ መስመር ነባሪ የጊዜ ክልል"
+
+#: includes/settings.php
+msgid "This is the default value used in creating Thresholds or templates."
+msgstr "ይህ ገደቦችን ወይም አብነቶችን በመፍጠር ላይ የሚያገለግለው ነባሪ እሴት ነው።"
+
+#: includes/settings.php
+msgid "Baseline Trigger Count"
+msgstr "የመነሻ መስመር ቀስቃሽ ቆጠራ"
+
+#: includes/settings.php
+msgid "Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised."
+msgstr "ማንቂያ እንዲነሳ የውሂብ ምንጩ የተሰላውን የመነሻ መስመር ገደብ መጣስ ያለበት ነባሪ ተከታታይ ጊዜያት ብዛት።"
+
+#: includes/settings.php
+msgid "Baseline Deviation Percentage"
+msgstr "የመነሻ መስመር ልዩነት መቶኛ"
+
+#: includes/settings.php
+msgid "SNMP Notification Options"
+msgstr "የSNMP ማሳወቂያ አማራጮች"
+
+#: includes/settings.php
+msgid "SNMP Notifications"
+msgstr "የSNMP ማሳወቂያዎች"
+
+#: includes/settings.php
+msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
+msgstr "የገደብ ሁኔታ መልዕክቶች (informs/traps) ወደ SNMP ማሳወቂያ ተቀባዮች ይላካሉ። ይህ በነባሪነት ማንቂያዎችን፣ ማስጠንቀቂያዎችን እና የመመለሻ ትራፖችን ያካትታል። ማስታወሻ: ይህ ባህሪ የCacti SNMPAgent ተሰኪን ይፈልጋል።"
+
+#: includes/settings.php
+msgid "Disable Warning Notifications"
+msgstr "የማስጠንቀቂያ ማሳወቂያዎችን አሰናክል"
+
+#: includes/settings.php
+msgid "If this is checked, Threshold will not send a notification when a warning Threshold has been breached."
+msgstr "ይህ ከተመረጠ፣ የማስጠንቀቂያ ገደብ ሲጣስ ገደብ ማሳወቂያ አይልክም።"
+
+#: includes/settings.php
+msgid "Disable Restoration Notifications"
+msgstr "የመልሶ ማቋቋም ማሳወቂያዎችን አሰናክል"
+
+#: includes/settings.php
+msgid "If this is checked, Threshold will not send a notification when the Threshold has returned to normal status."
+msgstr "ይህ ከተመረጠ፣ ገደቡ ወደ መደበኛ ሁኔታ ሲመለስ ገደብ ማሳወቂያ አይልክም።"
+
+#: includes/settings.php
+msgid "Emailing Options"
+msgstr "የኢሜይል አማራጮች"
+
+#: includes/settings.php
+msgid "Send Emails with Urgent Priority"
+msgstr "ኢሜይሎችን በአስቸኳይ ቅድሚያ ላክ"
+
+#: includes/settings.php
+msgid "Allows you to set Emails with urgent priority"
+msgstr "ኢሜይሎችን በአስቸኳይ ቅድሚያ እንዲያዘጋጁ ያስችልዎታል"
+
+#: includes/settings.php
+msgid "Send Alerts as Text"
+msgstr "ማንቂያዎችን እንደ ጽሑፍ ላክ"
+
+#: includes/settings.php
+msgid "If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email."
+msgstr "ይህ ከተመረጠ፣ ሁሉም ማንቂያዎች ያለ ግራፍ እንደ ግልጽ ጽሑፍ ኢሜይሎች እንዲላኩ ያደርጋል። ነባሪው ግራፉ በኢሜይሉ ውስጥ የተካተተ HTML ኢሜይሎች ነው።"
+
+#: includes/settings.php
+msgid "Send Email separately for each address"
+msgstr "ለእያንዳንዱ አድራሻ ኢሜይልን በተናጠል ላክ"
+
+#: includes/settings.php
+msgid "If checked, this will cause all Emails to be sent separately for each address."
+msgstr "ይህ ከተመረጠ፣ ሁሉም ኢሜይሎች ለእያንዳንዱ አድራሻ በተናጠል እንዲላኩ ያደርጋል።"
+
+#: includes/settings.php
+msgid "From Email Address"
+msgstr "የላኪ ኢሜይል አድራሻ"
+
+#: includes/settings.php
+msgid "This is the Email address that the Threshold will appear from."
+msgstr "ይህ ገደቡ የሚመጣ መስሎ የሚታይበት የኢሜይል አድራሻ ነው።"
+
+#: includes/settings.php
+msgid "From Name"
+msgstr "የላኪ ስም"
+
+#: includes/settings.php
+msgid "This is the actual name that the Threshold will appear from."
+msgstr "ይህ ገደቡ የሚመጣ መስሎ የሚታይበት ትክክለኛ ስም ነው።"
+
+#: includes/settings.php
+msgid "Device Notification Options"
+msgstr "የመሣሪያ ማሳወቂያ አማራጮች"
+
+#: includes/settings.php
+msgid "Enable Notifications"
+msgstr "ማሳወቂያዎችን አንቃ"
+
+#: includes/settings.php
+msgid "Enable Dead/Recovering host notification"
+msgstr "የጠፋ/የሚያገግም አስተናጋጅ ማሳወቂያን አንቃ"
+
+#: includes/settings.php
+msgid "Single Email Notification"
+msgstr "ነጠላ የኢሜይል ማሳወቂያ"
+
+#: includes/settings.php
+msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
+msgstr "ለማሳወቂያ ዝርዝሮች እና ለማሳወቂያ ወረፋ ብቻ የሚደገፍ። በአንድ የማስኬጃ ዑደት ውስጥ የወደቁ መሳሪያዎች ማሳወቂያዎች ካሉ። ለሁሉም መሳሪያዎች ለማሳወቂያ ዝርዝር ተቀባዮች አንድ ኢሜይል ብቻ ይላኩ።"
+
+#: includes/settings.php
+msgid "Single Email Notification Subject"
+msgstr "የነጠላ ኢሜይል ማሳወቂያ ርዕሰ ጉዳይ"
+
+#: includes/settings.php
+msgid "This is the Email Subject to be used for all Single Email Notification Emails for both Up and Down Devices."
+msgstr "ይህ ለሁለቱም ለሚሠሩ እና ለተቋረጡ መሳሪያዎች ለሁሉም ነጠላ የኢሜይል ማሳወቂያ ኢሜይሎች የሚያገለግለው የኢሜይል ርዕስ ነው።"
+
+#: includes/settings.php
+msgid "Device Notification Delay Options"
+msgstr "የመሣሪያ ማሳወቂያ መዘግየት አማራጮች"
+
+#: includes/settings.php
+msgid "Notification Delay"
+msgstr "የማሳወቂያ መዘግየት"
+
+#: includes/settings.php
+msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
+msgstr "ብዙ የጠፋ መሣሪያ ማሳወቂያዎች በአንድ ጊዜ ከመጡ፣ Cacti እነዚያን ማሳወቂያዎች ከመላኩ በፊት ችግሩ ጊዜያዊ መሆኑን ለማየት ለተወሰነ ጊዜ መላኩን ሊያቆም ይችላል። ማቆሚያው ከመጀመሩ በፊት የሚፈቀደውን የጠፋ መሣሪያ ማሳወቂያዎች ገደብ ይምረጡ።"
+
+#: includes/settings.php
+msgid "If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?"
+msgstr "ለትልቅ የወደቁ መሳሪያዎች ማሳወቂያ መጨናነቅ ማሳወቂያዎችን ለማዘግየት ከመረጡ፣ ማሳወቂያዎቹ እንዲሰሩ ከመፍቀድዎ በፊት ለምን ያህል ጊዜ ለመጠበቅ ፈቃደኛ ነዎት?"
+
+#: includes/settings.php
+msgid "Device Notification Email Options"
+msgstr "የመሣሪያ ማሳወቂያ ኢሜይል አማራጮች"
+
+#: includes/settings.php
+msgid "Global Notification Email"
+msgstr "ሁሉን አቀፍ የማሳወቂያ ኢሜይል"
+
+#: includes/settings.php
+msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
+msgstr "ዓለም አቀፍ የማሳወቂያ ዝርዝር ከተመረጠ የሞቱ መሳሪያዎች ማሳወቂያዎች የሚላኩበት የኢሜይል አድራሻ ይህ ነው።"
+
+#: includes/settings.php
+msgid "Down Subject"
+msgstr "የወረደ ርዕስ"
+
+#: includes/settings.php
+msgid "This is the Email subject that will be used for Down Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060NOTES&#062"
+msgstr "ይህ ለተቋረጡ መሳሪያዎች መልእክቶች የሚያገለግለው የኢሜይል ርዕስ ነው። ሊካተቱ የሚችሉ በርካታ የተለመዱ መተኪያ መለያዎች አሉ፦<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (የተቋረጠ መልእክት ከሆነ የመጨረሻው የሥራ ሁኔታ ቆይታ) &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
+msgstr "የመሣሪያ ስህተት፡ <DESCRIPTION> (<HOSTNAME>) ጠፍቷል (DOWN)"
+
+#: includes/settings.php
+msgid "Down Message"
+msgstr "የወረደ መልዕክት"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "ይህ የሁሉም የUP / Down መሣሪያ መልእክቶች ዋና አካል ሆኖ የሚታየው መልእክት ነው (ቢበዛ 1024 ቁምፊዎች)። HTML ይፈቀዳል፣ ነገር ግን ለጽሑፍ ብቻ ኢሜይሎች ይወገዳል። ሊካተቱ የሚችሉ በርካታ የተለመዱ መተኪያ መለያዎች አሉ፦<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (የተቋረጠ መልእክት ከሆነ የመጨረሻው የሥራ ሁኔታ ቆይታ) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
+msgstr "የስርዓት ስህተት : <DESCRIPTION> (<HOSTNAME>) <DOWN/UP> ነው<br><br>ጣቢያ: <SITE><br>አካባቢ: <LOCATION><br>ምክንያት: <MESSAGE><br>አማካይ የስርዓት ምላሽ: <AVG_TIME> ms<br>የስርዓት ተገኝነት: <AVAILABILITY><br>ከጸዳ በኋላ ጠቅላላ ፍተሻዎች: <TOT_POLL><br>ጠቅላላ ያልተሳኩ ፍተሻዎች: <FAIL_POLL><br>ለመጨረሻ ጊዜ ወድቆ የተረጋገጠበት ቀን : <LAST_FAIL><br>መሣሪያው ቀደም ሲል የሰራበት ጊዜ: <DOWNTIME><br>ማስታወሻዎች: <NOTES><br>የመሣሪያ ማስታወሻዎች: <DNOTES>"
+
+#: includes/settings.php
+msgid "Recovering Subject"
+msgstr "የማገገሚያ ርዕሰ ጉዳይ"
+
+#: includes/settings.php
+msgid "This is the Email subject that will be used for Recovering Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
+msgstr "ይህ ለሚያገግሙ መሳሪያዎች መልእክቶች የሚያገለግለው የኢሜይል ርዕስ ነው። ሊካተቱ የሚችሉ በርካታ የተለመዱ መተኪያ መለያዎች አሉ፦<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
+msgstr "የመሣሪያ ማሳወቂያ፡ <DESCRIPTION> (<HOSTNAME>) ከDOWN ሁኔታ ተመልሷል"
+
+#: includes/settings.php
+msgid "Recovering Message"
+msgstr "የማገገሚያ መልዕክት"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "ይህ የሁሉም የUP / Down መሣሪያ መልእክቶች ዋና አካል ሆኖ የሚታየው መልእክት ነው (ቢበዛ 1024 ቁምፊዎች)። HTML ይፈቀዳል፣ ነገር ግን ለጽሑፍ ብቻ ኢሜይሎች ይወገዳል። ሊካተቱ የሚችሉ በርካታ የተለመዱ መተኪያ መለያዎች አሉ፦<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
+msgstr "<br>የስርዓት <DESCRIPTION> (<HOSTNAME>) ሁኔታ፦ <DOWN/UP><br><br>ጣቢያ፦ <SITE><br>አካባቢ፦ <LOCATION><br>የአሁኑ የping ምላሽ፦ <CUR_TIME> ms<br>አማካይ የስርዓት ምላሽ፦ <AVG_TIME> ms<br>የስርዓት ተገኝነት፦ <AVAILABILITY><br>ከጸዳ ወዲህ ጠቅላላ ፍተሻዎች፦ <TOT_POLL><br>ጠቅላላ ያልተሳኩ ፍተሻዎች፦ <FAIL_POLL><br>ለመጨረሻ ጊዜ UP የተፈተሸበት ቀን፦ <LAST_FAIL><br>መሣሪያ ቀደም ሲል DOWN የነበረበት ጊዜ፦ <DOWNTIME><br><br>የSNMP መረጃ፦<br>ስም - <SNMP_HOSTNAME><br>አካባቢ - <SNMP_LOCATION><br>የስራ ጊዜ - <UPTIMETEXT> (<UPTIME> ms)<br>ስርዓት - <SNMP_SYSTEM><br><br>ማስታወሻ፦ <NOTES><br>የመሣሪያ ማስታወሻዎች፦ <DNOTES>"
+
+#: includes/settings.php
+msgid "Status Change Command"
+msgstr "የሁኔታ ለውጥ ትዕዛዝ"
+
+#: includes/settings.php
+msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+msgstr "አንድ መሣሪያ ከCacti አንጻር ሁኔታውን ሲቀይር (ከUP ወደ DOWN ወይም ከDOWN ወደ RECOVERING/UP)፣ የሚከተለውን ትዕዛዝ ያሂዱ። ይህ ትዕዛዝ የትዕዛዝ መስመር ነጋሪ እሴቶችን ማካተት የለበትም። ሆኖም የሚከተሉት ተለዋዋጮች ከስክሪፕቱ አካባቢ ሊወሰዱ ይችላሉ፦<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+
+#: includes/settings.php
+msgid "Alert/Warning Message Defaults"
+msgstr "የማንቂያ/ማስጠንቀቂያ መልእክት ነባሪዎች"
+
+#: includes/settings.php
+msgid "Threshold Alert Message"
+msgstr "የገደብ ማንቂያ መልእክት"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "ይህ በሁሉም የገደብ ማንቂያዎች አናት ላይ የሚታይ መልእክት ነው (ከፍተኛው 1024 ቁምፊዎች)። HTML ይፈቀዳል፣ ነገር ግን ለጽሑፍ ብቻ ኢሜይሎች ይወገዳል። ጥቅም ላይ ሊውሉ የሚችሉ በርካታ የተለመዱ መተኪያ መለያዎች የሚከተሉትን ያካትታሉ፦<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#60DNOTES&#62"
+
+#: includes/settings.php
+msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "ትኩረትዎን የሚፈልግ ማንቂያ ወጥቷል። <br><br><strong>መሣሪያ</strong>፦ <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>፦ <URL><br><strong>መልእክት</strong>፦ <SUBJECT><br><br><GRAPH>"
+
+#: includes/settings.php
+msgid "Threshold Warning Message"
+msgstr "የገደብ ማስጠንቀቂያ መልዕክት"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "ይህ በሁሉም የገደብ ማስጠንቀቂያዎች አናት ላይ የሚታይ መልእክት ነው (ከፍተኛው 1024 ቁምፊዎች)። HTML ይፈቀዳል፣ ነገር ግን ለጽሑፍ ብቻ ኢሜይሎች ይወገዳል። ጥቅም ላይ ሊውሉ የሚችሉ በርካታ የተለመዱ መተኪያ መለያዎች የሚከተሉትን ያካትታሉ፦<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#60DNOTES&#62"
+
+#: includes/settings.php
+msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "ትኩረትዎን የሚሻ ማስጠንቀቂያ ወጥቷል። <br><br><strong>መሣሪያ</strong>፦ <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>፦ <URL><br><strong>መልዕክት</strong>፦ <SUBJECT><br><br><GRAPH>"
+
+#: includes/settings.php
+msgid "Threshold Restoral Message"
+msgstr "የገደብ ወደ ነበረበት መመለስ መልእክት"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "ይህ በሁሉም የገደብ ወደ ነበረበት መመለስ ማሳወቂያዎች አናት ላይ የሚታይ መልእክት ነው (ከፍተኛው 1024 ቁምፊዎች)። HTML ይፈቀዳል፣ ነገር ግን ለጽሑፍ ብቻ ኢሜይሎች ይወገዳል። ጥቅም ላይ ሊውሉ የሚችሉ በርካታ የተለመዱ መተኪያ መለያዎች የሚከተሉትን ያካትታሉ፦<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#60DNOTES&#62"
+
+#: includes/settings.php
+msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "አንድ ገደብ ወደ መደበኛ ሁኔታ ተመልሷል። <br><br><strong>መሣሪያ</strong>፦ <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>፦ <URL><br><strong>መልዕክት</strong>፦ <SUBJECT><br><br><GRAPH>"
+
+#: includes/tab.php
+msgid "Thold"
+msgstr "Thold"
+
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "ገደብ(ቦች) አስቀድመው አሉ - ምንም ገደቦች አልተፈጠሩም"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "ከአብነት ገደብ ፍጠር"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "የገደብ መፍጠሪያ አዋቂ [ የገደብ ዓይነት ይምረጡ ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "የገደብ መፍጠሪያ አዋቂ [ ብጁ ውሂብ ያስገቡ እና ገደብዎን እና ግራፍዎን ለመፍጠር 'ፍጠር'ን ይጫኑ ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "የገደብ መፍጠሪያ አዋቂ [ የሚገኙ የውሂብ መጠይቅ ረድፎችን ይምረጡ ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "የገደብ መፍጠሪያ አዋቂ [ መሣሪያ ይምረጡ ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "የገደብ መፍጠሪያ አዋቂ [ የግራፍ አብነት ይምረጡ ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "የገደብ መፍጠሪያ አዋቂ [ የገደብ አብነት ይምረጡ ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "የገደብ መፍጠሪያ አዋቂ [ ገደብዎን ለመፍጠር 'ፍጠር'ን ይጫኑ ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "የገደብ መፍጠሪያ አዋቂ [ የውሂብ ምንጭ ይምረጡ ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "የገደብ መፍጠሪያ አዋቂ [ ግራፍ ይምረጡ ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "የገደብ መፍጠሪያ መስፈርቶች"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "የመፍጠር ዓይነት"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "ይህን ገደብ ለመፍጠር የሚውል የገደብ አይነት ይምረጡ።"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "የገደብ አይነት ይምረጡ"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "አብነት ያልሆነ"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "የገደብ አብነት"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "ግራፉ እና ገደቡ የሚመሰረቱበትን የገደብ አብነት ይምረጡ።"
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "የገደብ አብነት ይምረጡ"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "የግራፍ አብነት"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "ለሚፈጠረው ግራፍ የሚውል የግራፍ አብነት ይምረጡ።"
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "የግራፍ አብነት ይምረጡ"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "መሣሪያ"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "ለሚፈጠረው ገደብ እና ግራፍ የሚያገለግል መሣሪያ ይምረጡ።"
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "መሣሪያ ይምረጡ"
+
+#: includes/webapi.php
+msgid "Select an Available Item"
+msgstr "ያለ ንጥል ይምረጡ"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "የውሂብ መጠይቅ ንጥል"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "ለግራፉ እና ለገደቡ ከውሂብ መጠይቁ (Data Query) ተገቢውን ረድፍ ይምረጡ።"
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "የመፍጠር ማስታወሻዎች"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "አስፈላጊ ማስታወሻ፦"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "ይህ ገደብ በአብነት ይቀረጻል። የገደብ አብነት አማራጩን ሲጠቀሙ፣ 'ፍጠር' የሚለውን መጠየቂያ ከማግኘትዎ በፊት የገደብ አብነት፣ የግራፍ አብነት፣ መሣሪያ እና ምናልባትም የውሂብ መጠይቅ ንጥል መረጃ ይጠየቃሉ፤ በዚያን ጊዜ በግራፍ እና በውሂብ ምንጭ አብነት ደረጃ ሊተካ የሚችል ማንኛውም የግራፍ ወይም የውሂብ ምንጭ መረጃ ከተፈቀደ ይጠየቃሉ። ከዚያም 'ፍጠር' የሚለውን አዝራር በመጫን ግራፉም ሆነ ገደቡ በአንድ ጊዜ ይፈጠራሉ።"
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "ግራፍ"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "ለገደቡ ግራፉን ይምረጡ።"
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "ግራፍ ይምረጡ"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "የውሂብ ምንጭ"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "ለገደቡ የውሂብ ምንጭ ይምረጡ።"
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "የውሂብ ምንጭ ምረጥ"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "ፍጠር"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "ይህ ገደብ በአብነት <b>አይቀረጽም</b> እና በነባር ግራፎች ላይ ብቻ ይሠራል። ግራፉንም ሆነ ገደቡን በአንድ ጊዜ መፍጠር ከፈለጉ፣ ከተቆልቋዩ ውስጥ የገደብ አብነትን ይምረጡ እና 'ፍጠር' የሚለው አዝራር እስኪታይ ድረስ ይቀጥሉ።"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "ይህ ገደብ በአብነት <b>አይቀረጽም</b>። ገደብዎን ከመፍጠርዎ በፊት ነባር መሣሪያ፣ ግራፍ እና የውሂብ ምንጭ የሚመርጡበትን 'በግራፍ' መምረጥ ይችላሉ፣ ወይም አብነት ያልሆነ ገደብ እና ተጓዳኝ ግራፍ በአንድ ጊዜ እንዲፈጥሩ የሚያስችልዎትን 'የገደብ አብነት' መምረጥ ይችላሉ"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "የተመረጠ ግራፍ"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "የተፈጠረ ግራፍ፦ %s"
+
+#: notify_lists.php
+msgid "Duplicate"
+msgstr "አባዛ"
+
+#: notify_lists.php
+msgid "Associate"
+msgstr "አዛምድ"
+
+#: notify_lists.php
+msgid "Disassociate"
+msgstr "ግንኙነት አቋርጥ"
+
+#: notify_lists.php thold_graph.php
+msgid "Devices"
+msgstr "መሳሪያዎች"
+
+#: notify_lists.php
+#, php-format
+msgid "ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s"
+msgstr "ስህተት፦ ኢሜይልዎ በTo እና BCC መስመሮች ሁለቱም ላይ ሊኖር አይችልም። ከታች ያለው ኢሜይል ልክ አይደለም!<br><br>%s"
+
+#: notify_lists.php
+msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
+msgstr "የማሳወቂያ ዝርዝር(ሮችን) ለመሰረዝ 'ቀጥል' የሚለውን ጠቅ ያድርጉ። ከዝርዝሩ(ሮቹ) ጋር የተያያዘ ማንኛውም መሣሪያ(ዎች) ወይም ገደብ(ቦች) ወደ ነባሪው ይመለሳል።"
+
+#: notify_lists.php
+msgid "Delete Notification List(s)"
+msgstr "የማሳወቂያ ዝርዝር(ሮችን) ሰርዝ"
+
+#: notify_lists.php
+msgid "Click 'Continue' to Duplicate the following Notification List(s)."
+msgstr "የሚከተሉትን የማሳወቂያ ዝርዝር(ሮች) ለማባዛት 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: notify_lists.php
+msgid "New List Name"
+msgstr "አዲስ የዝርዝር ስም"
+
+#: notify_lists.php
+msgid "New Notification List"
+msgstr "አዲስ የማሳወቂያ ዝርዝር"
+
+#: notify_lists.php
+msgid "Duplicate Notification List(s)"
+msgstr "የማሳወቂያ ዝርዝር(ሮች) አባዛ"
+
+#: notify_lists.php
+#, php-format
+msgid "%s Threshold Template(s)"
+msgstr "%s የገደብ አብነት(ቶች)"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
+msgstr "የማሳወቂያ ዝርዝሩን '%s' ከታች ካሉት የገደብ አብነት(ቶች) ጋር ለማያያዝ 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: notify_lists.php
+msgid "Warning Membership:"
+msgstr "የማስጠንቀቂያ አባልነት፦"
+
+#: notify_lists.php
+msgid "No Change"
+msgstr "ምንም ለውጥ የለም"
+
+#: notify_lists.php
+msgid "Notification List Only"
+msgstr "የማሳወቂያ ዝርዝር ብቻ"
+
+#: notify_lists.php
+msgid "Notification List, Retain Other Settings"
+msgstr "የማሳወቂያ ዝርዝር፣ ሌሎች ቅንብሮችን ይያዙ"
+
+#: notify_lists.php
+msgid "Alert Membership:"
+msgstr "የማንቂያ አባልነት:"
+
+#: notify_lists.php
+msgid "Associate Notification List(s)"
+msgstr "የማሳወቂያ ዝርዝር(ሮች)ን አዛምድ"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
+msgstr "የማሳወቂያ ዝርዝሩን '%s' ከታች ካሉት የገደብ አብነት(ቶች) ለመለየት 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: notify_lists.php
+msgid "Remove List"
+msgstr "ዝርዝሩን አስወግድ"
+
+#: notify_lists.php
+msgid "Disassociate Notification List(s)"
+msgstr "የማሳወቂያ ዝርዝር(ሮች) ግንኙነት አቋርጥ"
+
+#: notify_lists.php
+#, php-format
+msgid "%s Threshold(s)"
+msgstr "%s ገደብ(ቦች)"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
+msgstr "የማሳወቂያ ዝርዝሩን '%s' ከታች ካሉት ገደብ(ቦች) ጋር ለማያያዝ 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
+msgstr "የማሳወቂያ ዝርዝሩን '%s' ከታች ካሉት ገደብ(ቦች) ለመለየት 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
+msgstr "የማሳወቂያ ዝርዝሩን '%s' ከታች ካሉት መሣሪያ(ዎች) ጋር ለማያያዝ 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: notify_lists.php
+msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
+msgstr "የመሳሪያዎችን ገደቦችም ማዛመድ ይችላሉ። ሆኖም እነዚህ የመሣሪያ ገደቦች የገደብ ማሳወቂያ ዝርዝሩ እንዲተካ ይፈቅዳሉ።"
+
+#: notify_lists.php
+msgid "Resulting Membership:"
+msgstr "የተገኘው አባልነት፦"
+
+#: notify_lists.php
+msgid "Notification and Global Lists"
+msgstr "የማሳወቂያ እና ዓለም አቀፍ ዝርዝሮች"
+
+#: notify_lists.php
+msgid "Device Threshold Warning Membership:"
+msgstr "የመሣሪያ ገደብ ማስጠንቀቂያ አባልነት:"
+
+#: notify_lists.php
+msgid "Device Threshold Alert Membership:"
+msgstr "የመሣሪያ ገደብ ማንቂያ አባልነት:"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
+msgstr "የማሳወቂያ ዝርዝሩን '%s' ከታች ካሉት መሣሪያ(ዎች) ለመለየት 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: notify_lists.php
+msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
+msgstr "የመሳሪያዎችን ገደቦች ግንኙነትም ማቋረጥ ይችላሉ። ሆኖም እነዚህ የመሣሪያ ገደቦች የገደብ ማሳወቂያ ዝርዝሩ እንዲተካ ይፈቅዳሉ።"
+
+#: notify_lists.php
+#, php-format
+msgid "[edit: %s]"
+msgstr "[አርትዕ: %s]"
+
+#: notify_lists.php
+msgid "[new]"
+msgstr "[አዲስ]"
+
+#: notify_lists.php
+msgid "List General Settings"
+msgstr "የዝርዝር አጠቃላይ ቅንብሮች"
+
+#: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
+msgid "Name"
+msgstr "ስም"
+
+#: notify_lists.php
+msgid "Enter a name for this Notification List."
+msgstr "ለዚህ የማሳወቂያ ዝርዝር ስም ያስገቡ።"
+
+#: notify_lists.php thold_graph.php
+msgid "Description"
+msgstr "መግለጫ"
+
+#: notify_lists.php
+msgid "Enter a description for this Notification List."
+msgstr "ለዚህ የማሳወቂያ ዝርዝር መግለጫ ያስገቡ።"
+
+#: notify_lists.php
+msgid "To disable all notifications from this Notification List, you can simply disable it here."
+msgstr "ከዚህ የማሳወቂያ ዝርዝር የሚመጡ ሁሉንም ማሳወቂያዎች ለማሰናከል፣ እዚህ በቀላሉ ማሰናከል ይችላሉ።"
+
+#: notify_lists.php
+msgid "To Email Addresses"
+msgstr "መድረሻ ኢሜይል አድራሻዎች"
+
+#: notify_lists.php
+msgid "Enter a comma separated list of Email addresses for this Notification List."
+msgstr "ለዚህ የማሳወቂያ ዝርዝር በኮማ የተለዩ የኢሜይል አድራሻዎች ዝርዝር ያስገቡ።"
+
+#: notify_lists.php
+msgid "BCC Email Addresses"
+msgstr "የBCC ኢሜይል አድራሻዎች"
+
+#: notify_lists.php
+msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
+msgstr "ለዚህ የማሳወቂያ ዝርዝር በድብቅ ቅጂ (BCC) እንዲላክላቸው በኮማ የተለዩ የኢሜይል አድራሻዎች ዝርዝር ያስገቡ።"
+
+#: notify_lists.php
+msgid "Email Style/Format File"
+msgstr "የኢሜይል ቅጥ/ቅርጸት ፋይል"
+
+#: notify_lists.php thold.php thold_templates.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "የሚጠቀሙበትን ብጁ የhtml መጠቅለያ እና CSS ፋይል ይምረጡ። ይህ ፋይል በሪፖርትዎ ዙሪያ የሚጠቀለሉ html እና CSS ሁለቱንም ይዟል። ከCSS በላይ ከያዘ፣ በፋይሉ ውስጥ ልዩ የሆነ <REPORT> መለያ ማስቀመጥ አለብዎት። ይህ የቅርጸት መለያ በሪፖርቱ ይዘት ይተካል። እነዚህ ፋይሎች በ'formats' ማውጫ ውስጥ ይገኛሉ."
+
+#: notify_lists.php
+msgid "Associated Devices"
+msgstr "ተዛማጅ መሳሪያዎች"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Search"
+msgstr "ፈልግ"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "Site"
+msgstr "ጣቢያ"
+
+#: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
+msgid "None"
+msgstr "ምንም"
+
+#: notify_lists.php
+msgid "Device Template"
+msgstr "የመሳሪያ አብነት"
+
+#: notify_lists.php
+msgid "Associated"
+msgstr "የተዛመደ"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Go"
+msgstr "ሂድ"
+
+#: notify_lists.php notify_queue.php
+msgid "Set/Refresh Filters"
+msgstr "ማጣሪያዎችን አዘጋጅ/አድስ"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Clear"
+msgstr "አጽዳ"
+
+#: notify_lists.php notify_queue.php
+msgid "Clear Filters"
+msgstr "ማጣሪያዎችን አጽዳ"
+
+#: notify_lists.php thold.php thold_graph.php thold_templates.php
+msgid "ID"
+msgstr "መለያ"
+
+#: notify_lists.php setup.php thold.php thold_graph.php
+msgid "Status"
+msgstr "ሁኔታ"
+
+#: notify_lists.php
+msgid "Associated Lists"
+msgstr "ተዛማጅ ዝርዝሮች"
+
+#: notify_lists.php thold_graph.php
+msgid "Graphs"
+msgstr "ግራፎች"
+
+#: notify_lists.php thold_graph.php
+msgid "Data Sources"
+msgstr "የውሂብ ምንጮች"
+
+#: notify_lists.php notify_queue.php thold_graph.php
+msgid "Hostname"
+msgstr "የአስተናጋጅ ስም"
+
+#: notify_lists.php
+msgid "Current List Only"
+msgstr "የአሁን ዝርዝር ብቻ"
+
+#: notify_lists.php
+msgid "Current and Global List(s)"
+msgstr "የአሁን እና ዓለም አቀፍ ዝርዝር(ዎች)"
+
+#: notify_lists.php
+msgid "No Associated Devices Found"
+msgstr "ምንም የተያያዙ መሳሪያዎች አልተገኙም"
+
+#: notify_lists.php
+msgid "Associated Thresholds"
+msgstr "ተዛማጅ ገደቦች"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "Template"
+msgstr "አብነት"
+
+#: notify_lists.php
+msgid "State"
+msgstr "ግዛት"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "All"
+msgstr "ሁሉም"
+
+#: notify_lists.php
+msgid "Warning Lists"
+msgstr "የማስጠንቀቂያ ዝርዝሮች"
+
+#: notify_lists.php
+msgid "Alert Lists"
+msgstr "የማንቂያ ዝርዝሮች"
+
+#: notify_lists.php thold.php thold_graph.php thold_templates.php
+msgid "Type"
+msgstr "ዓይነት"
+
+#: notify_lists.php thold.php
+msgid "Templated"
+msgstr "በአብነት የተዘጋጀ"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "No"
+msgstr "አይ"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Yes"
+msgstr "አዎ"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "baseline-LOW"
+msgstr "መነሻ መስመር-ዝቅተኛ"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "baseline-HIGH"
+msgstr "መነሻ መስመር-ከፍተኛ"
+
+#: notify_lists.php
+msgid "Select Users"
+msgstr "ተጠቃሚዎችን ምረጥ"
+
+#: notify_lists.php
+msgid "Specific Emails"
+msgstr "የተወሰኑ ኢሜይሎች"
+
+#: notify_lists.php
+msgid "Current List"
+msgstr "የአሁን ዝርዝር"
+
+#: notify_lists.php
+msgid "Unknown Threshold"
+msgstr "ያልታወቀ ገደብ"
+
+#: notify_lists.php
+msgid "Log Only"
+msgstr "ምዝግብ ብቻ"
+
+#: notify_lists.php
+msgid "Editable"
+msgstr "ሊታረም የሚችል"
+
+#: notify_lists.php
+msgid "Read Only"
+msgstr "ለንባብ ብቻ"
+
+#: notify_lists.php
+msgid "No Thresholds Found"
+msgstr "ምንም ገደቦች አልተገኙም"
+
+#: notify_lists.php
+msgid "Associated Templates"
+msgstr "ተዛማጅ አብነቶች"
+
+#: notify_lists.php notify_queue.php
+msgid "Rows"
+msgstr "ረድፎች"
+
+#: notify_lists.php
+msgid "Unknown Template"
+msgstr "ያልታወቀ አብነት"
+
+#: notify_lists.php thold_templates.php
+msgid "No Threshold Templates"
+msgstr "ምንም የገደብ አብነቶች የሉም"
+
+#: notify_lists.php
+msgid "Lists"
+msgstr "ዝርዝሮች"
+
+#: notify_lists.php
+msgid "List Name"
+msgstr "የዝርዝር ስም"
+
+#: notify_lists.php
+msgid "Emails"
+msgstr "ኢሜይሎች"
+
+#: notify_lists.php
+msgid "No Notification Lists"
+msgstr "ምንም የማሳወቂያ ዝርዝሮች የሉም"
+
+#: notify_queue.php
+msgid "Notification has been Suspended.  Press the Resume button to resume it"
+msgstr "ማሳወቂያው ታግዷል። ለመቀጠል «ቀጥል» የሚለውን ቁልፍ ይጫኑ"
+
+#: notify_queue.php
+msgid "Notification has been Resumed.  Press the Suspend button to suspend it"
+msgstr "ማሳወቂያው እንደገና ቀጥሏል። ለማገድ «አግድ» የሚለውን ቁልፍ ይጫኑ"
+
+#: notify_queue.php
+msgid "Pending Notifications have been removed from the database.  Previously sent notification not purged will remain until they age out."
+msgstr "በመጠባበቅ ላይ ያሉ ማሳወቂያዎች ከውሂብ ጎታው ተወግደዋል። ቀደም ብለው የተላኩ እና ያልተጸዱ ማሳወቂያዎች ጊዜያቸው እስኪያልፍ ድረስ ይቆያሉ።"
+
+#: notify_queue.php
+msgid "Click 'Continue' to delete the following Notification."
+msgid_plural "Click 'Continue' to delete all following Notifications."
+msgstr[0] "የሚከተለውን ማሳወቂያ ለመሰረዝ 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+msgstr[1] "የሚከተሉትን ሁሉንም ማሳወቂያዎች ለመሰረዝ 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: notify_queue.php
+msgid "Delete Notification"
+msgid_plural "Delete Notifications"
+msgstr[0] "ማሳወቂያ ሰርዝ"
+msgstr[1] "ማሳወቂያዎችን ሰርዝ"
+
+#: notify_queue.php
+#, php-format
+msgid "Event Notifications [ Notifications Suspended by User: %s, %s ago ]"
+msgstr "የክስተት ማሳወቂያዎች [ ማሳወቂያዎች በተጠቃሚ ታግደዋል፦ %s፣ ከ%s በፊት ]"
+
+#: notify_queue.php
+msgid "Event Notifications"
+msgstr "የክስተት ማሳወቂያዎች"
+
+#: notify_queue.php
+msgid "Topic"
+msgstr "ርዕስ"
+
+#: notify_queue.php
+msgid "Processed"
+msgstr "ተሰናድቷል"
+
+#: notify_queue.php
+msgid "Suspend"
+msgstr "አግድ"
+
+#: notify_queue.php
+msgid "Suspend Notification Processing"
+msgstr "የማሳወቂያ ሂደትን አግድ"
+
+#: notify_queue.php
+msgid "Resume"
+msgstr "አስቀጥል"
+
+#: notify_queue.php
+msgid "Resume Notification Processing"
+msgstr "የማሳወቂያ ሂደትን አስቀጥል"
+
+#: notify_queue.php
+msgid "Purge"
+msgstr "ሙሉ በሙሉ አጽዳ"
+
+#: notify_queue.php
+msgid "Purge Notification Queue"
+msgstr "የማሳወቂያ ወረፋን አጥፋ"
+
+#: notify_queue.php
+msgid "Notifications"
+msgstr "ማሳወቂያዎች"
+
+#: notify_queue.php
+msgid "The supported notification topic."
+msgstr "የሚደገፈው የማሳወቂያ ርዕስ።"
+
+#: notify_queue.php thold_graph.php
+msgid "Event Description"
+msgstr "የክስተት መግለጫ"
+
+#: notify_queue.php
+msgid "The name of the object as defined by the caller."
+msgstr "በጠሪው እንደተገለጸው የነገሩ ስም።"
+
+#: notify_queue.php
+msgid "The hostname that was the source of this event."
+msgstr "የዚህ ክስተት ምንጭ የነበረው የአስተናጋጅ ስም።"
+
+#: notify_queue.php
+msgid "The Notification List used if any."
+msgstr "ካለ ጥቅም ላይ የሚውለው የማሳወቂያ ዝርዝር።"
+
+#: notify_queue.php
+msgid "Object ID"
+msgstr "የነገር መታወቂያ"
+
+#: notify_queue.php
+msgid "The Object ID defined by the caller.  Generally its unique 'id'."
+msgstr "በጠሪው የተገለጸው የነገር መለያ (Object ID)። በአጠቃላይ ልዩ የሆነው 'id' ነው።"
+
+#: notify_queue.php
+msgid "Event Time"
+msgstr "የክስተት ጊዜ"
+
+#: notify_queue.php
+msgid "The time of the event as defined by the caller."
+msgstr "በጠሪው እንደተገለጸው የክስተቱ ጊዜ።"
+
+#: notify_queue.php
+msgid "Has the Notification Event been processed."
+msgstr "የማሳወቂያ ክስተቱ ተሰርቷል ወይ።"
+
+#: notify_queue.php
+msgid "Errors"
+msgstr "ስህተቶች"
+
+#: notify_queue.php
+msgid "Did this notification result in an error.  Hover on the error column for details."
+msgstr "ይህ ማሳወቂያ ስህተት አስከትሏል? ለዝርዝሮች በስህተት አምድ ላይ ያንዣብቡ።"
+
+#: notify_queue.php
+msgid "Attempts"
+msgstr "ሙከራዎች"
+
+#: notify_queue.php
+msgid "The number of delivery attempts made for this notification."
+msgstr "ለዚህ ማሳወቂያ የተደረጉ የማድረስ ሙከራዎች ብዛት።"
+
+#: notify_queue.php
+msgid "Next Attempt"
+msgstr "ቀጣይ ሙከራ"
+
+#: notify_queue.php
+msgid "When a failed notification is eligible for its next retry."
+msgstr "ያልተሳካ ማሳወቂያ ለቀጣይ ድጋሚ ሙከራው ብቁ የሚሆንበት ጊዜ።"
+
+#: notify_queue.php
+msgid "Run Time"
+msgstr "የማስኬጃ ጊዜ"
+
+#: notify_queue.php
+msgid "The time in seconds it took to process the event."
+msgstr "ክስተቱን ለማስኬድ የወሰደው ጊዜ በሰከንዶች።"
+
+#: notify_queue.php
+msgid "Not Specified"
+msgstr "ያልተገለጸ"
+
+#: notify_queue.php
+msgid "No Notifications"
+msgstr "ምንም ማሳወቂያዎች የሉም"
+
+#: setup.php
+msgid "Toggle Threshold VRULES Off"
+msgstr "የገደብ VRULESን አጥፋ"
+
+#: setup.php
+msgid "Toggle Threshold VRULES On"
+msgstr "የገደብ VRULESን አብራ"
+
+#: setup.php
+msgid "Create Threshold"
+msgstr "ገደብ ፍጠር"
+
+#: setup.php
+#, php-format
+msgid "Alert Hi for %s (%s)"
+msgstr "ከፍተኛ ማንቂያ ለ %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s)"
+msgstr "ዝቅተኛ ማንቂያ ለ %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s)"
+msgstr "ከፍተኛ ማስጠንቀቂያ ለ %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Low for %s (%s)"
+msgstr "ዝቅተኛ ማስጠንቀቂያ ለ %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Hi for %s (%s %%)"
+msgstr "ከፍተኛ ማንቂያ ለ %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s %%)"
+msgstr "ዝቅተኛ ማንቂያ ለ %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s %%)"
+msgstr "ከፍተኛ ማስጠንቀቂያ ለ %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Warning Low for %s (%s %%)"
+msgstr "ዝቅተኛ ማስጠንቀቂያ ለ %s (%s %%)"
+
+#: setup.php
+msgid "Threshold Alert/Warning Values"
+msgstr "የገደብ ማንቂያ/ማስጠንቀቂያ እሴቶች"
+
+#: setup.php
+msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
+msgstr "ሁሉንም ተገቢ ገደቦች በእነዚህ መሣሪያ(ዎች) ላይ ለመተግበር 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: setup.php
+msgid "Create Threshold from Data Source"
+msgstr "ከውሂብ ምንጭ ገደብ ፍጠር"
+
+#: setup.php
+msgid "Auto-create Thresholds"
+msgstr "ገደቦችን በራስ-ሰር ፍጠር"
+
+#: setup.php
+#, php-format
+msgid "Created %s thresholds"
+msgstr "%s ገደቦች ተፈጥረዋል"
+
+#: setup.php
+msgid "No Threshold(s) Created.  Threshold(s) Template not found."
+msgstr "ምንም ገደብ(ቦች) አልተፈጠሩም። የገደብ(ቦች) አብነት አልተገኘም።"
+
+#: setup.php
+msgid "The following Data Sources have no Threshold Templates associated with them"
+msgstr "የሚከተሉት የውሂብ ምንጮች ከእነሱ ጋር የተያያዙ የገደብ አብነቶች የሏቸውም"
+
+#: setup.php
+msgid "Click 'Continue' to create Thresholds for these Data Sources?"
+msgstr "ለእነዚህ የውሂብ ምንጮች ገደቦችን ለመፍጠር 'ቀጥል' የሚለውን ጠቅ ያድርጉ?"
+
+#: setup.php
+msgid "Available Threshold Templates"
+msgstr "ያሉ የገደብ አብነቶች"
+
+#: setup.php
+msgid "There are no Threshold Templates associated with the following Data Sources"
+msgstr "ከሚከተሉት የውሂብ ምንጮች ጋር የተያያዙ የገደብ አብነቶች የሉም"
+
+#: setup.php
+msgid "The following Graphs have no Threshold Templates associated with them"
+msgstr "የሚከተሉት ግራፎች ከእነሱ ጋር የተያያዙ የገደብ አብነቶች የሏቸውም"
+
+#: setup.php
+msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
+msgstr "ለእነዚህ ግራፍ(ፎች) ገደብ(ቦች) መፍጠር ከፈለጉ 'ቀጥል' የሚለውን ይጫኑ"
+
+#: setup.php
+msgid "There are no Threshold Templates associated with the following Graphs"
+msgstr "ከሚከተሉት ግራፎች ጋር የተያያዙ የገደብ አብነቶች የሉም"
+
+#: setup.php
+msgid "Associated Threshold Templates"
+msgstr "የተያያዙ የገደብ አብነቶች"
+
+#: setup.php
+msgid "Threshold Exists"
+msgstr "ገደብ አለ"
+
+#: setup.php
+msgid "Threshold Does Not Exist"
+msgstr "ገደብ የለም"
+
+#: setup.php
+msgid "Delete Threshold Template Association"
+msgstr "የገደብ አብነት ትስስርን ሰርዝ"
+
+#: setup.php
+msgid "No Associated Threshold Templates."
+msgstr "ምንም የተያያዙ የገደብ አብነቶች የሉም።"
+
+#: setup.php
+msgid "Add Threshold Template"
+msgstr "የገደብ አብነት አክል"
+
+#: setup.php
+msgid "Add"
+msgstr "አክል"
+
+#: setup.php
+msgid "Add Threshold Template to Device"
+msgstr "የገደብ አብነት ወደ መሣሪያ አክል"
+
+#: setup.php
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device."
+msgstr "የሚከተለውን የገደብ አብነት ለመሰረዝ 'ቀጥል' የሚለውን ጠቅ ያድርጉ፤ ከመሣሪያው ጋር ያለው ግንኙነት ይቋረጣል።"
+
+#: setup.php
+#, php-format
+msgid "Threshold Template Name: %s"
+msgstr "የገደብ አብነት ስም: %s"
+
+#: setup.php
+msgid "Remove Threshold Template"
+msgstr "የገደብ አብነት አስወግድ"
+
+#: setup.php
+msgid "Add Threshold Template to Device Template"
+msgstr "የገደብ አብነት ወደ መሣሪያ አብነት አክል"
+
+#: setup.php
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
+msgstr "የሚከተለውን የገደብ አብነት ለመሰረዝ 'ቀጥል' የሚለውን ጠቅ ያድርጉ፤ ከመሣሪያ አብነቱ ጋር ያለው ግንኙነት ይቋረጣል።"
+
+#: thold.php
+msgid "Either No Templates or Threshold(s) Already Exists - No Thresholds were created."
+msgstr "አብነቶች የሉም ወይም ገደብ(ቦች) አስቀድመው አሉ - ምንም ገደቦች አልተፈጠሩም።"
+
+#: thold.php
+msgid "You are not authorized to modify one or more of the Thresholds selected"
+msgstr "ከተመረጡት ገደቦች አንዱን ወይም ከዚያ በላይ ለመቀየር ፈቃድ የለዎትም"
+
+#: thold.php
+msgid "Click 'Delete' to delete the following Threshold(s)."
+msgstr "የሚከተሉትን ገደብ(ቦች) ለመሰረዝ 'ሰርዝ' የሚለውን ጠቅ ያድርጉ።"
+
+#: thold.php
+msgid "Delete Threshold(s)"
+msgstr "ገደብ(ቦችን) ሰርዝ"
+
+#: thold.php
+msgid "Click 'Continue' to enable the following Threshold(s)."
+msgstr "የሚከተሉትን ገደብ(ቦች) ለማንቃት 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: thold.php
+msgid "Enable Threshold(s)"
+msgstr "ገደብ(ቦች)ን አንቃ"
+
+#: thold.php
+msgid "Click 'Continue' to disable the following Threshold(s)."
+msgstr "የሚከተሉትን ገደብ(ቦች) ለማሰናከል 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: thold.php
+msgid "Disable Threshold(s)"
+msgstr "ገደብ(ቦች)ን አሰናክል"
+
+#: thold.php
+msgid "Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
+msgstr "የተጠቆመውን ስም(ሞች) በሚከተሉት ገደብ(ቦች) ላይ እንደገና ለመተግበር 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: thold.php
+msgid "Apply Suggestion"
+msgstr "ጥቆማውን ተግብር"
+
+#: thold.php
+msgid "Click 'Continue' to update the following Threshold(s) with their associate Template's details."
+msgstr "የሚከተሉትን ገደብ(ቦች) ከተዛማጅ አብነታቸው ዝርዝሮች ጋር ለማዘመን 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: thold.php
+msgid "Reapply Template"
+msgstr "አብነትን ዳግም ተግብር"
+
+#: thold.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
+msgstr "የሚከተሉትን ገደብ(ቦች) እውቅና ለመስጠት 'ቀጥል' የሚለውን ጠቅ ያድርጉ። ይህን የማይፈቅዱ ወይም ያልተቀሰቀሱ ገደቦች ችላ ይባላሉ።"
+
+#: thold.php
+msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
+msgstr "ለሚከተሉት ገደብ(ቦች) ማሳወቂያዎችን ለመቀጠል 'ቀጥል' የሚለውን ጠቅ ያድርጉ። ይህንን የማይፈቅዱ ወይም ያልተቀሰቀሱ ገደቦች ችላ ይባላሉ።"
+
+#: thold.php
+msgid "Resume Notifications for Threshold(s)"
+msgstr "ለገደብ(ቦች) ማሳወቂያዎችን አስቀጥል"
+
+#: thold.php
+msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
+msgstr "ለሚከተሉት ገደብ(ቦች) ማሳወቂያዎችን ለጊዜው ለማገድ 'ቀጥል' የሚለውን ጠቅ ያድርጉ። ይህንን የማይፈቅዱ ወይም ያልተቀሰቀሱ ገደቦች ችላ ይባላሉ።"
+
+#: thold.php
+msgid "Suspend Notification for Threshold(s)"
+msgstr "ለገደብ(ቦች) ማሳወቂያን አግድ"
+
+#: thold.php thold_templates.php
+msgid "Invalid action detected, can not proceed"
+msgstr "ልክ ያልሆነ ድርጊት ተገኝቷል፣ መቀጠል አይቻልም"
+
+#: thold.php
+msgid "Threshold Management"
+msgstr "የገደብ አስተዳደር"
+
+#: thold.php
+msgid "Apply Filters"
+msgstr "ማጣሪያዎችን ተግብር"
+
+#: thold.php
+msgid "Return to Defaults"
+msgstr "ወደ ነባሪዎች መልስ"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Data Template"
+msgstr "የውሂብ አብነት"
+
+#: thold.php thold_graph.php
+msgid "Disabled at Template"
+msgstr "በአብነት ላይ ተሰናክሏል"
+
+#: thold.php thold_graph.php
+msgid "Disabled at Threshold"
+msgstr "በገደብ ላይ ተሰናክሏል"
+
+#: thold.php thold_graph.php
+msgid "Ack Required"
+msgstr "ማረጋገጫ ያስፈልጋል"
+
+#: thold.php thold_graph.php
+msgid "By Status"
+msgstr "በሁኔታ"
+
+#: thold.php thold_graph.php
+msgid "The current threshold status. Click a status pill to filter the list to that status."
+msgstr "የአሁኑ የገደብ ሁኔታ። ዝርዝሩን ወደዚያ ሁኔታ ለማጣራት የሁኔታ አዝራሩን (status pill) ጠቅ ያድርጉ።"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "External ID"
+msgstr "ውጫዊ መለያ (ID)"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function."
+msgstr "የገደብ ዓይነት። ለመነሻ መስመር (Baseline) ዓይነቶች፦ [TIP] ከዚያ ጊዜ ጀምሮ ከአንድ ቀን ባልበለጠ ጊዜ ውስጥ ያለውን MIN፣ MAX፣ AVG እና LAST ያለፈ ጊዜን (Time In the Past) ያመለክታል። [AOT] በጠቅላላው የጊዜ ገደብ ውስጥ ያለውን አማካይ (Average over Time) ያመለክታል። በሁለት ነጥብ (:) ተከትሎ MIN፣ MAX፣ AVG፣ LAST ካለ እሴቱ የመጣው ከዚያ የማጠቃለያ ተግባር (Consolidation Function) ነው።"
+
+#: thold.php
+msgid "DSName"
+msgstr "የDS ስም"
+
+#: thold.php thold_graph.php
+msgid "Current"
+msgstr "የአሁኑ"
+
+#: thold.php thold_graph.php
+msgid "The last measured value for the Data Source"
+msgstr "ለውሂብ ምንጩ የተለካው የመጨረሻ እሴት"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "High"
+msgstr "ከፍተኛ"
+
+#: thold.php thold_graph.php
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
+msgstr "ከፍተኛ የማስጠንቀቂያ / የንቃት እሴቶች። ማስታወሻ፡ የመሠረታዊ መስመር እሴቶች በመቶኛ ናቸው፣ ሌሎች ሁሉም እሴቶች በcdef ሊቀየሩ የሚችሉ የማሳያ እሴቶች ናቸው።"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Low"
+msgstr "ዝቅተኛ"
+
+#: thold.php thold_graph.php
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
+msgstr "ዝቅተኛ የማስጠንቀቂያ / የንቃት እሴቶች። ማስታወሻ፡ የመሠረታዊ መስመር እሴቶች በመቶኛ ናቸው፣ ሌሎች ሁሉም እሴቶች በcdef ሊቀየሩ የሚችሉ የማሳያ እሴቶች ናቸው።"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Trigger"
+msgstr "ቀስቃሽ"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Duration"
+msgstr "የቆይታ ጊዜ"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Repeat"
+msgstr "ድገም"
+
+#: thold.php thold_graph.php
+msgid "In State"
+msgstr "ባለበት ሁኔታ"
+
+#: thold.php thold_graph.php
+msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
+msgstr "ገደቡ ከተጣሰ ወይም ከተቀሰቀሰ በኋላ ያለፈው የጊዜ መጠን"
+
+#: thold.php thold_graph.php
+msgid "Acknowledgment required for this Threshold"
+msgstr "ለዚህ ገደብ ማረጋገጫ ያስፈልጋል"
+
+#: thold.php thold_graph.php
+msgid "No [Template:Thold]"
+msgstr "አይ [አብነት:Thold]"
+
+#: thold.php thold_graph.php
+msgid "No [Template]"
+msgstr "አይ [አብነት]"
+
+#: thold.php thold_graph.php
+msgid "No [Thold]"
+msgstr "አይ [Thold]"
+
+#: thold.php thold_graph.php
+#, php-format
+msgid "%d Triggers"
+msgstr "%d ቀስቃሾች"
+
+#: thold.php thold_graph.php
+msgid "No Thresholds"
+msgstr "ምንም ገደቦች የሉም"
+
+#: thold.php
+msgid "Threshold Deleted, can not Edit!"
+msgstr "ገደብ ተሰርዟል፣ ማርትዕ አይቻልም!"
+
+#: thold.php
+msgid "Graph Data"
+msgstr "የግራፍ ውሂብ"
+
+#: thold.php
+msgid "Edit Threshold Template"
+msgstr "የገደብ አብነት አርትዕ"
+
+#: thold.php
+msgid "Data Source Description:"
+msgstr "የውሂብ ምንጭ መግለጫ፦"
+
+#: thold.php
+msgid "Associated Graph (Graphs using this RRD):"
+msgstr "ተዛማጅ ግራፍ (ይህን RRD የሚጠቀሙ ግራፎች)፦"
+
+#: thold.php
+msgid "Last:"
+msgstr "የመጨረሻ:"
+
+#: thold.php
+msgid "WHi:"
+msgstr "ከፍ.ማስ:"
+
+#: thold.php
+msgid "WLo:"
+msgstr "ዝቅ.ማስ:"
+
+#: thold.php
+msgid "AHi:"
+msgstr "ከፍተኛ ማንቂያ፦"
+
+#: thold.php
+msgid "ALo:"
+msgstr "ዝቅተኛ ማንቂያ፦"
+
+#: thold.php
+msgid "BL Up:"
+msgstr "BL ወደ ላይ:"
+
+#: thold.php
+msgid "BL Down:"
+msgstr "BL ወደ ታች:"
+
+#: thold.php
+#, php-format
+msgid "Unknown Template ID %d"
+msgstr "ያልታወቀ የአብነት መታወቂያ %d"
+
+#: thold.php
+msgid "Not Templated"
+msgstr "ያለ አብነት"
+
+#: thold.php
+#, php-format
+msgid "Data Source Item [ %s ] - Current value: [ %s ]"
+msgstr "የውሂብ ምንጭ ንጥል [ %s ] - የአሁኑ ዋጋ፦ [ %s ]"
+
+#: thold.php thold_templates.php
+#, php-format
+msgid "Replacement Fields: %s"
+msgstr "መተኪያ መስኮች: %s"
+
+#: thold.php thold_templates.php
+#, php-format
+msgid "Data Sources: %s"
+msgstr "የውሂብ ምንጮች፦ %s"
+
+#: thold.php
+msgid "Template/Enabled Information"
+msgstr "አብነት/ነቅቷል መረጃ"
+
+#: thold.php
+msgid "Template Propagation Enabled"
+msgstr "የአብነት ስርጭት ነቅቷል"
+
+#: thold.php
+msgid "Whether or not these settings will be propagated from the Threshold template."
+msgstr "እነዚህ ቅንብሮች ከገደብ አብነት ይተላለፉ እንደሆነ ወይም እንዳልሆነ።"
+
+#: thold.php thold_templates.php
+msgid "Template Name"
+msgstr "የአብነት ስም"
+
+#: thold.php
+msgid "Name of the Threshold Template the Threshold was created from."
+msgstr "ገደቡ የተፈጠረበት የገደብ አብነት ስም።"
+
+#: thold.php
+msgid "Enabled at Template Level"
+msgstr "በአብነት ደረጃ ነቅቷል"
+
+#: thold.php
+msgid "A Threshold must be enabled both at the Template Level and the Threshold level to be checked."
+msgstr "አንድ ገደብ እንዲፈተሽ በአብነት ደረጃ እና በገደብ ደረጃ ሁለቱም ላይ መንቃት አለበት።"
+
+#: thold.php
+msgid "Enabled at Threshold Level"
+msgstr "በገደብ ደረጃ ነቅቷል"
+
+#: thold.php thold_templates.php
+msgid "General Settings"
+msgstr "አጠቃላይ ቅንብሮች"
+
+#: thold.php
+msgid "Name (Displayed)"
+msgstr "ስም (የሚታየው)"
+
+#: thold.php
+msgid "Provide the Thresholds a meaningful name"
+msgstr "ለገደቦቹ ትርጉም ያለው ስም ያቅርቡ"
+
+#: thold.php
+msgid "Name (Format)"
+msgstr "ስም (ቅርጸት)"
+
+#: thold.php thold_templates.php
+msgid "Warning HRULE Color"
+msgstr "የማስጠንቀቂያ HRULE ቀለም"
+
+#: thold.php thold_templates.php
+msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
+msgstr "እባክዎ ለማስጠንቀቂያ ገደቦች ለግራፍ HRULE ቀለም ይምረጡ። HRULE እንዳይኖር 'ምንም' የሚለውን ይምረጡ። ማስታወሻ: ይህ ባህሪ በአሁኑ ጊዜ የሚደገፈው ለ'ትክክለኛ እሴት' እና 'መቶኛ' የውሂብ ማቀነባበሪያ ዓይነቶች ብቻ ነው።"
+
+#: thold.php thold_templates.php
+msgid "Alert HRULE Color"
+msgstr "የማንቂያ HRULE ቀለም"
+
+#: thold.php thold_templates.php
+msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
+msgstr "እባክዎ ለማንቂያ ገደቦች ለግራፍ HRULE ቀለም ይምረጡ። HRULE እንዳይኖር 'ምንም' የሚለውን ይምረጡ። ማስታወሻ: ይህ ባህሪ በአሁኑ ጊዜ የሚደገፈው ለ'ትክክለኛ እሴት' እና 'መቶኛ' የውሂብ ማቀነባበሪያ ዓይነቶች ብቻ ነው።"
+
+#: thold.php thold_templates.php
+msgid "Graph Timespan"
+msgstr "የግራፍ የጊዜ ገደብ"
+
+#: thold.php thold_templates.php
+msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
+msgstr "የግራፍ መጨረሻ ሰዓት በመቀስቀሻው ጊዜ ይዘጋጃል። የግራፍ መጀመሪያ ሰዓት የመጨረሻ ሰዓት ሲቀነስ የግራፍ የጊዜ ርዝመት ይሆናል።"
+
+#: thold.php thold_templates.php
+msgid "Skip Scaling on HRULEs"
+msgstr "በHRULEs ላይ መጠን ማስተካከልን ዝለል"
+
+#: thold.php thold_templates.php
+msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
+msgstr "ምልክት ከተደረገበት፣ በግራፉ ላይ ያለው ልኬት በማንቂያ ወይም በማስጠንቀቂያ HRULEዎች ተጽዕኖ አይደርስበትም።"
+
+#: thold.php thold_templates.php
+msgid "Weekend Exemption"
+msgstr "የሳምንት መጨረሻ ነፃ ማድረጊያ"
+
+#: thold.php thold_templates.php
+msgid "If this is checked, this Threshold will not alert on weekends."
+msgstr "ይህ ከተመረጠ፣ ይህ ገደብ በሳምንቱ መጨረሻ ቀናት ማንቂያ አይልክም።"
+
+#: thold.php thold_templates.php
+msgid "Disable Restoration Email"
+msgstr "የመልሶ ማቋቋም ኢሜይልን አሰናክል"
+
+#: thold.php thold_templates.php
+msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
+msgstr "ይህ ከተመረጠ፣ ገደቡ ወደ መደበኛ ሁኔታ ሲመለስ ገደብ ማንቂያ አይልክም።"
+
+#: thold.php thold_templates.php
+msgid "Acknowledgment Options"
+msgstr "የማረጋገጫ አማራጮች"
+
+#: thold.php thold_templates.php
+msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
+msgstr "የገደብ መጣስ ሁኔታ ሲከሰት እንዴት ምላሽ መስጠት እንዳለብዎ የሚቆጣጠሩ ሦስት የእውቅና ደረጃዎች አሉ። እነሱም፦<br><br><ul><li><i>ምንም አያስፈልግም</i> - ይህን አማራጭ ሲመርጡ ለገደብ መጣስ ምንም እውቅና አያስፈልግም።</li><li><i>ሊታገድ የሚችል ማሳወቂያ</i> - በዚህ አማራጭ አንዴ በገደቡ ላይ እውቅና ከሰጡ ወይም ማሳወቂያዎችን ካገዱ በኋላ፣ ተጥሶ እያለ ከዚያ በኋላ ማሳወቂያዎች አይደርሱዎትም። በመቀጠል ተጥሶ እያለ ማሳወቂያዎችን እንደገና ማስጀመር ይችላሉ።</li><li><i>ቀጣይነት ያለው እውቅና</i> - በዚህ አማራጭ ገደቡ ወደ መደበኛ ሁኔታ ከተመለሰ በኋላም እንኳ ለገደቡ እውቅና መስጠት እና አማራጭ የኦፕሬተር መልእክት ማቅረብ አለብዎት።</li></ul>"
+
+#: thold.php thold_templates.php
+msgid "None Required"
+msgstr "ምንም አያስፈልግም"
+
+#: thold.php thold_templates.php
+msgid "Suspendible Notification"
+msgstr "ሊታገድ የሚችል ማሳወቂያ"
+
+#: thold.php thold_templates.php
+msgid "Persistent Acknowledgment"
+msgstr "ቋሚ እውቅና"
+
+#: thold.php thold_templates.php
+msgid "Threshold Type"
+msgstr "የገደብ ዓይነት"
+
+#: thold.php thold_templates.php
+msgid "The type of Threshold that will be monitored."
+msgstr "ክትትል የሚደረግበት የገደብ አይነት።"
+
+#: thold.php thold_templates.php
+msgid "Re-Alert Cycle"
+msgstr "ዳግም-ማንቂያ ዑደት"
+
+#: thold.php
+msgid "Repeat alert after this amount of time has passed since the last alert."
+msgstr "ከመጨረሻው ማንቂያ ጀምሮ ይህ ያህል ጊዜ ካለፈ በኋላ ማንቂያውን ድገም።"
+
+#: thold.php thold_templates.php
+msgid "Warning - High / Low Settings"
+msgstr "ማስጠንቀቂያ - ከፍተኛ / ዝቅተኛ ቅንብሮች"
+
+#: thold.php thold_templates.php
+msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
+msgstr "ለከፍተኛ እና ዝቅተኛ ገደቦች የሚገቡ የቁጥር እሴቶች ከ 1 ለሚበልጡ ቁጥሮች 'K'፣ 'M'፣ 'G'፣ 'T'፣ 'P'፣ 'E'፣ 'Z'፣ 'Y' እና ከ 1 ለሚያንሱ ቁጥሮች 'm'፣ 'u'፣ 'p'፣ 'f' የሚሉ ቅጥያዎችን ሊያካትቱ ይችላሉ።"
+
+#: thold.php thold_templates.php
+msgid "High Threshold"
+msgstr "ከፍተኛ ገደብ"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "ከተቀናበረ እና የውሂብ ምንጭ እሴት ከዚህ ቁጥር በላይ ከሆነ፣ ማስጠንቀቂያ ይነሳል። ማሳሰቢያ: ይህ እሴት ጥሬ (RAW) ቁጥር መሆን አለበት። በግራፉ ላይ የሚታየው እሴት በcdef ሊቀየር ይችላል።"
+
+#: thold.php thold_templates.php
+msgid "Low Threshold"
+msgstr "ዝቅተኛ ገደብ"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "ከተቀናበረ እና የውሂብ ምንጭ እሴት ከዚህ ቁጥር በታች ከሆነ፣ ማስጠንቀቂያ ይነሳል። ማሳሰቢያ: ይህ እሴት ጥሬ (RAW) ቁጥር መሆን አለበት። በግራፉ ላይ የሚታየው እሴት በcdef ሊቀየር ይችላል።"
+
+#: thold.php
+msgid "Breach Duration"
+msgstr "የጥሰት ቆይታ"
+
+#: thold.php
+msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "ማስጠንቀቂያ እንዲነሳ የውሂብ ምንጩ ገደቡን በመጣስ ሁኔታ ውስጥ መቆየት ያለበት የጊዜ መጠን። ማሳሰቢያ፦ ይህ እሴት ጥሬ (RAW) ቁጥር መሆን አለበት። በግራፉ ላይ የሚታየው እሴት በcdef ሊቀየር ይችላል።"
+
+#: thold.php thold_templates.php
+msgid "Alert - High / Low Settings"
+msgstr "ማንቂያ - ከፍተኛ / ዝቅተኛ ቅንብሮች"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "ከተቀናበረ እና የውሂብ ምንጭ እሴት ከዚህ ቁጥር በላይ ከሆነ፣ ማንቂያ ይነሳል። ማሳሰቢያ: ይህ እሴት ጥሬ (RAW) ቁጥር መሆን አለበት። በግራፉ ላይ የሚታየው እሴት በcdef ሊቀየር ይችላል።"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "ከተቀናበረ እና የውሂብ ምንጭ እሴት ከዚህ ቁጥር በታች ከሆነ፣ ማንቂያ ይነሳል። ማሳሰቢያ: ይህ እሴት ጥሬ (RAW) ቁጥር መሆን አለበት። በግራፉ ላይ የሚታየው እሴት በcdef ሊቀየር ይችላል።"
+
+#: thold.php
+msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
+msgstr "ማንቂያ እንዲነሳ የውሂብ ምንጩ ገደቡን በመጣስ ሁኔታ ውስጥ መቆየት ያለበት የጊዜ መጠን።"
+
+#: thold.php thold_templates.php
+msgid "Warning - Time Based Settings"
+msgstr "ማስጠንቀቂያ - በጊዜ ላይ የተመሰረቱ ቅንብሮች"
+
+#: thold.php
+msgid "Breach Count"
+msgstr "የጥሰት ብዛት"
+
+#: thold.php
+msgid "The number of times the Data Source must be in breach of the Threshold."
+msgstr "የውሂብ ምንጩ ገደቡን መጣስ ያለበት ጊዜ ብዛት።"
+
+#: thold.php
+msgid "Breach Window"
+msgstr "የጥሰት መስኮት"
+
+#: thold.php thold_templates.php
+msgid "The amount of time in the past to check for Threshold breaches."
+msgstr "የገደብ መጣስን ለመፈተሽ ወደኋላ የሚታይ የጊዜ መጠን።"
+
+#: thold.php thold_templates.php
+msgid "Alert - Time Based Settings"
+msgstr "ማንቂያ - በጊዜ ላይ የተመሠረቱ ቅንብሮች"
+
+#: thold.php
+msgid "Baseline Settings"
+msgstr "የመነሻ መስመር ቅንብሮች"
+
+#: thold.php thold_templates.php
+msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
+msgstr "የመነሻ መስመር (Baseline) አይነት።  [TIP] ያለፈው ጊዜ (Time in Past) ሲሆን [AOT] በጊዜ ሂደት አማካይ (Average over Time) ነው።  የመቶኛ ልዩነት (Percentage Deviation) ከታሪካዊው እሴት የሚገኝ የመቶኛ እሴት ነው።  ፍፁም እሴት (Absolute Value) ከታሪካዊው እሴት በላይ ወይም በታች ከመነሻ መስመሩ ያለ ልዩነት ነው።  ለ[TIP] የመነሻ መስመር አይነቶች፣ MIN፣ MAX፣ AVG እና LAST በዚያን ጊዜ ውስጥ ከአንድ ቀን ካልበለጠ የጊዜ ቆይታ ይመጣሉ።"
+
+#: thold.php thold_templates.php
+msgid "Consolidation Function"
+msgstr "የማጠቃለያ ተግባር"
+
+#: thold.php thold_templates.php
+msgid "Average"
+msgstr "አማካይ"
+
+#: thold.php thold_templates.php
+msgid "Minimum"
+msgstr "ዝቅተኛ"
+
+#: thold.php thold_templates.php
+msgid "Maximum"
+msgstr "ከፍተኛ"
+
+#: thold.php thold_templates.php
+msgid "Last"
+msgstr "መጨረሻ"
+
+#: thold.php thold_templates.php
+msgid "The Consolidation function to use for the Baseline Type value calculation."
+msgstr "ለመሠረታዊ መስመር አይነት እሴት ስሌት የሚያገለግል የማጠቃለያ ተግባር።"
+
+#: thold.php thold_templates.php
+msgid "Time Range"
+msgstr "የጊዜ ክልል"
+
+#: thold.php thold_templates.php
+msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
+msgstr "የተንሳፋፊ አማካይ ዓይነት ገደብን በሚጠቀሙበት ጊዜ እንደ ማጣቀሻ የሚያገለግለውን (በRRD ጥራት ላይ የተመሰረተ) ያለፈውን ነጥብ ወይም ለተንሳፋፊ አማካይ የሚውለውን የጊዜ ቆይታ ይገልጻል"
+
+#: thold.php thold_templates.php
+msgid "Deviation UP"
+msgstr "መዛባት ወደ ላይ"
+
+#: thold.php
+#, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "ለላይኛው ወሰን ገደብ የተፈቀደውን ልዩነት ይገልጻል። ካልተዋቀረ፣ የላይኛው ወሰን ገደብ ጨርሶ አይፈተሽም። የመለኪያ አሃዱ ለ'ፍጹም እሴት' ዓይነት ፍጹም እሴቶች ሲሆን፣ ለሁለቱም '%% ልዩነት' እና '%% ተንሳፋፊ አማካይ' ደግሞ መቶኛ ነው"
+
+#: thold.php thold_templates.php
+msgid "Deviation DOWN"
+msgstr "መዛባት ወደ ታች"
+
+#: thold.php
+#, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "ለታችኛው ወሰን ገደብ የተፈቀደውን ልዩነት ይገልጻል። ካልተዋቀረ፣ የታችኛው ወሰን ገደብ ጨርሶ አይፈተሽም። የመለኪያ አሃዱ ለ'ፍጹም እሴት' ዓይነት ፍጹም እሴቶች ሲሆን፣ ለሁለቱም '%% ልዩነት' እና '%% ተንሳፋፊ አማካይ' ደግሞ መቶኛ ነው"
+
+#: thold.php thold_templates.php
+msgid "Trigger Count"
+msgstr "የቀስቃሽ ብዛት"
+
+#: thold.php
+#, php-format
+msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
+msgstr "ማንቂያ እንዲነሳ የውሂብ ምንጩ በተከታታይ ከመነሻው ገደብ በላይ መሆን ያለበት ጊዜ ብዛት።<br>ነባሪ እሴት ለመጠቀም ባዶ ይተዉት (<b>ነባሪ: %s ዑደቶች</b>)"
+
+#: thold.php thold_templates.php
+msgid "Data Manipulation"
+msgstr "የውሂብ ማስተካከያ"
+
+#: thold.php thold_templates.php
+msgid "Data Type"
+msgstr "የውሂብ ዓይነት"
+
+#: thold.php thold_templates.php
+msgid "Special formatting for the given data."
+msgstr "ለተሰጠው ውሂብ ልዩ ቅርጸት።"
+
+#: thold.php thold_templates.php
+msgid "Threshold CDEF"
+msgstr "የገደብ CDEF"
+
+#: thold.php thold_templates.php
+msgid "Apply this CDEF before returning the data."
+msgstr "ውሂቡን ከመመለስዎ በፊት ይህን CDEF ይተግብሩ።"
+
+#: thold.php
+msgid "Percent Data Source"
+msgstr "የመቶኛ የውሂብ ምንጭ"
+
+#: thold.php
+msgid "Second Data Source Item to use as total value to calculate percentage from."
+msgstr "መቶኛን ለማስላት እንደ ጠቅላላ እሴት የሚያገለግል ሁለተኛው የውሂብ ምንጭ ንጥል።"
+
+#: thold.php thold_templates.php
+msgid "Show Units"
+msgstr "መለኪያዎችን አሳይ"
+
+#: thold.php thold_templates.php
+msgid "Display units for very large or small numbers."
+msgstr "በጣም ትልቅ ወይም ትንሽ ለሆኑ ቁጥሮች አሃዶችን አሳይ።"
+
+#: thold.php thold_templates.php
+msgid "Force Units Suffix"
+msgstr "የአሃዶች ቅጥያን አስገድድ"
+
+#: thold.php thold_templates.php
+msgid "If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters."
+msgstr "በተለያዩ የገደብ ገጾች እና ማሳወቂያዎች ላይ የተገደደ የመለኪያ ቅጥያ ማሳየት ከፈለጉ፣ እዚህ ያስገቡት። መጠኑ ከ10 ቁምፊዎች ባልበለጠ የተገደበ ነው።"
+
+#: thold.php thold_templates.php
+msgid "Decimal Digits to Display"
+msgstr "የሚታዩ የአስርዮሽ አሃዞች"
+
+#: thold.php thold_templates.php
+msgid "The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2."
+msgstr "ለገደብ እና ለአሁኑ እሴቶች የሚታዩ የአስርዮሽ አሃዞች ብዛት። ነባሪው ራስ-ሰር ወይም 2 ነው።"
+
+#: thold.php
+#, php-format
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "የRPN አገላለጽ ከRRDtool ጋር ተኳሃኝ የሆነ የRPN አገላለጽ ነው።  አገባቡ ከዚህ በታች ያሉትን ሁሉንም ተግባራት እንዲሁም እንደ <span class=\"deviceUp\">|query_ifSpeed|</span> ያሉ የመሣሪያ እና የውሂብ ጥያቄ (Data Query) መተኪያ አገላለጾችን ያካትታል።  በRPN አገላለጽ ውስጥ የውሂብ ምንጭን ለመጠቀም ይህንን አገባብ መጠቀም አለብዎት፦ <span class=\"deviceUp\">|ds:dsname|</span>።  ለምሳሌ፣ <span class=\"deviceUp\">|ds:traffic_in|</span> ከግራፉ ጋር ለተያያዙት RRDfile(s) የtraffic_in የውሂብ ምንጭን የአሁኑን እሴት ያገኛል። ለአንድ ግራፍ ማንኛውም የውሂብ ምንጭ ሊካተት ይችላል።<br><br>የሂሳብ ኦፕሬተሮች፦ <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>ተግባራት፦ <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>የፍሰት ኦፕሬተሮች፦ <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>የንጽጽር ተግባራት፦ <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+
+#: thold.php thold_templates.php
+msgid "Upper Data Source"
+msgstr "የላይኛው የውሂብ ምንጭ"
+
+#: thold.php
+msgid "Upper data source to calculate the total value."
+msgstr "ጠቅላላ ዋጋውን ለማስላት የላይኛው የውሂብ ምንጭ።"
+
+#: thold.php thold_templates.php
+msgid "Notification Settings"
+msgstr "የማሳወቂያ ቅንብሮች"
+
+#: thold.php
+msgid "Alert Subject"
+msgstr "የማንቂያ ርዕሰ ጉዳይ"
+
+#: thold.php
+msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "ይህ በኢሜይሉ ውስጥ የሚታየው የኢሜይል ርዕስ ነው (ቢበዛ 128 ቁምፊዎች)። ለነባሪው ባዶ ይተዉት። ሊካተቱ የሚችሉ በርካታ የተለመዱ መተኪያ መለያዎች አሉ፦<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+
+#: thold.php
+msgid "Alert Body"
+msgstr "የማንቂያ አካል"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "ይህ በሁሉም የገደብ ማንቂያዎች አናት ላይ የሚታይ መልእክት ነው (ከፍተኛው 1024 ቁምፊዎች)። HTML ይፈቀዳል፣ ነገር ግን ለጽሑፍ ብቻ ኢሜይሎች ይወገዳል። ጥቅም ላይ ሊውሉ የሚችሉ በርካታ የተለመዱ መተኪያ መለያዎች የሚከተሉትን ያካትታሉ፦<br>ለምሳሌ &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Subject"
+msgstr "የማስጠንቀቂያ ርዕስ"
+
+#: thold.php
+msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "ይህ ወደ ማስጠንቀቂያ ከተቀየረ በኋላ በኢሜይሉ ውስጥ የሚታየው የማስጠንቀቂያ ኢሜይል ርዕስ ነው (ቢበዛ 128 ቁምፊዎች)። ለነባሪው ባዶ ይተዉት። ሊካተቱ የሚችሉ በርካታ የተለመዱ መተኪያ መለያዎች አሉ፦<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+
+#: thold.php thold_templates.php
+msgid "Warning Body"
+msgstr "የማስጠንቀቂያ ዋና አካል"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "ይህ በሁሉም የገደብ ማስጠንቀቂያዎች አናት ላይ የሚታይ መልእክት ነው (ከፍተኛው 1024 ቁምፊዎች)። HTML ይፈቀዳል፣ ነገር ግን ለጽሑፍ ብቻ ኢሜይሎች ይወገዳል። ጥቅም ላይ ሊውሉ የሚችሉ በርካታ የተለመዱ መተኪያ መለያዎች የሚከተሉትን ያካትታሉ፦<br>ለምሳሌ &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold.php thold_templates.php
+msgid "Restoral Subject"
+msgstr "የመመለስ ርዕስ"
+
+#: thold.php
+msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "ይህ ወደ መደበኛ ሁኔታ ከተመለሰ በኋላ በኢሜይሉ ውስጥ የሚታየው የኢሜይል ርዕስ ነው (ቢበዛ 128 ቁምፊዎች)። ለነባሪው ባዶ ይተዉት። ሊካተቱ የሚችሉ በርካታ የተለመዱ መተኪያ መለያዎች አሉ፦<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+
+#: thold.php
+msgid "Restoral Email Body"
+msgstr "የመመለስ ኢሜይል ዋና ክፍል"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "ይህ በሁሉም የገደብ ወደ ነበረበት መመለስ ማሳወቂያዎች አናት ላይ የሚታይ መልእክት ነው (ከፍተኛው 1024 ቁምፊዎች)። HTML ይፈቀዳል፣ ነገር ግን ለጽሑፍ ብቻ ኢሜይሎች ይወገዳል። ጥቅም ላይ ሊውሉ የሚችሉ በርካታ የተለመዱ መተኪያ መለያዎች የሚከተሉትን ያካትታሉ፦<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#60DNOTES&#62"
+
+#: thold.php thold_templates.php
+msgid "Warning Notification List"
+msgstr "የማስጠንቀቂያ ማሳወቂያ ዝርዝር"
+
+#: thold.php thold_templates.php
+msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
+msgstr "ለዚህ የውሂብ ምንጭ ማስጠንቀቂያዎችን ለመቀበል የማሳወቂያ ዝርዝር መግለጽ ወይም መምረጥ ይችላሉ"
+
+#: thold.php thold_templates.php
+msgid "Alert Notification List"
+msgstr "የማንቂያ ማሳወቂያ ዝርዝር"
+
+#: thold.php thold_templates.php
+msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
+msgstr "ለዚህ የውሂብ ምንጭ ማንቂያዎችን ለመቀበል የማሳወቂያ ዝርዝር መግለጽ ወይም መምረጥ ይችላሉ"
+
+#: thold.php thold_templates.php
+msgid "Style/Format File"
+msgstr "የቅጥ/ቅርጸት ፋይል"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Event Category"
+msgstr "የSNMP ማሳወቂያ - የክስተት ምድብ"
+
+#: thold.php thold_templates.php
+msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+msgstr "NMS የተለያዩ የSNMP ማሳወቂያዎችን በቀላሉ እንዲመድብ ለማስቻል እባክዎ የዚህ አብነት SNMP ማሳወቂያዎች ሊጠቀሙበት የሚገባውን ምድብ ይሙሉ። ለምሳሌ: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+
+#: thold.php thold_templates.php
+msgid "SNMP Event Description"
+msgstr "የSNMP ክስተት መግለጫ"
+
+#: thold.php thold_templates.php
+msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+msgstr "ተለዋዋጭ ማያያዣዎችን በመጠቀም ወደ SNMP ማሳወቂያ ተቀባዮች የሚላከውን የክስተት መግለጫ ማበጀት ይችላሉ። መደበኛ የመሣሪያ (|host_*|)፣ የውሂብ መጠይቅ (|query_*|) መተኪያ ተለዋዋጮች እንዲሁም የሚከተሉት varbinds ጥቅም ላይ ሊውሉ ይችላሉ፦<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Alert Event Severity"
+msgstr "የSNMP ማሳወቂያ - የማንቂያ ክስተት ክብደት"
+
+#: thold.php
+msgid "Severity to be used for alerts. (low impact -> critical impact)"
+msgstr "ለማንቂያዎች ጥቅም ላይ የሚውል ክብደት። (ዝቅተኛ ተጽዕኖ -> ወሳኝ ተጽዕኖ)"
+
+#: thold.php thold_templates.php
+msgid "Medium"
+msgstr "መካከለኛ"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Warning Event Severity"
+msgstr "የSNMP ማሳወቂያ - የማስጠንቀቂያ ክስተት ክብደት"
+
+#: thold.php thold_templates.php
+msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
+msgstr "ለማስጠንቀቂያዎች ጥቅም ላይ የሚውል ክብደት። (ዝቅተኛ ተጽዕኖ -> ወሳኝ ተጽዕኖ)።<br>ማስታወሻ፦ የማስጠንቀቂያዎች ክብደት ለማንቂያዎች ከተገለጸው ክብደት እኩል ወይም ያነሰ መሆን አለበት።"
+
+#: thold.php thold_templates.php
+msgid "Notify accounts"
+msgstr "መለያዎችን አሳውቅ"
+
+#: thold.php
+msgid "This is a listing of accounts that will be notified when this Threshold is breached."
+msgstr "ይህ ገደብ ሲጣስ ማሳወቂያ የሚደርሳቸው መለያዎች ዝርዝር ነው።"
+
+#: thold.php thold_templates.php
+msgid "Alert Emails"
+msgstr "የማንቂያ ኢሜይሎች"
+
+#: thold.php
+msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
+msgstr "ለዚህ የውሂብ ምንጭ ማንቂያዎችን የሚቀበሉ ተጨማሪ ኢሜይሎችን እዚህ መግለጽ ይችላሉ (በኮማ የተለዩ)"
+
+#: thold.php thold_templates.php
+msgid "Warning Emails"
+msgstr "የማስጠንቀቂያ ኢሜይሎች"
+
+#: thold.php
+msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
+msgstr "ለዚህ የውሂብ ምንጭ ማስጠንቀቂያዎችን የሚቀበሉ ተጨማሪ ኢሜይሎችን እዚህ መግለጽ ይችላሉ (በኮማ የተለዩ)"
+
+#: thold.php thold_templates.php
+msgid "If checked, Threshold notification will be sent to your local syslog."
+msgstr "ምልክት ከተደረገበት፣ የገደብ ማሳወቂያ ወደ አካባቢያዊ syslogዎ ይላካል።"
+
+#: thold.php thold_templates.php
+msgid "Priority/Level"
+msgstr "ቅድሚያ/ደረጃ"
+
+#: thold.php thold_templates.php
+msgid "This is the Priority Level that will be logged into your syslog messages."
+msgstr "ይህ በsyslog መልእክቶችዎ ውስጥ የሚመዘገበው የቅድሚያ ደረጃ ነው።"
+
+#: thold.php thold_templates.php
+msgid "Facility"
+msgstr "ፋሲሊቲ"
+
+#: thold.php thold_templates.php
+msgid "This is the Facility that will be used for this Threshold."
+msgstr "ይህ ለዚህ ገደብ የሚያገለግለው Facility ነው።"
+
+#: thold.php thold_templates.php
+msgid "Event Triggering (Shell Command)"
+msgstr "የክስተት ማስነሳት (የሼል ትዕዛዝ)"
+
+#: thold.php thold_templates.php
+msgid "High Trigger Command"
+msgstr "ከፍተኛ አስነሽ ትዕዛዝ"
+
+#: thold.php thold_templates.php
+msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "ከተቀናበረ፣ እና ከፍተኛ ገደብ ከተጣሰ፣ ይህ ትዕዛዝ ይሄዳል። እባክዎ ትክክለኛ ትዕዛዝ ያስገቡ። በተጨማሪም፣ ከገደቡ ወደ ስክሪፕቱ መረጃ ለማስተላለፍ የሚያገለግሉ በርካታ መተኪያ መለያዎች አሉ። ይህንን በትዕዛዝ መስመሩ ላይ እንደ ነጋሪ እሴቶች፣ ወይም በተሻለ መልኩ በስክሪፕቱ አካባቢ ውስጥ ማድረግ ይችላሉ። ሁሉም የመተኪያ እሴቶች በስክሪፕቱ አካባቢ ውስጥ በTHOLD_ ቅድመ-ቅጥያ ይታያሉ። ስለዚህ፣ ለምሳሌ CURRENTVALUE ወደ THOLD_CURRENTVALUE ይሆናል፣ እና የመሳሰሉት። ተለዋዋጮቹ የሚከተሉትን ያካትታሉ: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062። በመጨረሻም፣ የአስተናጋጅ፣ የውሂብ መጠይቅ እና የውሂብ ግቤት መተካት ሊደረግ ይችላል። ለምሳሌ፣ pending የተባለ ብጁ የውሂብ ግቤት ውሂብ ካለዎት፣ መተካቱን ለማከናወን |pending|ን ይጠቀሙ። ለውሂብ መጠይቅ እና ለአስተናጋጅ መተካት በቅደም ተከተል የCacti ደንቦችን |query_xxxx| እና |host_xxxx| ይጠቀሙ።"
+
+#: thold.php thold_templates.php
+msgid "Low Trigger Command"
+msgstr "ዝቅተኛ ቀስቃሽ ትዕዛዝ"
+
+#: thold.php thold_templates.php
+msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "ከተቀናበረ፣ እና ዝቅተኛ ገደብ ከተጣሰ፣ ይህ ትዕዛዝ ይሄዳል። እባክዎ ትክክለኛ ትዕዛዝ ያስገቡ። በተጨማሪም፣ ከገደቡ ወደ ስክሪፕቱ መረጃ ለማስተላለፍ የሚያገለግሉ በርካታ መተኪያ መለያዎች አሉ። ይህንን በትዕዛዝ መስመሩ ላይ እንደ ነጋሪ እሴቶች፣ ወይም በተሻለ መልኩ በስክሪፕቱ አካባቢ ውስጥ ማድረግ ይችላሉ። ሁሉም የመተኪያ እሴቶች በስክሪፕቱ አካባቢ ውስጥ በTHOLD_ ቅድመ-ቅጥያ ይታያሉ። ስለዚህ፣ ለምሳሌ CURRENTVALUE ወደ THOLD_CURRENTVALUE ይሆናል፣ እና የመሳሰሉት። ተለዋዋጮቹ የሚከተሉትን ያካትታሉ: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062። በመጨረሻም፣ የአስተናጋጅ፣ የውሂብ መጠይቅ እና የውሂብ ግቤት መተካት ሊደረግ ይችላል። ለምሳሌ፣ pending የተባለ ብጁ የውሂብ ግቤት ውሂብ ካለዎት፣ መተካቱን ለማከናወን |pending|ን ይጠቀሙ። ለውሂብ መጠይቅ እና ለአስተናጋጅ መተካት በቅደም ተከተል የCacti ደንቦችን |query_xxxx| እና |host_xxxx| ይጠቀሙ።"
+
+#: thold.php thold_templates.php
+msgid "Norm Trigger Command"
+msgstr "መደበኛ ቀስቃሽ ትዕዛዝ"
+
+#: thold.php thold_templates.php
+msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "ከተቀናበረ፣ thold ወደ መደበኛ እሴት ሲመለስ፣ ይህ ትዕዛዝ ይሄዳል። እባክዎ ትክክለኛ ትዕዛዝ ያስገቡ። በተጨማሪም፣ ከገደቡ ወደ ስክሪፕቱ መረጃ ለማስተላለፍ የሚያገለግሉ በርካታ መተኪያ መለያዎች አሉ። ይህንን በትዕዛዝ መስመሩ ላይ እንደ ነጋሪ እሴቶች፣ ወይም በተሻለ መልኩ በስክሪፕቱ አካባቢ ውስጥ ማድረግ ይችላሉ። ሁሉም የመተኪያ እሴቶች በስክሪፕቱ አካባቢ ውስጥ በTHOLD_ ቅድመ-ቅጥያ ይታያሉ። ስለዚህ፣ ለምሳሌ CURRENTVALUE ወደ THOLD_CURRENTVALUE ይሆናል፣ እና የመሳሰሉት። ተለዋዋጮቹ የሚከተሉትን ያካትታሉ: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062። በመጨረሻም፣ የአስተናጋጅ፣ የውሂብ መጠይቅ እና የውሂብ ግቤት መተካት ሊደረግ ይችላል። ለምሳሌ፣ pending የተባለ ብጁ የውሂብ ግቤት ውሂብ ካለዎት፣ መተካቱን ለማከናወን |pending|ን ይጠቀሙ። ለውሂብ መጠይቅ እና ለአስተናጋጅ መተካት በቅደም ተከተል የCacti ደንቦችን |query_xxxx| እና |host_xxxx| ይጠቀሙ።"
+
+#: thold.php thold_templates.php
+msgid "Other Settings"
+msgstr "ሌሎች ቅንብሮች"
+
+#: thold.php
+msgid "Enter an Eternal ID for this Threshold."
+msgstr "ለዚህ ገደብ Eternal ID ያስገቡ።"
+
+#: thold.php thold_templates.php
+msgid "Operator Notes"
+msgstr "የኦፕሬተር ማስታወሻዎች"
+
+#: thold.php thold_templates.php
+msgid "Enter instructions here for an operator who may be receiving the Threshold message."
+msgstr "የገደብ መልዕክቱን ሊቀበል ለሚችል ኦፕሬተር መመሪያዎችን እዚህ ያስገቡ።"
+
+#: thold.php
+msgid "Select Users(s)"
+msgstr "ተጠቃሚ(ዎች)ን ምረጥ"
+
+#: thold.php
+msgid "Users Selected"
+msgstr "የተመረጡ ተጠቃሚዎች"
+
+#: thold.php
+msgid "All Users Selected"
+msgstr "ሁሉም ተጠቃሚዎች ተመርጠዋል"
+
+#: thold_graph.php
+msgid "The Threshold has been Ascknowledged."
+msgstr "ገደቡ እውቅና ተሰጥቶታል (Acknowledged)።"
+
+#: thold_graph.php
+msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
+msgstr "ገደቡ ከእንግዲህ ማንቂያዎችን፣ ማሳወቂያዎችን አያመነጭም ወይም ትዕዛዞችን አያስፈጽምም።"
+
+#: thold_graph.php
+msgid "The Threshold will restart generating Alerts."
+msgstr "ገደቡ ማንቂያዎችን ማመንጨት እንደገና ይጀምራል።"
+
+#: thold_graph.php
+msgid "Threshold Status"
+msgstr "የገደብ ሁኔታ"
+
+#: thold_graph.php
+msgid "Actions"
+msgstr "ድርጊቶች"
+
+#: thold_graph.php
+msgid "Ack Detail"
+msgstr "የማረጋገጫ ዝርዝር"
+
+#: thold_graph.php
+msgid "Edit Threshold"
+msgstr "ገደብ አርትዕ"
+
+#: thold_graph.php
+msgid "Disable Threshold"
+msgstr "ገደብን አሰናክል"
+
+#: thold_graph.php
+msgid "Enable Threshold"
+msgstr "ገደብን አንቃ"
+
+#: thold_graph.php
+msgid "To enable the Threshold, enable the Template first"
+msgstr "ገደቡን ለማንቃት፣ መጀመሪያ አብነቱን ያንቁ"
+
+#: thold_graph.php
+msgid "View Graph"
+msgstr "ግራፍ ተመልከት"
+
+#: thold_graph.php
+msgid "View Threshold History"
+msgstr "የገደብ ታሪክን ተመልከት"
+
+#: thold_graph.php
+msgid "Suspend Notifications until the Threshold clears"
+msgstr "ገደቡ እስኪጸዳ ድረስ ማሳወቂያዎችን አግድ"
+
+#: thold_graph.php
+msgid "Resume Notifications for this breached Threshold"
+msgstr "ለዚህ ለተጣሰ ገደብ ማሳወቂያዎችን አስቀጥል"
+
+#: thold_graph.php
+msgid "Acknowledgement Message"
+msgstr "የማረጋገጫ መልዕክት"
+
+#: thold_graph.php
+msgid "Date"
+msgstr "ቀን"
+
+#: thold_graph.php
+msgid "Comment Not Found"
+msgstr "አስተያየት አልተገኘም"
+
+#: thold_graph.php
+msgid "Ack History"
+msgstr "የማረጋገጫ ታሪክ"
+
+#: thold_graph.php
+msgid "No name set"
+msgstr "ምንም ስም አልተቀናበረም"
+
+#: thold_graph.php
+msgid "Hover over icons for help"
+msgstr "ለእገዛ ጠቋሚውን በአዶዎች ላይ ያሳርፉ"
+
+#: thold_graph.php
+msgid "A description for the Device"
+msgstr "ለመሣሪያው መግለጫ"
+
+#: thold_graph.php
+msgid "A Cacti unique identifier for the Device"
+msgstr "ለመሣሪያው የCacti ልዩ መለያ"
+
+#: thold_graph.php
+msgid "The number of Graphs for this Device"
+msgstr "ለዚህ መሣሪያ ያሉ ግራፎች ብዛት"
+
+#: thold_graph.php
+msgid "The number of Data Sources for this Device"
+msgstr "ለዚህ መሣሪያ ያሉ የውሂብ ምንጮች ብዛት"
+
+#: thold_graph.php
+msgid "The status for this Device as of the last time it was polled"
+msgstr "ለመጨረሻ ጊዜ ፖል (polled) በተደረገበት ጊዜ የዚህ መሣሪያ ሁኔታ"
+
+#: thold_graph.php
+msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
+msgstr "Cacti በዚህ መሣሪያ ላይ ችግር ያገኘበት የመጨረሻ ጊዜ። በ Cacti የመረጃ መሰብሰቢያ ዑደቶች መካከል መሣሪያው ዳግም ከተነሳ ከመሣሪያው የሥራ ጊዜ ሊበልጥ ይችላል።"
+
+#: thold_graph.php
+msgid "Uptime"
+msgstr "የስራ ጊዜ"
+
+#: thold_graph.php
+msgid "The official uptime of the Device as reported by SNMP"
+msgstr "በSNMP እንደተዘገበው የመሣሪያው ይፋዊ የሥራ ጊዜ"
+
+#: thold_graph.php
+msgid "The official hostname for this Device"
+msgstr "ለዚህ መሣሪያ ኦፊሴላዊ የአስተናጋጅ ስም"
+
+#: thold_graph.php
+msgid "Current (ms)"
+msgstr "የአሁኑ (ms)"
+
+#: thold_graph.php
+msgid "The current response time for the Cacti Availability check"
+msgstr "ለCacti ተገኝነት ፍተሻ የአሁኑ የምላሽ ጊዜ"
+
+#: thold_graph.php
+msgid "Average (ms)"
+msgstr "አማካይ (ms)"
+
+#: thold_graph.php
+msgid "The average response time for the Cacti Availability check"
+msgstr "ለCacti ተገኝነት ፍተሻ አማካይ የምላሽ ጊዜ"
+
+#: thold_graph.php
+msgid "Availability"
+msgstr "ተገኝነት"
+
+#: thold_graph.php
+msgid "The overall Availability of this Device since the last counter reset in Cacti"
+msgstr "በCacti ውስጥ ከመጨረሻው የቆጣሪ ዳግም ማስጀመር ጀምሮ የዚህ መሣሪያ አጠቃላይ ተገኝነት"
+
+#: thold_graph.php
+msgid "Edit Device"
+msgstr "መሣሪያ አርትዕ"
+
+#: thold_graph.php
+msgid "View Graphs"
+msgstr "ግራፎችን ማየት"
+
+#: thold_graph.php
+msgid "No Devices"
+msgstr "ምንም መሣሪያዎች የሉም"
+
+#: thold_graph.php
+msgid "Not Up"
+msgstr "በስራ ላይ አይደለም"
+
+#: thold_graph.php
+msgid "No Export Rows Found."
+msgstr "ምንም ወደ ውጭ የሚላኩ ረድፎች አልተገኙም።"
+
+#: thold_graph.php
+#, php-format
+msgid "Threshold Log for [ %s ]"
+msgstr "የገደብ ምዝግብ ማስታወሻ ለ [ %s ]"
+
+#: thold_graph.php
+msgid "Log Entries"
+msgstr "የምዝግብ ማስታወሻ ግቤቶች"
+
+#: thold_graph.php
+msgid "Time"
+msgstr "ሰዓት"
+
+#: thold_graph.php
+msgid "Alert Value"
+msgstr "የማንቂያ እሴት"
+
+#: thold_graph.php
+msgid "Measured Value"
+msgstr "የተለካ ዋጋ"
+
+#: thold_graph.php
+msgid "No Threshold Logs Found"
+msgstr "ምንም የገደብ ምዝግብ ማስታወሻዎች አልተገኙም"
+
+#: thold_graph.php
+msgid "Entries"
+msgstr "ግቤቶች"
+
+#: thold_templates.php
+msgid "You are not authorised to modify one or more of the Thresholds selected"
+msgstr "ከተመረጡት ገደቦች አንዱን ወይም ከዚያ በላይ ለመቀየር አልተፈቀደልዎትም"
+
+#: thold_templates.php
+#, php-format
+msgid "%s (%d Thresholds)"
+msgstr "%s (%d ገደቦች)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to export the following Threshold Template(s)."
+msgstr "የሚከተሉትን የገደብ አብነት(ቶች) ወደ ውጭ ለመላክ 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: thold_templates.php
+msgid "Export Template(s)"
+msgstr "አብነት(ቶች) ወደ ውጭ ላክ"
+
+#: thold_templates.php
+msgid "Click 'Continue' to delete the following Threshold Template(s)."
+msgstr "የሚከተሉትን የገደብ አብነት(ቶች) ለመሰረዝ 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: thold_templates.php
+msgid "Delete Template(s)"
+msgstr "አብነት(ቶችን) ሰርዝ"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Reapply Suggested Names to Thresholds of the following Threshold Template(s)."
+msgstr "ለሚከተሉት የገደብ አብነት(ቶች) ገደቦች የተጠቆሙ ስሞችን እንደገና ለመተግበር 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: thold_templates.php
+msgid "Reapply Suggested Names to Template(s)"
+msgstr "የተጠቆሙ ስሞችን ለአብነት(ቶች) ዳግም ተግብር"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Enable the selected Template(s) and Threshold(s)."
+msgstr "የተመረጡትን አብነት(ቶች) እና ገደብ(ቦች) ለማንቃት 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: thold_templates.php
+msgid "Enable Template(s)"
+msgstr "አብነት(ቶች)ን አንቃ"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
+msgstr "የተመረጡትን አብነት(ቶች) እና ገደብ(ቦች) ለማሰናከል 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: thold_templates.php
+msgid "Disable Template(s)"
+msgstr "አብነት(ቶች)ን አሰናክል"
+
+#: thold_templates.php
+msgid "Threshold Template Creation Wizard"
+msgstr "የገደብ አብነት መፍጠሪያ አዋቂ"
+
+#: thold_templates.php
+msgid "Please select a Data Template"
+msgstr "እባክዎ የውሂብ አብነት ይምረጡ"
+
+#: thold_templates.php
+msgid "Please select a Data Source"
+msgstr "እባክዎ የውሂብ ምንጭ ይምረጡ"
+
+#: thold_templates.php
+msgid "Please press 'Create' to create your Threshold Template"
+msgstr "እባክዎ የገደብ አብነትዎን ለመፍጠር 'ፍጠር' የሚለውን ይጫኑ"
+
+#: thold_templates.php
+msgid "The Threshold Template requested can not be found"
+msgstr "የተጠየቀው የገደብ አብነት ሊገኝ አልቻለም"
+
+#: thold_templates.php
+msgid "Provide the Threshold Template a meaningful name."
+msgstr "ለገደብ አብነቱ ትርጉም ያለው ስም ያቅርቡ።"
+
+#: thold_templates.php
+msgid "Suggested Threshold Name"
+msgstr "የተጠቆመ የገደብ ስም"
+
+#: thold_templates.php
+msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
+msgstr "ይህንን አብነት በመጠቀም ለተፈጠረ ገደብ የተጠቆመውን ስም ያቅርቡ። መደበኛ የመሣሪያ (|host_*|), የውሂብ መጠይቅ (|query_*|) እና የግቤት (|input_*|) መተኪያ ተለዋዋጮች እንዲሁም ለግራፍ ርዕስ |graph_title| መጠቀም ይቻላል።"
+
+#: thold_templates.php
+msgid "Data Template that you are using. (This cannot be changed)"
+msgstr "እየተጠቀሙበት ያለው የውሂብ አብነት። (ይህ ሊቀየር አይችልም)"
+
+#: thold_templates.php
+msgid "Data Field"
+msgstr "የውሂብ መስክ"
+
+#: thold_templates.php
+msgid "Data Field that you are using. (This cannot be changed)"
+msgstr "እየተጠቀሙበት ያለው የውሂብ መስክ። (ይህ ሊቀየር አይችልም)"
+
+#: thold_templates.php
+msgid "Whether or not this Threshold will be checked and alerted upon."
+msgstr "ይህ ገደብ ይፈተሽ እና ማንቂያ ይሰጥበት እንደሆነ ወይም እንዳልሆነ።"
+
+#: thold_templates.php
+msgid "Repeat alert after this amount of time has pasted since the last alert."
+msgstr "ከመጨረሻው ማንቂያ ጀምሮ ይህ ያህል ጊዜ ካለፈ በኋላ ማንቂያውን ድገም።"
+
+#: thold_templates.php
+msgid "Min Trigger Duration"
+msgstr "ዝቅተኛ የቀስቃሽ ቆይታ"
+
+#: thold_templates.php
+msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
+msgstr "ማንቂያ እንዲነሳ የውሂብ ምንጩ በመጣስ ሁኔታ ውስጥ መቆየት ያለበት የጊዜ መጠን።"
+
+#: thold_templates.php
+msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
+msgstr "ማስጠንቀቂያ ከመውጣቱ በፊት የውሂብ ምንጩ በጥሰት ሁኔታ ውስጥ መሆን ያለበት ጊዜ ብዛት።"
+
+#: thold_templates.php
+msgid "Time Period Length"
+msgstr "የጊዜ ወቅት ርዝመት"
+
+#: thold_templates.php
+msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
+msgstr "ማንቂያ ከመውጣቱ በፊት የውሂብ ምንጩ በጥሰት ሁኔታ ውስጥ መሆን ያለበት ጊዜ ብዛት።"
+
+#: thold_templates.php
+msgid "Baseline Monitoring"
+msgstr "የመነሻ መስመር ክትትል"
+
+#: thold_templates.php
+#, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "ለላይኛው ወሰን ገደብ የተፈቀደውን ልዩነት ይገልጻል። ካልተዋቀረ፣ የላይኛው ወሰን ገደብ ጨርሶ አይፈተሽም። የመለኪያ አሃዱ ለ'ፍጹም እሴት' ዓይነት ፍጹም እሴቶች ሲሆን፣ ለሁለቱም '%% ልዩነት' እና '%% ተንሳፋፊ አማካይ' ደግሞ መቶኛ ነው"
+
+#: thold_templates.php
+#, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "ለታችኛው ወሰን ገደብ የተፈቀደውን ልዩነት ይገልጻል። ካልተዋቀረ፣ የታችኛው ወሰን ገደብ ጨርሶ አይፈተሽም። የመለኪያ አሃዱ ለ'ፍጹም እሴት' ዓይነት ፍጹም እሴቶች ሲሆን፣ ለሁለቱም '%% ልዩነት' እና '%% ተንሳፋፊ አማካይ' ደግሞ መቶኛ ነው"
+
+#: thold_templates.php
+#, php-format
+msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
+msgstr "ማንቂያ እንዲነሳ የውሂብ ምንጩ በተከታታይ በተጣሰ ሁኔታ ውስጥ መሆን ያለበት ጊዜ ብዛት።<br>ነባሪ እሴት ለመጠቀም ባዶ ይተዉት (ነባሪ: %s ዑደቶች"
+
+#: thold_templates.php
+msgid "Percent Datasource"
+msgstr "የመቶኛ የውሂብ ምንጭ"
+
+#: thold_templates.php
+msgid "Second Datasource Item to use as total value to calculate percentage from."
+msgstr "መቶኛን ለማስላት እንደ ጠቅላላ እሴት የሚያገለግል ሁለተኛው የውሂብ ምንጭ ንጥል።"
+
+#: thold_templates.php
+#, php-format
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "የRPN አገላለጽ ከRRDtool ጋር ተኳሃኝ የሆነ የRPN አገላለጽ ነው።  አገባቡ ከዚህ በታች ያሉትን ሁሉንም ተግባራት እንዲሁም እንደ <span style=\"color:blue;\">|query_ifSpeed|</span> ያሉ የመሣሪያ እና የውሂብ ጥያቄ (Data Query) መተኪያ አገላለጾችን ያካትታል።  በRPN አገላለጽ ውስጥ የውሂብ ምንጭን ለመጠቀም ይህንን አገባብ መጠቀም አለብዎት፦ <span style=\"color:blue;\">|ds:dsname|</span>።  ለምሳሌ፣ <span style=\"color:blue;\">|ds:traffic_in|</span> ከግራፉ ጋር ለተያያዙት RRDfile(s) የtraffic_in የውሂብ ምንጭን የአሁኑን እሴት ያገኛል። ለአንድ ግራፍ ማንኛውም የውሂብ ምንጭ ሊካተት ይችላል።<br>የሂሳብ ኦፕሬተሮች፦ <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>ተግባራት፦ <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>የፍሰት ኦፕሬተሮች፦ <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>የንጽጽር ተግባራት፦ <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+
+#: thold_templates.php
+msgid "Upper data source to use to calculate the total value."
+msgstr "ጠቅላላ ዋጋውን ለማስላት የሚያገለግል የላይኛው የውሂብ ምንጭ።"
+
+#: thold_templates.php
+msgid "Alert Email Subject"
+msgstr "የማንቂያ ኢሜይል ርዕሰ ጉዳይ"
+
+#: thold_templates.php
+msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "ይህ በኢሜይሉ ውስጥ የሚታየው የኢሜይል ርዕስ ነው (ቢበዛ 128 ቁምፊዎች)። ለነባሪው ባዶ ይተዉት። ሊካተቱ የሚችሉ በርካታ የተለመዱ መተኪያ መለያዎች አሉ፦<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+
+#: thold_templates.php
+msgid "Alert Email Body"
+msgstr "የማንቂያ ኢሜይል አካል"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "ይህ በሁሉም የገደብ ማንቂያዎች አናት ላይ የሚታይ መልእክት ነው (ከፍተኛው 1024 ቁምፊዎች)። HTML ይፈቀዳል፣ ነገር ግን ለጽሑፍ ብቻ ኢሜይሎች ይወገዳል። ጥቅም ላይ ሊውሉ የሚችሉ በርካታ የተለመዱ መተኪያ መለያዎች የሚከተሉትን ያካትታሉ፦<br>ለምሳሌ &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold_templates.php
+msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "ይህ በኢሜይሉ ውስጥ የሚታየው የማስጠንቀቂያ ርዕስ ነው (ቢበዛ 128 ቁምፊዎች)። ለነባሪው ባዶ ይተዉት። ሊካተቱ የሚችሉ በርካታ የተለመዱ መተኪያ መለያዎች አሉ፦<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "ይህ በሁሉም የገደብ ማስጠንቀቂያዎች አናት ላይ የሚታይ መልእክት ነው (ከፍተኛው 1024 ቁምፊዎች)። HTML ይፈቀዳል፣ ነገር ግን ለጽሑፍ ብቻ ኢሜይሎች ይወገዳል። ጥቅም ላይ ሊውሉ የሚችሉ በርካታ የተለመዱ መተኪያ መለያዎች የሚከተሉትን ያካትታሉ፦<br>ለምሳሌ &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold_templates.php
+msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "ይህ ወደ መደበኛ ሁኔታ ከተመለሰ በኋላ በኢሜይሉ ውስጥ የሚታየው የኢሜይል ርዕስ ነው (ቢበዛ 128 ቁምፊዎች)። ለነባሪው ባዶ ይተዉት። ሊካተቱ የሚችሉ በርካታ የተለመዱ መተኪያ መለያዎች አሉ፦<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+
+#: thold_templates.php
+msgid "Restoral Body"
+msgstr "የመመለስ ዋና ክፍል"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "ይህ በሁሉም የገደብ ወደ ነበረበት መመለስ ማሳወቂያዎች አናት ላይ የሚታይ መልእክት ነው (ከፍተኛው 1024 ቁምፊዎች)። HTML ይፈቀዳል፣ ነገር ግን ለጽሑፍ ብቻ ኢሜይሎች ይወገዳል። ጥቅም ላይ ሊውሉ የሚችሉ በርካታ የተለመዱ መተኪያ መለያዎች የሚከተሉትን ያካትታሉ፦<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#60DNOTES&#62"
+
+#: thold_templates.php
+msgid "Notification List Read Only"
+msgstr "የማሳወቂያ ዝርዝር ለንባብ ብቻ"
+
+#: thold_templates.php
+msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
+msgstr "ምልክት ከተደረገበት፣ በአብነቱ ውስጥ ያሉት የገደብ ማሳወቂያ ዝርዝሮች የገደቡን ዝርዝሮች ይተካሉ።"
+
+#: thold_templates.php
+msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
+msgstr "ለማንቂያዎች ጥቅም ላይ የሚውል ክብደት። (ዝቅተኛ ተጽዕኖ -> ወሳኝ ተጽዕኖ)"
+
+#: thold_templates.php
+msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
+msgstr "ይህ ገደብ ሲጣስ ማሳወቂያ የሚደርሳቸው መለያዎች ዝርዝር ነው።<br><br><br><br>"
+
+#: thold_templates.php
+msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
+msgstr "ለዚህ የውሂብ ምንጭ ማንቂያዎችን የሚቀበሉ ተጨማሪ ኢሜይሎችን እዚህ መግለጽ ይችላሉ (በኮማ የተለዩ)"
+
+#: thold_templates.php
+msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
+msgstr "ለዚህ የውሂብ ምንጭ ማስጠንቀቂያዎችን የሚቀበሉ ተጨማሪ ኢሜይሎችን እዚህ መግለጽ ይችላሉ (በኮማ የተለዩ)"
+
+#: thold_templates.php
+msgid "Enter an Eternal ID for this Thold Template."
+msgstr "ለዚህ የThold አብነት Eternal ID ያስገቡ።"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "%d ወራት፣ %d ቀናት፣ %d ሰዓታት፣ %d ደቂቃዎች፣ %d ሰከንዶች (አማካይ)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
+msgstr "%d ወራት፣ %d ቀናት፣ %d ሰዓታት፣ %d ደቂቃዎች፣ %d ሰከንዶች"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "%d ቀናት፣ %d ሰዓታት፣ %d ደቂቃዎች፣ %d ሰከንዶች (አማካይ)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
+msgstr "%d ቀናት፣ %d ሰዓታት፣ %d ደቂቃዎች፣ %d ሰከንዶች"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "%d ሰዓታት፣ %d ደቂቃዎች፣ %d ሰከንዶች (አማካይ)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Hours, %d Minutes, %d Seconds"
+msgstr "%d ሰዓታት፣ %d ደቂቃዎች፣ %d ሰከንዶች"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Minutes, %d Seconds (Average)"
+msgstr "%d ደቂቃዎች፣ %d ሰከንዶች (አማካይ)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Minutes, %d Seconds"
+msgstr "%d ደቂቃዎች፣ %d ሰከንዶች"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Seconds (Average)"
+msgstr "%d ሰከንዶች (አማካይ)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Seconds"
+msgstr "%d ሰከንዶች"
+
+#: thold_templates.php
+msgid "DS Name"
+msgstr "የDS ስም"
+
+#: thold_templates.php
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
+msgstr "ከፍተኛ የማስጠንቀቂያ / የንቃት እሴቶች። ማስታወሻ፡ የመሠረታዊ መስመር እሴቶች በመቶኛ ናቸው፣ ሌሎች ሁሉም እሴቶች በcdef ያልተቀየሩ ጥሬ (RAW) እሴቶች ናቸው።"
+
+#: thold_templates.php
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
+msgstr "ዝቅተኛ የማስጠንቀቂያ / የንቃት እሴቶች። ማስታወሻ፡ የመሠረታዊ መስመር እሴቶች በመቶኛ ናቸው፣ ሌሎች ሁሉም እሴቶች በcdef ያልተቀየሩ ጥሬ (RAW) እሴቶች ናቸው።"
+
+#: thold_templates.php
+msgid "Import Template from Local File"
+msgstr "አብነትን ከአካባቢያዊ ፋይል አስመጣ"
+
+#: thold_templates.php
+msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
+msgstr "የገደብ አብነት ውሂብን የያዘው የXML ፋይል በአካባቢያዊ ማሽንዎ ላይ የሚገኝ ከሆነ፣ እዚህ ይምረጡት።"
+
+#: thold_templates.php
+msgid "Import Template from Text"
+msgstr "አብነትን ከጽሑፍ አስመጣ"
+
+#: thold_templates.php
+msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
+msgstr "የገደብ አብነት ውሂብን የያዘው የXML ፋይል እንደ ጽሑፍ ካለዎት፣ ለማስመጣት ወደዚህ ሳጥን መለጠፍ ይችላሉ።"
+
+#: thold_templates.php
+msgid "Import Results"
+msgstr "የማስመጣት ውጤቶች"
+
+#: thold_templates.php
+msgid "Cacti has imported the following items:"
+msgstr "Cacti የሚከተሉትን ንጥሎች አስመጥቷል:"
+
+#: thold_templates.php
+msgid "Import Threshold Templates"
+msgstr "የገደብ አብነቶችን አስመጣ"
+
+#: thold_templates.php
+msgid "The file is too big."
+msgstr "ፋይሉ በጣም ትልቅ ነው."
+
+#: thold_templates.php
+msgid "Incomplete file transfer."
+msgstr "ያልተሟላ የፋይል ዝውውር."
+
+#: thold_templates.php
+msgid "No file uploaded."
+msgstr "ምንም ፋይል አልተጫነም."
+
+#: thold_templates.php
+msgid "Temporary folder missing."
+msgstr "ጊዜያዊ አቃፊ ጠፍቷል."
+
+#: thold_templates.php
+msgid "Failed to write file to disk"
+msgstr "ፋይሉን ወደ ዲስክ መጻፍ አልተሳካም"
+
+#: thold_templates.php
+msgid "File upload stopped by extension"
+msgstr "የፋይል መጫን በቅጥያ ተቋርጧል"
+
+#: thold_templates.php
+msgid "Invalid file extension."
+msgstr "ልክ ያልሆነ የፋይል ቅጥያ."
+
+#: thold_templates.php
+msgid "NOTE:"
+msgstr "ማስታወሻ:"
+
+#: thold_templates.php
+msgid "ERROR:"
+msgstr "ስህተት:"
+

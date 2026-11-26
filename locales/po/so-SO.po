@@ -1,0 +1,3716 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-13 09:23-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Somali\n"
+"Language: so-SO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: includes/arrays.php
+msgid "Indefinitely"
+msgstr "Si aan xad lahayn"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "%d Bil"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "%d Bilood"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "%d Sano"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Hour Ago"
+msgstr "Laga soo bilaabo %d Saac Kahor"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Hours Ago"
+msgstr "Laga soo bilaabo %d Saacadood Kahor"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Day Ago"
+msgstr "Laga soo bilaabo %d Maalin Kahor"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Days Ago"
+msgstr "Laga soo bilaabo %d Maalmood Kahor"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Week Ago"
+msgstr "Laga soo bilaabo %d Toddobaad Kahor"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Weeks Ago"
+msgstr "Laga soo bilaabo %d Toddobaadyo Kahor"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Month Ago"
+msgstr "Laga soo bilaabo %d Bil Kahor"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Months Ago"
+msgstr "Laga soo bilaabo %d Bilood Kahor"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Year Ago"
+msgstr "Laga soo bilaabo %d Sanad Kahor"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Years Ago"
+msgstr "Laga soo bilaabo %d Sanadood Kahor"
+
+#: includes/arrays.php thold_graph.php
+msgid "Down"
+msgstr "Ma shaqeynayo"
+
+#: includes/arrays.php thold_graph.php
+msgid "Error"
+msgstr "Cilad"
+
+#: includes/arrays.php thold_graph.php
+msgid "Recovering"
+msgstr "Soo Kabanaysa"
+
+#: includes/arrays.php thold_graph.php
+msgid "Up"
+msgstr "Shaqeynaya"
+
+#: includes/arrays.php thold_graph.php
+msgid "Unknown"
+msgstr "Aan la aqoon"
+
+#: includes/arrays.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php
+msgid "Disabled"
+msgstr "La joojiyay"
+
+#: includes/arrays.php thold_graph.php
+msgid "Not Monitored"
+msgstr "Lama Kormeero"
+
+#: includes/arrays.php
+msgid "Notify - Alert"
+msgstr "Ogeysii - Feejignaan"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Alert"
+msgstr "Feejignaan"
+
+#: includes/arrays.php
+msgid "Notify - Alert2Warning"
+msgstr "Ogeysii - Feejignaan ilaa Digniin"
+
+#: includes/arrays.php
+msgid "Alert2Warn"
+msgstr "Feejignaan-ilaa-Digniin"
+
+#: includes/arrays.php
+msgid "Notify - Warning"
+msgstr "Ogeysii - Digniin"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Warning"
+msgstr "Digniin"
+
+#: includes/arrays.php
+msgid "Notify - Re-Trigger"
+msgstr "Ogeysii - Dib-u-kicin"
+
+#: includes/arrays.php
+msgid "Re-Trigger"
+msgstr "Dib-u-kicin"
+
+#: includes/arrays.php
+msgid "Notify - Restoral"
+msgstr "Ogeysii - Soo celin"
+
+#: includes/arrays.php
+msgid "Restoral"
+msgstr "Soo celin"
+
+#: includes/arrays.php
+msgid "Event - Alert Trigger"
+msgstr "Dhacdo - Kiciyaha Qaylo-dhaanta"
+
+#: includes/arrays.php
+msgid "Alert Event"
+msgstr "Dhacdada Feejignaanta"
+
+#: includes/arrays.php
+msgid "Event - Warning Trigger"
+msgstr "Dhacdo - Kiciyaha Digniinta"
+
+#: includes/arrays.php
+msgid "Warning Event"
+msgstr "Dhacdada Digniinta"
+
+#: includes/arrays.php
+msgid "Event - Restoral"
+msgstr "Dhacdo - Soo-celinta"
+
+#: includes/arrays.php thold_graph.php
+msgid "Restoral Event"
+msgstr "Dhacdada Soo celinta"
+
+#: includes/arrays.php
+msgid "Event - Acknowledge"
+msgstr "Dhacdo - Qirasho"
+
+#: includes/arrays.php
+msgid "Acknowledge Event"
+msgstr "Qir Dhacdada"
+
+#: includes/arrays.php
+msgid "Restore"
+msgstr "Soo celi"
+
+#: includes/arrays.php
+msgid "Alert Trigger"
+msgstr "Kiciyaha Feejignaanta"
+
+#: includes/arrays.php
+msgid "Warn Trigger"
+msgstr "Kiciyaha Digniinta"
+
+#: includes/arrays.php
+msgid "Alert-Warn"
+msgstr "Feejignaan-Digniin"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Acknowledgment"
+msgstr "Qirasho"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Baseline Alert"
+msgstr "Digniinta Heerka Aasaasiga ah"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Notice"
+msgstr "Ogeysiis"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Ok"
+msgstr "Haye"
+
+#: includes/arrays.php
+msgid "Emergency"
+msgstr "Xaalad degdeg ah"
+
+#: includes/arrays.php thold.php thold_templates.php
+msgid "Critical"
+msgstr "Halis ah"
+
+#: includes/arrays.php
+msgid "Info"
+msgstr "Macluumaad"
+
+#: includes/arrays.php
+msgid "Debug"
+msgstr "Khalad-saar"
+
+#: includes/arrays.php includes/functions.php
+msgid "Never"
+msgstr "Marna"
+
+#: includes/arrays.php
+msgid "Every Minute"
+msgstr "Daqiiqad Kasta"
+
+#: includes/arrays.php includes/settings.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "%d Daqiiqo Kasta"
+
+#: includes/arrays.php
+msgid "Every Hour"
+msgstr "Saacad Kasta"
+
+#: includes/arrays.php includes/settings.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "%d Saacadood Kasta"
+
+#: includes/arrays.php
+msgid "Every Day"
+msgstr "Maalin Kasta"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Days"
+msgstr "%d Maalmood kasta"
+
+#: includes/arrays.php
+msgid "Every Week"
+msgstr "Toddobaad Kasta"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Weeks"
+msgstr "%d-dii Toddobaadba"
+
+#: includes/arrays.php
+msgid "Every Month"
+msgstr "Bil kasta"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Minute"
+msgstr "%d Daqiiqo"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Minutes"
+msgstr "%d Daqiiqo"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Hour"
+msgstr "%d Saac"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Hours"
+msgstr "%d Saacadood"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Day"
+msgstr "%d Maalin"
+
+#: includes/arrays.php thold_graph.php
+#, php-format
+msgid "%d Days"
+msgstr "%d Maalmood"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Week"
+msgstr "%d Toddobaad"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Weeks"
+msgstr "%d Toddobaad"
+
+#: includes/arrays.php
+#, php-format
+msgid "%0.1f Hours"
+msgstr "%0.1f Saacadood"
+
+#: includes/arrays.php
+msgid "Every Polling"
+msgstr "Xog-uruurin kasta"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Pollings"
+msgstr "%d Xog-uruurin kasta"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Polling"
+msgstr "%d Xog-ururin"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Pollings"
+msgstr "%d Xog-ururinno"
+
+#: includes/arrays.php
+msgid "High / Low"
+msgstr "Sare / Hoose"
+
+#: includes/arrays.php
+msgid "Baseline Deviation"
+msgstr "Leexashada Heerka Aasaasiga ah"
+
+#: includes/arrays.php
+msgid "Time Based"
+msgstr "Ku salaysan Waqti"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Min/Max [TIP]"
+msgstr "%% Leexashada Ugu Yar/Ugu Badan [TIP]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation CF [TIP]"
+msgstr "%% Leexashada CF [TIP]"
+
+#: includes/arrays.php
+msgid "Absolute Val Min/Max [TIP]"
+msgstr "Qiimaha Buuxa ee Ugu Yar/Ugu Badan [TIP]"
+
+#: includes/arrays.php
+msgid "Absolute Val of CF [TIP]"
+msgstr "Qiimaha Buuxa ee CF [TIP]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Avg [AOT]"
+msgstr "%% Celceliska Leexashada [AOT]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Avg of CF [AOT]"
+msgstr "%% Celceliska Leexashada ee CF [AOT]"
+
+#: includes/arrays.php
+msgid "Absolute Val Avg [AOT]"
+msgstr "Celceliska Qiimaha Buuxa [AOT]"
+
+#: includes/arrays.php
+msgid "Absolute Val Avg of CF [AOT]"
+msgstr "Celceliska Qiimaha Buuxa ee CF [AOT]"
+
+#: includes/arrays.php
+msgid "Exact Value"
+msgstr "Qiimaha Saxda ah"
+
+#: includes/arrays.php
+msgid "CDEF"
+msgstr "CDEF"
+
+#: includes/arrays.php
+msgid "Percentage"
+msgstr "Boqolley"
+
+#: includes/arrays.php thold.php thold_templates.php
+msgid "RPN Expression"
+msgstr "Oraahda RPN"
+
+#: includes/arrays.php
+msgid "Upper + Lower bytes"
+msgstr "Baytyada Sare + Hoose"
+
+#: includes/arrays.php
+msgid "Acknowledge"
+msgstr "Qiro"
+
+#: includes/arrays.php
+msgid "Suspend Notifications"
+msgstr "Haki Ogeysiisyada"
+
+#: includes/arrays.php
+msgid "Resume Notifications"
+msgstr "Dib u bilow Ogeysiisyada"
+
+#: includes/arrays.php notify_lists.php notify_queue.php setup.php
+msgid "Delete"
+msgstr "Tirtir"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Hawl-geli"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Hawl-jooji"
+
+#: includes/arrays.php
+msgid "Reapply Suggested Names"
+msgstr "Dib u Dabaq Magacyada la Soo Jeediyay"
+
+#: includes/arrays.php
+msgid "Propagate Template"
+msgstr "Faafi Qaab-dhismeedka"
+
+#: includes/arrays.php thold_graph.php
+msgid "Export"
+msgstr "Dhoofi"
+
+#: includes/arrays.php
+msgid "Threshold Mail"
+msgstr "Iimaylka Xadka"
+
+#: includes/arrays.php
+msgid "Down Host Mail"
+msgstr "Iimaylka Martigeliyaha Maqan"
+
+#: includes/arrays.php
+msgid "Up Host Mail"
+msgstr "Iimaylka Martigeliyaha Shaqeeya"
+
+#: includes/arrays.php
+msgid "Threshold Cmd"
+msgstr "Amarka Xadka"
+
+#: includes/arrays.php
+msgid "Down Host Cmd"
+msgstr "Amarka Martigeliyaha Maqan"
+
+#: includes/arrays.php
+msgid "Up Host Cmd"
+msgstr "Amarka Martigeliyaha Shaqeeya"
+
+#: includes/arrays.php
+msgid "Auto"
+msgstr "Otomaatig"
+
+#: includes/arrays.php
+msgid "0 Digits"
+msgstr "0 Lambar"
+
+#: includes/arrays.php
+msgid "1 Digit"
+msgstr "1 Lambar"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Digits"
+msgstr "%d Lambar"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d Devices"
+msgstr "> %d Aaladaha"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d %% of Devices Globally"
+msgstr "> %d %% ee Aaladaha Caalamka"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d Devices in a Site"
+msgstr "> %d Aaladaha ku jira Goob"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d %% of Devices in a Site"
+msgstr "> %d %% ee Aaladaha ku jira Goob"
+
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "< 1 Daqiiqo"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "Tan iyo Markii la Abuuray"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "Xadadka"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "Diiwaan"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "Xaaladda Aaladda"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "Waqtiga:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "Isticmaalaha:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "Nidaamka:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "Xusuusta Swap:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "Boggaga:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr "Kaliya diiwaangelin, qalabka dayactirka"
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "Asal ah"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "Xiriirka Garaafka ee Cacti"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Ogaysiis digniin ah ayaa la soo saaray oo u baahan fiiro gaar ah.<br><br><b>Qalab</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Farriin</b>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Digniin ayaa la soo saaray oo u baahan fiiro gaar ah.<br><br><b>Qalab</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Farriin</b>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Xadka ayaa ku soo noqday xaaladda caadiga ah. <br><br><strong>Qalab</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Farriin</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "%% Leexasho [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "Qiimaha Dhabta ah [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [AOT:%s]"
+msgstr "%% Leexasho [AOT:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "Qiimaha Dhabta ah [AOT:%s]"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "Aqoonsiga Qalabka lama dejin intii lagu jiray isku dayga abuurista Garaafka iyo Xadka"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "Aqoonsiga Qaab-dhismeedka Xadka lama helin iyadoo la isku dayayo in la abuuro Garaafka iyo Xadka"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "Aqoonsiga Qaab-dhismeedka Xadka lama dejin iyadoo la isku dayayo in la abuuro Garaafka iyo Xadka"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "Abuurista Garaafka way ku fashilantay Qaab-dhismeedka Xadka"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "Xadka si otomaatig ah ayaa loo abuuray sababtoo ah isku xirka Qaab-dhismeedka Qalabka"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "Ogolaanshaha Waa La Diiday"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "Diiwaanka Waa La Cusboonaysiiyay"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "Waa lagu guuldareystay in la helo Shayga Qaab-dhismeed Garaafka ku xiran '%d' ee ku yaalla Xadka '%d'"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "Xadka la abuuray: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "Waa inaad cayimtaa midkood 'Xadka Qaylo-dhaanta Sare' ama 'Xadka Qaylo-dhaanta Hoose' ama labadaba!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Xadka aan suurtogalka ahayn: 'Xadka Qaylo-dhaanta Sare' wuu ka yar yahay 'Xadka Qaylo-dhaanta Hoose'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "Xadka aan suurtogalka ahayn: 'Xadka Digniinta Sare' wuu ka yar yahay 'Xadka Digniinta Hoose'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "Xadka aan suurtogalka ahayn: 'Xadka Digniinta Sare' wuu ka weyn yahay 'Xadka Qaylo-dhaanta Sare'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "Xadka aan suurtogalka ahayn: 'Xadka Qaylo-dhaanta Hoose' wuu ka weyn yahay 'Xadka Digniinta Hoose'!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "Tixraaca waqtiga ee tagtay waa in lagu dejiyaa tiro togan oo dhan!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "Waa inaad cayimtaa midkood 'Ka-leexashada Saldhigga SARE' ama 'Ka-leexashada Saldhigga HOOSE' ama labadaba!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "Xadka aan suurtogalka ahayn: 'Xadka Qaylo-dhaanta Sare' wuu ka yar yahay 'Xadka Qaylo-dhaanta Hoose'"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr "Xadka aan suurtogalka ahayn: Tirada Kicinta Qaylo-dhaanta waa in ay ka weyn tahay ama la mid tahay 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Xadka aan suurtogalka ahayn: Tirada Kicinta Qaylo-dhaanta waa in ay ka yar tahay ama la mid tahay Tirada Kicinta ama la mid tahay 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr "Xadka aan suurtogalka ahayn: Tirada Kicinta Digniinta waa in ay ka weyn tahay ama la mid tahay 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Xadka aan suurtogalka ahayn: Tirada Kicinta Digniinta waa in ay ka yar tahay ama la mid tahay Tirada Kicinta ama la mid tahay 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Xadka aan suurtogalka ahayn: 'Xadka Digniinta Hoose' wuu ka yar yahay 'Xadka Qaylo-dhaanta Hoose'!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "Nooca Xadka Aan La Aqoon!"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "Ma Jiraan Qaab-dhismeedyada Xadadka oo la xiriira Qaab-dhismeedka Qalabka."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "Xadka(yada) Lama Abuurin. Hore ayay u jireen, ama lama helin wax ku habboon oo la mid ah."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "Khalad Diraha Iimaylka: Ma jiro cinwaan <b>LOO DIRO</b> oo la dejiyay!!<br>Haddii aad isticmaalayso xiriiriyaha <i>Tijaabada Iimaylka</i>, fadlan deji dejinta <b>Iimaylka Digniinta</b>."
+
+#: includes/functions.php
+msgid "Done"
+msgstr "La dhammeeyay"
+
+#: includes/functions.php
+msgid "Pending"
+msgstr "Sugaya"
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "Khalad leh"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "Ma khuseyso"
+
+#: includes/functions.php
+msgid "Success"
+msgstr "Guul"
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "Qir Xadka"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "Guji 'Sii wad' si aad u Qirato Xadka/Xadadka soo socda."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "Qir Xadka/Xadadka"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "Jooji"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "Sii wad"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "Qaab-dhismeedka Xogta ee hoos yimaada Qaab-dhismeedka Xadka lama helin!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "Isha Xogta ee hoos timaadda Qaab-dhismeedka Xadka lama helin!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "Tiirarka soo dejinta Qaab-dhismeedka Xadka ma waafaqsana qaab-dhismeedka xog-kaydka"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "La soo dejiyay"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "Qaab-dhismeedka Xadka '%s' %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "La cusboonaysiiyay"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "Soo dhoofi"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "Qaab-dhismeedka Xadka '%s' %s Wuu Fashilmay!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "Cusboonaysiin"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "Khaladaad baa la kulmay intii la isku dayayay in la soo dejiyo xogta Qaab-dhismeedka Xadka."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "Xogta soo dejinta Qaab-dhismeedka Xadka looma helin inay tahay xog XML ah."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "Xogta soo dejinta Qaab-dhismeedka Xadka sax ma ahayn intii lagu guda jiray soo dejinta Qaab-dhismeedka Xadka."
+
+#: includes/polling.php
+msgid "SNMP not in use"
+msgstr "SNMP lama isticmaalo"
+
+#: includes/polling.php
+msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
+msgstr "Ogeysiiska Aaladaha: <DESCRIPTION> (<HOSTNAME>) wuxuu ka soo noqday xaaladda DANSAN"
+
+#: includes/polling.php
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
+msgstr "<br>Xaaladda Nidaamka <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Goobta: <SITE><br>Goobta joogista: <LOCATION><br>Jawaabta ping ee hadda: <CUR_TIME> ms<br>Celceliska jawaabta nidaamka : <AVG_TIME> ms<br>Helitaanka nidaamka: <AVAILABILITY><br>Wadarta Hubinta Tan iyo Nadiifinta: <TOT_POLL><br>Wadarta Hubinta Fashilantay: <FAIL_POLL><br>Taariikhdii Ugu Dambeysay ee La Hubiyay inuu SHAQEYNAYO: <LAST_FAIL><br>Aaladaha Markii Hore DAMSANAA muddo: <DOWNTIME><br><br>Macluumaadka SNMP:<br>Magaca - <SNMP_HOSTNAME><br>Goobta - <SNMP_LOCATION><br>Mudada shaqeynta - <UPTIMETEXT> (<UPTIME> ms)<br>Nidaamka - <SNMP_SYSTEM><br><br>FIIRO GAAR AH: <NOTES>"
+
+#: includes/polling.php
+msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
+msgstr "Khaladka Aaladaha: <DESCRIPTION> (<HOSTNAME>) wuu DANSAN YAHAY"
+
+#: includes/polling.php
+msgid "DOWN"
+msgstr "DANSAN"
+
+#: includes/polling.php
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
+msgstr "Khalad Nidaam : <DESCRIPTION> (<HOSTNAME>) waa <DOWN/UP><br>Goob: <SITE><br>Meesha: <LOCATION><br>Sababta: <MESSAGE><br><br>Celceliska jawaab-celinta nidaamka : <AVG_TIME> ms<br>Helitaanka nidaamka: <AVAILABILITY><br>Wadarta Hubinta Tan iyo Nadiifinta: <TOT_POLL><br>Wadarta Hubinta Fashilantay: <FAIL_POLL><br>Taariikhdii Ugu Dambeysay ee La Hubiyay isagoo Hoos u dhacay : <LAST_FAIL><br>Aaladaha horey u Shaqeynayay muddo: <DOWNTIME><br>OGAYSIIS: <NOTES>"
+
+#: includes/settings.php
+msgid "(actions)"
+msgstr "(hawlaha)"
+
+#: includes/settings.php
+msgid "(edit)"
+msgstr "(wax ka beddel)"
+
+#: includes/settings.php
+msgid "(save)"
+msgstr "(keydi)"
+
+#: includes/settings.php
+msgid "(add)"
+msgstr "(ku dar)"
+
+#: includes/settings.php
+msgid "Threshold Logs"
+msgstr "Diiwaannada Xadka"
+
+#: includes/settings.php
+msgid "Thresholds - Failures"
+msgstr "Xadadka - Guuldarrooyinka"
+
+#: includes/settings.php
+msgid "Thresholds - Normal"
+msgstr "Xadadka - Caadi"
+
+#: includes/settings.php
+msgid "Thresholds - Recovering"
+msgstr "Xadadka - Soo kabanaya"
+
+#: includes/settings.php
+msgid "Recent Thresholds"
+msgstr "Xadka Ugu Dambeeyay"
+
+#: includes/settings.php
+msgid "Recent Device Failures"
+msgstr "Fashilka Qalabka ee Ugu Dambeeyay"
+
+#: includes/settings.php thold_templates.php
+msgid "Threshold Templates"
+msgstr "Qaab-dhismeedyada Xadka"
+
+#: includes/settings.php
+msgid "Threshold Template Import"
+msgstr "Soo dejinta Qaab-dhismeedka Xadka"
+
+#: includes/settings.php notify_lists.php
+msgid "Notification Lists"
+msgstr "Liisaska Ogeysiiska"
+
+#: includes/settings.php
+msgid "Notification Lists (edit)"
+msgstr "Liisaska Ogeysiiska (wax ka beddel)"
+
+#: includes/settings.php
+msgid "Notification Queue"
+msgstr "Safka Ogeysiiska"
+
+#: includes/settings.php
+msgid "Management"
+msgstr "Maamul"
+
+#: includes/settings.php notify_lists.php thold_templates.php
+msgid "Templates"
+msgstr "Qaab-dhismeedyada"
+
+#: includes/settings.php thold_graph.php
+msgid "Threshold"
+msgstr "Xadka"
+
+#: includes/settings.php
+msgid "A template with that Data Source already exists!"
+msgstr "Qaab-dhismeed leh Isha Xogtaas horey ayuu u jiray!"
+
+#: includes/settings.php
+msgid "Configure Thresholds"
+msgstr "Qaabee Xuduudaha"
+
+#: includes/settings.php
+msgid "Configure Threshold Templates"
+msgstr "Qaabee Qaab-dhismeedyada Xadka"
+
+#: includes/settings.php
+msgid "Manage Notification Lists"
+msgstr "Maamul Liisaska Ogeysiisyada"
+
+#: includes/settings.php
+msgid "View Thresholds"
+msgstr "Eeg Xadadka"
+
+#: includes/settings.php
+msgid "Normal User"
+msgstr "Isticmaale Caadi ah"
+
+#: includes/settings.php
+msgid "Template Editor"
+msgstr "Tafatiraha Qaab-dhismeedka"
+
+#: includes/settings.php
+msgid "General Administration"
+msgstr "Maamulka Guud"
+
+#: includes/settings.php
+msgid "Device Up/Down Notification Settings"
+msgstr "Dejinta Ogeysiinta Shidnaanta/Dansanaanta Qalabka"
+
+#: includes/settings.php
+msgid "Threshold Up/Down Email Notification"
+msgstr "Ogeysiiska Iimaylka ee Xadka Kor/Hoos"
+
+#: includes/settings.php notify_lists.php
+msgid "Global List"
+msgstr "Liiska Guud"
+
+#: includes/settings.php
+msgid "List Below"
+msgstr "Hoos ku Qor"
+
+#: includes/settings.php
+msgid "Global and List Below"
+msgstr "Guud iyo Liiska Hoose"
+
+#: includes/settings.php
+msgid "Which Type of Notification List(s) should be used for Device Up/Down events?"
+msgstr "Nooca Liisaska Ogeysiinta ee ay tahay in loo isticmaalo dhacdooyinka Qalabka Kacsan/Hooseeya (Up/Down)?"
+
+#: includes/settings.php notify_queue.php
+msgid "Notification List"
+msgstr "Liiska Ogeysiiska"
+
+#: includes/settings.php
+msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
+msgstr "Liisaska Ogeysiinta ee ay tahay in lagu ogeysiiyo dhacdooyinka Qalabka Kacsan/Hooseeya (Up/Down)?"
+
+#: includes/settings.php
+msgid "Host Failure Count"
+msgstr "Tirada Guul-darrada Martigeliyaha"
+
+#: includes/settings.php
+msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
+msgstr "Tirada Wakhtiyada Xog-ururinta ee Martigeliyahan uu ahaado mid Dansan ka hor inta uusan Thold diiwaangelin qalad oo uusan soo sheegin in Martigeliyuhu Dansan yahay. Qiimaha caadiga ah waa 0 (isticmaal dejinta Cacti)"
+
+#: includes/settings.php
+msgid "Use Cacti Setting"
+msgstr "Isticmaal Dejinta Cacti"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Polling Interval"
+msgstr "%d Muddo Xog-ururin"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Polling Intervals"
+msgstr "%d Muddooyin Xog-ururin"
+
+#: includes/settings.php
+msgid "Alerting/Thold"
+msgstr "Feejignaan-bixinta/Thold"
+
+#: includes/settings.php notify_lists.php
+msgid "General"
+msgstr "Guud"
+
+#: includes/settings.php
+msgid "Disable All Thresholds"
+msgstr "Jooji Dhammaan Xadadka"
+
+#: includes/settings.php
+msgid "Checking this box will disable Alerting on all Thresholds.  This can be used when it is necessary to perform maintenance on your network."
+msgstr "Calaamadaynta sanduuqani waxay joojinaysaa Digniinta dhammaan Xadka.  Tan waxaa la isticmaali karaa marka ay lagama maarmaan tahay in dayactir lagu sameeyo shabakaddaada."
+
+#: includes/settings.php
+msgid "Auto Create Thresholds"
+msgstr "Si Toos ah u Abuur Xadadka"
+
+#: includes/settings.php
+msgid "If selected, when running either automation, or when creating/saving a Device, all Thresholds associated with the Device Template will be created."
+msgstr "Haddii la doorto, marka la wado otomaatigga, ama marka la abuurayo/keydinayo Qalab, dhammaan Xadadka la xiriira Qaab-dhismeedka Qalabka waa la abuuri doonaa."
+
+#: includes/settings.php
+msgid "Consider Unknown Data as Zero"
+msgstr "U tixgeli Xogta Aan La Aqoon Sida Eber"
+
+#: includes/settings.php
+msgid "When checking Thresholds, if a Data Source returns Unknown Data ('U'), consider the value as zero for the Threshold check. You can also enable log this issue."
+msgstr "Marka la hubinayo Xadadka, haddii Isha Xogta ay soo celiso Xog Aan La Aqoon ('U'), u tixgeli qiimaha eber hubinta Xadka. Waxaad sidoo kale awood u siin kartaa in la diiwaangeliyo arrintan."
+
+#: includes/settings.php
+msgid "Default Management Status"
+msgstr "Xaaladda Maareynta ee Caadiga ah"
+
+#: includes/settings.php
+msgid "Default Threshold management filter status."
+msgstr "Xaaladda shaandheeyaha maareynta Xadka ee caadiga ah."
+
+#: includes/settings.php notify_lists.php thold.php
+msgid "Any"
+msgstr "Mid kasta"
+
+#: includes/settings.php thold.php thold_graph.php
+msgid "Breached or Triggered"
+msgstr "La jebiyay ama La kiciyay"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+msgid "Breached"
+msgstr "La jebiyay"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+msgid "Triggered"
+msgstr "La kiciyay"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Enabled"
+msgstr "La hawlgeliyay"
+
+#: includes/settings.php
+msgid "Empty ifHighSpeed Default"
+msgstr "U-qaabeynta caadiga ah ee ifHighSpeed ee madhan"
+
+#: includes/settings.php
+msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces."
+msgstr "Marka la xisaabinayo Xadadka Muujinta, haddii ifHighSpeed iyo ifSpeed ay soo noqdaan eber, isticmaal dejinta ifHighSpeed ee soo socota beddelkeeda. Qiimaha caadiga ah ee ifHighSpeed wuxux noqon doonaa 10000 isku xirka 10GE."
+
+#: includes/settings.php
+msgid "Notification Preferences"
+msgstr "Doorbidyada Ogeysiiska"
+
+#: includes/settings.php
+msgid "Disable Legacy Notifications"
+msgstr "Jooji Ogeysiisyada Hore"
+
+#: includes/settings.php
+msgid "Checking this box will disable Legacy Alerting on all Thresholds.  Legacy Alerting is defined as any Specific Email Alerts not associated with a Notification List."
+msgstr "Calaamadaynta sanduuqani waxay joojinaysaa Digniinta Hore ee dhammaan Xadka.  Digniinta Hore waxaa lagu qeexaa Digniin kasta oo Iimayl Gaar ah oo aan la xiriirin Liiska Ogeysiiska."
+
+#: includes/settings.php
+msgid "Threshold Notification Templated"
+msgstr "Ogeysiiska Xadka oo Qaab-dhismeed Leh"
+
+#: includes/settings.php
+msgid "If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template."
+msgstr "Haddii la calaamadeeyo, marka la abuurayo Qaab-dhismeed Xadka ah, Dejinta Ogeysiiskiisa waxaa sida caadiga ah yeelan doona Qaab-dhismeedka Xadka."
+
+#: includes/settings.php
+msgid "Enable Command Execution"
+msgstr "Hawlgeli Fulinta Amarrada"
+
+#: includes/settings.php
+msgid "Checking this box will enable the ability to run commands on Threshold breach and restoral events."
+msgstr "Calaamadaynta sanduuqani waxay hawlgelinaysaa awoodda lagu socodsiiyo amarada dhacdooyinka jebinta Xadka iyo soo celinta."
+
+#: includes/settings.php
+msgid "Enable Per Thold Notification"
+msgstr "Hawlgeli Ogeysiinta Thold kasta"
+
+#: includes/settings.php
+msgid "Checking this box will enable the ability to maintain custom Email bodies for Thresholds."
+msgstr "Calaamadaynta sanduuqani waxay hawlgelinaysaa awoodda lagu hayo qoraallada Iimayl ee gaarka ah ee Xadka."
+
+#: includes/settings.php
+msgid "Enable Notification Queue"
+msgstr "Hawlgeli Safka Ogeysiinta"
+
+#: includes/settings.php
+msgid "Checking this box will switch Thold from performing inline Notification to using either the Notification Daemon, or notifications performed out of band by the Notification poller."
+msgstr "Calaamadaynta sanduuqani waxay ka beddeli doontaa Thold samaynta Ogeysiiska tooska ah una beddeli doontaa isticmaalka Daemon-ka Ogeysiiska, ama ogeysiisyada ka baxsan kooxda ee uu sameeyo Xog-uruuriyaha Ogeysiiska."
+
+#: includes/settings.php
+msgid "Enable Sending Alert Emails to Warning Notification Lists"
+msgstr "Hawlgeli U-dirista Iimayllada Digniinta ee Liisaska Ogeysiinta Digniinta"
+
+#: includes/settings.php
+msgid "Check this box if you wish Warning Notification List recipients to receive Alert Emails in addition to the Alert Notification list receivers.  This case is applicable when Warning Notifications goes to Administrators and Alert Notifications go to Management."
+msgstr "Calaamadee sanduuqan haddii aad rabto in qaataayaasha Liiska Ogeysiiska Digniinta ay helaan Iimayllada Digniinta Degdegga ah iyada oo lagu darayo qaataayaasha liiska Ogeysiiska Digniinta Degdegga ah.  Xaaladdan waxaa la adeegsadaa marka Ogeysiisyada Digniinta ay u tagaan Maamulayaasha Nidaamka isla markaana Ogeysiisyada Digniinta Degdegga ah ay u tagaan Maareynta."
+
+#: includes/settings.php
+msgid "Threshold Daemon"
+msgstr "Daemon-ka Xadka"
+
+#: includes/settings.php
+msgid "Enable Threshold Daemon"
+msgstr "Hawlgeli Daemon-ka Xadka"
+
+#: includes/settings.php
+msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
+msgstr "Calaamadaynta sanduuqani waxay hawlgelinaysaa isticmaalka Xadka daemon oo gooni ah. Tan waxaa loo isticmaali karaa in lagu kordhiyo waxqabadka nidaamka iyo/ama in lagu qaybiyo kormeerka Xadka server gaar ah."
+
+#: includes/settings.php
+msgid "Force Threshold Daemon Debug"
+msgstr "Ku qasab Cilad-saarka Daemon-ka Xadka"
+
+#: includes/settings.php
+msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
+msgstr "Calaamadaynta sanduuqani waxay hawlgelinaysaa sixitaanka Xadka Daemon marka laga shaqaynayo SystemD ama khadka amarka.  Isbeddelkani waa mid firfircoon wuxuuna dhaqangelayaa isla marka uu bilowdo wareegga Xadka ee xiga."
+
+#: includes/settings.php
+msgid "Daemon Down Notification Frequency"
+msgstr "Soo noqnoqoshada Ogeysiiska Daemon-ka Dansan"
+
+#: includes/settings.php
+msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
+msgstr "Haddii la ogaado in Thold Daemon uu shaqada joojiyay, u dir ogeysiis Iimayl inta jeer ee tan ah."
+
+#: includes/settings.php
+#, php-format
+msgid "Every %d Hour"
+msgstr "%d Saacad kasta"
+
+#: includes/settings.php
+msgid "Daemon Threads"
+msgstr "Threads-ka Daemon-ka"
+
+#: includes/settings.php
+msgid "The number of daemon threads to be handled by the Threshold Daemon."
+msgstr "Tirada dunta adeegga (daemon threads) ee uu maareeyo Adeegga Xadka."
+
+#: includes/settings.php
+msgid "1 Process"
+msgstr "1 Hawl"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Processes"
+msgstr "%d Hawlo"
+
+#: includes/settings.php
+msgid "Logging"
+msgstr "Diiwaangelinta"
+
+#: includes/settings.php
+msgid "Log Threshold Breaches"
+msgstr "Diiwaangeli Xad-gudubyada Xadka"
+
+#: includes/settings.php
+msgid "Enable logging of all Threshold failures to the Cacti Log."
+msgstr "Hawlgeli diiwaangelinta dhammaan fashilka Xadka ee Diiwaanka Cacti."
+
+#: includes/settings.php
+msgid "Show Data Source in Log"
+msgstr "Muuji Isha Xogta ee Diiwaanka"
+
+#: includes/settings.php
+msgid "Show the Data Source name in the Log if not present."
+msgstr "Muuji magaca Isha Xogta ee Diiwaanka haddii uusan ku jirin."
+
+#: includes/settings.php
+msgid "Log Threshold Changes"
+msgstr "Diiwaangeli Isbeddellada Xadka"
+
+#: includes/settings.php
+msgid "Enable logging of all Threshold changes to the Cacti Log."
+msgstr "Hawlgeli diiwaangelinta dhammaan isbeddellada Xadka ee Diiwaanka Cacti."
+
+#: includes/settings.php
+msgid "Debug Log"
+msgstr "Diiwaanka Cilad-saarka"
+
+#: includes/settings.php
+msgid "Enable logging of debug messages with Threshold"
+msgstr "Hawlgeli diiwaangelinta fariimaha cilad-saarista ee Xadka"
+
+#: includes/settings.php
+msgid "Alert Log Retention"
+msgstr "Haynta Diiwaanka Feejignaanta"
+
+#: includes/settings.php
+msgid "Keep Threshold Logs for this number of days."
+msgstr "U hay diiwaannada Xadka tirada maalmahan."
+
+#: includes/settings.php
+msgid "Log action Consider Unknown Data as Zero"
+msgstr "Diiwaangeli falka U qaado Xogta Aan La Aqoon Eber ahaan"
+
+#: includes/settings.php
+msgid "When 'Consider Unknown Data as Zero' is enabled, log when it occurs"
+msgstr "Marka 'U tixgeli Xogta Aan La Aqoon Sida Ebar' la hawlgeliyo, diiwaangeli marka ay dhacdo"
+
+#: includes/settings.php thold.php thold_templates.php
+msgid "Syslog Settings"
+msgstr "Dejinta Syslog"
+
+#: includes/settings.php
+msgid "Syslog Enabled"
+msgstr "Syslog La hawlgeliyay"
+
+#: includes/settings.php
+msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Haddii la calaamadeeyo, marka la abuurayo Xadka cusub, sida caadiga ah dhacdooyinka Xadka cusub waxaa loo diri doonaa Syslog-gaaga maxalliga ah. Dejintani waa mid horay loo sii dejiyay. Dejinta Xadka ayaa xukunta maamulka dhabta ah ee Syslog."
+
+#: includes/settings.php
+msgid "Default Priority/Level"
+msgstr "Mudnaanta/Heerka Caadiga ah"
+
+#: includes/settings.php
+msgid "This is the default Priority/Level that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Kani waa Mudnaanta/Heerka caadiga ah ee Thold u adeegsan doonto dirista farriimaha Syslog. Dejintani waa mid horay loo sii dejiyay. Dejinta Xadka ayaa xukunta maamulka dhabta ah ee Syslog."
+
+#: includes/settings.php
+msgid "Default Facility"
+msgstr "Qaybta Caadiga ah"
+
+#: includes/settings.php
+msgid "This is the default Facility that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Tani waa Xarunta (Facility) caadiga ah ee Thold u adeegsan doonto dirista farriimaha Syslog. Dejintani waa mid horay loo sii dejiyay. Dejinta Xadka ayaa xukunta maamulka dhabta ah ee Syslog."
+
+#: includes/settings.php
+msgid "Alert Presets"
+msgstr "Dejinta Hore ee Feejignaanta"
+
+#: includes/settings.php
+msgid "Weekend exemptions"
+msgstr "Ka-dhaafitaannada dhammaadka toddobaadka"
+
+#: includes/settings.php
+msgid "If this is checked, Thold will not run on weekends."
+msgstr "Haddii tan la calaamadeeyo, Thold ma shaqayn doono maalmaha fasaxa toddobaadka."
+
+#: includes/settings.php
+msgid "Default Trigger Count"
+msgstr "Tirada Kicinta ee Caadiga ah"
+
+#: includes/settings.php
+msgid "Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised."
+msgstr "Tirada caadiga ah ee jeerarka isku xiga ee Isha Xogta ay tahay inay jebiso Xadka si Digniin loo soo saaro."
+
+#: includes/settings.php
+msgid "Re-Alerting"
+msgstr "Digniin-celin"
+
+#: includes/settings.php
+msgid "Repeat Alert after specified number of poller cycles."
+msgstr "Ku celi Digniinta ka dib tirada cayiman ee wareegyada xog-uruuriyaha."
+
+#: includes/settings.php
+msgid "Baseline Presets"
+msgstr "Dejimmada Diyaarsan ee Heerka Aasaasiga ah"
+
+#: includes/settings.php
+msgid "Baseline Time Range Default"
+msgstr "Xilliga Waqtiga ee Caadiga ah ee Heerka Aasaasiga ah"
+
+#: includes/settings.php
+msgid "This is the default value used in creating Thresholds or templates."
+msgstr "Kani waa qiimaha caadiga ah ee loo adeegsado abuurista Xadadka ama qaab-dhismeedyada."
+
+#: includes/settings.php
+msgid "Baseline Trigger Count"
+msgstr "Tirada Kicinta Heerka Aasaasiga ah"
+
+#: includes/settings.php
+msgid "Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised."
+msgstr "Tirada caadiga ah ee jeerarka isku xiga ee Isha Xogta ay tahay inay jebiso Xadka Saldhigga la xisaabiyay si Digniin loo soo saaro."
+
+#: includes/settings.php
+msgid "Baseline Deviation Percentage"
+msgstr "Boqolleyga Leexashada Heerka Aasaasiga ah"
+
+#: includes/settings.php
+msgid "SNMP Notification Options"
+msgstr "Ikhtiyaarrada Ogeysiiska SNMP"
+
+#: includes/settings.php
+msgid "SNMP Notifications"
+msgstr "Ogeysiisyada SNMP"
+
+#: includes/settings.php
+msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
+msgstr "Farriimaha xaaladda Xadka (informs/traps) waxaa loo diri doonaa qaabilayaasha ogeysiisyada SNMP. Tan waxaa si caadi ah ugu jira Ogeysiisyada Khatarta, Digniinaha iyo dabinnada Soo-celinta. Fiiro gaar ah: Astaantani waxay u baahan tahay plugin-ka Cacti SNMPAgent."
+
+#: includes/settings.php
+msgid "Disable Warning Notifications"
+msgstr "Jooji Ogeysiisyada Digniinta"
+
+#: includes/settings.php
+msgid "If this is checked, Threshold will not send a notification when a warning Threshold has been breached."
+msgstr "Haddii tan la calaamadeeyo, Xadka ma diri doono ogeysiis marka la jebiyo Xadka digniinta."
+
+#: includes/settings.php
+msgid "Disable Restoration Notifications"
+msgstr "Jooji Ogeysiisyada Soo-celinta"
+
+#: includes/settings.php
+msgid "If this is checked, Threshold will not send a notification when the Threshold has returned to normal status."
+msgstr "Haddii tan la calaamadeeyo, Xadka ma diri doono ogeysiis marka Xadku ku soo noqdo Xaaladda caadiga ah."
+
+#: includes/settings.php
+msgid "Emailing Options"
+msgstr "Ikhtiyaarrada Dirista Iimaylka"
+
+#: includes/settings.php
+msgid "Send Emails with Urgent Priority"
+msgstr "U dir Iimayllada Mudnaanta Degdegga ah leh"
+
+#: includes/settings.php
+msgid "Allows you to set Emails with urgent priority"
+msgstr "Waxay kuu oggolaanaysaa inaad u dejiso Iimaylada mudnaan degdeg ah"
+
+#: includes/settings.php
+msgid "Send Alerts as Text"
+msgstr "U dir Digniinaha Qoraal ahaan"
+
+#: includes/settings.php
+msgid "If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email."
+msgstr "Haddii la calaamadeeyo, tani waxay sababi doontaa in dhammaan Qaylo-dhaannada loo diro Iimayl qoraal cad ah oo aan lahayn Garaafka. Habka caadiga ah waa Iimayllo HTML ah oo Garaafka ku dhex jiro Iimaylka."
+
+#: includes/settings.php
+msgid "Send Email separately for each address"
+msgstr "U dir Iimayl si gaar ah cinwaan kasta"
+
+#: includes/settings.php
+msgid "If checked, this will cause all Emails to be sent separately for each address."
+msgstr "Haddii la calaamadeeyo, tani waxay sababi doontaa in dhammaan Iimayllada si gaar ah loogu diro cinwaan kasta."
+
+#: includes/settings.php
+msgid "From Email Address"
+msgstr "Ciwaanka Iimaylka Diraha"
+
+#: includes/settings.php
+msgid "This is the Email address that the Threshold will appear from."
+msgstr "Kani waa cinwaanka Iimaylka ee Xadku uu ka soo muuqan doono."
+
+#: includes/settings.php
+msgid "From Name"
+msgstr "Magaca Diraha"
+
+#: includes/settings.php
+msgid "This is the actual name that the Threshold will appear from."
+msgstr "Kani waa magaca dhabta ah ee Xadku ka soo muuqan doono."
+
+#: includes/settings.php
+msgid "Device Notification Options"
+msgstr "Ikhtiyaarrada Ogeysiiska Qalabka"
+
+#: includes/settings.php
+msgid "Enable Notifications"
+msgstr "Hawlgeli Ogeysiisyada"
+
+#: includes/settings.php
+msgid "Enable Dead/Recovering host notification"
+msgstr "Hawlgeli ogeysiinta martigeliyaha dhintay/soo kabanaya"
+
+#: includes/settings.php
+msgid "Single Email Notification"
+msgstr "Ogeysiis Iimayl oo Keli ah"
+
+#: includes/settings.php
+msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
+msgstr "Waxaa loo taageeraa Liisaska Ogeysiisyada iyo Safka Ogeysiiska oo keliya. Haddii ay jiraan Ogeysiisyada Qalabka Hoos u Dhacsan hal wareeg oo habayn ah. U dir hal Iimayl oo keliya dadka hela Liiska Ogeysiiska ee dhammaan Aaladaha."
+
+#: includes/settings.php
+msgid "Single Email Notification Subject"
+msgstr "Mawduuca Ogeysiiska Iimaylka ee Keli ah"
+
+#: includes/settings.php
+msgid "This is the Email Subject to be used for all Single Email Notification Emails for both Up and Down Devices."
+msgstr "Kani waa Mawduuca Iimaylka ee loo adeegsan doono dhammaan Iimayllada Ogeysiiska Hal Iimayl ah ee Aaladaha Shaqaynaya iyo kuwa Jaban labadaba."
+
+#: includes/settings.php
+msgid "Device Notification Delay Options"
+msgstr "Ikhtiyaarrada Dib-u-dhigista Ogeysiiska Qalabka"
+
+#: includes/settings.php
+msgid "Notification Delay"
+msgstr "Dib-u-dhaca Ogeysiiska"
+
+#: includes/settings.php
+msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
+msgstr "Haddii ay soo galaan qulqul weyn oo Ogeysiisyada Qalabka Dansan ah, Cacti waxay hakin kartaa dirista Ogeysiisyadaas muddo cayiman si ay u aragto haddii arrintu tahay mid ku meel gaar ah ka hor inta aysan dirin.  Dooro xadka Ogeysiisyada Qalabka Dansan ka hor inta aan Hakinta la Kicin."
+
+#: includes/settings.php
+msgid "If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?"
+msgstr "Haddii aad doorato inaad dib u dhigto Ogeysiisyada marka ay soo galaan Ogeysiisyo badan oo Aaladaha Maqan ah, intee in le'eg ayaad diyaar u tahay inaad sugto ka hor intaan la oggolaan in ogeysiisyada la habeeyo?"
+
+#: includes/settings.php
+msgid "Device Notification Email Options"
+msgstr "Ikhtiyaarrada Iimaylka Ogeysiiska Qalabka"
+
+#: includes/settings.php
+msgid "Global Notification Email"
+msgstr "Iimaylka Ogeysiiska Guud"
+
+#: includes/settings.php
+msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
+msgstr "Kani waa Cinwaanka Iimaylka ee loo diri doono Ogeysiisyada Qalabka Dhintay haddii la doorto Liiska Ogeysiiska Guud."
+
+#: includes/settings.php
+msgid "Down Subject"
+msgstr "Mawduuca Maqnaanshaha"
+
+#: includes/settings.php
+msgid "This is the Email subject that will be used for Down Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060NOTES&#062"
+msgstr "Kani waa mawduuca Iimaylka ee loo adeegsan doono Farriimaha Qalabka Jaban. Waxaa jira dhowr calaamadood oo beddelaad ah oo caadi ah oo loo isticmaali karo oo ay ku jiraan:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (muddadii xaaladdii ugu dambaysay ee shaqaynta haddii ay tahay farriin jaban) &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
+msgstr "Khalad Qalab: <DESCRIPTION> (<HOSTNAME>) wuu DHACAY"
+
+#: includes/settings.php
+msgid "Down Message"
+msgstr "Farriinta Maqnaanshaha"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Tani waa farriinta lagu soo bandhigi doono jirka farriinta ee dhammaan Farriimaha Qalabka Shaqaynaya / Jaban (Ugu badnaan 1024 Xaraf). HTML waa la oggol yahay, laakiin waa laga saari doonaa Iimayllada qoraalka kaliya ah. Waxaa jira dhowr calaamadood oo beddelaad ah oo caadi ah oo loo isticmaali karo oo ay ku jiraan:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (muddadii xaaladdii ugu dambaysay ee shaqaynta haddii ay tahay farriin jaban) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
+msgstr "Khalad Nidaam : <DESCRIPTION> (<HOSTNAME>) waa <DOWN/UP><br><br>Goob: <SITE><br>Meesha: <LOCATION><br>Sababta: <MESSAGE><br>Celceliska jawaab-celinta nidaamka: <AVG_TIME> ms<br>Helitaanka nidaamka: <AVAILABILITY><br>Wadarta Hubinta Tan iyo Nadiifinta: <TOT_POLL><br>Wadarta Hubinta Fashilantay: <FAIL_POLL><br>Taariikhdii Ugu Dambeysay ee La Hubiyay isagoo Hoos u dhacay : <LAST_FAIL><br>Qalab horey u Shaqeynayay muddo: <DOWNTIME><br>OGAYSIISYO: <NOTES><br>OGAYSIISYADA Qalabka: <DNOTES>"
+
+#: includes/settings.php
+msgid "Recovering Subject"
+msgstr "Mawduuca Soo-kabashada"
+
+#: includes/settings.php
+msgid "This is the Email subject that will be used for Recovering Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
+msgstr "Kani waa mawduuca Iimaylka ee loo adeegsan doono Farriimaha Soo-kabashada Qalabka. Waxaa jira dhowr calaamadood oo beddelaad ah oo caadi ah oo loo isticmaali karo oo ay ku jiraan:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
+msgstr "Ogeysiis Qalab: <DESCRIPTION> (<HOSTNAME>) wuxuu ka soo noqday xaaladda DHACAY"
+
+#: includes/settings.php
+msgid "Recovering Message"
+msgstr "Farriinta Soo-kabashada"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Tani waa farriinta lagu soo bandhigi doono jirka farriinta ee dhammaan Farriimaha Qalabka Shaqaynaya / Jaban (Ugu badnaan 1024 Xaraf). HTML waa la oggol yahay, laakiin waa laga saari doonaa Iimayllada qoraalka kaliya ah. Waxaa jira dhowr calaamadood oo beddelaad ah oo caadi ah oo loo isticmaali karo oo ay ku jiraan:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
+msgstr "<br>Xaaladda Nidaamka <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Goobta: <SITE><br>Goobta joogista: <LOCATION><br>Jawaabta ping ee hadda: <CUR_TIME> ms<br>Celceliska jawaabta nidaamka: <AVG_TIME> ms<br>Helitaanka nidaamka: <AVAILABILITY><br>Wadarta Hubinta Tan iyo Nadiifinta: <TOT_POLL><br>Wadarta Hubinta Fashilantay: <FAIL_POLL><br>Taariikhdii Ugu Dambeysay ee La Hubiyay inuu SHAQEYNAYO: <LAST_FAIL><br>Qalabka Markii Hore DAMSANAA muddo: <DOWNTIME><br><br>Macluumaadka Snmp:<br>Magaca - <SNMP_HOSTNAME><br>Goobta - <SNMP_LOCATION><br>Mudada shaqeynta - <UPTIMETEXT> (<UPTIME> ms)<br>Nidaamka - <SNMP_SYSTEM><br><br>FIIRO GAAR AH: <NOTES><br>Qoraallada Qalabka: <DNOTES>"
+
+#: includes/settings.php
+msgid "Status Change Command"
+msgstr "Amarka Isbeddelka Xaaladda"
+
+#: includes/settings.php
+msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+msgstr "Marka Qalab uu beddelo xaaladdiisa marka laga eego dhinaca Cacti (UP ilaa DOWN ama DOWN ilaa RECOVERING/UP), socodsii amarkan soo socda. Amarkani waa inuusan ku jirin doodo khadka taliska ah. Si kastaba ha ahaatee, doorsoomayaasha soo socda waxaa laga soo qaadi karaa deegaanka qoraalka:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+
+#: includes/settings.php
+msgid "Alert/Warning Message Defaults"
+msgstr "Dejinta Caadiga ah ee Fariimaha Feejignaanta/Digniinta"
+
+#: includes/settings.php
+msgid "Threshold Alert Message"
+msgstr "Fariinta Qaylo-dhaanta Xadka"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Tani waa fariinta laga soo bandhigi doono dusha sare ee dhammaan Qaylo-dhaannada Xadka (Ugu badnaan 1024 xaraf). HTML waa la oggol yahay, laakiin waa laga saari doonaa Iimayllada qoraalka keliya ah. Waxaa jira dhowr summad beddelaad oo caadi ah oo lagu dari karo:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Waxaa la soo saaray Digniin u baahan fiiro gaar ah. <br><br><strong>Qalab</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Fariin</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/settings.php
+msgid "Threshold Warning Message"
+msgstr "Farriinta Digniinta ee Xadka"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Tani waa fariinta laga soo bandhigi doono dusha sare ee dhammaan digniinaha Xadka (Ugu badnaan 1024 xaraf). HTML waa la oggol yahay, laakiin waa laga saari doonaa Iimayllada qoraalka keliya ah. Waxaa jira dhowr summad beddelaad oo caadi ah oo lagu dari karo:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Digniin ayaa la soo saaray oo u baahan fiiro gaar ah. <br><br><strong>Qalab</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Farriin</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/settings.php
+msgid "Threshold Restoral Message"
+msgstr "Fariinta Soo-celinta Xadka"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Tani waa fariinta laga soo bandhigi doono dusha sare ee dhammaan ogeysiisyada soo-celinta Xadka (Ugu badnaan 1024 xaraf). HTML waa la oggol yahay, laakiin waa laga saari doonaa Iimayllada qoraalka keliya ah. Waxaa jira dhowr summad beddelaad oo caadi ah oo lagu dari karo:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Xadka ayaa ku soo noqday xaaladda caadiga ah. <br><br><strong>Qalab</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Farriin</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/tab.php
+msgid "Thold"
+msgstr "Thold"
+
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "Xadka (ama Xadadka) horay ayuu u jiraa - Wax Xadad ah lama abuurin"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "Ka abuur Xadka Qaab-dhismeed"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "Kaaliyaha Abuuritaanka Xadka [ Dooro Nooca Xadka ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "Kaaliyaha Abuuritaanka Xadka [ Geli Xog Gaar ah oo riix 'Abuur' si aad u Abuurto Xadkaaga iyo Garaafka ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "Kaaliyaha Abuuritaanka Xadka [ Dooro Safafka Waydiinta Xogta ee La Heli Karo ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "Kaaliyaha Abuuritaanka Xadka [ Dooro Qalab ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "Kaaliyaha Abuuritaanka Xadka [ Dooro Qaab-dhismeedka Garaafka ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "Kaaliyaha Abuuritaanka Xadka [ Dooro Qaab-dhismeedka Xadka ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "Kaaliyaha Abuuritaanka Xadka [ Riix 'Abuur' si aad u Abuurto Xadkaaga ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "Kaaliyaha Abuuritaanka Xadka [ Dooro Isha Xogta ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "Kaaliyaha Abuuritaanka Xadka [ Dooro Garaafka ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "Shuruudaha Abuuritaanka Xadka"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "Nooca Abuurista"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "Dooro Nooca Xadka ee loo isticmaalayo samaynta Xadkan."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "Dooro Nooca Xadka"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "Aan Qaab-dhismeed Lahayn"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "Qaab-dhismeedka Xadka"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "Dooro Qaab-dhismeedka Xadka ee ay ku salaysnaan doonaan Garaafka iyo Xadka."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "Dooro Qaab-dhismeedka Xadka"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "Qaab-dhismeedka Jaantuska"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "Dooro Qaab-dhismeedka Garaafka ee loo isticmaalayo Garaafka la samaynayo."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "Dooro Qaab-dhismeedka Garaafka"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "Qalab"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "Dooro Qalab loo isticmaalo Xadka iyo Garaafka la abuurayo."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "Dooro Qalab"
+
+#: includes/webapi.php
+msgid "Select an Available Item"
+msgstr "Dooro Shay Diyaar ah"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "Shayga Weydiinta Xogta"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "Ka dooro safka ku habboon Weydiinta Xogta ee loogu talagalay Garaafka iyo Xadka."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "Qoraallada Abuurista"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "Fiiro Gaar ah oo Muhiim ah:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "Xadkani wuxuu yeelan doonaa Qaab-dhismeed. Marka la isticmaalayo ikhtiyaarka Qaab-dhismeedka Xadka, waxaa lagaa codsan doonaa Qaab-dhismeedka Xadka, Qaab-dhismeedka Garaafka, Qalabka iyo laga yaabee macluumaadka Shayga Weydiinta Xogta ka hor intaadan helin farriinta 'Abuur' wakhtigaas oo, haddii wax macluumaad ah oo Garaafka ama Isha Xogta ah oo la dhaafi karo la oggol yahay heerka Qaab-dhismeedka Garaafka iyo Isha Xogta, lagaa codsan doono. Kadib, adigoo riixaya badhanka 'Abuur', labadaba Garaafka iyo Xadka waxaa la abuuri doonaa isku mar."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "Garaafka"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "Dooro Garaafka loogu talagalay Xadka."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "Dooro Garaafka"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "Isha Xogta"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "Dooro Isha Xogta ee Xadka."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "Dooro Isha Xogta"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "Abuur"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "Xadkan <b>MA</b> yeelan doono Qaab-dhismeed wuxuuna kaliya ka shaqayn doonaa Jaantusyada jira. Haddii aad rabto inaad abuurto Garaafka iyo Xadka isku mar, ka dooro Qaab-dhismeedka Xadka liiska hoos u dhaca oo Sii wad ilaa badhanka 'Abuur' uu ka soo muuqdo."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "Xadkan <b>MA</b> yeelan doono Qaab-dhismeed. Waxaad dooran kartaa midkood Garaaf Ahaan halkaas oo aad ka dooran doonto Qalab jira, Garaafka iyo Isha Xogta ka hor intaadan abuurin Xadkaaga, ama waxaad dooran kartaa Qaab-dhismeedka Xadka kaas oo kuu oggolaanaya inaad isku mar abuurto Xad aan lahayn Qaab-dhismeed iyo Garaafka u dhigma"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "Garaafka la Doortay"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "Garaafka la sameeyay: %s"
+
+#: notify_lists.php
+msgid "Duplicate"
+msgstr "Nuqul labaad"
+
+#: notify_lists.php
+msgid "Associate"
+msgstr "Ku xir"
+
+#: notify_lists.php
+msgid "Disassociate"
+msgstr "Ka saar xiriirka"
+
+#: notify_lists.php thold_graph.php
+msgid "Devices"
+msgstr "Aaladaha"
+
+#: notify_lists.php
+#, php-format
+msgid "ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s"
+msgstr "QALAD: Kuma yeelan kartid Iimaylkaaga labada sadar ee To iyo BCC. Iimaylka hoose ma aha mid sax ah!<br><br>%s"
+
+#: notify_lists.php
+msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
+msgstr "Guji 'Sii wad' si aad u Tirtirto Liiska/Liisaska Ogeysiiska.  Qalab/Aalado kasta ama Xad/Xadad kasta oo la xiriira Liiska/Liisaska waxaa lagu celin doonaa qaabka caadiga ah."
+
+#: notify_lists.php
+msgid "Delete Notification List(s)"
+msgstr "Tirtir Liisaska Ogeysiiska"
+
+#: notify_lists.php
+msgid "Click 'Continue' to Duplicate the following Notification List(s)."
+msgstr "Guji 'Sii wad' si aad nuqul uga samayso Liiska/Liisaska Ogeysiiska ee soo socda."
+
+#: notify_lists.php
+msgid "New List Name"
+msgstr "Magaca Liiska Cusub"
+
+#: notify_lists.php
+msgid "New Notification List"
+msgstr "Liiska Ogeysiiska Cusub"
+
+#: notify_lists.php
+msgid "Duplicate Notification List(s)"
+msgstr "Nuqul ka samee Liiska/Liisaska Ogeysiiska"
+
+#: notify_lists.php
+#, php-format
+msgid "%s Threshold Template(s)"
+msgstr "%s Qaab-dhismeedka Xadka"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
+msgstr "Guji 'Sii wad' si aad ula Xiriiriso Liiska Ogeysiiska '%s' Qaab-dhismeedka/Qaab-dhismeedyada Xadka ee hoose."
+
+#: notify_lists.php
+msgid "Warning Membership:"
+msgstr "Xubinnimada Digniinta:"
+
+#: notify_lists.php
+msgid "No Change"
+msgstr "Isbeddel Ma Jiro"
+
+#: notify_lists.php
+msgid "Notification List Only"
+msgstr "Liiska Ogeysiiska Kaliya"
+
+#: notify_lists.php
+msgid "Notification List, Retain Other Settings"
+msgstr "Liiska Ogeysiiska, Hayso Dejinta Kale"
+
+#: notify_lists.php
+msgid "Alert Membership:"
+msgstr "Xubinnimada Feejignaanta:"
+
+#: notify_lists.php
+msgid "Associate Notification List(s)"
+msgstr "Ku xir Liiska/Liisaska Ogeysiiska"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
+msgstr "Guji 'Sii wad' si aad uga Furto Liiska Ogeysiiska '%s' Qaab-dhismeedka/Qaab-dhismeedyada Xadadka ee hoose."
+
+#: notify_lists.php
+msgid "Remove List"
+msgstr "Ka saar Liiska"
+
+#: notify_lists.php
+msgid "Disassociate Notification List(s)"
+msgstr "Ka saar xiriirka Liiska/Liisaska Ogeysiiska"
+
+#: notify_lists.php
+#, php-format
+msgid "%s Threshold(s)"
+msgstr "%s Xadka"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
+msgstr "Guji 'Sii wad' si aad ula Xiriiriso Liiska Ogeysiiska '%s' Xadka/Xadadka hoose."
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
+msgstr "Guji 'Sii wad' si aad uga Furto Liiska Ogeysiiska '%s' Xadka/Xadadka hoose."
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
+msgstr "Guji 'Sii wad' si aad ula Xiriiriso Liiska Ogeysiiska '%s' Qalabka/Aaladaha hoose."
+
+#: notify_lists.php
+msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
+msgstr "Waxaad sidoo kale ku xiriirin kartaa Xadadka Aaladaha. Si kastaba ha ahaatee, Xadadka Qalabkan waxay u ogolaan doonaan in Liiska Ogeysiiska Xadka dib loogu qoro."
+
+#: notify_lists.php
+msgid "Resulting Membership:"
+msgstr "Xubinnimada Ka Soo Baxda:"
+
+#: notify_lists.php
+msgid "Notification and Global Lists"
+msgstr "Liisaska Ogeysiiska iyo Guud"
+
+#: notify_lists.php
+msgid "Device Threshold Warning Membership:"
+msgstr "Xubinnimada Digniinta Xadka Qalabka:"
+
+#: notify_lists.php
+msgid "Device Threshold Alert Membership:"
+msgstr "Xubinnimada Ogeysiiska Xadka Qalabka:"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
+msgstr "Guji 'Sii wad' si aad uga Furto Liiska Ogeysiiska '%s' Qalabka/Aaladaha hoose."
+
+#: notify_lists.php
+msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
+msgstr "Waxaad sidoo kale kala furi kartaa Xadadka Aaladaha. Si kastaba ha ahaatee, Xadadka Qalabkan waxay u ogolaan doonaan in Liiska Ogeysiiska Xadka dib loogu qoro."
+
+#: notify_lists.php
+#, php-format
+msgid "[edit: %s]"
+msgstr "[wax ka beddel: %s]"
+
+#: notify_lists.php
+msgid "[new]"
+msgstr "[cusub]"
+
+#: notify_lists.php
+msgid "List General Settings"
+msgstr "Dejinta Guud ee Liiska"
+
+#: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
+msgid "Name"
+msgstr "Magac"
+
+#: notify_lists.php
+msgid "Enter a name for this Notification List."
+msgstr "Geli magaca Liiskan Ogeysiiska."
+
+#: notify_lists.php thold_graph.php
+msgid "Description"
+msgstr "Sharaxaadda"
+
+#: notify_lists.php
+msgid "Enter a description for this Notification List."
+msgstr "Geli sharaxaadda Liiskan Ogeysiiska."
+
+#: notify_lists.php
+msgid "To disable all notifications from this Notification List, you can simply disable it here."
+msgstr "Si aad u joojiso dhammaan ogeysiisyada Liiskan Ogeysiiska, waxaad si fudud uga joojin kartaa halkan."
+
+#: notify_lists.php
+msgid "To Email Addresses"
+msgstr "Cinwaannada Iimaylka ee Loo Dirayo"
+
+#: notify_lists.php
+msgid "Enter a comma separated list of Email addresses for this Notification List."
+msgstr "Geli liis cinwaanno Iimayl ah oo hakad lagu kala saaray ee Liiskan Ogeysiiska."
+
+#: notify_lists.php
+msgid "BCC Email Addresses"
+msgstr "Cinwaannada Iimaylka ee BCC"
+
+#: notify_lists.php
+msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
+msgstr "Geli liis cinwaanno Iimayl ah oo hakad lagu kala saaray si Liiskan Ogeysiiska loogu diro koobi qarsoon."
+
+#: notify_lists.php
+msgid "Email Style/Format File"
+msgstr "Faylka Qaabka/Nooca Iimaylka"
+
+#: notify_lists.php thold.php thold_templates.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "Dooro faylka duubaha html-ka gaarka ah iyo CSS ee la adeegsanayo. Faylkani wuxuu ka kooban yahay html iyo CSS si uu u duubo warbixintaada. Haddii uu ka kooban yahay wax ka badan CSS oo keliya, waxaad u baahan tahay inaad faylka dhexdiisa geliso summad gaar ah oo <REPORT> ah. Summaddan qaabaynta waxaa lagu beddeli doonaa waxa ku jira warbixinta. Faylashani waxay ku yaallaan galka 'formats'."
+
+#: notify_lists.php
+msgid "Associated Devices"
+msgstr "Aaladaha La Xiriira"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Search"
+msgstr "Raadi"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "Site"
+msgstr "Goob"
+
+#: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
+msgid "None"
+msgstr "Midna"
+
+#: notify_lists.php
+msgid "Device Template"
+msgstr "Qaabka Aaladda"
+
+#: notify_lists.php
+msgid "Associated"
+msgstr "La xiriira"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Go"
+msgstr "Soco"
+
+#: notify_lists.php notify_queue.php
+msgid "Set/Refresh Filters"
+msgstr "Deji/Cusboonaysii Shaandheeyayaasha"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Clear"
+msgstr "Nadiifi"
+
+#: notify_lists.php notify_queue.php
+msgid "Clear Filters"
+msgstr "Nadiifi Shaandheeyayaasha"
+
+#: notify_lists.php thold.php thold_graph.php thold_templates.php
+msgid "ID"
+msgstr "Aqoonsiga"
+
+#: notify_lists.php setup.php thold.php thold_graph.php
+msgid "Status"
+msgstr "Xaaladda"
+
+#: notify_lists.php
+msgid "Associated Lists"
+msgstr "Liisaska La Xiriira"
+
+#: notify_lists.php thold_graph.php
+msgid "Graphs"
+msgstr "Jaantusyada"
+
+#: notify_lists.php thold_graph.php
+msgid "Data Sources"
+msgstr "Ilaha Xogta"
+
+#: notify_lists.php notify_queue.php thold_graph.php
+msgid "Hostname"
+msgstr "Magaca Martigeliyaha"
+
+#: notify_lists.php
+msgid "Current List Only"
+msgstr "Liiska Hadda Kaliya"
+
+#: notify_lists.php
+msgid "Current and Global List(s)"
+msgstr "Liiska/Liisaska Hadda iyo kuwa Guud"
+
+#: notify_lists.php
+msgid "No Associated Devices Found"
+msgstr "Ma Jiraan Aaladaha La Xiriira ee La Helay"
+
+#: notify_lists.php
+msgid "Associated Thresholds"
+msgstr "Xadadka La Xiriira"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "Template"
+msgstr "Qaab-dhismeed"
+
+#: notify_lists.php
+msgid "State"
+msgstr "Gobolka"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "All"
+msgstr "Dhammaan"
+
+#: notify_lists.php
+msgid "Warning Lists"
+msgstr "Liisaska Digniinta"
+
+#: notify_lists.php
+msgid "Alert Lists"
+msgstr "Liisaska Feejignaanta"
+
+#: notify_lists.php thold.php thold_graph.php thold_templates.php
+msgid "Type"
+msgstr "Nooca"
+
+#: notify_lists.php thold.php
+msgid "Templated"
+msgstr "Qaab-dhismeed leh"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "No"
+msgstr "Maya"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Yes"
+msgstr "Haa"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "baseline-LOW"
+msgstr "saldhigga-HOOSE"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "baseline-HIGH"
+msgstr "saldhigga-SARE"
+
+#: notify_lists.php
+msgid "Select Users"
+msgstr "Dooro Isticmaalayaasha"
+
+#: notify_lists.php
+msgid "Specific Emails"
+msgstr "Iimayllo Gaar ah"
+
+#: notify_lists.php
+msgid "Current List"
+msgstr "Liiska Hadda"
+
+#: notify_lists.php
+msgid "Unknown Threshold"
+msgstr "Xadka Aan La Aqoon"
+
+#: notify_lists.php
+msgid "Log Only"
+msgstr "Diiwaan Kaliya"
+
+#: notify_lists.php
+msgid "Editable"
+msgstr "Wax laga beddeli karo"
+
+#: notify_lists.php
+msgid "Read Only"
+msgstr "Akhris Kaliya"
+
+#: notify_lists.php
+msgid "No Thresholds Found"
+msgstr "Xadadka Lama Helin"
+
+#: notify_lists.php
+msgid "Associated Templates"
+msgstr "Qaab-dhismeedyada La Xiriira"
+
+#: notify_lists.php notify_queue.php
+msgid "Rows"
+msgstr "Safafka"
+
+#: notify_lists.php
+msgid "Unknown Template"
+msgstr "Qaab Aan La Aqoon"
+
+#: notify_lists.php thold_templates.php
+msgid "No Threshold Templates"
+msgstr "Ma Jiraan Qaab-dhismeedyada Xadka"
+
+#: notify_lists.php
+msgid "Lists"
+msgstr "Liisaska"
+
+#: notify_lists.php
+msgid "List Name"
+msgstr "Magaca Liiska"
+
+#: notify_lists.php
+msgid "Emails"
+msgstr "Iimayllada"
+
+#: notify_lists.php
+msgid "No Notification Lists"
+msgstr "Ma Jiraan Liisaska Ogeysiisyada"
+
+#: notify_queue.php
+msgid "Notification has been Suspended.  Press the Resume button to resume it"
+msgstr "Ogeysiiska waa la hakiyay. Riix badhanka Sii Wadista si aad u sii waddo"
+
+#: notify_queue.php
+msgid "Notification has been Resumed.  Press the Suspend button to suspend it"
+msgstr "Ogeysiiska waa la sii waday. Riix badhanka Hakinta si aad u hakiso"
+
+#: notify_queue.php
+msgid "Pending Notifications have been removed from the database.  Previously sent notification not purged will remain until they age out."
+msgstr "Ogeysiisyada sugaya waa laga saaray kaydka xogta.  Ogeysiisyada horay loo diray ee aan la nadiifin way sii jiri doonaan ilaa waqtigoodu dhaco."
+
+#: notify_queue.php
+msgid "Click 'Continue' to delete the following Notification."
+msgid_plural "Click 'Continue' to delete all following Notifications."
+msgstr[0] "Guji 'Sii wad' si aad u tirtirto Ogeysiinta soo socota."
+msgstr[1] "Guji 'Sii wad' si aad u tirtirto dhammaan Ogeysiisyada soo socda."
+
+#: notify_queue.php
+msgid "Delete Notification"
+msgid_plural "Delete Notifications"
+msgstr[0] "Tirtir Ogeysiinta"
+msgstr[1] "Tirtir Ogeysiisyada"
+
+#: notify_queue.php
+#, php-format
+msgid "Event Notifications [ Notifications Suspended by User: %s, %s ago ]"
+msgstr "Ogeysiisyada Dhacdooyinka [ Ogeysiisyada waxaa hakiyay Isticmaale: %s, %s ka hor ]"
+
+#: notify_queue.php
+msgid "Event Notifications"
+msgstr "Ogeysiisyada Dhacdooyinka"
+
+#: notify_queue.php
+msgid "Topic"
+msgstr "Mawduuc"
+
+#: notify_queue.php
+msgid "Processed"
+msgstr "La habeeyay"
+
+#: notify_queue.php
+msgid "Suspend"
+msgstr "Haki"
+
+#: notify_queue.php
+msgid "Suspend Notification Processing"
+msgstr "Haki Habaynta Ogeysiisyada"
+
+#: notify_queue.php
+msgid "Resume"
+msgstr "Dib u bilow"
+
+#: notify_queue.php
+msgid "Resume Notification Processing"
+msgstr "Dib u bilow Habaynta Ogeysiisyada"
+
+#: notify_queue.php
+msgid "Purge"
+msgstr "Nadiifi"
+
+#: notify_queue.php
+msgid "Purge Notification Queue"
+msgstr "Faaruqi Safka Ogeysiiska"
+
+#: notify_queue.php
+msgid "Notifications"
+msgstr "Ogeysiisyada"
+
+#: notify_queue.php
+msgid "The supported notification topic."
+msgstr "Mawduuca ogeysiiska ee la taageeray."
+
+#: notify_queue.php thold_graph.php
+msgid "Event Description"
+msgstr "Sharaxaadda Dhacdada"
+
+#: notify_queue.php
+msgid "The name of the object as defined by the caller."
+msgstr "Magaca shayga sida uu u qeexay wacaha."
+
+#: notify_queue.php
+msgid "The hostname that was the source of this event."
+msgstr "Magaca martigeliyaha (hostname) ee ahaa isha dhacdadan."
+
+#: notify_queue.php
+msgid "The Notification List used if any."
+msgstr "Liiska Ogeysiiska la isticmaalay haddii uu jiro."
+
+#: notify_queue.php
+msgid "Object ID"
+msgstr "Aqoonsiga Shayga"
+
+#: notify_queue.php
+msgid "The Object ID defined by the caller.  Generally its unique 'id'."
+msgstr "Aqoonsiga Shayga (Object ID) ee uu qeexay wacaha. Guud ahaan waa 'id' gaar u ah."
+
+#: notify_queue.php
+msgid "Event Time"
+msgstr "Waqtiga Dhacdada"
+
+#: notify_queue.php
+msgid "The time of the event as defined by the caller."
+msgstr "Waqtiga dhacdada sida uu qeexay soo wacuhu."
+
+#: notify_queue.php
+msgid "Has the Notification Event been processed."
+msgstr "Dhacdada Ogeysiiska ma la habeeyay."
+
+#: notify_queue.php
+msgid "Errors"
+msgstr "Khaladaadka"
+
+#: notify_queue.php
+msgid "Did this notification result in an error.  Hover on the error column for details."
+msgstr "Ogeysiiskani ma wuxuu keenay khalad. Dul gee tiirka khaladka si aad u aragto faahfaahinta."
+
+#: notify_queue.php
+msgid "Attempts"
+msgstr "Isku-dayo"
+
+#: notify_queue.php
+msgid "The number of delivery attempts made for this notification."
+msgstr "Tirada isku-dayga gaarsiinta ee la sameeyay ogeysiiskan."
+
+#: notify_queue.php
+msgid "Next Attempt"
+msgstr "Isku-dayga Xiga"
+
+#: notify_queue.php
+msgid "When a failed notification is eligible for its next retry."
+msgstr "Marka ogeysiis fashilmay uu u qalmo isku daygiisa xiga."
+
+#: notify_queue.php
+msgid "Run Time"
+msgstr "Waqtiga Shaqada"
+
+#: notify_queue.php
+msgid "The time in seconds it took to process the event."
+msgstr "Waqtiga ilbiriqsiyada ah ee ay qaadatay habaynta dhacdada."
+
+#: notify_queue.php
+msgid "Not Specified"
+msgstr "Lama Cayimin"
+
+#: notify_queue.php
+msgid "No Notifications"
+msgstr "Ma Jiraan Ogeysiisyo"
+
+#: setup.php
+msgid "Toggle Threshold VRULES Off"
+msgstr "Demi VRULES-ka Xadka"
+
+#: setup.php
+msgid "Toggle Threshold VRULES On"
+msgstr "Shid VRULES-ka Xadka"
+
+#: setup.php
+msgid "Create Threshold"
+msgstr "Abuur Xadka"
+
+#: setup.php
+#, php-format
+msgid "Alert Hi for %s (%s)"
+msgstr "Feejignaan Sare ee %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s)"
+msgstr "Feejignaan Hoose ee %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s)"
+msgstr "Digniin Sare ee %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Low for %s (%s)"
+msgstr "Digniin Hoose ee %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Hi for %s (%s %%)"
+msgstr "Feejignaan Sare ee %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s %%)"
+msgstr "Feejignaan Hoose ee %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s %%)"
+msgstr "Digniin Sare ee %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Warning Low for %s (%s %%)"
+msgstr "Digniin Hoose ee %s (%s %%)"
+
+#: setup.php
+msgid "Threshold Alert/Warning Values"
+msgstr "Qiimayaasha Qaylo-dhaanta/Digniinta Xadka"
+
+#: setup.php
+msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
+msgstr "Guji 'Sii wad' si aad dhammaan Xadka ku habboon ugu dabaqdo Qalab(yadan)."
+
+#: setup.php
+msgid "Create Threshold from Data Source"
+msgstr "Ka abuur Xadka Isha Xogta"
+
+#: setup.php
+msgid "Auto-create Thresholds"
+msgstr "Si toos ah u abuur Xadadka"
+
+#: setup.php
+#, php-format
+msgid "Created %s thresholds"
+msgstr "Waxaa la abuuray %s xad"
+
+#: setup.php
+msgid "No Threshold(s) Created.  Threshold(s) Template not found."
+msgstr "Xadka(yada) Lama Abuurin. Qaab-dhismeed Xadka(yada) lama helin."
+
+#: setup.php
+msgid "The following Data Sources have no Threshold Templates associated with them"
+msgstr "Ilaha Xogta ee soo socda ma laha Qaab-dhismeedyada Xadka oo la xidhiidha"
+
+#: setup.php
+msgid "Click 'Continue' to create Thresholds for these Data Sources?"
+msgstr "Guji 'Sii wad' si aad ugu abuurto Xadka Ilaha Xogtaan?"
+
+#: setup.php
+msgid "Available Threshold Templates"
+msgstr "Qaab-dhismeedyada Xadka ee la heli karo"
+
+#: setup.php
+msgid "There are no Threshold Templates associated with the following Data Sources"
+msgstr "Ma jiraan Qaab-dhismeedyada Xadka oo la xiriira Ilaha Xogta ee soo socda"
+
+#: setup.php
+msgid "The following Graphs have no Threshold Templates associated with them"
+msgstr "Jaantusyada soo socda ma laha Qaab-dhismeedyada Xadka oo la xidhiidha"
+
+#: setup.php
+msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
+msgstr "Riix 'Sii wad' haddii aad rabto inaad u abuurto Xadka Garaafka/Jaantusyadan"
+
+#: setup.php
+msgid "There are no Threshold Templates associated with the following Graphs"
+msgstr "Ma jiraan Qaab-dhismeedyada Xadka oo la xiriira Jaantusyada soo socda"
+
+#: setup.php
+msgid "Associated Threshold Templates"
+msgstr "Qaababka Xadka ee La Xiriira"
+
+#: setup.php
+msgid "Threshold Exists"
+msgstr "Xadka Wuu Jiraa"
+
+#: setup.php
+msgid "Threshold Does Not Exist"
+msgstr "Xadka Ma Jiro"
+
+#: setup.php
+msgid "Delete Threshold Template Association"
+msgstr "Tirtir Xiriirka Qaab-dhismeedka Xadka"
+
+#: setup.php
+msgid "No Associated Threshold Templates."
+msgstr "Ma Jiraan Qaab-dhismeedyada Xadka ee La Xiriira."
+
+#: setup.php
+msgid "Add Threshold Template"
+msgstr "Ku dar Qaab-dhismeedka Xadka"
+
+#: setup.php
+msgid "Add"
+msgstr "Ku dar"
+
+#: setup.php
+msgid "Add Threshold Template to Device"
+msgstr "Ku dar Qaab-dhismeedka Xadka Qalabka"
+
+#: setup.php
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device."
+msgstr "Guji 'Sii wad' si aad u Tirtirto Qaab-dhismeedka Xadka ee soo socda oo laga furi doono Qalabka."
+
+#: setup.php
+#, php-format
+msgid "Threshold Template Name: %s"
+msgstr "Magaca Qaab-dhismeedka Xadka: %s"
+
+#: setup.php
+msgid "Remove Threshold Template"
+msgstr "Ka Saar Shaxanka Xadka"
+
+#: setup.php
+msgid "Add Threshold Template to Device Template"
+msgstr "Ku dar Qaab-dhismeedka Xadka Qaab-dhismeedka Qalabka"
+
+#: setup.php
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
+msgstr "Guji 'Sii wad' si aad u Tirtirto Qaab-dhismeedka Xadka ee soo socda oo laga furi doono Qaab-dhismeedka Qalabka."
+
+#: thold.php
+msgid "Either No Templates or Threshold(s) Already Exists - No Thresholds were created."
+msgstr "Midkoodna Qaab-dhismeedyada ma jiraan ama Xad(yo) ayaa hore u jiray - Wax Xad ah lama abuurin."
+
+#: thold.php
+msgid "You are not authorized to modify one or more of the Thresholds selected"
+msgstr "Looma oggola inaad wax ka beddesho mid ama in ka badan oo ka mid ah Xadadka la doortay"
+
+#: thold.php
+msgid "Click 'Delete' to delete the following Threshold(s)."
+msgstr "Guji 'Tirtir' si aad u tirtirto Xadka(yada) soo socda."
+
+#: thold.php
+msgid "Delete Threshold(s)"
+msgstr "Tirtir Xadka(yada)"
+
+#: thold.php
+msgid "Click 'Continue' to enable the following Threshold(s)."
+msgstr "Guji 'Sii wad' si aad u hawlgeliso Xadka(yada) soo socda."
+
+#: thold.php
+msgid "Enable Threshold(s)"
+msgstr "Hawlgeli Xad(adka)"
+
+#: thold.php
+msgid "Click 'Continue' to disable the following Threshold(s)."
+msgstr "Guji 'Sii wad' si aad u joojiso Xadka(yada) soo socda."
+
+#: thold.php
+msgid "Disable Threshold(s)"
+msgstr "Jooji Xadka(yada)"
+
+#: thold.php
+msgid "Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
+msgstr "Guji 'Sii wad' si aad mar kale ugu dabaqdo Magac(yada) La Soo Jeediyay Xadka(yada) soo socda."
+
+#: thold.php
+msgid "Apply Suggestion"
+msgstr "Dabbaq Soo jeedinta"
+
+#: thold.php
+msgid "Click 'Continue' to update the following Threshold(s) with their associate Template's details."
+msgstr "Guji 'Sii wad' si aad ugu cusbooneysiiso Xadka(yada) soo socda faahfaahinta Qaab-dhismeedkooda la xiriira."
+
+#: thold.php
+msgid "Reapply Template"
+msgstr "Dib uga dhaqan geli Qaab-dhismeedka"
+
+#: thold.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
+msgstr "Guji 'Sii wad' si aad u Qirato Xadka/Xadadka soo socda.  Xadadka aan tan oggolayn, ama aan kicin, waa la iska indho-tiri doonaa."
+
+#: thold.php
+msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
+msgstr "Guji 'Sii wad' si aad dib ugu bilowdo Ogeysiisyada Xadka(yada) soo socda.  Xadka aan oggolaan tan, ama aan la kicin waa la iska indho tiri doonaa."
+
+#: thold.php
+msgid "Resume Notifications for Threshold(s)"
+msgstr "Dib u bilow Ogeysiisyada Xadka(yada)"
+
+#: thold.php
+msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
+msgstr "Guji 'Sii wad' si aad u hakiso Ogeysiisyada Xadka(yada) soo socda.  Xadka aan oggolaan tan, ama aan la kicin waa la iska indho tiri doonaa."
+
+#: thold.php
+msgid "Suspend Notification for Threshold(s)"
+msgstr "Haki Ogeysiiska Xadka(yada)"
+
+#: thold.php thold_templates.php
+msgid "Invalid action detected, can not proceed"
+msgstr "Ficil aan sax ahayn ayaa la ogaaday, lama sii wadi karo"
+
+#: thold.php
+msgid "Threshold Management"
+msgstr "Maamulka Xadka"
+
+#: thold.php
+msgid "Apply Filters"
+msgstr "Dabbaq Shaandheeyeyaasha"
+
+#: thold.php
+msgid "Return to Defaults"
+msgstr "Ku celi kuwii Caadiga ahaa"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Data Template"
+msgstr "Qaabka Xogta"
+
+#: thold.php thold_graph.php
+msgid "Disabled at Template"
+msgstr "Lagu joojiyay Qaab-dhismeedka"
+
+#: thold.php thold_graph.php
+msgid "Disabled at Threshold"
+msgstr "Lagu joojiyay Xadka"
+
+#: thold.php thold_graph.php
+msgid "Ack Required"
+msgstr "Qirasho Ayaa Loo Baahan Yahay"
+
+#: thold.php thold_graph.php
+msgid "By Status"
+msgstr "Marka loo eego Xaaladda"
+
+#: thold.php thold_graph.php
+msgid "The current threshold status. Click a status pill to filter the list to that status."
+msgstr "Xaaladda xadka ee hadda. Guji calaamadda xaaladda si aad liiska ugu shaandhayso xaaladdaas."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "External ID"
+msgstr "Aqoonsiga Dibadda"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function."
+msgstr "Nooca Xadka. Noocyada Saldhigga (Baseline): [TIP] waxay tixraacaysaa Waqtigii Hore iyadoo wadata MIN, MAX, AVG, iyo LAST oo aan ka badnayn hal maalin muddadaas. [AOT] waxay tixraacaysaa Celceliska muddada oo dhan. Haddii ay jirto laba dhibcood oo ay ku xigto MIN, MAX, AVG, LAST, Qiimuhu wuxuu ka yimid Hawsha Isku-darkaas (Consolidation Function)."
+
+#: thold.php
+msgid "DSName"
+msgstr "Magaca DS"
+
+#: thold.php thold_graph.php
+msgid "Current"
+msgstr "Hadda"
+
+#: thold.php thold_graph.php
+msgid "The last measured value for the Data Source"
+msgstr "Qiimihii ugu dambeeyay ee la cabbiray ee Isha Xogta"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "High"
+msgstr "Sare"
+
+#: thold.php thold_graph.php
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
+msgstr "Qiimaha Digniin / Ogeysiis Sare.  FIIRO GAAR AH: Qiimaha saldhigga waa boqolkiiba, dhammaan qiimaha kale waa qiimo muujin ah oo lagu beddeli karo cdef."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Low"
+msgstr "Hoose"
+
+#: thold.php thold_graph.php
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
+msgstr "Qiimaha Digniin / Ogeysiis Hoose.  FIIRO GAAR AH: Qiimaha saldhigga waa boqolkiiba, dhammaan qiimaha kale waa qiimo muujin ah oo lagu beddeli karo cdef."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Trigger"
+msgstr "Kiciye"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Duration"
+msgstr "Muddada"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Repeat"
+msgstr "Ku celi"
+
+#: thold.php thold_graph.php
+msgid "In State"
+msgstr "Xaaladda Ku Jirta"
+
+#: thold.php thold_graph.php
+msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
+msgstr "Muddada ka soo wareegtay tan iyo markii Xadka la jebiyay ama la kiciyay"
+
+#: thold.php thold_graph.php
+msgid "Acknowledgment required for this Threshold"
+msgstr "Qirasho ayaa loo baahan yahay Xadkan"
+
+#: thold.php thold_graph.php
+msgid "No [Template:Thold]"
+msgstr "Maya [Qaab-dhismeed:Thold]"
+
+#: thold.php thold_graph.php
+msgid "No [Template]"
+msgstr "Maya [Qaab-dhismeed]"
+
+#: thold.php thold_graph.php
+msgid "No [Thold]"
+msgstr "Maya [Thold]"
+
+#: thold.php thold_graph.php
+#, php-format
+msgid "%d Triggers"
+msgstr "%d Kiciyeyaal"
+
+#: thold.php thold_graph.php
+msgid "No Thresholds"
+msgstr "Ma Jiraan Xadadka"
+
+#: thold.php
+msgid "Threshold Deleted, can not Edit!"
+msgstr "Xadka waa la tirtiray, wax lagama beddeli karo!"
+
+#: thold.php
+msgid "Graph Data"
+msgstr "Xogta Garaafka"
+
+#: thold.php
+msgid "Edit Threshold Template"
+msgstr "Wax ka beddel Qaab-dhismeedka Xadka"
+
+#: thold.php
+msgid "Data Source Description:"
+msgstr "Sharaxaadda Isha Xogta:"
+
+#: thold.php
+msgid "Associated Graph (Graphs using this RRD):"
+msgstr "Garaafka La Xiriira (Jaantusyada isticmaalaya RRD-gan):"
+
+#: thold.php
+msgid "Last:"
+msgstr "U dambeeyay:"
+
+#: thold.php
+msgid "WHi:"
+msgstr "WHi:"
+
+#: thold.php
+msgid "WLo:"
+msgstr "WLo:"
+
+#: thold.php
+msgid "AHi:"
+msgstr "DSare:"
+
+#: thold.php
+msgid "ALo:"
+msgstr "DHoose:"
+
+#: thold.php
+msgid "BL Up:"
+msgstr "BL Kor u kac:"
+
+#: thold.php
+msgid "BL Down:"
+msgstr "BL Hoos u dhac:"
+
+#: thold.php
+#, php-format
+msgid "Unknown Template ID %d"
+msgstr "Aqoonsiga Qaab-dhismeedka Aan La Aqoon %d"
+
+#: thold.php
+msgid "Not Templated"
+msgstr "Aan Qaab-dhismeed Lahayn"
+
+#: thold.php
+#, php-format
+msgid "Data Source Item [ %s ] - Current value: [ %s ]"
+msgstr "Shayga Isha Xogta [ %s ] - Qiimaha hadda: [ %s ]"
+
+#: thold.php thold_templates.php
+#, php-format
+msgid "Replacement Fields: %s"
+msgstr "Goobaha Beddelka: %s"
+
+#: thold.php thold_templates.php
+#, php-format
+msgid "Data Sources: %s"
+msgstr "Ilaha Xogta: %s"
+
+#: thold.php
+msgid "Template/Enabled Information"
+msgstr "Macluumaadka Qaab-dhismeedka/La hawlgeliyay"
+
+#: thold.php
+msgid "Template Propagation Enabled"
+msgstr "Faafinta Qaab-dhismeedka waa La hawlgeliyay"
+
+#: thold.php
+msgid "Whether or not these settings will be propagated from the Threshold template."
+msgstr "Haddii dejimahan laga faafin doono Qaab-dhismeedka Xadka iyo in kale."
+
+#: thold.php thold_templates.php
+msgid "Template Name"
+msgstr "Magaca Shaxanka"
+
+#: thold.php
+msgid "Name of the Threshold Template the Threshold was created from."
+msgstr "Magaca Qaab-dhismeedka Xadka ee Xadka laga abuuray."
+
+#: thold.php
+msgid "Enabled at Template Level"
+msgstr "Waxaa laga hawlgeliyay Heerka Qaab-dhismeedka"
+
+#: thold.php
+msgid "A Threshold must be enabled both at the Template Level and the Threshold level to be checked."
+msgstr "Xadka waa in laga hawlgeliyaa heerka Qaab-dhismeedka iyo heerka Xadka labadaba si loo hubiyo."
+
+#: thold.php
+msgid "Enabled at Threshold Level"
+msgstr "Waxaa laga hawlgeliyay Heerka Xadka"
+
+#: thold.php thold_templates.php
+msgid "General Settings"
+msgstr "Dejinta Guud"
+
+#: thold.php
+msgid "Name (Displayed)"
+msgstr "Magaca (La soo bandhigay)"
+
+#: thold.php
+msgid "Provide the Thresholds a meaningful name"
+msgstr "Sii Xadadka magac macno leh"
+
+#: thold.php
+msgid "Name (Format)"
+msgstr "Magaca (Qaabka)"
+
+#: thold.php thold_templates.php
+msgid "Warning HRULE Color"
+msgstr "Midabka HRULE ee Digniinta"
+
+#: thold.php thold_templates.php
+msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
+msgstr "Fadlan u dooro Midab HRULE-ka Garaafka ee Xadka Digniinta.  Dooro 'Waxba' haddii aadan rabin HRULE.  Fiiro gaar ah: Astaantan waxaa lagu taageeraa noocyada Maamulka Xogta ee 'Qiimaha Saxda ah' iyo 'Boqolleyda' oo keliya waqtigan."
+
+#: thold.php thold_templates.php
+msgid "Alert HRULE Color"
+msgstr "Midabka HRULE ee Feejignaanta"
+
+#: thold.php thold_templates.php
+msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
+msgstr "Fadlan u dooro Midab HRULE-ka Garaafka ee Xadka Qaylo-dhaanta.  Dooro 'Waxba' haddii aadan rabin HRULE.  Fiiro gaar ah: Astaantan waxaa lagu taageeraa noocyada Maamulka Xogta ee 'Qiimaha Saxda ah' iyo 'Boqolleyda' oo keliya waqtigan."
+
+#: thold.php thold_templates.php
+msgid "Graph Timespan"
+msgstr "Muddada Garaafka"
+
+#: thold.php thold_templates.php
+msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
+msgstr "Waqtiga Dhammaadka Garaafka waxaa la dejin doonaa waqtiga kicinta.  Waqtiga Bilowga Garaafka wuxuu noqon doonaa Waqtiga Dhammaadka oo laga jaray Muddada Garaafka."
+
+#: thold.php thold_templates.php
+msgid "Skip Scaling on HRULEs"
+msgstr "Ka bood cabbiridda HRULEs"
+
+#: thold.php thold_templates.php
+msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
+msgstr "Haddii la Calaamadeeyo, Miisaanka Garaafka saameyn kuma yeelan doonaan HRULE-yada Digniinta Culus ama Digniinta."
+
+#: thold.php thold_templates.php
+msgid "Weekend Exemption"
+msgstr "Ka-dhaafitaanka Dhammaadka Toddobaadka"
+
+#: thold.php thold_templates.php
+msgid "If this is checked, this Threshold will not alert on weekends."
+msgstr "Haddii tan la calaamadeeyo, Xadkani ma samayn doono qaylo-dhaan maalmaha fasaxa toddobaadka."
+
+#: thold.php thold_templates.php
+msgid "Disable Restoration Email"
+msgstr "Jooji Iimaylka Soo-celinta"
+
+#: thold.php thold_templates.php
+msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
+msgstr "Haddii tan la calaamadeeyo, Xadka ma diri doono qaylo-dhaan marka Xadku ku soo noqdo Xaaladda caadiga ah."
+
+#: thold.php thold_templates.php
+msgid "Acknowledgment Options"
+msgstr "Ikhtiyaarrada Qirashada"
+
+#: thold.php thold_templates.php
+msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
+msgstr "Waxaa jira saddex heer oo Qirasho ah kuwaas oo xakameeya sida ay tahay inaad uga jawaabto xaaladda jabinta Xadka. Waxay kala yihiin:<br><br><ul><li><i>Looma Baahna</i> - Marka aad doorato ikhtiyaarkan, looma baahna wax Qirasho ah marka Xadka la jabiyo.</li><li><i>Ogeysiis La Hakin Karo</i> - Ikhtiyaarkan, marka aad Qirato ama Hakiso Ogeysiisyada Xadka, mar dambe heli maysid ogeysiisyo inta uu jaban yahay. Waxaad dib u bilaabi kartaa Ogeysiisyada inta uu jaban yahay.</li><li><i>Qirasho Joogto Ah</i> - Ikhtiyaarkan, xitaa ka dib marka Xadka uu ku soo noqdo xaaladda caadiga ah, waa inaad Qirataa Xadka oo aad bixisaa Fariin Hawlwadeen oo ikhtiyaari ah.</li></ul>"
+
+#: thold.php thold_templates.php
+msgid "None Required"
+msgstr "Midna Looma Baahna"
+
+#: thold.php thold_templates.php
+msgid "Suspendible Notification"
+msgstr "Ogeysiis la Hakin Karo"
+
+#: thold.php thold_templates.php
+msgid "Persistent Acknowledgment"
+msgstr "Aqoonsi Joogto ah"
+
+#: thold.php thold_templates.php
+msgid "Threshold Type"
+msgstr "Nooca Xadka"
+
+#: thold.php thold_templates.php
+msgid "The type of Threshold that will be monitored."
+msgstr "Nooca Xadka ee la kormeerayo."
+
+#: thold.php thold_templates.php
+msgid "Re-Alert Cycle"
+msgstr "Wareegga Digniin-celinta"
+
+#: thold.php
+msgid "Repeat alert after this amount of time has passed since the last alert."
+msgstr "Ku celi digniinta ka dib marka waqtigan uu ka soo wareego digniintii ugu dambeysay."
+
+#: thold.php thold_templates.php
+msgid "Warning - High / Low Settings"
+msgstr "Digniin - Dejinta Sare / Hoose"
+
+#: thold.php thold_templates.php
+msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
+msgstr "Qiimayaasha tirada ee Xadadka Sare iyo Hoose waxaa ku jiri kara daba-galyada soo socda ee tirooyinka ka weyn 1 ilaa 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', iyo tirooyinka ka yar 1 'm', 'u', 'p', 'f'."
+
+#: thold.php thold_templates.php
+msgid "High Threshold"
+msgstr "Xadka Sare"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Haddii la dejiyo oo qiimaha Isha Xogta uu ka bato tiradan, Digniin ayaa kici doonta. FIIRO GAAR AH: Qiimahani waa inuu ahaadaa tiro CAYRIIN (RAW). Qiimaha lagu soo bandhigo Garaafka waxaa beddeli kara cdef."
+
+#: thold.php thold_templates.php
+msgid "Low Threshold"
+msgstr "Xadka Hoose"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Haddii la dejiyo oo qiimaha Isha Xogta uu ka hooseeyo tiradan, Digniin ayaa kici doonta. FIIRO GAAR AH: Qiimahani waa inuu ahaadaa tiro CAYRIIN (RAW). Qiimaha lagu soo bandhigo Garaafka waxaa beddeli kara cdef."
+
+#: thold.php
+msgid "Breach Duration"
+msgstr "Muddada Jebinta"
+
+#: thold.php
+msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Muddada ay Isha Xogta tahay inay jebiso Xadka si digniin loogu soo saaro. XUSUUSIN: Qiimahani waa inuu ahaadaa lambar QAYRIIN (RAW) ah. Qiimaha lagu soo bandhigo Garaafka waxaa wax ka beddeli kara cdef."
+
+#: thold.php thold_templates.php
+msgid "Alert - High / Low Settings"
+msgstr "Feejignaan - Dejinta Sare / Hoose"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Haddii la dejiyo oo qiimaha Isha Xogta uu ka bato tiradan, qaylo-dhaan ayaa kici doonta. FIIRO GAAR AH: Qiimahani waa inuu ahaadaa tiro CAYRIIN (RAW). Qiimaha lagu soo bandhigo Garaafka waxaa beddeli kara cdef."
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Haddii la dejiyo oo qiimaha Isha Xogta uu ka hooseeyo tiradan, qaylo-dhaan ayaa kici doonta. FIIRO GAAR AH: Qiimahani waa inuu ahaadaa tiro CAYRIIN (RAW). Qiimaha lagu soo bandhigo Garaafka waxaa beddeli kara cdef."
+
+#: thold.php
+msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
+msgstr "Muddada ay Isha Xogta tahay inay jebiso Xadka si digniin culus (alert) loogu soo saaro."
+
+#: thold.php thold_templates.php
+msgid "Warning - Time Based Settings"
+msgstr "Digniin - Dejinta Waqtiga Ku Saleysan"
+
+#: thold.php
+msgid "Breach Count"
+msgstr "Tirada Jebinta"
+
+#: thold.php
+msgid "The number of times the Data Source must be in breach of the Threshold."
+msgstr "Tirada jeer ee Isha Xogtu ay tahay inay ku xad-gudubto Xadka."
+
+#: thold.php
+msgid "Breach Window"
+msgstr "Daaqadda Jebinta"
+
+#: thold.php thold_templates.php
+msgid "The amount of time in the past to check for Threshold breaches."
+msgstr "Muddada waqtigii hore ee la hubinayo jebinta Xadka."
+
+#: thold.php thold_templates.php
+msgid "Alert - Time Based Settings"
+msgstr "Feejignaan - Dejinta Waqtiga ku Saleysan"
+
+#: thold.php
+msgid "Baseline Settings"
+msgstr "Dejinta Heerka Aasaasiga ah"
+
+#: thold.php thold_templates.php
+msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
+msgstr "Nooca Heerka Aasaasiga ah.  [TIP] waa Waqtigii Hore, [AOT] waa Celceliska Muddooyinka.  Leexashada Boqolkiiba waa qiimo boqolkiiba ah oo ka yimid qiimaha taariikhiga ah.  Qiimaha Buuxa waa leexasho ka sarraysa ama ka hoosaysa Heerka Aasaasiga ah ee qiimahaas taariikhiga ah.  Noocyada Heerka Aasaasiga ah ee [TIP], MIN, MAX, AVG, iyo LAST waxay ka imaan doonaan muddo aan ka badnayn hal maalin bartaas waqtiga."
+
+#: thold.php thold_templates.php
+msgid "Consolidation Function"
+msgstr "Shaqada Isku-darka"
+
+#: thold.php thold_templates.php
+msgid "Average"
+msgstr "Celcelis"
+
+#: thold.php thold_templates.php
+msgid "Minimum"
+msgstr "Ugu yar"
+
+#: thold.php thold_templates.php
+msgid "Maximum"
+msgstr "Ugu Badnaan"
+
+#: thold.php thold_templates.php
+msgid "Last"
+msgstr "Ugu dambeeya"
+
+#: thold.php thold_templates.php
+msgid "The Consolidation function to use for the Baseline Type value calculation."
+msgstr "Hawl-galka Isku-darka ee loo isticmaalayo xisaabinta qiimaha Nooca Saldhigga."
+
+#: thold.php thold_templates.php
+msgid "Time Range"
+msgstr "Baaxadda Waqtiga"
+
+#: thold.php thold_templates.php
+msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
+msgstr "Waxay qeexaysaa barta waqtigii hore (oo ku salaysan xallinta rrd) ee loo isticmaali doono tixraac ahaan ama muddada loo isticmaalo Celceliska Sabbaynaya marka la isticmaalayo Xadka nooca Floating Average"
+
+#: thold.php thold_templates.php
+msgid "Deviation UP"
+msgstr "Leexashada KOR"
+
+#: thold.php
+#, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Waxay qeexaysaa leexashada la oggol yahay ee soohdinta sare ee Xadka. Haddii aan la dejin, soohdinta sare ee Xadka lama hubin doono haba yaraatee. Halbeegga cabbirku waa qiime dhab ah oo loogu talagalay Nooca 'Absolute Value', iyo Boqolley labadaba '%% Deviation' iyo '%% Floating Average'"
+
+#: thold.php thold_templates.php
+msgid "Deviation DOWN"
+msgstr "Leexashada HOOS"
+
+#: thold.php
+#, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Waxay qeexaysaa leexashada la oggol yahay ee soohdinta hoose ee Xadka. Haddii aan la dejin, soohdinta hoose ee Xadka lama hubin doono haba yaraatee. Halbeegga cabbirku waa qiimayaal dhab ah oo loogu talagalay Nooca 'Absolute Value', iyo Boqolley labadaba '%% Deviation' iyo '%% Floating Average'"
+
+#: thold.php thold_templates.php
+msgid "Trigger Count"
+msgstr "Tirada Kicinta"
+
+#: thold.php
+#, php-format
+msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
+msgstr "Tirada jeer ee isku xigta ee Isha Xogta ay tahay in ay jabiso Xadka aasaasiga ah si digniin loo kiciyo.<br>Bannaan u dhaaf si aad u isticmaasho qiimaha caadiga ah (<b>Caadiga ah: %s wareeg</b>)"
+
+#: thold.php thold_templates.php
+msgid "Data Manipulation"
+msgstr "Habaynta Xogta"
+
+#: thold.php thold_templates.php
+msgid "Data Type"
+msgstr "Nooca Xogta"
+
+#: thold.php thold_templates.php
+msgid "Special formatting for the given data."
+msgstr "Qaabayn gaar ah oo loogu talagalay xogta la bixiyay."
+
+#: thold.php thold_templates.php
+msgid "Threshold CDEF"
+msgstr "CDEF-ka Xadka"
+
+#: thold.php thold_templates.php
+msgid "Apply this CDEF before returning the data."
+msgstr "Dabbaq CDEF-kan ka hor inta aanad soo celin xogta."
+
+#: thold.php
+msgid "Percent Data Source"
+msgstr "Boqolkiiba Isha Xogta"
+
+#: thold.php
+msgid "Second Data Source Item to use as total value to calculate percentage from."
+msgstr "Shayga Isha Xogta Labaad ee loo isticmaalo sidii qiimaha guud ee laga xisaabiyo boqolkiiba."
+
+#: thold.php thold_templates.php
+msgid "Show Units"
+msgstr "Muuji Qeybaha"
+
+#: thold.php thold_templates.php
+msgid "Display units for very large or small numbers."
+msgstr "Muuji cutubyada tirooyinka aadka u waaweyn ama u yar."
+
+#: thold.php thold_templates.php
+msgid "Force Units Suffix"
+msgstr "Ku qasab Daba-galka Unugyada"
+
+#: thold.php thold_templates.php
+msgid "If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters."
+msgstr "Haddii aad rabto inaad ku soo bandhigto dabo-gal halbeeg oo qasab ah bogagga kala duwan ee Xadka iyo Ogeysiisyada, halkan geli. Cabbirku wuxuu ku xaddidan yahay wax aan ka badnayn 10 xaraf."
+
+#: thold.php thold_templates.php
+msgid "Decimal Digits to Display"
+msgstr "Tirooyinka Tobanlaha ee la Muujinayo"
+
+#: thold.php thold_templates.php
+msgid "The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2."
+msgstr "Tirada godadka jajabka ah ee loo soo bandhigayo Xadka iyo Qiimayaasha Hadda Jira.  Qiimaha caadiga ah waa auto ama 2."
+
+#: thold.php
+#, php-format
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Weedha RPN waa Weedh RPN oo la jaanqaada RRDtool.  Qaab-qoraalku wuxuu ka kooban yahay dhammaan hawlaha hoose oo ay weheliyaan labada weedh ee beddelka Qalab iyo Weydiinta Xogta sida <span class=\"deviceUp\">|query_ifSpeed|</span>.  Si aad ugu isticmaasho Isha Xogta Weedha RPN, waa inaad adeegsataa qaab-qoraalka: <span class=\"deviceUp\">|ds:dsname|</span>.  Tusaale ahaan, <span class=\"deviceUp\">|ds:traffic_in|</span> waxay heli doontaa qiimaha hadda jira ee Isha Xogta traffic_in ee RRDfile(s)-ka la xidhiidha Garaafka. Isha Xogta kasta oo loogu talagalay Garaafka waa lagu dari karaa.<br><br>Hawlwadeennada Xisaabta: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Hawlaha: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Hawlwadeennada Socodka: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Hawlaha Isbarbardhigga: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+
+#: thold.php thold_templates.php
+msgid "Upper Data Source"
+msgstr "Isha Xogta Sare"
+
+#: thold.php
+msgid "Upper data source to calculate the total value."
+msgstr "Isha xogta sare si loo xisaabiyo wadarta qiimaha."
+
+#: thold.php thold_templates.php
+msgid "Notification Settings"
+msgstr "Dejinta Ogeysiisyada"
+
+#: thold.php
+msgid "Alert Subject"
+msgstr "Mawduuca Feejignaanta"
+
+#: thold.php
+msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Kani waa mawduuca Iimaylka ee lagu muujin doono Iimaylka (Ugu badnaan 128 Xaraf). U daa meel bannaan sida caadiga ah. Waxaa jira dhowr calaamadood oo beddelaad ah oo caadi ah oo loo isticmaali karo oo ay ku jiraan:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php
+msgid "Alert Body"
+msgstr "Nuxurka Feejignaanta"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Tani waa fariinta laga soo bandhigi doono dusha sare ee dhammaan Qaylo-dhaannada Xadka (Ugu badnaan 1024 xaraf). HTML waa la oggol yahay, laakiin waa laga saari doonaa iimayllada qoraalka keliya ah. Waxaa jira dhowr summad beddelaad oo caadi ah oo lagu dari karo:<br>tusaale ahaan, &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Subject"
+msgstr "Mawduuca Digniinta"
+
+#: thold.php
+msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Kani waa mawduuca Iimaylka Digniinta ee lagu muujin doono Iimaylka ka dib marka loo beddelo Digniin (Ugu badnaan 128 Xaraf). U daa meel bannaan sida caadiga ah. Waxaa jira dhowr calaamadood oo beddelaad ah oo caadi ah oo loo isticmaali karo oo ay ku jiraan:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Body"
+msgstr "Nuxurka Digniinta"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Tani waa fariinta laga soo bandhigi doono dusha sare ee dhammaan Digniinaha Xadka (Ugu badnaan 1024 xaraf). HTML waa la oggol yahay, laakiin waa laga saari doonaa iimayllada qoraalka keliya ah. Waxaa jira dhowr summad beddelaad oo caadi ah oo lagu dari karo:<br>tusaale ahaan, &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold.php thold_templates.php
+msgid "Restoral Subject"
+msgstr "Mawduuca Soo celinta"
+
+#: thold.php
+msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Kani waa mawduuca Iimaylka ee lagu muujin doono Iimaylka ka dib marka lagu soo celiyo Xaaladda Caadiga ah (Ugu badnaan 128 Xaraf). U daa meel bannaan sida caadiga ah. Waxaa jira dhowr calaamadood oo beddelaad ah oo caadi ah oo loo isticmaali karo oo ay ku jiraan:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php
+msgid "Restoral Email Body"
+msgstr "Nuxurka Iimaylka Soo celinta"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Tani waa fariinta laga soo bandhigi doono dusha sare ee dhammaan ogeysiisyada soo-celinta Xadka (Ugu badnaan 1024 xaraf). HTML waa la oggol yahay, laakiin waa laga saari doonaa Iimayllada qoraalka keliya ah. Waxaa jira dhowr summad beddelaad oo caadi ah oo lagu dari karo:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Notification List"
+msgstr "Liiska Ogeysiiska Digniinta"
+
+#: thold.php thold_templates.php
+msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
+msgstr "Waxaad cayimi kartaa oo dooran kartaa Liis Ogeysiis si uu u helo Digniinaha Isha Xogtan"
+
+#: thold.php thold_templates.php
+msgid "Alert Notification List"
+msgstr "Liiska Ogeysiiska Feejignaanta"
+
+#: thold.php thold_templates.php
+msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
+msgstr "Waxaad cayimi kartaa oo dooran kartaa Liis Ogeysiis si uu u helo Qaylo-dhaanta Isha Xogtan"
+
+#: thold.php thold_templates.php
+msgid "Style/Format File"
+msgstr "Faylka Qaabka/Nooca"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Event Category"
+msgstr "Ogeysiiska SNMP - Qaybta Dhacdada"
+
+#: thold.php thold_templates.php
+msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+msgstr "Si loogu oggolaado NMS inuu si fudud u kala saaro ogeysiisyada kala duwan ee SNMP fadlan buuxi qaybta ay tahay in ogeysiisyada SNMP ee Qaab-dhismeedkan ay adeegsadaan. Tusaale: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+
+#: thold.php thold_templates.php
+msgid "SNMP Event Description"
+msgstr "Sharaxaadda Dhacdada SNMP"
+
+#: thold.php thold_templates.php
+msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+msgstr "Waxaad habayn kartaa sharraxaadda dhacdada loo dirayo qaateyaasha ogeysiiska SNMP adiga oo adeegsanaya xidhmaha doorsoomayaasha. Doorsoomayaasha beddelka ee caadiga ah ee Qalabka (|host_*|), Weydiinta Xogta (|query_*|) ayaa la adeegsan karaa iyo sidoo kale xidhmaha doorsoomayaasha soo socda:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Alert Event Severity"
+msgstr "Ogeysiiska SNMP - Darnaanta Dhacdada Qaylo-dhaanta"
+
+#: thold.php
+msgid "Severity to be used for alerts. (low impact -> critical impact)"
+msgstr "Darnaanta loo isticmaalayo digniinaha degdegga ah. (saameyn hoose -> saameyn halis ah)"
+
+#: thold.php thold_templates.php
+msgid "Medium"
+msgstr "Dhexdhexaad"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Warning Event Severity"
+msgstr "Ogeysiiska SNMP - Darnaanta Dhacdada Digniinta"
+
+#: thold.php thold_templates.php
+msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
+msgstr "Darnaanta loo isticmaalayo digniinaha. (Saameyn hoose -> Saameyn halis ah).<br>Fiiro gaar ah: Darnaanta digniinuhu waa inay la mid noqotaa ama ka hooseysaa darnaanta loo qeexay digniinaha degdegga ah."
+
+#: thold.php thold_templates.php
+msgid "Notify accounts"
+msgstr "Ogeysii akoonnada"
+
+#: thold.php
+msgid "This is a listing of accounts that will be notified when this Threshold is breached."
+msgstr "Kani waa liiska koontooyinka la ogeysiin doono marka Xadkan la jabiyo."
+
+#: thold.php thold_templates.php
+msgid "Alert Emails"
+msgstr "Iimayllada Feejignaanta"
+
+#: thold.php
+msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
+msgstr "Waxaad halkan ku cayimi kartaa Iimayllo dheeraad ah si ay u helaan qaylo-dhaanta isha xogtan (kooma ku kala saar)"
+
+#: thold.php thold_templates.php
+msgid "Warning Emails"
+msgstr "Iimayllada Digniinta"
+
+#: thold.php
+msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
+msgstr "Waxaad halkan ku cayimi kartaa Iimayllo dheeraad ah si ay u helaan digniinaha isha xogtan (kooma ku kala saar)"
+
+#: thold.php thold_templates.php
+msgid "If checked, Threshold notification will be sent to your local syslog."
+msgstr "Haddii la calaamadeeyo, ogeysiiska Xadka waxaa loo diri doonaa syslog-gaaga maxalliga ah."
+
+#: thold.php thold_templates.php
+msgid "Priority/Level"
+msgstr "Muhiimadda/Heerka"
+
+#: thold.php thold_templates.php
+msgid "This is the Priority Level that will be logged into your syslog messages."
+msgstr "Kani waa Heerka Mudnaanta ee lagu diiwaangelin doono farriimahaaga Syslog."
+
+#: thold.php thold_templates.php
+msgid "Facility"
+msgstr "Xarunta"
+
+#: thold.php thold_templates.php
+msgid "This is the Facility that will be used for this Threshold."
+msgstr "Tani waa Xarunta (Facility) loo adeegsan doono Xadkan."
+
+#: thold.php thold_templates.php
+msgid "Event Triggering (Shell Command)"
+msgstr "Kicinta Dhacdada (Amarka Shell)"
+
+#: thold.php thold_templates.php
+msgid "High Trigger Command"
+msgstr "Amarka Kicinta Sare"
+
+#: thold.php thold_templates.php
+msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Haddii la dejiyo, oo la jebiyo Xadka Sare, amarkan waa la fulin doonaa. Fadlan geli amar sax ah. Intaa waxaa dheer, waxaa jira dhowr summadood oo beddelaad ah oo loo isticmaali karo in macluumaad looga gudbiyo Xadka loona gudbiyo qoraalka (script). Waxaad tan u samayn kartaa dood ahaan khadka amarka, ama iyadoo la doorbidayo, deegaanka qoraalka. Dhammaan qiimayaasha beddelaadda waxay ka soo muuqan doonaan deegaanka qoraalka iyagoo leh horgalaha THOLD_. Marka, tusaale ahaan CURRENTVALUE wuxuu noqon doonaa THOLD_CURRENTVALUE, iyo wixii la mid ah. Doorsoomayaasha waxaa ka mid ah: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Ugu dambayn, beddelaadda Martigeliye, Weydiinta Xogta iyo Gelinta Xogta waa la samayn karaa. Tusaale ahaan, haddii aad leedahay xog gaar ah oo gelinta xogta ah oo lagu magacaabo pending, si aad u samayso beddelaadda isticmaal |pending|. Beddelaadda Weydiinta Xogta iyo Martigeliye, isticmaal xeerarka Cacti ee |query_xxxx| iyo |host_xxxx| siday u kala horreeyaan."
+
+#: thold.php thold_templates.php
+msgid "Low Trigger Command"
+msgstr "Amarka Kicinta Hoose"
+
+#: thold.php thold_templates.php
+msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Haddii la dejiyo, oo la jebiyo Xadka Hoose, amarkan waa la fulin doonaa. Fadlan geli amar sax ah. Intaa waxaa dheer, waxaa jira dhowr summadood oo beddelaad ah oo loo isticmaali karo in macluumaad looga gudbiyo Xadka loona gudbiyo qoraalka (script). Waxaad tan u samayn kartaa dood ahaan khadka amarka, ama iyadoo la doorbidayo, deegaanka qoraalka. Dhammaan qiimayaasha beddelaadda waxay ka soo muuqan doonaan deegaanka qoraalka iyagoo leh horgalaha THOLD_. Marka, tusaale ahaan CURRENTVALUE wuxuu noqon doonaa THOLD_CURRENTVALUE, iyo wixii la mid ah. Doorsoomayaasha waxaa ka mid ah: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Ugu dambayn, beddelaadda Martigeliye, Weydiinta Xogta iyo Gelinta Xogta waa la samayn karaa. Tusaale ahaan, haddii aad leedahay xog gaar ah oo gelinta xogta ah oo lagu magacaabo pending, si aad u samayso beddelaadda isticmaal |pending|. Beddelaadda Weydiinta Xogta iyo Martigeliye, isticmaal xeerarka Cacti ee |query_xxxx| iyo |host_xxxx| siday u kala horreeyaan."
+
+#: thold.php thold_templates.php
+msgid "Norm Trigger Command"
+msgstr "Amarka Kicinta Caadiga ah"
+
+#: thold.php thold_templates.php
+msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Haddii la dejiyo, marka thold uu ku soo noqdo qiimo caadi ah, amarkan waa la fulin doonaa. Fadlan geli amar sax ah. Intaa waxaa dheer, waxaa jira dhowr summadood oo beddelaad ah oo loo isticmaali karo in macluumaad looga gudbiyo Xadka loona gudbiyo qoraalka (script). Waxaad tan u samayn kartaa dood ahaan khadka amarka, ama iyadoo la doorbidayo, deegaanka qoraalka. Dhammaan qiimayaasha beddelaadda waxay ka soo muuqan doonaan deegaanka qoraalka iyagoo leh horgalaha THOLD_. Marka, tusaale ahaan CURRENTVALUE wuxuu noqon doonaa THOLD_CURRENTVALUE, iyo wixii la mid ah. Doorsoomayaasha waxaa ka mid ah: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Ugu dambayn, beddelaadda Martigeliye, Weydiinta Xogta iyo Gelinta Xogta waa la samayn karaa. Tusaale ahaan, haddii aad leedahay xog gaar ah oo gelinta xogta ah oo lagu magacaabo pending, si aad u samayso beddelaadda isticmaal |pending|. Beddelaadda Weydiinta Xogta iyo Martigeliye, isticmaal xeerarka Cacti ee |query_xxxx| iyo |host_xxxx| siday u kala horreeyaan."
+
+#: thold.php thold_templates.php
+msgid "Other Settings"
+msgstr "Dejinta Kale"
+
+#: thold.php
+msgid "Enter an Eternal ID for this Threshold."
+msgstr "Geli Aqoonsi Joogto ah oo loogu talagalay Xadkan."
+
+#: thold.php thold_templates.php
+msgid "Operator Notes"
+msgstr "Qoraallada Hawlwadeenka"
+
+#: thold.php thold_templates.php
+msgid "Enter instructions here for an operator who may be receiving the Threshold message."
+msgstr "Halkan geli tilmaamaha hawlwadeenka laga yaabo inuu helayo fariinta Xadka."
+
+#: thold.php
+msgid "Select Users(s)"
+msgstr "Dooro Isticmaale(yaasha)"
+
+#: thold.php
+msgid "Users Selected"
+msgstr "Isticmaalayaasha La Doortay"
+
+#: thold.php
+msgid "All Users Selected"
+msgstr "Dhammaan Isticmaalayaasha La Doortay"
+
+#: thold_graph.php
+msgid "The Threshold has been Ascknowledged."
+msgstr "Xadka waa la qiray."
+
+#: thold_graph.php
+msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
+msgstr "Xadka mar dambe ma soo saari doono Digniino, Ogeysiisyo, ama ma fulin doono amarro."
+
+#: thold_graph.php
+msgid "The Threshold will restart generating Alerts."
+msgstr "Xadka wuxuu dib u bilaabi doonaa soo saarista Digniinaha."
+
+#: thold_graph.php
+msgid "Threshold Status"
+msgstr "Xaaladda Xadka"
+
+#: thold_graph.php
+msgid "Actions"
+msgstr "Ficillada"
+
+#: thold_graph.php
+msgid "Ack Detail"
+msgstr "Faahfaahinta Qirashada"
+
+#: thold_graph.php
+msgid "Edit Threshold"
+msgstr "Wax ka beddel Xadka"
+
+#: thold_graph.php
+msgid "Disable Threshold"
+msgstr "Jooji Xadka"
+
+#: thold_graph.php
+msgid "Enable Threshold"
+msgstr "Hawlgeli Xadka"
+
+#: thold_graph.php
+msgid "To enable the Threshold, enable the Template first"
+msgstr "Si aad u hawlgeliso Xadka, marka hore hawlgeli Qaab-dhismeedka"
+
+#: thold_graph.php
+msgid "View Graph"
+msgstr "Eeg Garaafka"
+
+#: thold_graph.php
+msgid "View Threshold History"
+msgstr "Eeg Taariikhda Xadka"
+
+#: thold_graph.php
+msgid "Suspend Notifications until the Threshold clears"
+msgstr "Haki Ogeysiisyada ilaa Xadka uu ka baxo"
+
+#: thold_graph.php
+msgid "Resume Notifications for this breached Threshold"
+msgstr "Dib u bilow Ogeysiisyada Xadkan la jebiyay"
+
+#: thold_graph.php
+msgid "Acknowledgement Message"
+msgstr "Farriinta Qirashada"
+
+#: thold_graph.php
+msgid "Date"
+msgstr "Taariikhda"
+
+#: thold_graph.php
+msgid "Comment Not Found"
+msgstr "Faallo Lama Helin"
+
+#: thold_graph.php
+msgid "Ack History"
+msgstr "Taariikhda Qirashada"
+
+#: thold_graph.php
+msgid "No name set"
+msgstr "Magac looma dejin"
+
+#: thold_graph.php
+msgid "Hover over icons for help"
+msgstr "Dul mar calaamadaha si aad u hesho caawimo"
+
+#: thold_graph.php
+msgid "A description for the Device"
+msgstr "Sharaxaad loogu talagalay Qalabka"
+
+#: thold_graph.php
+msgid "A Cacti unique identifier for the Device"
+msgstr "Aqoonsiga gaarka ah ee Cacti ee loogu talagalay Qalabka"
+
+#: thold_graph.php
+msgid "The number of Graphs for this Device"
+msgstr "Tirada Jaantusyada ee Qalabkan"
+
+#: thold_graph.php
+msgid "The number of Data Sources for this Device"
+msgstr "Tirada Ilaha Xogta ee Qalabkan"
+
+#: thold_graph.php
+msgid "The status for this Device as of the last time it was polled"
+msgstr "Xaaladda Qalabkan laga bilaabo markii ugu dambaysay ee xogta laga ururiyay"
+
+#: thold_graph.php
+msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
+msgstr "Markii ugu dambaysay ee Cacti ay cilad ku aragtay Qalabkan.  Waxay ka badnaan kartaa wakhtiga shaqada (Uptime) ee Qalabka, haddii dib loo bilaabay intii u dhaxaysay wareegyada xog-ururinta Cacti"
+
+#: thold_graph.php
+msgid "Uptime"
+msgstr "Waqtiga Shaqeynta"
+
+#: thold_graph.php
+msgid "The official uptime of the Device as reported by SNMP"
+msgstr "Waqtiga shaqada rasmiga ah ee Qalabka sida uu soo sheegay SNMP"
+
+#: thold_graph.php
+msgid "The official hostname for this Device"
+msgstr "Magaca martigeliyaha rasmiga ah ee Qalabkan"
+
+#: thold_graph.php
+msgid "Current (ms)"
+msgstr "Hadda (ms)"
+
+#: thold_graph.php
+msgid "The current response time for the Cacti Availability check"
+msgstr "Waqtiga jawaabta hadda ee hubinta Helitaanka Cacti"
+
+#: thold_graph.php
+msgid "Average (ms)"
+msgstr "Celcelis (ms)"
+
+#: thold_graph.php
+msgid "The average response time for the Cacti Availability check"
+msgstr "Celceliska waqtiga jawaabta ee hubinta Helitaanka Cacti"
+
+#: thold_graph.php
+msgid "Availability"
+msgstr "Helitaanka"
+
+#: thold_graph.php
+msgid "The overall Availability of this Device since the last counter reset in Cacti"
+msgstr "Helitaanka guud ee Qalabkan tan iyo dib-u-dejintii ugu dambaysay ee tiriyaha ee Cacti"
+
+#: thold_graph.php
+msgid "Edit Device"
+msgstr "Wax ka beddel Qalabka"
+
+#: thold_graph.php
+msgid "View Graphs"
+msgstr "Eeg Jaantusyada"
+
+#: thold_graph.php
+msgid "No Devices"
+msgstr "Ma jiro Qalab"
+
+#: thold_graph.php
+msgid "Not Up"
+msgstr "Ma Shaqeyneyso"
+
+#: thold_graph.php
+msgid "No Export Rows Found."
+msgstr "Ma Jiraan Safaf Dhoofin ah oo La Helay."
+
+#: thold_graph.php
+#, php-format
+msgid "Threshold Log for [ %s ]"
+msgstr "Diiwaanka Xadka ee [ %s ]"
+
+#: thold_graph.php
+msgid "Log Entries"
+msgstr "Gelisyada Diiwaanka"
+
+#: thold_graph.php
+msgid "Time"
+msgstr "Waqti"
+
+#: thold_graph.php
+msgid "Alert Value"
+msgstr "Qiimaha Feejignaanta"
+
+#: thold_graph.php
+msgid "Measured Value"
+msgstr "Qiimaha La Cabbiray"
+
+#: thold_graph.php
+msgid "No Threshold Logs Found"
+msgstr "Diiwaannada Xadka Lama Helin"
+
+#: thold_graph.php
+msgid "Entries"
+msgstr "Gelitaanno"
+
+#: thold_templates.php
+msgid "You are not authorised to modify one or more of the Thresholds selected"
+msgstr "Looma oggola inaad wax ka beddesho mid ama in ka badan oo ka mid ah Xadadka la doortay"
+
+#: thold_templates.php
+#, php-format
+msgid "%s (%d Thresholds)"
+msgstr "%s (%d Xadka)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to export the following Threshold Template(s)."
+msgstr "Guji 'Sii wad' si aad u dhoofiso Qaab-dhismeed(yada) Xadka ee soo socda."
+
+#: thold_templates.php
+msgid "Export Template(s)"
+msgstr "Dhoofi Qaab-dhismeed(yada)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to delete the following Threshold Template(s)."
+msgstr "Guji 'Sii wad' si aad u tirtirto Qaab-dhismeed(yada) Xadka ee soo socda."
+
+#: thold_templates.php
+msgid "Delete Template(s)"
+msgstr "Tirtir Qaab-dhismeed(yada)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Reapply Suggested Names to Thresholds of the following Threshold Template(s)."
+msgstr "Guji 'Sii wad' si aad mar kale ugu dabaqdo Magacyada La Soo Jeediyay Xadka Qaab-dhismeed(yada) Xadka ee soo socda."
+
+#: thold_templates.php
+msgid "Reapply Suggested Names to Template(s)"
+msgstr "Dib uga dhaqan geli Magacyada La Soo Jeediyay Qaab-dhismeedka(da)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Enable the selected Template(s) and Threshold(s)."
+msgstr "Guji 'Sii wad' si aad u hawlgeliso Qaab-dhismeed(yada) iyo Xadka(yada) la doortay."
+
+#: thold_templates.php
+msgid "Enable Template(s)"
+msgstr "Hawlgeli Qaab-dhismeed(yada)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
+msgstr "Guji 'Sii wad' si aad u Joojiso Qaab-dhismeedka/Qaab-dhismeedyada iyo Xadka/Xadadka la doortay."
+
+#: thold_templates.php
+msgid "Disable Template(s)"
+msgstr "Jooji Qaab-dhismeedka(yada)"
+
+#: thold_templates.php
+msgid "Threshold Template Creation Wizard"
+msgstr "Kaaliyaha Abuurista Qaab-dhismeedka Xadka"
+
+#: thold_templates.php
+msgid "Please select a Data Template"
+msgstr "Fadlan dooro Qaab-dhismeedka Xogta"
+
+#: thold_templates.php
+msgid "Please select a Data Source"
+msgstr "Fadlan dooro Isha Xogta"
+
+#: thold_templates.php
+msgid "Please press 'Create' to create your Threshold Template"
+msgstr "Fadlan riix 'Abuur' si aad u abuurto Qaab-dhismeedka Xadka"
+
+#: thold_templates.php
+msgid "The Threshold Template requested can not be found"
+msgstr "Qaab-dhismeedka Xadka la codsaday lama heli karo"
+
+#: thold_templates.php
+msgid "Provide the Threshold Template a meaningful name."
+msgstr "Sii Qaab-dhismeedka Xadka magac macno leh."
+
+#: thold_templates.php
+msgid "Suggested Threshold Name"
+msgstr "Magaca Xadka la Soo Jeediyay"
+
+#: thold_templates.php
+msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
+msgstr "Sii magaca la soo jeediyay ee Xadka lagu abuuray iyadoo la adeegsanayo Qaab-dhismeedkan. Doorsoomayaasha beddelka ee Qalabka caadiga ah (|host_*|), Weydiinta Xogta (|query_*|) iyo Gelinta (|input_*|) waa la isticmaali karaa iyo sidoo kale |graph_title| ee Cinwaanka Garaafka."
+
+#: thold_templates.php
+msgid "Data Template that you are using. (This cannot be changed)"
+msgstr "Qaab-dhismeedka Xogta ee aad isticmaalayso. (Tan lama beddeli karo)"
+
+#: thold_templates.php
+msgid "Data Field"
+msgstr "Khaannadda Xogta"
+
+#: thold_templates.php
+msgid "Data Field that you are using. (This cannot be changed)"
+msgstr "Khaannadda Xogta ee aad isticmaalayso. (Tan lama beddeli karo)"
+
+#: thold_templates.php
+msgid "Whether or not this Threshold will be checked and alerted upon."
+msgstr "Haddii Xadkan la hubin doono oo digniin laga bixin doono iyo in kale."
+
+#: thold_templates.php
+msgid "Repeat alert after this amount of time has pasted since the last alert."
+msgstr "Ku celi digniinta ka dib marka waqtigan uu ka soo wareego digniintii ugu dambeysay."
+
+#: thold_templates.php
+msgid "Min Trigger Duration"
+msgstr "Muddada Ugu Yar ee Kicinta"
+
+#: thold_templates.php
+msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
+msgstr "Muddada ay Isha Xogta tahay inay ku jirto xaalad jebin si digniin loogu kiciyo."
+
+#: thold_templates.php
+msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
+msgstr "Tirada jeer ee Isha Xogtu ay tahay inay ku jirto xaalad xad-gudub ka hor inta aan la soo saarin digniin."
+
+#: thold_templates.php
+msgid "Time Period Length"
+msgstr "Dhererka Muddada Waqtiga"
+
+#: thold_templates.php
+msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
+msgstr "Tirada jeer ee Isha Xogtu ay tahay inay ku jirto xaalad xad-gudub ka hor inta aan la soo saarin qaylo-dhaan."
+
+#: thold_templates.php
+msgid "Baseline Monitoring"
+msgstr "Kormeerka Heerka Aasaasiga ah"
+
+#: thold_templates.php
+#, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Waxay qeexaysaa leexashada la oggol yahay ee soohdinta sare ee Xadka. Haddii aan la dejin, soohdinta sare ee Xadka lama hubin doono haba yaraatee. Halbeegga cabbirku waa qiime dhab ah oo loogu talagalay Nooca 'Absolute Value', iyo Boqolley labadaba '%% Deviation' iyo '%% Floating Average'"
+
+#: thold_templates.php
+#, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Waxay qeexaysaa leexashada la oggol yahay ee soohdinta hoose ee Xadka. Haddii aan la dejin, soohdinta hoose ee Xadka lama hubin doono haba yaraatee. Halbeegga cabbirku waa qiime dhab ah oo loogu talagalay Nooca 'Absolute Value', iyo Boqolley labadaba '%% Deviation' iyo '%% Floating Average'"
+
+#: thold_templates.php
+#, php-format
+msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
+msgstr "Tirada jeer ee isku xigta ee Isha Xogta ay tahay in ay ku jirto xaalad jebinta ah si digniin loo kiciyo.<br>Bannaan u dhaaf si aad u isticmaasho qiimaha caadiga ah (Caadiga ah: %s wareeg"
+
+#: thold_templates.php
+msgid "Percent Datasource"
+msgstr "Boqolkiiba Isha Xogta"
+
+#: thold_templates.php
+msgid "Second Datasource Item to use as total value to calculate percentage from."
+msgstr "Shayga Isha Xogta Labaad ee loo isticmaalo sidii qiimaha guud ee laga xisaabiyo boqolkiiba."
+
+#: thold_templates.php
+#, php-format
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Weedha RPN waa Weedh RPN oo la jaanqaada RRDtool.  Qaab-qoraalku wuxuu ka kooban yahay dhammaan hawlaha hoose oo ay weheliyaan labada weedh ee beddelka Qalab iyo Weydiinta Xogta sida <span style=\"color:blue;\">|query_ifSpeed|</span>.  Si aad ugu isticmaasho Isha Xogta Weedha RPN, waa inaad adeegsataa qaab-qoraalka: <span style=\"color:blue;\">|ds:dsname|</span>.  Tusaale ahaan, <span style=\"color:blue;\">|ds:traffic_in|</span> waxay heli doontaa qiimaha hadda jira ee Isha Xogta traffic_in ee RRDfile(s)-ka la xidhiidha Garaafka. Isha Xogta kasta oo loogu talagalay Garaafka waa lagu dari karaa.<br>Hawlwadeennada Xisaabta: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Hawlaha: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Hawlwadeennada Socodka: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Hawlaha Isbarbardhigga: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+
+#: thold_templates.php
+msgid "Upper data source to use to calculate the total value."
+msgstr "Isha xogta sare ee la adeegsanayo si loo xisaabiyo wadarta qiimaha."
+
+#: thold_templates.php
+msgid "Alert Email Subject"
+msgstr "Mawduuca Iimaylka Feejignaanta"
+
+#: thold_templates.php
+msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Kani waa mawduuca Iimaylka ee lagu muujin doono Iimaylka (Ugu badnaan 128 Xaraf). U daa meel bannaan sida caadiga ah. Waxaa jira dhowr calaamadood oo beddelaad ah oo caadi ah oo loo isticmaali karo oo ay ku jiraan:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "Alert Email Body"
+msgstr "Nuxurka Iimaylka Feejignaanta"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Tani waa fariinta laga soo bandhigi doono dusha sare ee dhammaan Qaylo-dhaannada Xadka (Ugu badnaan 1024 xaraf). HTML waa la oggol yahay, laakiin waa laga saari doonaa iimayllada qoraalka keliya ah. Waxaa jira dhowr summad beddelaad oo caadi ah oo lagu dari karo:<br>tusaale ahaan, &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold_templates.php
+msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Kani waa mawduuca Digniinta ee lagu muujin doono Iimaylka (Ugu badnaan 128 Xaraf). U daa meel bannaan sida caadiga ah. Waxaa jira dhowr calaamadood oo beddelaad ah oo caadi ah oo loo isticmaali karo oo ay ku jiraan:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Tani waa fariinta laga soo bandhigi doono dusha sare ee dhammaan Digniinaha Xadka (Ugu badnaan 1024 xaraf). HTML waa la oggol yahay, laakiin waa laga saari doonaa iimayllada qoraalka keliya ah. Waxaa jira dhowr summad beddelaad oo caadi ah oo lagu dari karo:<br>tusaale ahaan, &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold_templates.php
+msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Kani waa mawduuca Iimaylka ee lagu muujin doono Iimaylka ka dib marka lagu soo celiyo Xaaladda Caadiga ah (Ugu badnaan 128 Xaraf). U daa meel bannaan sida caadiga ah. Waxaa jira dhowr calaamadood oo beddelaad ah oo caadi ah oo loo isticmaali karo oo ay ku jiraan:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "Restoral Body"
+msgstr "Nuxurka Soo celinta"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Tani waa fariinta laga soo bandhigi doono dusha sare ee dhammaan ogeysiisyada soo-celinta Xadka (Ugu badnaan 1024 xaraf). HTML waa la oggol yahay, laakiin waa laga saari doonaa Iimayllada qoraalka keliya ah. Waxaa jira dhowr summad beddelaad oo caadi ah oo lagu dari karo:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: thold_templates.php
+msgid "Notification List Read Only"
+msgstr "Liiska Ogeysiiska Akhri Kaliya"
+
+#: thold_templates.php
+msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
+msgstr "Haddii la calaamadeeyo, Liisaska Ogeysiiska Xadka ee ku jira Qaab-dhismeedka waxay beddeli doonaan kuwa Xadka."
+
+#: thold_templates.php
+msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
+msgstr "Darnaanta loo isticmaalayo digniinaha degdegga ah. (Saameyn hoose -> Saameyn halis ah)"
+
+#: thold_templates.php
+msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
+msgstr "Kani waa liiska koontooyinka la ogeysiin doono marka Xadkan la jabiyo.<br><br><br><br>"
+
+#: thold_templates.php
+msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
+msgstr "Waxaad halkan ku cayimi kartaa Iimayllo dheeraad ah si ay u helaan qaylo-dhaanta Isha Xogtan (kooma ku kala saar)"
+
+#: thold_templates.php
+msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
+msgstr "Waxaad halkan ku cayimi kartaa Iimayllo dheeraad ah si ay u helaan digniinaha Isha Xogtan (kooma ku kala saar)"
+
+#: thold_templates.php
+msgid "Enter an Eternal ID for this Thold Template."
+msgstr "Geli Aqoonsi Joogto ah oo loogu talagalay Qaab-dhismeedkan Thold."
+
+#: thold_templates.php
+#, php-format
+msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "%d Bilood, %d Maalmood, %d Saacadood, %d Daqiiqo, %d Ilbiriqsi (Celcelis)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
+msgstr "%d Bilood, %d Maalmood, %d Saacadood, %d Daqiiqo, %d Ilbiriqsi"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "%d Maalmood, %d Saacadood, %d Daqiiqo, %d Ilbiriqsi (Celcelis)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
+msgstr "%d Maalmood, %d Saacadood, %d Daqiiqo, %d Ilbiriqsi"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "%d Saacadood, %d Daqiiqo, %d Ilbiriqsi (Celcelis)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Hours, %d Minutes, %d Seconds"
+msgstr "%d Saacadood, %d Daqiiqo, %d Ilbiriqsi"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Minutes, %d Seconds (Average)"
+msgstr "%d Daqiiqo, %d Ilbiriqsi (Celcelis)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Minutes, %d Seconds"
+msgstr "%d Daqiiqo, %d Ilbiriqsi"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Seconds (Average)"
+msgstr "%d Ilbiriqsi (Celcelis)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Seconds"
+msgstr "%d Ilbiriqsi"
+
+#: thold_templates.php
+msgid "DS Name"
+msgstr "Magaca DS"
+
+#: thold_templates.php
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
+msgstr "Qiimaha Digniin / Ogeysiis Sare.  FIIRO GAAR AH: Qiimaha saldhigga waa boqolkiiba, dhammaan qiimaha kale waa qiimo CAYRIIN ah oo aan lagu beddelin cdef."
+
+#: thold_templates.php
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
+msgstr "Qiimaha Digniin / Ogeysiis Hoose.  FIIRO GAAR AH: Qiimaha saldhigga waa boqolkiiba, dhammaan qiimaha kale waa qiimo CAYRIIN ah oo aan lagu beddelin cdef."
+
+#: thold_templates.php
+msgid "Import Template from Local File"
+msgstr "Ka Soo Deji Qaab-dhismeedka Faylka Gudaha"
+
+#: thold_templates.php
+msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
+msgstr "Haddii faylka XML ee ay ku jirto xogta Qaab-dhismeedka Xadka uu ku yaallo mishiinkaaga maxalliga ah, halkan ka dooro."
+
+#: thold_templates.php
+msgid "Import Template from Text"
+msgstr "Ka soo deji Qaab-dhismeedka Qoraalka"
+
+#: thold_templates.php
+msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
+msgstr "Haddii aad hayso faylka XML ee ay ku jirto xogta Qaab-dhismeedka Xadka oo qoraal ah, waxaad ku dhejin kartaa sanduuqan si aad u soo dejiso."
+
+#: thold_templates.php
+msgid "Import Results"
+msgstr "Natiijooyinka Soo-dhoofinta"
+
+#: thold_templates.php
+msgid "Cacti has imported the following items:"
+msgstr "Cacti waxay soo dejisay waxyaabaha soo socda:"
+
+#: thold_templates.php
+msgid "Import Threshold Templates"
+msgstr "Soo deji Qaab-dhismeedyada Xadka"
+
+#: thold_templates.php
+msgid "The file is too big."
+msgstr "Faylku aad buu u weyn yahay."
+
+#: thold_templates.php
+msgid "Incomplete file transfer."
+msgstr "Wareejinta faylku ma dhammaystirna."
+
+#: thold_templates.php
+msgid "No file uploaded."
+msgstr "Wax fayl ah lama soo gelin."
+
+#: thold_templates.php
+msgid "Temporary folder missing."
+msgstr "Galka ku meel gaarka ah waa maqan yahay."
+
+#: thold_templates.php
+msgid "Failed to write file to disk"
+msgstr "Ku qorista faylka saxanka way fashilantay"
+
+#: thold_templates.php
+msgid "File upload stopped by extension"
+msgstr "Soo gelinta faylka waxaa joojiyay kordhinta faylka"
+
+#: thold_templates.php
+msgid "Invalid file extension."
+msgstr "Kordhinta faylku ma saxna."
+
+#: thold_templates.php
+msgid "NOTE:"
+msgstr "FIIRO GAAR AH:"
+
+#: thold_templates.php
+msgid "ERROR:"
+msgstr "KHALAD:"
+

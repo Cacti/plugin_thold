@@ -1,0 +1,3714 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-13 09:23-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Yoruba\n"
+"Language: yo-NG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: includes/arrays.php
+msgid "Indefinitely"
+msgstr "Láìlópin"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "Oṣù %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "Oṣù %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "Ọdún %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Hour Ago"
+msgstr "Láti Wákàtí %d Sẹ́yìn"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Hours Ago"
+msgstr "Láti Wákàtí %d Sẹ́yìn"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Day Ago"
+msgstr "Láti Ọjọ́ %d Sẹ́yìn"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Days Ago"
+msgstr "Láti Ọjọ́ %d Sẹ́yìn"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Week Ago"
+msgstr "Láti Ọ̀sẹ̀ %d Sẹ́yìn"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Weeks Ago"
+msgstr "Láti Ọ̀sẹ̀ %d Sẹ́yìn"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Month Ago"
+msgstr "Láti Oṣù %d Sẹ́yìn"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Months Ago"
+msgstr "Láti Oṣù %d Sẹ́yìn"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Year Ago"
+msgstr "Láti Ọdún %d Sẹ́yìn"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Years Ago"
+msgstr "Láti Ọdún %d Sẹ́yìn"
+
+#: includes/arrays.php thold_graph.php
+msgid "Down"
+msgstr "Kò Ṣiṣẹ́"
+
+#: includes/arrays.php thold_graph.php
+msgid "Error"
+msgstr "Àṣìṣe"
+
+#: includes/arrays.php thold_graph.php
+msgid "Recovering"
+msgstr "Ń Bọ̀ sípò"
+
+#: includes/arrays.php thold_graph.php
+msgid "Up"
+msgstr "Ń Ṣiṣẹ́"
+
+#: includes/arrays.php thold_graph.php
+msgid "Unknown"
+msgstr "Àìmọ̀"
+
+#: includes/arrays.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php
+msgid "Disabled"
+msgstr "Àìṣiṣẹ́"
+
+#: includes/arrays.php thold_graph.php
+msgid "Not Monitored"
+msgstr "A Kò Ṣàbójútó Rẹ̀"
+
+#: includes/arrays.php
+msgid "Notify - Alert"
+msgstr "Fitọ́nilétí - Ìtánilólóbó"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Alert"
+msgstr "Ìfiyèsí"
+
+#: includes/arrays.php
+msgid "Notify - Alert2Warning"
+msgstr "Fitọ́nilétí - Ìtánilólóbó sí Ìkìlọ̀"
+
+#: includes/arrays.php
+msgid "Alert2Warn"
+msgstr "Ìfiyèsí-sí-Ìkìlọ̀"
+
+#: includes/arrays.php
+msgid "Notify - Warning"
+msgstr "Fitọ́nilétí - Ìkìlọ̀"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Warning"
+msgstr "Ìkìlọ̀"
+
+#: includes/arrays.php
+msgid "Notify - Re-Trigger"
+msgstr "Fitọ́nilétí - Àtúnbẹ̀rẹ̀ Ìṣẹ̀lẹ̀"
+
+#: includes/arrays.php
+msgid "Re-Trigger"
+msgstr "Àtún-Múṣẹ́"
+
+#: includes/arrays.php
+msgid "Notify - Restoral"
+msgstr "Fitọ́nilétí - Ìmúpadàbọ̀sípò"
+
+#: includes/arrays.php
+msgid "Restoral"
+msgstr "Ìmúpadàbọ̀sípò"
+
+#: includes/arrays.php
+msgid "Event - Alert Trigger"
+msgstr "Ìṣẹ̀lẹ̀ - Ìmúṣẹ Ìtànijí"
+
+#: includes/arrays.php
+msgid "Alert Event"
+msgstr "Ìṣẹ̀lẹ̀ Ìfiyèsí"
+
+#: includes/arrays.php
+msgid "Event - Warning Trigger"
+msgstr "Ìṣẹ̀lẹ̀ - Ìmúṣẹ Ìkìlọ̀"
+
+#: includes/arrays.php
+msgid "Warning Event"
+msgstr "Ìṣẹ̀lẹ̀ Ìkìlọ̀"
+
+#: includes/arrays.php
+msgid "Event - Restoral"
+msgstr "Ìṣẹ̀lẹ̀ - Ìmúpadàbọ̀sípò"
+
+#: includes/arrays.php thold_graph.php
+msgid "Restoral Event"
+msgstr "Ìṣẹ̀lẹ̀ Ìmúpadàbọ̀sípò"
+
+#: includes/arrays.php
+msgid "Event - Acknowledge"
+msgstr "Ìṣẹ̀lẹ̀ - Jẹ́wọ́"
+
+#: includes/arrays.php
+msgid "Acknowledge Event"
+msgstr "Jẹ́wọ́ Ìṣẹ̀lẹ̀"
+
+#: includes/arrays.php
+msgid "Restore"
+msgstr "Mú padà bọ̀ sípò"
+
+#: includes/arrays.php
+msgid "Alert Trigger"
+msgstr "Okùnfà Ìfiyèsí"
+
+#: includes/arrays.php
+msgid "Warn Trigger"
+msgstr "Okùnfà Ìkìlọ̀"
+
+#: includes/arrays.php
+msgid "Alert-Warn"
+msgstr "Ìfiyèsí-Ìkìlọ̀"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Acknowledgment"
+msgstr "Ìjẹ́wọ́"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Baseline Alert"
+msgstr "Ìtanijí Ìpìlẹ̀"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Notice"
+msgstr "Àkíyèsí"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Ok"
+msgstr "Ó dára"
+
+#: includes/arrays.php
+msgid "Emergency"
+msgstr "Pàjáwìrì"
+
+#: includes/arrays.php thold.php thold_templates.php
+msgid "Critical"
+msgstr "Pàtàkì"
+
+#: includes/arrays.php
+msgid "Info"
+msgstr "Ìfitónilétí"
+
+#: includes/arrays.php
+msgid "Debug"
+msgstr "Wádìí Àṣìṣe"
+
+#: includes/arrays.php includes/functions.php
+msgid "Never"
+msgstr "Kò ṣẹlẹ̀ rí"
+
+#: includes/arrays.php
+msgid "Every Minute"
+msgstr "Ní Gbogbo Ìṣẹ́jú"
+
+#: includes/arrays.php includes/settings.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "Ní Gbogbo Ìṣẹ́jú %d"
+
+#: includes/arrays.php
+msgid "Every Hour"
+msgstr "Ní Gbogbo Wákàtí"
+
+#: includes/arrays.php includes/settings.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "Ní Gbogbo Wákàtí %d"
+
+#: includes/arrays.php
+msgid "Every Day"
+msgstr "Lójoojúmọ́"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Days"
+msgstr "Ní Gbogbo Ọjọ́ %d"
+
+#: includes/arrays.php
+msgid "Every Week"
+msgstr "Lọ́sọ̀ọ̀sẹ̀"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Weeks"
+msgstr "Gbogbo Ọ̀sẹ̀ %d"
+
+#: includes/arrays.php
+msgid "Every Month"
+msgstr "Gbogbo Oṣù"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Minute"
+msgstr "Ìṣẹ́jú %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Minutes"
+msgstr "Ìṣẹ́jú %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Hour"
+msgstr "Wákàtí %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Hours"
+msgstr "Wákàtí %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Day"
+msgstr "Ọjọ́ %d"
+
+#: includes/arrays.php thold_graph.php
+#, php-format
+msgid "%d Days"
+msgstr "Ọjọ́ %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Week"
+msgstr "Ọ̀sẹ̀ %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Weeks"
+msgstr "Ọ̀sẹ̀ %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%0.1f Hours"
+msgstr "%0.1f Wákàtí"
+
+#: includes/arrays.php
+msgid "Every Polling"
+msgstr "Gbogbo Ìṣàyẹ̀wò"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Pollings"
+msgstr "Ní Gbogbo Ìṣàyẹ̀wò %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Polling"
+msgstr "Ìṣàyẹ̀wò %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Pollings"
+msgstr "Àwọn Ìṣàyẹ̀wò %d"
+
+#: includes/arrays.php
+msgid "High / Low"
+msgstr "Gíga / Kéré"
+
+#: includes/arrays.php
+msgid "Baseline Deviation"
+msgstr "Ìyàkúrò Ìpìlẹ̀"
+
+#: includes/arrays.php
+msgid "Time Based"
+msgstr "Tó Dá Lórí Àkókò"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Min/Max [TIP]"
+msgstr "%% Ìyàtọ̀ Kéréjù/Pọ̀jù [TIP]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation CF [TIP]"
+msgstr "%% Ìyàtọ̀ CF [TIP]"
+
+#: includes/arrays.php
+msgid "Absolute Val Min/Max [TIP]"
+msgstr "Kéréjù/Pọ̀jù Iye Gidi [TIP]"
+
+#: includes/arrays.php
+msgid "Absolute Val of CF [TIP]"
+msgstr "Iye Gidi ti CF [TIP]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Avg [AOT]"
+msgstr "%% Ìpíndọ́gba Ìyàtọ̀ [AOT]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Avg of CF [AOT]"
+msgstr "%% Ìpíndọ́gba Ìyàtọ̀ ti CF [AOT]"
+
+#: includes/arrays.php
+msgid "Absolute Val Avg [AOT]"
+msgstr "Ìpíndọ́gba Iye Gidi [AOT]"
+
+#: includes/arrays.php
+msgid "Absolute Val Avg of CF [AOT]"
+msgstr "Ìpíndọ́gba Iye Gidi ti CF [AOT]"
+
+#: includes/arrays.php
+msgid "Exact Value"
+msgstr "Ìye Pàtó"
+
+#: includes/arrays.php
+msgid "CDEF"
+msgstr "CDEF"
+
+#: includes/arrays.php
+msgid "Percentage"
+msgstr "Ìdá Ọgọ́rùn-ún"
+
+#: includes/arrays.php thold.php thold_templates.php
+msgid "RPN Expression"
+msgstr "Àpèjúwe RPN"
+
+#: includes/arrays.php
+msgid "Upper + Lower bytes"
+msgstr "Àwọn báìtì Òkè + Ìsàlẹ̀"
+
+#: includes/arrays.php
+msgid "Acknowledge"
+msgstr "Jẹ́wọ́"
+
+#: includes/arrays.php
+msgid "Suspend Notifications"
+msgstr "Dá Àwọn Ìfitónilétí Dúró Díẹ̀"
+
+#: includes/arrays.php
+msgid "Resume Notifications"
+msgstr "Bẹ̀rẹ̀ Àwọn Ìfitọ́nilétí Padà"
+
+#: includes/arrays.php notify_lists.php notify_queue.php setup.php
+msgid "Delete"
+msgstr "Pa rẹ́"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Mú Ṣiṣẹ́"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Dá Dúró"
+
+#: includes/arrays.php
+msgid "Reapply Suggested Names"
+msgstr "Tún Àwọn Orúkọ tí a Dábàá Lò"
+
+#: includes/arrays.php
+msgid "Propagate Template"
+msgstr "Tàn Àdàkọ Kálẹ̀"
+
+#: includes/arrays.php thold_graph.php
+msgid "Export"
+msgstr "Kó Jáde"
+
+#: includes/arrays.php
+msgid "Threshold Mail"
+msgstr "Méèlì Àlà"
+
+#: includes/arrays.php
+msgid "Down Host Mail"
+msgstr "Ímeèlì Olùgbàlejò Tí Kò Ṣiṣẹ́"
+
+#: includes/arrays.php
+msgid "Up Host Mail"
+msgstr "Ímeèlì Olùgbàlejò Tí Ó Wà Lókè"
+
+#: includes/arrays.php
+msgid "Threshold Cmd"
+msgstr "Àṣẹ Àlà"
+
+#: includes/arrays.php
+msgid "Down Host Cmd"
+msgstr "Àṣẹ Olùgbàlejò Tí Kò Ṣiṣẹ́"
+
+#: includes/arrays.php
+msgid "Up Host Cmd"
+msgstr "Àṣẹ Olùgbàlejò Tí Ó Wà Lókè"
+
+#: includes/arrays.php
+msgid "Auto"
+msgstr "Aládàáṣe"
+
+#: includes/arrays.php
+msgid "0 Digits"
+msgstr "Àwọn Nọ́mbà 0"
+
+#: includes/arrays.php
+msgid "1 Digit"
+msgstr "Díjítì 1"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Digits"
+msgstr "Díjítì %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d Devices"
+msgstr "> %d Àwọn Ẹ̀rọ"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d %% of Devices Globally"
+msgstr "> %d %% lára Àwọn Ẹ̀rọ Lágbàáyé"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d Devices in a Site"
+msgstr "> %d Àwọn Ẹ̀rọ ní Ibùdó kan"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d %% of Devices in a Site"
+msgstr "> %d %% lára Àwọn Ẹ̀rọ ní Ibùdó kan"
+
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "< 1 Ìṣẹ́jú"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "Láti ìgbà tí a ti dá a"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "Àwọn Àlà"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "Àkọsílẹ̀"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "Ipò Ẹ̀rọ"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "Àkókò:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "Olùṣàmúlò:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "Ètò:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "Àwọn Swap:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "Àwọn Ojú-ewé:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr "Ìkọsílẹ̀ nìkan, ẹ̀rọ ìtọ́jú"
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "Àìyípadà"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "Ìjápọ̀ sí Gíráfù nínú Cacti"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Ìtànijì kan ti jáde tí ó nílò àfiyèsí rẹ.<br><br><b>Ẹ̀rọ</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Ìfiranṣẹ́</b>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Ìkìlọ̀ kan ti jáde tí ó nílò àfiyèsí rẹ.<br><br><b>Ẹ̀rọ</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Ìfiranṣẹ́</b>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Àlà kan ti padà sí ipò déédéé. <br><br><strong>Ẹ̀rọ</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Ìfiranṣẹ́</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "%% Ìyàtọ̀ [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "Iye Gangan [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [AOT:%s]"
+msgstr "%% Ìyàtọ̀ [AOT:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "Iye Gangan [AOT:%s]"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "A kò ṣètò ID Ẹ̀rọ nígbà tí a ń gbìyànjú láti ṣẹ̀dá Gíráfù àti Àlà"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "A kò rí ID Àdàkọ Àlà nígbà tí a ń gbìyànjú láti ṣẹ̀dá Gíráfù àti Àlà"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "A kò ṣètò ID Àdàkọ Àlà nígbà tí a ń gbìyànjú láti ṣẹ̀dá Gíráfù àti Àlà"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "Ìṣẹ̀dá Gíráfù kùnà fún Àdàkọ Àlà"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "A ṣẹ̀dá Àlà fúnra rẹ̀ nítorí ìsopọ̀ Àdàkọ Ẹ̀rọ"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "A kọ Àṣẹ"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "Àkọsílẹ̀ Ti Di Tuntun"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "Kíkùnà láti rí Ohun Àdàkọ Gíráfù '%d' tí ó sopọ̀ lórí Àlà '%d'"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "Àlà tí a ṣẹ̀dá: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "O gbọ́dọ̀ tọ́ka sí yálà 'Àlà Ìtànijí Gíga' tàbí 'Àlà Ìtànijí Kéré' tàbí méjèèjì!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Àlà tí kò ṣeé ṣe: 'Àlà Ìtanijí Gíga' kéré ju 'Àlà Ìtanijí Kékeré' lọ!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "Àlà tí kò ṣeé ṣe: 'Àlà Ìkìlọ̀ Gíga' kéré ju 'Àlà Ìkìlọ̀ Kékeré' lọ!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "Àlà tí kò ṣeé ṣe: 'Àlà Ìkìlọ̀ Gíga' tóbi ju 'Àlà Ìtanijí Gíga' lọ!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "Àlà tí kò ṣeé ṣe: 'Àlà Ìtanijí Kékeré' tóbi ju 'Àlà Ìkìlọ̀ Kékeré' lọ!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "Ìtọ́kasí àkókò ní ìṣẹ́lẹ̀ sẹ́yìn gbọ́dọ̀ jẹ́ nọ́ńbà odidi tó pọ̀ ju òdo lọ!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "O gbọ́dọ̀ tọ́ka sí yálà 'Ìyàtọ̀ Ìpìlẹ̀ SÓKÈ' tàbí 'Ìyàtọ̀ Ìpìlẹ̀ SÍLẸ̀' tàbí méjèèjì!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "Àlà tí kò ṣeé ṣe: 'Àlà Ìtanijí Gíga' kéré ju 'Àlà Ìtanijí Kékeré' lọ"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr "Àlà tí kò ṣeé ṣe: Iye Ìṣẹ̀lẹ̀ Ìtanijí gbọ́dọ̀ ju tàbí dọ́gba pẹ̀lú 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Àlà tí kò ṣeé ṣe: Iye Ìṣẹ̀lẹ̀ Ìtanijí gbọ́dọ̀ kéré sí tàbí dọ́gba pẹ̀lú Iye Ìṣẹ̀lẹ̀ tàbí dọ́gba pẹ̀lú 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr "Àlà tí kò ṣeé ṣe: Iye Ìṣẹ̀lẹ̀ Ìkìlọ̀ gbọ́dọ̀ ju tàbí dọ́gba pẹ̀lú 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Àlà tí kò ṣeé ṣe: Iye Ìṣẹ̀lẹ̀ Ìkìlọ̀ gbọ́dọ̀ kéré sí tàbí dọ́gba pẹ̀lú Iye Ìṣẹ̀lẹ̀ tàbí dọ́gba pẹ̀lú 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Àlà tí kò ṣeé ṣe: 'Àlà Ìkìlọ̀ Kékeré' kéré ju 'Àlà Ìtanijí Kékeré' lọ!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "Irú Àlà Àìmọ̀!"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "Kò sí Àwọn Àdàkọ Àlà tí ó ní ìbáṣepọ̀ pẹ̀lú Àdàkọ Ẹ̀rọ náà."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "Kò sí Àlà kankan tí a Dá.  Yálà wọ́n ti wà tẹ́lẹ̀, tàbí kò sí àwọn ìbáramu tó yẹ tí a rí."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "Àṣìṣe Olùfiránṣẹ́: Kò sí àdírẹ́sì <b>TO</b> tí a ṣètò!!<br>Tí o bá ń lo ìjápọ̀ <i>Ímeèlì Ìdánwò</i>, jọ̀wọ́ ṣètò ètò <b>Ímeèlì Ìkìlọ̀</b>."
+
+#: includes/functions.php
+msgid "Done"
+msgstr "Ti parí"
+
+#: includes/functions.php
+msgid "Pending"
+msgstr "Ní Ìdúró"
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "Tí Ó Ní Àṣìṣe"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "Kò Sí"
+
+#: includes/functions.php
+msgid "Success"
+msgstr "Àṣeyọrí"
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "Jẹ́wọ́ Àlà"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "Tẹ 'Tẹ̀síwájú' láti Jẹ́wọ́ Àlà wọ̀nyí."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "Jẹ́wọ́ Àwọn Àlà"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "Fagilé"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "Tẹ̀síwájú"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "A Kò Rí Àdàkọ Dátà Abẹ́ Àdàkọ Àlà!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "A Kò Rí Orísun Dátà Abẹ́ Àdàkọ Àlà!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "Àwọn òpó àgbéwọlé Àdàkọ Àlà kò bá ètò ibi ìpamọ́ dátà mu"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "Ti gbé wọlé"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "Àdàkọ Àlà '%s' %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "Ti ṣe ìmúdójúìwọ̀n"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "Kó Wọlé"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "Àdàkọ Àlà '%s' %s Kùnà!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "Ìmúdójúìwọ̀n"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "Àwọn àṣìṣe ṣẹlẹ̀ nígbà tí a ń gbìyànjú láti kó dátà Àdàkọ Àlà wọlé."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "A kò rí dátà àgbéwọlé Àdàkọ Àlà gẹ́gẹ́ bí dátà XML."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "Dátà àgbéwọlé Àdàkọ Àlà kò tọ́ nígbà tí a ń gbé Àdàkọ Àlà wọlé."
+
+#: includes/polling.php
+msgid "SNMP not in use"
+msgstr "A kò lo SNMP"
+
+#: includes/polling.php
+msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
+msgstr "Àkíyèsí Àwọn Ẹ̀rọ: <DESCRIPTION> (<HOSTNAME>) ti padà bọ̀ sípò láti ipò DÍDÁDÚRÓ"
+
+#: includes/polling.php
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
+msgstr "<br>Ipò ètò <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Ibùdó: <SITE><br>Ipò ilẹ̀: <LOCATION><br>Ìdáhùn ping lọ́wọ́lọ́wọ́: <CUR_TIME> ms<br>Ìdáhùn ètò ìpíndọ́gba: <AVG_TIME> ms<br>Wíwà ètò: <AVAILABILITY><br>Àpapọ̀ Àyẹ̀wò Láti Ìgbà Ìfọ̀mọ́: <TOT_POLL><br>Àpapọ̀ Àyẹ̀wò Tó Kùnà: <FAIL_POLL><br>Ọjọ́ Tó Kẹ́yìn Tó Wà Lókè: <LAST_FAIL><br>Àwọn Ẹ̀rọ Tó Wà NÍLẸ̀ Tẹ́lẹ̀ fún: <DOWNTIME><br><br>Ìròyìn SNMP:<br>Orúkọ - <SNMP_HOSTNAME><br>Ipò ilẹ̀ - <SNMP_LOCATION><br>Àkókò ìṣiṣẹ́ - <UPTIMETEXT> (<UPTIME> ms)<br>Ètò - <SNMP_SYSTEM><br><br>ÀKÍYÈSÍ: <NOTES>"
+
+#: includes/polling.php
+msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
+msgstr "Àṣìṣe Àwọn Ẹ̀rọ: <DESCRIPTION> (<HOSTNAME>) ti DÁDÚRÓ"
+
+#: includes/polling.php
+msgid "DOWN"
+msgstr "KÒ ṢIṢẸ́"
+
+#: includes/polling.php
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
+msgstr "Àṣìṣe Ètò : <DESCRIPTION> (<HOSTNAME>) wà ní <DOWN/UP><br>Ibùdó: <SITE><br>Ààyè: <LOCATION><br>Ìdí: <MESSAGE><br><br>Ìpíndọ́gba ìdáhùn ètò : <AVG_TIME> ms<br>Wíwà ètò lárọ̀wọ́tó: <AVAILABILITY><br>Àpapọ̀ Àyẹ̀wò Látìgbà Ìfọ̀mọ́: <TOT_POLL><br>Àpapọ̀ Àwọn Àyẹ̀wò Tó Kùnà: <FAIL_POLL><br>Ọjọ́ Tí A Kẹ́yìn Yẹ̀ ẹ́ Wò Ní DOWN : <LAST_FAIL><br>Ìgbà Tí Àwọn Ẹ̀rọ Wà LÓKÈ Tẹ́lẹ̀: <DOWNTIME><br>ÀKỌSÍLẸ̀: <NOTES>"
+
+#: includes/settings.php
+msgid "(actions)"
+msgstr "(àwọn ìgbésẹ̀)"
+
+#: includes/settings.php
+msgid "(edit)"
+msgstr "(ṣàtúnṣe)"
+
+#: includes/settings.php
+msgid "(save)"
+msgstr "(fipamọ́)"
+
+#: includes/settings.php
+msgid "(add)"
+msgstr "(fi kún un)"
+
+#: includes/settings.php
+msgid "Threshold Logs"
+msgstr "Àwọn Àkọọ́lẹ̀ Àlà"
+
+#: includes/settings.php
+msgid "Thresholds - Failures"
+msgstr "Àwọn Àlà - Àwọn Ìkùnà"
+
+#: includes/settings.php
+msgid "Thresholds - Normal"
+msgstr "Àwọn Àlà - Dédé"
+
+#: includes/settings.php
+msgid "Thresholds - Recovering"
+msgstr "Àwọn Àlà - Ń padà bọ̀ sípò"
+
+#: includes/settings.php
+msgid "Recent Thresholds"
+msgstr "Àwọn Àlà Láìpẹ́"
+
+#: includes/settings.php
+msgid "Recent Device Failures"
+msgstr "Àwọn Ìkùnà Ẹ̀rọ Láìpẹ́"
+
+#: includes/settings.php thold_templates.php
+msgid "Threshold Templates"
+msgstr "Àwọn Àdàkọ Àlà"
+
+#: includes/settings.php
+msgid "Threshold Template Import"
+msgstr "Àgbéwọlé Àdàkọ Àlà"
+
+#: includes/settings.php notify_lists.php
+msgid "Notification Lists"
+msgstr "Àwọn Àkójọ Ìfitọ́nilétí"
+
+#: includes/settings.php
+msgid "Notification Lists (edit)"
+msgstr "Àwọn Àkójọ Ìfitọ́nilétí (ṣàtúnṣe)"
+
+#: includes/settings.php
+msgid "Notification Queue"
+msgstr "Ìlà Ìfitọ́nilétí"
+
+#: includes/settings.php
+msgid "Management"
+msgstr "Ìṣàkóso"
+
+#: includes/settings.php notify_lists.php thold_templates.php
+msgid "Templates"
+msgstr "Àwọn Àdàkọ"
+
+#: includes/settings.php thold_graph.php
+msgid "Threshold"
+msgstr "Àlà"
+
+#: includes/settings.php
+msgid "A template with that Data Source already exists!"
+msgstr "Àdàkọ kan pẹ̀lú Orísun Dátà yẹn ti wà tẹ́lẹ̀!"
+
+#: includes/settings.php
+msgid "Configure Thresholds"
+msgstr "Ṣètò Àwọn Àlà"
+
+#: includes/settings.php
+msgid "Configure Threshold Templates"
+msgstr "Ṣètò Àwọn Àdàkọ Àlà"
+
+#: includes/settings.php
+msgid "Manage Notification Lists"
+msgstr "Ṣàkóso Àwọn Àtòjọ Ìfitónilétí"
+
+#: includes/settings.php
+msgid "View Thresholds"
+msgstr "Wo Àwọn Àlà"
+
+#: includes/settings.php
+msgid "Normal User"
+msgstr "Olùlò Déédéé"
+
+#: includes/settings.php
+msgid "Template Editor"
+msgstr "Olùṣàtúnṣe Àwòṣe"
+
+#: includes/settings.php
+msgid "General Administration"
+msgstr "Ìṣàkóso Gbogbogbòò"
+
+#: includes/settings.php
+msgid "Device Up/Down Notification Settings"
+msgstr "Àwọn Ètò Ìfitónilétí Ṣíṣiṣẹ́/Dídádúró Ẹ̀rọ"
+
+#: includes/settings.php
+msgid "Threshold Up/Down Email Notification"
+msgstr "Ìfitónilétí Ímeèlì Ìsòkè/Ìsàlẹ̀ Àlà"
+
+#: includes/settings.php notify_lists.php
+msgid "Global List"
+msgstr "Àtòjọ Àgbáyé"
+
+#: includes/settings.php
+msgid "List Below"
+msgstr "Àtòjọ Nísàlẹ̀"
+
+#: includes/settings.php
+msgid "Global and List Below"
+msgstr "Àgbáyé àti Àtòjọ Nísàlẹ̀"
+
+#: includes/settings.php
+msgid "Which Type of Notification List(s) should be used for Device Up/Down events?"
+msgstr "Irú Àkójọ Ìfitónilétí wo ni ó yẹ kí a lò fún àwọn ìṣẹ̀lẹ̀ Ẹ̀rọ Wà Lókè/Wà Lálẹ̀?"
+
+#: includes/settings.php notify_queue.php
+msgid "Notification List"
+msgstr "Àtòjọ Ìfitónilétí"
+
+#: includes/settings.php
+msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
+msgstr "Àkójọ Ìfitónilétí wo ni ó yẹ kí a fi tó létí nípa àwọn ìṣẹ̀lẹ̀ Ẹ̀rọ Wà Lókè/Wà Lálẹ̀?"
+
+#: includes/settings.php
+msgid "Host Failure Count"
+msgstr "Iye Ìkùnà Olùgbàlejò"
+
+#: includes/settings.php
+msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
+msgstr "Iye Àwọn Àkókò Ìṣàyẹ̀wò tí Olùgbàlejò yìí gbọ́dọ̀ wà ní ìsínpá (Down) kí Thold tó kọ àṣìṣe sílẹ̀ tí yóò sì jábọ̀ Olùgbàlejò gẹ́gẹ́ bíi Kò Ṣiṣẹ́ (Down). Àìyípadà jẹ́ 0 (lo ètò Cacti)"
+
+#: includes/settings.php
+msgid "Use Cacti Setting"
+msgstr "Lo Ètò Cacti"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Polling Interval"
+msgstr "Àlàfo Ìṣàyẹ̀wò %d"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Polling Intervals"
+msgstr "Àwọn Àlàfo Ìṣàyẹ̀wò %d"
+
+#: includes/settings.php
+msgid "Alerting/Thold"
+msgstr "Ìṣàfiyèsí/Thold"
+
+#: includes/settings.php notify_lists.php
+msgid "General"
+msgstr "Gbogbogbò"
+
+#: includes/settings.php
+msgid "Disable All Thresholds"
+msgstr "Ṣe àìṣiṣẹ́ Gbogbo Àlà"
+
+#: includes/settings.php
+msgid "Checking this box will disable Alerting on all Thresholds.  This can be used when it is necessary to perform maintenance on your network."
+msgstr "Fífì àmì sí àpótí yìí yóò pa Ìtànijí run lórí gbogbo Àlà. Èyí ṣeé lò nígbà tí ó bá pọn dandan láti ṣe àtúnṣe lórí nẹ́tíwọ́ọ̀kì rẹ."
+
+#: includes/settings.php
+msgid "Auto Create Thresholds"
+msgstr "Ṣẹ̀dá Àwọn Àlà Aládàáṣe"
+
+#: includes/settings.php
+msgid "If selected, when running either automation, or when creating/saving a Device, all Thresholds associated with the Device Template will be created."
+msgstr "Tí a bá yàn án, nígbà tí a bá ń ṣiṣẹ́ adaṣe, tàbí nígbà tí a bá ń ṣẹ̀dá/fipamọ́ Ẹ̀rọ kan, gbogbo Àlà tí ó ní í ṣe pẹ̀lú Àdàkọ Ẹ̀rọ náà ni a óò ṣẹ̀dá."
+
+#: includes/settings.php
+msgid "Consider Unknown Data as Zero"
+msgstr "Ka Dátà Tí A Kò Mọ̀ sí Òdo"
+
+#: includes/settings.php
+msgid "When checking Thresholds, if a Data Source returns Unknown Data ('U'), consider the value as zero for the Threshold check. You can also enable log this issue."
+msgstr "Nígbà tí a bá ń ṣàyẹ̀wò Àwọn Àlà, tí Orísun Dátà bá dá Dátà Àìmọ̀ ('U') padà, ka iye náà sí òdo fún àyẹ̀wò Àlà. O tún lè mú ìkọsílẹ̀ ìṣòro yìí ṣiṣẹ́."
+
+#: includes/settings.php
+msgid "Default Management Status"
+msgstr "Ipò Ìṣàkóso Àìyípadà"
+
+#: includes/settings.php
+msgid "Default Threshold management filter status."
+msgstr "Ipò àlẹ̀mọ́ ìṣàkóso Àlà àìyípadà."
+
+#: includes/settings.php notify_lists.php thold.php
+msgid "Any"
+msgstr "Èyíkéyìí"
+
+#: includes/settings.php thold.php thold_graph.php
+msgid "Breached or Triggered"
+msgstr "Ti rékọjá tàbí Ti mú ṣiṣẹ́"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+msgid "Breached"
+msgstr "Ti rékọjá"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+msgid "Triggered"
+msgstr "Ti Ṣokùnfà"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Enabled"
+msgstr "Ṣiṣẹ́"
+
+#: includes/settings.php
+msgid "Empty ifHighSpeed Default"
+msgstr "Àṣàyàn Àkọ́kọ́ Òfo fún ifHighSpeed"
+
+#: includes/settings.php
+msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces."
+msgstr "Nígbà tí a bá ń ṣírò Àwọn Àlà Ìsọjáde, tí ifHighSpeed àti ifSpeed bá padà wá bí òdo, lo ètò ifHighSpeed ìsàlẹ̀ yìí dípò rẹ̀.  ifHighSpeed àkọ́kọ́ yóò jẹ́ 10000 fún àwọn ojú-ọ̀nà 10GE."
+
+#: includes/settings.php
+msgid "Notification Preferences"
+msgstr "Àwọn Ààyò Ìfitọ́nilétí"
+
+#: includes/settings.php
+msgid "Disable Legacy Notifications"
+msgstr "Ṣe àìṣiṣẹ́ Àwọn Ìfitónilétí Àtijọ́"
+
+#: includes/settings.php
+msgid "Checking this box will disable Legacy Alerting on all Thresholds.  Legacy Alerting is defined as any Specific Email Alerts not associated with a Notification List."
+msgstr "Fífì àmì sí àpótí yìí yóò pa Ìtànijí Àtijọ́ run lórí gbogbo Àlà. A túmọ̀ Ìtànijí Àtijọ́ sí Àwọn Ìtànijí Ímeèlì Pàtó èyíkéyìí tí kò ní í ṣe pẹ̀lú Àkójọ Ìfitónilétí kan."
+
+#: includes/settings.php
+msgid "Threshold Notification Templated"
+msgstr "Ìfitónilétí Àlà Oní-Àdàkọ"
+
+#: includes/settings.php
+msgid "If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template."
+msgstr "Tí a bá yàn án, nígbà tí o bá ń ṣẹ̀dá Àdàkọ Àlà, Àwọn Ètò Ìfitónilétí rẹ̀ yóò jẹ́ ti Àdàkọ Àlà náà ní ìbẹ̀rẹ̀."
+
+#: includes/settings.php
+msgid "Enable Command Execution"
+msgstr "Mú Ìṣiṣẹ́ Àṣẹ ṣiṣẹ́"
+
+#: includes/settings.php
+msgid "Checking this box will enable the ability to run commands on Threshold breach and restoral events."
+msgstr "Fífì àmì sí àpótí yìí yóò mú agbára láti ṣiṣẹ́ àwọn àṣẹ lórí ìrúfin Àlà àti àwọn ìṣẹ̀lẹ̀ ìmúpadàbọ̀sípò ṣiṣẹ́."
+
+#: includes/settings.php
+msgid "Enable Per Thold Notification"
+msgstr "Mú Ìfitónilétí Fún Thold Kọ̀ọ̀kan ṣiṣẹ́"
+
+#: includes/settings.php
+msgid "Checking this box will enable the ability to maintain custom Email bodies for Thresholds."
+msgstr "Fífì àmì sí àpótí yìí yóò mú agbára láti tọ́jú àwọn ara Ímeèlì àdáni fún Àlà ṣiṣẹ́."
+
+#: includes/settings.php
+msgid "Enable Notification Queue"
+msgstr "Mú Ìlà Ìfitónilétí ṣiṣẹ́"
+
+#: includes/settings.php
+msgid "Checking this box will switch Thold from performing inline Notification to using either the Notification Daemon, or notifications performed out of band by the Notification poller."
+msgstr "Fífì àmì sí àpótí yìí yóò yí Thold padà kúrò ní ṣíṣe Ìfitónilétí ní ìlà sí lílo yálà Dẹ́mọ̀nì Ìfitónilétí, tàbí àwọn ìfitónilétí tí Olùṣàyẹ̀wò Ìfitónilétí ń ṣe lọ́tọ̀."
+
+#: includes/settings.php
+msgid "Enable Sending Alert Emails to Warning Notification Lists"
+msgstr "Mú Fífiranṣẹ́ Àwọn Ímeèlì Ìtànijí sí Àwọn Àkójọ Ìfitónilétí Ìkìlọ̀ ṣiṣẹ́"
+
+#: includes/settings.php
+msgid "Check this box if you wish Warning Notification List recipients to receive Alert Emails in addition to the Alert Notification list receivers.  This case is applicable when Warning Notifications goes to Administrators and Alert Notifications go to Management."
+msgstr "Fi àmì sí àpótí yìí tí o bá fẹ́ kí àwọn olùgbà Àkójọ Ìfitónilétí Ìkìlọ̀ gba Àwọn Ímeèlì Ìtànijí ní àfikún sí àwọn olùgbà àkójọ Ìfitónilétí Ìtànijí. Ọ̀ràn yìí wúlò nígbà tí Àwọn Ìfitónilétí Ìkìlọ̀ bá ń lọ sí ọ̀dọ̀ Àwọn Olùṣàkóso tí Àwọn Ìfitónilétí Ìtànijí sì ń lọ sí ọ̀dọ̀ Àwọn Alákòóso Àgbà."
+
+#: includes/settings.php
+msgid "Threshold Daemon"
+msgstr "Daemon Àlà"
+
+#: includes/settings.php
+msgid "Enable Threshold Daemon"
+msgstr "Mú Daemon Àlà ṣiṣẹ́"
+
+#: includes/settings.php
+msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
+msgstr "Fífì àmì sí àpótí yìí yóò mú lílo dẹ́mọ̀nì Àlà àkànṣe ṣiṣẹ́. Èyí ṣeé lò láti mú iṣẹ́ ètò pọ̀ sí i àti/tàbí láti pín ìṣàkíyèsí Àlà sí olùpèsè ọ̀tọ̀."
+
+#: includes/settings.php
+msgid "Force Threshold Daemon Debug"
+msgstr "Fipá Mú Àṣàyẹ̀wò Àṣìṣe Daemon Àlà"
+
+#: includes/settings.php
+msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
+msgstr "Fífì àmì sí àpótí yìí yóò mú àṣàyẹ̀wò àṣìṣe Dẹ́mọ̀nì Àlà ṣiṣẹ́ nígbà tí ó bá ń ṣiṣẹ́ láti SystemD tàbí nípasẹ̀ ìlà àṣẹ. Àyípadà yìí máa ń yí padà lẹ́sẹ̀kẹsẹ̀, yóò sì bẹ̀rẹ̀ sí í ṣiṣẹ́ nígbà tí ìyípo Àlà tí ó tẹ̀ lé e bá bẹ̀rẹ̀."
+
+#: includes/settings.php
+msgid "Daemon Down Notification Frequency"
+msgstr "Ìgbàkúgbà Ìfitónilétí Ìdádúró Daemon"
+
+#: includes/settings.php
+msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
+msgstr "Tí a bá rí i pé Thold Daemon kò ṣiṣẹ́, fi ìfitónilétí Ímeèlì ránṣẹ́ ní ìgbàkugbà yìí."
+
+#: includes/settings.php
+#, php-format
+msgid "Every %d Hour"
+msgstr "Ní Gbogbo Wákàtí %d"
+
+#: includes/settings.php
+msgid "Daemon Threads"
+msgstr "Àwọn Tírẹ́ẹ̀dì Daemon"
+
+#: includes/settings.php
+msgid "The number of daemon threads to be handled by the Threshold Daemon."
+msgstr "Iye àwọn okùn ìṣiṣẹ́ daemon tí Daemon Àlà yóò ṣàkóso."
+
+#: includes/settings.php
+msgid "1 Process"
+msgstr "Ìlànà 1"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Processes"
+msgstr "Àwọn Ìlànà %d"
+
+#: includes/settings.php
+msgid "Logging"
+msgstr "Ìkọsílẹ̀"
+
+#: includes/settings.php
+msgid "Log Threshold Breaches"
+msgstr "Ṣàkọsílẹ̀ Ìrékọjá Àlà"
+
+#: includes/settings.php
+msgid "Enable logging of all Threshold failures to the Cacti Log."
+msgstr "Mú gbígba àkọsílẹ̀ gbogbo ìkùnà Àlà sínú Àkọsílẹ̀ Cacti ṣiṣẹ́."
+
+#: includes/settings.php
+msgid "Show Data Source in Log"
+msgstr "Ṣàfihàn Orísun Dátà nínú Àkọsílẹ̀"
+
+#: includes/settings.php
+msgid "Show the Data Source name in the Log if not present."
+msgstr "Ṣàfihàn orúkọ Orísun Dátà nínú Àkọsílẹ̀ bí kò bá sí níbẹ̀."
+
+#: includes/settings.php
+msgid "Log Threshold Changes"
+msgstr "Ṣàkọsílẹ̀ Àwọn Àyípadà Àlà"
+
+#: includes/settings.php
+msgid "Enable logging of all Threshold changes to the Cacti Log."
+msgstr "Mú gbígba àkọsílẹ̀ gbogbo àyípadà Àlà sínú Àkọsílẹ̀ Cacti ṣiṣẹ́."
+
+#: includes/settings.php
+msgid "Debug Log"
+msgstr "Àkọsílẹ̀ Àyẹ̀wò Àṣìṣe"
+
+#: includes/settings.php
+msgid "Enable logging of debug messages with Threshold"
+msgstr "Mú gbígba àkọsílẹ̀ àwọn ìránṣẹ́ àtúnṣe àṣìṣe pẹ̀lú Àlà ṣiṣẹ́"
+
+#: includes/settings.php
+msgid "Alert Log Retention"
+msgstr "Ìpamọ́ Àkọsílẹ̀ Ìfiyèsí"
+
+#: includes/settings.php
+msgid "Keep Threshold Logs for this number of days."
+msgstr "Pa Àwọn Àkọsílẹ̀ Àlà mọ́ fún iye ọjọ́ yìí."
+
+#: includes/settings.php
+msgid "Log action Consider Unknown Data as Zero"
+msgstr "Ṣàkọsílẹ̀ ìṣe Kà Dátà Àìmọ̀ sí Òdo"
+
+#: includes/settings.php
+msgid "When 'Consider Unknown Data as Zero' is enabled, log when it occurs"
+msgstr "Nígbà tí 'Ka Dátà Àìmọ̀ sí Òdo' bá wà ní Ṣiṣẹ́, ṣàkọsílẹ̀ nígbà tí ó bá ṣẹlẹ̀"
+
+#: includes/settings.php thold.php thold_templates.php
+msgid "Syslog Settings"
+msgstr "Àwọn Ètò Syslog"
+
+#: includes/settings.php
+msgid "Syslog Enabled"
+msgstr "Syslog Ṣiṣẹ́"
+
+#: includes/settings.php
+msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Tí a bá yàn án, nígbà tí o bá ń ṣẹ̀dá Àlà tuntun, àwọn ìṣẹ̀lẹ̀ Àlà tuntun yóò jẹ́ fífiránṣẹ́ sí Syslog abẹ́lé rẹ ní ìbẹ̀rẹ̀. Ètò yìí jẹ́ àkọ́kọ́ṣe. Àwọn Ètò Àlà ni ó ń ṣàkóso ìdarí Syslog gangan."
+
+#: includes/settings.php
+msgid "Default Priority/Level"
+msgstr "Ìṣàájú/Ìpele Àìyípadà"
+
+#: includes/settings.php
+msgid "This is the default Priority/Level that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Èyí ni Àkọ́kọ́/Ìpele àtọwọ́dọ́wọ́ tí Thold yóò lò láti fi àwọn ìfiranṣẹ́ syslog ránṣẹ́. Ètò yìí jẹ́ àtòsílẹ̀. Àwọn ètò Àlà ni ó ń darí ìṣàkóso syslog gangan."
+
+#: includes/settings.php
+msgid "Default Facility"
+msgstr "Ẹ̀ka Àìyípadà"
+
+#: includes/settings.php
+msgid "This is the default Facility that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Èyí ni Ohun-èlò (Facility) àtọwọ́dọ́wọ́ tí Thold yóò lò láti fi àwọn ìfiranṣẹ́ syslog ránṣẹ́. Ètò yìí jẹ́ àtòsílẹ̀. Àwọn ètò Àlà ni ó ń darí ìṣàkóso syslog gangan."
+
+#: includes/settings.php
+msgid "Alert Presets"
+msgstr "Àwọn Ètò Àtẹ̀lẹ̀ Ìfiyèsí"
+
+#: includes/settings.php
+msgid "Weekend exemptions"
+msgstr "Àwọn ìyọ̀ǹda ìparí ọ̀sẹ̀"
+
+#: includes/settings.php
+msgid "If this is checked, Thold will not run on weekends."
+msgstr "Tí a bá yàn án, Thold kò ní ṣiṣẹ́ ní òpin ọ̀sẹ̀."
+
+#: includes/settings.php
+msgid "Default Trigger Count"
+msgstr "Ìka Ìmúṣẹ Àìyípadà"
+
+#: includes/settings.php
+msgid "Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised."
+msgstr "Iye ìgbà tẹ̀léra àìyípadà tí Orísun Dátà gbọ́dọ̀ rú Àlà kí a tó gbé Ìtanijì dìde."
+
+#: includes/settings.php
+msgid "Re-Alerting"
+msgstr "Àtún-Ìtànjí"
+
+#: includes/settings.php
+msgid "Repeat Alert after specified number of poller cycles."
+msgstr "Tún Ìtanijí ṣe lẹ́yìn iye ìyípo olùṣàyẹ̀wò tí a sọ pàtó."
+
+#: includes/settings.php
+msgid "Baseline Presets"
+msgstr "Àwọn Ètò Àtẹ́lẹ̀ Ìpìlẹ̀"
+
+#: includes/settings.php
+msgid "Baseline Time Range Default"
+msgstr "Ààlà Àkókò Ìpìlẹ̀ Àìyípadà"
+
+#: includes/settings.php
+msgid "This is the default value used in creating Thresholds or templates."
+msgstr "Èyí ni iye àtọwọ́dọ́wọ́ tí a lò ní dídá Àwọn Àlà tàbí àwọn àdàkọ."
+
+#: includes/settings.php
+msgid "Baseline Trigger Count"
+msgstr "Ìka Ìmúlò Ìpìlẹ̀"
+
+#: includes/settings.php
+msgid "Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised."
+msgstr "Iye ìgbà tẹ̀léra àìyípadà tí Orísun Dátà gbọ́dọ̀ rú Àlà Ìpìlẹ̀ tí a ṣírò kí a tó gbé Ìtanijì dìde."
+
+#: includes/settings.php
+msgid "Baseline Deviation Percentage"
+msgstr "Ìdá-ọgọ́rùn-ún Ìyàkúrò Ìpìlẹ̀"
+
+#: includes/settings.php
+msgid "SNMP Notification Options"
+msgstr "Àwọn Àṣàyàn Ìfitónilétí SNMP"
+
+#: includes/settings.php
+msgid "SNMP Notifications"
+msgstr "Àwọn Ìfitónilétí SNMP"
+
+#: includes/settings.php
+msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
+msgstr "Àwọn ìfiránṣẹ́ ipò Àlà (àwọn ìfitónilétí/ìdẹkùn) ni a óò fi ránṣẹ́ sí àwọn olùgbà ìfitónilétí SNMP. Èyí ní nínú Àwọn Ìtànijí, Àwọn Ìkìlọ̀ àti àwọn ìdẹkùn Ìmúpadàbọ̀sípò gẹ́gẹ́ bí àìyípadà. Àkíyèsí: Ẹ̀yà yìí nílò àfikún Cacti SNMPAgent."
+
+#: includes/settings.php
+msgid "Disable Warning Notifications"
+msgstr "Ṣe àìṣiṣẹ́ Àwọn Ìfitónilétí Ìkìlọ̀"
+
+#: includes/settings.php
+msgid "If this is checked, Threshold will not send a notification when a warning Threshold has been breached."
+msgstr "Tí a bá yàn án, Àlà kò ní fi ìfitónilétí ránṣẹ́ nígbà tí a bá ti rú Àlà Ìkìlọ̀."
+
+#: includes/settings.php
+msgid "Disable Restoration Notifications"
+msgstr "Ṣe àìṣiṣẹ́ Àwọn Ìfitónilétí Ìmúpadàbọ̀sípò"
+
+#: includes/settings.php
+msgid "If this is checked, Threshold will not send a notification when the Threshold has returned to normal status."
+msgstr "Tí a bá yàn án, Àlà kò ní fi ìfitónilétí ránṣẹ́ nígbà tí Àlà náà bá ti padà sí Ipò déédéé."
+
+#: includes/settings.php
+msgid "Emailing Options"
+msgstr "Àwọn Àṣàyàn Fífi Ímeèlì Ránṣẹ́"
+
+#: includes/settings.php
+msgid "Send Emails with Urgent Priority"
+msgstr "Fi Àwọn Ímeèlì Ránṣẹ́ pẹ̀lú Ìpò Kánjúkánjú"
+
+#: includes/settings.php
+msgid "Allows you to set Emails with urgent priority"
+msgstr "Ó ń gba ọ láàyè láti ṣètò Àwọn Ímeèlì pẹ̀lú ipò ìkánjú"
+
+#: includes/settings.php
+msgid "Send Alerts as Text"
+msgstr "Fi Àwọn Ìkìlọ̀ Ránṣẹ́ Gẹ́gẹ́ Bí Ọ̀rọ̀"
+
+#: includes/settings.php
+msgid "If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email."
+msgstr "Tí a bá yàn án, èyí yóò mú kí gbogbo Àwọn Ìtanijí jẹ́ fífiránṣẹ́ gẹ́gẹ́ bí Ímeèlì ọ̀rọ̀ lasan láìsí Gíráfù. Àṣàyàn àtìbẹ̀rẹ̀ ni Ímeèlì HTML pẹ̀lú Gíráfù tí a fi sínú Ímeèlì náà."
+
+#: includes/settings.php
+msgid "Send Email separately for each address"
+msgstr "Fi Ímeèlì ránṣẹ́ lọ́tọ̀ọ̀tọ̀ fún àdírẹ́sì kọ̀ọ̀kan"
+
+#: includes/settings.php
+msgid "If checked, this will cause all Emails to be sent separately for each address."
+msgstr "Tí a bá yàn án, èyí yóò mú kí gbogbo Ímeèlì jẹ́ fífiránṣẹ́ lọ́tọ̀ọ̀tọ̀ fún àdírẹ́sì kọ̀ọ̀kan."
+
+#: includes/settings.php
+msgid "From Email Address"
+msgstr "Àdírẹ́sì Ímeèlì Olùfiránṣẹ́"
+
+#: includes/settings.php
+msgid "This is the Email address that the Threshold will appear from."
+msgstr "Èyí ni àdírẹ́sì Ímeèlì tí Àlà náà yóò hàn láti ọ̀dọ̀ rẹ̀."
+
+#: includes/settings.php
+msgid "From Name"
+msgstr "Orúkọ Olùfiránṣẹ́"
+
+#: includes/settings.php
+msgid "This is the actual name that the Threshold will appear from."
+msgstr "Èyí ni orúkọ gangan tí Àlà náà yóò hàn láti ọ̀dọ̀ rẹ̀."
+
+#: includes/settings.php
+msgid "Device Notification Options"
+msgstr "Àwọn Àṣàyàn Ìfitónilétí Ẹ̀rọ"
+
+#: includes/settings.php
+msgid "Enable Notifications"
+msgstr "Mú Àwọn Ìfitónilétí ṣiṣẹ́"
+
+#: includes/settings.php
+msgid "Enable Dead/Recovering host notification"
+msgstr "Mú ìfitónilétí olùgbàlejò Tí Ó Kú/Tí Ó Ń Bọ̀sípò ṣiṣẹ́"
+
+#: includes/settings.php
+msgid "Single Email Notification"
+msgstr "Ìfitónilétí Ímeèlì Kanṣoṣo"
+
+#: includes/settings.php
+msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
+msgstr "Ní àtìlẹ́yìn fún Àwọn Àtòjọ Ìfitónilétí àti Ìlà Ìfitónilétí nìkan. Tí Àwọn Ìfitónilétí Ẹ̀rọ Tó Kùnà bá wà nínú ìyípo ìṣiṣẹ́ kan ṣoṣo, fi Ímeèlì kan ṣoṣo ránṣẹ́ sí àwọn olùgbà Àtòjọ Ìfitónilétí fún gbogbo Àwọn Ẹ̀rọ."
+
+#: includes/settings.php
+msgid "Single Email Notification Subject"
+msgstr "Àkọlé Ìfitónilétí Ímeèlì Kanṣoṣo"
+
+#: includes/settings.php
+msgid "This is the Email Subject to be used for all Single Email Notification Emails for both Up and Down Devices."
+msgstr "Èyí ni Kókó-ọ̀rọ̀ Ímeèlì láti lò fún gbogbo Àwọn Ímeèlì Ìfitónilétí Ímeèlì Kanṣoṣo fún Àwọn Ẹ̀rọ Tó Ń Ṣiṣẹ́ àti Èyí Tó Dáwọ́ Dúró."
+
+#: includes/settings.php
+msgid "Device Notification Delay Options"
+msgstr "Àwọn Àṣàyàn Ìdádúró Ìfitónilétí Ẹ̀rọ"
+
+#: includes/settings.php
+msgid "Notification Delay"
+msgstr "Ìfàsẹ́yìn Ìfitọ́nilétí"
+
+#: includes/settings.php
+msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
+msgstr "Bí ìṣàn ńlá ti Àwọn Ìfitónilétí Ẹ̀rọ Tó Wólẹ̀ bá wọlé, Cacti lè dá fífi àwọn Ìfitónilétí wọ̀nyẹn jáde dúró fún ìgbà díẹ̀ láti rí i bóyá ìṣòro náà jẹ́ ti ìgbà díẹ̀ kí ó tó fi wọ́n jáde.  Yan àlà Àwọn Ìfitónilétí Ẹ̀rọ Tó Wólẹ̀ kí Ìdádúró tó bẹ̀rẹ̀."
+
+#: includes/settings.php
+msgid "If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?"
+msgstr "Tí o bá yan láti fi ìfitónilétí falẹ̀ fún ìkún-wọlé Ìfitónilétí Àwọn Ẹ̀rọ Tí Kò Ṣiṣẹ́ tí ó pọ̀, báwo ni o ṣe fẹ́ dúró pẹ́ tó kí o tó gba àwọn ìfitónilétí náà láàyè láti ṣiṣẹ́?"
+
+#: includes/settings.php
+msgid "Device Notification Email Options"
+msgstr "Àwọn Àṣàyàn Ímeèlì Ìfitónilétí Ẹ̀rọ"
+
+#: includes/settings.php
+msgid "Global Notification Email"
+msgstr "Ímeèlì Ìfitónilétí Àgbáyé"
+
+#: includes/settings.php
+msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
+msgstr "Èyí ni Àdírẹ́sì Ímeèlì tí a ó fi Àwọn Ìfitónilétí Ẹ̀rọ Tó Kú ránṣẹ́ sí tí a bá yan Àkójọ Ìfitónilétí Gbogbogbò."
+
+#: includes/settings.php
+msgid "Down Subject"
+msgstr "Àkọlé Kò Ṣiṣẹ́"
+
+#: includes/settings.php
+msgid "This is the Email subject that will be used for Down Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060NOTES&#062"
+msgstr "Èyí ni kókó-ọ̀rọ̀ Ímeèlì tí a ó lò fún Àwọn Ìfiranṣẹ́ Ẹ̀rọ Tó Dáwọ́ Dúró. Ọ̀pọ̀lọpọ̀ àwọn àmì àrọ́pò wọ́pọ̀ ló wà tí a lè lò pẹ̀lú:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (àkókò tó kẹ́yìn ní ipò ìṣiṣẹ́ tí ìfiranṣẹ́ bá jẹ́ ti ìdáwọ́dúró) &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
+msgstr "Àṣìṣe Ẹ̀rọ: <DESCRIPTION> (<HOSTNAME>) ti WÁLẸ̀"
+
+#: includes/settings.php
+msgid "Down Message"
+msgstr "Ìránṣẹ́ Kò Ṣiṣẹ́"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Èyí ni ìfiranṣẹ́ tí yóò hàn gẹ́gẹ́ bí ara ìfiranṣẹ́ ti gbogbo Àwọn Ìfiranṣẹ́ Ẹ̀rọ Tó Ń Ṣiṣẹ́ / Tó Dáwọ́ Dúró (Lẹ́tà 1024 PỌ̀ JÙLỌ). A gba HTML láàyè, ṣùgbọ́n a ó yọ ọ́ kúrò fún Àwọn Ímeèlì ọ̀rọ̀ nìkan. Ọ̀pọ̀lọpọ̀ àwọn àmì àrọ́pò wọ́pọ̀ ló wà tí a lè lò pẹ̀lú:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (àkókò tó kẹ́yìn ní ipò ìṣiṣẹ́ tí ìfiranṣẹ́ bá jẹ́ ti ìdáwọ́dúró) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
+msgstr "Àṣìṣe Ètò : <DESCRIPTION> (<HOSTNAME>) wà ní <DOWN/UP><br><br>Ibùdó: <SITE><br>Ààyè: <LOCATION><br>Ìdí: <MESSAGE><br>Ìpíndọ́gba ìdáhùn ètò: <AVG_TIME> ms<br>Wíwà ètò lárọ̀wọ́tó: <AVAILABILITY><br>Àpapọ̀ Àyẹ̀wò Látìgbà Ìfọ̀mọ́: <TOT_POLL><br>Àpapọ̀ Àwọn Àyẹ̀wò Tó Kùnà: <FAIL_POLL><br>Ọjọ́ Tí A Kẹ́yìn Yẹ̀ ẹ́ Wò Ní DOWN : <LAST_FAIL><br>Ìgbà Tí Ẹ̀rọ Wà LÓKÈ Tẹ́lẹ̀: <DOWNTIME><br>ÀWỌN ÀKỌSÍLẸ̀: <NOTES><br>ÀWỌN ÀKỌSÍLẸ̀ Ẹ̀rọ: <DNOTES>"
+
+#: includes/settings.php
+msgid "Recovering Subject"
+msgstr "Àkòrí Ìgba-padà"
+
+#: includes/settings.php
+msgid "This is the Email subject that will be used for Recovering Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
+msgstr "Èyí ni kókó-ọ̀rọ̀ Ímeèlì tí a ó lò fún Àwọn Ìfiranṣẹ́ Ẹ̀rọ Tó Ń Padà Bọ̀ Sípò. Ọ̀pọ̀lọpọ̀ àwọn àmì àrọ́pò wọ́pọ̀ ló wà tí a lè lò pẹ̀lú:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
+msgstr "Ìfitónilétí Ẹ̀rọ: <DESCRIPTION> (<HOSTNAME>) ti padà láti ipò WÁLẸ̀"
+
+#: includes/settings.php
+msgid "Recovering Message"
+msgstr "Ìránṣẹ́ Ìgba-padà"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Èyí ni ìfiranṣẹ́ tí yóò hàn gẹ́gẹ́ bí ara ìfiranṣẹ́ ti gbogbo Àwọn Ìfiranṣẹ́ Ẹ̀rọ Tó Ń Ṣiṣẹ́ / Tó Dáwọ́ Dúró (Lẹ́tà 1024 PỌ̀ JÙLỌ). A gba HTML láàyè, ṣùgbọ́n a ó yọ ọ́ kúrò fún Àwọn Ímeèlì ọ̀rọ̀ nìkan. Ọ̀pọ̀lọpọ̀ àwọn àmì àrọ́pò wọ́pọ̀ ló wà tí a lè lò pẹ̀lú:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
+msgstr "<br>Ipò ètò <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Ibùdó: <SITE><br>Ipò ilẹ̀: <LOCATION><br>Ìdáhùn ping lọ́wọ́lọ́wọ́: <CUR_TIME> ms<br>Ìdáhùn ètò ìpíndọ́gba: <AVG_TIME> ms<br>Wíwà ètò: <AVAILABILITY><br>Àpapọ̀ Àyẹ̀wò Láti Ìgbà Ìfọ̀mọ́: <TOT_POLL><br>Àpapọ̀ Àyẹ̀wò Tó Kùnà: <FAIL_POLL><br>Ọjọ́ Tó Kẹ́yìn Tó Wà Lókè: <LAST_FAIL><br>Ẹ̀rọ Tó Wà NÍLẸ̀ Tẹ́lẹ̀ fún: <DOWNTIME><br><br>Ìròyìn SNMP:<br>Orúkọ - <SNMP_HOSTNAME><br>Ipò ilẹ̀ - <SNMP_LOCATION><br>Àkókò ìṣiṣẹ́ - <UPTIMETEXT> (<UPTIME> ms)<br>Ètò - <SNMP_SYSTEM><br><br>ÀKÍYÈSÍ: <NOTES><br>Àkọsílẹ̀ Ẹ̀rọ: <DNOTES>"
+
+#: includes/settings.php
+msgid "Status Change Command"
+msgstr "Àṣẹ Ìyípadà Ipò"
+
+#: includes/settings.php
+msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+msgstr "Nígbà tí Ẹ̀rọ bá yí ipò padà láti ojú ìwòye Cacti (UP sí DOWN tàbí DOWN sí RECOVERING/UP), ṣiṣẹ́ àṣẹ ìsàlẹ̀ yìí.  Àṣẹ yìí kò gbọ́dọ̀ ní àwọn àríyànjiyàn ìlà àṣẹ nínú.  Síbẹ̀síbẹ̀, a lè fa àwọn onírúurú wọ̀nyí jáde láti àyíká ìwé àṣẹ náà:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+
+#: includes/settings.php
+msgid "Alert/Warning Message Defaults"
+msgstr "Àwọn Àìyípadà Ìfiránṣẹ́ Ìfiyèsí/Ìkìlọ̀"
+
+#: includes/settings.php
+msgid "Threshold Alert Message"
+msgstr "Ìránṣẹ́ Ìtànijí Àlà"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Èyí ni ìránṣẹ́ tí yóò hàn ní òkè gbogbo Àwọn Ìtànijí Àlà (Àmì-ọ̀rọ̀ 1024 Ó PỌ̀ JÙ). A gba HTML láàyè, ṣùgbọ́n a ó yọ ọ́ kúrò fún Àwọn Ímeèlì ọ̀rọ̀ nìkan. Ọ̀pọ̀lọpọ̀ àmì ìrọ́pò wọ́pọ̀ wà tí a lè lò láti fi kún un:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "A ti fi Ìkìlọ̀ kan jáde tí ó nílò àfiyèsí rẹ. <br><br><strong>Ẹ̀rọ</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Ìránṣẹ́</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/settings.php
+msgid "Threshold Warning Message"
+msgstr "Ìfiránṣẹ́ Ìkìlọ̀ Àlà"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Èyí ni ìránṣẹ́ tí yóò hàn ní òkè gbogbo àwọn ìkìlọ̀ Àlà (Àmì-ọ̀rọ̀ 1024 Ó PỌ̀ JÙ). A gba HTML láàyè, ṣùgbọ́n a ó yọ ọ́ kúrò fún Àwọn Ímeèlì ọ̀rọ̀ nìkan. Ọ̀pọ̀lọpọ̀ àmì ìrọ́pò wọ́pọ̀ wà tí a lè lò láti fi kún un:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Ìkìlọ̀ kan ti jáde tí ó nílò àfiyèsí rẹ. <br><br><strong>Ẹ̀rọ</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Ìfiranṣẹ́</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/settings.php
+msgid "Threshold Restoral Message"
+msgstr "Ìránṣẹ́ Ìmúpadàbọ̀sípò Àlà"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Èyí ni ìránṣẹ́ tí yóò hàn ní òkè gbogbo àwọn ìfitónilétí ìmúpadàbọ̀sípò Àlà (Àmì-ọ̀rọ̀ 1024 Ó PỌ̀ JÙ). A gba HTML láàyè, ṣùgbọ́n a ó yọ ọ́ kúrò fún Àwọn Ímeèlì ọ̀rọ̀ nìkan. Ọ̀pọ̀lọpọ̀ àmì ìrọ́pò wọ́pọ̀ wà tí a lè lò láti fi kún un:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Àlà kan ti padà sí ipò déédéé. <br><br><strong>Ẹ̀rọ</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Ìfiranṣẹ́</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/tab.php
+msgid "Thold"
+msgstr "Thold"
+
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "Àwọn Àlà Ti Wà Tẹ́lẹ̀ - Kò Sí Àlà Tí A Ṣẹ̀dá"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "Ṣẹ̀dá Àlà láti inú Àdàkọ"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "Olùrànlọ́wọ́ Ìṣẹ̀dá Àlà [ Yan Irú Àlà kan ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "Olùrànlọ́wọ́ Ìṣẹ̀dá Àlà [ Tẹ Dátà Àdáni wọlé kí o sì tẹ 'Ṣẹ̀dá' láti Ṣẹ̀dá Àlà àti Gíráfù rẹ ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "Olùrànlọ́wọ́ Ìṣẹ̀dá Àlà [ Yan Àwọn Ìlà Ìbéèrè Dátà Tí Ó Wà ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "Olùrànlọ́wọ́ Ìṣẹ̀dá Àlà [ Yan Ẹ̀rọ kan ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "Olùrànlọ́wọ́ Ìṣẹ̀dá Àlà [ Yan Àdàkọ Gíráfù kan ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "Olùrànlọ́wọ́ Ìṣẹ̀dá Àlà [ Yan Àdàkọ Àlà kan ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "Olùrànlọ́wọ́ Ìṣẹ̀dá Àlà [ Tẹ 'Ṣẹ̀dá' láti Ṣẹ̀dá Àlà rẹ ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "Olùrànlọ́wọ́ Ìṣẹ̀dá Àlà [ Yan Orísun Dátà kan ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "Olùrànlọ́wọ́ Ìṣẹ̀dá Àlà [ Yan Gíráfù kan ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "Àwọn Ìlànà Ìṣẹ̀dá Àlà"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "Irú Ìṣẹ̀dá"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "Yan Irú Àlà láti lò fún dídá Àlà yìí sílẹ̀."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "Yan Irú Àlà kan"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "Kò ní Àdàkọ"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "Àdàkọ Àlà"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "Yan Àdàkọ Àlà tí Gíráfù àti Àlà yóò dá lé."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "Yan Àdàkọ Àlà kan"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "Àdàkọ Gíráàfù"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "Yan Àdàkọ Gíráfù láti lò fún Gíráfù tí a ó dá sílẹ̀."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "Yan Àdàkọ Gíráfù kan"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "Ẹ̀rọ"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "Yan Ẹ̀rọ kan láti lò fún Àlà àti Gíráfù tí a ó ṣẹ̀dá."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "Yan Ẹ̀rọ kan"
+
+#: includes/webapi.php
+msgid "Select an Available Item"
+msgstr "Yan Ohun Tó Wà"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "Ohun Ìbéèrè Dátà"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "Yan ìlà tó bá a mu láti inú Ìbéèrè Dátà fún Gíráfù àti Àlà."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "Àwọn Àkọsílẹ̀ Ìṣẹ̀dá"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "Àkíyèsí Pàtàkì:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "Àlà yìí yóò jẹ́ ti Àdàkọ. Nígbà tí o bá ń lo àṣàyàn Àdàkọ Àlà, a ó béèrè fún Àdàkọ Àlà, Àdàkọ Gíráfù, Ẹ̀rọ àti bóyá àlàyé Ohun Ìbéèrè Dátà ṣáájú kí o tó rí ìtọ́ni 'Dá', ní àsìkò náà, tí a bá gba ààyè fún àlàyé Gíráfù tàbí Orísun Dátà tó ṣeé yípadà ní ìpele Àdàkọ Gíráfù àti Orísun Dátà, a ó béèrè fún un. Lẹ́yìn náà, nípa títẹ bọ́tìnì 'Dá', a ó dá Gíráfù àti Àlà méjèèjì lẹ́ẹ̀kan náà."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "Gíráfù"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "Yan Gíráfù fún Àlà."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "Yan Gíráfù kan"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "Orísun Dátà"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "Yan Orísun Dátà kan fún Àlà náà."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "Yan Orísun Dátà kan"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "Ṣẹ̀dá"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "Àlà yìí <b>KÒ</b> ní jẹ́ ti Àdàkọ, yóò sì ṣiṣẹ́ lórí Àwọn Gíráàfù tó wà tẹ́lẹ̀ nìkan. Tí o bá fẹ́ Dá Gíráfù àti Àlà náà lẹ́ẹ̀kan náà, yan Àdàkọ Àlà láti inú àkójọ ìsàlẹ̀ kí o sì tẹ̀síwájú títí bọ́tìnì 'Dá' yóò fi hàn."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "Àlà yìí <b>KÒ</b> ní jẹ́ ti Àdàkọ. O lè yan Nípasẹ̀ Gíráfù níbi tí o ti máa yan Ẹ̀rọ, Gíráfù àti Orísun Dátà tó wà tẹ́lẹ̀ ṣáájú dídá Àlà rẹ, tàbí kí o yan Àdàkọ Àlà tí yóò jẹ́ kí o lè dá Àlà Tí Kì Í Ṣe Àdàkọ àti Gíráfù tó bá a mu lẹ́ẹ̀kan náà"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "Gíráfù Tí A Yan"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "A ti ṣẹ̀dá gíráfù: %s"
+
+#: notify_lists.php
+msgid "Duplicate"
+msgstr "Ẹ̀dà"
+
+#: notify_lists.php
+msgid "Associate"
+msgstr "So pọ̀"
+
+#: notify_lists.php
+msgid "Disassociate"
+msgstr "Yọ ìsopọ̀"
+
+#: notify_lists.php thold_graph.php
+msgid "Devices"
+msgstr "Àwọn Ẹ̀rọ"
+
+#: notify_lists.php
+#, php-format
+msgid "ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s"
+msgstr "ÀṢÌṢE: O kò lè ní Ímeèlì rẹ nínú ìlà Sí (To) àti BCC méjèèjì. Ímeèlì ìsàlẹ̀ yìí kò tọ́!<br><br>%s"
+
+#: notify_lists.php
+msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
+msgstr "Tẹ 'Tẹ̀síwájú' láti Pa Àtòjọ Ìfitónilétí rẹ́. Èyíkéyìí Ẹ̀rọ tàbí Àlà tí a so mọ́ Àtòjọ náà yóò padà sí ìpìlẹ̀ àkọ́kọ́."
+
+#: notify_lists.php
+msgid "Delete Notification List(s)"
+msgstr "Pa (Àwọn) Àtòjọ Ìfitónilétí Rẹ́"
+
+#: notify_lists.php
+msgid "Click 'Continue' to Duplicate the following Notification List(s)."
+msgstr "Tẹ 'Tẹ̀síwájú' láti Ṣe ẹ̀dà Àtòjọ Ìfitónilétí wọ̀nyí."
+
+#: notify_lists.php
+msgid "New List Name"
+msgstr "Orúkọ Àtòjọ Tuntun"
+
+#: notify_lists.php
+msgid "New Notification List"
+msgstr "Àtòjọ Ìfitọ́nilétí Tuntun"
+
+#: notify_lists.php
+msgid "Duplicate Notification List(s)"
+msgstr "Ṣe ẹ̀dà Àtòjọ Ìfitọ́nilétí"
+
+#: notify_lists.php
+#, php-format
+msgid "%s Threshold Template(s)"
+msgstr "Àwọn Àdàkọ Àlà %s"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
+msgstr "Tẹ 'Tẹ̀síwájú' láti So Àtòjọ Ìfitónilétí '%s' mọ́ Àdàkọ Àlà tó wà ní ìsàlẹ̀."
+
+#: notify_lists.php
+msgid "Warning Membership:"
+msgstr "Ìbáṣepọ̀ Ìkìlọ̀:"
+
+#: notify_lists.php
+msgid "No Change"
+msgstr "Kò Sí Ìyípadà"
+
+#: notify_lists.php
+msgid "Notification List Only"
+msgstr "Àkójọ Ìfitọ́nilétí Nìkan"
+
+#: notify_lists.php
+msgid "Notification List, Retain Other Settings"
+msgstr "Àkójọ Ìfitọ́nilétí, Pa Àwọn Ètò Mìíràn Mọ́"
+
+#: notify_lists.php
+msgid "Alert Membership:"
+msgstr "Ìdarapọ̀ Ìfiyèsí:"
+
+#: notify_lists.php
+msgid "Associate Notification List(s)"
+msgstr "So Àwọn Àkójọ Ìfitónilétí Pọ̀"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
+msgstr "Tẹ 'Tẹ̀síwájú' láti Ya Àtòjọ Ìfitónilétí '%s' sọ́tọ̀ kúrò lára Àdàkọ Àlà tó wà ní ìsàlẹ̀."
+
+#: notify_lists.php
+msgid "Remove List"
+msgstr "Yọ Àtòjọ Kúrò"
+
+#: notify_lists.php
+msgid "Disassociate Notification List(s)"
+msgstr "Yọ Àtòjọ Ìfitọ́nilétí kúrò"
+
+#: notify_lists.php
+#, php-format
+msgid "%s Threshold(s)"
+msgstr "Àwọn Àlà %s"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
+msgstr "Tẹ 'Tẹ̀síwájú' láti So Àtòjọ Ìfitónilétí '%s' mọ́ Àlà tó wà ní ìsàlẹ̀."
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
+msgstr "Tẹ 'Tẹ̀síwájú' láti Ya Àtòjọ Ìfitónilétí '%s' sọ́tọ̀ kúrò lára Àlà tó wà ní ìsàlẹ̀."
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
+msgstr "Tẹ 'Tẹ̀síwájú' láti So Àtòjọ Ìfitónilétí '%s' mọ́ Ẹ̀rọ tó wà ní ìsàlẹ̀."
+
+#: notify_lists.php
+msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
+msgstr "O tún lè So Àwọn Àlà Ẹ̀rọ pọ̀ pẹ̀lú. Síbẹ̀síbẹ̀, àwọn Àlà Ẹ̀rọ wọ̀nyí yóò gba ààyè kí a kọ lórí Àtòjọ Ìfitọ́nilétí Àlà."
+
+#: notify_lists.php
+msgid "Resulting Membership:"
+msgstr "Ìjẹ́-ọmọ-ẹgbẹ́ Tó Jádé:"
+
+#: notify_lists.php
+msgid "Notification and Global Lists"
+msgstr "Ìfitọ́nilétí àti Àwọn Àkójọ Àgbáyé"
+
+#: notify_lists.php
+msgid "Device Threshold Warning Membership:"
+msgstr "Ìfaramọ́ Ìkìlọ̀ Àlà Ẹ̀rọ:"
+
+#: notify_lists.php
+msgid "Device Threshold Alert Membership:"
+msgstr "Ìfaramọ́ Ìtànijí Àlà Ẹ̀rọ:"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
+msgstr "Tẹ 'Tẹ̀síwájú' láti Ya Àtòjọ Ìfitónilétí '%s' sọ́tọ̀ kúrò lára Ẹ̀rọ tó wà ní ìsàlẹ̀."
+
+#: notify_lists.php
+msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
+msgstr "O tún lè Ya Àwọn Àlà Ẹ̀rọ sọ́tọ̀ pẹ̀lú. Síbẹ̀síbẹ̀, àwọn Àlà Ẹ̀rọ wọ̀nyí yóò gba ààyè kí a kọ lórí Àtòjọ Ìfitọ́nilétí Àlà."
+
+#: notify_lists.php
+#, php-format
+msgid "[edit: %s]"
+msgstr "[àtúnṣe: %s]"
+
+#: notify_lists.php
+msgid "[new]"
+msgstr "[tuntun]"
+
+#: notify_lists.php
+msgid "List General Settings"
+msgstr "Àtòjọ Àwọn Ètò Àpapọ̀"
+
+#: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
+msgid "Name"
+msgstr "Orúkọ"
+
+#: notify_lists.php
+msgid "Enter a name for this Notification List."
+msgstr "Tẹ orúkọ fún Àtòkọ Ìfitónilétí yìí."
+
+#: notify_lists.php thold_graph.php
+msgid "Description"
+msgstr "Àpèjúwe"
+
+#: notify_lists.php
+msgid "Enter a description for this Notification List."
+msgstr "Tẹ àpèjúwe fún Àtòkọ Ìfitónilétí yìí."
+
+#: notify_lists.php
+msgid "To disable all notifications from this Notification List, you can simply disable it here."
+msgstr "Láti sọ gbogbo ìfitónilétí láti inú Àkójọ Ìfitónilétí yìí di àìṣiṣẹ́, o lè ṣe é ní àìṣiṣẹ́ níbí lásán."
+
+#: notify_lists.php
+msgid "To Email Addresses"
+msgstr "Àwọn Àdírẹ́sì Ímeèlì Olùgbà"
+
+#: notify_lists.php
+msgid "Enter a comma separated list of Email addresses for this Notification List."
+msgstr "Tẹ àtòkọ àwọn àdírẹ́sì Ímeèlì tí a fi kọ́mà ya sọ́tọ̀ fún Àtòkọ Ìfitónilétí yìí."
+
+#: notify_lists.php
+msgid "BCC Email Addresses"
+msgstr "Àwọn Àdírẹ́sì Ímeèlì BCC"
+
+#: notify_lists.php
+msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
+msgstr "Tẹ àtòkọ àwọn àdírẹ́sì Ímeèlì tí a fi kọ́mà ya sọ́tọ̀ fún Àtòkọ Ìfitónilétí yìí láti fi àdàkọ ìkọ̀kọ̀ ránṣẹ́."
+
+#: notify_lists.php
+msgid "Email Style/Format File"
+msgstr "Fáìlì Àṣà/Ìṣètò Ímeèlì"
+
+#: notify_lists.php thold.php thold_templates.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "Yan àpò html àdáni àti fáìlì CSS láti lò.  Fáìlì yìí ní html àti CSS méjèèjì láti wé yí ìjábọ̀ rẹ ká.  Tí ó bá ní ju CSS lásán lọ, o nílò láti fi àmì <REPORT> pàtàkì kan sínú fáìlì náà.  Àkóónú ìjábọ̀ náà yóò rọ́pò àmì ìṣètò-ìrísí yìí.  Àwọn fáìlì wọ̀nyí wà nínú àtòjọ-fáìlì 'formats'."
+
+#: notify_lists.php
+msgid "Associated Devices"
+msgstr "Àwọn Ẹ̀rọ Tí Ó Sopọ̀"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Search"
+msgstr "Ṣàwárí"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "Site"
+msgstr "Ibùdó"
+
+#: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
+msgid "None"
+msgstr "Kò Sí"
+
+#: notify_lists.php
+msgid "Device Template"
+msgstr "Àwòkọ Ẹ̀rọ"
+
+#: notify_lists.php
+msgid "Associated"
+msgstr "Tí A So Pọ̀"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Go"
+msgstr "Lọ"
+
+#: notify_lists.php notify_queue.php
+msgid "Set/Refresh Filters"
+msgstr "Ṣètò/Sọ Àwọn Àlẹ̀mọ́ Dọ̀tun"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Clear"
+msgstr "Nu Kúrò"
+
+#: notify_lists.php notify_queue.php
+msgid "Clear Filters"
+msgstr "Pa Àwọn Àlẹ̀mọ́ Rẹ́"
+
+#: notify_lists.php thold.php thold_graph.php thold_templates.php
+msgid "ID"
+msgstr "ID"
+
+#: notify_lists.php setup.php thold.php thold_graph.php
+msgid "Status"
+msgstr "Ipò"
+
+#: notify_lists.php
+msgid "Associated Lists"
+msgstr "Àwọn Àkójọ Tí Ó Sopọ̀"
+
+#: notify_lists.php thold_graph.php
+msgid "Graphs"
+msgstr "Àwọn Gíráàfù"
+
+#: notify_lists.php thold_graph.php
+msgid "Data Sources"
+msgstr "Àwọn Orísun Dátà"
+
+#: notify_lists.php notify_queue.php thold_graph.php
+msgid "Hostname"
+msgstr "Orúkọ Olùgbàlejò"
+
+#: notify_lists.php
+msgid "Current List Only"
+msgstr "Àtòjọ Lọ́wọ́lọ́wọ́ Nìkan"
+
+#: notify_lists.php
+msgid "Current and Global List(s)"
+msgstr "Àtòjọ Lọ́wọ́lọ́wọ́ àti Àgbáyé"
+
+#: notify_lists.php
+msgid "No Associated Devices Found"
+msgstr "Kò Sí Àwọn Ẹ̀rọ Tí Ó Jẹmọ́ Tí A Rí"
+
+#: notify_lists.php
+msgid "Associated Thresholds"
+msgstr "Àwọn Àlà Tí Ó Sopọ̀"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "Template"
+msgstr "Àdàkọ"
+
+#: notify_lists.php
+msgid "State"
+msgstr "Ìpínlẹ̀"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "All"
+msgstr "Gbogbo"
+
+#: notify_lists.php
+msgid "Warning Lists"
+msgstr "Àwọn Àtòjọ Ìkìlọ̀"
+
+#: notify_lists.php
+msgid "Alert Lists"
+msgstr "Àwọn Àtòjọ Ìfiyèsí"
+
+#: notify_lists.php thold.php thold_graph.php thold_templates.php
+msgid "Type"
+msgstr "Irú"
+
+#: notify_lists.php thold.php
+msgid "Templated"
+msgstr "Oní-àdàkọ"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "No"
+msgstr "Rárá"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Yes"
+msgstr "Bẹ́ẹ̀ Ni"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "baseline-LOW"
+msgstr "ìpìlẹ̀-RẸ̀LẸ̀"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "baseline-HIGH"
+msgstr "ìpìlẹ̀-GÍGA"
+
+#: notify_lists.php
+msgid "Select Users"
+msgstr "Yan Àwọn Olùlò"
+
+#: notify_lists.php
+msgid "Specific Emails"
+msgstr "Àwọn Ímeèlì Pàtó"
+
+#: notify_lists.php
+msgid "Current List"
+msgstr "Àtòjọ Lọ́wọ́lọ́wọ́"
+
+#: notify_lists.php
+msgid "Unknown Threshold"
+msgstr "Àlà Àìmọ̀"
+
+#: notify_lists.php
+msgid "Log Only"
+msgstr "Àkọsílẹ̀ Nìkan"
+
+#: notify_lists.php
+msgid "Editable"
+msgstr "Ṣeé ṣàtúnṣe"
+
+#: notify_lists.php
+msgid "Read Only"
+msgstr "Kíkà Nìkan"
+
+#: notify_lists.php
+msgid "No Thresholds Found"
+msgstr "Kò sí Àwọn Àlà kankan tí a rí"
+
+#: notify_lists.php
+msgid "Associated Templates"
+msgstr "Àwọn Àdàkọ Tí Ó Sopọ̀"
+
+#: notify_lists.php notify_queue.php
+msgid "Rows"
+msgstr "Àwọn Ìlà"
+
+#: notify_lists.php
+msgid "Unknown Template"
+msgstr "Àdàkọ Àìmọ̀"
+
+#: notify_lists.php thold_templates.php
+msgid "No Threshold Templates"
+msgstr "Kò sí Àwọn Àdàkọ Àlà"
+
+#: notify_lists.php
+msgid "Lists"
+msgstr "Àwọn Àtòjọ"
+
+#: notify_lists.php
+msgid "List Name"
+msgstr "Orúkọ Àtòjọ"
+
+#: notify_lists.php
+msgid "Emails"
+msgstr "Àwọn Ímeèlì"
+
+#: notify_lists.php
+msgid "No Notification Lists"
+msgstr "Kò sí Àwọn Àtòjọ Ìfitónilétí"
+
+#: notify_queue.php
+msgid "Notification has been Suspended.  Press the Resume button to resume it"
+msgstr "Ìfitọ́nilétí ti wà ní dídádúró.  Tẹ bọ́tìnì Bẹ̀rẹ̀ padà láti bẹ̀rẹ̀ rẹ̀ padà"
+
+#: notify_queue.php
+msgid "Notification has been Resumed.  Press the Suspend button to suspend it"
+msgstr "Ìfitọ́nilétí ti bẹ̀rẹ̀ padà.  Tẹ bọ́tìnì Dádúró láti dá a dúró"
+
+#: notify_queue.php
+msgid "Pending Notifications have been removed from the database.  Previously sent notification not purged will remain until they age out."
+msgstr "Àwọn ìfitọ́nilétí tó ń dúró ti kúrò nínú ibi ìpamọ́ dátà.  Ìfitọ́nilétí tí a ti fi ránṣẹ́ tẹ́lẹ̀ tí kò sí nínú ìfọ̀mọ́ yóò wà títí tí wọn yóò fi parẹ́ fúnra wọn."
+
+#: notify_queue.php
+msgid "Click 'Continue' to delete the following Notification."
+msgid_plural "Click 'Continue' to delete all following Notifications."
+msgstr[0] "Tẹ 'Tẹ̀síwájú' láti pa gbogbo àwọn Ìfitọ́nilétí wọ̀nyí rẹ́."
+
+#: notify_queue.php
+msgid "Delete Notification"
+msgid_plural "Delete Notifications"
+msgstr[0] "Pa àwọn Ìfitọ́nilétí rẹ́"
+
+#: notify_queue.php
+#, php-format
+msgid "Event Notifications [ Notifications Suspended by User: %s, %s ago ]"
+msgstr "Àwọn Ìfitọ́nilétí Ìṣẹ̀lẹ̀ [ Àwọn Ìfitọ́nilétí Tí Olùlò Dá Dúró: %s, %s sẹ́yìn ]"
+
+#: notify_queue.php
+msgid "Event Notifications"
+msgstr "Àwọn Ìfitọ́nilétí Ìṣẹ̀lẹ̀"
+
+#: notify_queue.php
+msgid "Topic"
+msgstr "Kókó Ọ̀rọ̀"
+
+#: notify_queue.php
+msgid "Processed"
+msgstr "Ti ṣe tán"
+
+#: notify_queue.php
+msgid "Suspend"
+msgstr "Dá Dúró Díẹ̀"
+
+#: notify_queue.php
+msgid "Suspend Notification Processing"
+msgstr "Dá Ìṣiṣẹ́ Ìfitónilétí Dúró Díẹ̀"
+
+#: notify_queue.php
+msgid "Resume"
+msgstr "Bẹ̀rẹ̀ padà"
+
+#: notify_queue.php
+msgid "Resume Notification Processing"
+msgstr "Bẹ̀rẹ̀ Ìṣiṣẹ́ Ìfitọ́nilétí Padà"
+
+#: notify_queue.php
+msgid "Purge"
+msgstr "Parẹ́ Pátápátá"
+
+#: notify_queue.php
+msgid "Purge Notification Queue"
+msgstr "Fọ Ìlà Ìfitónilétí Kúrò"
+
+#: notify_queue.php
+msgid "Notifications"
+msgstr "Àwọn Ìfitónilétí"
+
+#: notify_queue.php
+msgid "The supported notification topic."
+msgstr "Kókó-ọ̀rọ̀ ìfitónilétí tí a ṣe àtìlẹ́yìn fún."
+
+#: notify_queue.php thold_graph.php
+msgid "Event Description"
+msgstr "Àpèjúwe Ìṣẹ̀lẹ̀"
+
+#: notify_queue.php
+msgid "The name of the object as defined by the caller."
+msgstr "Orúkọ ohun náà bí olùpè ṣe ṣàlàyé rẹ̀."
+
+#: notify_queue.php
+msgid "The hostname that was the source of this event."
+msgstr "Orúkọ olùgbàlejò tí ó jẹ́ orísun ìṣẹ̀lẹ̀ yìí."
+
+#: notify_queue.php
+msgid "The Notification List used if any."
+msgstr "Àtòjọ Ìfitónilétí tí a lò bí ó bá wà."
+
+#: notify_queue.php
+msgid "Object ID"
+msgstr "ID Ohun"
+
+#: notify_queue.php
+msgid "The Object ID defined by the caller.  Generally its unique 'id'."
+msgstr "ID Ohun tí olùpè ṣàlàyé rẹ̀. Ní gbogbogbòò 'id' rẹ̀ àkànṣe."
+
+#: notify_queue.php
+msgid "Event Time"
+msgstr "Àkókò Ìṣẹ̀lẹ̀"
+
+#: notify_queue.php
+msgid "The time of the event as defined by the caller."
+msgstr "Àkókò ìṣẹ̀lẹ̀ náà gẹ́gẹ́ bí olùpè ṣe ṣàlàyé rẹ̀."
+
+#: notify_queue.php
+msgid "Has the Notification Event been processed."
+msgstr "Ṣé a ti ṣe Ìṣẹ̀lẹ̀ Ìfitónilétí náà."
+
+#: notify_queue.php
+msgid "Errors"
+msgstr "Àwọn Àṣìṣe"
+
+#: notify_queue.php
+msgid "Did this notification result in an error.  Hover on the error column for details."
+msgstr "Ṣé ìfitónilétí yìí yọrí sí àṣìṣe.  Gbé kọ́sọ̀ sórí òpó àṣìṣe fún àlàyé kíkún."
+
+#: notify_queue.php
+msgid "Attempts"
+msgstr "Àwọn Ìgbìyànjú"
+
+#: notify_queue.php
+msgid "The number of delivery attempts made for this notification."
+msgstr "Iye àwọn ìgbìyànjú ìfijiṣẹ́ tí a ṣe fún ìfitónilétí yìí."
+
+#: notify_queue.php
+msgid "Next Attempt"
+msgstr "Ìgbìyànjú Tókàn"
+
+#: notify_queue.php
+msgid "When a failed notification is eligible for its next retry."
+msgstr "Ìgbà tí ìfitónilétí tó kùnà bá yẹ fún ìgbìyànjú rẹ̀ tó kàn."
+
+#: notify_queue.php
+msgid "Run Time"
+msgstr "Àkókò Ìṣiṣẹ́"
+
+#: notify_queue.php
+msgid "The time in seconds it took to process the event."
+msgstr "Àkókò ní ìṣẹ́jú-àáyá tí ó gbà láti ṣiṣẹ́ lórí ìṣẹ̀lẹ̀ náà."
+
+#: notify_queue.php
+msgid "Not Specified"
+msgstr "Kò sí ìpàtó"
+
+#: notify_queue.php
+msgid "No Notifications"
+msgstr "Kò sí Àwọn Ìfitónilétí"
+
+#: setup.php
+msgid "Toggle Threshold VRULES Off"
+msgstr "Pa VRULES Àlà"
+
+#: setup.php
+msgid "Toggle Threshold VRULES On"
+msgstr "Tan VRULES Àlà"
+
+#: setup.php
+msgid "Create Threshold"
+msgstr "Ṣẹ̀dá Àlà"
+
+#: setup.php
+#, php-format
+msgid "Alert Hi for %s (%s)"
+msgstr "Ìfiyèsí Gíga fún %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s)"
+msgstr "Ìfiyèsí Kéré fún %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s)"
+msgstr "Ìkìlọ̀ Gíga fún %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Low for %s (%s)"
+msgstr "Ìkìlọ̀ Kéré fún %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Hi for %s (%s %%)"
+msgstr "Ìfiyèsí Gíga fún %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s %%)"
+msgstr "Ìfiyèsí Kéré fún %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s %%)"
+msgstr "Ìkìlọ̀ Gíga fún %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Warning Low for %s (%s %%)"
+msgstr "Ìkìlọ̀ Kéré fún %s (%s %%)"
+
+#: setup.php
+msgid "Threshold Alert/Warning Values"
+msgstr "Àwọn Ìye Ìtànijí/Ìkìlọ̀ Àlà"
+
+#: setup.php
+msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
+msgstr "Tẹ 'Tẹ̀síwájú' láti lo gbogbo Àlà tí ó yẹ sí Àwọn Ẹ̀rọ wọ̀nyí."
+
+#: setup.php
+msgid "Create Threshold from Data Source"
+msgstr "Ṣẹ̀dá Àlà láti Orísun Dátà"
+
+#: setup.php
+msgid "Auto-create Thresholds"
+msgstr "Ṣẹ̀dá Àwọn Àlà aládàáṣe"
+
+#: setup.php
+#, php-format
+msgid "Created %s thresholds"
+msgstr "A ti ṣẹ̀dá àwọn àlà %s"
+
+#: setup.php
+msgid "No Threshold(s) Created.  Threshold(s) Template not found."
+msgstr "Kò sí Àlà kankan tí a Dá.  A kò rí Àdàkọ Àlà."
+
+#: setup.php
+msgid "The following Data Sources have no Threshold Templates associated with them"
+msgstr "Àwọn Orísun Dátà wọ̀nyí kò ní Àwọn Àdàkọ Àlà kankan tí ó so mọ́ wọn"
+
+#: setup.php
+msgid "Click 'Continue' to create Thresholds for these Data Sources?"
+msgstr "Tẹ 'Tẹ̀síwájú' láti ṣẹ̀dá àwọn Àlà fún Àwọn Orísun Dátà wọ̀nyí?"
+
+#: setup.php
+msgid "Available Threshold Templates"
+msgstr "Àwọn Àdàkọ Àlà Tó Wà Nílẹ̀"
+
+#: setup.php
+msgid "There are no Threshold Templates associated with the following Data Sources"
+msgstr "Kò sí Àwọn Àdàkọ Àlà tí ó ní í ṣe pẹ̀lú Àwọn Orísun Dátà wọ̀nyí"
+
+#: setup.php
+msgid "The following Graphs have no Threshold Templates associated with them"
+msgstr "Àwọn Gíráàfù wọ̀nyí kò ní Àwọn Àdàkọ Àlà kankan tí ó so mọ́ wọn"
+
+#: setup.php
+msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
+msgstr "Tẹ 'Tẹ̀síwájú' bí o bá fẹ́ ṣẹ̀dá Àlà fún Gíráfù/Àwọn Gíráàfù wọ̀nyí"
+
+#: setup.php
+msgid "There are no Threshold Templates associated with the following Graphs"
+msgstr "Kò sí Àwọn Àdàkọ Àlà tí ó ní í ṣe pẹ̀lú Àwọn Gíráàfù wọ̀nyí"
+
+#: setup.php
+msgid "Associated Threshold Templates"
+msgstr "Àwọn Àdàkọ Ààlà Tó Sopọ̀"
+
+#: setup.php
+msgid "Threshold Exists"
+msgstr "Àlà Wà"
+
+#: setup.php
+msgid "Threshold Does Not Exist"
+msgstr "Àlà Kò Sí"
+
+#: setup.php
+msgid "Delete Threshold Template Association"
+msgstr "Pa Ìbáṣepọ̀ Àdàkọ Àlà Rẹ́"
+
+#: setup.php
+msgid "No Associated Threshold Templates."
+msgstr "Kò Sí Àwọn Àdàkọ Àlà Tí Ó Jẹmọ́."
+
+#: setup.php
+msgid "Add Threshold Template"
+msgstr "Fi Àdàkọ Àlà Kún un"
+
+#: setup.php
+msgid "Add"
+msgstr "Fi kún un"
+
+#: setup.php
+msgid "Add Threshold Template to Device"
+msgstr "Fi Àdàkọ Àlà Kún Ẹ̀rọ"
+
+#: setup.php
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device."
+msgstr "Tẹ 'Tẹ̀síwájú' láti Pa Àdàkọ Àlà wọ̀nyí rẹ́ yóò sì jẹ́ yíyà sọ́tọ̀ kúrò lára Ẹ̀rọ."
+
+#: setup.php
+#, php-format
+msgid "Threshold Template Name: %s"
+msgstr "Orúkọ Àdàkọ Àlà: %s"
+
+#: setup.php
+msgid "Remove Threshold Template"
+msgstr "Yọ Àdàkọ Ìpele Ààlà Kúrò"
+
+#: setup.php
+msgid "Add Threshold Template to Device Template"
+msgstr "Fi Àdàkọ Àlà Kún Àdàkọ Ẹ̀rọ"
+
+#: setup.php
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
+msgstr "Tẹ 'Tẹ̀síwájú' láti Pa Àdàkọ Àlà wọ̀nyí rẹ́ yóò sì jẹ́ yíyà sọ́tọ̀ kúrò lára Àdàkọ Ẹ̀rọ."
+
+#: thold.php
+msgid "Either No Templates or Threshold(s) Already Exists - No Thresholds were created."
+msgstr "Ó ṣeéṣe kí ó má sí Àwọn Àdàkọ tàbí Àlà ti wà tẹ́lẹ̀ - Kò sí Àlà tí a ṣẹ̀dá."
+
+#: thold.php
+msgid "You are not authorized to modify one or more of the Thresholds selected"
+msgstr "O kò ní àṣẹ láti yí ọ̀kan tàbí jù bẹ́ẹ̀ lọ lára Àwọn Àlà tí a yàn padà"
+
+#: thold.php
+msgid "Click 'Delete' to delete the following Threshold(s)."
+msgstr "Tẹ 'Pa rẹ́' láti pa Àlà wọ̀nyí rẹ́."
+
+#: thold.php
+msgid "Delete Threshold(s)"
+msgstr "Pa (Àwọn) Àlà Rẹ́"
+
+#: thold.php
+msgid "Click 'Continue' to enable the following Threshold(s)."
+msgstr "Tẹ 'Tẹ̀síwájú' láti mú kí Àlà wọ̀nyí ṣiṣẹ́."
+
+#: thold.php
+msgid "Enable Threshold(s)"
+msgstr "Mú Àwọn Àlà ṣiṣẹ́"
+
+#: thold.php
+msgid "Click 'Continue' to disable the following Threshold(s)."
+msgstr "Tẹ 'Tẹ̀síwájú' láti ṣe àìṣiṣẹ́ Àlà wọ̀nyí."
+
+#: thold.php
+msgid "Disable Threshold(s)"
+msgstr "Ṣe àìṣiṣẹ́ Àwọn Àlà"
+
+#: thold.php
+msgid "Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
+msgstr "Tẹ 'Tẹ̀síwájú' láti tún lo Orúkọ Àbá sí Àlà wọ̀nyí."
+
+#: thold.php
+msgid "Apply Suggestion"
+msgstr "Lo Àbá"
+
+#: thold.php
+msgid "Click 'Continue' to update the following Threshold(s) with their associate Template's details."
+msgstr "Tẹ 'Tẹ̀síwájú' láti ṣe àtúnṣe Àlà wọ̀nyí pẹ̀lú àlàyé Àdàkọ wọn tí ó bá mu."
+
+#: thold.php
+msgid "Reapply Template"
+msgstr "Tún Lo Àdàkọ"
+
+#: thold.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
+msgstr "Tẹ 'Tẹ̀síwájú' láti Jẹ́wọ́ Àlà wọ̀nyí. Àwọn Àlà tí kò gba èyí láàyè, tàbí tí a kò mú ṣiṣẹ́, ni a ó fojú fò."
+
+#: thold.php
+msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
+msgstr "Tẹ 'Tẹ̀síwájú' láti bẹ̀rẹ̀ Àwọn Ìfitónilétí padà fún Àlà wọ̀nyí.  Àwọn Àlà tí kò gba èyí láyè, tàbí tí a kò tíì dá sílẹ̀ ni a ó gbójú fò."
+
+#: thold.php
+msgid "Resume Notifications for Threshold(s)"
+msgstr "Bẹ̀rẹ̀ Àwọn Ìfitọ́nilétí Padà fún Àwọn Àlà"
+
+#: thold.php
+msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
+msgstr "Tẹ 'Tẹ̀síwájú' láti dá Àwọn Ìfitónilétí dúró fún Àlà wọ̀nyí.  Àwọn Àlà tí kò gba èyí láyè, tàbí tí a kò tíì dá sílẹ̀ ni a ó gbójú fò."
+
+#: thold.php
+msgid "Suspend Notification for Threshold(s)"
+msgstr "Dá Ìfitónilétí Dúró Díẹ̀ fún Àlà"
+
+#: thold.php thold_templates.php
+msgid "Invalid action detected, can not proceed"
+msgstr "A rí ìṣe tí kò tọ́, a kò lè tẹ̀síwájú"
+
+#: thold.php
+msgid "Threshold Management"
+msgstr "Ìṣàkóso Àlà"
+
+#: thold.php
+msgid "Apply Filters"
+msgstr "Lo Àwọn Àlẹ̀mọ́"
+
+#: thold.php
+msgid "Return to Defaults"
+msgstr "Padà sí Àṣàyàn Àkọ́kọ́"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Data Template"
+msgstr "Àdàkọ Dátà"
+
+#: thold.php thold_graph.php
+msgid "Disabled at Template"
+msgstr "Àìṣiṣẹ́ ní Àdàkọ"
+
+#: thold.php thold_graph.php
+msgid "Disabled at Threshold"
+msgstr "Àìṣiṣẹ́ ní Àlà"
+
+#: thold.php thold_graph.php
+msgid "Ack Required"
+msgstr "Ìjẹ́wọ́ Pọndandan"
+
+#: thold.php thold_graph.php
+msgid "By Status"
+msgstr "Nípa Ipò"
+
+#: thold.php thold_graph.php
+msgid "The current threshold status. Click a status pill to filter the list to that status."
+msgstr "Ipò àlà lọ́wọ́lọ́wọ́. Tẹ bọ́tìnì ipò kan láti ṣẹ́ àtòjọ náà sí ipò yẹn."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "External ID"
+msgstr "Ìdánimọ̀ Òde"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function."
+msgstr "Irú Àlà. Fún Àwọn Irú Ìpìlẹ̀: [TIP] túmọ̀ sí Àkókò Ní Ìgbà Àtijọ́ pẹ̀lú MIN, MAX, AVG, àti LAST láti inú àkókò tí kò ju ọjọ́ kan lọ láti àsìkò yẹn. [AOT] túmọ̀ sí Àròpọ̀ ní gbogbo Àsìkò náà. Bí àmì kólọ́ọ̀nì bá wà tí MIN, MAX, AVG, LAST tẹ̀lé e, Iye náà wá láti inú Iṣẹ́ Ìsopọ̀ yẹn."
+
+#: thold.php
+msgid "DSName"
+msgstr "Orúkọ DS"
+
+#: thold.php thold_graph.php
+msgid "Current"
+msgstr "Lọ́wọ́lọ́wọ́"
+
+#: thold.php thold_graph.php
+msgid "The last measured value for the Data Source"
+msgstr "Iye tí a wọ̀n kẹ́yìn fún Orísun Dátà náà"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "High"
+msgstr "Gíga"
+
+#: thold.php thold_graph.php
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
+msgstr "Àwọn iye Ìkìlọ̀ / Ìtanijí Gíga.  ÀKÍYÈSÍ: Àwọn iye ìpìlẹ̀ jẹ́ ìpín nínú ọgọ́rùn-ún, gbogbo àwọn iye mìíràn jẹ́ àwọn iye àfihàn tí cdef lè yí padà."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Low"
+msgstr "Kéré"
+
+#: thold.php thold_graph.php
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
+msgstr "Àwọn iye Ìkìlọ̀ / Ìtanijí Kékeré.  ÀKÍYÈSÍ: Àwọn iye ìpìlẹ̀ jẹ́ ìpín nínú ọgọ́rùn-ún, gbogbo àwọn iye mìíràn jẹ́ àwọn iye àfihàn tí cdef lè yí padà."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Trigger"
+msgstr "Okùnfà"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Duration"
+msgstr "Àkókò Tó Gbà"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Repeat"
+msgstr "Tún ṣe"
+
+#: thold.php thold_graph.php
+msgid "In State"
+msgstr "Ní Ipò"
+
+#: thold.php thold_graph.php
+msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
+msgstr "Iye àkókò tí ó ti kọjá láti ìgbà tí Àlà náà ti Rúfin tàbí tí ó ti Jẹ́ Títan"
+
+#: thold.php thold_graph.php
+msgid "Acknowledgment required for this Threshold"
+msgstr "Ìjẹ́wọ́ pọndandan fún Àlà yìí"
+
+#: thold.php thold_graph.php
+msgid "No [Template:Thold]"
+msgstr "Rárá [Àdàkọ:Thold]"
+
+#: thold.php thold_graph.php
+msgid "No [Template]"
+msgstr "Rárá [Àdàkọ]"
+
+#: thold.php thold_graph.php
+msgid "No [Thold]"
+msgstr "Rárá [Thold]"
+
+#: thold.php thold_graph.php
+#, php-format
+msgid "%d Triggers"
+msgstr "Àwọn Ìṣíṣẹ́ %d"
+
+#: thold.php thold_graph.php
+msgid "No Thresholds"
+msgstr "Kò sí Àwọn Àlà"
+
+#: thold.php
+msgid "Threshold Deleted, can not Edit!"
+msgstr "A ti Pa Àlà rẹ́, kò ṣe é Ṣàtúnṣe!"
+
+#: thold.php
+msgid "Graph Data"
+msgstr "Dátà Àwòrán-ìtọ́ka"
+
+#: thold.php
+msgid "Edit Threshold Template"
+msgstr "Ṣàtúnṣe Àdàkọ Àlà"
+
+#: thold.php
+msgid "Data Source Description:"
+msgstr "Àpèjúwe Orísun Dátà:"
+
+#: thold.php
+msgid "Associated Graph (Graphs using this RRD):"
+msgstr "Gíráfù Tí Ó Sopọ̀ (Àwọn Gíráàfù tí ó ń lo RRD yìí):"
+
+#: thold.php
+msgid "Last:"
+msgstr "Tó kẹ́yìn:"
+
+#: thold.php
+msgid "WHi:"
+msgstr "WHi:"
+
+#: thold.php
+msgid "WLo:"
+msgstr "WLo:"
+
+#: thold.php
+msgid "AHi:"
+msgstr "AHi:"
+
+#: thold.php
+msgid "ALo:"
+msgstr "ALo:"
+
+#: thold.php
+msgid "BL Up:"
+msgstr "BL Òkè:"
+
+#: thold.php
+msgid "BL Down:"
+msgstr "BL Ìsàlẹ̀:"
+
+#: thold.php
+#, php-format
+msgid "Unknown Template ID %d"
+msgstr "ID Àdàkọ Àìmọ̀ %d"
+
+#: thold.php
+msgid "Not Templated"
+msgstr "Kò Sí Àdàkọ"
+
+#: thold.php
+#, php-format
+msgid "Data Source Item [ %s ] - Current value: [ %s ]"
+msgstr "Ohun Orísun Dátà [ %s ] - Iye lọ́wọ́lọ́wọ́: [ %s ]"
+
+#: thold.php thold_templates.php
+#, php-format
+msgid "Replacement Fields: %s"
+msgstr "Àwọn Pápá Ìrọ́pò: %s"
+
+#: thold.php thold_templates.php
+#, php-format
+msgid "Data Sources: %s"
+msgstr "Àwọn Orísun Dátà: %s"
+
+#: thold.php
+msgid "Template/Enabled Information"
+msgstr "Àlàyé Àdàkọ/Ṣiṣẹ́"
+
+#: thold.php
+msgid "Template Propagation Enabled"
+msgstr "Ìtànkálẹ̀ Àdàkọ Ti Ṣiṣẹ́"
+
+#: thold.php
+msgid "Whether or not these settings will be propagated from the Threshold template."
+msgstr "Bóyá àwọn ètò wọ̀nyí yóò tàn kálẹ̀ láti àdàkọ Àlà tàbí bẹ́ẹ̀ kọ́."
+
+#: thold.php thold_templates.php
+msgid "Template Name"
+msgstr "Orúkọ Àdàkọ"
+
+#: thold.php
+msgid "Name of the Threshold Template the Threshold was created from."
+msgstr "Orúkọ Àdàkọ Àlà tí a ti ṣẹ̀dá Àlà náà."
+
+#: thold.php
+msgid "Enabled at Template Level"
+msgstr "Ṣiṣẹ́ ní Ipele Àdàkọ"
+
+#: thold.php
+msgid "A Threshold must be enabled both at the Template Level and the Threshold level to be checked."
+msgstr "Àlà gbọ́dọ̀ wà ní ìṣiṣẹ́ ní ìpele Àdàkọ àti ní ìpele Àlà láti lè ṣàyẹ̀wò rẹ̀."
+
+#: thold.php
+msgid "Enabled at Threshold Level"
+msgstr "Ṣiṣẹ́ ní Ipele Àlà"
+
+#: thold.php thold_templates.php
+msgid "General Settings"
+msgstr "Àwọn Ètò Gbogbogbòò"
+
+#: thold.php
+msgid "Name (Displayed)"
+msgstr "Orúkọ (Tí A Fi Hàn)"
+
+#: thold.php
+msgid "Provide the Thresholds a meaningful name"
+msgstr "Fún Àwọn Àlà náà ní orúkọ tí ó ní ìtumọ̀"
+
+#: thold.php
+msgid "Name (Format)"
+msgstr "Orúkọ (Ọ̀nà Ìṣètò)"
+
+#: thold.php thold_templates.php
+msgid "Warning HRULE Color"
+msgstr "Àwọ̀ HRULE Ìkìlọ̀"
+
+#: thold.php thold_templates.php
+msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
+msgstr "Jọ̀wọ́ yan Àwọ̀ kan fún HRULE Gíráfù fún Àwọn Àlà Ìkìlọ̀.  Yan 'Kò sí' fún Kò sí HRULE.  Àkíyèsí: Ẹ̀yà yìí wà fún àwọn irú Ìṣàkóso Dátà 'Ìye Gangan' àti 'Ìdá Ọgọ́rùn-ún' nìkan lọ́wọ́lọ́wọ́."
+
+#: thold.php thold_templates.php
+msgid "Alert HRULE Color"
+msgstr "Àwọ̀ HRULE Ìfiyèsí"
+
+#: thold.php thold_templates.php
+msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
+msgstr "Jọ̀wọ́ yan Àwọ̀ kan fún HRULE Gíráfù fún Àwọn Àlà Ìtanijí.  Yan 'Kò sí' fún Kò sí HRULE.  Àkíyèsí: Ẹ̀yà yìí wà fún àwọn irú Ìṣàkóso Dátà 'Ìye Gangan' àti 'Ìdá Ọgọ́rùn-ún' nìkan lọ́wọ́lọ́wọ́."
+
+#: thold.php thold_templates.php
+msgid "Graph Timespan"
+msgstr "Àkókò Gírífù"
+
+#: thold.php thold_templates.php
+msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
+msgstr "A ó ṣètò Àkókò Ìparí Gíráfù ní àsìkò ìṣẹ̀lẹ̀.  Àkókò Ìbẹ̀rẹ̀ Gíráfù yóò jẹ́ Àkókò Ìparí tí a yọ Àkókò Gígùn Gíráfù kúrò nínú rẹ̀."
+
+#: thold.php thold_templates.php
+msgid "Skip Scaling on HRULEs"
+msgstr "Fò Ìwọ̀n lórí àwọn HRULE"
+
+#: thold.php thold_templates.php
+msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
+msgstr "Bí A Bá Fọwọ́ Sí I, Ìwọ̀n orí Gíráfù kò ní ní ipa kankan látọwọ́ Àwọn HRULE Ìtajì tàbí Ìkìlọ̀."
+
+#: thold.php thold_templates.php
+msgid "Weekend Exemption"
+msgstr "Ìyọ̀ǹda Ìparí Ọ̀sẹ̀"
+
+#: thold.php thold_templates.php
+msgid "If this is checked, this Threshold will not alert on weekends."
+msgstr "Tí a bá yàn án, Àlà yìí kò ní ṣe ìtanijí ní òpin ọ̀sẹ̀."
+
+#: thold.php thold_templates.php
+msgid "Disable Restoration Email"
+msgstr "Ṣe àìṣiṣẹ́ Ímeèlì Ìmúpadàbọ̀sípò"
+
+#: thold.php thold_templates.php
+msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
+msgstr "Tí a bá yàn án, Àlà kò ní fi ìtanijí ránṣẹ́ nígbà tí Àlà náà bá ti padà sí Ipò déédéé."
+
+#: thold.php thold_templates.php
+msgid "Acknowledgment Options"
+msgstr "Àwọn Àṣàyàn Ìjẹ́wọ́"
+
+#: thold.php thold_templates.php
+msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
+msgstr "Ìpele Ìjẹ́wọ́ mẹ́ta ló wà tí ó ń darí bí o ṣe gbọ́dọ̀ dáhùn sí ipò ìrékọjá Àlà. Àwọn ni:<br><br><ul><li><i>Kò Pọndandan</i> - Nígbà tí o bá yan àṣàyàn yìí, kò sí Ìjẹ́wọ́ tí a nílò fún ìrékọjá Àlà.</li><li><i>Ìfitónilétí Tó Ṣeé Dádúró</i> - Pẹ̀lú àṣàyàn yìí, nígbà tí o bá ti Jẹ́wọ́ tàbí Dádúró Àwọn Ìfitónilétí lórí Àlà náà, o kò ní gba àwọn ìfitónilétí mọ́ nígbà tí ó bá wà ní ìrékọjá. Lẹ́yìn náà, o lè Tún Àwọn Ìfitónilétí Bẹ̀rẹ̀ nígbà tí ó ṣì wà ní ìrékọjá.</li><li><i>Ìjẹ́wọ́ Títẹ̀síwájú</i> - Pẹ̀lú àṣàyàn yìí, kódà lẹ́yìn tí Àlà náà bá ti padà sí déédéé, o gbọ́dọ̀ Jẹ́wọ́ Àlà náà kí o sì pèsè Ìfiranṣẹ́ Olùṣiṣẹ́ àṣàyàn.</li></ul>"
+
+#: thold.php thold_templates.php
+msgid "None Required"
+msgstr "Kò Nílò Kankan"
+
+#: thold.php thold_templates.php
+msgid "Suspendible Notification"
+msgstr "Ìfitónilétí tí a Lè Dá Dúró Díẹ̀"
+
+#: thold.php thold_templates.php
+msgid "Persistent Acknowledgment"
+msgstr "Ìjẹ́wọ́gbà Tó Wà Pẹ́"
+
+#: thold.php thold_templates.php
+msgid "Threshold Type"
+msgstr "Irú Àlà"
+
+#: thold.php thold_templates.php
+msgid "The type of Threshold that will be monitored."
+msgstr "Irú Àlà tí a óò máa ṣàkóso."
+
+#: thold.php thold_templates.php
+msgid "Re-Alert Cycle"
+msgstr "Ìyípo Àtún-Ìtànjí"
+
+#: thold.php
+msgid "Repeat alert after this amount of time has passed since the last alert."
+msgstr "Tún ìtanijí ṣe lẹ́yìn tí iye àkókò yìí bá ti kọjá láti ìtanijí tó kẹ́yìn."
+
+#: thold.php thold_templates.php
+msgid "Warning - High / Low Settings"
+msgstr "Ìkìlọ̀ - Àwọn Ètò Gíga / Kéré"
+
+#: thold.php thold_templates.php
+msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
+msgstr "Àwọn ìníyelórí nọ́ńbà fún Àlà Gíga àti Kékeré lè ní àwọn àfikún ìparí wọ̀nyí fún àwọn nọ́ńbà tó tóbi ju 1 lọ sí 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', àti fún àwọn nọ́ńbà tó kéré ju 1 lọ 'm', 'u', 'p', 'f'."
+
+#: thold.php thold_templates.php
+msgid "High Threshold"
+msgstr "Àlà Gíga"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Tí a bá ṣètò rẹ̀ tí iye Orísun Dátà sì kọjá nọ́ńbà yìí, Ìkìlọ̀ yóò bẹ̀rẹ̀. ÀKÍYÈSÍ: Iye yìí gbọ́dọ̀ jẹ́ nọ́ńbà ÀÌṢÀTÚNṢE (RAW). Cdef kan lè yí iye tí a ṣàfihàn lórí Gíráfù padà."
+
+#: thold.php thold_templates.php
+msgid "Low Threshold"
+msgstr "Àlà Ìsàlẹ̀"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Tí a bá ṣètò rẹ̀ tí iye Orísun Dátà sì dín sí ìsàlẹ̀ nọ́ńbà yìí, Ìkìlọ̀ yóò bẹ̀rẹ̀. ÀKÍYÈSÍ: Iye yìí gbọ́dọ̀ jẹ́ nọ́ńbà ÀÌṢÀTÚNṢE (RAW). Cdef kan lè yí iye tí a ṣàfihàn lórí Gíráfù padà."
+
+#: thold.php
+msgid "Breach Duration"
+msgstr "Àkókò Ìrékọjá"
+
+#: thold.php
+msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Iye àkókò tí Orísun Dátà gbọ́dọ̀ wà ní ìrúfin Àlà kí a tó gbé ìkìlọ̀ dìde. ÀKÍYÈSÍ: Iye yìí gbọ́dọ̀ jẹ́ nọ́mbà TÍ KÒ TÍÌ YÍPADÀ. Iye tí a fihàn lórí Gíráfù lè jẹ́ yíyípadà nípasẹ̀ cdef."
+
+#: thold.php thold_templates.php
+msgid "Alert - High / Low Settings"
+msgstr "Ìfiyèsí - Àwọn Ètò Gíga / Kéré"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Tí a bá ṣètò rẹ̀ tí iye Orísun Dátà sì kọjá nọ́ńbà yìí, ìtanijí yóò bẹ̀rẹ̀. ÀKÍYÈSÍ: Iye yìí gbọ́dọ̀ jẹ́ nọ́ńbà ÀÌṢÀTÚNṢE (RAW). Cdef kan lè yí iye tí a ṣàfihàn lórí Gíráfù padà."
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Tí a bá ṣètò rẹ̀ tí iye Orísun Dátà sì dín sí ìsàlẹ̀ nọ́ńbà yìí, ìtanijí yóò bẹ̀rẹ̀. ÀKÍYÈSÍ: Iye yìí gbọ́dọ̀ jẹ́ nọ́ńbà ÀÌṢÀTÚNṢE (RAW). Cdef kan lè yí iye tí a ṣàfihàn lórí Gíráfù padà."
+
+#: thold.php
+msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
+msgstr "Iye àkókò tí Orísun Dátà gbọ́dọ̀ wà ní ìrúfin Àlà kí a tó gbé ìtánilólóbó dìde."
+
+#: thold.php thold_templates.php
+msgid "Warning - Time Based Settings"
+msgstr "Ìkìlọ̀ - Àwọn Ètò Tí Ó Dá Lórí Àkókò"
+
+#: thold.php
+msgid "Breach Count"
+msgstr "Iye Ìrékọjá"
+
+#: thold.php
+msgid "The number of times the Data Source must be in breach of the Threshold."
+msgstr "Iye ìgbà tí Orísun Dátà gbọ́dọ̀ ti rú Àlà náà."
+
+#: thold.php
+msgid "Breach Window"
+msgstr "Ààyè Àkókò Ìrékọjá"
+
+#: thold.php thold_templates.php
+msgid "The amount of time in the past to check for Threshold breaches."
+msgstr "Iye àkókò ní ìgbà àtijọ́ láti ṣàyẹ̀wò fún àwọn ìrúfin Àlà."
+
+#: thold.php thold_templates.php
+msgid "Alert - Time Based Settings"
+msgstr "Ìfiyèsí - Àwọn Ètò Tó Dá lórí Àkókò"
+
+#: thold.php
+msgid "Baseline Settings"
+msgstr "Àwọn Ètò Ìpìlẹ̀"
+
+#: thold.php thold_templates.php
+msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
+msgstr "Irú Ìpìlẹ̀.  [TIP] ni Àkókò ní Àtẹ̀yìnwá, [AOT] ni Ìpíndọ́gba lórí Àkókò.  Ìyàtọ̀ Ìdá Ọgọ́rùn-ún jẹ́ iye ìdá ọgọ́rùn-ún láti inú iye ìtàn.  Iye Pàtó jẹ́ ìyàtọ̀ yálà lókè tàbí lábẹ́ Ìpìlẹ̀ lórí iye ìtàn yẹn.  Fún àwọn Irú Ìpìlẹ̀ [TIP], MIN, MAX, AVG, àti LAST yóò wá láti àkókò tí kò ju ọjọ́ kan lọ ní àkókò yẹn."
+
+#: thold.php thold_templates.php
+msgid "Consolidation Function"
+msgstr "Iṣẹ́ Ìṣọ̀kan"
+
+#: thold.php thold_templates.php
+msgid "Average"
+msgstr "Ìpíndọ́gba"
+
+#: thold.php thold_templates.php
+msgid "Minimum"
+msgstr "Tó Kéré Jù"
+
+#: thold.php thold_templates.php
+msgid "Maximum"
+msgstr "Ó Pọ̀ Jùlọ"
+
+#: thold.php thold_templates.php
+msgid "Last"
+msgstr "Ìkẹyìn"
+
+#: thold.php thold_templates.php
+msgid "The Consolidation function to use for the Baseline Type value calculation."
+msgstr "Iṣẹ́ Àkójọpọ̀ láti lò fún ìṣirò iye Irú Ìpìlẹ̀."
+
+#: thold.php thold_templates.php
+msgid "Time Range"
+msgstr "Ìwọ̀n Àkókò"
+
+#: thold.php thold_templates.php
+msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
+msgstr "Ṣàlàyé àkókò ní ìṣẹ̀lẹ̀ sẹ́yìn (tí ó dá lórí ìpinnu rrd) tí a ó lò gẹ́gẹ́ bí ìtọ́kasí tàbí àkókò láti lò fún Àròpin Tó Ń Fò nígbà tí a bá ń lo Àlà irú Àròpin Tó Ń Fò"
+
+#: thold.php thold_templates.php
+msgid "Deviation UP"
+msgstr "Ìyàtọ̀ SÓKÈ"
+
+#: thold.php
+#, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Ṣàlàyé ìyàtọ̀ tí a gbà láyè fún Àlà òkè. Tí a kò bá ṣètò rẹ̀, a kò ní ṣàyẹ̀wò Àlà òkè rárá.  Ẹyọ ìwọ̀n jẹ́ iye pàtó fún Irú 'Iye Pàtó', àti Ìdá-ọgọ́rùn-ún fún méjèèjì '%% Ìyàtọ̀' àti '%% Àròpin Tó Ń Fò'"
+
+#: thold.php thold_templates.php
+msgid "Deviation DOWN"
+msgstr "Ìyàtọ̀ SÍLẸ̀"
+
+#: thold.php
+#, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Ṣàlàyé ìyàtọ̀ tí a gbà láyè fún Àlà ìsàlẹ̀. Tí a kò bá ṣètò rẹ̀, a kò ní ṣàyẹ̀wò Àlà ìsàlẹ̀ rárá.  Ẹyọ ìwọ̀n jẹ́ iye pàtó fún Irú 'Iye Pàtó', àti Ìdá-ọgọ́rùn-ún fún méjèèjì '%% Ìyàtọ̀' àti '%% Àròpin Tó Ń Fò'"
+
+#: thold.php thold_templates.php
+msgid "Trigger Count"
+msgstr "Ìka Okùnfà"
+
+#: thold.php
+#, php-format
+msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
+msgstr "Iye ìgbà tẹ̀léra tí Orísun Dátà gbọ́dọ̀ rú Àlà ìpìlẹ̀ kí ìtánilólóbó tó lè dìde.<br>Fi sílẹ̀ ní òfo láti lo ìníyelórí àìyípadà (<b>Àìyípadà: ìyípo %s</b>)"
+
+#: thold.php thold_templates.php
+msgid "Data Manipulation"
+msgstr "Ìṣàtúnṣe Dátà"
+
+#: thold.php thold_templates.php
+msgid "Data Type"
+msgstr "Irú Dátà"
+
+#: thold.php thold_templates.php
+msgid "Special formatting for the given data."
+msgstr "Ìṣètò àkànṣe fún dátà tí a fún ni."
+
+#: thold.php thold_templates.php
+msgid "Threshold CDEF"
+msgstr "CDEF Àlà"
+
+#: thold.php thold_templates.php
+msgid "Apply this CDEF before returning the data."
+msgstr "Lo CDEF yìí kí o tó dá dátà náà padà."
+
+#: thold.php
+msgid "Percent Data Source"
+msgstr "Ìdá Ọgọ́rùn-ún Orísun Dátà"
+
+#: thold.php
+msgid "Second Data Source Item to use as total value to calculate percentage from."
+msgstr "Ohun Orísun Dátà Kejì láti lò gẹ́gẹ́ bí àpapọ̀ iye láti ṣírò ìpín ọgọ́rùn-ún láti inú rẹ̀."
+
+#: thold.php thold_templates.php
+msgid "Show Units"
+msgstr "Ṣàfihàn Àwọn Ẹyọ Ìwọ̀n"
+
+#: thold.php thold_templates.php
+msgid "Display units for very large or small numbers."
+msgstr "Ṣàfihàn àwọn ìwọ̀n fún àwọn nọ́ńbà tó tóbi tàbí tó kéré gan-an."
+
+#: thold.php thold_templates.php
+msgid "Force Units Suffix"
+msgstr "Fipá Mú Àfikún-ẹ̀yìn Ẹ̀yà Ìwọ̀n"
+
+#: thold.php thold_templates.php
+msgid "If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters."
+msgstr "Tí o bá fẹ́ ṣàfihàn àfòmọ́ ẹ̀yọ́ ìwọ̀n dandan lórí onírúurú ojú-ewé Àlà àti Àwọn Ìfitónilétí, tẹ̀ ẹ́ síbí. Ìwọ̀n rẹ̀ ní ààlà tí kò ju lẹ́tà 10 lọ."
+
+#: thold.php thold_templates.php
+msgid "Decimal Digits to Display"
+msgstr "Àwọn Nọ́ńbà Dẹ́símà láti Fihàn"
+
+#: thold.php thold_templates.php
+msgid "The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2."
+msgstr "Iye àwọn nọ́ńbà lẹ́yìn àmì-ìdámẹ́wàá láti fi hàn fún Àlà àti Àwọn Iye Lọ́wọ́lọ́wọ́.  Àìyípadà jẹ́ aládàáṣe tàbí 2."
+
+#: thold.php
+#, php-format
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Ìsọ RPN jẹ́ Ìsọ RPN tó bá RRDtool mu.  Ìlànà ọ̀rọ̀ ní gbogbo àwọn iṣẹ́ ìsàlẹ̀ yìí pẹ̀lú àwọn ìsọ ìyípadà Ẹ̀rọ àti Ìbéèrè Dátà bí i <span class=\"deviceUp\">|query_ifSpeed|</span>.  Láti lo Orísun Dátà nínú Ìsọ RPN, o gbọ́dọ̀ lo ìlànà ọ̀rọ̀ náà: <span class=\"deviceUp\">|ds:dsname|</span>.  Fún àpẹẹrẹ, <span class=\"deviceUp\">|ds:traffic_in|</span> yóò mú iye lọ́wọ́lọ́wọ́ ti Orísun Dátà traffic_in fún àwọn RRDfile(s) tó ní í ṣe pẹ̀lú Gíráfù náà. Eyíkéyìí Orísun Dátà fún Gíráfù kan lè wà nínú rẹ̀.<br><br>Àwọn Olùṣiṣẹ́ Ìṣirò: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Àwọn Iṣẹ́: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Àwọn Olùṣiṣẹ́ Ìṣàn: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Àwọn Iṣẹ́ Ìfiwéra: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+
+#: thold.php thold_templates.php
+msgid "Upper Data Source"
+msgstr "Orísun Dátà Òkè"
+
+#: thold.php
+msgid "Upper data source to calculate the total value."
+msgstr "Orísun dátà òkè láti fi ṣírò àpapọ̀ iye."
+
+#: thold.php thold_templates.php
+msgid "Notification Settings"
+msgstr "Àwọn Ètò Ìfitónilétí"
+
+#: thold.php
+msgid "Alert Subject"
+msgstr "Àkọlé Ìfiyèsí"
+
+#: thold.php
+msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Èyí ni kókó-ọ̀rọ̀ Ímeèlì tí yóò hàn nínú Ímeèlì náà (Lẹ́tà 128 PỌ̀ JÙLỌ). Fi sílẹ̀ ní òfo fún àtọwọ́dọ́wọ́. Ọ̀pọ̀lọpọ̀ àwọn àmì àrọ́pò wọ́pọ̀ ló wà tí a lè lò pẹ̀lú:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php
+msgid "Alert Body"
+msgstr "Àkóónú Ìfiyèsí"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Èyí ni ìránṣẹ́ tí yóò hàn ní òkè gbogbo Àwọn Ìtànijí Àlà (Àmì-ọ̀rọ̀ 1024 Ó PỌ̀ JÙ). A gba HTML láàyè, ṣùgbọ́n a ó yọ ọ́ kúrò fún àwọn ímeèlì ọ̀rọ̀ nìkan. Ọ̀pọ̀lọpọ̀ àmì ìrọ́pò wọ́pọ̀ wà tí a lè lò láti fi kún un:<br>f.a. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Subject"
+msgstr "Àkọlé Ìkìlọ̀"
+
+#: thold.php
+msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Èyí ni kókó-ọ̀rọ̀ Ímeèlì Ìkìlọ̀ tí yóò hàn nínú Ímeèlì náà lẹ́yìn àyípadà sí Ìkìlọ̀ (Lẹ́tà 128 PỌ̀ JÙLỌ). Fi sílẹ̀ ní òfo fún àtọwọ́dọ́wọ́. Ọ̀pọ̀lọpọ̀ àwọn àmì àrọ́pò wọ́pọ̀ ló wà tí a lè lò pẹ̀lú:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Body"
+msgstr "Àkóónú Ìkìlọ̀"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Èyí ni ìránṣẹ́ tí yóò hàn ní òkè gbogbo Àwọn Ìkìlọ̀ Àlà (Àmì-ọ̀rọ̀ 1024 Ó PỌ̀ JÙ). A gba HTML láàyè, ṣùgbọ́n a ó yọ ọ́ kúrò fún àwọn ímeèlì ọ̀rọ̀ nìkan. Ọ̀pọ̀lọpọ̀ àmì ìrọ́pò wọ́pọ̀ wà tí a lè lò láti fi kún un:<br>f.a. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold.php thold_templates.php
+msgid "Restoral Subject"
+msgstr "Àkọlé Ìmúpadàbọ̀sípò"
+
+#: thold.php
+msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Èyí ni kókó-ọ̀rọ̀ Ímeèlì tí yóò hàn nínú Ímeèlì náà lẹ́yìn Ìpadàbọ̀ sí Déédéé (Lẹ́tà 128 PỌ̀ JÙLỌ). Fi sílẹ̀ ní òfo fún àtọwọ́dọ́wọ́. Ọ̀pọ̀lọpọ̀ àwọn àmì àrọ́pò wọ́pọ̀ ló wà tí a lè lò pẹ̀lú:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php
+msgid "Restoral Email Body"
+msgstr "Àkóónú Ímeèlì Ìmúpadàbọ̀sípò"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Èyí ni ìránṣẹ́ tí yóò hàn ní òkè gbogbo àwọn ìfitónilétí ìmúpadàbọ̀sípò Àlà (Àmì-ọ̀rọ̀ 1024 Ó PỌ̀ JÙ). A gba HTML láàyè, ṣùgbọ́n a ó yọ ọ́ kúrò fún Àwọn Ímeèlì ọ̀rọ̀ nìkan. Ọ̀pọ̀lọpọ̀ àmì ìrọ́pò wọ́pọ̀ wà tí a lè lò láti fi kún un:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Notification List"
+msgstr "Àtòjọ Ìfitónilétí Ìkìlọ̀"
+
+#: thold.php thold_templates.php
+msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
+msgstr "O lè tọ́ka sí kí o sì yan Àtòjọ Ìfitọ́nilétí kan láti gba Àwọn Ìkìlọ̀ fún Orísun Dátà yìí"
+
+#: thold.php thold_templates.php
+msgid "Alert Notification List"
+msgstr "Àtòjọ Ìfitọ́nilétí Ìfiyèsí"
+
+#: thold.php thold_templates.php
+msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
+msgstr "O lè tọ́ka sí kí o sì yan Àtòjọ Ìfitọ́nilétí kan láti gba Àwọn Ìtànijí fún Orísun Dátà yìí"
+
+#: thold.php thold_templates.php
+msgid "Style/Format File"
+msgstr "Fáìlì Àṣà/Ìṣètò"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Event Category"
+msgstr "Ìfitónilétí SNMP - Ìsọ̀rí Ìṣẹ̀lẹ̀"
+
+#: thold.php thold_templates.php
+msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+msgstr "Láti jẹ́ kí NMS lè pín onírúurú àwọn ìfitónilétí SNMP sí ìsọ̀rí ní ìrọ̀rùn, jọ̀wọ́ kọ ìsọ̀rí tí àwọn ìfitónilétí SNMP fún àdàkọ yìí yẹ kí ó lò. Bí àpẹẹrẹ: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+
+#: thold.php thold_templates.php
+msgid "SNMP Event Description"
+msgstr "Àpèjúwe Ìṣẹ̀lẹ̀ SNMP"
+
+#: thold.php thold_templates.php
+msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+msgstr "O lè ṣàtúnṣe àpèjúwe ìṣẹ̀lẹ̀ tí a ń fi ránṣẹ́ sí àwọn olùgbà ìfitọ́nilétí SNMP nípa lílo àwọn ìsopọ̀ onírúurú (varbinds). Àwọn onírúurú ìyípadà Ẹ̀rọ (|host_*|), Ìbéèrè Dátà (|query_*|) ìbámu ni a lè lò pẹ̀lú àwọn varbinds wọ̀nyí:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Alert Event Severity"
+msgstr "Ìfitónilétí SNMP - Ìwọ̀n Lílẹ̀ Ìṣẹ̀lẹ̀ Ìtanijí"
+
+#: thold.php
+msgid "Severity to be used for alerts. (low impact -> critical impact)"
+msgstr "Ìwúwo tí a ó lò fún àwọn ìfitónilétí. (ipa kékeré -> ipa pàtàkì jùlọ)"
+
+#: thold.php thold_templates.php
+msgid "Medium"
+msgstr "Agbedeméjì"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Warning Event Severity"
+msgstr "Ìfitónilétí SNMP - Ìwọ̀n Lílẹ̀ Ìṣẹ̀lẹ̀ Ìkìlọ̀"
+
+#: thold.php thold_templates.php
+msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
+msgstr "Ìwúwo tí a ó lò fún àwọn ìkìlọ̀. (Ipa kékeré -> Ipa pàtàkì jùlọ).<br>Àkíyèsí: Ìwúwo àwọn ìkìlọ̀ gbọ́dọ̀ dọ́gba tàbí kéré sí ìwúwo tí a ṣètò fún àwọn ìfitónilétí."
+
+#: thold.php thold_templates.php
+msgid "Notify accounts"
+msgstr "Fitọ́nilétí àwọn àkántì"
+
+#: thold.php
+msgid "This is a listing of accounts that will be notified when this Threshold is breached."
+msgstr "Èyí jẹ́ àkójọ àwọn àkọọ́lẹ̀ tí a ó fi tó létí nígbà tí a bá rékọjá Àlà yìí."
+
+#: thold.php thold_templates.php
+msgid "Alert Emails"
+msgstr "Àwọn Ímeèlì Ìfiyèsí"
+
+#: thold.php
+msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
+msgstr "O lè tọ́ka sí àwọn Ímeèlì àfikún níbí láti gba àwọn ìtànijí fún orísun dátà yìí (tí a fi kọ́mà pín sí)"
+
+#: thold.php thold_templates.php
+msgid "Warning Emails"
+msgstr "Àwọn Ímeèlì Ìkìlọ̀"
+
+#: thold.php
+msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
+msgstr "O lè tọ́ka sí àwọn Ímeèlì àfikún níbí láti gba àwọn ìkìlọ̀ fún orísun dátà yìí (tí a fi kọ́mà pín sí)"
+
+#: thold.php thold_templates.php
+msgid "If checked, Threshold notification will be sent to your local syslog."
+msgstr "Bí a bá fọwọ́ sí i, a ó fi ìfitónilétí Àlà ránṣẹ́ sí syslog ìbílẹ̀ rẹ."
+
+#: thold.php thold_templates.php
+msgid "Priority/Level"
+msgstr "Ìpò Pàtàkì/Ìpele"
+
+#: thold.php thold_templates.php
+msgid "This is the Priority Level that will be logged into your syslog messages."
+msgstr "Èyí ni Ìpele Àkọ́kọ́ tí a ó kọ sílẹ̀ sínú àwọn ìfiranṣẹ́ syslog rẹ."
+
+#: thold.php thold_templates.php
+msgid "Facility"
+msgstr "Ohun Èlò"
+
+#: thold.php thold_templates.php
+msgid "This is the Facility that will be used for this Threshold."
+msgstr "Èyí ni Ohun-èlò (Facility) tí a ó lò fún Àlà yìí."
+
+#: thold.php thold_templates.php
+msgid "Event Triggering (Shell Command)"
+msgstr "Ìmúṣẹ Ìṣẹ̀lẹ̀ (Àṣẹ Shell)"
+
+#: thold.php thold_templates.php
+msgid "High Trigger Command"
+msgstr "Àṣẹ Ìṣíkọ̀ Gíga"
+
+#: thold.php thold_templates.php
+msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Tí a bá ṣètò rẹ̀, tí a bá sì rú Àlà Gíga, àṣẹ yìí yóò ṣiṣẹ́. Jọ̀wọ́ tẹ àṣẹ tí ó tọ́ sí i. Ní àfikún, ọ̀pọ̀lọpọ̀ àmì àrọ́pò ló wà tí a lè lò láti fi ìfitónilétí láti inú Àlà ránṣẹ́ sí àkọsílẹ̀ àṣẹ (script). O lè ṣe èyí gẹ́gẹ́ bí àríyànjiyàn lórí ìlà àṣẹ, tàbí ní àyíká àkọsílẹ̀ àṣẹ náà, èyí tí ó sàn jù. Gbogbo iye àrọ́pò yóò hàn nínú àyíká àkọsílẹ̀ àṣẹ náà pẹ̀lú ìṣáájú THOLD_. Fún àpẹẹrẹ, CURRENTVALUE yóò di THOLD_CURRENTVALUE, àti bẹ́ẹ̀ bẹ́ẹ̀ lọ. Àwọn onírúurú ọ̀rọ̀ náà ní: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Ní ìparí, a lè ṣe àrọ́pò Olùgbàlejò, Ìbéèrè Dátà àti Ìfàwọlé Dátà. Fún àpẹẹrẹ, tí o bá ní dátà àdáni ìfàwọlé dátà tí a ń pè ní pending, láti ṣe àrọ́pò náà lo |pending|. Fún Ìbéèrè Dátà àti àrọ́pò Olùgbàlejò lo àṣà Cacti |query_xxxx| àti |host_xxxx| ní tẹ̀léntẹ̀lé."
+
+#: thold.php thold_templates.php
+msgid "Low Trigger Command"
+msgstr "Àṣẹ Ìṣìṣẹ́ Ìsàlẹ̀"
+
+#: thold.php thold_templates.php
+msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Tí a bá ṣètò rẹ̀, tí a bá sì rú Àlà Kékeré, àṣẹ yìí yóò ṣiṣẹ́. Jọ̀wọ́ tẹ àṣẹ tí ó tọ́ sí i. Ní àfikún, ọ̀pọ̀lọpọ̀ àmì àrọ́pò ló wà tí a lè lò láti fi ìfitónilétí láti inú Àlà ránṣẹ́ sí àkọsílẹ̀ àṣẹ (script). O lè ṣe èyí gẹ́gẹ́ bí àríyànjiyàn lórí ìlà àṣẹ, tàbí ní àyíká àkọsílẹ̀ àṣẹ náà, èyí tí ó sàn jù. Gbogbo iye àrọ́pò yóò hàn nínú àyíká àkọsílẹ̀ àṣẹ náà pẹ̀lú ìṣáájú THOLD_. Fún àpẹẹrẹ, CURRENTVALUE yóò di THOLD_CURRENTVALUE, àti bẹ́ẹ̀ bẹ́ẹ̀ lọ. Àwọn onírúurú ọ̀rọ̀ náà ní: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Ní ìparí, a lè ṣe àrọ́pò Olùgbàlejò, Ìbéèrè Dátà àti Ìfàwọlé Dátà. Fún àpẹẹrẹ, tí o bá ní dátà àdáni ìfàwọlé dátà tí a ń pè ní pending, láti ṣe àrọ́pò náà lo |pending|. Fún Ìbéèrè Dátà àti àrọ́pò Olùgbàlejò lo àṣà Cacti |query_xxxx| àti |host_xxxx| ní tẹ̀léntẹ̀lé."
+
+#: thold.php thold_templates.php
+msgid "Norm Trigger Command"
+msgstr "Àṣẹ Ìbẹ̀rẹ̀ Ipò Déédé"
+
+#: thold.php thold_templates.php
+msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Tí a bá ṣètò rẹ̀, nígbà tí thold bá padà sí iye déédéé, àṣẹ yìí yóò ṣiṣẹ́. Jọ̀wọ́ tẹ àṣẹ tí ó tọ́ sí i. Ní àfikún, ọ̀pọ̀lọpọ̀ àmì àrọ́pò ló wà tí a lè lò láti fi ìfitónilétí láti inú Àlà ránṣẹ́ sí àkọsílẹ̀ àṣẹ (script). O lè ṣe èyí gẹ́gẹ́ bí àríyànjiyàn lórí ìlà àṣẹ, tàbí ní àyíká àkọsílẹ̀ àṣẹ náà, èyí tí ó sàn jù. Gbogbo iye àrọ́pò yóò hàn nínú àyíká àkọsílẹ̀ àṣẹ náà pẹ̀lú ìṣáájú THOLD_. Fún àpẹẹrẹ, CURRENTVALUE yóò di THOLD_CURRENTVALUE, àti bẹ́ẹ̀ bẹ́ẹ̀ lọ. Àwọn onírúurú ọ̀rọ̀ náà ní: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Ní ìparí, a lè ṣe àrọ́pò Olùgbàlejò, Ìbéèrè Dátà àti Ìfàwọlé Dátà. Fún àpẹẹrẹ, tí o bá ní dátà àdáni ìfàwọlé dátà tí a ń pè ní pending, láti ṣe àrọ́pò náà lo |pending|. Fún Ìbéèrè Dátà àti àrọ́pò Olùgbàlejò lo àṣà Cacti |query_xxxx| àti |host_xxxx| ní tẹ̀léntẹ̀lé."
+
+#: thold.php thold_templates.php
+msgid "Other Settings"
+msgstr "Àwọn Ètò Mìíràn"
+
+#: thold.php
+msgid "Enter an Eternal ID for this Threshold."
+msgstr "Tẹ ID Àìnípẹ̀kun fún Àlà yìí."
+
+#: thold.php thold_templates.php
+msgid "Operator Notes"
+msgstr "Àwọn Àkọsílẹ̀ Olùṣiṣẹ́"
+
+#: thold.php thold_templates.php
+msgid "Enter instructions here for an operator who may be receiving the Threshold message."
+msgstr "Tẹ àwọn ìtọ́ni níbí fún olùṣiṣẹ́ tí ó lè gba ìránṣẹ́ Àlà náà."
+
+#: thold.php
+msgid "Select Users(s)"
+msgstr "Yan (Àwọn) Olùlò"
+
+#: thold.php
+msgid "Users Selected"
+msgstr "Àwọn Olùlò Tí A Yàn"
+
+#: thold.php
+msgid "All Users Selected"
+msgstr "Gbogbo Àwọn Olùlò Ti A Yàn"
+
+#: thold_graph.php
+msgid "The Threshold has been Ascknowledged."
+msgstr "A ti gbà Àlà náà mọ́."
+
+#: thold_graph.php
+msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
+msgstr "Àlà náà kò ní mú Àwọn Ìtánilólóbó, Àwọn Ìfitónilétí jáde mọ́, tàbí ṣe àwọn àṣẹ."
+
+#: thold_graph.php
+msgid "The Threshold will restart generating Alerts."
+msgstr "Àlà náà yóò tún bẹ̀rẹ̀ sí í mú Àwọn Ìtánilólóbó jáde."
+
+#: thold_graph.php
+msgid "Threshold Status"
+msgstr "Ipò Àlà"
+
+#: thold_graph.php
+msgid "Actions"
+msgstr "Àwọn Ìgbésẹ̀"
+
+#: thold_graph.php
+msgid "Ack Detail"
+msgstr "Àlàyé Ìjẹ́wọ́"
+
+#: thold_graph.php
+msgid "Edit Threshold"
+msgstr "Ṣàtúnṣe Àlà"
+
+#: thold_graph.php
+msgid "Disable Threshold"
+msgstr "Ṣe àìṣiṣẹ́ Àlà"
+
+#: thold_graph.php
+msgid "Enable Threshold"
+msgstr "Mú Àlà ṣiṣẹ́"
+
+#: thold_graph.php
+msgid "To enable the Threshold, enable the Template first"
+msgstr "Láti mú kí Àlà Ṣiṣẹ́, mú kí Àdàkọ Ṣiṣẹ́ ní àkọ́kọ́"
+
+#: thold_graph.php
+msgid "View Graph"
+msgstr "Wo Gíráfù"
+
+#: thold_graph.php
+msgid "View Threshold History"
+msgstr "Wo Ìtàn Àlà"
+
+#: thold_graph.php
+msgid "Suspend Notifications until the Threshold clears"
+msgstr "Dá Àwọn Ìfitónilétí Dúró Díẹ̀ títí tí Àlà yóò fi kúrò"
+
+#: thold_graph.php
+msgid "Resume Notifications for this breached Threshold"
+msgstr "Bẹ̀rẹ̀ Àwọn Ìfitọ́nilétí Padà fún Àlà tí a ti ré kọjá yìí"
+
+#: thold_graph.php
+msgid "Acknowledgement Message"
+msgstr "Ìránṣẹ́ Ìjẹ́wọ́"
+
+#: thold_graph.php
+msgid "Date"
+msgstr "Ọjọ́"
+
+#: thold_graph.php
+msgid "Comment Not Found"
+msgstr "A Kò Rí Àsọyé"
+
+#: thold_graph.php
+msgid "Ack History"
+msgstr "Ìtàn Ìjẹ́wọ́"
+
+#: thold_graph.php
+msgid "No name set"
+msgstr "Kò sí orúkọ tí a ṣètò"
+
+#: thold_graph.php
+msgid "Hover over icons for help"
+msgstr "Gbé kọ́sọ̀ sórí àwọn àmì fún ìrànlọ́wọ́"
+
+#: thold_graph.php
+msgid "A description for the Device"
+msgstr "Àpèjúwe fún Ẹ̀rọ náà"
+
+#: thold_graph.php
+msgid "A Cacti unique identifier for the Device"
+msgstr "Ìdámọ̀ àrà ọ̀tọ̀ Cacti fún Ẹ̀rọ náà"
+
+#: thold_graph.php
+msgid "The number of Graphs for this Device"
+msgstr "Iye Àwọn Gíráàfù fún Ẹ̀rọ yìí"
+
+#: thold_graph.php
+msgid "The number of Data Sources for this Device"
+msgstr "Iye Àwọn Orísun Dátà fún Ẹ̀rọ yìí"
+
+#: thold_graph.php
+msgid "The status for this Device as of the last time it was polled"
+msgstr "Ipò fún Ẹ̀rọ yìí gẹ́gẹ́ bí ìgbà tí a ṣàyẹ̀wò rẹ̀ kẹ́yìn"
+
+#: thold_graph.php
+msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
+msgstr "Ìgbà tó kẹ́yìn tí Cacti rí ìṣòro pẹ̀lú Ẹ̀rọ yìí.  Ó lè ju Àkókò Ìṣiṣẹ́ (Uptime) fún Ẹ̀rọ náà lọ, bí a bá tún un bẹ̀rẹ̀ láàárín àwọn ìgbà ìṣàyẹ̀wò Cacti"
+
+#: thold_graph.php
+msgid "Uptime"
+msgstr "Àkókò Ìṣiṣẹ́"
+
+#: thold_graph.php
+msgid "The official uptime of the Device as reported by SNMP"
+msgstr "Àkókò iṣẹ́ ìṣiṣẹ́ àṣẹ ti Ẹ̀rọ náà gẹ́gẹ́ bí SNMP ṣe ròyìn rẹ̀"
+
+#: thold_graph.php
+msgid "The official hostname for this Device"
+msgstr "Orúkọ olùgbàlejò àṣẹ fún Ẹ̀rọ yìí"
+
+#: thold_graph.php
+msgid "Current (ms)"
+msgstr "Lọ́wọ́lọ́wọ́ (ms)"
+
+#: thold_graph.php
+msgid "The current response time for the Cacti Availability check"
+msgstr "Àkókò ìdáhùn lọ́wọ́lọ́wọ́ fún àyẹ̀wò Wíwà Cacti"
+
+#: thold_graph.php
+msgid "Average (ms)"
+msgstr "Ìpíndọ́gba (ms)"
+
+#: thold_graph.php
+msgid "The average response time for the Cacti Availability check"
+msgstr "Àkókò ìdáhùn àròpọ̀ fún àyẹ̀wò Wíwà Cacti"
+
+#: thold_graph.php
+msgid "Availability"
+msgstr "Wíwà-lárọ̀ọ́wọ́tó"
+
+#: thold_graph.php
+msgid "The overall Availability of this Device since the last counter reset in Cacti"
+msgstr "Ìwàlárọ̀wọ́tó àpapọ̀ ti Ẹ̀rọ yìí láti ìgbà tí a ti tún òǹkà ṣe kẹ́yìn nínú Cacti"
+
+#: thold_graph.php
+msgid "Edit Device"
+msgstr "Ṣàtúnṣe Ẹ̀rọ"
+
+#: thold_graph.php
+msgid "View Graphs"
+msgstr "Wo Àwọn Gíráàfù"
+
+#: thold_graph.php
+msgid "No Devices"
+msgstr "Kò Sí Ẹ̀rọ"
+
+#: thold_graph.php
+msgid "Not Up"
+msgstr "Kò sí ní Òkè"
+
+#: thold_graph.php
+msgid "No Export Rows Found."
+msgstr "Kò sí Àwọn Ìlà Ìkójáde kankan tí a rí."
+
+#: thold_graph.php
+#, php-format
+msgid "Threshold Log for [ %s ]"
+msgstr "Àkọọ́lẹ̀ Àlà fún [ %s ]"
+
+#: thold_graph.php
+msgid "Log Entries"
+msgstr "Àwọn Àkọsílẹ̀"
+
+#: thold_graph.php
+msgid "Time"
+msgstr "Àkókò"
+
+#: thold_graph.php
+msgid "Alert Value"
+msgstr "Iye Ìfiyèsí"
+
+#: thold_graph.php
+msgid "Measured Value"
+msgstr "Ìwọ̀n Tí A Wọ̀n"
+
+#: thold_graph.php
+msgid "No Threshold Logs Found"
+msgstr "Kò sí Àwọn Àkọsílẹ̀ Àlà kankan tí a rí"
+
+#: thold_graph.php
+msgid "Entries"
+msgstr "Àwọn Àkọsílẹ̀"
+
+#: thold_templates.php
+msgid "You are not authorised to modify one or more of the Thresholds selected"
+msgstr "O kò ní àṣẹ láti yí ọ̀kan tàbí jù bẹ́ẹ̀ lọ lára Àwọn Àlà tí a yàn padà"
+
+#: thold_templates.php
+#, php-format
+msgid "%s (%d Thresholds)"
+msgstr "%s (Àwọn Àlà %d)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to export the following Threshold Template(s)."
+msgstr "Tẹ 'Tẹ̀síwájú' láti kó Àdàkọ Àlà wọ̀nyí jáde."
+
+#: thold_templates.php
+msgid "Export Template(s)"
+msgstr "Kó (Àwọn) Àdàkọ jáde"
+
+#: thold_templates.php
+msgid "Click 'Continue' to delete the following Threshold Template(s)."
+msgstr "Tẹ 'Tẹ̀síwájú' láti pa Àdàkọ Àlà wọ̀nyí rẹ́."
+
+#: thold_templates.php
+msgid "Delete Template(s)"
+msgstr "Pa (Àwọn) Àdàkọ Rẹ́"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Reapply Suggested Names to Thresholds of the following Threshold Template(s)."
+msgstr "Tẹ 'Tẹ̀síwájú' láti tún lo Àwọn Orúkọ Àbá sí Àwọn Àlà ti Àdàkọ Àlà wọ̀nyí."
+
+#: thold_templates.php
+msgid "Reapply Suggested Names to Template(s)"
+msgstr "Tún Lo Àwọn Orúkọ Tí A Dábàá fún Àwọn Àdàkọ"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Enable the selected Template(s) and Threshold(s)."
+msgstr "Tẹ 'Tẹ̀síwájú' láti mú kí Àdàkọ àti Àlà tí a yàn ṣiṣẹ́."
+
+#: thold_templates.php
+msgid "Enable Template(s)"
+msgstr "Mú Àwọn Àdàkọ ṣiṣẹ́"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
+msgstr "Tẹ 'Tẹ̀síwájú' láti Mú Àdàkọ àti Àlà tí a yàn di àìṣiṣẹ́."
+
+#: thold_templates.php
+msgid "Disable Template(s)"
+msgstr "Ṣe àìṣiṣẹ́ Àdàkọ"
+
+#: thold_templates.php
+msgid "Threshold Template Creation Wizard"
+msgstr "Olùrànlọ́wọ́ Ìṣẹ̀dá Àdàkọ Àlà"
+
+#: thold_templates.php
+msgid "Please select a Data Template"
+msgstr "Jọ̀wọ́ yan Àdàkọ Dátà kan"
+
+#: thold_templates.php
+msgid "Please select a Data Source"
+msgstr "Jọ̀wọ́ yan Orísun Dátà kan"
+
+#: thold_templates.php
+msgid "Please press 'Create' to create your Threshold Template"
+msgstr "Jọ̀wọ́ tẹ 'Ṣẹ̀dá' láti ṣẹ̀dá Àdàkọ Àlà rẹ"
+
+#: thold_templates.php
+msgid "The Threshold Template requested can not be found"
+msgstr "A kò lè rí Àdàkọ Àlà tí a béèrè fún"
+
+#: thold_templates.php
+msgid "Provide the Threshold Template a meaningful name."
+msgstr "Fún Àdàkọ Àlà náà ní orúkọ tí ó ní ìtumọ̀."
+
+#: thold_templates.php
+msgid "Suggested Threshold Name"
+msgstr "Orúkọ Àlà tí a Dábàá"
+
+#: thold_templates.php
+msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
+msgstr "Pèsè orúkọ tí a dábàá fún Àlà tí a ṣẹ̀dá nípa lílo Àdàkọ yìí. Àwọn oníyípadà ìrọ́pò ìṣeédéédé ti Ẹ̀rọ (|host_*|), Ìbéèrè Dátà (|query_*|) àti Àbáwọlé (|input_*|) ni a lè lò pẹ̀lú |graph_title| fún Àkọlé Gíráfù."
+
+#: thold_templates.php
+msgid "Data Template that you are using. (This cannot be changed)"
+msgstr "Àdàkọ Dátà tí o ń lò. (Èyí kò ṣe é yípadà)"
+
+#: thold_templates.php
+msgid "Data Field"
+msgstr "Ààyè Dátà"
+
+#: thold_templates.php
+msgid "Data Field that you are using. (This cannot be changed)"
+msgstr "Ààyè Dátà tí o ń lò. (Èyí kò ṣe é yípadà)"
+
+#: thold_templates.php
+msgid "Whether or not this Threshold will be checked and alerted upon."
+msgstr "Bóyá a óò ṣàyẹ̀wò Àlà yìí tí a óò sì tanijí lórí rẹ̀ tàbí bẹ́ẹ̀ kọ́."
+
+#: thold_templates.php
+msgid "Repeat alert after this amount of time has pasted since the last alert."
+msgstr "Tún ìtanijí ṣe lẹ́yìn tí iye àkókò yìí bá ti kọjá láti ìtanijí tó kẹ́yìn."
+
+#: thold_templates.php
+msgid "Min Trigger Duration"
+msgstr "Àkókò Ìmúṣẹ Tó Kéré Jù"
+
+#: thold_templates.php
+msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
+msgstr "Iye àkókò tí Orísun Dátà gbọ́dọ̀ wà ní ipò ìrúfin kí a tó gbé ìtánilólóbó dìde."
+
+#: thold_templates.php
+msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
+msgstr "Iye ìgbà tí Orísun Dátà gbọ́dọ̀ wà ní ipò ìrúfin kí ó tó fi ìkìlọ̀ jáde."
+
+#: thold_templates.php
+msgid "Time Period Length"
+msgstr "Gígùn Àkókò"
+
+#: thold_templates.php
+msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
+msgstr "Iye ìgbà tí Orísun Dátà gbọ́dọ̀ wà ní ipò ìrúfin kí ó tó fi ìtànijì jáde."
+
+#: thold_templates.php
+msgid "Baseline Monitoring"
+msgstr "Àbójútó Ìpìlẹ̀"
+
+#: thold_templates.php
+#, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Ṣàlàyé ìyàtọ̀ tí a gbà láyè fún Àlà òkè. Tí kò bá sí ní ètò, a kò ní ṣàyẹ̀wò Àlà òkè rárá.  Ẹyọ ìwọ̀n jẹ́ iye pàtó fún Irú 'Iye Pàtó', àti Ìdá-ọgọ́rùn-ún fún méjèèjì '%% Ìyàtọ̀' àti '%% Àròpin Tó Ń Fò'"
+
+#: thold_templates.php
+#, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Ṣàlàyé ìyàtọ̀ tí a gbà láyè fún Àlà ìsàlẹ̀. Tí kò bá sí ní ètò, a kò ní ṣàyẹ̀wò Àlà ìsàlẹ̀ rárá.  Ẹyọ ìwọ̀n jẹ́ iye pàtó fún Irú 'Iye Pàtó', àti Ìdá-ọgọ́rùn-ún fún méjèèjì '%% Ìyàtọ̀' àti '%% Àròpin Tó Ń Fò'"
+
+#: thold_templates.php
+#, php-format
+msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
+msgstr "Iye ìgbà tẹ̀léra tí Orísun Dátà gbọ́dọ̀ wà ní ipò ìrúfin kí ìtánilólóbó tó lè dìde.<br>Fi sílẹ̀ ní òfo láti lo ìníyelórí àìyípadà (Àìyípadà: ìyípo %s"
+
+#: thold_templates.php
+msgid "Percent Datasource"
+msgstr "Ìdá Ọgọ́rùn-ún Orísun Dátà"
+
+#: thold_templates.php
+msgid "Second Datasource Item to use as total value to calculate percentage from."
+msgstr "Ohun Orísun Dátà Kejì láti lò gẹ́gẹ́ bí àpapọ̀ iye láti ṣírò ìpín ọgọ́rùn-ún láti inú rẹ̀."
+
+#: thold_templates.php
+#, php-format
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Ìsọ RPN jẹ́ Ìsọ RPN tó bá RRDtool mu.  Ìlànà ọ̀rọ̀ ní gbogbo àwọn iṣẹ́ ìsàlẹ̀ yìí pẹ̀lú àwọn ìsọ ìyípadà Ẹ̀rọ àti Ìbéèrè Dátà bí i <span style=\"color:blue;\">|query_ifSpeed|</span>.  Láti lo Orísun Dátà nínú Ìsọ RPN, o gbọ́dọ̀ lo ìlànà ọ̀rọ̀ náà: <span style=\"color:blue;\">|ds:dsname|</span>.  Fún àpẹẹrẹ, <span style=\"color:blue;\">|ds:traffic_in|</span> yóò mú iye lọ́wọ́lọ́wọ́ ti Orísun Dátà traffic_in fún àwọn RRDfile(s) tó ní í ṣe pẹ̀lú Gíráfù náà. Eyíkéyìí Orísun Dátà fún Gíráfù kan lè wà nínú rẹ̀.<br>Àwọn Olùṣiṣẹ́ Ìṣirò: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Àwọn Iṣẹ́: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Àwọn Olùṣiṣẹ́ Ìṣàn: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Àwọn Iṣẹ́ Ìfiwéra: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+
+#: thold_templates.php
+msgid "Upper data source to use to calculate the total value."
+msgstr "Orísun dátà òkè láti lò láti fi ṣírò àpapọ̀ iye."
+
+#: thold_templates.php
+msgid "Alert Email Subject"
+msgstr "Àkọlé Ímeèlì Ìfiyèsí"
+
+#: thold_templates.php
+msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Èyí ni kókó-ọ̀rọ̀ Ímeèlì tí yóò hàn nínú Ímeèlì náà (Lẹ́tà 128 PỌ̀ JÙLỌ). Fi sílẹ̀ ní òfo fún àtọwọ́dọ́wọ́. Ọ̀pọ̀lọpọ̀ àwọn àmì àrọ́pò wọ́pọ̀ ló wà tí a lè lò pẹ̀lú:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "Alert Email Body"
+msgstr "Àkóónú Ímeèlì Ìfiyèsí"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Èyí ni ìránṣẹ́ tí yóò hàn ní òkè gbogbo Àwọn Ìtànijí Àlà (Àmì-ọ̀rọ̀ 1024 Ó PỌ̀ JÙ). A gba HTML láàyè, ṣùgbọ́n a ó yọ ọ́ kúrò fún àwọn ímeèlì ọ̀rọ̀ nìkan. Ọ̀pọ̀lọpọ̀ àmì ìrọ́pò wọ́pọ̀ wà tí a lè lò láti fi kún un:<br>f.a. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold_templates.php
+msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Èyí ni kókó-ọ̀rọ̀ Ìkìlọ̀ tí yóò hàn nínú Ímeèlì náà (Lẹ́tà 128 PỌ̀ JÙLỌ). Fi sílẹ̀ ní òfo fún àtọwọ́dọ́wọ́. Ọ̀pọ̀lọpọ̀ àwọn àmì àrọ́pò wọ́pọ̀ ló wà tí a lè lò pẹ̀lú:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Èyí ni ìránṣẹ́ tí yóò hàn ní òkè gbogbo Àwọn Ìkìlọ̀ Àlà (Àmì-ọ̀rọ̀ 1024 Ó PỌ̀ JÙ). A gba HTML láàyè, ṣùgbọ́n a ó yọ ọ́ kúrò fún àwọn ímeèlì ọ̀rọ̀ nìkan. Ọ̀pọ̀lọpọ̀ àmì ìrọ́pò wọ́pọ̀ wà tí a lè lò láti fi kún un:<br>f.a. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold_templates.php
+msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Èyí ni kókó-ọ̀rọ̀ Ímeèlì tí yóò hàn nínú Ímeèlì náà lẹ́yìn Ìpadàbọ̀ sí Déédéé (Lẹ́tà 128 PỌ̀ JÙLỌ). Fi sílẹ̀ ní òfo fún àtọwọ́dọ́wọ́. Ọ̀pọ̀lọpọ̀ àwọn àmì àrọ́pò wọ́pọ̀ ló wà tí a lè lò pẹ̀lú:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "Restoral Body"
+msgstr "Àkóónú Ìmúpadàbọ̀sípò"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Èyí ni ìránṣẹ́ tí yóò hàn ní òkè gbogbo àwọn ìfitónilétí ìmúpadàbọ̀sípò Àlà (Àmì-ọ̀rọ̀ 1024 Ó PỌ̀ JÙ). A gba HTML láàyè, ṣùgbọ́n a ó yọ ọ́ kúrò fún Àwọn Ímeèlì ọ̀rọ̀ nìkan. Ọ̀pọ̀lọpọ̀ àmì ìrọ́pò wọ́pọ̀ wà tí a lè lò láti fi kún un:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: thold_templates.php
+msgid "Notification List Read Only"
+msgstr "Àkójọ Ìfitọ́nilétí Kíkà Nìkan"
+
+#: thold_templates.php
+msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
+msgstr "Bí a bá fọwọ́ sí i, Àwọn Àtòjọ Ìfitónilétí Àlà nínú Àdàkọ yóò kọ sórí ti Àlà náà."
+
+#: thold_templates.php
+msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
+msgstr "Ìwúwo tí a ó lò fún àwọn ìfitónilétí. (Ipa kékeré -> Ipa pàtàkì jùlọ)"
+
+#: thold_templates.php
+msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
+msgstr "Èyí jẹ́ àkójọ àwọn àkọọ́lẹ̀ tí a ó fi tó létí nígbà tí a bá rékọjá Àlà yìí.<br><br><br><br>"
+
+#: thold_templates.php
+msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
+msgstr "O lè tọ́ka sí àwọn Ímeèlì àfikún níbí láti gba àwọn ìtànijí fún Orísun Dátà yìí (tí a fi kọ́mà pín sí)"
+
+#: thold_templates.php
+msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
+msgstr "O lè tọ́ka sí àwọn Ímeèlì àfikún níbí láti gba àwọn ìkìlọ̀ fún Orísun Dátà yìí (tí a fi kọ́mà pín sí)"
+
+#: thold_templates.php
+msgid "Enter an Eternal ID for this Thold Template."
+msgstr "Tẹ ID Àìnípẹ̀kun fún Àdàkọ Thold yìí."
+
+#: thold_templates.php
+#, php-format
+msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "Oṣù %d, Ọjọ́ %d, Wákàtí %d, Ìṣẹ́jú %d, Ìṣẹ́jú-àáyá %d (Ìpíndọ́gba)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
+msgstr "Oṣù %d, Ọjọ́ %d, Wákàtí %d, Ìṣẹ́jú %d, Ìṣẹ́jú-àáyá %d"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "Ọjọ́ %d, Wákàtí %d, Ìṣẹ́jú %d, Ìṣẹ́jú-àáyá %d (Ìpíndọ́gba)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
+msgstr "Ọjọ́ %d, Wákàtí %d, Ìṣẹ́jú %d, Ìṣẹ́jú-àáyá %d"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "Wákàtí %d, Ìṣẹ́jú %d, Ìṣẹ́jú-àáyá %d (Ìpíndọ́gba)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Hours, %d Minutes, %d Seconds"
+msgstr "Wákàtí %d, Ìṣẹ́jú %d, Ìṣẹ́jú-àáyá %d"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Minutes, %d Seconds (Average)"
+msgstr "Ìṣẹ́jú %d, Ìṣẹ́jú-àáyá %d (Ìpíndọ́gba)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Minutes, %d Seconds"
+msgstr "Ìṣẹ́jú %d, Ìṣẹ́jú-àáyá %d"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Seconds (Average)"
+msgstr "Ìṣẹ́jú-àáyá %d (Ìpíndọ́gba)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Seconds"
+msgstr "Ìṣẹ́jú-àáyá %d"
+
+#: thold_templates.php
+msgid "DS Name"
+msgstr "Orúkọ DS"
+
+#: thold_templates.php
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
+msgstr "Àwọn iye Ìkìlọ̀ / Ìtanijí Gíga.  ÀKÍYÈSÍ: Àwọn iye ìpìlẹ̀ jẹ́ ìpín nínú ọgọ́rùn-ún, gbogbo àwọn iye mìíràn jẹ́ àwọn iye RAW tí cdef kò yí padà."
+
+#: thold_templates.php
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
+msgstr "Àwọn iye Ìkìlọ̀ / Ìtanijí Kékeré.  ÀKÍYÈSÍ: Àwọn iye ìpìlẹ̀ jẹ́ ìpín nínú ọgọ́rùn-ún, gbogbo àwọn iye mìíràn jẹ́ àwọn iye RAW tí cdef kò yí padà."
+
+#: thold_templates.php
+msgid "Import Template from Local File"
+msgstr "Gba Àdàkọ Wọlé láti Fáìlì Abẹ́lé"
+
+#: thold_templates.php
+msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
+msgstr "Tí fáìlì XML tí ó ní dátà Àdàkọ Àlà bá wà lórí ẹ̀rọ abẹ́lé rẹ, yàn án níbí."
+
+#: thold_templates.php
+msgid "Import Template from Text"
+msgstr "Kó Àdàkọ Wọlé láti Ọ̀rọ̀"
+
+#: thold_templates.php
+msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
+msgstr "Tí o bá ní fáìlì XML tí ó ní dátà Àdàkọ Àlà gẹ́gẹ́ bí ọ̀rọ̀, o lè lẹ̀ ẹ́ sínú àpótí yìí láti gbé e wọlé."
+
+#: thold_templates.php
+msgid "Import Results"
+msgstr "Àbájáde Ìkówọlé"
+
+#: thold_templates.php
+msgid "Cacti has imported the following items:"
+msgstr "Cacti ti kó àwọn ohun wọ̀nyí wọlé:"
+
+#: thold_templates.php
+msgid "Import Threshold Templates"
+msgstr "Kó Àwọn Àdàkọ Àlà Wọlé"
+
+#: thold_templates.php
+msgid "The file is too big."
+msgstr "Fáìlì náà tóbi jù."
+
+#: thold_templates.php
+msgid "Incomplete file transfer."
+msgstr "Ìfiránṣẹ́ fáìlì kò pé."
+
+#: thold_templates.php
+msgid "No file uploaded."
+msgstr "Kò sí fáìlì tí a gbé sókè."
+
+#: thold_templates.php
+msgid "Temporary folder missing."
+msgstr "Àpò ìpamọ́ ìgbà díẹ̀ sọnù."
+
+#: thold_templates.php
+msgid "Failed to write file to disk"
+msgstr "Kíkọ fáìlì sí orí díìsìkì kùnà"
+
+#: thold_templates.php
+msgid "File upload stopped by extension"
+msgstr "Àfikún dá ìgbésókè fáìlì dúró"
+
+#: thold_templates.php
+msgid "Invalid file extension."
+msgstr "Àfikún fáìlì kò tọ́."
+
+#: thold_templates.php
+msgid "NOTE:"
+msgstr "ÀKÍYÈSÍ:"
+
+#: thold_templates.php
+msgid "ERROR:"
+msgstr "ÀṢÌṢE:"
+

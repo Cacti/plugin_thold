@@ -1,0 +1,3714 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-13 09:23-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Igbo\n"
+"Language: ig-NG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: includes/arrays.php
+msgid "Indefinitely"
+msgstr "Na-enweghị njedebe"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "Ọnwa %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "Ọnwa %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "Afọ %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Hour Ago"
+msgstr "Site na Awa %d Gara Aga"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Hours Ago"
+msgstr "Site na Awa %d Gara Aga"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Day Ago"
+msgstr "Site na Ụbọchị %d Gara Aga"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Days Ago"
+msgstr "Site na Ụbọchị %d Gara Aga"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Week Ago"
+msgstr "Site na Izu %d Gara Aga"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Weeks Ago"
+msgstr "Site na Izu %d Gara Aga"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Month Ago"
+msgstr "Site na Ọnwa %d Gara Aga"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Months Ago"
+msgstr "Site na Ọnwa %d Gara Aga"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Year Ago"
+msgstr "Site na Afọ %d Gara Aga"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Years Ago"
+msgstr "Site na Afọ %d Gara Aga"
+
+#: includes/arrays.php thold_graph.php
+msgid "Down"
+msgstr "Dara ada"
+
+#: includes/arrays.php thold_graph.php
+msgid "Error"
+msgstr "Njehie"
+
+#: includes/arrays.php thold_graph.php
+msgid "Recovering"
+msgstr "Na-agbake"
+
+#: includes/arrays.php thold_graph.php
+msgid "Up"
+msgstr "Na-arụ ọrụ"
+
+#: includes/arrays.php thold_graph.php
+msgid "Unknown"
+msgstr "Amaghị"
+
+#: includes/arrays.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php
+msgid "Disabled"
+msgstr "Gbanyụrụ"
+
+#: includes/arrays.php thold_graph.php
+msgid "Not Monitored"
+msgstr "Anaghị Elekọta Ya"
+
+#: includes/arrays.php
+msgid "Notify - Alert"
+msgstr "Zipu Ọkwa - Mkpu"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Alert"
+msgstr "Ịma ọkwa"
+
+#: includes/arrays.php
+msgid "Notify - Alert2Warning"
+msgstr "Zipu Ọkwa - Alert2Warning"
+
+#: includes/arrays.php
+msgid "Alert2Warn"
+msgstr "Alert2Warn"
+
+#: includes/arrays.php
+msgid "Notify - Warning"
+msgstr "Zipu Ọkwa - Ịdọ aka ná ntị"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Warning"
+msgstr "Ịdọ aka ná ntị"
+
+#: includes/arrays.php
+msgid "Notify - Re-Trigger"
+msgstr "Zipu Ọkwa - Mkpali Ọzọ"
+
+#: includes/arrays.php
+msgid "Re-Trigger"
+msgstr "Kpalite Ọzọ"
+
+#: includes/arrays.php
+msgid "Notify - Restoral"
+msgstr "Zipu Ọkwa - Mweghachi"
+
+#: includes/arrays.php
+msgid "Restoral"
+msgstr "Mweghachi"
+
+#: includes/arrays.php
+msgid "Event - Alert Trigger"
+msgstr "Ihe Omume - Mbido Mkpu"
+
+#: includes/arrays.php
+msgid "Alert Event"
+msgstr "Mmemme Ịma ọkwa"
+
+#: includes/arrays.php
+msgid "Event - Warning Trigger"
+msgstr "Ihe Omume - Mbido Ịdọ aka ná ntị"
+
+#: includes/arrays.php
+msgid "Warning Event"
+msgstr "Mmemme Ịdọ Aka Ná Ntị"
+
+#: includes/arrays.php
+msgid "Event - Restoral"
+msgstr "Ihe Omume - Mweghachi"
+
+#: includes/arrays.php thold_graph.php
+msgid "Restoral Event"
+msgstr "Ihe Mmere Mweghachi"
+
+#: includes/arrays.php
+msgid "Event - Acknowledge"
+msgstr "Ihe Omume - Nabata"
+
+#: includes/arrays.php
+msgid "Acknowledge Event"
+msgstr "Kwenye Mmemme"
+
+#: includes/arrays.php
+msgid "Restore"
+msgstr "Weghachi"
+
+#: includes/arrays.php
+msgid "Alert Trigger"
+msgstr "Ihe Na-akpalite Ịma ọkwa"
+
+#: includes/arrays.php
+msgid "Warn Trigger"
+msgstr "Ihe Mkpali Ịdọ Aka Ná Ntị"
+
+#: includes/arrays.php
+msgid "Alert-Warn"
+msgstr "Ịma ọkwa-Ịdọ aka ná ntị"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Acknowledgment"
+msgstr "Nkwenye"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Baseline Alert"
+msgstr "Mkpu Akara ntọala"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Notice"
+msgstr "Ọkwa"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Ok"
+msgstr "Ọ dị mma"
+
+#: includes/arrays.php
+msgid "Emergency"
+msgstr "Ihe mberede"
+
+#: includes/arrays.php thold.php thold_templates.php
+msgid "Critical"
+msgstr "Dị oke mkpa"
+
+#: includes/arrays.php
+msgid "Info"
+msgstr "Ozi"
+
+#: includes/arrays.php
+msgid "Debug"
+msgstr "Chọpụta Njehie"
+
+#: includes/arrays.php includes/functions.php
+msgid "Never"
+msgstr "Ọ dịtụbeghị"
+
+#: includes/arrays.php
+msgid "Every Minute"
+msgstr "Nkeji Ọ bụla"
+
+#: includes/arrays.php includes/settings.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "Nkeji %d Ọ bụla"
+
+#: includes/arrays.php
+msgid "Every Hour"
+msgstr "Elekere Ọ bụla"
+
+#: includes/arrays.php includes/settings.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "Elekere %d Ọ bụla"
+
+#: includes/arrays.php
+msgid "Every Day"
+msgstr "Kwa Ụbọchị"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Days"
+msgstr "Ụbọchị %d Ọ Bụla"
+
+#: includes/arrays.php
+msgid "Every Week"
+msgstr "Kwa Izu"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Weeks"
+msgstr "Kwa Izu %d"
+
+#: includes/arrays.php
+msgid "Every Month"
+msgstr "Ọnwa Ọ Bụla"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Minute"
+msgstr "Nkeji %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Minutes"
+msgstr "Nkeji %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Hour"
+msgstr "Elekere %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Hours"
+msgstr "Elekere %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Day"
+msgstr "Ụbọchị %d"
+
+#: includes/arrays.php thold_graph.php
+#, php-format
+msgid "%d Days"
+msgstr "Ụbọchị %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Week"
+msgstr "Izu %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Weeks"
+msgstr "Izu %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%0.1f Hours"
+msgstr "Awa %0.1f"
+
+#: includes/arrays.php
+msgid "Every Polling"
+msgstr "Nchọpụta Ọ Bụla"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Pollings"
+msgstr "Nchọpụta %d Ọ Bụla"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Polling"
+msgstr "%d Ntụle"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Pollings"
+msgstr "%d Ntụle"
+
+#: includes/arrays.php
+msgid "High / Low"
+msgstr "Dị Elu / Dị Ala"
+
+#: includes/arrays.php
+msgid "Baseline Deviation"
+msgstr "Nchigharị Akara ntọala"
+
+#: includes/arrays.php
+msgid "Time Based"
+msgstr "Dabere n'Oge"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Min/Max [TIP]"
+msgstr "%% Ndịiche Kacha nta/Kacha elu [TIP]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation CF [TIP]"
+msgstr "%% Ndịiche CF [TIP]"
+
+#: includes/arrays.php
+msgid "Absolute Val Min/Max [TIP]"
+msgstr "Uru Zuru Oke Kacha Nta/Kacha Ukwuu [TIP]"
+
+#: includes/arrays.php
+msgid "Absolute Val of CF [TIP]"
+msgstr "Uru Zuru Oke nke CF [TIP]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Avg [AOT]"
+msgstr "%% Nkezi Ndịiche [AOT]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Avg of CF [AOT]"
+msgstr "%% Nkezi Ndịiche nke CF [AOT]"
+
+#: includes/arrays.php
+msgid "Absolute Val Avg [AOT]"
+msgstr "Nkezi Uru Zuru Oke [AOT]"
+
+#: includes/arrays.php
+msgid "Absolute Val Avg of CF [AOT]"
+msgstr "Nkezi Uru Zuru Oke nke CF [AOT]"
+
+#: includes/arrays.php
+msgid "Exact Value"
+msgstr "Ọnụọgụgụ Kpọmkwem"
+
+#: includes/arrays.php
+msgid "CDEF"
+msgstr "CDEF"
+
+#: includes/arrays.php
+msgid "Percentage"
+msgstr "Pasentị"
+
+#: includes/arrays.php thold.php thold_templates.php
+msgid "RPN Expression"
+msgstr "Okwu RPN"
+
+#: includes/arrays.php
+msgid "Upper + Lower bytes"
+msgstr "Bayịtị Elu + Ala"
+
+#: includes/arrays.php
+msgid "Acknowledge"
+msgstr "Kwenye"
+
+#: includes/arrays.php
+msgid "Suspend Notifications"
+msgstr "Kwụsịtụ Ọkwa Gasị"
+
+#: includes/arrays.php
+msgid "Resume Notifications"
+msgstr "Maliteghachi Ozi"
+
+#: includes/arrays.php notify_lists.php notify_queue.php setup.php
+msgid "Delete"
+msgstr "Hichapụ"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Gbanye"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Gbanyụọ"
+
+#: includes/arrays.php
+msgid "Reapply Suggested Names"
+msgstr "Tinyegharịa Aha A Tụrụ Aro"
+
+#: includes/arrays.php
+msgid "Propagate Template"
+msgstr "Basa Nlereanya"
+
+#: includes/arrays.php thold_graph.php
+msgid "Export"
+msgstr "Bupụ"
+
+#: includes/arrays.php
+msgid "Threshold Mail"
+msgstr "Ozi Ọnụ ụzọ"
+
+#: includes/arrays.php
+msgid "Down Host Mail"
+msgstr "Ozi-e Onye Nnabata Adịghị Arụ Ọrụ"
+
+#: includes/arrays.php
+msgid "Up Host Mail"
+msgstr "Ozi-e Onye nnabata Dị Elu"
+
+#: includes/arrays.php
+msgid "Threshold Cmd"
+msgstr "Iwu Ọnụ ụzọ"
+
+#: includes/arrays.php
+msgid "Down Host Cmd"
+msgstr "Iwu Onye Nnabata Adịghị Arụ Ọrụ"
+
+#: includes/arrays.php
+msgid "Up Host Cmd"
+msgstr "Iwu Onye nnabata Dị Elu"
+
+#: includes/arrays.php
+msgid "Auto"
+msgstr "Akpaaka"
+
+#: includes/arrays.php
+msgid "0 Digits"
+msgstr "Mkpụrụọnụọgụ 0"
+
+#: includes/arrays.php
+msgid "1 Digit"
+msgstr "Ọnụọgụ 1"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Digits"
+msgstr "Mkpụrụ ọnụọgụgụ %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d Devices"
+msgstr "> %d Ngwaọrụ"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d %% of Devices Globally"
+msgstr "> %d %% nke Ngwaọrụ n'ụwa niile"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d Devices in a Site"
+msgstr "> %d Ngwaọrụ n'ime Saịtị"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d %% of Devices in a Site"
+msgstr "> %d %% nke Ngwaọrụ n'ime Saịtị"
+
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "< Nkeji 1"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "Kemgbe E Kepụtara"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "Ọnụ ụzọ Gasị"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "Ndekọ"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "Ọnọdụ Ngwaọrụ"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "Oge:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "Onye Ọrụ:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "Sistemụ:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "Swap Gasị:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "Peeji gasị:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr "Naanị idekọ, ngwaọrụ ndozi"
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "Nke Ndabere"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "Njikọ na Eserese na Cacti"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>E wepụtala mkpu nke chọrọ nlebara anya gị.<br><br><b>Ngwaọrụ</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Ozi</b>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>E wepụtala ịdọ aka ná ntị nke chọrọ nlebara anya gị.<br><br><b>Ngwaọrụ</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Ozi</b>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Ọnụ ụzọ alọghachila n'ọnọdụ nkịtị. <br><br><strong>Ngwaọrụ</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Ozi</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "%% Ndịiche [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "Uru Zuru Oke [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [AOT:%s]"
+msgstr "%% Ndịiche [AOT:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "Uru Zuru Oke [AOT:%s]"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "Edoghị ID Ngwaọrụ mgbe a na-anwa ịmepụta Eserese na Ọnụ ụzọ"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "Ahụghị ID Nlereanya Ọnụ ụzọ mgbe a na-anwa imepụta Eserese na Ọnụ ụzọ"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "Etinyereghị ID Nlereanya Ọnụ ụzọ mgbe a na-anwa imepụta Eserese na Ọnụ ụzọ"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "Mmepụta Eserese kụrụ afọ n'ala maka Nlereanya Ọnụ ụzọ"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "E mepụtara Ọnụ ụzọ na-akpaghị aka n'ihi njikọta Nlereanya Ngwaọrụ"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "Ajụla Ikike"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "Emelitere Ndekọ"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "Emezighị ịchọta Ihe Nlereanya Eserese ejikọrọ '%d' na Ọnụ ụzọ '%d'"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "Ọnụ ụzọ Emepụtara: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "Ị ga-akọwapụta ma ọ bụ 'Ọnụ ụzọ Mkpu Dị Elu' ma ọ bụ 'Ọnụ ụzọ Mkpu Dị Ala' ma ọ bụ ha abụọ!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Ọnụ ụzọ na-agaghị ekwe omume: 'Ọnụ ụzọ Mgbama Dị Elu' dị obere karịa 'Ọnụ ụzọ Mgbama Dị Ala'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "Ọnụ ụzọ na-agaghị ekwe omume: 'Ọnụ ụzọ Ịdọ aka ná ntị Dị Elu' dị obere karịa 'Ọnụ ụzọ Ịdọ aka ná ntị Dị Ala'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "Ọnụ ụzọ na-agaghị ekwe omume: 'Ọnụ ụzọ Ịdọ aka ná ntị Dị Elu' buru ibu karịa 'Ọnụ ụzọ Mgbama Dị Elu'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "Ọnụ ụzọ na-agaghị ekwe omume: 'Ọnụ ụzọ Mgbama Dị Ala' buru ibu karịa 'Ọnụ ụzọ Ịdọ aka ná ntị Dị Ala'!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "Ntụaka oge n'oge gara aga ga-abụrịrị ọnụọgụgụ zuru ezu dị mma!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "Ị ga-akọwapụta ma ọ bụ 'Mgbapụ Ntọala ELU' ma ọ bụ 'Mgbapụ Ntọala ALA' ma ọ bụ ha abụọ!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "Ọnụ ụzọ na-agaghị ekwe omume: 'Ọnụ ụzọ Mgbama Dị Elu' dị obere karịa 'Ọnụ ụzọ Mgbama Dị Ala'"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr "Ọnụ ụzọ na-agaghị ekwe omume: Ọnụọgụgụ Mkpalite Mgbama ga-abụrịrị nke karịrị ma ọ bụ hara ka 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Ọnụ ụzọ na-agaghị ekwe omume: Ọnụọgụgụ Mkpalite Mgbama ga-abụrịrị nke dị obere karịa ma ọ bụ hara ka Ọnụọgụgụ Mkpalite ma ọ bụ hara ka 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr "Ọnụ ụzọ na-agaghị ekwe omume: Ọnụọgụgụ Mkpalite Ịdọ aka ná ntị ga-abụrịrị nke karịrị ma ọ bụ hara ka 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Ọnụ ụzọ na-agaghị ekwe omume: Ọnụọgụgụ Mkpalite Ịdọ aka ná ntị ga-abụrịrị nke dị obere karịa ma ọ bụ hara ka Ọnụọgụgụ Mkpalite ma ọ bụ hara ka 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Ọnụ ụzọ na-agaghị ekwe omume: 'Ọnụ ụzọ Ịdọ aka ná ntị Dị Ala' dị obere karịa 'Ọnụ ụzọ Mgbama Dị Ala'!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "Ụdị Ọnụ ụzọ Amaghị!"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "Enweghị Nlereanya Gasị nke Ọnụ ụzọ jikọtara na Nlereanya Ngwaọrụ ahụ."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "Enweghị Ọnụ ụzọ Emepụtara.  Ma ha adịlarị, ma ọ bụ ahụghị ndị dabara adaba."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "Njehie Onye Nzipu Ozi: Enweghị adreesị <b>TO</b> edobere!!<br>Ọ bụrụ na ị na-eji njikọ <i>Ozi Nnwale</i>, biko tọọ ntọala <b>Ozi-e Ịma Ọkwa</b>."
+
+#: includes/functions.php
+msgid "Done"
+msgstr "Emechara"
+
+#: includes/functions.php
+msgid "Pending"
+msgstr "Na-echere"
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "Nwere Njehie"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "Ọ dịghị"
+
+#: includes/functions.php
+msgid "Success"
+msgstr "Ịga Nke Ọma"
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "Kwenye Ọnụ ụzọ"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "Pịa 'Gaa n'ihu' iji Nabata Ọnụ ụzọ ndị na-esonụ."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "Kwenye Ọnụ ụzọ"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "Kagbuo"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "Gaa n'ihu"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "Ahụghị Nlereanya Data Nke Nlereanya Ọnụ ụzọ!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "Ahụghị Isi Iyi Data Nke Nlereanya Ọnụ ụzọ!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "Kọlụm mbubata Nlereanya Ọnụ ụzọ adabaghị na atụmatụ nchekwa data"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "Ebubatara"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "Nlereanya Ọnụ ụzọ '%s' %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "Emelitere"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "Bubata"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "Nlereanya Ọnụ ụzọ '%s' %s Dara!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "Mmelite"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "E nwetara njehie mgbe a na-anwa ibubata data Nlereanya Ọnụ ụzọ."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "Achọpụtaghị na data mbubata Nlereanya Ọnụ ụzọ bụ data XML."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "Data mbubata Nlereanya Ọnụ ụzọ ezighị ezi mgbe a na-ebubata Nlereanya Ọnụ ụzọ."
+
+#: includes/polling.php
+msgid "SNMP not in use"
+msgstr "Anaghị eji SNMP"
+
+#: includes/polling.php
+msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
+msgstr "Ọkwa Ngwaọrụ: <DESCRIPTION> (<HOSTNAME>) alọghachila site n'ọnọdụ KWỤSỊRỊ"
+
+#: includes/polling.php
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
+msgstr "<br>Ọnọdụ sistemụ <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Saịtị: <SITE><br>Ebe: <LOCATION><br>Nzaghachi ping ugbu a: <CUR_TIME> ms<br>Nkezi nzaghachi sistemụ: <AVG_TIME> ms<br>Nnwere onwe sistemụ: <AVAILABILITY><br>Ngụkọta nyocha kemgbe ekpochapụrụ: <TOT_POLL><br>Ngụkọta nyocha dara: <FAIL_POLL><br>Ụbọchị ikpeazụ enyochara dị elu: <LAST_FAIL><br>Ngwaọrụ ndị dara na mbụ maka: <DOWNTIME><br><br>Ozi SNMP:<br>Aha - <SNMP_HOSTNAME><br>Ebe - <SNMP_LOCATION><br>Oge ọrụ - <UPTIMETEXT> (<UPTIME> ms)<br>Sistemụ - <SNMP_SYSTEM><br><br>RỊBA AMA: <NOTES>"
+
+#: includes/polling.php
+msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
+msgstr "Njehie Ngwaọrụ: <DESCRIPTION> (<HOSTNAME>) KWỤSỊRỊ"
+
+#: includes/polling.php
+msgid "DOWN"
+msgstr "DARA"
+
+#: includes/polling.php
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
+msgstr "Njehie Sistemụ : <DESCRIPTION> (<HOSTNAME>) dị <DOWN/UP><br>Saịtị: <SITE><br>Ebe ọ dị: <LOCATION><br>Ihe kpatara ya: <MESSAGE><br><br>Nkezi nzaghachi sistemụ : <AVG_TIME> ms<br>Ịdị njikere sistemụ: <AVAILABILITY><br>Mkpokọta Nnyocha Kemgbe Mkpọchapụ: <TOT_POLL><br>Mkpokọta Nnyocha Dara: <FAIL_POLL><br>Ụbọchị Ikpeazụ E Nyochara DOWN : <LAST_FAIL><br>Oge Ngwaọrụ Nọrọ n'Ọrụ Mbụ: <DOWNTIME><br>NDETU: <NOTES>"
+
+#: includes/settings.php
+msgid "(actions)"
+msgstr "(omume)"
+
+#: includes/settings.php
+msgid "(edit)"
+msgstr "(dezie)"
+
+#: includes/settings.php
+msgid "(save)"
+msgstr "(chekwaa)"
+
+#: includes/settings.php
+msgid "(add)"
+msgstr "(tinye)"
+
+#: includes/settings.php
+msgid "Threshold Logs"
+msgstr "Ndekọ Ọnụ ụzọ"
+
+#: includes/settings.php
+msgid "Thresholds - Failures"
+msgstr "Ọnụ ụzọ Gasị - Ọdịda"
+
+#: includes/settings.php
+msgid "Thresholds - Normal"
+msgstr "Ọnụ ụzọ Gasị - Nke Nkịtị"
+
+#: includes/settings.php
+msgid "Thresholds - Recovering"
+msgstr "Ọnụ ụzọ Gasị - Na-agbake"
+
+#: includes/settings.php
+msgid "Recent Thresholds"
+msgstr "Ọnụ ụzọ Na-adịbeghị Anya"
+
+#: includes/settings.php
+msgid "Recent Device Failures"
+msgstr "Ọdịda Ngwaọrụ Na-adịbeghị Anya"
+
+#: includes/settings.php thold_templates.php
+msgid "Threshold Templates"
+msgstr "Nlereanya Ọnụ ụzọ Gasị"
+
+#: includes/settings.php
+msgid "Threshold Template Import"
+msgstr "Mbubata Nlereanya Ọnụ ụzọ"
+
+#: includes/settings.php notify_lists.php
+msgid "Notification Lists"
+msgstr "Ndepụta Ọkwa"
+
+#: includes/settings.php
+msgid "Notification Lists (edit)"
+msgstr "Ndepụta Ọkwa (dezie)"
+
+#: includes/settings.php
+msgid "Notification Queue"
+msgstr "Ahịrị Ọkwa"
+
+#: includes/settings.php
+msgid "Management"
+msgstr "Njikwa"
+
+#: includes/settings.php notify_lists.php thold_templates.php
+msgid "Templates"
+msgstr "Nlereanya Gasị"
+
+#: includes/settings.php thold_graph.php
+msgid "Threshold"
+msgstr "Ọnụ ụzọ"
+
+#: includes/settings.php
+msgid "A template with that Data Source already exists!"
+msgstr "Nlereanya nwere Isi Iyi Data ahụ adịlarị!"
+
+#: includes/settings.php
+msgid "Configure Thresholds"
+msgstr "Hazie Ọnụ ụzọ Gasị"
+
+#: includes/settings.php
+msgid "Configure Threshold Templates"
+msgstr "Hazie Nlereanya Gasị nke Ọnụ ụzọ"
+
+#: includes/settings.php
+msgid "Manage Notification Lists"
+msgstr "Jikwaa Ndepụta Ịma Ọkwa"
+
+#: includes/settings.php
+msgid "View Thresholds"
+msgstr "Lee Ọnụ ụzọ Gasị"
+
+#: includes/settings.php
+msgid "Normal User"
+msgstr "Onye Ọrụ Nkịtị"
+
+#: includes/settings.php
+msgid "Template Editor"
+msgstr "Onye Ndezi Templeti"
+
+#: includes/settings.php
+msgid "General Administration"
+msgstr "Nchịkwa Izugbe"
+
+#: includes/settings.php
+msgid "Device Up/Down Notification Settings"
+msgstr "Ntọala Ọkwa Ngwaọrụ Na-arụ ọrụ/Kwụsịrị"
+
+#: includes/settings.php
+msgid "Threshold Up/Down Email Notification"
+msgstr "Ọkwa Ozi-e Elu/Ala nke Ọnụ ụzọ"
+
+#: includes/settings.php notify_lists.php
+msgid "Global List"
+msgstr "Ndepụta Zuru Ụwa Ọnụ"
+
+#: includes/settings.php
+msgid "List Below"
+msgstr "Ndepụta N'okpuru"
+
+#: includes/settings.php
+msgid "Global and List Below"
+msgstr "Zuru Ụwa Ọnụ na Ndepụta N'okpuru"
+
+#: includes/settings.php
+msgid "Which Type of Notification List(s) should be used for Device Up/Down events?"
+msgstr "Kedu Ụdị Ndepụta Ọkwa ekwesịrị iji maka mmemme Ngwaọrụ Ịdị Elu/Ịda Ala (Up/Down)?"
+
+#: includes/settings.php notify_queue.php
+msgid "Notification List"
+msgstr "Ndepụta Ọkwa"
+
+#: includes/settings.php
+msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
+msgstr "Kedu Ndepụta Ọkwa ndị ekwesịrị ịgwa maka mmemme Ngwaọrụ Ịdị Elu/Ịda Ala (Up/Down)?"
+
+#: includes/settings.php
+msgid "Host Failure Count"
+msgstr "Ọnụọgụ Ọdịda Onye nnabata"
+
+#: includes/settings.php
+msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
+msgstr "Ọnụọgụgụ Oge Nyocha nke Onye nnabata a ga-anọ n'ala tupu Thold edekọọ njehie ma kọọ Onye nnabata dị ka Ọ nọ n'ala. Ndabere bụ 0 (jiri Ntọala Cacti)"
+
+#: includes/settings.php
+msgid "Use Cacti Setting"
+msgstr "Jiri Ntọala Cacti"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Polling Interval"
+msgstr "%d Oge Ntụle"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Polling Intervals"
+msgstr "%d Oge Ntụle"
+
+#: includes/settings.php
+msgid "Alerting/Thold"
+msgstr "Ịma ọkwa/Thold"
+
+#: includes/settings.php notify_lists.php
+msgid "General"
+msgstr "Izugbe"
+
+#: includes/settings.php
+msgid "Disable All Thresholds"
+msgstr "Gbanyụọ Ọnụ ụzọ Niile"
+
+#: includes/settings.php
+msgid "Checking this box will disable Alerting on all Thresholds.  This can be used when it is necessary to perform maintenance on your network."
+msgstr "Ịkaa akara n'igbe a ga-agbanyụ Ịma Mkpu n'Ọnụ ụzọ niile. Enwere ike iji nke a mgbe ọ dị mkpa ịrụ ọrụ mmezi na netwọkụ gị."
+
+#: includes/settings.php
+msgid "Auto Create Thresholds"
+msgstr "Mepụta Ọnụ ụzọ Na-akpaghị Aka"
+
+#: includes/settings.php
+msgid "If selected, when running either automation, or when creating/saving a Device, all Thresholds associated with the Device Template will be created."
+msgstr "Ọ bụrụ na ahọpụtara ya, mgbe ị na-agba akpaaka ọ bụla, ma ọ bụ mgbe ị na-eke/na-echekwa Ngwaọrụ, a ga-eke Ọnụ ụzọ niile jikọtara na Nlereanya Ngwaọrụ ahụ."
+
+#: includes/settings.php
+msgid "Consider Unknown Data as Zero"
+msgstr "Were Data A Na-amaghị Dị Ka Efu"
+
+#: includes/settings.php
+msgid "When checking Thresholds, if a Data Source returns Unknown Data ('U'), consider the value as zero for the Threshold check. You can also enable log this issue."
+msgstr "Mgbe ị na-enyocha Ọnụ ụzọ, ọ bụrụ na Isi Iyi Data weghachiri Data A Na-amaghị ('U'), were uru ahụ dị ka efu maka nyocha Ọnụ ụzọ. Ị nwekwara ike ịgbanye ndekọ nke nsogbu a."
+
+#: includes/settings.php
+msgid "Default Management Status"
+msgstr "Ọnọdụ Njikwa Nke Ndabara"
+
+#: includes/settings.php
+msgid "Default Threshold management filter status."
+msgstr "Ọnọdụ nzacha njikwa Ọnụ ụzọ nke ndabara."
+
+#: includes/settings.php notify_lists.php thold.php
+msgid "Any"
+msgstr "Ọ Bụla"
+
+#: includes/settings.php thold.php thold_graph.php
+msgid "Breached or Triggered"
+msgstr "Emebiri ma ọ bụ Kpalitere"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+msgid "Breached"
+msgstr "Emebiri"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+msgid "Triggered"
+msgstr "Akpaliri"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Enabled"
+msgstr "Gbanyere"
+
+#: includes/settings.php
+msgid "Empty ifHighSpeed Default"
+msgstr "Ndabere ifHighSpeed efu"
+
+#: includes/settings.php
+msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces."
+msgstr "Mgbe ị na-agbakọ Ọnụ ụzọ Okwu (Expression Thresholds), ọ bụrụ na ifHighSpeed na ifSpeed lọghachiri dị ka efu, jiri ntọala ifHighSpeed na-esonụ kama. ifHighSpeed ndabara ga-abụ 10000 maka njikọ 10GE."
+
+#: includes/settings.php
+msgid "Notification Preferences"
+msgstr "Mmasị Ọkwa"
+
+#: includes/settings.php
+msgid "Disable Legacy Notifications"
+msgstr "Gbanyụọ Ọkwa Ochie"
+
+#: includes/settings.php
+msgid "Checking this box will disable Legacy Alerting on all Thresholds.  Legacy Alerting is defined as any Specific Email Alerts not associated with a Notification List."
+msgstr "Ịkaa akara n'igbe a ga-agbanyụ Ịma Mkpu Ochie n'Ọnụ ụzọ niile. A na-akọwa Ịma Mkpu Ochie dị ka Mkpu Ozi-e Pụrụ Iche ọ bụla na-ejikọghị na Ndepụta Ọkwa."
+
+#: includes/settings.php
+msgid "Threshold Notification Templated"
+msgstr "Ọkwa Ọnụ ụzọ Nwere Nlereanya"
+
+#: includes/settings.php
+msgid "If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template."
+msgstr "Ọ bụrụ na a kaa ya akara, mgbe a na-eke Nlereanya Ọnụ ụzọ, Ntọala Ọkwa ya ga-abụ nke Nlereanya Ọnụ ụzọ nwe site na ndabara."
+
+#: includes/settings.php
+msgid "Enable Command Execution"
+msgstr "Gbanye Mmezu Iwu"
+
+#: includes/settings.php
+msgid "Checking this box will enable the ability to run commands on Threshold breach and restoral events."
+msgstr "Ịkaa akara n'igbe a ga-agbanye ikike ịgba iwu na mmebi Ọnụ ụzọ na ihe omume mweghachi."
+
+#: includes/settings.php
+msgid "Enable Per Thold Notification"
+msgstr "Gbanye Ọkwa Maka Thold Ọ bụla"
+
+#: includes/settings.php
+msgid "Checking this box will enable the ability to maintain custom Email bodies for Thresholds."
+msgstr "Ịkaa akara n'igbe a ga-agbanye ikike idobe ahụ Ozi-e ahaziri maka Ọnụ ụzọ Gasị."
+
+#: includes/settings.php
+msgid "Enable Notification Queue"
+msgstr "Gbanye Ahịrị Ọkwa"
+
+#: includes/settings.php
+msgid "Checking this box will switch Thold from performing inline Notification to using either the Notification Daemon, or notifications performed out of band by the Notification poller."
+msgstr "Ịkaa akara n'igbe a ga-atụgharị Thold site n'ime Ọkwa n'ahịrị gaa n'iji Notification Daemon, ma ọ bụ ọkwa nke Notification poller na-eme n'èzí."
+
+#: includes/settings.php
+msgid "Enable Sending Alert Emails to Warning Notification Lists"
+msgstr "Gbanye Izipu Ozi-e Mkpọku na Ndepụta Ọkwa Ịdọ aka ná ntị"
+
+#: includes/settings.php
+msgid "Check this box if you wish Warning Notification List recipients to receive Alert Emails in addition to the Alert Notification list receivers.  This case is applicable when Warning Notifications goes to Administrators and Alert Notifications go to Management."
+msgstr "Kaa akara n'igbe a ma ọ bụrụ na ịchọrọ ka ndị na-anata Ndepụta Ọkwa Ịdọ aka ná ntị nata Ozi-e Mkpu tinyere ndị na-anata ndepụta Ọkwa Mkpu. Ọnọdụ a na-adị ire mgbe Ọkwa Ịdọ aka ná ntị na-agara Ndị Nchịkwa ma Ọkwa Mkpu na-agara Ndị Isi."
+
+#: includes/settings.php
+msgid "Threshold Daemon"
+msgstr "Daemon Ọnụ ụzọ"
+
+#: includes/settings.php
+msgid "Enable Threshold Daemon"
+msgstr "Gbanye Daemon Ọnụ ụzọ"
+
+#: includes/settings.php
+msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
+msgstr "Ịkaa akara n'igbe a ga-agbanye iji daemon Ọnụ ụzọ raara onwe ya nye. Enwere ike iji nke a mee ka arụmọrụ sistemụ dịkwuo elu na/ma ọ bụ kesaa nleba anya Ọnụ ụzọ na sava dị iche."
+
+#: includes/settings.php
+msgid "Force Threshold Daemon Debug"
+msgstr "Manye Nchọpụta Mperi Daemon Ọnụ ụzọ"
+
+#: includes/settings.php
+msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
+msgstr "Ịkaa akara n'igbe a ga-agbanye nchọpụta njehie Threshold Daemon mgbe ọ na-arụ ọrụ site na SystemD ma ọ bụ site n'ahịrị iwu. Mgbanwe a na-adị ngwa ma ga-amalite ozugbo okirikiri Ọnụ ụzọ na-esote malitere."
+
+#: includes/settings.php
+msgid "Daemon Down Notification Frequency"
+msgstr "Ugboro Ọkwa Mgbe Daemon Dara"
+
+#: includes/settings.php
+msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
+msgstr "Ọ bụrụ na achọpụta na Thold Daemon adịghị arụ ọrụ, zipụ ọkwa Ozi-e n'oge ugboro ugboro a."
+
+#: includes/settings.php
+#, php-format
+msgid "Every %d Hour"
+msgstr "Elekere %d Ọ Bụla"
+
+#: includes/settings.php
+msgid "Daemon Threads"
+msgstr "Eriri Daemon"
+
+#: includes/settings.php
+msgid "The number of daemon threads to be handled by the Threshold Daemon."
+msgstr "Ọnụọgụgụ eriri daemon nke Daemon Ọnụ ụzọ ga-ejikwa."
+
+#: includes/settings.php
+msgid "1 Process"
+msgstr "Usoro 1"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Processes"
+msgstr "Usoro %d"
+
+#: includes/settings.php
+msgid "Logging"
+msgstr "Ndekọ"
+
+#: includes/settings.php
+msgid "Log Threshold Breaches"
+msgstr "Dekọọ Mmebi Ọnụ ụzọ"
+
+#: includes/settings.php
+msgid "Enable logging of all Threshold failures to the Cacti Log."
+msgstr "Gbanye ndekọ nke ọdịda Ọnụ ụzọ niile na Ndekọ Cacti."
+
+#: includes/settings.php
+msgid "Show Data Source in Log"
+msgstr "Gosi Isi Iyi Data na Ndekọ"
+
+#: includes/settings.php
+msgid "Show the Data Source name in the Log if not present."
+msgstr "Gosi aha Isi Iyi Data na Ndekọ ma ọ bụrụ na ọ dịghị."
+
+#: includes/settings.php
+msgid "Log Threshold Changes"
+msgstr "Dekọọ Mgbanwe Ọnụ ụzọ"
+
+#: includes/settings.php
+msgid "Enable logging of all Threshold changes to the Cacti Log."
+msgstr "Gbanye ndekọ nke mgbanwe Ọnụ ụzọ niile na Ndekọ Cacti."
+
+#: includes/settings.php
+msgid "Debug Log"
+msgstr "Ndekọ Nchọpụta Mperi"
+
+#: includes/settings.php
+msgid "Enable logging of debug messages with Threshold"
+msgstr "Gbanye ndekọ nke ozi nchọpụta mperi yana Ọnụ ụzọ"
+
+#: includes/settings.php
+msgid "Alert Log Retention"
+msgstr "Nchekwa Ndekọ Ịma ọkwa"
+
+#: includes/settings.php
+msgid "Keep Threshold Logs for this number of days."
+msgstr "Debe Ndekọ Ọnụ ụzọ maka ọnụọgụgụ ụbọchị ndị a."
+
+#: includes/settings.php
+msgid "Log action Consider Unknown Data as Zero"
+msgstr "Dekọọ omume Were Data A Na-amaghị Dị ka Efu"
+
+#: includes/settings.php
+msgid "When 'Consider Unknown Data as Zero' is enabled, log when it occurs"
+msgstr "Mgbe e gbanyere 'Tụlee Data A Na-amaghị Dị Ka Efụ', dee ndekọ mgbe ọ mere"
+
+#: includes/settings.php thold.php thold_templates.php
+msgid "Syslog Settings"
+msgstr "Ntọala Syslog"
+
+#: includes/settings.php
+msgid "Syslog Enabled"
+msgstr "Gbanyere Syslog"
+
+#: includes/settings.php
+msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Ọ bụrụ na a kaa ya akara, mgbe a na-eke Ọnụ ụzọ ọhụrụ, site na ndabara a ga-eziga ihe omume Ọnụ ụzọ ọhụrụ na syslog mpaghara gị.  Ntọala a bụ ntọala e debere tupu oge eruo.  Ntọala Ọnụ ụzọ na-ekpebi njikwa syslog n'ezie."
+
+#: includes/settings.php
+msgid "Default Priority/Level"
+msgstr "Mkpa/Ọkwa Nke Ndabara"
+
+#: includes/settings.php
+msgid "This is the default Priority/Level that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Nke a bụ Mkpa/Ọkwa ndabara nke Thold ga-eji ezipụ ozi syslog. Ntọala a bụ nke edoburu tupu oge eruo. Ntọala Ọnụ ụzọ na-ekpebi ezigbo njikwa syslog."
+
+#: includes/settings.php
+msgid "Default Facility"
+msgstr "Ngalaba Nke Ndabara"
+
+#: includes/settings.php
+msgid "This is the default Facility that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Nke a bụ Facility ndabara nke Thold ga-eji ezipụ ozi syslog. Ntọala a bụ nke edoburu tupu oge eruo. Ntọala Ọnụ ụzọ na-ekpebi ezigbo njikwa syslog."
+
+#: includes/settings.php
+msgid "Alert Presets"
+msgstr "Ntọala Mbụ Ịma ọkwa"
+
+#: includes/settings.php
+msgid "Weekend exemptions"
+msgstr "Mwepụ ngwụsị izu gasị"
+
+#: includes/settings.php
+msgid "If this is checked, Thold will not run on weekends."
+msgstr "Ọ bụrụ na a kaa nke a akara, Thold agaghị agba ọsọ na ngwụcha izu."
+
+#: includes/settings.php
+msgid "Default Trigger Count"
+msgstr "Ọnụọgụgụ Mkpali Nke Ndabara"
+
+#: includes/settings.php
+msgid "Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised."
+msgstr "Ọnụọgụgụ ugboro n'usoro nke ndabara Isi Iyi Data ga-emebi Ọnụ ụzọ tupu e bulie Ọkwa njikere."
+
+#: includes/settings.php
+msgid "Re-Alerting"
+msgstr "Mkpọsa Ọzọ"
+
+#: includes/settings.php
+msgid "Repeat Alert after specified number of poller cycles."
+msgstr "Kwugharịa Ọkwa mgbe ọnụọgụgụ okirikiri Poller akọwapụtara gachara."
+
+#: includes/settings.php
+msgid "Baseline Presets"
+msgstr "Nhazi Mbụ Akara ntọala"
+
+#: includes/settings.php
+msgid "Baseline Time Range Default"
+msgstr "Nkeji Oge Akara ntọala Ndabere"
+
+#: includes/settings.php
+msgid "This is the default value used in creating Thresholds or templates."
+msgstr "Nke a bụ uru ndabara eji emepụta Ọnụ ụzọ ma ọ bụ nlereanya gasị."
+
+#: includes/settings.php
+msgid "Baseline Trigger Count"
+msgstr "Ọnụọgụgụ Nkpalite Akara ntọala"
+
+#: includes/settings.php
+msgid "Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised."
+msgstr "Ọnụọgụgụ ugboro n'usoro nke ndabara Isi Iyi Data ga-emebi Ọnụ ụzọ Ntọala agbakọrọ tupu e bulie Ọkwa njikere."
+
+#: includes/settings.php
+msgid "Baseline Deviation Percentage"
+msgstr "Pasentị Nchigharị Akara ntọala"
+
+#: includes/settings.php
+msgid "SNMP Notification Options"
+msgstr "Nhọrọ Ọkwa SNMP"
+
+#: includes/settings.php
+msgid "SNMP Notifications"
+msgstr "Ọkwa SNMP"
+
+#: includes/settings.php
+msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
+msgstr "A ga-eziga ozi ọnọdụ Ọnụ ụzọ (informs/traps) na ndị na-anata ọkwa SNMP. Nke a gụnyere Ọkwa, Ịdọ aka ná ntị na traps Mweghachi dịka ntọala izizi si dị. Rịba ama: Atụmatụ a chọrọ ngwa mgbakwunye Cacti SNMPAgent."
+
+#: includes/settings.php
+msgid "Disable Warning Notifications"
+msgstr "Gbanyụọ Ọkwa Ịdọ aka ná ntị"
+
+#: includes/settings.php
+msgid "If this is checked, Threshold will not send a notification when a warning Threshold has been breached."
+msgstr "Ọ bụrụ na a kaa nke a akara, Ọnụ ụzọ agaghị ezipụ ọkwa mgbe emebiri Ọnụ ụzọ ịdọ aka ná ntị."
+
+#: includes/settings.php
+msgid "Disable Restoration Notifications"
+msgstr "Gbanyụọ Ọkwa Mweghachi"
+
+#: includes/settings.php
+msgid "If this is checked, Threshold will not send a notification when the Threshold has returned to normal status."
+msgstr "Ọ bụrụ na a kaa nke a akara, Ọnụ ụzọ agaghị ezipụ ọkwa mgbe Ọnụ ụzọ laghachiri n'ọnọdụ nkịtị."
+
+#: includes/settings.php
+msgid "Emailing Options"
+msgstr "Nhọrọ Izipu Email"
+
+#: includes/settings.php
+msgid "Send Emails with Urgent Priority"
+msgstr "Ziga Ozi-e na Mkpa Ngwa Ngwa"
+
+#: includes/settings.php
+msgid "Allows you to set Emails with urgent priority"
+msgstr "Na-enye gị ohere ịtọ Ozi-e nwere mkpa ngwa ngwa"
+
+#: includes/settings.php
+msgid "Send Alerts as Text"
+msgstr "Ziga Mkpu Dị Ka Ederede"
+
+#: includes/settings.php
+msgid "If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email."
+msgstr "Ọ bụrụ na a kaa ya akara, nke a ga-eme ka e zipụ Mkpu niile dị ka Ozi-e ederede nkịtị na-enweghị eserese.  Nke ndabara bụ Ozi-e HTML nke nwere eserese etinyere n'ime Ozi-e ahụ."
+
+#: includes/settings.php
+msgid "Send Email separately for each address"
+msgstr "Ziga Ozi-e iche maka adreesị ọ bụla"
+
+#: includes/settings.php
+msgid "If checked, this will cause all Emails to be sent separately for each address."
+msgstr "Ọ bụrụ na a kaa ya akara, nke a ga-eme ka e zipụ Ozi-e niile iche iche maka adreesị ọ bụla."
+
+#: includes/settings.php
+msgid "From Email Address"
+msgstr "Site na Adreesị Email"
+
+#: includes/settings.php
+msgid "This is the Email address that the Threshold will appear from."
+msgstr "Nke a bụ adreesị Ozi-e nke Ọnụ ụzọ ahụ ga-apụta dị ka o si na ya pụta."
+
+#: includes/settings.php
+msgid "From Name"
+msgstr "Site na Aha"
+
+#: includes/settings.php
+msgid "This is the actual name that the Threshold will appear from."
+msgstr "Nke a bụ ezigbo aha nke Ọnụ ụzọ ahụ ga-apụta dị ka o si na ya pụta."
+
+#: includes/settings.php
+msgid "Device Notification Options"
+msgstr "Nhọrọ Ọkwa Ngwaọrụ"
+
+#: includes/settings.php
+msgid "Enable Notifications"
+msgstr "Gbanye Ọkwa"
+
+#: includes/settings.php
+msgid "Enable Dead/Recovering host notification"
+msgstr "Gbanye ọkwa onye nnabata Nwụrụ Anwụ/Na-agbake"
+
+#: includes/settings.php
+msgid "Single Email Notification"
+msgstr "Otu Ọkwa Ozi-e"
+
+#: includes/settings.php
+msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
+msgstr "Akwadoro naanị maka Ndepụta Ọkwa na Ahịrị Nchere Ọkwa. Ọ bụrụ na enwere Ọkwa Ngwaọrụ Dara Ada n'otu usoro nhazi. Ziga naanị otu Ozi-e nye ndị nnata Ndepụta Ọkwa maka Ngwaọrụ niile."
+
+#: includes/settings.php
+msgid "Single Email Notification Subject"
+msgstr "Isiokwu Otu Ọkwa Ozi-e"
+
+#: includes/settings.php
+msgid "This is the Email Subject to be used for all Single Email Notification Emails for both Up and Down Devices."
+msgstr "Nke a bụ Isiokwu Ozi-e a ga-eji maka Ozi-e Ọkwa Otu Ozi-e niile maka ma Ngwaọrụ Na-arụ Ọrụ ma Ndị Kwụsịrị."
+
+#: includes/settings.php
+msgid "Device Notification Delay Options"
+msgstr "Nhọrọ Nkwụsịtụ Ọkwa Ngwaọrụ"
+
+#: includes/settings.php
+msgid "Notification Delay"
+msgstr "Igbu Oge Ọkwa"
+
+#: includes/settings.php
+msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
+msgstr "Ọ bụrụ na nnukwu mbata nke Ọkwa Ngwaọrụ Dara Ada abata, Cacti nwere ike kwụsịtụ iziga Ọkwa ndị ahụ ruo oge ụfọdụ iji hụ ma nsogbu ahụ ọ na-agafe agafe tupu o ziga ha.  Họrọ ọnụ ụzọ Ọkwa Ngwaọrụ Dara Ada tupu e kpalie Nkwụsịtụ."
+
+#: includes/settings.php
+msgid "If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?"
+msgstr "Ọ bụrụ na ịhọrọ igbu oge Ọkwa maka nnukwu mbata nke Ọkwa Ngwaọrụ Dara Ada, ogologo oge ole ka ị dị njikere ichere tupu ikwe ka ahazie ọkwa ndị ahụ?"
+
+#: includes/settings.php
+msgid "Device Notification Email Options"
+msgstr "Nhọrọ Ozi-e Ọkwa Ngwaọrụ"
+
+#: includes/settings.php
+msgid "Global Notification Email"
+msgstr "Ozi-e Ọkwa Zuru Ụwa Ọnụ"
+
+#: includes/settings.php
+msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
+msgstr "Nke a bụ Adreesị Ozi-e a ga-ezigara Ọkwa Ngwaọrụ Nwụrụ Anwụ ma ọ bụrụ na ahọpụtara Ndepụta Ọkwa Zuru Ụwa."
+
+#: includes/settings.php
+msgid "Down Subject"
+msgstr "Isiokwu Adịghị Arụ Ọrụ"
+
+#: includes/settings.php
+msgid "This is the Email subject that will be used for Down Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060NOTES&#062"
+msgstr "Nke a bụ isiokwu Ozi-e a ga-eji maka Ozi Ngwaọrụ Kwụsịrị. E nwere ọtụtụ mkpado nnọchi a na-ahụkarị enwere ike iji gụnyere:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (ogologo oge ọ rụrụ ọrụ ikpeazụ maka ozi nkwụsị) &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
+msgstr "Njehie Ngwaọrụ: <DESCRIPTION> (<HOSTNAME>) adaawo"
+
+#: includes/settings.php
+msgid "Down Message"
+msgstr "Ozi Adịghị Arụ Ọrụ"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Nke a bụ ozi a ga-egosipụta dị ka ahụ ozi nke Ozi Ngwaọrụ Na-arụ Ọrụ / Kwụsịrị niile (Kachasị Mkpụrụedemede 1024). E kwere HTML, mana a ga-ewepụ ya maka Ozi-e ederede naanị. E nwere ọtụtụ mkpado nnọchi a na-ahụkarị enwere ike iji gụnyere:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (ogologo oge ọ rụrụ ọrụ ikpeazụ maka ozi nkwụsị) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
+msgstr "Njehie Sistemụ : <DESCRIPTION> (<HOSTNAME>) dị <DOWN/UP><br><br>Saịtị: <SITE><br>Ebe ọ dị: <LOCATION><br>Ihe kpatara ya: <MESSAGE><br>Nkezi nzaghachi sistemụ: <AVG_TIME> ms<br>Ịdị njikere sistemụ: <AVAILABILITY><br>Mkpokọta Nnyocha Kemgbe Mkpọchapụ: <TOT_POLL><br>Mkpokọta Nnyocha Dara: <FAIL_POLL><br>Ụbọchị Ikpeazụ E Nyochara DOWN : <LAST_FAIL><br>Oge Ngwaọrụ Nọrọ n'Ọrụ Mbụ: <DOWNTIME><br>NDETU: <NOTES><br>NDETU Ngwaọrụ: <DNOTES>"
+
+#: includes/settings.php
+msgid "Recovering Subject"
+msgstr "Isiokwu Ngbake"
+
+#: includes/settings.php
+msgid "This is the Email subject that will be used for Recovering Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
+msgstr "Nke a bụ isiokwu Ozi-e a ga-eji maka Ozi Ngwaọrụ Na-agbake. E nwere ọtụtụ mkpado nnọchi a na-ahụkarị enwere ike iji gụnyere:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
+msgstr "Ọkwa Ngwaọrụ: <DESCRIPTION> (<HOSTNAME>) alọghachila site n'ọnọdụ ọdịda"
+
+#: includes/settings.php
+msgid "Recovering Message"
+msgstr "Ozi Ngbake"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Nke a bụ ozi a ga-egosipụta dị ka ahụ ozi nke Ozi Ngwaọrụ Na-arụ Ọrụ / Kwụsịrị niile (Kachasị Mkpụrụedemede 1024). E kwere HTML, mana a ga-ewepụ ya maka Ozi-e ederede naanị. E nwere ọtụtụ mkpado nnọchi a na-ahụkarị enwere ike iji gụnyere:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
+msgstr "<br>Ọnọdụ sistemụ <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Saịtị: <SITE><br>Ebe: <LOCATION><br>Nzaghachi ping ugbu a: <CUR_TIME> ms<br>Nkezi nzaghachi sistemụ: <AVG_TIME> ms<br>Nnwere onwe sistemụ: <AVAILABILITY><br>Ngụkọta nyocha kemgbe ekpochapụrụ: <TOT_POLL><br>Ngụkọta nyocha dara: <FAIL_POLL><br>Ụbọchị ikpeazụ enyochara dị elu: <LAST_FAIL><br>Ngwaọrụ dara na mbụ maka: <DOWNTIME><br><br>Ozi Snmp:<br>Aha - <SNMP_HOSTNAME><br>Ebe - <SNMP_LOCATION><br>Oge ọrụ - <UPTIMETEXT> (<UPTIME> ms)<br>Sistemụ - <SNMP_SYSTEM><br><br>RỊBA AMA: <NOTES><br>Ndetu Ngwaọrụ: <DNOTES>"
+
+#: includes/settings.php
+msgid "Status Change Command"
+msgstr "Iwu Mgbanwe Ọnọdụ"
+
+#: includes/settings.php
+msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+msgstr "Mgbe Ngwaọrụ gbanwere ọnọdụ site n'echiche Cacti (UP ruo DOWN ma ọ bụ DOWN ruo RECOVERING/UP), mee iwu na-esonụ. Iwu a AGAGHỊ enwe arụmụka ahịrị iwu. Otú ọ dị, enwere ike ịdọrọ mgbanwe ndị na-esonụ site na gburugburu edemede ahụ:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+
+#: includes/settings.php
+msgid "Alert/Warning Message Defaults"
+msgstr "Ndabara Ozi Ịma ọkwa/Ịdọ aka ná ntị"
+
+#: includes/settings.php
+msgid "Threshold Alert Message"
+msgstr "Ozi Ọkwa Ọnụ ụzọ"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Nke a bụ ozi a ga-egosipụta n'elu Ọkwa Ọnụ ụzọ niile (Mkpụrụedemede 1024 KACHASỊ). A na-anabata HTML, mana a ga-ewepụ ya maka Ozi-e ederede naanị. E nwere ọtụtụ mkpado nnọchi nkịtị a pụrụ iji gụnyere:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Ewepụtala Mkpu chọrọ nlebara anya gị. <br><br><strong>Ngwaọrụ</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Ozi</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/settings.php
+msgid "Threshold Warning Message"
+msgstr "Ozi Ịdọ aka ná ntị Ọnụ ụzọ"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Nke a bụ ozi a ga-egosipụta n'elu ịdọ aka ná ntị Ọnụ ụzọ niile (Mkpụrụedemede 1024 KACHASỊ). A na-anabata HTML, mana a ga-ewepụ ya maka Ozi-e ederede naanị. E nwere ọtụtụ mkpado nnọchi nkịtị a pụrụ iji gụnyere:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "E wepụtala Ịdọ aka ná ntị nke chọrọ nlebara anya gị. <br><br><strong>Ngwaọrụ</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Ozi</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/settings.php
+msgid "Threshold Restoral Message"
+msgstr "Ozi Mweghachi Ọnụ ụzọ"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Nke a bụ ozi a ga-egosipụta n'elu ọkwa mweghachi Ọnụ ụzọ niile (Mkpụrụedemede 1024 KACHASỊ). A na-anabata HTML, mana a ga-ewepụ ya maka Ozi-e ederede naanị. E nwere ọtụtụ mkpado nnọchi nkịtị a pụrụ iji gụnyere:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Ọnụ ụzọ alọghachila n'ọnọdụ nkịtị. <br><br><strong>Ngwaọrụ</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Ozi</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/tab.php
+msgid "Thold"
+msgstr "Thold"
+
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "Ọnụ ụzọ Dị Ugbua - E Mepụtaghị Ọnụ ụzọ Ọ Bụla"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "Mepụta Ọnụ ụzọ site na Nlereanya"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "Ọkachamara Mmepụta Ọnụ ụzọ [ Họrọ Ụdị Ọnụ ụzọ ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "Ọkachamara Mmepụta Ọnụ ụzọ [ Tinye Data Omenala ma pịa 'Mepụta' iji Mepụta Ọnụ ụzọ na Eserese gị ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "Ọkachamara Mmepụta Ọnụ ụzọ [ Họrọ Ahịrị Ajụjụ Data Dị ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "Ọkachamara Mmepụta Ọnụ ụzọ [ Họrọ Ngwaọrụ ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "Ọkachamara Mmepụta Ọnụ ụzọ [ Họrọ Nlereanya Eserese ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "Ọkachamara Mmepụta Ọnụ ụzọ [ Họrọ Nlereanya Ọnụ ụzọ ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "Ọkachamara Mmepụta Ọnụ ụzọ [ Pịa 'Mepụta' iji Mepụta Ọnụ ụzọ gị ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "Ọkachamara Mmepụta Ọnụ ụzọ [ Họrọ Isi Iyi Data ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "Ọkachamara Mmepụta Ọnụ ụzọ [ Họrọ Eserese ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "Ụkpụrụ Mmepụta Ọnụ ụzọ"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "Ụdị Mmepụta"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "Họrọ Ụdị Ọnụ ụzọ ị ga-eji maka imepụta Ọnụ ụzọ a."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "Họrọ Ụdị Ọnụ ụzọ"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "Enweghị Ụkpụrụ"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "Nlereanya Ọnụ ụzọ"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "Họrọ Nlereanya Ọnụ ụzọ nke Eserese na Ọnụ ụzọ ga-adabere na ya."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "Họrọ Nlereanya Ọnụ ụzọ"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "Nlereanya Eserese"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "Họrọ Nlereanya Eserese ị ga-eji maka Eserese a ga-emepụta."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "Họrọ Nlereanya Eserese"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "Ngwaọrụ"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "Họrọ Ngwaọrụ iji mee ihe maka Ọnụ ụzọ na Eserese a ga-emepụta."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "Họrọ Ngwaọrụ"
+
+#: includes/webapi.php
+msgid "Select an Available Item"
+msgstr "Họrọ Ihe Dị Adị"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "Ihe Ajụjụ Data"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "Họrọ ahịrị dabara adaba site na Ajụjụ Data maka Eserese na Ọnụ ụzọ ahụ."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "Ihe Ndetu Mmepụta"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "Ndetu Dị Mkpa:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "Ọnụ ụzọ a ga-abụ nke Nlereanya. Mgbe ị na-eji nhọrọ Nlereanya Ọnụ ụzọ, a ga-ajụ gị maka Nlereanya Ọnụ ụzọ, Nlereanya Eserese, Ngwaọrụ na ozi Ihe Ajụjụ Data ma ọ dị mkpa tupu ị nweta mkpali 'Mepụta' n'oge ahụ, ọ bụrụ na ekwere ozi Eserese ma ọ bụ Isi Iyi Data enwere ike idegharị n'ọkwa Nlereanya Eserese na Isi Iyi Data, a ga-ajụ gị maka ya. Mgbe ahụ, site na ịpị bọtịnụ 'Mepụta', a ga-emepụta ma Eserese ma Ọnụ ụzọ n'otu oge."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "Eserese"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "Họrọ Eserese maka Ọnụ ụzọ ahụ."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "Họrọ Eserese"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "Isi Iyi Data"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "Họrọ Isi Iyi Data maka Ọnụ ụzọ."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "Họrọ Isi Iyi Data"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "Mepụta"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "Ọnụ ụzọ a <b>AGABỤGHỊ</b> nke Nlereanya ma ọ ga-arụ ọrụ naanị na Eserese Gasị dị adị. Ọ bụrụ na ịchọrọ ịmepụta ma Eserese ma Ọnụ ụzọ n'otu oge, họrọ Nlereanya Ọnụ ụzọ na ndọda ma gaa n'ihu ruo mgbe bọtịnụ 'Mepụta' ga-apụta."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "Ọnụ ụzọ a <b>AGABỤGHỊ</b> nke Nlereanya. Ị nwere ike ịhọrọ Site na Eserese ebe ị ga-ahọrọ Ngwaọrụ, Eserese na Isi Iyi Data dị adị tupu ịmepụta Ọnụ ụzọ gị, ma ọ bụ ị nwere ike ịhọrọ Nlereanya Ọnụ ụzọ nke ga-enye gị ohere ịmepụta Ọnụ ụzọ na-abụghị nke Nlereanya na Eserese kwekọrọ n'otu oge"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "Eserese A Họọrọ"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "Emepụtara eserese: %s"
+
+#: notify_lists.php
+msgid "Duplicate"
+msgstr "Oyiri"
+
+#: notify_lists.php
+msgid "Associate"
+msgstr "Jikọọ"
+
+#: notify_lists.php
+msgid "Disassociate"
+msgstr "Kwụpụ njikọ"
+
+#: notify_lists.php thold_graph.php
+msgid "Devices"
+msgstr "Ngwaọrụ"
+
+#: notify_lists.php
+#, php-format
+msgid "ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s"
+msgstr "NJỌ: Ị nweghị ike ịnwe Ozi-e gị n'ahịrị To na BCC abụọ. Ozi-e dị n'okpuru adabaghị!<br><br>%s"
+
+#: notify_lists.php
+msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
+msgstr "Pịa 'Gaa n'ihu' iji Hichapụ Ndepụta Ọkwa.  A ga-eweghachi Ngwaọrụ ma ọ bụ Ọnụ ụzọ ọ bụla e jikọtara na Ndepụta ahụ na ndabara."
+
+#: notify_lists.php
+msgid "Delete Notification List(s)"
+msgstr "Hichapụ Ndepụta Ọkwa (gasị)"
+
+#: notify_lists.php
+msgid "Click 'Continue' to Duplicate the following Notification List(s)."
+msgstr "Pịa 'Gaa n'ihu' iji Mepụtaghachi Ndepụta Ọkwa ndị na-esonụ."
+
+#: notify_lists.php
+msgid "New List Name"
+msgstr "Aha Ndepụta Ọhụrụ"
+
+#: notify_lists.php
+msgid "New Notification List"
+msgstr "Ndepụta Mmata Ọhụrụ"
+
+#: notify_lists.php
+msgid "Duplicate Notification List(s)"
+msgstr "Megharịa Ndepụta Ọkwa"
+
+#: notify_lists.php
+#, php-format
+msgid "%s Threshold Template(s)"
+msgstr "Nlereanya Ọnụ ụzọ %s"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
+msgstr "Pịa 'Gaa n'ihu' iji Jikọta Ndepụta Ọkwa '%s' na Nlereanya Ọnụ ụzọ ndị dị n'okpuru."
+
+#: notify_lists.php
+msgid "Warning Membership:"
+msgstr "Ịbụ Onye Otu Ịdọ Aka Ná Ntị:"
+
+#: notify_lists.php
+msgid "No Change"
+msgstr "Enweghị Mgbanwe"
+
+#: notify_lists.php
+msgid "Notification List Only"
+msgstr "Ndepụta Ọkwa Naanị"
+
+#: notify_lists.php
+msgid "Notification List, Retain Other Settings"
+msgstr "Ndepụta Ọkwa, Debe Ntọala Ndị Ọzọ"
+
+#: notify_lists.php
+msgid "Alert Membership:"
+msgstr "Ndị otu Ịma ọkwa:"
+
+#: notify_lists.php
+msgid "Associate Notification List(s)"
+msgstr "Jikọọ Ndepụta Ọkwa"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
+msgstr "Pịa 'Gaa n'ihu' iji Wepụ Njikọ Ndepụta Ọkwa '%s' na Nlereanya Ọnụ ụzọ ndị dị n'okpuru."
+
+#: notify_lists.php
+msgid "Remove List"
+msgstr "Wepụ Ndepụta"
+
+#: notify_lists.php
+msgid "Disassociate Notification List(s)"
+msgstr "Kwụpụ njikọ Ndepụta Ọkwa"
+
+#: notify_lists.php
+#, php-format
+msgid "%s Threshold(s)"
+msgstr "Ọnụ ụzọ %s"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
+msgstr "Pịa 'Gaa n'ihu' iji Jikọta Ndepụta Ọkwa '%s' na Ọnụ ụzọ ndị dị n'okpuru."
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
+msgstr "Pịa 'Gaa n'ihu' iji Wepụ Njikọ Ndepụta Ọkwa '%s' na Ọnụ ụzọ ndị dị n'okpuru."
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
+msgstr "Pịa 'Gaa n'ihu' iji Jikọta Ndepụta Ọkwa '%s' na Ngwaọrụ ndị dị n'okpuru."
+
+#: notify_lists.php
+msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
+msgstr "Ị nwekwara ike ijikọ Ọnụ ụzọ Ngwaọrụ yana ya. Agbanyeghị, Ọnụ ụzọ Ngwaọrụ ndị a ga-ekwe ka edechie Ndepụta Ọkwa Ọnụ ụzọ."
+
+#: notify_lists.php
+msgid "Resulting Membership:"
+msgstr "Ndị Otu Pụtara:"
+
+#: notify_lists.php
+msgid "Notification and Global Lists"
+msgstr "Ọkwa na Ndepụta Zuru Ụwa Ọnụ"
+
+#: notify_lists.php
+msgid "Device Threshold Warning Membership:"
+msgstr "Otu Ịdọ aka ná ntị Ọnụ ụzọ Ngwaọrụ:"
+
+#: notify_lists.php
+msgid "Device Threshold Alert Membership:"
+msgstr "Otu Ọkwa Mkpọkụ Ọnụ ụzọ Ngwaọrụ:"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
+msgstr "Pịa 'Gaa n'ihu' iji Wepụ Njikọ Ndepụta Ọkwa '%s' na Ngwaọrụ ndị dị n'okpuru."
+
+#: notify_lists.php
+msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
+msgstr "Ị nwekwara ike ịkwụsị njikọ Ọnụ ụzọ Ngwaọrụ yana ya. Agbanyeghị, Ọnụ ụzọ Ngwaọrụ ndị a ga-ekwe ka edechie Ndepụta Ọkwa Ọnụ ụzọ."
+
+#: notify_lists.php
+#, php-format
+msgid "[edit: %s]"
+msgstr "[dezie: %s]"
+
+#: notify_lists.php
+msgid "[new]"
+msgstr "[ọhụrụ]"
+
+#: notify_lists.php
+msgid "List General Settings"
+msgstr "Depụta Ntọala Izugbe"
+
+#: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
+msgid "Name"
+msgstr "Aha"
+
+#: notify_lists.php
+msgid "Enter a name for this Notification List."
+msgstr "Tinye aha maka Ndepụta Ọkwa a."
+
+#: notify_lists.php thold_graph.php
+msgid "Description"
+msgstr "Nkọwa"
+
+#: notify_lists.php
+msgid "Enter a description for this Notification List."
+msgstr "Tinye nkọwa maka Ndepụta Ọkwa a."
+
+#: notify_lists.php
+msgid "To disable all notifications from this Notification List, you can simply disable it here."
+msgstr "Iji gbanyụọ ọkwa niile sitere na Ndepụta Ọkwa a, ị nwere ike ịgbanyụ ya ebe a."
+
+#: notify_lists.php
+msgid "To Email Addresses"
+msgstr "Adreesị Ozi-e Nke Ndị Nnata"
+
+#: notify_lists.php
+msgid "Enter a comma separated list of Email addresses for this Notification List."
+msgstr "Tinye ndepụta adreesị Ozi-e nke rịkọm kewara maka Ndepụta Ọkwa a."
+
+#: notify_lists.php
+msgid "BCC Email Addresses"
+msgstr "Adreesị Ozi-e BCC"
+
+#: notify_lists.php
+msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
+msgstr "Tinye ndepụta adreesị Ozi-e nke rịkọm kewara maka Ndepụta Ọkwa a ka e zigaara ha na nzuzo (BCC)."
+
+#: notify_lists.php
+msgid "Email Style/Format File"
+msgstr "Faịlụ Ụdị/Nhazi Ozi-e"
+
+#: notify_lists.php thold.php thold_templates.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "Họrọ faịlụ mkpuchi html ahaziri na CSS a ga-eji. Faịlụ a nwere ma html ma CSS iji kechie akụkọ gị. Ọ bụrụ na o nwere ihe karịrị naanị CSS, ị kwesịrị itinye mkpado <REPORT> pụrụ iche n'ime faịlụ ahụ. A ga-eji ọdịnaya akụkọ dochie mkpado nhazi a. Faịlụ ndị a dị na ndekọ 'formats'."
+
+#: notify_lists.php
+msgid "Associated Devices"
+msgstr "Ngwaọrụ Ejikọtara"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Search"
+msgstr "Chọọ"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "Site"
+msgstr "Saịtị"
+
+#: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
+msgid "None"
+msgstr "Ọ Dịghị Nke Ọ Bụla"
+
+#: notify_lists.php
+msgid "Device Template"
+msgstr "Ụkpụrụ Ngwaọrụ"
+
+#: notify_lists.php
+msgid "Associated"
+msgstr "Ejikọtara"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Go"
+msgstr "Gaa"
+
+#: notify_lists.php notify_queue.php
+msgid "Set/Refresh Filters"
+msgstr "Tọọ/Megharịa Ihe nzacha"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Clear"
+msgstr "Kpochapụ"
+
+#: notify_lists.php notify_queue.php
+msgid "Clear Filters"
+msgstr "Kpochapụ Ihe nzacha"
+
+#: notify_lists.php thold.php thold_graph.php thold_templates.php
+msgid "ID"
+msgstr "Njirimara"
+
+#: notify_lists.php setup.php thold.php thold_graph.php
+msgid "Status"
+msgstr "Ọnọdụ"
+
+#: notify_lists.php
+msgid "Associated Lists"
+msgstr "Ndepụta Ejikọtara"
+
+#: notify_lists.php thold_graph.php
+msgid "Graphs"
+msgstr "Eserese Gasị"
+
+#: notify_lists.php thold_graph.php
+msgid "Data Sources"
+msgstr "Isi Iyi Data Gasị"
+
+#: notify_lists.php notify_queue.php thold_graph.php
+msgid "Hostname"
+msgstr "Aha Host"
+
+#: notify_lists.php
+msgid "Current List Only"
+msgstr "Ndepụta Ugbu a Naanị"
+
+#: notify_lists.php
+msgid "Current and Global List(s)"
+msgstr "Ndepụta Ugbu a na nke Zuru Ụwa Ọnụ"
+
+#: notify_lists.php
+msgid "No Associated Devices Found"
+msgstr "Ahụghị Ngwaọrụ Njikọ Ọ Bụla"
+
+#: notify_lists.php
+msgid "Associated Thresholds"
+msgstr "Ọnụ ụzọ Ejikọtara"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "Template"
+msgstr "Nlereanya"
+
+#: notify_lists.php
+msgid "State"
+msgstr "Steeti"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "All"
+msgstr "Niile"
+
+#: notify_lists.php
+msgid "Warning Lists"
+msgstr "Ndepụta Ịdọ Aka Ná Ntị"
+
+#: notify_lists.php
+msgid "Alert Lists"
+msgstr "Ndepụta Ịma ọkwa"
+
+#: notify_lists.php thold.php thold_graph.php thold_templates.php
+msgid "Type"
+msgstr "Ụdị"
+
+#: notify_lists.php thold.php
+msgid "Templated"
+msgstr "Emere nlereanya"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "No"
+msgstr "Mba"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Yes"
+msgstr "Ee"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "baseline-LOW"
+msgstr "ahịrị ntọala-ALA"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "baseline-HIGH"
+msgstr "ahịrị ntọala-ELU"
+
+#: notify_lists.php
+msgid "Select Users"
+msgstr "Họrọ Ndị Ọrụ"
+
+#: notify_lists.php
+msgid "Specific Emails"
+msgstr "Ozi-e Pụrụ Iche"
+
+#: notify_lists.php
+msgid "Current List"
+msgstr "Ndepụta Ugbu a"
+
+#: notify_lists.php
+msgid "Unknown Threshold"
+msgstr "Ọnụ ụzọ Amaghị"
+
+#: notify_lists.php
+msgid "Log Only"
+msgstr "Ndekọ Naanị"
+
+#: notify_lists.php
+msgid "Editable"
+msgstr "Enwere ike idezi"
+
+#: notify_lists.php
+msgid "Read Only"
+msgstr "Naanị Ọgụgụ"
+
+#: notify_lists.php
+msgid "No Thresholds Found"
+msgstr "Ahụghị Ọnụ ụzọ Ọ bụla"
+
+#: notify_lists.php
+msgid "Associated Templates"
+msgstr "Nlereanya Gasị Ejikọtara"
+
+#: notify_lists.php notify_queue.php
+msgid "Rows"
+msgstr "Ahịrị"
+
+#: notify_lists.php
+msgid "Unknown Template"
+msgstr "Nlereanya A Na-amaghị"
+
+#: notify_lists.php thold_templates.php
+msgid "No Threshold Templates"
+msgstr "Enweghị Nlereanya Gasị nke Ọnụ ụzọ"
+
+#: notify_lists.php
+msgid "Lists"
+msgstr "Ndepụta gasị"
+
+#: notify_lists.php
+msgid "List Name"
+msgstr "Aha Ndepụta"
+
+#: notify_lists.php
+msgid "Emails"
+msgstr "Ozi-e gasị"
+
+#: notify_lists.php
+msgid "No Notification Lists"
+msgstr "Enweghị Ndepụta Ọkwa"
+
+#: notify_queue.php
+msgid "Notification has been Suspended.  Press the Resume button to resume it"
+msgstr "Akwụsịla Ọkwa.  Pịa bọtịnụ Maliteghachi iji maliteghachi ya"
+
+#: notify_queue.php
+msgid "Notification has been Resumed.  Press the Suspend button to suspend it"
+msgstr "Emegharịala Ọkwa.  Pịa bọtịnụ Kwụsịtụ iji kwụsị ya"
+
+#: notify_queue.php
+msgid "Pending Notifications have been removed from the database.  Previously sent notification not purged will remain until they age out."
+msgstr "Ewepụla ọkwa ndị na-eche n'ụlọ nchekwa data.  Ọkwa e zigara na mbụ nke a na-ekpochapụghị ga-adịgide ruo mgbe oge ha gwụrụ."
+
+#: notify_queue.php
+msgid "Click 'Continue' to delete the following Notification."
+msgid_plural "Click 'Continue' to delete all following Notifications."
+msgstr[0] "Pịa 'Gaa n'ihu' iji hichapụ Ọkwa niile na-esonụ."
+
+#: notify_queue.php
+msgid "Delete Notification"
+msgid_plural "Delete Notifications"
+msgstr[0] "Hichapụ Ọkwa Gasị"
+
+#: notify_queue.php
+#, php-format
+msgid "Event Notifications [ Notifications Suspended by User: %s, %s ago ]"
+msgstr "Ọkwa Ihe Omume [ Onye ọrụ kwụsịtụrụ ọkwa: %s, %s gara aga ]"
+
+#: notify_queue.php
+msgid "Event Notifications"
+msgstr "Ọkwa Ihe Omume"
+
+#: notify_queue.php
+msgid "Topic"
+msgstr "Isiokwu"
+
+#: notify_queue.php
+msgid "Processed"
+msgstr "Ahaziri"
+
+#: notify_queue.php
+msgid "Suspend"
+msgstr "Kwụsịtụ"
+
+#: notify_queue.php
+msgid "Suspend Notification Processing"
+msgstr "Kwụsịtụ Nhazi Ọkwa"
+
+#: notify_queue.php
+msgid "Resume"
+msgstr "Maliteghachi"
+
+#: notify_queue.php
+msgid "Resume Notification Processing"
+msgstr "Maliteghachi Nhazi Ozi"
+
+#: notify_queue.php
+msgid "Purge"
+msgstr "Kpochapụ"
+
+#: notify_queue.php
+msgid "Purge Notification Queue"
+msgstr "Kpochapụ Ahịrị Ọkwa"
+
+#: notify_queue.php
+msgid "Notifications"
+msgstr "Ọkwa"
+
+#: notify_queue.php
+msgid "The supported notification topic."
+msgstr "Isiokwu ọkwa a na-akwado."
+
+#: notify_queue.php thold_graph.php
+msgid "Event Description"
+msgstr "Nkọwa Ihe Omume"
+
+#: notify_queue.php
+msgid "The name of the object as defined by the caller."
+msgstr "Aha ihe dị ka onye na-akpọ kọwara."
+
+#: notify_queue.php
+msgid "The hostname that was the source of this event."
+msgstr "Aha onye nnabata nke bụ isi iyi nke mmemme a."
+
+#: notify_queue.php
+msgid "The Notification List used if any."
+msgstr "Ndepụta Ọkwa e ji mee ihe ma ọ bụrụ na ọ dị."
+
+#: notify_queue.php
+msgid "Object ID"
+msgstr "NJ Ihe"
+
+#: notify_queue.php
+msgid "The Object ID defined by the caller.  Generally its unique 'id'."
+msgstr "Object ID nke onye kpọrọ ya kọwara.  Ọ na-abụkarị 'id' ya pụrụ iche."
+
+#: notify_queue.php
+msgid "Event Time"
+msgstr "Oge Ihe Omume"
+
+#: notify_queue.php
+msgid "The time of the event as defined by the caller."
+msgstr "Oge nke mmemme ahụ dịka onye kpọrọ si kọwaa."
+
+#: notify_queue.php
+msgid "Has the Notification Event been processed."
+msgstr "Emeziela Ihe Omume Ọkwa ahụ."
+
+#: notify_queue.php
+msgid "Errors"
+msgstr "Mmejọ"
+
+#: notify_queue.php
+msgid "Did this notification result in an error.  Hover on the error column for details."
+msgstr "Ọkwa a o wetara njehie.  Gaa n'elu kọlụm njehie maka nkọwa."
+
+#: notify_queue.php
+msgid "Attempts"
+msgstr "Mgbalị"
+
+#: notify_queue.php
+msgid "The number of delivery attempts made for this notification."
+msgstr "Ọnụọgụgụ mbọ nnyefe e mere maka ọkwa a."
+
+#: notify_queue.php
+msgid "Next Attempt"
+msgstr "Nnwale Na-esote"
+
+#: notify_queue.php
+msgid "When a failed notification is eligible for its next retry."
+msgstr "Mgbe ọkwa dara ada tozuru maka nnwale ọzọ ya."
+
+#: notify_queue.php
+msgid "Run Time"
+msgstr "Oge Ọrụ"
+
+#: notify_queue.php
+msgid "The time in seconds it took to process the event."
+msgstr "Oge na sekọnd o were iji hazie mmemme ahụ."
+
+#: notify_queue.php
+msgid "Not Specified"
+msgstr "Akọwapụtaghị"
+
+#: notify_queue.php
+msgid "No Notifications"
+msgstr "Enweghị Ọkwa"
+
+#: setup.php
+msgid "Toggle Threshold VRULES Off"
+msgstr "Gbanyụọ Ọnụ ụzọ VRULES"
+
+#: setup.php
+msgid "Toggle Threshold VRULES On"
+msgstr "Gbanye Ọnụ ụzọ VRULES"
+
+#: setup.php
+msgid "Create Threshold"
+msgstr "Mepụta Ọnụ ụzọ"
+
+#: setup.php
+#, php-format
+msgid "Alert Hi for %s (%s)"
+msgstr "Ịma ọkwa Elu maka %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s)"
+msgstr "Ịma ọkwa Ala maka %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s)"
+msgstr "Ịdọ aka ná ntị Elu maka %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Low for %s (%s)"
+msgstr "Ịdọ aka ná ntị Ala maka %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Hi for %s (%s %%)"
+msgstr "Ịma ọkwa Elu maka %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s %%)"
+msgstr "Ịma ọkwa Ala maka %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s %%)"
+msgstr "Ịdọ aka ná ntị Elu maka %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Warning Low for %s (%s %%)"
+msgstr "Ịdọ aka ná ntị Ala maka %s (%s %%)"
+
+#: setup.php
+msgid "Threshold Alert/Warning Values"
+msgstr "Uru Ọkwa/Ịdọ aka ná ntị Ọnụ ụzọ"
+
+#: setup.php
+msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
+msgstr "Pịa 'Gaa n'ihu' iji tinye Ọnụ ụzọ niile kwesịrị ekwesị na Ngwaọrụ ndị a."
+
+#: setup.php
+msgid "Create Threshold from Data Source"
+msgstr "Mepụta Ọnụ ụzọ site na Isi Iyi Data"
+
+#: setup.php
+msgid "Auto-create Thresholds"
+msgstr "Mepụta Ọnụ ụzọ Na-akpaghị Aka"
+
+#: setup.php
+#, php-format
+msgid "Created %s thresholds"
+msgstr "Emepụtara ọnụ ụzọ %s"
+
+#: setup.php
+msgid "No Threshold(s) Created.  Threshold(s) Template not found."
+msgstr "Enweghị Ọnụ ụzọ Emepụtara.  Ahụghị Nlereanya Ọnụ ụzọ."
+
+#: setup.php
+msgid "The following Data Sources have no Threshold Templates associated with them"
+msgstr "Isi Iyi Data Gasị ndị a enweghị Nlereanya Gasị Ọnụ ụzọ jikọtara ha"
+
+#: setup.php
+msgid "Click 'Continue' to create Thresholds for these Data Sources?"
+msgstr "Pịa 'Gaa n'ihu' iji mepụta Ọnụ ụzọ maka Isi Iyi Data Gasị ndị a?"
+
+#: setup.php
+msgid "Available Threshold Templates"
+msgstr "Nlereanya Gasị nke Ọnụ ụzọ Ndị Dị"
+
+#: setup.php
+msgid "There are no Threshold Templates associated with the following Data Sources"
+msgstr "Enweghị Nlereanya Gasị Ọnụ ụzọ jikọtara na Isi Iyi Data Gasị ndị a"
+
+#: setup.php
+msgid "The following Graphs have no Threshold Templates associated with them"
+msgstr "Eserese Gasị ndị a enweghị Nlereanya Gasị Ọnụ ụzọ jikọtara ha"
+
+#: setup.php
+msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
+msgstr "Pịa 'Gaa n'ihu' ma ọ bụrụ na ị chọrọ ịmepụta Ọnụ ụzọ maka Eserese ndị a"
+
+#: setup.php
+msgid "There are no Threshold Templates associated with the following Graphs"
+msgstr "Enweghị Nlereanya Gasị Ọnụ ụzọ jikọtara na Eserese Gasị ndị a"
+
+#: setup.php
+msgid "Associated Threshold Templates"
+msgstr "Ndị Nlereanya Oke Jikọrọ"
+
+#: setup.php
+msgid "Threshold Exists"
+msgstr "Ọnụ ụzọ Dị"
+
+#: setup.php
+msgid "Threshold Does Not Exist"
+msgstr "Ọnụ ụzọ Adịghị"
+
+#: setup.php
+msgid "Delete Threshold Template Association"
+msgstr "Hichapụ Njikọ Nlereanya Ọnụ ụzọ"
+
+#: setup.php
+msgid "No Associated Threshold Templates."
+msgstr "Enweghị Nlereanya Gasị Ọnụ ụzọ Njikọ."
+
+#: setup.php
+msgid "Add Threshold Template"
+msgstr "Tinye Nlereanya Ọnụ ụzọ"
+
+#: setup.php
+msgid "Add"
+msgstr "Tinye"
+
+#: setup.php
+msgid "Add Threshold Template to Device"
+msgstr "Tinye Nlereanya Ọnụ ụzọ na Ngwaọrụ"
+
+#: setup.php
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device."
+msgstr "Pịa 'Gaa n'ihu' iji Hichapụ Nlereanya Ọnụ ụzọ ndị na-esonụ a ga-ewepụ njikọ ya na Ngwaọrụ."
+
+#: setup.php
+#, php-format
+msgid "Threshold Template Name: %s"
+msgstr "Aha Nlereanya Ọnụ ụzọ: %s"
+
+#: setup.php
+msgid "Remove Threshold Template"
+msgstr "Wepụ Templeeti Oke"
+
+#: setup.php
+msgid "Add Threshold Template to Device Template"
+msgstr "Tinye Nlereanya Ọnụ ụzọ na Nlereanya Ngwaọrụ"
+
+#: setup.php
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
+msgstr "Pịa 'Gaa n'ihu' iji Hichapụ Nlereanya Ọnụ ụzọ ndị na-esonụ a ga-ewepụ njikọ ya na Nlereanya Ngwaọrụ."
+
+#: thold.php
+msgid "Either No Templates or Threshold(s) Already Exists - No Thresholds were created."
+msgstr "Ma Enweghị Nlereanya Gasị ma ọ bụ Ọnụ ụzọ Dị Ugbua - Ekeghị Ọnụ ụzọ ọ bụla."
+
+#: thold.php
+msgid "You are not authorized to modify one or more of the Thresholds selected"
+msgstr "Ị nweghị ikike ịgbanwe otu ma ọ bụ karịa n'ime Ọnụ ụzọ ahọpụtara"
+
+#: thold.php
+msgid "Click 'Delete' to delete the following Threshold(s)."
+msgstr "Pịa 'Hichapụ' iji hichapụ Ọnụ ụzọ ndị na-esonụ."
+
+#: thold.php
+msgid "Delete Threshold(s)"
+msgstr "Hichapụ Ọnụ ụzọ (gasị)"
+
+#: thold.php
+msgid "Click 'Continue' to enable the following Threshold(s)."
+msgstr "Pịa 'Gaa n'ihu' iji gbanye Ọnụ ụzọ ndị na-esonụ."
+
+#: thold.php
+msgid "Enable Threshold(s)"
+msgstr "Gbanye Ọnụ ụzọ"
+
+#: thold.php
+msgid "Click 'Continue' to disable the following Threshold(s)."
+msgstr "Pịa 'Gaa n'ihu' iji gbanyụọ Ọnụ ụzọ ndị na-esonụ."
+
+#: thold.php
+msgid "Disable Threshold(s)"
+msgstr "Gbanyụọ Ọnụ ụzọ(gasị)"
+
+#: thold.php
+msgid "Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
+msgstr "Pịa 'Gaa n'ihu' iji tinyekwa Aha Atụrụ Aro na Ọnụ ụzọ ndị na-esonụ."
+
+#: thold.php
+msgid "Apply Suggestion"
+msgstr "Tinye Aro"
+
+#: thold.php
+msgid "Click 'Continue' to update the following Threshold(s) with their associate Template's details."
+msgstr "Pịa 'Gaa n'ihu' iji melite Ọnụ ụzọ ndị na-esonụ na nkọwa nke Nlereanya ha jikọrọ."
+
+#: thold.php
+msgid "Reapply Template"
+msgstr "Tinyeghachi Nlereanya"
+
+#: thold.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
+msgstr "Pịa 'Gaa n'ihu' iji Nabata Ọnụ ụzọ ndị na-esonụ.  A ga-eleghara Ọnụ ụzọ ndị na-anaghị ekwe nke a, ma ọ bụ ndị a na-akpaliteghị, anya."
+
+#: thold.php
+msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
+msgstr "Pịa 'Gaa n'ihu' iji malitegharịa Ozi Ọkwa maka Ọnụ ụzọ ndị na-esonụ.  A ga-eleghara Ọnụ ụzọ ndị anaghị ekwe nke a, ma ọ bụ ndị a na-akpalitebeghị anya."
+
+#: thold.php
+msgid "Resume Notifications for Threshold(s)"
+msgstr "Maliteghachi Ozi maka Ọnụ ụzọ"
+
+#: thold.php
+msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
+msgstr "Pịa 'Gaa n'ihu' iji kwụsịtụ Ozi Ọkwa maka Ọnụ ụzọ ndị na-esonụ.  A ga-eleghara Ọnụ ụzọ ndị anaghị ekwe nke a, ma ọ bụ ndị a na-akpalitebeghị anya."
+
+#: thold.php
+msgid "Suspend Notification for Threshold(s)"
+msgstr "Kwụsịtụ Ọkwa maka Ọnụ ụzọ"
+
+#: thold.php thold_templates.php
+msgid "Invalid action detected, can not proceed"
+msgstr "Achọpụtara omume na-ezighị ezi, enweghị ike ịga n'ihu"
+
+#: thold.php
+msgid "Threshold Management"
+msgstr "Njikwa Ọnụ ụzọ"
+
+#: thold.php
+msgid "Apply Filters"
+msgstr "Tinye Nzacha Gasị"
+
+#: thold.php
+msgid "Return to Defaults"
+msgstr "Laghachi na Ndabara"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Data Template"
+msgstr "Ndebiri Data"
+
+#: thold.php thold_graph.php
+msgid "Disabled at Template"
+msgstr "Gbanyụrụ na Nlereanya"
+
+#: thold.php thold_graph.php
+msgid "Disabled at Threshold"
+msgstr "Gbanyụrụ na Ọnụ ụzọ"
+
+#: thold.php thold_graph.php
+msgid "Ack Required"
+msgstr "Achọrọ Nkwenye"
+
+#: thold.php thold_graph.php
+msgid "By Status"
+msgstr "Site na Ọnọdụ"
+
+#: thold.php thold_graph.php
+msgid "The current threshold status. Click a status pill to filter the list to that status."
+msgstr "Ọnọdụ ọnụ ụzọ dị ugbu a. Pịa bọtịnụ ọnọdụ ka i jiri ya zaa ndepụta ahụ gaa n'ọnọdụ ahụ."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "External ID"
+msgstr "ID Mpụga"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function."
+msgstr "Ụdị Ọnụ ụzọ.  Maka Ụdị Ntọala: [TIP] na-ezo aka na Oge N'oge Gara Aga nwere MIN, MAX, AVG, na LAST site n'oge na-akarịghị otu ụbọchị site n'oge ahụ.  [AOT] na-ezo aka na Nkezi n'ime Oge ahụ dum.  Ọ bụrụ na e nwere kọlọn nke MIN, MAX, AVG, LAST sochiri, Uru ahụ sitere na Ọrụ Nchikọta ahụ."
+
+#: thold.php
+msgid "DSName"
+msgstr "Aha DS"
+
+#: thold.php thold_graph.php
+msgid "Current"
+msgstr "Ugbu a"
+
+#: thold.php thold_graph.php
+msgid "The last measured value for the Data Source"
+msgstr "Ọnụahịa ikpeazụ a tụrụ maka Isi Iyi Data"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "High"
+msgstr "Dị Elu"
+
+#: thold.php thold_graph.php
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
+msgstr "Ọnụ ahịa Ịdọ aka ná ntị / Mkpọsa Dị Elu.  RỊBA AMA: Ọnụ ahịa ntọala bụ pasentị, ọnụ ahịa ndị ọzọ niile bụ ọnụ ahịa ngosipụta nke cdef nwere ike ịgbanwe."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Low"
+msgstr "Dị ala"
+
+#: thold.php thold_graph.php
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
+msgstr "Ọnụ ahịa Ịdọ aka ná ntị / Mkpọsa Dị Ala.  RỊBA AMA: Ọnụ ahịa ntọala bụ pasentị, ọnụ ahịa ndị ọzọ niile bụ ọnụ ahịa ngosipụta nke cdef nwere ike ịgbanwe."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Trigger"
+msgstr "Mkpali"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Duration"
+msgstr "Ogologo Oge"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Repeat"
+msgstr "Kwugharịa"
+
+#: thold.php thold_graph.php
+msgid "In State"
+msgstr "N'ọnọdụ"
+
+#: thold.php thold_graph.php
+msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
+msgstr "Oge gafeworo kemgbe Ọnụ ụzọ mebiri ma ọ bụ kpalitere"
+
+#: thold.php thold_graph.php
+msgid "Acknowledgment required for this Threshold"
+msgstr "Achọrọ nkwenye maka Ọnụ ụzọ a"
+
+#: thold.php thold_graph.php
+msgid "No [Template:Thold]"
+msgstr "Mba [Nlereanya:Thold]"
+
+#: thold.php thold_graph.php
+msgid "No [Template]"
+msgstr "Mba [Nlereanya]"
+
+#: thold.php thold_graph.php
+msgid "No [Thold]"
+msgstr "Mba [Thold]"
+
+#: thold.php thold_graph.php
+#, php-format
+msgid "%d Triggers"
+msgstr "%d Ihe Mkpalite"
+
+#: thold.php thold_graph.php
+msgid "No Thresholds"
+msgstr "Enweghị Ọnụ ụzọ"
+
+#: thold.php
+msgid "Threshold Deleted, can not Edit!"
+msgstr "Ehichapụrụ Ọnụ ụzọ, enweghị ike ịdezi!"
+
+#: thold.php
+msgid "Graph Data"
+msgstr "Data Eserese"
+
+#: thold.php
+msgid "Edit Threshold Template"
+msgstr "Dezie Nlereanya Ọnụ ụzọ"
+
+#: thold.php
+msgid "Data Source Description:"
+msgstr "Nkọwa Isi Iyi Data:"
+
+#: thold.php
+msgid "Associated Graph (Graphs using this RRD):"
+msgstr "Eserese Ejikọtara (Eserese Gasị na-eji RRD a):"
+
+#: thold.php
+msgid "Last:"
+msgstr "Ikpeazụ:"
+
+#: thold.php
+msgid "WHi:"
+msgstr "WHi:"
+
+#: thold.php
+msgid "WLo:"
+msgstr "WLo:"
+
+#: thold.php
+msgid "AHi:"
+msgstr "Mkpu Elu:"
+
+#: thold.php
+msgid "ALo:"
+msgstr "Mkpu Ala:"
+
+#: thold.php
+msgid "BL Up:"
+msgstr "BL Gbagoo:"
+
+#: thold.php
+msgid "BL Down:"
+msgstr "BL Gbadata:"
+
+#: thold.php
+#, php-format
+msgid "Unknown Template ID %d"
+msgstr "NJ Nlereanya Amaghị %d"
+
+#: thold.php
+msgid "Not Templated"
+msgstr "Enweghị Ndebiri"
+
+#: thold.php
+#, php-format
+msgid "Data Source Item [ %s ] - Current value: [ %s ]"
+msgstr "Ihe Isi Iyi Data [ %s ] - Uru dị ugbu a: [ %s ]"
+
+#: thold.php thold_templates.php
+#, php-format
+msgid "Replacement Fields: %s"
+msgstr "Ubi Ndochi: %s"
+
+#: thold.php thold_templates.php
+#, php-format
+msgid "Data Sources: %s"
+msgstr "Isi Iyi Data Gasị: %s"
+
+#: thold.php
+msgid "Template/Enabled Information"
+msgstr "Ozi Nlereanya/Gbanyere"
+
+#: thold.php
+msgid "Template Propagation Enabled"
+msgstr "Mgbasa Nlereanya Gbanyere"
+
+#: thold.php
+msgid "Whether or not these settings will be propagated from the Threshold template."
+msgstr "Ma a ga-agbasa ntọala ndị a site na nlereanya Ọnụ ụzọ ma ọ bụ na agaghị."
+
+#: thold.php thold_templates.php
+msgid "Template Name"
+msgstr "Aha Templeeti"
+
+#: thold.php
+msgid "Name of the Threshold Template the Threshold was created from."
+msgstr "Aha Nlereanya Ọnụ ụzọ e si mepụta Ọnụ ụzọ ahụ."
+
+#: thold.php
+msgid "Enabled at Template Level"
+msgstr "Gbanyere na Ọkwa Nlereanya"
+
+#: thold.php
+msgid "A Threshold must be enabled both at the Template Level and the Threshold level to be checked."
+msgstr "A ga-egbanyerịrị Ọnụ ụzọ na Ọkwa Nlereanya yana n'ọkwa Ọnụ ụzọ ka e wee nyochaa ya."
+
+#: thold.php
+msgid "Enabled at Threshold Level"
+msgstr "Gbanyere na Ọkwa Ọnụ ụzọ"
+
+#: thold.php thold_templates.php
+msgid "General Settings"
+msgstr "Ntọala Izugbe"
+
+#: thold.php
+msgid "Name (Displayed)"
+msgstr "Aha (Nke a na-egosi)"
+
+#: thold.php
+msgid "Provide the Thresholds a meaningful name"
+msgstr "Nye Ọnụ ụzọ Gasị aha nwere isi"
+
+#: thold.php
+msgid "Name (Format)"
+msgstr "Aha (Ụdị)"
+
+#: thold.php thold_templates.php
+msgid "Warning HRULE Color"
+msgstr "Agba HRULE Ịdọ Aka Ná Ntị"
+
+#: thold.php thold_templates.php
+msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
+msgstr "Biko họrọ Agba maka Eserese HRULE maka Ọnụ ụzọ Ịdọ aka ná ntị.  Họrọ 'Ọ dịghị' maka Enweghị HRULE.  Rịba ama: A na-akwado atụmatụ a maka ụdị Njikwa Data 'Ọnụọgụ Ziri Ezi' na 'Pasentị' naanị n'oge a."
+
+#: thold.php thold_templates.php
+msgid "Alert HRULE Color"
+msgstr "Agba HRULE Ịma ọkwa"
+
+#: thold.php thold_templates.php
+msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
+msgstr "Biko họrọ Agba maka Eserese HRULE maka Ọnụ ụzọ Mkpu.  Họrọ 'Ọ dịghị' maka Enweghị HRULE.  Rịba ama: A na-akwado atụmatụ a maka ụdị Njikwa Data 'Ọnụọgụ Ziri Ezi' na 'Pasentị' naanị n'oge a."
+
+#: thold.php thold_templates.php
+msgid "Graph Timespan"
+msgstr "Ogologo Oge Eserese"
+
+#: thold.php thold_templates.php
+msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
+msgstr "A ga-edozi Oge Njedebe Eserese n'oge mkpalite.  Oge Mmalite Eserese ga-abụ Oge Njedebe ewepụ Oge Eserese."
+
+#: thold.php thold_templates.php
+msgid "Skip Scaling on HRULEs"
+msgstr "Wụfee Ịtụle nha na HRULEs"
+
+#: thold.php thold_templates.php
+msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
+msgstr "Ọ bụrụ na Akaa ya, Ọnụọgụgụ (Scale) dị na Eserese agaghị enwe mmetụta site na HRULEs nke Mkpesa ma ọ bụ Ịdọ aka ná ntị."
+
+#: thold.php thold_templates.php
+msgid "Weekend Exemption"
+msgstr "Mwepụ Ngwụsị Izu"
+
+#: thold.php thold_templates.php
+msgid "If this is checked, this Threshold will not alert on weekends."
+msgstr "Ọ bụrụ na a kaa nke a akara, Ọnụ ụzọ a agaghị akpọ mkpu na ngwụcha izu."
+
+#: thold.php thold_templates.php
+msgid "Disable Restoration Email"
+msgstr "Gbanyụọ Ozi-e Mweghachi"
+
+#: thold.php thold_templates.php
+msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
+msgstr "Ọ bụrụ na a kaa nke a akara, Ọnụ ụzọ agaghị ezipụ mkpu mgbe Ọnụ ụzọ laghachiri n'ọnọdụ nkịtị."
+
+#: thold.php thold_templates.php
+msgid "Acknowledgment Options"
+msgstr "Nhọrọ Nkwenye"
+
+#: thold.php thold_templates.php
+msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
+msgstr "E nwere ọkwa Nkwenye atọ na-achịkwa otu ị ga-esi zaghachi ọnọdụ mmebi Ọnụ ụzọ. Ha bụ:<br><br><ul><li><i>Ọ dịghị nke chọrọ</i> - Mgbe ị họọrọ nhọrọ a, ọ dịghị Nkwenye chọrọ maka mmebi Ọnụ ụzọ.</li><li><i>Ọkwa a pụrụ ịkwụsịtụ</i> - Site na nhọrọ a, ozugbo i Kwenyere ma ọ bụ Kwụsịtụ Ọkwa na Ọnụ ụzọ ahụ, ị gaghị enwetakwa ọkwa ọzọ mgbe a mebiri ya. Ị nwere ike ịmaliteghachi Ọkwa mgbe emechara ka a ka na-emebi ya.</li><li><i>Nkwenye na-adịgide adịgide</i> - Site na nhọrọ a, ọbụlagodi mgbe Ọnụ ụzọ laghachiri n'ọnọdụ nkịtị, ị ga-ekwenyerịrị Ọnụ ụzọ ahụ ma nye Ozi Onye Ọrụ nhọrọ.</li></ul>"
+
+#: thold.php thold_templates.php
+msgid "None Required"
+msgstr "Ọ Dịghị Nke Achọrọ"
+
+#: thold.php thold_templates.php
+msgid "Suspendible Notification"
+msgstr "Ọkwa Enwere Ike Ịkwụsịtụ"
+
+#: thold.php thold_templates.php
+msgid "Persistent Acknowledgment"
+msgstr "Nkwenye Na-adịgide adịgide"
+
+#: thold.php thold_templates.php
+msgid "Threshold Type"
+msgstr "Ụdị Ọnụ ụzọ"
+
+#: thold.php thold_templates.php
+msgid "The type of Threshold that will be monitored."
+msgstr "Ụdị Ọnụ ụzọ a ga-enyocha."
+
+#: thold.php thold_templates.php
+msgid "Re-Alert Cycle"
+msgstr "Okirikiri Mkpọsa Ọzọ"
+
+#: thold.php
+msgid "Repeat alert after this amount of time has passed since the last alert."
+msgstr "Kwugharịa ọkwa mgbe oge a gachara kemgbe ọkwa ikpeazụ."
+
+#: thold.php thold_templates.php
+msgid "Warning - High / Low Settings"
+msgstr "Ịdọ aka ná ntị - Ntọala Elu / Ala"
+
+#: thold.php thold_templates.php
+msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
+msgstr "Uru ọnụọgụ maka Ọnụ ụzọ Dị Elu na Nke Dị Ala nwere ike ịgụnye nsonaazụ ndị a maka ọnụọgụ karịrị 1 ruo 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', na maka ọnụọgụ na-erughị 1 'm', 'u', 'p', 'f'."
+
+#: thold.php thold_templates.php
+msgid "High Threshold"
+msgstr "Ọnụ ụzọ Dị Elu"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Ọ bụrụ na edobere ya ma uru Isi Iyi Data gafee nọmba a, a ga-akpalite ịdọ aka ná ntị.  RỊBA AMA: Uru a ga-abụrịrị nọmba RAW.  Cdef nwere ike ịgbanwe uru egosiri na Eserese."
+
+#: thold.php thold_templates.php
+msgid "Low Threshold"
+msgstr "Ọnụ ụzọ Dị Ala"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Ọ bụrụ na edobere ya ma uru Isi Iyi Data daa n'okpuru nọmba a, a ga-akpalite ịdọ aka ná ntị.  RỊBA AMA: Uru a ga-abụrịrị nọmba RAW.  Cdef nwere ike ịgbanwe uru egosiri na Eserese."
+
+#: thold.php
+msgid "Breach Duration"
+msgstr "Ogologo Oge Mmebi"
+
+#: thold.php
+msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Oge Isi Iyi Data ga-anọ na mmebi nke Ọnụ ụzọ tupu e welite ịdọ aka ná ntị.  MARA: Uru a ga-abụrịrị nọmba RAW.  Uru e gosipụtara na Eserese nwere ike ịgbanwe site na cdef."
+
+#: thold.php thold_templates.php
+msgid "Alert - High / Low Settings"
+msgstr "Ịma ọkwa - Ntọala Elu / Ala"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Ọ bụrụ na edobere ya ma uru Isi Iyi Data gafee nọmba a, a ga-akpalite mkpu.  RỊBA AMA: Uru a ga-abụrịrị nọmba RAW.  Cdef nwere ike ịgbanwe uru egosiri na Eserese."
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Ọ bụrụ na edobere ya ma uru Isi Iyi Data daa n'okpuru nọmba a, a ga-akpalite mkpu.  RỊBA AMA: Uru a ga-abụrịrị nọmba RAW.  Cdef nwere ike ịgbanwe uru egosiri na Eserese."
+
+#: thold.php
+msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
+msgstr "Oge Isi Iyi Data ga-anọ na mmebi nke Ọnụ ụzọ tupu e welite mkpọku."
+
+#: thold.php thold_templates.php
+msgid "Warning - Time Based Settings"
+msgstr "Ịdọ aka ná ntị - Ntọala Dabere na Oge"
+
+#: thold.php
+msgid "Breach Count"
+msgstr "Ọnụọgụgụ Mmebi"
+
+#: thold.php
+msgid "The number of times the Data Source must be in breach of the Threshold."
+msgstr "Ọnụọgụgụ ugboro ole Isi Iyi Data ga-emebi Ọnụ ụzọ."
+
+#: thold.php
+msgid "Breach Window"
+msgstr "Oge Mmebi"
+
+#: thold.php thold_templates.php
+msgid "The amount of time in the past to check for Threshold breaches."
+msgstr "Oge n'oge gara aga iji lelee mmebi Ọnụ ụzọ."
+
+#: thold.php thold_templates.php
+msgid "Alert - Time Based Settings"
+msgstr "Ịma ọkwa - Ntọala Dabere n'Oge"
+
+#: thold.php
+msgid "Baseline Settings"
+msgstr "Ntọala Akara ntọala"
+
+#: thold.php thold_templates.php
+msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
+msgstr "Ụdị Ntọala. [TIP] bụ Oge Gara Aga, [AOT] bụ Nkezi Gafere Oge. Ndịiche Pasentị bụ uru pasentị site na uru akụkọ ihe mere eme. Uru Zuru Oke bụ ndịiche karịrị maọbụ n'okpuru Ntọala ahụ karịa uru akụkọ ihe mere eme ahụ. Maka Ụdị Ntọala [TIP], MIN, MAX, AVG, na LAST ga-esi n'ihe na-erughị otu ụbọchị n'oge ahụ."
+
+#: thold.php thold_templates.php
+msgid "Consolidation Function"
+msgstr "Ọrụ Nchịkọta"
+
+#: thold.php thold_templates.php
+msgid "Average"
+msgstr "Nkezi"
+
+#: thold.php thold_templates.php
+msgid "Minimum"
+msgstr "Kachasị Nta"
+
+#: thold.php thold_templates.php
+msgid "Maximum"
+msgstr "Kachasị Elu"
+
+#: thold.php thold_templates.php
+msgid "Last"
+msgstr "Ikpeazụ"
+
+#: thold.php thold_templates.php
+msgid "The Consolidation function to use for the Baseline Type value calculation."
+msgstr "Ọrụ Nchikọta a ga-eji maka mgbako uru Ụdị Ntọala."
+
+#: thold.php thold_templates.php
+msgid "Time Range"
+msgstr "Oke Oge"
+
+#: thold.php thold_templates.php
+msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
+msgstr "Na-akọwa oge gara aga (dabere na mkpebi rrd) a ga-eji dị ka ntụaka ma ọ bụ ogologo oge a ga-eji maka Nkezi Na-ese n'elu mgbe a na-eji Ọnụ ụzọ ụdị Nkezi Na-ese n'elu"
+
+#: thold.php thold_templates.php
+msgid "Deviation UP"
+msgstr "Ntụgharị ELU"
+
+#: thold.php
+#, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Na-akọwa ndapụ e kwere maka Ọnụ ụzọ oke elu ahụ. Ọ bụrụ na edobeghị ya, a gaghị elele Ọnụ ụzọ oke elu ahụ ma ọlị.  Nkeji nha bụ ọnụọgụgụ zuru oke maka Ụdị 'Ọnụọgụgụ Zuru Oke', yana Pasentị maka ma '%% Ndapụ' ma '%% Nkezi Na-ese n'elu'"
+
+#: thold.php thold_templates.php
+msgid "Deviation DOWN"
+msgstr "Ntụgharị ALA"
+
+#: thold.php
+#, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Na-akọwa ndapụ e kwere maka Ọnụ ụzọ oke ala ahụ. Ọ bụrụ na edobeghị ya, a gaghị elele Ọnụ ụzọ oke ala ahụ ma ọlị.  Nkeji nha bụ ọnụọgụgụ zuru oke maka Ụdị 'Ọnụọgụgụ Zuru Oke', yana Pasentị maka ma '%% Ndapụ' ma '%% Nkezi Na-ese n'elu'"
+
+#: thold.php thold_templates.php
+msgid "Trigger Count"
+msgstr "Ọnụọgụgụ Mkpali"
+
+#: thold.php
+#, php-format
+msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
+msgstr "Ọnụọgụ ugboro n'usoro Isi Iyi Data ga-emebi Ọnụ ụzọ ntọala tupu ebulie mkpu.<br>Hapụ ya n'efu iji jiri uru ndabere (<b>Ndabere: okirikiri %s</b>)"
+
+#: thold.php thold_templates.php
+msgid "Data Manipulation"
+msgstr "Nhazi Data"
+
+#: thold.php thold_templates.php
+msgid "Data Type"
+msgstr "Ụdị Data"
+
+#: thold.php thold_templates.php
+msgid "Special formatting for the given data."
+msgstr "Nhazi pụrụ iche maka data e nyere."
+
+#: thold.php thold_templates.php
+msgid "Threshold CDEF"
+msgstr "Ọnụ ụzọ CDEF"
+
+#: thold.php thold_templates.php
+msgid "Apply this CDEF before returning the data."
+msgstr "Tinye CDEF a tupu ịweghachi data ahụ."
+
+#: thold.php
+msgid "Percent Data Source"
+msgstr "Pasentị Isi Iyi Data"
+
+#: thold.php
+msgid "Second Data Source Item to use as total value to calculate percentage from."
+msgstr "Ihe Isi Iyi Data nke Abụọ a ga-eji dị ka ngụkọta uru iji gbakọọ pasentị."
+
+#: thold.php thold_templates.php
+msgid "Show Units"
+msgstr "Gosi Ngalaba Ntụle"
+
+#: thold.php thold_templates.php
+msgid "Display units for very large or small numbers."
+msgstr "Gosi nkeji maka ọnụọgụ dị oke ukwuu ma ọ bụ dị nta."
+
+#: thold.php thold_templates.php
+msgid "Force Units Suffix"
+msgstr "Manye Mgbakwunye Ngalaba"
+
+#: thold.php thold_templates.php
+msgid "If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters."
+msgstr "Ọ bụrụ na ịchọrọ igosi nsonaazụ ngalaba a manyere na ibe Ọnụ ụzọ dị iche iche na Ọkwa, tinye ya ebe a.  A kpaara nha ya ókè ka ọ ghara ịkarị mkpụrụedemede 10."
+
+#: thold.php thold_templates.php
+msgid "Decimal Digits to Display"
+msgstr "Ọnụọgụ Desimal A Ga-egosi"
+
+#: thold.php thold_templates.php
+msgid "The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2."
+msgstr "Ọnụọgụgụ mkpụrụọgụgụ desimalụ a ga-egosipụta maka Ọnụ ụzọ na Ọnụahịa Ugbu a.  Ndabere bụ akpaaka ma ọ bụ 2."
+
+#: thold.php
+#, php-format
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Okwu RPN bụ Okwu RPN kwekọrọ na RRDtool.  Usoro edemede gụnyere ọrụ nile dị n'okpuru tinyere okwu nnọchi nke ma Ngwaọrụ ma Ajụjụ Data dị ka <span class=\"deviceUp\">|query_ifSpeed|</span>.  Iji jiri Isi Iyi Data na Okwu RPN, ị ga-eji usoro edemede a: <span class=\"deviceUp\">|ds:dsname|</span>.  Dị ka ọmụmaatụ, <span class=\"deviceUp\">|ds:traffic_in|</span> ga-enweta ọnụọgụgụ dị ugbu a nke Isi Iyi Data traffic_in maka faịlụ RRD ndị jikọtara na Eserese ahụ. Enwere ike itinye Isi Iyi Data ọ bụla maka Eserese.<br><br>Ndị Nrụọrụ Mgbakọ: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Ọrụ Gasị: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Ndị Nrụọrụ Nrugharị: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Ọrụ Ntụnyere: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+
+#: thold.php thold_templates.php
+msgid "Upper Data Source"
+msgstr "Isi Iyi Data Elu"
+
+#: thold.php
+msgid "Upper data source to calculate the total value."
+msgstr "Isi iyi data elu iji gụọ ọnụ ahịa mkpokọta."
+
+#: thold.php thold_templates.php
+msgid "Notification Settings"
+msgstr "Ntọala Ọkwa"
+
+#: thold.php
+msgid "Alert Subject"
+msgstr "Isiokwu Ịma ọkwa"
+
+#: thold.php
+msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Nke a bụ isiokwu Ozi-e a ga-egosipụta na Ozi-e ahụ (Kachasị Mkpụrụedemede 128). Hapụ ya n'efu maka nke ndabara. E nwere ọtụtụ mkpado nnọchi a na-ahụkarị enwere ike iji gụnyere:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php
+msgid "Alert Body"
+msgstr "Ahụ Ịma ọkwa"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Nke a bụ ozi a ga-egosipụta n'elu Ọkwa Ọnụ ụzọ niile (Mkpụrụedemede 1024 KACHASỊ). A na-anabata HTML, mana a ga-ewepụ ya maka ozi-e ederede naanị. E nwere ọtụtụ mkpado nnọchi nkịtị a pụrụ iji gụnyere:<br>dịka &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Subject"
+msgstr "Isiokwu Ịdọ Aka Ná Ntị"
+
+#: thold.php
+msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Nke a bụ isiokwu Ozi-e Ịdọ aka ná ntị a ga-egosipụta na Ozi-e mgbe ọ gbanwere gaa na Ịdọ aka ná ntị (Kachasị Mkpụrụedemede 128). Hapụ ya n'efu maka nke ndabara. E nwere ọtụtụ mkpado nnọchi a na-ahụkarị enwere ike iji gụnyere:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Body"
+msgstr "Ahụ Ozi Ịdọ Aka Ná Ntị"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Nke a bụ ozi a ga-egosipụta n'elu Ịdọ aka ná ntị Ọnụ ụzọ niile (Mkpụrụedemede 1024 KACHASỊ). A na-anabata HTML, mana a ga-ewepụ ya maka ozi-e ederede naanị. E nwere ọtụtụ mkpado nnọchi nkịtị a pụrụ iji gụnyere:<br>dịka &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold.php thold_templates.php
+msgid "Restoral Subject"
+msgstr "Isiokwu Mweghachi"
+
+#: thold.php
+msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Nke a bụ isiokwu Ozi-e a ga-egosipụta na Ozi-e ahụ mgbe ọ laghachiri n'ọnọdụ Nkịtị (Kachasị Mkpụrụedemede 128). Hapụ ya n'efu maka nke ndabara. E nwere ọtụtụ mkpado nnọchi a na-ahụkarị enwere ike iji gụnyere:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php
+msgid "Restoral Email Body"
+msgstr "Ahụ Ozi-e Mweghachi"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Nke a bụ ozi a ga-egosipụta n'elu ọkwa mweghachi Ọnụ ụzọ niile (Mkpụrụedemede 1024 KACHASỊ). A na-anabata HTML, mana a ga-ewepụ ya maka Ozi-e ederede naanị. E nwere ọtụtụ mkpado nnọchi nkịtị a pụrụ iji gụnyere:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Notification List"
+msgstr "Ndepụta Ọkwa Ịdọ Aka Ná Ntị"
+
+#: thold.php thold_templates.php
+msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
+msgstr "Ị nwere ike ịhọrọ Ndepụta Ọkwa iji nata Ịdọ aka ná ntị maka Isi Iyi Data a"
+
+#: thold.php thold_templates.php
+msgid "Alert Notification List"
+msgstr "Ndepụta Ọkwa nke Ịma ọkwa"
+
+#: thold.php thold_templates.php
+msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
+msgstr "Ị nwere ike ịhọrọ Ndepụta Ọkwa iji nata Mkpu maka Isi Iyi Data a"
+
+#: thold.php thold_templates.php
+msgid "Style/Format File"
+msgstr "Faịlụ Ụdị/Nhazi"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Event Category"
+msgstr "Ọkwa SNMP - Ụdị Ihe Omume"
+
+#: thold.php thold_templates.php
+msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+msgstr "Iji mee ka NMS nwee ike kewaa ọkwa SNMP dị iche iche n'ụzọ dị mfe, biko dejupụta ụdị ọkwa SNMP nke nlereanya a kwesịrị iji. Dịka ọmụmaatụ: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+
+#: thold.php thold_templates.php
+msgid "SNMP Event Description"
+msgstr "Nkọwa Ihe Omume SNMP"
+
+#: thold.php thold_templates.php
+msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+msgstr "Ị nwere ike ịhazi nkọwa mmemme a na-eziga ndị nnata ọkwa SNMP site na iji njikọ mgbanwe. Enwere ike iji mgbanwe nnọchi Ngwaọrụ (|host_*|) na Ajụjụ Data (|query_*|) nke ọkọlọtọ yana varbinds ndị a:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Alert Event Severity"
+msgstr "Ọkwa SNMP - Ịdị njọ Ihe Omume Mkpọsa"
+
+#: thold.php
+msgid "Severity to be used for alerts. (low impact -> critical impact)"
+msgstr "Ogo ịdị njọ a ga-eji maka ọkwa mkpọtụ. (mmetụta dị ala -> mmetụta dị oke mkpa)"
+
+#: thold.php thold_templates.php
+msgid "Medium"
+msgstr "Ọkara"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Warning Event Severity"
+msgstr "Ọkwa SNMP - Ịdị njọ Ihe Omume Ịdọ aka ná ntị"
+
+#: thold.php thold_templates.php
+msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
+msgstr "Ogo ịdị njọ a ga-eji maka ịdọ aka ná ntị. (Mmetụta dị ala -> Mmetụta dị oke mkpa).<br>Rịba ama: Ogo ịdị njọ nke ịdọ aka ná ntị ga-abụrịrị nke hà nhata ma ọ bụ dị ala karịa ogo ịdị njọ akọwapụtara maka ọkwa mkpọtụ."
+
+#: thold.php thold_templates.php
+msgid "Notify accounts"
+msgstr "Gwa akaụntụ"
+
+#: thold.php
+msgid "This is a listing of accounts that will be notified when this Threshold is breached."
+msgstr "Nke a bụ ndepụta akaụntụ a ga-agwa mgbe e mebiri Ọnụ ụzọ a."
+
+#: thold.php thold_templates.php
+msgid "Alert Emails"
+msgstr "Ozi-e Ịma ọkwa"
+
+#: thold.php
+msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
+msgstr "Ị nwere ike ịkọwapụta Ozi-e ndị ọzọ ebe a iji nata mkpu maka isi iyi data a (e jiri rikọm kewaa)"
+
+#: thold.php thold_templates.php
+msgid "Warning Emails"
+msgstr "Ozi-e Ịdọ Aka Ná Ntị"
+
+#: thold.php
+msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
+msgstr "Ị nwere ike ịkọwapụta Ozi-e ndị ọzọ ebe a iji nata ịdọ aka ná ntị maka isi iyi data a (e jiri rikọm kewaa)"
+
+#: thold.php thold_templates.php
+msgid "If checked, Threshold notification will be sent to your local syslog."
+msgstr "Ọ bụrụ na akaa ya, a ga-eziga ọkwa Ọnụ ụzọ na syslog mpaghara gị."
+
+#: thold.php thold_templates.php
+msgid "Priority/Level"
+msgstr "Ọkwa mkpa/Ọkwa"
+
+#: thold.php thold_templates.php
+msgid "This is the Priority Level that will be logged into your syslog messages."
+msgstr "Nke a bụ Ọkwa Mkpa a ga-edekọ n'ime ozi syslog gị."
+
+#: thold.php thold_templates.php
+msgid "Facility"
+msgstr "Ngalaba"
+
+#: thold.php thold_templates.php
+msgid "This is the Facility that will be used for this Threshold."
+msgstr "Nke a bụ Facility a ga-eji maka Ọnụ ụzọ a."
+
+#: thold.php thold_templates.php
+msgid "Event Triggering (Shell Command)"
+msgstr "Mbido Ihe Omume (Iwu Shell)"
+
+#: thold.php thold_templates.php
+msgid "High Trigger Command"
+msgstr "Iwu Mbido Dị Elu"
+
+#: thold.php thold_templates.php
+msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Ọ bụrụ na edobere ya, ma mebie Ọnụ ụzọ dị Elu, a ga-agba iwu a.  Biko tinye iwu ziri ezi.  Na mgbakwunye, e nwere ọtụtụ mkpado nnọchi dị na ya nke enwere ike iji bufee ozi site na Ọnụ ụzọ gaa na script ahụ.  Ị nwere ike ime nke a dị ka arụmụka na ahịrị iwu, ma ọ bụ nke kacha mma, na gburugburu nke script ahụ.  Uru nnọchi niile ga-apụta na gburugburu script ahụ nke e tinyere THOLD_ n'ihu ya.  Ya mere, dịka ọmụmaatụ CURRENTVALUE ga-aghọ THOLD_CURRENTVALUE, na ndị ọzọ.  Mgbanwe ndị ahụ gụnyere: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  N'ikpeazụ, enwere ike ime nnọchi Onye nnabata, Ajụjụ Data na Ntinye Data.  Dịka ọmụmaatụ, ọ bụrụ na ị nwere data omenala ntinye data akpọrọ pending, iji mee nnọchi jiri |pending|.  Maka nnọchi Ajụjụ Data, na Onye nnabata jiri usoro Cacti |query_xxxx|, na |host_xxxx| n'otu n'otu."
+
+#: thold.php thold_templates.php
+msgid "Low Trigger Command"
+msgstr "Iwu Mmalite Dị Ala"
+
+#: thold.php thold_templates.php
+msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Ọ bụrụ na edobere ya, ma mebie Ọnụ ụzọ dị Ala, a ga-agba iwu a. Biko tinye iwu ziri ezi.  Na mgbakwunye, e nwere ọtụtụ mkpado nnọchi dị na ya nke enwere ike iji bufee ozi site na Ọnụ ụzọ gaa na script ahụ.  Ị nwere ike ime nke a dị ka arụmụka na ahịrị iwu, ma ọ bụ nke kacha mma, na gburugburu nke script ahụ.  Uru nnọchi niile ga-apụta na gburugburu script ahụ nke e tinyere THOLD_ n'ihu ya.  Ya mere, dịka ọmụmaatụ CURRENTVALUE ga-aghọ THOLD_CURRENTVALUE, na ndị ọzọ.  Mgbanwe ndị ahụ gụnyere: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  N'ikpeazụ, enwere ike ime nnọchi Onye nnabata, Ajụjụ Data na Ntinye Data.  Dịka ọmụmaatụ, ọ bụrụ na ị nwere data omenala ntinye data akpọrọ pending, iji mee nnọchi jiri |pending|.  Maka nnọchi Ajụjụ Data, na Onye nnabata jiri usoro Cacti |query_xxxx|, na |host_xxxx| n'otu n'otu."
+
+#: thold.php thold_templates.php
+msgid "Norm Trigger Command"
+msgstr "Iwu Mkpali Nkịtị"
+
+#: thold.php thold_templates.php
+msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Ọ bụrụ na edobere ya, mgbe ọnụ ụzọ laghachiri n'uru nkịtị, a ga-agba iwu a.  Biko tinye iwu ziri ezi.  Na mgbakwunye, e nwere ọtụtụ mkpado nnọchi dị na ya nke enwere ike iji bufee ozi site na Ọnụ ụzọ gaa na script ahụ.  Ị nwere ike ime nke a dị ka arụmụka na ahịrị iwu, ma ọ bụ nke kacha mma, na gburugburu nke script ahụ.  Uru nnọchi niile ga-apụta na gburugburu script ahụ nke e tinyere THOLD_ n'ihu ya.  Ya mere, dịka ọmụmaatụ CURRENTVALUE ga-aghọ THOLD_CURRENTVALUE, na ndị ọzọ.  Mgbanwe ndị ahụ gụnyere: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  N'ikpeazụ, enwere ike ime nnọchi Onye nnabata, Ajụjụ Data na Ntinye Data.  Dịka ọmụmaatụ, ọ bụrụ na ị nwere data omenala ntinye data akpọrọ pending, iji mee nnọchi jiri |pending|.  Maka nnọchi Ajụjụ Data, na Onye nnabata jiri usoro Cacti |query_xxxx|, na |host_xxxx| n'otu n'otu."
+
+#: thold.php thold_templates.php
+msgid "Other Settings"
+msgstr "Ntọala Ndị Ọzọ"
+
+#: thold.php
+msgid "Enter an Eternal ID for this Threshold."
+msgstr "Tinye ID Ebighị Ebi maka Ọnụ ụzọ a."
+
+#: thold.php thold_templates.php
+msgid "Operator Notes"
+msgstr "Ndetu Onye Ọrụ"
+
+#: thold.php thold_templates.php
+msgid "Enter instructions here for an operator who may be receiving the Threshold message."
+msgstr "Tinye ntuziaka ebe a maka onye ọrụ nwere ike ịnata ozi Ọnụ ụzọ."
+
+#: thold.php
+msgid "Select Users(s)"
+msgstr "Họrọ Ndị Ọrụ"
+
+#: thold.php
+msgid "Users Selected"
+msgstr "Ndị Ọrụ Ahọpụtara"
+
+#: thold.php
+msgid "All Users Selected"
+msgstr "Ahọpụtala Ndị Ọrụ Nile"
+
+#: thold_graph.php
+msgid "The Threshold has been Ascknowledged."
+msgstr "E kwetala Ọnụ ụzọ ahụ."
+
+#: thold_graph.php
+msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
+msgstr "Ọnụ ụzọ ahụ agaghịzi ewepụta Mkpọku, Ọkwa, ma ọ bụ rụọ iwu."
+
+#: thold_graph.php
+msgid "The Threshold will restart generating Alerts."
+msgstr "Ọnụ ụzọ ahụ ga-amaliteghachi iwepụta Mkpọku."
+
+#: thold_graph.php
+msgid "Threshold Status"
+msgstr "Ọnọdụ Ọnụ ụzọ"
+
+#: thold_graph.php
+msgid "Actions"
+msgstr "Omume"
+
+#: thold_graph.php
+msgid "Ack Detail"
+msgstr "Nkọwa Nkwenye"
+
+#: thold_graph.php
+msgid "Edit Threshold"
+msgstr "Dezie Ọnụ ụzọ"
+
+#: thold_graph.php
+msgid "Disable Threshold"
+msgstr "Gbanyụọ Ọnụ ụzọ"
+
+#: thold_graph.php
+msgid "Enable Threshold"
+msgstr "Gbanye Ọnụ ụzọ"
+
+#: thold_graph.php
+msgid "To enable the Threshold, enable the Template first"
+msgstr "Iji gbanye Ọnụ ụzọ, buru ụzọ gbanye Nlereanya"
+
+#: thold_graph.php
+msgid "View Graph"
+msgstr "Lee Eserese"
+
+#: thold_graph.php
+msgid "View Threshold History"
+msgstr "Lee Akụkọ Ihe Mere Eme nke Ọnụ ụzọ"
+
+#: thold_graph.php
+msgid "Suspend Notifications until the Threshold clears"
+msgstr "Kwụsịtụ Ọkwa Gasị ruo mgbe Ọnụ ụzọ kwụsịrị"
+
+#: thold_graph.php
+msgid "Resume Notifications for this breached Threshold"
+msgstr "Maliteghachi Ozi maka Ọnụ ụzọ a mebiri emebi"
+
+#: thold_graph.php
+msgid "Acknowledgement Message"
+msgstr "Ozi Nkwenye"
+
+#: thold_graph.php
+msgid "Date"
+msgstr "Ụbọchị"
+
+#: thold_graph.php
+msgid "Comment Not Found"
+msgstr "Ahụghị Okwu Nkọwa"
+
+#: thold_graph.php
+msgid "Ack History"
+msgstr "Akụkọ Nkwenye"
+
+#: thold_graph.php
+msgid "No name set"
+msgstr "Enweghị aha atọrọ"
+
+#: thold_graph.php
+msgid "Hover over icons for help"
+msgstr "Debe akara òké n'elu akara ngosi maka enyemaka"
+
+#: thold_graph.php
+msgid "A description for the Device"
+msgstr "Nkọwa maka Ngwaọrụ ahụ"
+
+#: thold_graph.php
+msgid "A Cacti unique identifier for the Device"
+msgstr "Ihe njirimara Cacti pụrụ iche maka Ngwaọrụ ahụ"
+
+#: thold_graph.php
+msgid "The number of Graphs for this Device"
+msgstr "Ọnụọgụgụ Eserese Gasị maka Ngwaọrụ a"
+
+#: thold_graph.php
+msgid "The number of Data Sources for this Device"
+msgstr "Ọnụọgụgụ Isi Iyi Data Gasị maka Ngwaọrụ a"
+
+#: thold_graph.php
+msgid "The status for this Device as of the last time it was polled"
+msgstr "Ọnọdụ maka Ngwaọrụ a dịka nke oge ikpeazụ a nyochara ya"
+
+#: thold_graph.php
+msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
+msgstr "Oge ikpeazụ Cacti chọtara nsogbu na Ngwaọrụ a.  Ọ nwere ike ịdị elu karịa Oge ịrụ ọrụ maka Ngwaọrụ ahụ, ma ọ bụrụ na e megharịrị ya n'etiti usoro nyocha Cacti"
+
+#: thold_graph.php
+msgid "Uptime"
+msgstr "Oge Ọrụ"
+
+#: thold_graph.php
+msgid "The official uptime of the Device as reported by SNMP"
+msgstr "Oge ịrụ ọrụ nke Ngwaọrụ a kwadoro dịka SNMP kọrọ"
+
+#: thold_graph.php
+msgid "The official hostname for this Device"
+msgstr "Aha onye nnabata gọọmentị maka Ngwaọrụ a"
+
+#: thold_graph.php
+msgid "Current (ms)"
+msgstr "Ugbu a (ms)"
+
+#: thold_graph.php
+msgid "The current response time for the Cacti Availability check"
+msgstr "Oge nzaghachi dị ugbu a maka nyocha Ịdị Njikere Cacti"
+
+#: thold_graph.php
+msgid "Average (ms)"
+msgstr "Nkezi (ms)"
+
+#: thold_graph.php
+msgid "The average response time for the Cacti Availability check"
+msgstr "Nkezi oge nzaghachi maka nyocha Ịdị Njikere Cacti"
+
+#: thold_graph.php
+msgid "Availability"
+msgstr "Nnweta"
+
+#: thold_graph.php
+msgid "The overall Availability of this Device since the last counter reset in Cacti"
+msgstr "Ịdị adị zuru oke nke Ngwaọrụ a kemgbe nrụgharị igwe ngụkọ ikpeazụ na Cacti"
+
+#: thold_graph.php
+msgid "Edit Device"
+msgstr "Dezie Ngwaọrụ"
+
+#: thold_graph.php
+msgid "View Graphs"
+msgstr "Lee Eserese"
+
+#: thold_graph.php
+msgid "No Devices"
+msgstr "Enweghị Ngwaọrụ"
+
+#: thold_graph.php
+msgid "Not Up"
+msgstr "Adịghị Elu"
+
+#: thold_graph.php
+msgid "No Export Rows Found."
+msgstr "Ahụghị Ahịrị Mbupụ Ọ bụla."
+
+#: thold_graph.php
+#, php-format
+msgid "Threshold Log for [ %s ]"
+msgstr "Ndekọ Ọnụ ụzọ maka [ %s ]"
+
+#: thold_graph.php
+msgid "Log Entries"
+msgstr "Ndekọ Log"
+
+#: thold_graph.php
+msgid "Time"
+msgstr "Oge"
+
+#: thold_graph.php
+msgid "Alert Value"
+msgstr "Ọnụọgụgụ Ịma ọkwa"
+
+#: thold_graph.php
+msgid "Measured Value"
+msgstr "Ọnụọgụgụ A Tụrụ Atụ"
+
+#: thold_graph.php
+msgid "No Threshold Logs Found"
+msgstr "Ahụghị Ndekọ Ọnụ ụzọ Ọ bụla"
+
+#: thold_graph.php
+msgid "Entries"
+msgstr "Ntinye"
+
+#: thold_templates.php
+msgid "You are not authorised to modify one or more of the Thresholds selected"
+msgstr "Ị nweghị ikike ịgbanwe otu ma ọ bụ karịa n'ime Ọnụ ụzọ ahọpụtara"
+
+#: thold_templates.php
+#, php-format
+msgid "%s (%d Thresholds)"
+msgstr "%s (Ọnụ ụzọ %d)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to export the following Threshold Template(s)."
+msgstr "Pịa 'Gaa n'ihu' iji bupụ Nlereanya Ọnụ ụzọ ndị na-esonụ."
+
+#: thold_templates.php
+msgid "Export Template(s)"
+msgstr "Bupụ Nlereanya"
+
+#: thold_templates.php
+msgid "Click 'Continue' to delete the following Threshold Template(s)."
+msgstr "Pịa 'Gaa n'ihu' iji hichapụ Nlereanya Ọnụ ụzọ ndị na-esonụ."
+
+#: thold_templates.php
+msgid "Delete Template(s)"
+msgstr "Hichapụ Nlereanya (gasị)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Reapply Suggested Names to Thresholds of the following Threshold Template(s)."
+msgstr "Pịa 'Gaa n'ihu' iji tinyekwa Aha Atụrụ Aro na Ọnụ ụzọ nke Nlereanya Ọnụ ụzọ ndị na-esonụ."
+
+#: thold_templates.php
+msgid "Reapply Suggested Names to Template(s)"
+msgstr "Tinyeghachi Aha Ndị Atụrụ Aro na Nlereanya"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Enable the selected Template(s) and Threshold(s)."
+msgstr "Pịa 'Gaa n'ihu' iji gbanye Nlereanya na Ọnụ ụzọ ahọpụtara."
+
+#: thold_templates.php
+msgid "Enable Template(s)"
+msgstr "Gbanye Nlereanya Gasị"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
+msgstr "Pịa 'Gaa n'ihu' iji Gbanyụọ Nlereanya na Ọnụ ụzọ a họpụtara."
+
+#: thold_templates.php
+msgid "Disable Template(s)"
+msgstr "Gbanyụọ Nlereanya(gasị)"
+
+#: thold_templates.php
+msgid "Threshold Template Creation Wizard"
+msgstr "Ọkachamara Mmepụta Nlereanya Ọnụ ụzọ"
+
+#: thold_templates.php
+msgid "Please select a Data Template"
+msgstr "Biko họrọ Nlereanya Data"
+
+#: thold_templates.php
+msgid "Please select a Data Source"
+msgstr "Biko họrọ Isi Iyi Data"
+
+#: thold_templates.php
+msgid "Please press 'Create' to create your Threshold Template"
+msgstr "Biko pịa 'Mepụta' iji mepụta Nlereanya Ọnụ ụzọ gị"
+
+#: thold_templates.php
+msgid "The Threshold Template requested can not be found"
+msgstr "Enweghị ike ịchọta Nlereanya Ọnụ ụzọ a rịọrọ"
+
+#: thold_templates.php
+msgid "Provide the Threshold Template a meaningful name."
+msgstr "Nye Nlereanya Ọnụ ụzọ aha nwere isi."
+
+#: thold_templates.php
+msgid "Suggested Threshold Name"
+msgstr "Aha Ọnụ ụzọ Atụrụ Aro"
+
+#: thold_templates.php
+msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
+msgstr "Nye aha a tụrụ aro maka Ọnụ ụzọ e mepụtara site na iji Nlereanya a.  Enwere ike iji mgbanwe nnọchi Ngwaọrụ (|host_*|), Ajụjụ Data (|query_*|) na Ntinye (|input_*|) yana |graph_title| maka Isiokwu Eserese."
+
+#: thold_templates.php
+msgid "Data Template that you are using. (This cannot be changed)"
+msgstr "Nlereanya Data ị na-eji. (Enweghị ike ịgbanwe nke a)"
+
+#: thold_templates.php
+msgid "Data Field"
+msgstr "Ọhịa Data"
+
+#: thold_templates.php
+msgid "Data Field that you are using. (This cannot be changed)"
+msgstr "Ọhịa Data ị na-eji. (Enweghị ike ịgbanwe nke a)"
+
+#: thold_templates.php
+msgid "Whether or not this Threshold will be checked and alerted upon."
+msgstr "Ma a ga-enyocha Ọnụ ụzọ a ma zipụ ọkwa maka ya ma ọ bụ na agaghị."
+
+#: thold_templates.php
+msgid "Repeat alert after this amount of time has pasted since the last alert."
+msgstr "Kwugharịa ọkwa mgbe oge a gachara kemgbe ọkwa ikpeazụ."
+
+#: thold_templates.php
+msgid "Min Trigger Duration"
+msgstr "Oge Mkpali Kachasị Nta"
+
+#: thold_templates.php
+msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
+msgstr "Oge Isi Iyi Data ga-anọ n'ọnọdụ mmebi tupu e welite mkpọku."
+
+#: thold_templates.php
+msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
+msgstr "Ọnụọgụgụ ugboro ole Isi Iyi Data ga-anọ n'ọnọdụ mmebi tupu e nye Ịdọ aka ná ntị."
+
+#: thold_templates.php
+msgid "Time Period Length"
+msgstr "Ogologo Oge"
+
+#: thold_templates.php
+msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
+msgstr "Ọnụọgụgụ ugboro ole Isi Iyi Data ga-anọ n'ọnọdụ mmebi tupu e nye ọkwa ncheta."
+
+#: thold_templates.php
+msgid "Baseline Monitoring"
+msgstr "Nleba anya Akara ntọala"
+
+#: thold_templates.php
+#, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Na-akọwa ndapụ e kwere maka Ọnụ ụzọ oke elu. Ọ bụrụ na edobeghị ya, a gaghị elele Ọnụ ụzọ oke elu ma ọlị.  Nkeji nha bụ ọnụọgụgụ zuru oke maka Ụdị 'Ọnụọgụgụ Zuru Oke', yana Pasentị maka ma '%% Ndapụ' ma '%% Nkezi Na-ese n'elu'"
+
+#: thold_templates.php
+#, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Na-akọwa ndapụ e kwere maka Ọnụ ụzọ oke ala. Ọ bụrụ na edobeghị ya, a gaghị elele Ọnụ ụzọ oke ala ma ọlị.  Nkeji nha bụ ọnụọgụgụ zuru oke maka Ụdị 'Ọnụọgụgụ Zuru Oke', yana Pasentị maka ma '%% Ndapụ' ma '%% Nkezi Na-ese n'elu'"
+
+#: thold_templates.php
+#, php-format
+msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
+msgstr "Ọnụọgụ ugboro n'usoro Isi Iyi Data ga-anọ n'ọnọdụ mmebi tupu ebulie mkpu.<br>Hapụ ya n'efu iji jiri uru ndabere (Ndabere: okirikiri %s"
+
+#: thold_templates.php
+msgid "Percent Datasource"
+msgstr "Pasentị Isi Iyi Data"
+
+#: thold_templates.php
+msgid "Second Datasource Item to use as total value to calculate percentage from."
+msgstr "Ihe Isi Iyi Data nke Abụọ a ga-eji dị ka ngụkọta uru iji gbakọọ pasentị."
+
+#: thold_templates.php
+#, php-format
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Okwu RPN bụ Okwu RPN kwekọrọ na RRDtool.  Usoro edemede gụnyere ọrụ nile dị n'okpuru tinyere okwu nnọchi nke ma Ngwaọrụ ma Ajụjụ Data dị ka <span style=\"color:blue;\">|query_ifSpeed|</span>.  Iji jiri Isi Iyi Data na Okwu RPN, ị ga-eji usoro edemede a: <span style=\"color:blue;\">|ds:dsname|</span>.  Dị ka ọmụmaatụ, <span style=\"color:blue;\">|ds:traffic_in|</span> ga-enweta ọnụọgụgụ dị ugbu a nke Isi Iyi Data traffic_in maka faịlụ RRD ndị jikọtara na Eserese ahụ. Enwere ike itinye Isi Iyi Data ọ bụla maka Eserese.<br>Ndị Nrụọrụ Mgbakọ: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Ọrụ Gasị: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Ndị Nrụọrụ Nrugharị: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Ọrụ Ntụnyere: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+
+#: thold_templates.php
+msgid "Upper data source to use to calculate the total value."
+msgstr "Isi iyi data elu a ga-eji gụọ ọnụ ahịa mkpokọta."
+
+#: thold_templates.php
+msgid "Alert Email Subject"
+msgstr "Isiokwu Ozi-e Ịma ọkwa"
+
+#: thold_templates.php
+msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Nke a bụ isiokwu Ozi-e a ga-egosipụta na Ozi-e ahụ (Kachasị Mkpụrụedemede 128). Hapụ ya n'efu maka nke ndabara. E nwere ọtụtụ mkpado nnọchi a na-ahụkarị enwere ike iji gụnyere:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "Alert Email Body"
+msgstr "Ahụ Ozi-e Ịma ọkwa"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Nke a bụ ozi a ga-egosipụta n'elu Ọkwa Ọnụ ụzọ niile (Mkpụrụedemede 1024 KACHASỊ). A na-anabata HTML, mana a ga-ewepụ ya maka ozi-e ederede naanị. E nwere ọtụtụ mkpado nnọchi nkịtị a pụrụ iji gụnyere:<br>dịka &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold_templates.php
+msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Nke a bụ isiokwu Ịdọ aka ná ntị a ga-egosipụta na Ozi-e (Kachasị Mkpụrụedemede 128). Hapụ ya n'efu maka nke ndabara. E nwere ọtụtụ mkpado nnọchi a na-ahụkarị enwere ike iji gụnyere:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Nke a bụ ozi a ga-egosipụta n'elu Ịdọ aka ná ntị Ọnụ ụzọ niile (Mkpụrụedemede 1024 KACHASỊ). A na-anabata HTML, mana a ga-ewepụ ya maka ozi-e ederede naanị. E nwere ọtụtụ mkpado nnọchi nkịtị a pụrụ iji gụnyere:<br>dịka &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold_templates.php
+msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Nke a bụ isiokwu Ozi-e a ga-egosipụta na Ozi-e ahụ mgbe ọ laghachiri n'ọnọdụ Nkịtị (Kachasị Mkpụrụedemede 128). Hapụ ya n'efu maka nke ndabara. E nwere ọtụtụ mkpado nnọchi a na-ahụkarị enwere ike iji gụnyere:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "Restoral Body"
+msgstr "Ahụ Mweghachi"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Nke a bụ ozi a ga-egosipụta n'elu ọkwa mweghachi Ọnụ ụzọ niile (Mkpụrụedemede 1024 KACHASỊ). A na-anabata HTML, mana a ga-ewepụ ya maka Ozi-e ederede naanị. E nwere ọtụtụ mkpado nnọchi nkịtị a pụrụ iji gụnyere:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: thold_templates.php
+msgid "Notification List Read Only"
+msgstr "Ndepụta Ọkwa Ọgụgụ Naanị"
+
+#: thold_templates.php
+msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
+msgstr "Ọ bụrụ na akaa ya, Ndepụta Ọkwa Ọnụ ụzọ dị na Nlereanya ga-edegharị ndị nke Ọnụ ụzọ."
+
+#: thold_templates.php
+msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
+msgstr "Ogo ịdị njọ a ga-eji maka ọkwa mkpọtụ. (Mmetụta dị ala -> Mmetụta dị oke mkpa)"
+
+#: thold_templates.php
+msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
+msgstr "Nke a bụ ndepụta akaụntụ a ga-agwa mgbe e mebiri Ọnụ ụzọ a.<br><br><br><br>"
+
+#: thold_templates.php
+msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
+msgstr "Ị nwere ike ịkọwapụta Ozi-e ndị ọzọ ebe a iji nata mkpu maka Isi Iyi Data a (e jiri rikọm kewaa)"
+
+#: thold_templates.php
+msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
+msgstr "Ị nwere ike ịkọwapụta Ozi-e ndị ọzọ ebe a iji nata ịdọ aka ná ntị maka Isi Iyi Data a (e jiri rikọm kewaa)"
+
+#: thold_templates.php
+msgid "Enter an Eternal ID for this Thold Template."
+msgstr "Tinye ID Ebighị Ebi maka Nlereanya Thold a."
+
+#: thold_templates.php
+#, php-format
+msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "Ọnwa %d, Ụbọchị %d, Awa %d, Nkeji %d, Sekọnd %d (Nkezi)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
+msgstr "Ọnwa %d, Ụbọchị %d, Awa %d, Nkeji %d, Sekọnd %d"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "Ụbọchị %d, Awa %d, Nkeji %d, Sekọnd %d (Nkezi)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
+msgstr "Ụbọchị %d, Awa %d, Nkeji %d, Sekọnd %d"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "Awa %d, Nkeji %d, Sekọnd %d (Nkezi)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Hours, %d Minutes, %d Seconds"
+msgstr "Awa %d, Nkeji %d, Sekọnd %d"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Minutes, %d Seconds (Average)"
+msgstr "Nkeji %d, Sekọnd %d (Nkezi)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Minutes, %d Seconds"
+msgstr "Nkeji %d, Sekọnd %d"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Seconds (Average)"
+msgstr "Sekọnd %d (Nkezi)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Seconds"
+msgstr "Sekọnd %d"
+
+#: thold_templates.php
+msgid "DS Name"
+msgstr "Aha DS"
+
+#: thold_templates.php
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
+msgstr "Ọnụ ahịa Ịdọ aka ná ntị / Mkpọsa Dị Elu.  RỊBA AMA: Ọnụ ahịa ntọala bụ pasentị, ọnụ ahịa ndị ọzọ niile bụ ọnụ ahịa RAW nke cdef na-agbanweghị."
+
+#: thold_templates.php
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
+msgstr "Ọnụ ahịa Ịdọ aka ná ntị / Mkpọsa Dị Ala.  RỊBA AMA: Ọnụ ahịa ntọala bụ pasentị, ọnụ ahịa ndị ọzọ niile bụ ọnụ ahịa RAW nke cdef na-agbanweghị."
+
+#: thold_templates.php
+msgid "Import Template from Local File"
+msgstr "Bubata Nlereanya site na Faịlụ Mpaghara"
+
+#: thold_templates.php
+msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
+msgstr "Ọ bụrụ na faịlụ XML nwere data Nlereanya Ọnụ ụzọ dị na igwe mpaghara gị, họrọ ya ebe a."
+
+#: thold_templates.php
+msgid "Import Template from Text"
+msgstr "Bubata Nlereanya site na Ederede"
+
+#: thold_templates.php
+msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
+msgstr "Ọ bụrụ na ị nwere faịlụ XML nwere data Nlereanya Ọnụ ụzọ dị ka ederede, ị nwere ike mado ya n'ime igbe a iji bubata ya."
+
+#: thold_templates.php
+msgid "Import Results"
+msgstr "Nsonaazụ Mbubata"
+
+#: thold_templates.php
+msgid "Cacti has imported the following items:"
+msgstr "Cacti ebubatala ihe ndị na-esonụ:"
+
+#: thold_templates.php
+msgid "Import Threshold Templates"
+msgstr "Bubata Nlereanya Ọnụ ụzọ Gasị"
+
+#: thold_templates.php
+msgid "The file is too big."
+msgstr "Faịlụ ahụ buru ibu karịa."
+
+#: thold_templates.php
+msgid "Incomplete file transfer."
+msgstr "Mbufe faịlụ ezughị ezu."
+
+#: thold_templates.php
+msgid "No file uploaded."
+msgstr "Ọ dịghị faịlụ e bulitere."
+
+#: thold_templates.php
+msgid "Temporary folder missing."
+msgstr "Fọlda nwa oge na-efu."
+
+#: thold_templates.php
+msgid "Failed to write file to disk"
+msgstr "Enweghị ike ide faịlụ na diski"
+
+#: thold_templates.php
+msgid "File upload stopped by extension"
+msgstr "Mgbatị faịlụ kwụsịrị mbulite faịlụ"
+
+#: thold_templates.php
+msgid "Invalid file extension."
+msgstr "Mgbatị faịlụ adabaghị."
+
+#: thold_templates.php
+msgid "NOTE:"
+msgstr "RỊBA AMA:"
+
+#: thold_templates.php
+msgid "ERROR:"
+msgstr "NJEHIE:"
+

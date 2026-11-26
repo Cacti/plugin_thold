@@ -1,0 +1,3716 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-13 09:23-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Swahili\n"
+"Language: sw-KE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: includes/arrays.php
+msgid "Indefinitely"
+msgstr "Bila kikomo cha muda"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "Mwezi %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "Miezi %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "Mwaka %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Hour Ago"
+msgstr "Kuanzia Saa %d Iliyopita"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Hours Ago"
+msgstr "Kuanzia Saa %d Zilizopita"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Day Ago"
+msgstr "Kuanzia Siku %d Iliyopita"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Days Ago"
+msgstr "Kuanzia Siku %d Zilizopita"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Week Ago"
+msgstr "Kuanzia Wiki %d Iliyopita"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Weeks Ago"
+msgstr "Kuanzia Wiki %d Zilizopita"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Month Ago"
+msgstr "Kuanzia Mwezi %d Uliopita"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Months Ago"
+msgstr "Kuanzia Miezi %d Iliyopita"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Year Ago"
+msgstr "Kuanzia Mwaka %d Uliopita"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Years Ago"
+msgstr "Kuanzia Miaka %d Iliyopita"
+
+#: includes/arrays.php thold_graph.php
+msgid "Down"
+msgstr "Chini"
+
+#: includes/arrays.php thold_graph.php
+msgid "Error"
+msgstr "Hitilafu"
+
+#: includes/arrays.php thold_graph.php
+msgid "Recovering"
+msgstr "Inarejea"
+
+#: includes/arrays.php thold_graph.php
+msgid "Up"
+msgstr "Juu"
+
+#: includes/arrays.php thold_graph.php
+msgid "Unknown"
+msgstr "Haijulikani"
+
+#: includes/arrays.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php
+msgid "Disabled"
+msgstr "Imezimwa"
+
+#: includes/arrays.php thold_graph.php
+msgid "Not Monitored"
+msgstr "Haifuatiliwi"
+
+#: includes/arrays.php
+msgid "Notify - Alert"
+msgstr "Arifu - Tahadhari"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Alert"
+msgstr "Tahadhari"
+
+#: includes/arrays.php
+msgid "Notify - Alert2Warning"
+msgstr "Arifu - Tahadhari hadi Onyo"
+
+#: includes/arrays.php
+msgid "Alert2Warn"
+msgstr "Tahadhari hadi Onyo"
+
+#: includes/arrays.php
+msgid "Notify - Warning"
+msgstr "Arifu - Onyo"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Warning"
+msgstr "Onyo"
+
+#: includes/arrays.php
+msgid "Notify - Re-Trigger"
+msgstr "Arifu - Chocheo Upya"
+
+#: includes/arrays.php
+msgid "Re-Trigger"
+msgstr "Chochea Upya"
+
+#: includes/arrays.php
+msgid "Notify - Restoral"
+msgstr "Arifu - Urejesho"
+
+#: includes/arrays.php
+msgid "Restoral"
+msgstr "Urejeshaji"
+
+#: includes/arrays.php
+msgid "Event - Alert Trigger"
+msgstr "Tukio - Kichocheo cha Tahadhari"
+
+#: includes/arrays.php
+msgid "Alert Event"
+msgstr "Tukio la Tahadhari"
+
+#: includes/arrays.php
+msgid "Event - Warning Trigger"
+msgstr "Tukio - Kichocheo cha Onyo"
+
+#: includes/arrays.php
+msgid "Warning Event"
+msgstr "Tukio la Onyo"
+
+#: includes/arrays.php
+msgid "Event - Restoral"
+msgstr "Tukio - Urejesho"
+
+#: includes/arrays.php thold_graph.php
+msgid "Restoral Event"
+msgstr "Tukio la Urejeshaji"
+
+#: includes/arrays.php
+msgid "Event - Acknowledge"
+msgstr "Tukio - Thibitisha"
+
+#: includes/arrays.php
+msgid "Acknowledge Event"
+msgstr "Thibitisha Tukio"
+
+#: includes/arrays.php
+msgid "Restore"
+msgstr "Rejesha"
+
+#: includes/arrays.php
+msgid "Alert Trigger"
+msgstr "Kichocheo cha Tahadhari"
+
+#: includes/arrays.php
+msgid "Warn Trigger"
+msgstr "Kichochezi cha Onyo"
+
+#: includes/arrays.php
+msgid "Alert-Warn"
+msgstr "Tahadhari-Onyo"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Acknowledgment"
+msgstr "Uthibitisho"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Baseline Alert"
+msgstr "Tahadhari ya Mstari wa Msingi"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Notice"
+msgstr "Ilani"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Ok"
+msgstr "Sawa"
+
+#: includes/arrays.php
+msgid "Emergency"
+msgstr "Dharura"
+
+#: includes/arrays.php thold.php thold_templates.php
+msgid "Critical"
+msgstr "Hatari"
+
+#: includes/arrays.php
+msgid "Info"
+msgstr "Maelezo"
+
+#: includes/arrays.php
+msgid "Debug"
+msgstr "Tatua Hitilafu"
+
+#: includes/arrays.php includes/functions.php
+msgid "Never"
+msgstr "Kamwe"
+
+#: includes/arrays.php
+msgid "Every Minute"
+msgstr "Kila Dakika"
+
+#: includes/arrays.php includes/settings.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "Kila Dakika %d"
+
+#: includes/arrays.php
+msgid "Every Hour"
+msgstr "Kila Saa"
+
+#: includes/arrays.php includes/settings.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "Kila Saa %d"
+
+#: includes/arrays.php
+msgid "Every Day"
+msgstr "Kila Siku"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Days"
+msgstr "Kila Siku %d"
+
+#: includes/arrays.php
+msgid "Every Week"
+msgstr "Kila Wiki"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Weeks"
+msgstr "Kila Wiki %d"
+
+#: includes/arrays.php
+msgid "Every Month"
+msgstr "Kila Mwezi"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Minute"
+msgstr "Dakika %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Minutes"
+msgstr "Dakika %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Hour"
+msgstr "Saa %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Hours"
+msgstr "Saa %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Day"
+msgstr "Siku %d"
+
+#: includes/arrays.php thold_graph.php
+#, php-format
+msgid "%d Days"
+msgstr "Siku %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Week"
+msgstr "Wiki %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Weeks"
+msgstr "Wiki %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%0.1f Hours"
+msgstr "Saa %0.1f"
+
+#: includes/arrays.php
+msgid "Every Polling"
+msgstr "Kila Ukusanyaji"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Pollings"
+msgstr "Kila Makusanyo %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Polling"
+msgstr "Ukusanyaji %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Pollings"
+msgstr "Mikusanyo %d"
+
+#: includes/arrays.php
+msgid "High / Low"
+msgstr "Juu / Chini"
+
+#: includes/arrays.php
+msgid "Baseline Deviation"
+msgstr "Mkengeuko wa Mstari wa Msingi"
+
+#: includes/arrays.php
+msgid "Time Based"
+msgstr "Kulingana na Muda"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Min/Max [TIP]"
+msgstr "%% Mkengeuko wa Chini/Juu [TIP]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation CF [TIP]"
+msgstr "%% Mkengeuko wa CF [TIP]"
+
+#: includes/arrays.php
+msgid "Absolute Val Min/Max [TIP]"
+msgstr "Kiwango cha Chini/Juu cha Thamani Kamili [TIP]"
+
+#: includes/arrays.php
+msgid "Absolute Val of CF [TIP]"
+msgstr "Thamani Kamili ya CF [TIP]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Avg [AOT]"
+msgstr "%% Wastani wa Mkengeuko [AOT]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Avg of CF [AOT]"
+msgstr "%% Wastani wa Mkengeuko wa CF [AOT]"
+
+#: includes/arrays.php
+msgid "Absolute Val Avg [AOT]"
+msgstr "Wastani wa Thamani Kamili [AOT]"
+
+#: includes/arrays.php
+msgid "Absolute Val Avg of CF [AOT]"
+msgstr "Wastani wa Thamani Kamili ya CF [AOT]"
+
+#: includes/arrays.php
+msgid "Exact Value"
+msgstr "Thamani Kamili"
+
+#: includes/arrays.php
+msgid "CDEF"
+msgstr "CDEF"
+
+#: includes/arrays.php
+msgid "Percentage"
+msgstr "Asilimia"
+
+#: includes/arrays.php thold.php thold_templates.php
+msgid "RPN Expression"
+msgstr "Usemi wa RPN"
+
+#: includes/arrays.php
+msgid "Upper + Lower bytes"
+msgstr "Baiti za Juu + za Chini"
+
+#: includes/arrays.php
+msgid "Acknowledge"
+msgstr "Thibitisha"
+
+#: includes/arrays.php
+msgid "Suspend Notifications"
+msgstr "Sitisha Arifa"
+
+#: includes/arrays.php
+msgid "Resume Notifications"
+msgstr "Endelea na Arifa"
+
+#: includes/arrays.php notify_lists.php notify_queue.php setup.php
+msgid "Delete"
+msgstr "Futa"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Wezesha"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Lemaza"
+
+#: includes/arrays.php
+msgid "Reapply Suggested Names"
+msgstr "Tumia Tena Majina Yaliyopendekezwa"
+
+#: includes/arrays.php
+msgid "Propagate Template"
+msgstr "Sambaza Kiolezo"
+
+#: includes/arrays.php thold_graph.php
+msgid "Export"
+msgstr "Hamisha"
+
+#: includes/arrays.php
+msgid "Threshold Mail"
+msgstr "Barua ya Kizingiti"
+
+#: includes/arrays.php
+msgid "Down Host Mail"
+msgstr "Barua Pepe ya Kipangishi Kisichopatikana"
+
+#: includes/arrays.php
+msgid "Up Host Mail"
+msgstr "Barua Pepe ya Kipangishi Kilicho Juu"
+
+#: includes/arrays.php
+msgid "Threshold Cmd"
+msgstr "Amri ya Kizingiti"
+
+#: includes/arrays.php
+msgid "Down Host Cmd"
+msgstr "Amri ya Kipangishi Kisichopatikana"
+
+#: includes/arrays.php
+msgid "Up Host Cmd"
+msgstr "Amri ya Kipangishi Kilicho Juu"
+
+#: includes/arrays.php
+msgid "Auto"
+msgstr "Otomatiki"
+
+#: includes/arrays.php
+msgid "0 Digits"
+msgstr "Tarakimu 0"
+
+#: includes/arrays.php
+msgid "1 Digit"
+msgstr "Tarakimu 1"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Digits"
+msgstr "Tarakimu %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d Devices"
+msgstr "> Vifaa %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d %% of Devices Globally"
+msgstr "> %d %% ya Vifaa Ulimwenguni"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d Devices in a Site"
+msgstr "> Vifaa %d katika Eneo"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d %% of Devices in a Site"
+msgstr "> %d %% ya Vifaa katika Eneo"
+
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "< Dakika 1"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "Tangu Ilipoundwa"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "Vizingiti"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "Kumbukumbu"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "Hali ya Kifaa"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "Muda:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "Mtumiaji:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "Mfumo:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "Mabadilishano:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "Kurasa:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr "Kurekodi kumbukumbu pekee, kifaa cha matengenezo"
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "Chaguo-msingi"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "Kiungo kwenda kwenye Grafu katika Cacti"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Tahadhari imetolewa ambayo inahitaji umakini wako.<br><br><b>Kifaa</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Ujumbe</b>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Onyo limetolewa ambalo linahitaji umakini wako.<br><br><b>Kifaa</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Ujumbe</b>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Kizingiti kimerudi katika hali ya kawaida. <br><br><strong>Kifaa</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Ujumbe</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "%% Mkengeuko [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "Thamani Halisi [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [AOT:%s]"
+msgstr "%% Mkengeuko [AOT:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "Thamani Halisi [AOT:%s]"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "Kitambulisho cha Kifaa hakikuwekwa wakati wa kujaribu kuunda Grafu na Kizingiti"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "Kitambulisho cha Kiolezo cha Kizingiti hakikupatikana wakati wa kujaribu kuunda Grafu na Kizingiti"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "Kitambulisho cha Kiolezo cha Kizingiti hakikuwekwa wakati wa kujaribu kuunda Grafu na Kizingiti"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "Uundaji wa Grafu umeshindwa kwa Kiolezo cha Kizingiti"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "Kizingiti Kiliundwa Kiotomatiki kutokana na uoanishaji wa Kiolezo cha Kifaa"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "Ruhusa Imekataliwa"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "Rekodi Imesasishwa"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "Imeshindwa kupata Kipengee cha Kiolezo cha Grafu kilichounganishwa '%d' kwenye Kizingiti '%d'"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "Kizingiti Kimeundwa: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "Lazima ubainishe 'Kizingiti cha Arifa ya Juu' au 'Kizingiti cha Arifa ya Chini' au zote mbili!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Kizingiti kisichowezekana: 'Kizingiti cha Tahadhari ya Juu' ni kidogo kuliko 'Kizingiti cha Tahadhari ya Chini'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "Kizingiti kisichowezekana: 'Kizingiti cha Onyo la Juu' ni kidogo kuliko 'Kizingiti cha Onyo la Chini'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "Kizingiti kisichowezekana: 'Kizingiti cha Onyo la Juu' ni kikubwa kuliko 'Kizingiti cha Tahadhari ya Juu'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "Kizingiti kisichowezekana: 'Kizingiti cha Tahadhari ya Chini' ni kikubwa kuliko 'Kizingiti cha Onyo la Chini'!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "Marejeleo ya muda uliopita lazima yawekwe kuwa thamani ya nambari kamili chanya!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "Lazima ubainishe 'Mkengeuko wa Msingi JUU' au 'Mkengeuko wa Msingi CHINI' au zote mbili!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "Kizingiti kisichowezekana: 'Kizingiti cha Tahadhari ya Juu' ni kidogo kuliko 'Kizingiti cha Tahadhari ya Chini'"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr "Kizingiti kisichowezekana: Idadi ya Vichochezi vya Tahadhari lazima iwe kubwa au sawa na 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Kizingiti kisichowezekana: Idadi ya Vichochezi vya Tahadhari lazima iwe chini au sawa na Idadi ya Vichochezi au sawa na 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr "Kizingiti kisichowezekana: Idadi ya Vichochezi vya Onyo lazima iwe kubwa au sawa na 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Kizingiti kisichowezekana: Idadi ya Vichochezi vya Onyo lazima iwe chini au sawa na Idadi ya Vichochezi au sawa na 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Kizingiti kisichowezekana: 'Kizingiti cha Onyo la Chini' ni kidogo kuliko 'Kizingiti cha Tahadhari ya Chini'!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "Aina ya Kizingiti Isiyojulikana!"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "Hakuna Violezo vya Vizingiti vinavyohusiana na Kiolezo cha Kifaa."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "Hakuna Vizingiti Vilivyoundwa.  Ama tayari vipo, au hakuna vinavyolingana vilivyopatikana."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "Hitilafu ya Mtumaji Barua: Hakuna anwani ya <b>TO</b> iliyowekwa!!<br>Ikiwa unatumia kiungo cha <i>Barua ya Jaribio</i>, tafadhali weka mpangilio wa <b>Barua Pepe ya Tahadhari</b>."
+
+#: includes/functions.php
+msgid "Done"
+msgstr "Imekamilika"
+
+#: includes/functions.php
+msgid "Pending"
+msgstr "Inasubiri"
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "Zenye Hitilafu"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "Haipatikani"
+
+#: includes/functions.php
+msgid "Success"
+msgstr "Imefaulu"
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "Thibitisha Kizingiti"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "Bofya 'Endelea' ili Kuthibitisha Kizingiti/Vizingiti vifuatavyo."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "Thibitisha Kizingiti/Vizingiti"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "Ghairi"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "Endelea"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "Kiolezo cha Data Tegemezi cha Kiolezo cha Kizingiti Hakijapatikana!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "Chanzo cha Data Tegemezi cha Kiolezo cha Kizingiti Hakijapatikana!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "Safu wima za uingizaji wa Kiolezo cha Kizingiti hazilingani na muundo wa hifadhidata"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "Umeingizwa"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "Kiolezo cha Kizingiti '%s' %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "Umesasishwa"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "Ingiza"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "Kiolezo cha Kizingiti '%s' %s Imeshindikana!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "Usasishaji"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "Hitilafu zimejitokeza wakati wa kujaribu kuleta data ya Kiolezo cha Kizingiti."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "Data ya Uingizaji wa Kiolezo cha Kizingiti haikupatikana kuwa data ya XML."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "Data ya Uingizaji wa Kiolezo cha Kizingiti haikuwa sahihi wakati wa kuingiza Kiolezo cha Kizingiti."
+
+#: includes/polling.php
+msgid "SNMP not in use"
+msgstr "SNMP haitumiki"
+
+#: includes/polling.php
+msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
+msgstr "Ilani ya Vifaa: <DESCRIPTION> (<HOSTNAME>) kimerudi kutoka hali ya CHINI"
+
+#: includes/polling.php
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
+msgstr "<br>Hali ya mfumo <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Eneo: <SITE><br>Mahali: <LOCATION><br>Jibu la sasa la ping: <CUR_TIME> ms<br>Wastani wa jibu la mfumo : <AVG_TIME> ms<br>Upatikanaji wa mfumo: <AVAILABILITY><br>Jumla ya Ukaguzi Tangu Kufutwa: <TOT_POLL><br>Jumla ya Ukaguzi Ulioshindwa: <FAIL_POLL><br>Tarehe ya Mwisho Kukaguliwa Ikiwa JUU: <LAST_FAIL><br>Vifaa Vilivyokuwa CHINI kwa: <DOWNTIME><br><br>Maelezo ya SNMP:<br>Jina - <SNMP_HOSTNAME><br>Mahali - <SNMP_LOCATION><br>Muda wa kufanya kazi - <UPTIMETEXT> (<UPTIME> ms)<br>Mfumo - <SNMP_SYSTEM><br><br>KUMBUKA: <NOTES>"
+
+#: includes/polling.php
+msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
+msgstr "Hitilafu ya Vifaa: <DESCRIPTION> (<HOSTNAME>) kiko CHINI"
+
+#: includes/polling.php
+msgid "DOWN"
+msgstr "CHINI"
+
+#: includes/polling.php
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
+msgstr "Hitilafu ya Mfumo : <DESCRIPTION> (<HOSTNAME>) ni <DOWN/UP><br>Eneo: <SITE><br>Mahali: <LOCATION><br>Sababu: <MESSAGE><br><br>Wastani wa mwitikio wa mfumo : <AVG_TIME> ms<br>Upatikanaji wa mfumo: <AVAILABILITY><br>Jumla ya Ukaguzi Tangu Kufutwa: <TOT_POLL><br>Jumla ya Ukaguzi Ulioshindwa: <FAIL_POLL><br>Tarehe ya Mwisho Kukaguliwa CHINI : <LAST_FAIL><br>Vifaa Vilikuwa JUU kwa: <DOWNTIME><br>MAELEZO: <NOTES>"
+
+#: includes/settings.php
+msgid "(actions)"
+msgstr "(vitendo)"
+
+#: includes/settings.php
+msgid "(edit)"
+msgstr "(hariri)"
+
+#: includes/settings.php
+msgid "(save)"
+msgstr "(hifadhi)"
+
+#: includes/settings.php
+msgid "(add)"
+msgstr "(ongeza)"
+
+#: includes/settings.php
+msgid "Threshold Logs"
+msgstr "Kumbukumbu za Kizingiti"
+
+#: includes/settings.php
+msgid "Thresholds - Failures"
+msgstr "Vizingiti - Hitilafu"
+
+#: includes/settings.php
+msgid "Thresholds - Normal"
+msgstr "Vizingiti - Kawaida"
+
+#: includes/settings.php
+msgid "Thresholds - Recovering"
+msgstr "Vizingiti - Vinarejea"
+
+#: includes/settings.php
+msgid "Recent Thresholds"
+msgstr "Vizingiti vya Hivi Karibuni"
+
+#: includes/settings.php
+msgid "Recent Device Failures"
+msgstr "Hitilafu za Hivi Karibuni za Kifaa"
+
+#: includes/settings.php thold_templates.php
+msgid "Threshold Templates"
+msgstr "Violezo vya Vizingiti"
+
+#: includes/settings.php
+msgid "Threshold Template Import"
+msgstr "Uingizaji wa Kiolezo cha Kizingiti"
+
+#: includes/settings.php notify_lists.php
+msgid "Notification Lists"
+msgstr "Orodha za Arifa"
+
+#: includes/settings.php
+msgid "Notification Lists (edit)"
+msgstr "Orodha za Arifa (hariri)"
+
+#: includes/settings.php
+msgid "Notification Queue"
+msgstr "Foleni ya Arifa"
+
+#: includes/settings.php
+msgid "Management"
+msgstr "Usimamizi"
+
+#: includes/settings.php notify_lists.php thold_templates.php
+msgid "Templates"
+msgstr "Violezo"
+
+#: includes/settings.php thold_graph.php
+msgid "Threshold"
+msgstr "Kizingiti"
+
+#: includes/settings.php
+msgid "A template with that Data Source already exists!"
+msgstr "Kiolezo chenye Chanzo cha Data hicho tayari kipo!"
+
+#: includes/settings.php
+msgid "Configure Thresholds"
+msgstr "Sanidi Vizingiti"
+
+#: includes/settings.php
+msgid "Configure Threshold Templates"
+msgstr "Sanidi Violezo vya Vizingiti"
+
+#: includes/settings.php
+msgid "Manage Notification Lists"
+msgstr "Dhibiti Orodha za Arifa"
+
+#: includes/settings.php
+msgid "View Thresholds"
+msgstr "Tazama Vizingiti"
+
+#: includes/settings.php
+msgid "Normal User"
+msgstr "Mtumiaji wa Kawaida"
+
+#: includes/settings.php
+msgid "Template Editor"
+msgstr "Mhariri wa Violezo"
+
+#: includes/settings.php
+msgid "General Administration"
+msgstr "Usimamizi wa Jumla"
+
+#: includes/settings.php
+msgid "Device Up/Down Notification Settings"
+msgstr "Mipangilio ya Arifa za Kifaa Kuwa Juu/Chini"
+
+#: includes/settings.php
+msgid "Threshold Up/Down Email Notification"
+msgstr "Arifa ya Barua Pepe ya Kizingiti Juu/Chini"
+
+#: includes/settings.php notify_lists.php
+msgid "Global List"
+msgstr "Orodha ya Jumla"
+
+#: includes/settings.php
+msgid "List Below"
+msgstr "Orodha Hapa Chini"
+
+#: includes/settings.php
+msgid "Global and List Below"
+msgstr "Ya Jumla na Orodha Hapa Chini"
+
+#: includes/settings.php
+msgid "Which Type of Notification List(s) should be used for Device Up/Down events?"
+msgstr "Ni Aina gani ya Orodha za Arifa inapaswa kutumika kwa matukio ya Kifaa Kuwaka/Kuzima?"
+
+#: includes/settings.php notify_queue.php
+msgid "Notification List"
+msgstr "Orodha ya Arifa"
+
+#: includes/settings.php
+msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
+msgstr "Ni Orodha zipi za Arifa zinapaswa kujulishwa kuhusu matukio ya Kifaa Kuwaka/Kuzima?"
+
+#: includes/settings.php
+msgid "Host Failure Count"
+msgstr "Idadi ya Kushindwa kwa Kipangishi"
+
+#: includes/settings.php
+msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
+msgstr "Idadi ya Vipindi vya Ukusanyaji ambapo Kipangishi hiki lazima kiwe Chini kabla Thold kurekodi hitilafu na kuripoti Kipangishi kuwa Chini. Chaguomsingi ni 0 (tumia mpangilio wa Cacti)"
+
+#: includes/settings.php
+msgid "Use Cacti Setting"
+msgstr "Tumia Mpangilio wa Cacti"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Polling Interval"
+msgstr "Kipindi %d cha Ukusanyaji"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Polling Intervals"
+msgstr "Vipindi %d vya Ukusanyaji"
+
+#: includes/settings.php
+msgid "Alerting/Thold"
+msgstr "Utoaji wa Tahadhari/Thold"
+
+#: includes/settings.php notify_lists.php
+msgid "General"
+msgstr "Jumla"
+
+#: includes/settings.php
+msgid "Disable All Thresholds"
+msgstr "Zima Vizingiti Vyote"
+
+#: includes/settings.php
+msgid "Checking this box will disable Alerting on all Thresholds.  This can be used when it is necessary to perform maintenance on your network."
+msgstr "Kutiki kisanduku hiki kutazima Tahadhari kwenye Vizingiti vyote.  Hii inaweza kutumika inapokuwa lazima kufanya matengenezo kwenye mtandao wako."
+
+#: includes/settings.php
+msgid "Auto Create Thresholds"
+msgstr "Unda Vizingiti Kiotomatiki"
+
+#: includes/settings.php
+msgid "If selected, when running either automation, or when creating/saving a Device, all Thresholds associated with the Device Template will be created."
+msgstr "Ikiteuliwa, unapoendesha uotomatishaji, au unapounda/unapohifadhi Kifaa, Vizingiti vyote vinavyohusiana na Kiolezo cha Kifaa vitaundwa."
+
+#: includes/settings.php
+msgid "Consider Unknown Data as Zero"
+msgstr "Chukulia Data Isiyojulikana kama Sifuri"
+
+#: includes/settings.php
+msgid "When checking Thresholds, if a Data Source returns Unknown Data ('U'), consider the value as zero for the Threshold check. You can also enable log this issue."
+msgstr "Wakati wa kukagua Vizingiti, ikiwa Chanzo cha Data kinarejesha Data Isiyojulikana ('U'), chukulia thamani hiyo kuwa sifuri kwa ukaguzi wa Kizingiti. Unaweza pia kuwasha kumbukumbu kwa suala hili."
+
+#: includes/settings.php
+msgid "Default Management Status"
+msgstr "Hali Chaguo-msingi ya Usimamizi"
+
+#: includes/settings.php
+msgid "Default Threshold management filter status."
+msgstr "Hali chaguo-msingi ya kichujio cha usimamizi wa Kizingiti."
+
+#: includes/settings.php notify_lists.php thold.php
+msgid "Any"
+msgstr "Yoyote"
+
+#: includes/settings.php thold.php thold_graph.php
+msgid "Breached or Triggered"
+msgstr "Imekiukwa au Imeanzishwa"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+msgid "Breached"
+msgstr "Imekiukwa"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+msgid "Triggered"
+msgstr "Imechochewa"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Enabled"
+msgstr "Imewashwa"
+
+#: includes/settings.php
+msgid "Empty ifHighSpeed Default"
+msgstr "Thamani Chaguomsingi ya ifHighSpeed Tupu"
+
+#: includes/settings.php
+msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces."
+msgstr "Wakati wa kukokotoa Vizingiti vya Mlinganyo, ikiwa ifHighSpeed na ifSpeed zinarudi zikiwa sifuri, tumia mpangilio ufuatao wa ifHighSpeed badala yake. Chaguo-msingi la ifHighSpeed litakuwa 10000 kwa violesura vya 10GE."
+
+#: includes/settings.php
+msgid "Notification Preferences"
+msgstr "Mapendeleo ya Arifa"
+
+#: includes/settings.php
+msgid "Disable Legacy Notifications"
+msgstr "Zima Arifa za Zamani"
+
+#: includes/settings.php
+msgid "Checking this box will disable Legacy Alerting on all Thresholds.  Legacy Alerting is defined as any Specific Email Alerts not associated with a Notification List."
+msgstr "Kutiki kisanduku hiki kutazima Tahadhari za Zamani kwenye Vizingiti vyote.  Tahadhari za Zamani zinafafanuliwa kama Tahadhari Maalum za Barua Pepe zozote ambazo hazijahusishwa na Orodha ya Arifa."
+
+#: includes/settings.php
+msgid "Threshold Notification Templated"
+msgstr "Taarifa ya Kizingiti Imewekwa Kiolezo"
+
+#: includes/settings.php
+msgid "If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template."
+msgstr "Ikiteuliwa, unapounda Kiolezo cha Kizingiti, Mipangilio yake ya Arifa itamilikiwa kwa chaguo-msingi na Kiolezo cha Kizingiti."
+
+#: includes/settings.php
+msgid "Enable Command Execution"
+msgstr "Washa Utekelezaji wa Amri"
+
+#: includes/settings.php
+msgid "Checking this box will enable the ability to run commands on Threshold breach and restoral events."
+msgstr "Kutiki kisanduku hiki kutawasha uwezo wa kuendesha amri kwenye matukio ya ukiukaji wa Kizingiti na kurejesha hali."
+
+#: includes/settings.php
+msgid "Enable Per Thold Notification"
+msgstr "Washa Arifa kwa Kila Kizingiti"
+
+#: includes/settings.php
+msgid "Checking this box will enable the ability to maintain custom Email bodies for Thresholds."
+msgstr "Kutiki kisanduku hiki kutawasha uwezo wa kutunza maudhui maalum ya Barua Pepe kwa ajili ya Vizingiti."
+
+#: includes/settings.php
+msgid "Enable Notification Queue"
+msgstr "Washa Foleni ya Arifa"
+
+#: includes/settings.php
+msgid "Checking this box will switch Thold from performing inline Notification to using either the Notification Daemon, or notifications performed out of band by the Notification poller."
+msgstr "Kutiki kisanduku hiki kutabadilisha Thold kutoka kutekeleza Arifa za moja kwa moja hadi kutumia aidha Notification Daemon, au arifa zinazotekelezwa nje ya mkondo na kikusanyaji cha Arifa."
+
+#: includes/settings.php
+msgid "Enable Sending Alert Emails to Warning Notification Lists"
+msgstr "Washa Utumaji wa Barua Pepe za Tahadhari kwa Orodha za Arifa za Onyo"
+
+#: includes/settings.php
+msgid "Check this box if you wish Warning Notification List recipients to receive Alert Emails in addition to the Alert Notification list receivers.  This case is applicable when Warning Notifications goes to Administrators and Alert Notifications go to Management."
+msgstr "Tiki kisanduku hiki ikiwa ungependa wapokeaji wa Orodha ya Arifa za Onyo wapokee Barua Pepe za Tahadhari pamoja na wapokeaji wa orodha ya Arifa za Tahadhari.  Hali hii inatumika wakati Arifa za Onyo zinapoenda kwa Wasimamizi na Arifa za Tahadhari zinapoenda kwa Uongozi."
+
+#: includes/settings.php
+msgid "Threshold Daemon"
+msgstr "Daemon ya Kizingiti"
+
+#: includes/settings.php
+msgid "Enable Threshold Daemon"
+msgstr "Washa Huduma ya Nyuma ya Kizingiti"
+
+#: includes/settings.php
+msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
+msgstr "Kutiki kisanduku hiki kutawasha matumizi ya Threshold daemon maalum. Hii inaweza kutumika kuongeza utendakazi wa mfumo na/au kusambaza ufuatiliaji wa Kizingiti kwenye seva tofauti."
+
+#: includes/settings.php
+msgid "Force Threshold Daemon Debug"
+msgstr "Lazimisha Utatuzi wa Daemon ya Kizingiti"
+
+#: includes/settings.php
+msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
+msgstr "Kutiki kisanduku hiki kutawasha utatuzi wa Threshold Daemon inapofanya kazi kutoka SystemD au kupitia mstari wa amri.  Badiliko hili ni badiliko la moja kwa moja na litaanza kutumika mara tu mzunguko unaofuata wa Kizingiti utakapoanza."
+
+#: includes/settings.php
+msgid "Daemon Down Notification Frequency"
+msgstr "Marudio ya Arifa ya Kuzimika kwa Daemon"
+
+#: includes/settings.php
+msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
+msgstr "Ikiwa Thold Daemon ikipatikana haifanyi kazi, tuma arifa ya Barua Pepe kwa marudio haya."
+
+#: includes/settings.php
+#, php-format
+msgid "Every %d Hour"
+msgstr "Kila Saa %d"
+
+#: includes/settings.php
+msgid "Daemon Threads"
+msgstr "Nyuzi za Daemon"
+
+#: includes/settings.php
+msgid "The number of daemon threads to be handled by the Threshold Daemon."
+msgstr "Idadi ya nyuzi za daemoni zitakazoshughulikiwa na Daemoni ya Kizingiti."
+
+#: includes/settings.php
+msgid "1 Process"
+msgstr "Mchakato 1"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Processes"
+msgstr "Michakato %d"
+
+#: includes/settings.php
+msgid "Logging"
+msgstr "Kuweka Kumbukumbu"
+
+#: includes/settings.php
+msgid "Log Threshold Breaches"
+msgstr "Weka Kumbukumbu ya Ukiukaji wa Kizingiti"
+
+#: includes/settings.php
+msgid "Enable logging of all Threshold failures to the Cacti Log."
+msgstr "Washa uwekaji kumbukumbu wa hitilafu zote za Kizingiti kwenye Kumbukumbu ya Cacti."
+
+#: includes/settings.php
+msgid "Show Data Source in Log"
+msgstr "Onyesha Chanzo cha Data kwenye Kumbukumbu"
+
+#: includes/settings.php
+msgid "Show the Data Source name in the Log if not present."
+msgstr "Onyesha jina la Chanzo cha Data kwenye Kumbukumbu ikiwa halipo."
+
+#: includes/settings.php
+msgid "Log Threshold Changes"
+msgstr "Weka Kumbukumbu ya Mabadiliko ya Kizingiti"
+
+#: includes/settings.php
+msgid "Enable logging of all Threshold changes to the Cacti Log."
+msgstr "Washa uwekaji kumbukumbu wa mabadiliko yote ya Kizingiti kwenye Kumbukumbu ya Cacti."
+
+#: includes/settings.php
+msgid "Debug Log"
+msgstr "Kumbukumbu ya Utatuzi"
+
+#: includes/settings.php
+msgid "Enable logging of debug messages with Threshold"
+msgstr "Washa uwekaji kumbukumbu wa ujumbe wa utatuzi pamoja na Kizingiti"
+
+#: includes/settings.php
+msgid "Alert Log Retention"
+msgstr "Uhifadhi wa Kumbukumbu za Tahadhari"
+
+#: includes/settings.php
+msgid "Keep Threshold Logs for this number of days."
+msgstr "Tunza Kumbukumbu za Kizingiti kwa idadi hii ya siku."
+
+#: includes/settings.php
+msgid "Log action Consider Unknown Data as Zero"
+msgstr "Rekodi hatua ya Kuchukulia Data Isiyojulikana kama Sifuri"
+
+#: includes/settings.php
+msgid "When 'Consider Unknown Data as Zero' is enabled, log when it occurs"
+msgstr "Wakati 'Chukulia Data Isiyojulikana kama Sifuri' imewashwa, weka kumbukumbu inapotokea"
+
+#: includes/settings.php thold.php thold_templates.php
+msgid "Syslog Settings"
+msgstr "Mipangilio ya Syslog"
+
+#: includes/settings.php
+msgid "Syslog Enabled"
+msgstr "Syslog Imewashwa"
+
+#: includes/settings.php
+msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Ikiteuliwa, unapounda Kizingiti kipya, kwa chaguo-msingi matukio mapya ya Kizingiti yatatumwa kwa syslog yako ya ndani. Mpangilio huu ni mpangilio awali. Mipangilio ya Kizingiti huamua udhibiti halisi wa syslog."
+
+#: includes/settings.php
+msgid "Default Priority/Level"
+msgstr "Kipaumbele/Kiwango Chaguo-msingi"
+
+#: includes/settings.php
+msgid "This is the default Priority/Level that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Hiki ni Kipaumbele/Kiwango chaguomsingi ambacho Thold itatumia kutuma ujumbe wa Syslog.  Mpangilio huu ni mpangilio wa awali.  Mipangilio ya Kizingiti huamua udhibiti halisi wa Syslog."
+
+#: includes/settings.php
+msgid "Default Facility"
+msgstr "Kitengo Chaguo-msingi"
+
+#: includes/settings.php
+msgid "This is the default Facility that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Hiki ni Kituo chaguomsingi ambacho Thold itatumia kutuma ujumbe wa Syslog.  Mpangilio huu ni mpangilio wa awali.  Mipangilio ya Kizingiti huamua udhibiti halisi wa Syslog."
+
+#: includes/settings.php
+msgid "Alert Presets"
+msgstr "Mipangilio Awali ya Tahadhari"
+
+#: includes/settings.php
+msgid "Weekend exemptions"
+msgstr "Misamaha ya wikendi"
+
+#: includes/settings.php
+msgid "If this is checked, Thold will not run on weekends."
+msgstr "Ikiwa hii imeteuliwa, Thold haitafanya kazi wikendi."
+
+#: includes/settings.php
+msgid "Default Trigger Count"
+msgstr "Idadi Chaguo-msingi ya Vichochezi"
+
+#: includes/settings.php
+msgid "Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised."
+msgstr "Idadi chaguo-msingi ya mara mfululizo ambazo Chanzo cha Data lazima kivuke Kizingiti ili Tahadhari itolewe."
+
+#: includes/settings.php
+msgid "Re-Alerting"
+msgstr "Kuarifu Upya"
+
+#: includes/settings.php
+msgid "Repeat Alert after specified number of poller cycles."
+msgstr "Rudia Tahadhari baada ya idadi iliyobainishwa ya mizunguko ya kikusanyaji."
+
+#: includes/settings.php
+msgid "Baseline Presets"
+msgstr "Mipangilio Awali ya Mstari wa Msingi"
+
+#: includes/settings.php
+msgid "Baseline Time Range Default"
+msgstr "Masafa Chaguomsingi ya Muda wa Mstari wa Msingi"
+
+#: includes/settings.php
+msgid "This is the default value used in creating Thresholds or templates."
+msgstr "Hii ni thamani chaguomsingi inayotumika katika kuunda Vizingiti au violezo."
+
+#: includes/settings.php
+msgid "Baseline Trigger Count"
+msgstr "Idadi ya Vichocheo vya Mstari wa Msingi"
+
+#: includes/settings.php
+msgid "Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised."
+msgstr "Idadi chaguo-msingi ya mara mfululizo ambazo Chanzo cha Data lazima kivuke Kizingiti cha Msingi kilichokokotolewa ili Tahadhari itolewe."
+
+#: includes/settings.php
+msgid "Baseline Deviation Percentage"
+msgstr "Asilimia ya Mkengeuko wa Mstari wa Msingi"
+
+#: includes/settings.php
+msgid "SNMP Notification Options"
+msgstr "Chaguo za Arifa ya SNMP"
+
+#: includes/settings.php
+msgid "SNMP Notifications"
+msgstr "Arifa za SNMP"
+
+#: includes/settings.php
+msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
+msgstr "Ujumbe wa hali ya kizingiti (taarifa/mitego) utatumwa kwa wapokeaji wa arifa za SNMP. Hii inajumuisha Tahadhari, Maonyo na mitego ya Urejeshaji kwa chaguo-msingi. Kumbuka: Kipengele hiki kinahitaji programu-jalizi ya Cacti SNMPAgent."
+
+#: includes/settings.php
+msgid "Disable Warning Notifications"
+msgstr "Zima Arifa za Onyo"
+
+#: includes/settings.php
+msgid "If this is checked, Threshold will not send a notification when a warning Threshold has been breached."
+msgstr "Ikiwa hii imeteuliwa, Kizingiti hakitatuma arifa wakati Kizingiti cha onyo kimevukwa."
+
+#: includes/settings.php
+msgid "Disable Restoration Notifications"
+msgstr "Zima Arifa za Urejeshaji"
+
+#: includes/settings.php
+msgid "If this is checked, Threshold will not send a notification when the Threshold has returned to normal status."
+msgstr "Ikiwa hii imeteuliwa, Kizingiti hakitatuma arifa wakati Kizingiti kimerudi kwenye hali ya kawaida."
+
+#: includes/settings.php
+msgid "Emailing Options"
+msgstr "Chaguo za Kutuma Barua Pepe"
+
+#: includes/settings.php
+msgid "Send Emails with Urgent Priority"
+msgstr "Tuma Barua Pepe zenye Kipaumbele cha Haraka"
+
+#: includes/settings.php
+msgid "Allows you to set Emails with urgent priority"
+msgstr "Hukuruhusu kuweka Barua Pepe zenye kipaumbele cha dharura"
+
+#: includes/settings.php
+msgid "Send Alerts as Text"
+msgstr "Tuma Arifa kama Maandishi"
+
+#: includes/settings.php
+msgid "If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email."
+msgstr "Ikiteuliwa, hii itasababisha Arifa zote kutumwa kama Barua Pepe za maandishi wazi bila grafu. Chaguo-msingi ni Barua Pepe za HTML zenye grafu iliyopachikwa ndani ya Barua Pepe."
+
+#: includes/settings.php
+msgid "Send Email separately for each address"
+msgstr "Tuma Barua Pepe kando kwa kila anwani"
+
+#: includes/settings.php
+msgid "If checked, this will cause all Emails to be sent separately for each address."
+msgstr "Ikiteuliwa, hii itasababisha Barua Pepe zote kutumwa kando kwa kila anwani."
+
+#: includes/settings.php
+msgid "From Email Address"
+msgstr "Anwani ya Barua Pepe ya Mtumaji"
+
+#: includes/settings.php
+msgid "This is the Email address that the Threshold will appear from."
+msgstr "Hii ni anwani ya Barua Pepe ambayo Kizingiti kitaonekana kimetoka kwake."
+
+#: includes/settings.php
+msgid "From Name"
+msgstr "Jina la Mtumaji"
+
+#: includes/settings.php
+msgid "This is the actual name that the Threshold will appear from."
+msgstr "Hili ndilo jina halisi ambalo Kizingiti kitaonekana kimetoka kwake."
+
+#: includes/settings.php
+msgid "Device Notification Options"
+msgstr "Chaguo za Arifa ya Kifaa"
+
+#: includes/settings.php
+msgid "Enable Notifications"
+msgstr "Washa Arifa"
+
+#: includes/settings.php
+msgid "Enable Dead/Recovering host notification"
+msgstr "Washa arifa ya kipangishi Kilichokufa/Kinachopona"
+
+#: includes/settings.php
+msgid "Single Email Notification"
+msgstr "Arifa ya Barua Pepe Moja"
+
+#: includes/settings.php
+msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
+msgstr "Inaauniwa kwa Orodha za Arifa na Foleni ya Arifa pekee.  Ikiwa kuna Arifa za Kifaa Kilichozimika katika mzunguko mmoja wa uchakataji.  Tuma Barua Pepe moja pekee kwa wapokeaji wa Orodha ya Arifa kwa Vifaa vyote."
+
+#: includes/settings.php
+msgid "Single Email Notification Subject"
+msgstr "Mada ya Arifa ya Barua Pepe Moja"
+
+#: includes/settings.php
+msgid "This is the Email Subject to be used for all Single Email Notification Emails for both Up and Down Devices."
+msgstr "Hili ni Somo la Barua Pepe litakalotumika kwa Barua Pepe zote za Arifa ya Barua Pepe Moja kwa Vifaa Vinavyofanya Kazi na Visivyofanya Kazi."
+
+#: includes/settings.php
+msgid "Device Notification Delay Options"
+msgstr "Chaguo za Ucheleweshaji wa Arifa ya Kifaa"
+
+#: includes/settings.php
+msgid "Notification Delay"
+msgstr "Ucheleweshaji wa Arifa"
+
+#: includes/settings.php
+msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
+msgstr "Ikiwa mtiririko mkubwa wa Arifa za Kifaa Kilichozima utaingia, Cacti inaweza kusitisha kutuma Arifa hizo kwa muda fulani ili kuona kama tatizo ni la muda kabla ya kuzituma.  Chagua kizingiti cha Arifa za Kifaa Kilichozima kabla ya Kusitishwa Kuanzishwa."
+
+#: includes/settings.php
+msgid "If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?"
+msgstr "Ukichagua kuchelewesha Arifa kwa msongamano mkubwa wa Arifa za Vifaa Vilivyozima, uko tayari kusubiri muda gani kabla ya kuruhusu arifa zichakatwe?"
+
+#: includes/settings.php
+msgid "Device Notification Email Options"
+msgstr "Chaguo za Barua Pepe ya Arifa ya Kifaa"
+
+#: includes/settings.php
+msgid "Global Notification Email"
+msgstr "Barua Pepe ya Arifa ya Jumla"
+
+#: includes/settings.php
+msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
+msgstr "Hii ni Anwani ya Barua Pepe ambayo Arifa za Vifaa Visivyofanya Kazi zitatumwa kwake ikiwa Orodha ya Arifa za Jumla imechaguliwa."
+
+#: includes/settings.php
+msgid "Down Subject"
+msgstr "Mada ya Kutopatikana"
+
+#: includes/settings.php
+msgid "This is the Email subject that will be used for Down Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060NOTES&#062"
+msgstr "Hili ni somo la Barua Pepe litakalotumika kwa Ujumbe wa Vifaa Visivyofanya Kazi. Kuna lebo kadhaa za kawaida za kubadilisha zinazoweza kutumika ikiwa ni pamoja na:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (muda wa hali ya mwisho kufanya kazi ikiwa ni ujumbe wa kuzima) &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
+msgstr "Hitilafu ya Kifaa: <DESCRIPTION> (<HOSTNAME>) kiko CHINI"
+
+#: includes/settings.php
+msgid "Down Message"
+msgstr "Ujumbe wa Kutopatikana"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Huu ni ujumbe utakaoonyeshwa kama kiini cha ujumbe wa Ujumbe wote wa Vifaa Vinavyofanya Kazi / Visivyofanya Kazi (Upeo wa Herufi 1024).  HTML inaruhusiwa, lakini itaondolewa kwa Barua Pepe za maandishi pekee.  Kuna lebo kadhaa za kawaida za kubadilisha zinazoweza kutumika ikiwa ni pamoja na:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (muda wa hali ya mwisho kufanya kazi ikiwa ni ujumbe wa kuzima) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
+msgstr "Hitilafu ya Mfumo : <DESCRIPTION> (<HOSTNAME>) ni <DOWN/UP><br><br>Eneo: <SITE><br>Mahali: <LOCATION><br>Sababu: <MESSAGE><br>Wastani wa mwitikio wa mfumo: <AVG_TIME> ms<br>Upatikanaji wa mfumo: <AVAILABILITY><br>Jumla ya Ukaguzi Tangu Kufutwa: <TOT_POLL><br>Jumla ya Ukaguzi Ulioshindwa: <FAIL_POLL><br>Tarehe ya Mwisho Kukaguliwa CHINI : <LAST_FAIL><br>Kifaa Kilikuwa JUU kwa: <DOWNTIME><br>MAELEZO: <NOTES><br>MAELEZO ya Kifaa: <DNOTES>"
+
+#: includes/settings.php
+msgid "Recovering Subject"
+msgstr "Mada ya Urejesho"
+
+#: includes/settings.php
+msgid "This is the Email subject that will be used for Recovering Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
+msgstr "Hili ni somo la Barua Pepe litakalotumika kwa Ujumbe wa Vifaa Vinavyorejea Kufanya Kazi. Kuna lebo kadhaa za kawaida za kubadilisha zinazoweza kutumika ikiwa ni pamoja na:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
+msgstr "Taarifa ya Kifaa: <DESCRIPTION> (<HOSTNAME>) kimerudi kutoka hali ya CHINI"
+
+#: includes/settings.php
+msgid "Recovering Message"
+msgstr "Ujumbe wa Urejesho"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Huu ni ujumbe utakaoonyeshwa kama kiini cha ujumbe wa Ujumbe wote wa Vifaa Vinavyofanya Kazi / Visivyofanya Kazi (Upeo wa Herufi 1024).  HTML inaruhusiwa, lakini itaondolewa kwa Barua Pepe za maandishi pekee.  Kuna lebo kadhaa za kawaida za kubadilisha zinazoweza kutumika ikiwa ni pamoja na:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
+msgstr "<br>Hali ya mfumo <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Eneo: <SITE><br>Mahali: <LOCATION><br>Jibu la sasa la ping: <CUR_TIME> ms<br>Wastani wa jibu la mfumo: <AVG_TIME> ms<br>Upatikanaji wa mfumo: <AVAILABILITY><br>Jumla ya Ukaguzi Tangu Kufutwa: <TOT_POLL><br>Jumla ya Ukaguzi Ulioshindwa: <FAIL_POLL><br>Tarehe ya Mwisho Kukaguliwa Ikiwa JUU: <LAST_FAIL><br>Kifaa Kilichokuwa CHINI kwa: <DOWNTIME><br><br>Maelezo ya Snmp:<br>Jina - <SNMP_HOSTNAME><br>Mahali - <SNMP_LOCATION><br>Muda wa kufanya kazi - <UPTIMETEXT> (<UPTIME> ms)<br>Mfumo - <SNMP_SYSTEM><br><br>KUMBUKA: <NOTES><br>Maelezo ya Kifaa: <DNOTES>"
+
+#: includes/settings.php
+msgid "Status Change Command"
+msgstr "Amri ya Mabadiliko ya Hali"
+
+#: includes/settings.php
+msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+msgstr "Wakati Kifaa kinapobadilisha hali kwa mtazamo wa Cacti (UP hadi DOWN au DOWN hadi RECOVERING/UP), endesha amri ifuatayo. Amri hii LAZIMA ISIWE na hoja za mstari wa amri. Hata hivyo, vigeu vifuatavyo vinaweza kuvutwa kutoka kwenye mazingira ya hati:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+
+#: includes/settings.php
+msgid "Alert/Warning Message Defaults"
+msgstr "Chaguomsingi za Ujumbe wa Tahadhari/Onyo"
+
+#: includes/settings.php
+msgid "Threshold Alert Message"
+msgstr "Ujumbe wa Arifa ya Kizingiti"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Huu ndio ujumbe utakaoonyeshwa juu ya Arifa zote za Kizingiti (Upeo wa herufi 1024). HTML inaruhusiwa, lakini itaondolewa kwa Barua Pepe za maandishi pekee. Kuna lebo kadhaa za kawaida za ubadilishaji zinazoweza kutumika zikiwemo:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#60DNOTES&#62"
+
+#: includes/settings.php
+msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Tahadhari imetolewa inayohitaji umakini wako. <br><br><strong>Kifaa</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Ujumbe</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/settings.php
+msgid "Threshold Warning Message"
+msgstr "Ujumbe wa Onyo wa Kizingiti"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Huu ndio ujumbe utakaoonyeshwa juu ya maonyo yote ya Kizingiti (Upeo wa herufi 1024). HTML inaruhusiwa, lakini itaondolewa kwa Barua Pepe za maandishi pekee. Kuna lebo kadhaa za kawaida za ubadilishaji zinazoweza kutumika zikiwemo:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#60DNOTES&#62"
+
+#: includes/settings.php
+msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Onyo limetolewa ambalo linahitaji umakini wako. <br><br><strong>Kifaa</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Ujumbe</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/settings.php
+msgid "Threshold Restoral Message"
+msgstr "Ujumbe wa Urejeshaji wa Kizingiti"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Huu ndio ujumbe utakaoonyeshwa juu ya taarifa zote za urejeshaji wa Kizingiti (Upeo wa herufi 1024). HTML inaruhusiwa, lakini itaondolewa kwa Barua Pepe za maandishi pekee. Kuna lebo kadhaa za kawaida za ubadilishaji zinazoweza kutumika zikiwemo:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#60DNOTES&#62"
+
+#: includes/settings.php
+msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Kizingiti kimerudi katika hali ya kawaida. <br><br><strong>Kifaa</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Ujumbe</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/tab.php
+msgid "Thold"
+msgstr "Thold"
+
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "Kizingiti/Vizingiti Tayari Vipo - Hakuna Vizingiti Vilivyoundwa"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "Unda Kizingiti kutoka kwa Kiolezo"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "Mwongozo wa Kuunda Kizingiti [ Chagua Aina ya Kizingiti ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "Mwongozo wa Kuunda Kizingiti [ Ingiza Data Maalum na ubofye 'Unda' ili Kuunda Kizingiti chako na Grafu ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "Mwongozo wa Kuunda Kizingiti [ Chagua Safu Mlalo Zinazopatikana za Hoji ya Data ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "Mwongozo wa Kuunda Kizingiti [ Chagua Kifaa ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "Mwongozo wa Kuunda Kizingiti [ Chagua Kiolezo cha Grafu ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "Mwongozo wa Kuunda Kizingiti [ Chagua Kiolezo cha Kizingiti ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "Mwongozo wa Kuunda Kizingiti [ Bofya 'Unda' ili Kuunda Kizingiti chako ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "Mwongozo wa Kuunda Kizingiti [ Chagua Chanzo cha Data ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "Mwongozo wa Kuunda Kizingiti [ Chagua Grafu ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "Vigezo vya Kuunda Kizingiti"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "Aina ya Uundaji"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "Chagua Aina ya Kizingiti ya kutumia kuunda Kizingiti hiki."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "Chagua Aina ya Kizingiti"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "Isiyo na Kiolezo"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "Kiolezo cha Kizingiti"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "Chagua Kiolezo cha Kizingiti ambacho Grafu na Kizingiti vitategemea."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "Chagua Kiolezo cha Kizingiti"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "Kiolezo cha Grafu"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "Chagua Kiolezo cha Grafu cha kutumia kwa Grafu itakayoundwa."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "Chagua Kiolezo cha Grafu"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "Kifaa"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "Chagua Kifaa cha kutumia kwa Kizingiti na Grafu itakayoundwa."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "Chagua Kifaa"
+
+#: includes/webapi.php
+msgid "Select an Available Item"
+msgstr "Chagua Kipengee Kinachopatikana"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "Kipengee cha Uhoji wa Data"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "Chagua safumlalo husika kutoka kwa Hoji ya Data kwa Grafu na Kizingiti."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "Maelezo ya Uundaji"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "Dokezo Muhimu:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "Kizingiti hiki kitatumia Kiolezo.  Unapotumia chaguo la Kiolezo cha Kizingiti, utaombwa taarifa ya Kiolezo cha Kizingiti, Kiolezo cha Grafu, Kifaa na huenda Kipengee cha Hoja ya Data kabla ya kupokea kidokezo cha 'Unda' ambapo, ikiwa taarifa yoyote ya Grafu au Chanzo cha Data inayoweza kubatilishwa inaruhusiwa katika kiwango cha Kiolezo cha Grafu na Chanzo cha Data, utaombwa kuiingiza.  Kisha, kwa kubofya kitufe cha 'Unda', Grafu na Kizingiti vitaundwa kwa pamoja."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "Grafu"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "Chagua Grafu kwa ajili ya Kizingiti."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "Chagua Grafu"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "Chanzo cha Data"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "Chagua Chanzo cha Data kwa ajili ya Kizingiti."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "Chagua Chanzo cha Data"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "Unda"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "Kizingiti hiki <b>HAKITATUMIA</b> Kiolezo na kitafanya kazi kwenye Grafu zilizopo pekee.  Ikiwa unataka kuunda Grafu na Kizingiti kwa pamoja, chagua Kiolezo cha Kizingiti kutoka kwenye orodha kunjuzi na uendelee hadi kitufe cha 'Unda' kionekane."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "Kizingiti hiki <b>HAKITATUMIA</b> Kiolezo.  Unaweza kuchagua aidha Kwa Grafu ambapo utachagua Kifaa, Grafu na Chanzo cha Data kilichopo kabla ya kuunda Kizingiti chako, au unaweza kuchagua Kiolezo cha Kizingiti ambacho kitakuruhusu kuunda Kizingiti kisicho na Kiolezo na Grafu inayolingana kwa pamoja"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "Grafu Iliyochaguliwa"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "Grafu imeundwa: %s"
+
+#: notify_lists.php
+msgid "Duplicate"
+msgstr "Rudufu"
+
+#: notify_lists.php
+msgid "Associate"
+msgstr "Husisha"
+
+#: notify_lists.php
+msgid "Disassociate"
+msgstr "Tenganisha"
+
+#: notify_lists.php thold_graph.php
+msgid "Devices"
+msgstr "Vifaa"
+
+#: notify_lists.php
+#, php-format
+msgid "ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s"
+msgstr "HITILAFU: Huwezi kuwa na Barua Pepe yako katika mistari ya Kwa na BCC kwa pamoja. Barua Pepe iliyo hapa chini si sahihi!<br><br>%s"
+
+#: notify_lists.php
+msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
+msgstr "Bofya 'Endelea' ili Kufuta Orodha za Arifa.  Kifaa/Vifaa au Kizingiti/Vizingiti vyovyote vinavyohusishwa na Orodha hizo vitarejeshwa kwa chaguomsingi."
+
+#: notify_lists.php
+msgid "Delete Notification List(s)"
+msgstr "Futa Orodha za Arifa"
+
+#: notify_lists.php
+msgid "Click 'Continue' to Duplicate the following Notification List(s)."
+msgstr "Bofya 'Endelea' ili Kunakili Orodha za Arifa zifuatazo."
+
+#: notify_lists.php
+msgid "New List Name"
+msgstr "Jina Jipya la Orodha"
+
+#: notify_lists.php
+msgid "New Notification List"
+msgstr "Orodha Mpya ya Arifa"
+
+#: notify_lists.php
+msgid "Duplicate Notification List(s)"
+msgstr "Rudufu Orodha ya/za Arifa"
+
+#: notify_lists.php
+#, php-format
+msgid "%s Threshold Template(s)"
+msgstr "Kiolezo/Violezo %s vya Kizingiti"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
+msgstr "Bofya 'Endelea' ili Kuhusisha Orodha ya Arifa '%s' na Kiolezo/Violezo vya Kizingiti vilivyo hapa chini."
+
+#: notify_lists.php
+msgid "Warning Membership:"
+msgstr "Uanachama wa Onyo:"
+
+#: notify_lists.php
+msgid "No Change"
+msgstr "Hakuna Mabadiliko"
+
+#: notify_lists.php
+msgid "Notification List Only"
+msgstr "Orodha ya Arifa Pekee"
+
+#: notify_lists.php
+msgid "Notification List, Retain Other Settings"
+msgstr "Orodha ya Arifa, Weka Mipangilio Mingine"
+
+#: notify_lists.php
+msgid "Alert Membership:"
+msgstr "Uanachama wa Tahadhari:"
+
+#: notify_lists.php
+msgid "Associate Notification List(s)"
+msgstr "Husisha Orodha ya/za Arifa"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
+msgstr "Bofya 'Endelea' ili Kutenganisha Orodha ya Arifa '%s' kutoka kwa Kiolezo/Violezo vya Vizingiti vilivyo hapa chini."
+
+#: notify_lists.php
+msgid "Remove List"
+msgstr "Ondoa Orodha"
+
+#: notify_lists.php
+msgid "Disassociate Notification List(s)"
+msgstr "Tenganisha Orodha ya/za Arifa"
+
+#: notify_lists.php
+#, php-format
+msgid "%s Threshold(s)"
+msgstr "Kizingiti/Vizingiti %s"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
+msgstr "Bofya 'Endelea' ili Kuhusisha Orodha ya Arifa '%s' na Kizingiti/Vizingiti vilivyo hapa chini."
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
+msgstr "Bofya 'Endelea' ili Kutenganisha Orodha ya Arifa '%s' kutoka kwa Kizingiti/Vizingiti vilivyo hapa chini."
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
+msgstr "Bofya 'Endelea' ili Kuhusisha Orodha ya Arifa '%s' na Kifaa/Vifaa vilivyo hapa chini."
+
+#: notify_lists.php
+msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
+msgstr "Unaweza pia Kuhusisha Vizingiti vya Vifaa. Hata hivyo, Vizingiti hivi vya Kifaa vitaruhusu Orodha ya Arifa za Kizingiti iandikwe upya."
+
+#: notify_lists.php
+msgid "Resulting Membership:"
+msgstr "Uanachama Unaotokana:"
+
+#: notify_lists.php
+msgid "Notification and Global Lists"
+msgstr "Arifa na Orodha za Jumla"
+
+#: notify_lists.php
+msgid "Device Threshold Warning Membership:"
+msgstr "Uanachama wa Onyo la Kizingiti cha Kifaa:"
+
+#: notify_lists.php
+msgid "Device Threshold Alert Membership:"
+msgstr "Uanachama wa Tahadhari ya Kizingiti cha Kifaa:"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
+msgstr "Bofya 'Endelea' ili Kutenganisha Orodha ya Arifa '%s' kutoka kwa Kifaa/Vifaa vilivyo hapa chini."
+
+#: notify_lists.php
+msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
+msgstr "Unaweza pia Kutenganisha Vizingiti vya Vifaa. Hata hivyo, Vizingiti hivi vya Kifaa vitaruhusu Orodha ya Arifa za Kizingiti iandikwe upya."
+
+#: notify_lists.php
+#, php-format
+msgid "[edit: %s]"
+msgstr "[hariri: %s]"
+
+#: notify_lists.php
+msgid "[new]"
+msgstr "[mpya]"
+
+#: notify_lists.php
+msgid "List General Settings"
+msgstr "Mipangilio ya Jumla ya Orodha"
+
+#: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
+msgid "Name"
+msgstr "Jina"
+
+#: notify_lists.php
+msgid "Enter a name for this Notification List."
+msgstr "Ingiza jina la Orodha hii ya Arifa."
+
+#: notify_lists.php thold_graph.php
+msgid "Description"
+msgstr "Maelezo"
+
+#: notify_lists.php
+msgid "Enter a description for this Notification List."
+msgstr "Ingiza maelezo ya Orodha hii ya Arifa."
+
+#: notify_lists.php
+msgid "To disable all notifications from this Notification List, you can simply disable it here."
+msgstr "Ili kuzima arifa zote kutoka kwa Orodha hii ya Arifa, unaweza kuizima hapa kwa urahisi."
+
+#: notify_lists.php
+msgid "To Email Addresses"
+msgstr "Kwenda Anwani za Barua Pepe"
+
+#: notify_lists.php
+msgid "Enter a comma separated list of Email addresses for this Notification List."
+msgstr "Ingiza orodha ya anwani za Barua Pepe zilizotenganishwa kwa koma kwa Orodha hii ya Arifa."
+
+#: notify_lists.php
+msgid "BCC Email Addresses"
+msgstr "Anwani za Barua Pepe za BCC"
+
+#: notify_lists.php
+msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
+msgstr "Ingiza orodha ya anwani za Barua Pepe zilizotenganishwa kwa koma kwa Orodha hii ya Arifa ili kutumiwa nakala fiche."
+
+#: notify_lists.php
+msgid "Email Style/Format File"
+msgstr "Faili ya Mtindo/Muundo wa Barua Pepe"
+
+#: notify_lists.php thold.php thold_templates.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "Chagua kifungio maalum cha html na faili la CSS la kutumia.  Faili hili lina html na CSS za kufunga ripoti yako.  Ikiwa lina zaidi ya CSS pekee, unahitaji kuweka lebo maalum ya <REPORT> ndani ya faili.  Lebo hii ya umbizo itabadilishwa na maudhui ya ripoti.  Faili hizi ziko katika saraka ya 'formats'."
+
+#: notify_lists.php
+msgid "Associated Devices"
+msgstr "Vifaa Vilivyohusishwa"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Search"
+msgstr "Tafuta"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "Site"
+msgstr "Eneo"
+
+#: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
+msgid "None"
+msgstr "Hakuna"
+
+#: notify_lists.php
+msgid "Device Template"
+msgstr "Kiolezo cha Kifaa"
+
+#: notify_lists.php
+msgid "Associated"
+msgstr "Zilizohusishwa"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Go"
+msgstr "Nenda"
+
+#: notify_lists.php notify_queue.php
+msgid "Set/Refresh Filters"
+msgstr "Weka/Onyesha Upya Vichujio"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Clear"
+msgstr "Futa"
+
+#: notify_lists.php notify_queue.php
+msgid "Clear Filters"
+msgstr "Futa Vichujio"
+
+#: notify_lists.php thold.php thold_graph.php thold_templates.php
+msgid "ID"
+msgstr "Kitambulisho"
+
+#: notify_lists.php setup.php thold.php thold_graph.php
+msgid "Status"
+msgstr "Hali"
+
+#: notify_lists.php
+msgid "Associated Lists"
+msgstr "Orodha Zilizohusishwa"
+
+#: notify_lists.php thold_graph.php
+msgid "Graphs"
+msgstr "Grafu"
+
+#: notify_lists.php thold_graph.php
+msgid "Data Sources"
+msgstr "Vyanzo vya Data"
+
+#: notify_lists.php notify_queue.php thold_graph.php
+msgid "Hostname"
+msgstr "Jina la Mpangishi"
+
+#: notify_lists.php
+msgid "Current List Only"
+msgstr "Orodha ya Sasa Pekee"
+
+#: notify_lists.php
+msgid "Current and Global List(s)"
+msgstr "Orodha ya Sasa na za Jumla"
+
+#: notify_lists.php
+msgid "No Associated Devices Found"
+msgstr "Hakuna Vifaa Vinavyohusiana Vilivyopatikana"
+
+#: notify_lists.php
+msgid "Associated Thresholds"
+msgstr "Vizingiti Vilivyohusishwa"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "Template"
+msgstr "Kiolezo"
+
+#: notify_lists.php
+msgid "State"
+msgstr "Jimbo"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "All"
+msgstr "Zote"
+
+#: notify_lists.php
+msgid "Warning Lists"
+msgstr "Orodha za Maonyo"
+
+#: notify_lists.php
+msgid "Alert Lists"
+msgstr "Orodha za Tahadhari"
+
+#: notify_lists.php thold.php thold_graph.php thold_templates.php
+msgid "Type"
+msgstr "Aina"
+
+#: notify_lists.php thold.php
+msgid "Templated"
+msgstr "Yenye Kiolezo"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "No"
+msgstr "Hapana"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Yes"
+msgstr "Ndiyo"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "baseline-LOW"
+msgstr "msingi-CHINI"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "baseline-HIGH"
+msgstr "msingi-JUU"
+
+#: notify_lists.php
+msgid "Select Users"
+msgstr "Chagua Watumiaji"
+
+#: notify_lists.php
+msgid "Specific Emails"
+msgstr "Barua Pepe Maalum"
+
+#: notify_lists.php
+msgid "Current List"
+msgstr "Orodha ya Sasa"
+
+#: notify_lists.php
+msgid "Unknown Threshold"
+msgstr "Kizingiti Kisichojulikana"
+
+#: notify_lists.php
+msgid "Log Only"
+msgstr "Kumbukumbu Tu"
+
+#: notify_lists.php
+msgid "Editable"
+msgstr "Inayoweza Kuhaririwa"
+
+#: notify_lists.php
+msgid "Read Only"
+msgstr "Kusoma Pekee"
+
+#: notify_lists.php
+msgid "No Thresholds Found"
+msgstr "Hakuna Vizingiti Vilivyopatikana"
+
+#: notify_lists.php
+msgid "Associated Templates"
+msgstr "Violezo Vilivyohusishwa"
+
+#: notify_lists.php notify_queue.php
+msgid "Rows"
+msgstr "Safu Mlalo"
+
+#: notify_lists.php
+msgid "Unknown Template"
+msgstr "Kiolezo Kisichojulikana"
+
+#: notify_lists.php thold_templates.php
+msgid "No Threshold Templates"
+msgstr "Hakuna Violezo vya Kizingiti"
+
+#: notify_lists.php
+msgid "Lists"
+msgstr "Orodha"
+
+#: notify_lists.php
+msgid "List Name"
+msgstr "Jina la Orodha"
+
+#: notify_lists.php
+msgid "Emails"
+msgstr "Barua Pepe"
+
+#: notify_lists.php
+msgid "No Notification Lists"
+msgstr "Hakuna Orodha za Arifa"
+
+#: notify_queue.php
+msgid "Notification has been Suspended.  Press the Resume button to resume it"
+msgstr "Arifa Imesitishwa.  Bonyeza kitufe cha Endelea ili kuiendeleza"
+
+#: notify_queue.php
+msgid "Notification has been Resumed.  Press the Suspend button to suspend it"
+msgstr "Arifa Imeendelezwa.  Bonyeza kitufe cha Sitisha ili kuisitisha"
+
+#: notify_queue.php
+msgid "Pending Notifications have been removed from the database.  Previously sent notification not purged will remain until they age out."
+msgstr "Arifa Zinazosubiri zimeondolewa kwenye hifadhidata. Arifa zilizotumwa awali ambazo hazijafutwa zitasalia hadi muda wake uishe."
+
+#: notify_queue.php
+msgid "Click 'Continue' to delete the following Notification."
+msgid_plural "Click 'Continue' to delete all following Notifications."
+msgstr[0] "Bofya 'Endelea' ili kufuta Arifa ifuatayo."
+msgstr[1] "Bofya 'Endelea' ili kufuta Arifa zote zifuatazo."
+
+#: notify_queue.php
+msgid "Delete Notification"
+msgid_plural "Delete Notifications"
+msgstr[0] "Futa Arifa"
+msgstr[1] "Futa Arifa"
+
+#: notify_queue.php
+#, php-format
+msgid "Event Notifications [ Notifications Suspended by User: %s, %s ago ]"
+msgstr "Arifa za Matukio [ Arifa Zimesitishwa na Mtumiaji: %s, %s iliyopita ]"
+
+#: notify_queue.php
+msgid "Event Notifications"
+msgstr "Arifa za Matukio"
+
+#: notify_queue.php
+msgid "Topic"
+msgstr "Mada"
+
+#: notify_queue.php
+msgid "Processed"
+msgstr "Imechakatwa"
+
+#: notify_queue.php
+msgid "Suspend"
+msgstr "Sitisha"
+
+#: notify_queue.php
+msgid "Suspend Notification Processing"
+msgstr "Sitisha Uchakataji wa Arifa"
+
+#: notify_queue.php
+msgid "Resume"
+msgstr "Endelea"
+
+#: notify_queue.php
+msgid "Resume Notification Processing"
+msgstr "Endelea na Uchakataji wa Arifa"
+
+#: notify_queue.php
+msgid "Purge"
+msgstr "Safisha"
+
+#: notify_queue.php
+msgid "Purge Notification Queue"
+msgstr "Safisha Foleni ya Arifa"
+
+#: notify_queue.php
+msgid "Notifications"
+msgstr "Arifa"
+
+#: notify_queue.php
+msgid "The supported notification topic."
+msgstr "Mada ya arifa inayoauniwa."
+
+#: notify_queue.php thold_graph.php
+msgid "Event Description"
+msgstr "Maelezo ya Tukio"
+
+#: notify_queue.php
+msgid "The name of the object as defined by the caller."
+msgstr "Jina la kipengee kama lilivyofafanuliwa na mwitaji."
+
+#: notify_queue.php
+msgid "The hostname that was the source of this event."
+msgstr "Jina la kipangishi ambalo lilikuwa chanzo cha tukio hili."
+
+#: notify_queue.php
+msgid "The Notification List used if any."
+msgstr "Orodha ya Arifa inayotumika ikiwa ipo."
+
+#: notify_queue.php
+msgid "Object ID"
+msgstr "Kitambulisho cha Kipengee"
+
+#: notify_queue.php
+msgid "The Object ID defined by the caller.  Generally its unique 'id'."
+msgstr "Kitambulisho cha Kipengee kilichobainishwa na mwito. Kwa ujumla ni 'id' yake ya kipekee."
+
+#: notify_queue.php
+msgid "Event Time"
+msgstr "Muda wa Tukio"
+
+#: notify_queue.php
+msgid "The time of the event as defined by the caller."
+msgstr "Muda wa tukio kama ulivyofafanuliwa na mpigaji."
+
+#: notify_queue.php
+msgid "Has the Notification Event been processed."
+msgstr "Iwapo Tukio la Arifa limechakatwa."
+
+#: notify_queue.php
+msgid "Errors"
+msgstr "Hitilafu"
+
+#: notify_queue.php
+msgid "Did this notification result in an error.  Hover on the error column for details."
+msgstr "Je, arifa hii ilisababisha hitilafu? Elekeza kipanya juu ya safu wima ya hitilafu kwa maelezo zaidi."
+
+#: notify_queue.php
+msgid "Attempts"
+msgstr "Majaribio"
+
+#: notify_queue.php
+msgid "The number of delivery attempts made for this notification."
+msgstr "Idadi ya majaribio ya uwasilishaji yaliyofanywa kwa arifa hii."
+
+#: notify_queue.php
+msgid "Next Attempt"
+msgstr "Jaribio Linalofuata"
+
+#: notify_queue.php
+msgid "When a failed notification is eligible for its next retry."
+msgstr "Wakati arifa iliyoshindwa inastahiki jaribio lake lijalo."
+
+#: notify_queue.php
+msgid "Run Time"
+msgstr "Muda wa Uendeshaji"
+
+#: notify_queue.php
+msgid "The time in seconds it took to process the event."
+msgstr "Muda katika sekunde uliochukuliwa kuchakata tukio."
+
+#: notify_queue.php
+msgid "Not Specified"
+msgstr "Haijabainishwa"
+
+#: notify_queue.php
+msgid "No Notifications"
+msgstr "Hakuna Arifa"
+
+#: setup.php
+msgid "Toggle Threshold VRULES Off"
+msgstr "Geuza VRULES za Kizingiti Zizimwe"
+
+#: setup.php
+msgid "Toggle Threshold VRULES On"
+msgstr "Geuza VRULES za Kizingiti Ziwake"
+
+#: setup.php
+msgid "Create Threshold"
+msgstr "Unda Kizingiti"
+
+#: setup.php
+#, php-format
+msgid "Alert Hi for %s (%s)"
+msgstr "Tahadhari ya Juu kwa %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s)"
+msgstr "Tahadhari ya Chini kwa %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s)"
+msgstr "Onyo la Juu kwa %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Low for %s (%s)"
+msgstr "Onyo la Chini kwa %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Hi for %s (%s %%)"
+msgstr "Tahadhari ya Juu kwa %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s %%)"
+msgstr "Tahadhari ya Chini kwa %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s %%)"
+msgstr "Onyo la Juu kwa %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Warning Low for %s (%s %%)"
+msgstr "Onyo la Chini kwa %s (%s %%)"
+
+#: setup.php
+msgid "Threshold Alert/Warning Values"
+msgstr "Thamani za Arifa/Onyo za Kizingiti"
+
+#: setup.php
+msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
+msgstr "Bofya 'Endelea' ili kutumia Vizingiti vyote vinavyofaa kwa Kifaa/Vifaa hivi."
+
+#: setup.php
+msgid "Create Threshold from Data Source"
+msgstr "Unda Kizingiti kutoka Chanzo cha Data"
+
+#: setup.php
+msgid "Auto-create Thresholds"
+msgstr "Unda Vizingiti Kiotomatiki"
+
+#: setup.php
+#, php-format
+msgid "Created %s thresholds"
+msgstr "Vizingiti %s vimeundwa"
+
+#: setup.php
+msgid "No Threshold(s) Created.  Threshold(s) Template not found."
+msgstr "Hakuna Vizingiti Vilivyoundwa.  Kiolezo cha Kizingiti hakikupatikana."
+
+#: setup.php
+msgid "The following Data Sources have no Threshold Templates associated with them"
+msgstr "Vyanzo vya Data vifuatavyo havina Violezo vya Kizingiti vilivyounganishwa navyo"
+
+#: setup.php
+msgid "Click 'Continue' to create Thresholds for these Data Sources?"
+msgstr "Bofya 'Endelea' ili kuunda Vizingiti kwa Vyanzo vya Data hivi?"
+
+#: setup.php
+msgid "Available Threshold Templates"
+msgstr "Violezo vya Vizingiti Vilivyopo"
+
+#: setup.php
+msgid "There are no Threshold Templates associated with the following Data Sources"
+msgstr "Hakuna Violezo vya Kizingiti vinavyohusishwa na Vyanzo vya Data vifuatavyo"
+
+#: setup.php
+msgid "The following Graphs have no Threshold Templates associated with them"
+msgstr "Grafu zifuatazo hazina Violezo vya Kizingiti vilivyounganishwa nazo"
+
+#: setup.php
+msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
+msgstr "Bonyeza 'Endelea' ikiwa ungependa kuunda Kizingiti (Vizingiti) kwa Grafu hii (hizi)"
+
+#: setup.php
+msgid "There are no Threshold Templates associated with the following Graphs"
+msgstr "Hakuna Violezo vya Kizingiti vinavyohusishwa na Grafu zifuatazo"
+
+#: setup.php
+msgid "Associated Threshold Templates"
+msgstr "Violezo vya Vizingiti Vinavyohusiana"
+
+#: setup.php
+msgid "Threshold Exists"
+msgstr "Kizingiti Kipo"
+
+#: setup.php
+msgid "Threshold Does Not Exist"
+msgstr "Kizingiti Hakipo"
+
+#: setup.php
+msgid "Delete Threshold Template Association"
+msgstr "Futa Muungano wa Kiolezo cha Kizingiti"
+
+#: setup.php
+msgid "No Associated Threshold Templates."
+msgstr "Hakuna Violezo vya Kizingiti Vinavyohusiana."
+
+#: setup.php
+msgid "Add Threshold Template"
+msgstr "Ongeza Kiolezo cha Kizingiti"
+
+#: setup.php
+msgid "Add"
+msgstr "Ongeza"
+
+#: setup.php
+msgid "Add Threshold Template to Device"
+msgstr "Ongeza Kiolezo cha Kizingiti kwenye Kifaa"
+
+#: setup.php
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device."
+msgstr "Bofya 'Endelea' ili Kufuta Kiolezo cha Kizingiti kifuatacho kitakachotenganishwa na Kifaa."
+
+#: setup.php
+#, php-format
+msgid "Threshold Template Name: %s"
+msgstr "Jina la Kiolezo cha Kizingiti: %s"
+
+#: setup.php
+msgid "Remove Threshold Template"
+msgstr "Ondoa Kiolezo cha Kizingiti"
+
+#: setup.php
+msgid "Add Threshold Template to Device Template"
+msgstr "Ongeza Kiolezo cha Kizingiti kwenye Kiolezo cha Kifaa"
+
+#: setup.php
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
+msgstr "Bofya 'Endelea' ili Kufuta Kiolezo cha Kizingiti kifuatacho kitakachotenganishwa na Kiolezo cha Kifaa."
+
+#: thold.php
+msgid "Either No Templates or Threshold(s) Already Exists - No Thresholds were created."
+msgstr "Aidha Hakuna Violezo au Kizingiti/Vizingiti Tayari Vipo - Hakuna Vizingiti vilivyoundwa."
+
+#: thold.php
+msgid "You are not authorized to modify one or more of the Thresholds selected"
+msgstr "Huna idhini ya kurekebisha Kizingiti kimoja au zaidi kati ya vilivyochaguliwa"
+
+#: thold.php
+msgid "Click 'Delete' to delete the following Threshold(s)."
+msgstr "Bofya 'Futa' ili kufuta Kizingiti/Vizingiti vifuatavyo."
+
+#: thold.php
+msgid "Delete Threshold(s)"
+msgstr "Futa Vizingiti"
+
+#: thold.php
+msgid "Click 'Continue' to enable the following Threshold(s)."
+msgstr "Bofya 'Endelea' ili kuwasha Kizingiti/Vizingiti vifuatavyo."
+
+#: thold.php
+msgid "Enable Threshold(s)"
+msgstr "Washa Kizingiti/Vizingiti"
+
+#: thold.php
+msgid "Click 'Continue' to disable the following Threshold(s)."
+msgstr "Bofya 'Endelea' ili kuzima Kizingiti/Vizingiti vifuatavyo."
+
+#: thold.php
+msgid "Disable Threshold(s)"
+msgstr "Zima Kizingiti/Vizingiti"
+
+#: thold.php
+msgid "Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
+msgstr "Bofya 'Endelea' ili kutumia tena Jina/Majina Yaliyopendekezwa kwenye Kizingiti/Vizingiti vifuatavyo."
+
+#: thold.php
+msgid "Apply Suggestion"
+msgstr "Tumia Pendekezo"
+
+#: thold.php
+msgid "Click 'Continue' to update the following Threshold(s) with their associate Template's details."
+msgstr "Bofya 'Endelea' ili kusasisha Kizingiti/Vizingiti vifuatavyo kwa maelezo ya Kiolezo chake husika."
+
+#: thold.php
+msgid "Reapply Template"
+msgstr "Tumia Tena Kiolezo"
+
+#: thold.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
+msgstr "Bofya 'Endelea' ili Kuthibitisha Kizingiti/Vizingiti vifuatavyo.  Vizingiti visivyoruhusu hili, au ambavyo havijaanzishwa, vitapuuzwa."
+
+#: thold.php
+msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
+msgstr "Bofya 'Endelea' ili Kurejesha Arifa kwa Kizingiti/Vizingiti vifuatavyo. Vizingiti ambavyo haviruhusu hili, au ambavyo havijaanzishwa, vitapuuzwa."
+
+#: thold.php
+msgid "Resume Notifications for Threshold(s)"
+msgstr "Endelea na Arifa za Kizingiti/Vizingiti"
+
+#: thold.php
+msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
+msgstr "Bofya 'Endelea' ili Kusimamisha kwa muda Arifa kwa Kizingiti/Vizingiti vifuatavyo. Vizingiti ambavyo haviruhusu hili, au ambavyo havijaanzishwa, vitapuuzwa."
+
+#: thold.php
+msgid "Suspend Notification for Threshold(s)"
+msgstr "Sitisha Arifa kwa Kizingiti/Vizingiti"
+
+#: thold.php thold_templates.php
+msgid "Invalid action detected, can not proceed"
+msgstr "Kitendo batili kimegunduliwa, haiwezekani kuendelea"
+
+#: thold.php
+msgid "Threshold Management"
+msgstr "Usimamizi wa Kizingiti"
+
+#: thold.php
+msgid "Apply Filters"
+msgstr "Tumia Vichujio"
+
+#: thold.php
+msgid "Return to Defaults"
+msgstr "Rudi kwenye Chaguo-msingi"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Data Template"
+msgstr "Kigezo cha Data"
+
+#: thold.php thold_graph.php
+msgid "Disabled at Template"
+msgstr "Imezimwa kwenye Kiolezo"
+
+#: thold.php thold_graph.php
+msgid "Disabled at Threshold"
+msgstr "Imezimwa kwenye Kizingiti"
+
+#: thold.php thold_graph.php
+msgid "Ack Required"
+msgstr "Uthibitisho Unahitajika"
+
+#: thold.php thold_graph.php
+msgid "By Status"
+msgstr "Kwa Hali"
+
+#: thold.php thold_graph.php
+msgid "The current threshold status. Click a status pill to filter the list to that status."
+msgstr "Hali ya sasa ya kizingiti. Bofya kitufe cha hali ili kuchuja orodha kwa hali hiyo."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "External ID"
+msgstr "Kitambulisho cha Nje"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function."
+msgstr "Aina ya Kizingiti. Kwa Aina za Msingi: [TIP] inarejelea Muda Uliopita wenye MIN, MAX, AVG, na LAST kutoka si zaidi ya siku moja katika kipindi hicho. [AOT] inarejelea Wastani katika kipindi chote cha Muda. Ikiwa kuna koloni ikifuatiwa na MIN, MAX, AVG, LAST, Thamani ilitoka kwenye Kitendakazi hicho cha Ujumuishaji."
+
+#: thold.php
+msgid "DSName"
+msgstr "Jina la DS"
+
+#: thold.php thold_graph.php
+msgid "Current"
+msgstr "Ya Sasa"
+
+#: thold.php thold_graph.php
+msgid "The last measured value for the Data Source"
+msgstr "Thamani ya mwisho iliyopimwa kwa Chanzo cha Data"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "High"
+msgstr "Juu"
+
+#: thold.php thold_graph.php
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
+msgstr "Thamani za Juu za Onyo / Tahadhari.  KUMBUKA: Thamani za msingi ni asilimia, thamani nyingine zote ni thamani za kuonyesha ambazo zinaweza kubadilishwa na cdef."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Low"
+msgstr "Chini"
+
+#: thold.php thold_graph.php
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
+msgstr "Thamani za Chini za Onyo / Tahadhari.  KUMBUKA: Thamani za msingi ni asilimia, thamani nyingine zote ni thamani za kuonyesha ambazo zinaweza kubadilishwa na cdef."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Trigger"
+msgstr "Kichocheo"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Duration"
+msgstr "Muda"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Repeat"
+msgstr "Rudia"
+
+#: thold.php thold_graph.php
+msgid "In State"
+msgstr "Katika Hali"
+
+#: thold.php thold_graph.php
+msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
+msgstr "Muda uliopita tangu Kizingiti kilipokiukwa au kilipochochewa"
+
+#: thold.php thold_graph.php
+msgid "Acknowledgment required for this Threshold"
+msgstr "Uthibitisho unahitajika kwa Kizingiti hiki"
+
+#: thold.php thold_graph.php
+msgid "No [Template:Thold]"
+msgstr "Hakuna [Kiolezo:Thold]"
+
+#: thold.php thold_graph.php
+msgid "No [Template]"
+msgstr "Hakuna [Kiolezo]"
+
+#: thold.php thold_graph.php
+msgid "No [Thold]"
+msgstr "Hakuna [Thold]"
+
+#: thold.php thold_graph.php
+#, php-format
+msgid "%d Triggers"
+msgstr "Vichocheo %d"
+
+#: thold.php thold_graph.php
+msgid "No Thresholds"
+msgstr "Hakuna Vizingiti"
+
+#: thold.php
+msgid "Threshold Deleted, can not Edit!"
+msgstr "Kizingiti Kimefutwa, haiwezekani Kuhariri!"
+
+#: thold.php
+msgid "Graph Data"
+msgstr "Data ya Grafu"
+
+#: thold.php
+msgid "Edit Threshold Template"
+msgstr "Hariri Kiolezo cha Kizingiti"
+
+#: thold.php
+msgid "Data Source Description:"
+msgstr "Maelezo ya Chanzo cha Data:"
+
+#: thold.php
+msgid "Associated Graph (Graphs using this RRD):"
+msgstr "Grafu Iliyohusishwa (Grafu zinazotumia RRD hii):"
+
+#: thold.php
+msgid "Last:"
+msgstr "Ya mwisho:"
+
+#: thold.php
+msgid "WHi:"
+msgstr "WHi:"
+
+#: thold.php
+msgid "WLo:"
+msgstr "WLo:"
+
+#: thold.php
+msgid "AHi:"
+msgstr "Kengele Juu:"
+
+#: thold.php
+msgid "ALo:"
+msgstr "Kengele Chini:"
+
+#: thold.php
+msgid "BL Up:"
+msgstr "BL Juu:"
+
+#: thold.php
+msgid "BL Down:"
+msgstr "BL Chini:"
+
+#: thold.php
+#, php-format
+msgid "Unknown Template ID %d"
+msgstr "Kitambulisho cha Kiolezo Kisichojulikana %d"
+
+#: thold.php
+msgid "Not Templated"
+msgstr "Bila Kiolezo"
+
+#: thold.php
+#, php-format
+msgid "Data Source Item [ %s ] - Current value: [ %s ]"
+msgstr "Kipengee cha Chanzo cha Data [ %s ] - Thamani ya sasa: [ %s ]"
+
+#: thold.php thold_templates.php
+#, php-format
+msgid "Replacement Fields: %s"
+msgstr "Sehemu za Kubadilisha: %s"
+
+#: thold.php thold_templates.php
+#, php-format
+msgid "Data Sources: %s"
+msgstr "Vyanzo vya Data: %s"
+
+#: thold.php
+msgid "Template/Enabled Information"
+msgstr "Taarifa ya Kiolezo/Imewashwa"
+
+#: thold.php
+msgid "Template Propagation Enabled"
+msgstr "Uenezaji wa Kiolezo Umewashwa"
+
+#: thold.php
+msgid "Whether or not these settings will be propagated from the Threshold template."
+msgstr "Iwapo mipangilio hii itaenezwa kutoka kwa kiolezo cha Kizingiti au la."
+
+#: thold.php thold_templates.php
+msgid "Template Name"
+msgstr "Jina la Kiolezo"
+
+#: thold.php
+msgid "Name of the Threshold Template the Threshold was created from."
+msgstr "Jina la Kiolezo cha Kizingiti ambacho Kizingiti kiliundwa kutoka kwacho."
+
+#: thold.php
+msgid "Enabled at Template Level"
+msgstr "Imewashwa katika Kiwango cha Kiolezo"
+
+#: thold.php
+msgid "A Threshold must be enabled both at the Template Level and the Threshold level to be checked."
+msgstr "Kizingiti lazima kiwashwe katika Kiwango cha Kiolezo na Kiwango cha Kizingiti ili kikaguliwe."
+
+#: thold.php
+msgid "Enabled at Threshold Level"
+msgstr "Imewashwa katika Kiwango cha Kizingiti"
+
+#: thold.php thold_templates.php
+msgid "General Settings"
+msgstr "Mipangilio ya Jumla"
+
+#: thold.php
+msgid "Name (Displayed)"
+msgstr "Jina (Linaloonyeshwa)"
+
+#: thold.php
+msgid "Provide the Thresholds a meaningful name"
+msgstr "Patia Vizingiti jina lenye maana"
+
+#: thold.php
+msgid "Name (Format)"
+msgstr "Jina (Umbizo)"
+
+#: thold.php thold_templates.php
+msgid "Warning HRULE Color"
+msgstr "Rangi ya HRULE ya Onyo"
+
+#: thold.php thold_templates.php
+msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
+msgstr "Tafadhali chagua Rangi ya HRULE ya Grafu kwa Vizingiti vya Onyo. Chagua 'Hakuna' ikiwa hutaki HRULE. Kumbuka: Kipengele hiki kinatumika kwa aina za Udhibiti wa Data za 'Thamani Halisi' na 'Asilimia' pekee kwa sasa."
+
+#: thold.php thold_templates.php
+msgid "Alert HRULE Color"
+msgstr "Rangi ya HRULE ya Tahadhari"
+
+#: thold.php thold_templates.php
+msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
+msgstr "Tafadhali chagua Rangi ya HRULE ya Grafu kwa Vizingiti vya Tahadhari. Chagua 'Hakuna' ikiwa hutaki HRULE. Kumbuka: Kipengele hiki kinatumika kwa aina za Udhibiti wa Data za 'Thamani Halisi' na 'Asilimia' pekee kwa sasa."
+
+#: thold.php thold_templates.php
+msgid "Graph Timespan"
+msgstr "Kipindi cha Muda wa Grafu"
+
+#: thold.php thold_templates.php
+msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
+msgstr "Muda wa Mwisho wa Grafu utawekwa wakati wa kuwashwa.  Muda wa Kuanza kwa Grafu utakuwa Muda wa Mwisho ukitoa Muda wa Jumla wa Grafu."
+
+#: thold.php thold_templates.php
+msgid "Skip Scaling on HRULEs"
+msgstr "Ruka Upimaji kwenye HRULEs"
+
+#: thold.php thold_templates.php
+msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
+msgstr "Ikichaguliwa, Kipimo kwenye Grafu hakitaathiriwa na HRULE za Tahadhari au za Onyo."
+
+#: thold.php thold_templates.php
+msgid "Weekend Exemption"
+msgstr "Msamaha wa Wikendi"
+
+#: thold.php thold_templates.php
+msgid "If this is checked, this Threshold will not alert on weekends."
+msgstr "Ikiwa hii imeteuliwa, Kizingiti hiki hakitatoa tahadhari wikendi."
+
+#: thold.php thold_templates.php
+msgid "Disable Restoration Email"
+msgstr "Zima Barua Pepe ya Urejeshaji"
+
+#: thold.php thold_templates.php
+msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
+msgstr "Ikiwa hii imeteuliwa, Kizingiti hakitatuma tahadhari wakati Kizingiti kimerudi kwenye hali ya kawaida."
+
+#: thold.php thold_templates.php
+msgid "Acknowledgment Options"
+msgstr "Chaguo za Uthibitisho"
+
+#: thold.php thold_templates.php
+msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
+msgstr "Kuna viwango vitatu vya Uthibitishaji wa Kupokea vinavyodhibiti jinsi unavyopaswa kujibu hali ya ukiukaji wa Kizingiti.  Navyo ni:<br><br><ul><li><i>Haihitajiki</i> - Unapochagua chaguo hili, hakuna Uthibitishaji wa Kupokea unaohitajika kwa ukiukaji wa Kizingiti.</li><li><i>Arifa Inayoweza Kusitishwa</i> - Kwa chaguo hili, ukishathibitisha Kupokea au Kusitisha Arifa kwenye Kizingiti, hutapokea tena arifa kikiwa bado kimekiukwa.  Baadaye unaweza Kuendeleza Arifa kikiwa bado kimekiukwa.</li><li><i>Uthibitishaji wa Kudumu</i> - Kwa chaguo hili, hata baada ya Kizingiti kurudi katika hali ya kawaida, lazima Uthibitishe Kizingiti na utoe Ujumbe wa hiari wa Mwendeshaji.</li></ul>"
+
+#: thold.php thold_templates.php
+msgid "None Required"
+msgstr "Hakuna Kinachohitajika"
+
+#: thold.php thold_templates.php
+msgid "Suspendible Notification"
+msgstr "Arifa Inayoweza Kusitishwa"
+
+#: thold.php thold_templates.php
+msgid "Persistent Acknowledgment"
+msgstr "Uthibitisho wa Kudumu"
+
+#: thold.php thold_templates.php
+msgid "Threshold Type"
+msgstr "Aina ya Kizingiti"
+
+#: thold.php thold_templates.php
+msgid "The type of Threshold that will be monitored."
+msgstr "Aina ya Kizingiti kitakachofuatiliwa."
+
+#: thold.php thold_templates.php
+msgid "Re-Alert Cycle"
+msgstr "Mzunguko wa Arifa Upya"
+
+#: thold.php
+msgid "Repeat alert after this amount of time has passed since the last alert."
+msgstr "Rudia tahadhari baada ya kiasi hiki cha muda kupita tangu tahadhari ya mwisho."
+
+#: thold.php thold_templates.php
+msgid "Warning - High / Low Settings"
+msgstr "Onyo - Mipangilio ya Juu / Chini"
+
+#: thold.php thold_templates.php
+msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
+msgstr "Thamani za nambari za Vizingiti vya Juu na vya Chini zinaweza kujumuisha viambishi tamati vifuatavyo kwa nambari kubwa kuliko 1 hadi 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', na kwa nambari ndogo kuliko 1 'm', 'u', 'p', 'f'."
+
+#: thold.php thold_templates.php
+msgid "High Threshold"
+msgstr "Kizingiti cha Juu"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Ikiwa imewekwa na thamani ya Chanzo cha Data ikapita nambari hii, onyo litaanzishwa. KUMBUKA: Thamani hii lazima iwe nambari GHAFU. Thamani inayoonyeshwa kwenye Grafu inaweza kubadilishwa na cdef."
+
+#: thold.php thold_templates.php
+msgid "Low Threshold"
+msgstr "Kizingiti cha Chini"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Ikiwa imewekwa na thamani ya Chanzo cha Data ikashuka chini ya nambari hii, onyo litaanzishwa. KUMBUKA: Thamani hii lazima iwe nambari GHAFU. Thamani inayoonyeshwa kwenye Grafu inaweza kubadilishwa na cdef."
+
+#: thold.php
+msgid "Breach Duration"
+msgstr "Muda wa Ukiukaji"
+
+#: thold.php
+msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Muda ambao Chanzo cha Data lazima kiwe katika ukiukaji wa Kizingiti ili onyo litolewe. KUMBUKA: Thamani hii lazima iwe nambari GHAFI. Thamani inayoonyeshwa kwenye Grafu inaweza kubadilishwa na cdef."
+
+#: thold.php thold_templates.php
+msgid "Alert - High / Low Settings"
+msgstr "Tahadhari - Mipangilio ya Juu / Chini"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Ikiwa imewekwa na thamani ya Chanzo cha Data ikapita nambari hii, tahadhari itaanzishwa. KUMBUKA: Thamani hii lazima iwe nambari GHAFU. Thamani inayoonyeshwa kwenye Grafu inaweza kubadilishwa na cdef."
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Ikiwa imewekwa na thamani ya Chanzo cha Data ikashuka chini ya nambari hii, tahadhari itaanzishwa. KUMBUKA: Thamani hii lazima iwe nambari GHAFU. Thamani inayoonyeshwa kwenye Grafu inaweza kubadilishwa na cdef."
+
+#: thold.php
+msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
+msgstr "Muda ambao Chanzo cha Data lazima kiwe katika ukiukaji wa Kizingiti ili tahadhari itolewe."
+
+#: thold.php thold_templates.php
+msgid "Warning - Time Based Settings"
+msgstr "Onyo - Mipangilio Inayotegemea Muda"
+
+#: thold.php
+msgid "Breach Count"
+msgstr "Idadi ya Ukiukaji"
+
+#: thold.php
+msgid "The number of times the Data Source must be in breach of the Threshold."
+msgstr "Idadi ya mara ambazo Chanzo cha Data lazima kiwe kimekiuka Kizingiti."
+
+#: thold.php
+msgid "Breach Window"
+msgstr "Dirisha la Ukiukaji"
+
+#: thold.php thold_templates.php
+msgid "The amount of time in the past to check for Threshold breaches."
+msgstr "Muda uliopita wa kukagua ukiukaji wa Kizingiti."
+
+#: thold.php thold_templates.php
+msgid "Alert - Time Based Settings"
+msgstr "Tahadhari - Mipangilio ya Kulingana na Muda"
+
+#: thold.php
+msgid "Baseline Settings"
+msgstr "Mipangilio ya Mstari wa Msingi"
+
+#: thold.php thold_templates.php
+msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
+msgstr "Aina ya Msingi. [TIP] ni Muda Uliopita, [AOT] ni Wastani kwa Muda. Mkengeuko wa Asilimia ni thamani ya asilimia kutoka kwa thamani ya kihistoria. Thamani Halisi ni mkengeuko aidha juu au chini ya Msingi juu ya thamani hiyo ya kihistoria. Kwa Aina za Msingi za [TIP], MIN, MAX, AVG, na LAST zitatoka katika kipindi kisichozidi siku moja katika wakati huo."
+
+#: thold.php thold_templates.php
+msgid "Consolidation Function"
+msgstr "Kazi ya Uunganishaji"
+
+#: thold.php thold_templates.php
+msgid "Average"
+msgstr "Wastani"
+
+#: thold.php thold_templates.php
+msgid "Minimum"
+msgstr "Kiwango cha Chini"
+
+#: thold.php thold_templates.php
+msgid "Maximum"
+msgstr "Kiwango cha Juu"
+
+#: thold.php thold_templates.php
+msgid "Last"
+msgstr "Ya Mwisho"
+
+#: thold.php thold_templates.php
+msgid "The Consolidation function to use for the Baseline Type value calculation."
+msgstr "Kitendakazi cha Uunganishaji cha kutumia kwa ukokotoaji wa thamani ya Aina ya Msingi."
+
+#: thold.php thold_templates.php
+msgid "Time Range"
+msgstr "Masafa ya Muda"
+
+#: thold.php thold_templates.php
+msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
+msgstr "Hubainisha nukta ya nyuma (kulingana na ubora wa rrd) ambayo itatumika kama rejeleo au muda wa kutumia kwa Wastani Unaobadilika unapotumia Kizingiti cha aina ya Wastani Unaobadilika"
+
+#: thold.php thold_templates.php
+msgid "Deviation UP"
+msgstr "Mkengeuko JUU"
+
+#: thold.php
+#, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Hubainisha mkengeuko unaoruhusiwa kwa Kizingiti cha mpaka wa juu. Ikiwa haijawekwa, Kizingiti cha mpaka wa juu hakitakaguliwa kabisa. Kipimo ni thamani kamili kwa Aina ya 'Thamani Kamili', na Asilimia kwa zote mbili 'Mkengeuko wa %%' na 'Wastani Unaobadilika wa %%'"
+
+#: thold.php thold_templates.php
+msgid "Deviation DOWN"
+msgstr "Mkengeuko CHINI"
+
+#: thold.php
+#, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Hubainisha mkengeuko unaoruhusiwa kwa Kizingiti cha mpaka wa chini. Ikiwa haijawekwa, Kizingiti cha mpaka wa chini hakitakaguliwa kabisa. Kipimo ni thamani kamili kwa Aina ya 'Thamani Kamili', na Asilimia kwa zote mbili 'Mkengeuko wa %%' na 'Wastani Unaobadilika wa %%'"
+
+#: thold.php thold_templates.php
+msgid "Trigger Count"
+msgstr "Idadi ya Vichocheo"
+
+#: thold.php
+#, php-format
+msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
+msgstr "Idadi ya nyakati mfululizo ambazo Chanzo cha Data lazima kiwe kinakiuka Kizingiti cha msingi ili tahadhari itolewe.<br>Acha wazi ili kutumia thamani chaguo-msingi (<b>Chaguo-msingi: mizunguko %s</b>)"
+
+#: thold.php thold_templates.php
+msgid "Data Manipulation"
+msgstr "Uchakataji wa Data"
+
+#: thold.php thold_templates.php
+msgid "Data Type"
+msgstr "Aina ya Data"
+
+#: thold.php thold_templates.php
+msgid "Special formatting for the given data."
+msgstr "Uumbizaji maalum kwa data iliyotolewa."
+
+#: thold.php thold_templates.php
+msgid "Threshold CDEF"
+msgstr "CDEF ya Kizingiti"
+
+#: thold.php thold_templates.php
+msgid "Apply this CDEF before returning the data."
+msgstr "Tumia CDEF hii kabla ya kurejesha data."
+
+#: thold.php
+msgid "Percent Data Source"
+msgstr "Chanzo cha Data cha Asilimia"
+
+#: thold.php
+msgid "Second Data Source Item to use as total value to calculate percentage from."
+msgstr "Kipengee cha Pili cha Chanzo cha Data cha kutumia kama thamani ya jumla ili kukokotoa asilimia."
+
+#: thold.php thold_templates.php
+msgid "Show Units"
+msgstr "Onyesha Vipimo"
+
+#: thold.php thold_templates.php
+msgid "Display units for very large or small numbers."
+msgstr "Onyesha vipimo kwa nambari kubwa sana au ndogo sana."
+
+#: thold.php thold_templates.php
+msgid "Force Units Suffix"
+msgstr "Lazimisha Kiambishi Tamati cha Vipimo"
+
+#: thold.php thold_templates.php
+msgid "If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters."
+msgstr "Ikiwa ungependa kuonyesha kiambishi tamati cha kipimo cha lazima kwenye kurasa mbalimbali za Kizingiti na Arifa, kiweke hapa. Ukubwa umepunguzwa hadi vibambo visivyozidi 10."
+
+#: thold.php thold_templates.php
+msgid "Decimal Digits to Display"
+msgstr "Tarakimu za Desimali za Kuonyesha"
+
+#: thold.php thold_templates.php
+msgid "The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2."
+msgstr "Idadi ya tarakimu za desimali za kuonyesha kwa Kizingiti na Thamani za Sasa.  Chaguomsingi ni otomatiki au 2."
+
+#: thold.php
+#, php-format
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Msemo wa RPN ni Msemo wa RPN unaolingana na RRDtool.  Sintaksia inajumuisha vitendakazi vyote vilivyo hapa chini pamoja na misemo ya ubadilishaji ya Kifaa na Hoji ya Data kama vile <span class=\"deviceUp\">|query_ifSpeed|</span>.  Ili kutumia Chanzo cha Data katika Msemo wa RPN, ni lazima utumie sintaksia: <span class=\"deviceUp\">|ds:dsname|</span>.  Kwa mfano, <span class=\"deviceUp\">|ds:traffic_in|</span> itapata thamani ya sasa ya Chanzo cha Data cha traffic_in kwa RRDfile(s) zinazohusiana na Grafu. Chanzo chochote cha Data kwa ajili ya Grafu kinaweza kujumuishwa.<br><br>Waendeshaji wa Hisabati: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Vitendakazi: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Waendeshaji wa Mtiririko: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Vitendakazi vya Ulinganisho: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+
+#: thold.php thold_templates.php
+msgid "Upper Data Source"
+msgstr "Chanzo cha Data cha Juu"
+
+#: thold.php
+msgid "Upper data source to calculate the total value."
+msgstr "Chanzo cha data cha juu cha kukokotoa thamani ya jumla."
+
+#: thold.php thold_templates.php
+msgid "Notification Settings"
+msgstr "Mipangilio ya Arifa"
+
+#: thold.php
+msgid "Alert Subject"
+msgstr "Mada ya Tahadhari"
+
+#: thold.php
+msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Hili ni somo la Barua Pepe litakaloonyeshwa kwenye Barua Pepe (Upeo wa Herufi 128).  Acha wazi kwa chaguomsingi.  Kuna lebo kadhaa za kawaida za kubadilisha zinazoweza kutumika ikiwa ni pamoja na:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+
+#: thold.php
+msgid "Alert Body"
+msgstr "Mwili wa Tahadhari"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Huu ndio ujumbe utakaoonyeshwa juu ya Arifa zote za Kizingiti (Upeo wa herufi 1024). HTML inaruhusiwa, lakini itaondolewa kwa Barua Pepe za maandishi pekee. Kuna lebo kadhaa za kawaida za ubadilishaji zinazoweza kutumika zikiwemo:<br>mf. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Subject"
+msgstr "Mada ya Onyo"
+
+#: thold.php
+msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Hili ni somo la Barua Pepe ya Onyo litakaloonyeshwa kwenye Barua Pepe baada ya kubadilika kuwa Onyo (Upeo wa Herufi 128).  Acha wazi kwa chaguomsingi.  Kuna lebo kadhaa za kawaida za kubadilisha zinazoweza kutumika ikiwa ni pamoja na:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+
+#: thold.php thold_templates.php
+msgid "Warning Body"
+msgstr "Kiini cha Onyo"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Huu ndio ujumbe utakaoonyeshwa juu ya Maonyo yote ya Kizingiti (Upeo wa herufi 1024). HTML inaruhusiwa, lakini itaondolewa kwa Barua Pepe za maandishi pekee. Kuna lebo kadhaa za kawaida za ubadilishaji zinazoweza kutumika zikiwemo:<br>mf. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold.php thold_templates.php
+msgid "Restoral Subject"
+msgstr "Mada ya Urejeshaji"
+
+#: thold.php
+msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Hili ni somo la Barua Pepe litakaloonyeshwa kwenye Barua Pepe baada ya Kurejea katika Hali ya Kawaida (Upeo wa Herufi 128).  Acha wazi kwa chaguomsingi.  Kuna lebo kadhaa za kawaida za kubadilisha zinazoweza kutumika ikiwa ni pamoja na:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+
+#: thold.php
+msgid "Restoral Email Body"
+msgstr "Maudhui ya Barua Pepe ya Urejeshaji"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Huu ndio ujumbe utakaoonyeshwa juu ya taarifa zote za urejeshaji wa Kizingiti (Upeo wa herufi 1024). HTML inaruhusiwa, lakini itaondolewa kwa Barua Pepe za maandishi pekee. Kuna lebo kadhaa za kawaida za ubadilishaji zinazoweza kutumika zikiwemo:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#60DNOTES&#62"
+
+#: thold.php thold_templates.php
+msgid "Warning Notification List"
+msgstr "Orodha ya Arifa za Onyo"
+
+#: thold.php thold_templates.php
+msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
+msgstr "Unaweza kubainisha au kuchagua Orodha ya Arifa ili kupokea Maonyo ya Chanzo hiki cha Data"
+
+#: thold.php thold_templates.php
+msgid "Alert Notification List"
+msgstr "Orodha ya Arifa za Tahadhari"
+
+#: thold.php thold_templates.php
+msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
+msgstr "Unaweza kubainisha au kuchagua Orodha ya Arifa ili kupokea Arifa za Chanzo hiki cha Data"
+
+#: thold.php thold_templates.php
+msgid "Style/Format File"
+msgstr "Faili ya Mtindo/Umbizo"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Event Category"
+msgstr "Arifa ya SNMP - Kategoria ya Tukio"
+
+#: thold.php thold_templates.php
+msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+msgstr "Ili kuruhusu NMS kuainisha arifa tofauti za SNMP kwa urahisi zaidi tafadhali jaza aina ya arifa za SNMP ambazo kiolezo hiki kinapaswa kutumia. K.m.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+
+#: thold.php thold_templates.php
+msgid "SNMP Event Description"
+msgstr "Maelezo ya Tukio la SNMP"
+
+#: thold.php thold_templates.php
+msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+msgstr "Unaweza kubinafsisha maelezo ya tukio yanayotumwa kwa wapokeaji wa arifa za SNMP kwa kutumia viunganishi vya vibadilishaji. Vibadilishaji mbadala vya kawaida vya Kifaa (|host_*|) na Hoji ya Data (|query_*|) vinaweza kutumika pamoja na viunganishi vifuatavyo:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Alert Event Severity"
+msgstr "Arifa ya SNMP - Ukali wa Tukio la Tahadhari"
+
+#: thold.php
+msgid "Severity to be used for alerts. (low impact -> critical impact)"
+msgstr "Ukali utakaotumika kwa tahadhari. (athari ndogo -> athari kubwa sana)"
+
+#: thold.php thold_templates.php
+msgid "Medium"
+msgstr "Wastani"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Warning Event Severity"
+msgstr "Arifa ya SNMP - Ukali wa Tukio la Onyo"
+
+#: thold.php thold_templates.php
+msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
+msgstr "Ukali utakaotumika kwa maonyo. (Athari ndogo -> Athari kubwa sana).<br>Kumbuka: Ukali wa maonyo lazima uwe sawa au chini kuliko ukali uliowekwa kwa tahadhari."
+
+#: thold.php thold_templates.php
+msgid "Notify accounts"
+msgstr "Akaunti za kuarifu"
+
+#: thold.php
+msgid "This is a listing of accounts that will be notified when this Threshold is breached."
+msgstr "Hii ni orodha ya akaunti zitakazoarifiwa Kizingiti hiki kinapokiukwa."
+
+#: thold.php thold_templates.php
+msgid "Alert Emails"
+msgstr "Barua Pepe za Tahadhari"
+
+#: thold.php
+msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
+msgstr "Unaweza kubainisha hapa Barua Pepe za ziada za kupokea arifa za chanzo hiki cha data (zimetenganishwa kwa koma)"
+
+#: thold.php thold_templates.php
+msgid "Warning Emails"
+msgstr "Barua Pepe za Onyo"
+
+#: thold.php
+msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
+msgstr "Unaweza kubainisha hapa Barua Pepe za ziada za kupokea maonyo ya chanzo hiki cha data (zimetenganishwa kwa koma)"
+
+#: thold.php thold_templates.php
+msgid "If checked, Threshold notification will be sent to your local syslog."
+msgstr "Ikichaguliwa, arifa ya Kizingiti itatumwa kwenye syslog yako ya ndani."
+
+#: thold.php thold_templates.php
+msgid "Priority/Level"
+msgstr "Kipaumbele/Kiwango"
+
+#: thold.php thold_templates.php
+msgid "This is the Priority Level that will be logged into your syslog messages."
+msgstr "Hiki ni Kiwango cha Kipaumbele kitakachorekodiwa katika ujumbe wako wa Syslog."
+
+#: thold.php thold_templates.php
+msgid "Facility"
+msgstr "Kituo"
+
+#: thold.php thold_templates.php
+msgid "This is the Facility that will be used for this Threshold."
+msgstr "Hiki ni Kituo kitakachotumika kwa Kizingiti hiki."
+
+#: thold.php thold_templates.php
+msgid "Event Triggering (Shell Command)"
+msgstr "Uchocheaji wa Tukio (Amri ya Shell)"
+
+#: thold.php thold_templates.php
+msgid "High Trigger Command"
+msgstr "Amri ya Kichocheo cha Juu"
+
+#: thold.php thold_templates.php
+msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Ikiwa imewekwa, na Kizingiti cha Juu kikivukwa, amri hii itaendeshwa. Tafadhali weka amri halali. Zaidi ya hayo, kuna lebo kadhaa mbadala zinazopatikana ambazo zinaweza kutumika kupitisha taarifa kutoka kwa Kizingiti hadi kwenye hati. Unaweza kufanya hivi kama hoja kwenye mstari wa amri, au ikiwezekana, katika mazingira ya hati. Thamani zote mbadala zitaonekana katika mazingira ya hati zikiwa na kiambishi awali cha THOLD_. Kwa hivyo, kwa mfano CURRENTVALUE itakuwa THOLD_CURRENTVALUE, na kadhalika. Vigezo vinajumuisha: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Hatimaye, ubadilishaji wa Kipangishi, Hoja ya Data na Ingizo la Data unaweza kufanywa. Kwa mfano, ikiwa una data maalum ya ingizo la data inayoitwa pending, ili kufanya ubadilishaji tumia |pending|. Kwa ubadilishaji wa Hoja ya Data, na Kipangishi tumia mbinu za Cacti |query_xxxx|, na |host_xxxx| mtawalia."
+
+#: thold.php thold_templates.php
+msgid "Low Trigger Command"
+msgstr "Amri ya Kichocheo cha Chini"
+
+#: thold.php thold_templates.php
+msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Ikiwa imewekwa, na Kizingiti cha Chini kikivukwa, amri hii itaendeshwa. Tafadhali weka amri halali. Zaidi ya hayo, kuna lebo kadhaa mbadala zinazopatikana ambazo zinaweza kutumika kupitisha taarifa kutoka kwa Kizingiti hadi kwenye hati. Unaweza kufanya hivi kama hoja kwenye mstari wa amri, au ikiwezekana, katika mazingira ya hati. Thamani zote mbadala zitaonekana katika mazingira ya hati zikiwa na kiambishi awali cha THOLD_. Kwa hivyo, kwa mfano CURRENTVALUE itakuwa THOLD_CURRENTVALUE, na kadhalika. Vigezo vinajumuisha: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Hatimaye, ubadilishaji wa Kipangishi, Hoja ya Data na Ingizo la Data unaweza kufanywa. Kwa mfano, ikiwa una data maalum ya ingizo la data inayoitwa pending, ili kufanya ubadilishaji tumia |pending|. Kwa ubadilishaji wa Hoja ya Data, na Kipangishi tumia mbinu za Cacti |query_xxxx|, na |host_xxxx| mtawalia."
+
+#: thold.php thold_templates.php
+msgid "Norm Trigger Command"
+msgstr "Amri ya Kichocheo cha Kawaida"
+
+#: thold.php thold_templates.php
+msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Ikiwa imewekwa, kizingiti kinaporudi kwenye thamani ya kawaida, amri hii itaendeshwa. Tafadhali weka amri halali. Zaidi ya hayo, kuna lebo kadhaa mbadala zinazopatikana ambazo zinaweza kutumika kupitisha taarifa kutoka kwa Kizingiti hadi kwenye hati. Unaweza kufanya hivi kama hoja kwenye mstari wa amri, au ikiwezekana, katika mazingira ya hati. Thamani zote mbadala zitaonekana katika mazingira ya hati zikiwa na kiambishi awali cha THOLD_. Kwa hivyo, kwa mfano CURRENTVALUE itakuwa THOLD_CURRENTVALUE, na kadhalika. Vigezo vinajumuisha: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Hatimaye, ubadilishaji wa Kipangishi, Hoja ya Data na Ingizo la Data unaweza kufanywa. Kwa mfano, ikiwa una data maalum ya ingizo la data inayoitwa pending, ili kufanya ubadilishaji tumia |pending|. Kwa ubadilishaji wa Hoja ya Data, na Kipangishi tumia mbinu za Cacti |query_xxxx|, na |host_xxxx| mtawalia."
+
+#: thold.php thold_templates.php
+msgid "Other Settings"
+msgstr "Mipangilio Mingine"
+
+#: thold.php
+msgid "Enter an Eternal ID for this Threshold."
+msgstr "Ingiza Kitambulisho cha Milele kwa Kizingiti hiki."
+
+#: thold.php thold_templates.php
+msgid "Operator Notes"
+msgstr "Maelezo ya Mwendeshaji"
+
+#: thold.php thold_templates.php
+msgid "Enter instructions here for an operator who may be receiving the Threshold message."
+msgstr "Ingiza maagizo hapa kwa mwendeshaji anayeweza kuwa anapokea ujumbe wa Kizingiti."
+
+#: thold.php
+msgid "Select Users(s)"
+msgstr "Chagua Mtumiaji/Watumiaji"
+
+#: thold.php
+msgid "Users Selected"
+msgstr "Watumiaji Waliochaguliwa"
+
+#: thold.php
+msgid "All Users Selected"
+msgstr "Watumiaji Wote Wamechaguliwa"
+
+#: thold_graph.php
+msgid "The Threshold has been Ascknowledged."
+msgstr "Kizingiti kimethibitishwa kupokelewa."
+
+#: thold_graph.php
+msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
+msgstr "Kizingiti hakitatoa tena Tahadhari, Arifa, au kutekeleza amri."
+
+#: thold_graph.php
+msgid "The Threshold will restart generating Alerts."
+msgstr "Kizingiti kitaanza tena kutoa Tahadhari."
+
+#: thold_graph.php
+msgid "Threshold Status"
+msgstr "Hali ya Kizingiti"
+
+#: thold_graph.php
+msgid "Actions"
+msgstr "Vitendo"
+
+#: thold_graph.php
+msgid "Ack Detail"
+msgstr "Maelezo ya Uthibitisho"
+
+#: thold_graph.php
+msgid "Edit Threshold"
+msgstr "Hariri Kizingiti"
+
+#: thold_graph.php
+msgid "Disable Threshold"
+msgstr "Zima Kizingiti"
+
+#: thold_graph.php
+msgid "Enable Threshold"
+msgstr "Washa Kizingiti"
+
+#: thold_graph.php
+msgid "To enable the Threshold, enable the Template first"
+msgstr "Ili kuwasha Kizingiti, washa Kiolezo kwanza"
+
+#: thold_graph.php
+msgid "View Graph"
+msgstr "Tazama Grafu"
+
+#: thold_graph.php
+msgid "View Threshold History"
+msgstr "Tazama Historia ya Kizingiti"
+
+#: thold_graph.php
+msgid "Suspend Notifications until the Threshold clears"
+msgstr "Sitisha Arifa hadi Kizingiti kitakapoondoka"
+
+#: thold_graph.php
+msgid "Resume Notifications for this breached Threshold"
+msgstr "Endelea na Arifa za Kizingiti hiki kilichovukwa"
+
+#: thold_graph.php
+msgid "Acknowledgement Message"
+msgstr "Ujumbe wa Uthibitisho"
+
+#: thold_graph.php
+msgid "Date"
+msgstr "Tarehe"
+
+#: thold_graph.php
+msgid "Comment Not Found"
+msgstr "Maoni Hayakupatikana"
+
+#: thold_graph.php
+msgid "Ack History"
+msgstr "Historia ya Uthibitisho"
+
+#: thold_graph.php
+msgid "No name set"
+msgstr "Hakuna jina lililowekwa"
+
+#: thold_graph.php
+msgid "Hover over icons for help"
+msgstr "Elekeza kielekezi juu ya aikoni kwa msaada"
+
+#: thold_graph.php
+msgid "A description for the Device"
+msgstr "Maelezo ya Kifaa"
+
+#: thold_graph.php
+msgid "A Cacti unique identifier for the Device"
+msgstr "Kitambulisho cha kipekee cha Cacti kwa ajili ya Kifaa"
+
+#: thold_graph.php
+msgid "The number of Graphs for this Device"
+msgstr "Idadi ya Grafu kwa Kifaa hiki"
+
+#: thold_graph.php
+msgid "The number of Data Sources for this Device"
+msgstr "Idadi ya Vyanzo vya Data kwa Kifaa hiki"
+
+#: thold_graph.php
+msgid "The status for this Device as of the last time it was polled"
+msgstr "Hali ya Kifaa hiki kufikia mara ya mwisho kilipokusanywa"
+
+#: thold_graph.php
+msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
+msgstr "Mara ya mwisho Cacti ilipopata tatizo na Kifaa hiki.  Inaweza kuwa kubwa kuliko Muda wa Kufanya Kazi wa Kifaa, ikiwa kiliwashwa upya kati ya mizunguko ya ukusanyaji wa Cacti"
+
+#: thold_graph.php
+msgid "Uptime"
+msgstr "Muda wa Kufanya Kazi"
+
+#: thold_graph.php
+msgid "The official uptime of the Device as reported by SNMP"
+msgstr "Muda rasmi wa kufanya kazi wa Kifaa kama unavyoripotiwa na SNMP"
+
+#: thold_graph.php
+msgid "The official hostname for this Device"
+msgstr "Jina rasmi la kipangishi kwa Kifaa hiki"
+
+#: thold_graph.php
+msgid "Current (ms)"
+msgstr "Ya Sasa (ms)"
+
+#: thold_graph.php
+msgid "The current response time for the Cacti Availability check"
+msgstr "Muda wa sasa wa majibu kwa ukaguzi wa Upatikanaji wa Cacti"
+
+#: thold_graph.php
+msgid "Average (ms)"
+msgstr "Wastani (ms)"
+
+#: thold_graph.php
+msgid "The average response time for the Cacti Availability check"
+msgstr "Wastani wa muda wa majibu kwa ukaguzi wa Upatikanaji wa Cacti"
+
+#: thold_graph.php
+msgid "Availability"
+msgstr "Upatikanaji"
+
+#: thold_graph.php
+msgid "The overall Availability of this Device since the last counter reset in Cacti"
+msgstr "Upatikanaji wa jumla wa Kifaa hiki tangu kuwekwa upya kwa mwisho kwa kihesabu katika Cacti"
+
+#: thold_graph.php
+msgid "Edit Device"
+msgstr "Hariri Kifaa"
+
+#: thold_graph.php
+msgid "View Graphs"
+msgstr "Tazama Grafu"
+
+#: thold_graph.php
+msgid "No Devices"
+msgstr "Hakuna Vifaa"
+
+#: thold_graph.php
+msgid "Not Up"
+msgstr "Si Juu"
+
+#: thold_graph.php
+msgid "No Export Rows Found."
+msgstr "Hakuna Safumlalo za Uhamishaji Zilizopatikana."
+
+#: thold_graph.php
+#, php-format
+msgid "Threshold Log for [ %s ]"
+msgstr "Kumbukumbu ya Kizingiti ya [ %s ]"
+
+#: thold_graph.php
+msgid "Log Entries"
+msgstr "Maingizo ya Kumbukumbu"
+
+#: thold_graph.php
+msgid "Time"
+msgstr "Muda"
+
+#: thold_graph.php
+msgid "Alert Value"
+msgstr "Thamani ya Tahadhari"
+
+#: thold_graph.php
+msgid "Measured Value"
+msgstr "Thamani Iliyopimwa"
+
+#: thold_graph.php
+msgid "No Threshold Logs Found"
+msgstr "Hakuna Kumbukumbu za Kizingiti Zilizopatikana"
+
+#: thold_graph.php
+msgid "Entries"
+msgstr "Maingizo"
+
+#: thold_templates.php
+msgid "You are not authorised to modify one or more of the Thresholds selected"
+msgstr "Huna idhini ya kurekebisha Kizingiti kimoja au zaidi kati ya vilivyochaguliwa"
+
+#: thold_templates.php
+#, php-format
+msgid "%s (%d Thresholds)"
+msgstr "%s (Vizingiti %d)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to export the following Threshold Template(s)."
+msgstr "Bofya 'Endelea' ili kuhamisha Kiolezo/Violezo vya Kizingiti vifuatavyo."
+
+#: thold_templates.php
+msgid "Export Template(s)"
+msgstr "Hamisha Kiolezo/Violezo"
+
+#: thold_templates.php
+msgid "Click 'Continue' to delete the following Threshold Template(s)."
+msgstr "Bofya 'Endelea' ili kufuta Kiolezo/Violezo vya Kizingiti vifuatavyo."
+
+#: thold_templates.php
+msgid "Delete Template(s)"
+msgstr "Futa Violezo"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Reapply Suggested Names to Thresholds of the following Threshold Template(s)."
+msgstr "Bofya 'Endelea' ili Kutumia tena Majina Yaliyopendekezwa kwenye Vizingiti vya Kiolezo/Violezo vya Kizingiti vifuatavyo."
+
+#: thold_templates.php
+msgid "Reapply Suggested Names to Template(s)"
+msgstr "Tumia Tena Majina Yaliyopendekezwa kwenye Kiolezo/Violezo"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Enable the selected Template(s) and Threshold(s)."
+msgstr "Bofya 'Endelea' ili Kuwasha Kiolezo/Violezo na Kizingiti/Vizingiti vilivyochaguliwa."
+
+#: thold_templates.php
+msgid "Enable Template(s)"
+msgstr "Washa Kiolezo/Violezo"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
+msgstr "Bofya 'Endelea' ili Kuzima Kiolezo/Violezo na Kizingiti/Vizingiti vilivyochaguliwa."
+
+#: thold_templates.php
+msgid "Disable Template(s)"
+msgstr "Zima Kiolezo/Violezo"
+
+#: thold_templates.php
+msgid "Threshold Template Creation Wizard"
+msgstr "Mwongozo wa Kuunda Kiolezo cha Kizingiti"
+
+#: thold_templates.php
+msgid "Please select a Data Template"
+msgstr "Tafadhali chagua Kiolezo cha Data"
+
+#: thold_templates.php
+msgid "Please select a Data Source"
+msgstr "Tafadhali chagua Chanzo cha Data"
+
+#: thold_templates.php
+msgid "Please press 'Create' to create your Threshold Template"
+msgstr "Tafadhali bonyeza 'Unda' ili kuunda Kiolezo chako cha Kizingiti"
+
+#: thold_templates.php
+msgid "The Threshold Template requested can not be found"
+msgstr "Kiolezo cha Kizingiti kilichoombwa hakiwezi kupatikana"
+
+#: thold_templates.php
+msgid "Provide the Threshold Template a meaningful name."
+msgstr "Patia Kiolezo cha Kizingiti jina lenye maana."
+
+#: thold_templates.php
+msgid "Suggested Threshold Name"
+msgstr "Jina la Kizingiti Lililopendekezwa"
+
+#: thold_templates.php
+msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
+msgstr "Toa jina lililopendekezwa kwa Kizingiti kilichoundwa kwa kutumia Kiolezo hiki.  Vigezo vya kawaida vya kubadilisha vya Kifaa (|host_*|), Swali la Data (|query_*|) na Ingizo (|input_*|) vinaweza kutumika pamoja na |graph_title| kwa Kichwa cha Grafu."
+
+#: thold_templates.php
+msgid "Data Template that you are using. (This cannot be changed)"
+msgstr "Kiolezo cha Data unachotumia. (Hiki hakiwezi kubadilishwa)"
+
+#: thold_templates.php
+msgid "Data Field"
+msgstr "Uga wa Data"
+
+#: thold_templates.php
+msgid "Data Field that you are using. (This cannot be changed)"
+msgstr "Uga wa Data unaotumia. (Huu hauwezi kubadilishwa)"
+
+#: thold_templates.php
+msgid "Whether or not this Threshold will be checked and alerted upon."
+msgstr "Iwapo Kizingiti hiki kitakaguliwa na kutolewa tahadhari au la."
+
+#: thold_templates.php
+msgid "Repeat alert after this amount of time has pasted since the last alert."
+msgstr "Rudia tahadhari baada ya kiasi hiki cha muda kupita tangu tahadhari ya mwisho."
+
+#: thold_templates.php
+msgid "Min Trigger Duration"
+msgstr "Muda wa Chini Zaidi wa Kichocheo"
+
+#: thold_templates.php
+msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
+msgstr "Muda ambao Chanzo cha Data lazima kiwe katika hali ya ukiukaji ili tahadhari itolewe."
+
+#: thold_templates.php
+msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
+msgstr "Idadi ya mara ambazo Chanzo cha Data lazima kiwe katika hali ya ukiukaji kabla ya kutoa onyo."
+
+#: thold_templates.php
+msgid "Time Period Length"
+msgstr "Urefu wa Kipindi cha Muda"
+
+#: thold_templates.php
+msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
+msgstr "Idadi ya mara ambazo Chanzo cha Data lazima kiwe katika hali ya ukiukaji kabla ya kutoa tahadhari."
+
+#: thold_templates.php
+msgid "Baseline Monitoring"
+msgstr "Ufuatiliaji wa Mstari wa Msingi"
+
+#: thold_templates.php
+#, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Hubainisha mkengeuko unaoruhusiwa kwa Kizingiti cha mpaka wa juu. Ikiwa haijawekwa, Kizingiti cha mpaka wa juu hakitakaguliwa kabisa. Kipimo ni thamani kamili kwa Aina ya 'Thamani Kamili', na Asilimia kwa zote mbili 'Mkengeuko wa %%' na 'Wastani Unaobadilika wa %%'"
+
+#: thold_templates.php
+#, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Hubainisha mkengeuko unaoruhusiwa kwa Kizingiti cha mpaka wa chini. Ikiwa haijawekwa, Kizingiti cha mpaka wa chini hakitakaguliwa kabisa. Kipimo ni thamani kamili kwa Aina ya 'Thamani Kamili', na Asilimia kwa zote mbili 'Mkengeuko wa %%' na 'Wastani Unaobadilika wa %%'"
+
+#: thold_templates.php
+#, php-format
+msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
+msgstr "Idadi ya nyakati mfululizo ambazo Chanzo cha Data lazima kiwe katika hali ya ukiukaji ili tahadhari itolewe.<br>Acha wazi ili kutumia thamani chaguo-msingi (Chaguo-msingi: mizunguko %s"
+
+#: thold_templates.php
+msgid "Percent Datasource"
+msgstr "Chanzo cha Data cha Asilimia"
+
+#: thold_templates.php
+msgid "Second Datasource Item to use as total value to calculate percentage from."
+msgstr "Kipengee cha Pili cha Chanzo cha Data cha kutumia kama thamani ya jumla ili kukokotoa asilimia."
+
+#: thold_templates.php
+#, php-format
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Msemo wa RPN ni Msemo wa RPN unaolingana na RRDtool.  Sintaksia inajumuisha vitendakazi vyote vilivyo hapa chini pamoja na misemo ya ubadilishaji ya Kifaa na Hoji ya Data kama vile <span style=\"color:blue;\">|query_ifSpeed|</span>.  Ili kutumia Chanzo cha Data katika Msemo wa RPN, ni lazima utumie sintaksia: <span style=\"color:blue;\">|ds:dsname|</span>.  Kwa mfano, <span style=\"color:blue;\">|ds:traffic_in|</span> itapata thamani ya sasa ya Chanzo cha Data cha traffic_in kwa RRDfile(s) zinazohusiana na Grafu. Chanzo chochote cha Data kwa ajili ya Grafu kinaweza kujumuishwa.<br>Waendeshaji wa Hisabati: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Vitendakazi: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Waendeshaji wa Mtiririko: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Vitendakazi vya Ulinganisho: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+
+#: thold_templates.php
+msgid "Upper data source to use to calculate the total value."
+msgstr "Chanzo cha data cha juu cha kutumia kukokotoa thamani ya jumla."
+
+#: thold_templates.php
+msgid "Alert Email Subject"
+msgstr "Mada ya Barua Pepe ya Tahadhari"
+
+#: thold_templates.php
+msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Hili ni somo la Barua Pepe litakaloonyeshwa kwenye Barua Pepe (Upeo wa Herufi 128).  Acha wazi kwa chaguomsingi.  Kuna lebo kadhaa za kawaida za kubadilisha zinazoweza kutumika ikiwa ni pamoja na:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+
+#: thold_templates.php
+msgid "Alert Email Body"
+msgstr "Mwili wa Barua Pepe ya Tahadhari"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Huu ndio ujumbe utakaoonyeshwa juu ya Arifa zote za Kizingiti (Upeo wa herufi 1024). HTML inaruhusiwa, lakini itaondolewa kwa Barua Pepe za maandishi pekee. Kuna lebo kadhaa za kawaida za ubadilishaji zinazoweza kutumika zikiwemo:<br>mf. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold_templates.php
+msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Hili ni somo la Onyo litakaloonyeshwa kwenye Barua Pepe (Upeo wa Herufi 128).  Acha wazi kwa chaguomsingi.  Kuna lebo kadhaa za kawaida za kubadilisha zinazoweza kutumika ikiwa ni pamoja na:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Huu ndio ujumbe utakaoonyeshwa juu ya Maonyo yote ya Kizingiti (Upeo wa herufi 1024). HTML inaruhusiwa, lakini itaondolewa kwa Barua Pepe za maandishi pekee. Kuna lebo kadhaa za kawaida za ubadilishaji zinazoweza kutumika zikiwemo:<br>mf. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold_templates.php
+msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Hili ni somo la Barua Pepe litakaloonyeshwa kwenye Barua Pepe baada ya Kurejea katika Hali ya Kawaida (Upeo wa Herufi 128).  Acha wazi kwa chaguomsingi.  Kuna lebo kadhaa za kawaida za kubadilisha zinazoweza kutumika ikiwa ni pamoja na:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+
+#: thold_templates.php
+msgid "Restoral Body"
+msgstr "Maudhui ya Urejeshaji"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Huu ndio ujumbe utakaoonyeshwa juu ya taarifa zote za urejeshaji wa Kizingiti (Upeo wa herufi 1024). HTML inaruhusiwa, lakini itaondolewa kwa Barua Pepe za maandishi pekee. Kuna lebo kadhaa za kawaida za ubadilishaji zinazoweza kutumika zikiwemo:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#60DNOTES&#62"
+
+#: thold_templates.php
+msgid "Notification List Read Only"
+msgstr "Orodha ya Arifa ya Kusoma Pekee"
+
+#: thold_templates.php
+msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
+msgstr "Ikichaguliwa, Orodha za Arifa za Kizingiti katika Kiolezo zitafuta na kuandika juu ya zile za Kizingiti."
+
+#: thold_templates.php
+msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
+msgstr "Ukali utakaotumika kwa tahadhari. (Athari ndogo -> Athari kubwa sana)"
+
+#: thold_templates.php
+msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
+msgstr "Hii ni orodha ya akaunti zitakazoarifiwa Kizingiti hiki kinapokiukwa.<br><br><br><br>"
+
+#: thold_templates.php
+msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
+msgstr "Unaweza kubainisha hapa Barua Pepe za ziada za kupokea arifa za Chanzo hiki cha Data (zimetenganishwa kwa koma)"
+
+#: thold_templates.php
+msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
+msgstr "Unaweza kubainisha hapa Barua Pepe za ziada za kupokea maonyo ya Chanzo hiki cha Data (zimetenganishwa kwa koma)"
+
+#: thold_templates.php
+msgid "Enter an Eternal ID for this Thold Template."
+msgstr "Ingiza Kitambulisho cha Milele kwa Kiolezo hiki cha Thold."
+
+#: thold_templates.php
+#, php-format
+msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "Miezi %d, Siku %d, Saa %d, Dakika %d, Sekunde %d (Wastani)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
+msgstr "Miezi %d, Siku %d, Saa %d, Dakika %d, Sekunde %d"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "Siku %d, Saa %d, Dakika %d, Sekunde %d (Wastani)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
+msgstr "Siku %d, Saa %d, Dakika %d, Sekunde %d"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "Saa %d, Dakika %d, Sekunde %d (Wastani)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Hours, %d Minutes, %d Seconds"
+msgstr "Saa %d, Dakika %d, Sekunde %d"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Minutes, %d Seconds (Average)"
+msgstr "Dakika %d, Sekunde %d (Wastani)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Minutes, %d Seconds"
+msgstr "Dakika %d, Sekunde %d"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Seconds (Average)"
+msgstr "Sekunde %d (Wastani)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Seconds"
+msgstr "Sekunde %d"
+
+#: thold_templates.php
+msgid "DS Name"
+msgstr "Jina la DS"
+
+#: thold_templates.php
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
+msgstr "Thamani za Juu za Onyo / Tahadhari.  KUMBUKA: Thamani za msingi ni asilimia, thamani nyingine zote ni thamani GHAFI ambazo hazijabadilishwa na cdef."
+
+#: thold_templates.php
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
+msgstr "Thamani za Chini za Onyo / Tahadhari.  KUMBUKA: Thamani za msingi ni asilimia, thamani nyingine zote ni thamani GHAFI ambazo hazijabadilishwa na cdef."
+
+#: thold_templates.php
+msgid "Import Template from Local File"
+msgstr "Leta Kiolezo kutoka kwa Faili ya Ndani"
+
+#: thold_templates.php
+msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
+msgstr "Ikiwa faili ya XML yenye data ya Kiolezo cha Kizingiti iko kwenye mashine yako ya ndani, ichague hapa."
+
+#: thold_templates.php
+msgid "Import Template from Text"
+msgstr "Leta Kiolezo kutoka Maandishi"
+
+#: thold_templates.php
+msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
+msgstr "Ikiwa una faili ya XML yenye data ya Kiolezo cha Kizingiti kama maandishi, unaweza kuibandika kwenye kisanduku hiki ili kuiagiza."
+
+#: thold_templates.php
+msgid "Import Results"
+msgstr "Matokeo ya Kuingiza"
+
+#: thold_templates.php
+msgid "Cacti has imported the following items:"
+msgstr "Cacti imeingiza vipengee vifuatavyo:"
+
+#: thold_templates.php
+msgid "Import Threshold Templates"
+msgstr "Leta Violezo vya Vizingiti"
+
+#: thold_templates.php
+msgid "The file is too big."
+msgstr "Faili ni kubwa mno."
+
+#: thold_templates.php
+msgid "Incomplete file transfer."
+msgstr "Uhamisho wa faili haujakamilika."
+
+#: thold_templates.php
+msgid "No file uploaded."
+msgstr "Hakuna faili iliyopakiwa."
+
+#: thold_templates.php
+msgid "Temporary folder missing."
+msgstr "Folda ya muda haipo."
+
+#: thold_templates.php
+msgid "Failed to write file to disk"
+msgstr "Imeshindwa kuandika faili kwenye diski"
+
+#: thold_templates.php
+msgid "File upload stopped by extension"
+msgstr "Upakiaji wa faili umesimamishwa na kiendelezi"
+
+#: thold_templates.php
+msgid "Invalid file extension."
+msgstr "Kiendelezi cha faili si sahihi."
+
+#: thold_templates.php
+msgid "NOTE:"
+msgstr "KUMBUKA:"
+
+#: thold_templates.php
+msgid "ERROR:"
+msgstr "HITILAFU:"
+

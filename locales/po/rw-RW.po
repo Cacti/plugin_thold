@@ -1,0 +1,3716 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-13 09:23-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Kinyarwanda\n"
+"Language: rw-RW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: includes/arrays.php
+msgid "Indefinitely"
+msgstr "Mu buryo butagira iherezo"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "Ukwezi %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "Amezi %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "Umwaka %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Hour Ago"
+msgstr "Kuva ku isaha %d ishize"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Hours Ago"
+msgstr "Kuva ku masaha %d ashize"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Day Ago"
+msgstr "Kuva ku munsi %d ushize"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Days Ago"
+msgstr "Kuva ku minsi %d ishize"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Week Ago"
+msgstr "Kuva ku cyumweru %d gishize"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Weeks Ago"
+msgstr "Kuva ku byumweru %d bishize"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Month Ago"
+msgstr "Kuva ku kwezi %d gushize"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Months Ago"
+msgstr "Kuva ku mezi %d ashize"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Year Ago"
+msgstr "Kuva ku mwaka %d ushize"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Years Ago"
+msgstr "Kuva ku myaka %d ishize"
+
+#: includes/arrays.php thold_graph.php
+msgid "Down"
+msgstr "Ntigikora"
+
+#: includes/arrays.php thold_graph.php
+msgid "Error"
+msgstr "Ikosa"
+
+#: includes/arrays.php thold_graph.php
+msgid "Recovering"
+msgstr "Kirimo gusubira mu buryo"
+
+#: includes/arrays.php thold_graph.php
+msgid "Up"
+msgstr "Kirakora"
+
+#: includes/arrays.php thold_graph.php
+msgid "Unknown"
+msgstr "Ntibizwi"
+
+#: includes/arrays.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php
+msgid "Disabled"
+msgstr "Byahagaritswe"
+
+#: includes/arrays.php thold_graph.php
+msgid "Not Monitored"
+msgstr "Ntibikurikiranwa"
+
+#: includes/arrays.php
+msgid "Notify - Alert"
+msgstr "Menyesha - Impuruza"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Alert"
+msgstr "Integuza"
+
+#: includes/arrays.php
+msgid "Notify - Alert2Warning"
+msgstr "Menyesha - Impuruza ku Iburira"
+
+#: includes/arrays.php
+msgid "Alert2Warn"
+msgstr "Alert2Warn"
+
+#: includes/arrays.php
+msgid "Notify - Warning"
+msgstr "Menyesha - Iburira"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Warning"
+msgstr "Iburira"
+
+#: includes/arrays.php
+msgid "Notify - Re-Trigger"
+msgstr "Menyesha - Kongera gutangiza"
+
+#: includes/arrays.php
+msgid "Re-Trigger"
+msgstr "Kongera gutangiza"
+
+#: includes/arrays.php
+msgid "Notify - Restoral"
+msgstr "Menyesha - Gusubira mu buryo"
+
+#: includes/arrays.php
+msgid "Restoral"
+msgstr "Igarura ku murongo"
+
+#: includes/arrays.php
+msgid "Event - Alert Trigger"
+msgstr "Igikorwa - Gutangiza integuza"
+
+#: includes/arrays.php
+msgid "Alert Event"
+msgstr "Igikorwa cy'Integuza"
+
+#: includes/arrays.php
+msgid "Event - Warning Trigger"
+msgstr "Igikorwa - Gutangiza iburira"
+
+#: includes/arrays.php
+msgid "Warning Event"
+msgstr "Igikorwa cy'iburira"
+
+#: includes/arrays.php
+msgid "Event - Restoral"
+msgstr "Igikorwa - Gusubira ku murongo"
+
+#: includes/arrays.php thold_graph.php
+msgid "Restoral Event"
+msgstr "Igikorwa cy'igarura"
+
+#: includes/arrays.php
+msgid "Event - Acknowledge"
+msgstr "Igikorwa - Kwemeza ko cyabonywe"
+
+#: includes/arrays.php
+msgid "Acknowledge Event"
+msgstr "Emeza ko wabonye igikorwa"
+
+#: includes/arrays.php
+msgid "Restore"
+msgstr "Garura"
+
+#: includes/arrays.php
+msgid "Alert Trigger"
+msgstr "Imbarutso y'Integuza"
+
+#: includes/arrays.php
+msgid "Warn Trigger"
+msgstr "Imbarutso y'iburira"
+
+#: includes/arrays.php
+msgid "Alert-Warn"
+msgstr "Integuza-Iburira"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Acknowledgment"
+msgstr "Kwemeza"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Baseline Alert"
+msgstr "Impuruza y'umurongo fatizo"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Notice"
+msgstr "Itangazo"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Ok"
+msgstr "Emeza"
+
+#: includes/arrays.php
+msgid "Emergency"
+msgstr "Ibyihutirwa"
+
+#: includes/arrays.php thold.php thold_templates.php
+msgid "Critical"
+msgstr "Bikomeye cyane"
+
+#: includes/arrays.php
+msgid "Info"
+msgstr "Amakuru"
+
+#: includes/arrays.php
+msgid "Debug"
+msgstr "Kemura amakosa"
+
+#: includes/arrays.php includes/functions.php
+msgid "Never"
+msgstr "Nta na rimwe"
+
+#: includes/arrays.php
+msgid "Every Minute"
+msgstr "Buri munota"
+
+#: includes/arrays.php includes/settings.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "Buri minota %d"
+
+#: includes/arrays.php
+msgid "Every Hour"
+msgstr "Buri saha"
+
+#: includes/arrays.php includes/settings.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "Buri masaha %d"
+
+#: includes/arrays.php
+msgid "Every Day"
+msgstr "Buri munsi"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Days"
+msgstr "Buri minsi %d"
+
+#: includes/arrays.php
+msgid "Every Week"
+msgstr "Buri cyumweru"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Weeks"
+msgstr "Buri byumweru %d"
+
+#: includes/arrays.php
+msgid "Every Month"
+msgstr "Buri kwezi"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Minute"
+msgstr "Umunota %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Minutes"
+msgstr "Iminota %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Hour"
+msgstr "Isaha %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Hours"
+msgstr "Amasaha %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Day"
+msgstr "Umunsi %d"
+
+#: includes/arrays.php thold_graph.php
+#, php-format
+msgid "%d Days"
+msgstr "Iminsi %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Week"
+msgstr "Icyumweru %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Weeks"
+msgstr "Ibyumweru %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%0.1f Hours"
+msgstr "Amasaha %0.1f"
+
+#: includes/arrays.php
+msgid "Every Polling"
+msgstr "Buri kusanyamakuru"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Pollings"
+msgstr "Buri kusanyamakuru %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Polling"
+msgstr "Ikusanyamakuru %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Pollings"
+msgstr "Amakusanyamakuru %d"
+
+#: includes/arrays.php
+msgid "High / Low"
+msgstr "Hejuru / Hasi"
+
+#: includes/arrays.php
+msgid "Baseline Deviation"
+msgstr "Itandukaniro ku murongo fatizo"
+
+#: includes/arrays.php
+msgid "Time Based"
+msgstr "Hashingiye ku Igihe"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Min/Max [TIP]"
+msgstr "%% Itandukaniro Nto/Nini [TIP]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation CF [TIP]"
+msgstr "%% Itandukaniro rya CF [TIP]"
+
+#: includes/arrays.php
+msgid "Absolute Val Min/Max [TIP]"
+msgstr "Agaciro nyako nto/nini [TIP]"
+
+#: includes/arrays.php
+msgid "Absolute Val of CF [TIP]"
+msgstr "Agaciro nyako ka CF [TIP]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Avg [AOT]"
+msgstr "%% Impuzandengo y'itandukaniro [AOT]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Avg of CF [AOT]"
+msgstr "%% Impuzandengo y'itandukaniro ya CF [AOT]"
+
+#: includes/arrays.php
+msgid "Absolute Val Avg [AOT]"
+msgstr "Impuzandengo y'agaciro nyako [AOT]"
+
+#: includes/arrays.php
+msgid "Absolute Val Avg of CF [AOT]"
+msgstr "Impuzandengo y'agaciro nyako ka CF [AOT]"
+
+#: includes/arrays.php
+msgid "Exact Value"
+msgstr "Agaciro nyako"
+
+#: includes/arrays.php
+msgid "CDEF"
+msgstr "CDEF"
+
+#: includes/arrays.php
+msgid "Percentage"
+msgstr "Ijanisha"
+
+#: includes/arrays.php thold.php thold_templates.php
+msgid "RPN Expression"
+msgstr "Imvugo ya RPN"
+
+#: includes/arrays.php
+msgid "Upper + Lower bytes"
+msgstr "Bayiti zo hejuru + izo hasi"
+
+#: includes/arrays.php
+msgid "Acknowledge"
+msgstr "Emeza ko wabibonye"
+
+#: includes/arrays.php
+msgid "Suspend Notifications"
+msgstr "Hagarika by'agateganyo amamenyesha"
+
+#: includes/arrays.php
+msgid "Resume Notifications"
+msgstr "Subukura imenyesha"
+
+#: includes/arrays.php notify_lists.php notify_queue.php setup.php
+msgid "Delete"
+msgstr "Siba"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Koresha"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Hagarika"
+
+#: includes/arrays.php
+msgid "Reapply Suggested Names"
+msgstr "Ongera ushyireho amazina ateganyijwe"
+
+#: includes/arrays.php
+msgid "Propagate Template"
+msgstr "Kwirakwiza Inyandikorugero"
+
+#: includes/arrays.php thold_graph.php
+msgid "Export"
+msgstr "Sohora"
+
+#: includes/arrays.php
+msgid "Threshold Mail"
+msgstr "Imeyili y'Urwego ntarengwa"
+
+#: includes/arrays.php
+msgid "Down Host Mail"
+msgstr "Imeyili ya Mwakirizi wahagaze"
+
+#: includes/arrays.php
+msgid "Up Host Mail"
+msgstr "Imeyili ya Mwakirizi Ukora"
+
+#: includes/arrays.php
+msgid "Threshold Cmd"
+msgstr "Itegeko ry'Urwego ntarengwa"
+
+#: includes/arrays.php
+msgid "Down Host Cmd"
+msgstr "Itegeko rya Mwakirizi wahagaze"
+
+#: includes/arrays.php
+msgid "Up Host Cmd"
+msgstr "Itegeko rya Mwakirizi Ukora"
+
+#: includes/arrays.php
+msgid "Auto"
+msgstr "Mu buryo bwikora"
+
+#: includes/arrays.php
+msgid "0 Digits"
+msgstr "Imibare 0"
+
+#: includes/arrays.php
+msgid "1 Digit"
+msgstr "Umubare 1"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Digits"
+msgstr "Imibare %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d Devices"
+msgstr "> Ibikoresho %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d %% of Devices Globally"
+msgstr "> %d %% by'Ibikoresho ku Isi Yose"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d Devices in a Site"
+msgstr "> Ibikoresho %d muri Ahantu"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d %% of Devices in a Site"
+msgstr "> %d %% by'Ibikoresho muri Ahantu"
+
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "< Umunota 1"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "Kuva byaremwa"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "Inzego ntarengwa"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "Inyandiko y'ibikorwa"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "Imimerere y'igikoresho"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "Igihe:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "Umukoresha:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "Sisitemu:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "Ibice bya Swap:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "Impapuro:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr "Kwandika mu bikorwa gusa, igikoresho kiri mu isana"
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "Mburabuzi"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "Ihuza ku Gishushanyo muri Cacti"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Hatanzwe impuruza isaba ko uyitaho.<br><br><b>Igikoresho</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Ubutumwa</b>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Hatanzwe iburira risaba ko uritaho.<br><br><b>Igikoresho</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Ubutumwa</b>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Urwego ntarengwa rwasubiye ku miterere isanzwe. <br><br><strong>Igikoresho</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Ubutumwa</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "%% Itandukaniro [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "Agaciro Nyako [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [AOT:%s]"
+msgstr "%% Itandukaniro [AOT:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "Agaciro Nyako [AOT:%s]"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "Indangamuntu y'Igikoresho ntiyashyizweho ubwo hageragezwaga gukora Igishushanyo n'Urwego ntarengwa"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "ID y'Inyandikorugero y'Urwego ntarengwa ntiyabonetse igihe hageragezwaga gukora Igishushanyo n'Urwego ntarengwa"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "ID y'Inyandikorugero y'Urwego ntarengwa ntiyashyizweho igihe hageragezwaga gukora Igishushanyo n'Urwego ntarengwa"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "Gukora Igishushanyo byanze ku Nyandikorugero y'Urwego ntarengwa"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "Urwego ntarengwa rwaremwe ku buryo bwikora kubera guhuza n'Inyandikorugero y'Igikoresho"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "Uburenganzira bwimwe"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "Inyandiko yavuguruwe"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "Kubona Ikintu cy'Inyandikorugero y'Igishushanyo gihujwe '%d' ku Rwego ntarengwa '%d' byanze"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "Urwego ntarengwa rwahanzwe: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "Ugomba kugaragaza 'Urwego ntarengwa rw'Impuruza rwo Hejuru' cyangwa 'Urwego ntarengwa rw'Impuruza rwo Hasi' cyangwa byombi!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Urwego ntarengwa rudashoboka: 'Urwego ntarengwa rw'Impuruza yo Hejuru' ni ruto kuruta 'Urwego ntarengwa rw'Impuruza yo Hasi'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "Urwego ntarengwa rudashoboka: 'Urwego ntarengwa rw'Iburira ryo Hejuru' ni ruto kuruta 'Urwego ntarengwa rw'Iburira ryo Hasi'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "Urwego ntarengwa rudashoboka: 'Urwego ntarengwa rw'Iburira ryo Hejuru' ni runini kuruta 'Urwego ntarengwa rw'Impuruza yo Hejuru'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "Urwego ntarengwa rudashoboka: 'Urwego ntarengwa rw'Impuruza yo Hasi' ni runini kuruta 'Urwego ntarengwa rw'Iburira ryo Hasi'!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "Igihe gishingirwaho mu gihe cyashize kigomba gushyirwamo umubare wuzuye urenga zeru!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "Ugomba kugaragaza 'Gutandukira ku Murongo Shingiro HEJURU' cyangwa 'Gutandukira ku Murongo Shingiro HASI' cyangwa byombi!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "Urwego ntarengwa rudashoboka: 'Urwego ntarengwa rw'Impuruza yo Hejuru' ni ruto kuruta 'Urwego ntarengwa rw'Impuruza yo Hasi'"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr "Urwego ntarengwa rudashoboka: Umubare w'Ibikurura Impuruza ugomba kuba munini cyangwa ungana na 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Urwego ntarengwa rudashoboka: Umubare w'Ibikurura Impuruza ugomba kuba muto cyangwa ungana n'Umubare w'Ibikurura cyangwa ungana na 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr "Urwego ntarengwa rudashoboka: Umubare w'Ibikurura Iburira ugomba kuba munini cyangwa ungana na 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Urwego ntarengwa rudashoboka: Umubare w'Ibikurura Iburira ugomba kuba muto cyangwa ungana n'Umubare w'Ibikurura cyangwa ungana na 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Urwego ntarengwa rudashoboka: 'Urwego ntarengwa rw'Iburira ryo Hasi' ni ruto kuruta 'Urwego ntarengwa rw'Impuruza yo Hasi'!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "Ubwoko bw'Urwego ntarengwa Butazwi!"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "Nta nyandikorugero z'urwego ntarengwa zihujwe n'Inyandikorugero y'Igikoresho."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "Nta rwego ntarengwa rwashyizweho.  Bishoboka ko bisanzwe bihari, cyangwa nta bihura bikwiye byabonetse."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "Ikosa ryo Kohereza Imeyili: Nta aderesi ya <b>TO</b> yashyizweho!!<br>Niba ukoresha ihuza rya <i>Test Mail</i>, nyamuneka shyiraho igenamiterere rya <b>Imeyili y'Imenyesha</b>."
+
+#: includes/functions.php
+msgid "Done"
+msgstr "Byarangiye"
+
+#: includes/functions.php
+msgid "Pending"
+msgstr "Bitegereje"
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "Bifite ikosa"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "Ntibihari"
+
+#: includes/functions.php
+msgid "Success"
+msgstr "Byagenze neza"
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "Emeza Urwego ntarengwa"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "Kanda 'Komeza' kugira ngo wemeze ko wabonye Inzego ntarengwa zikurikira."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "Emeza Inzego ntarengwa"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "Hagarika"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "Komeza"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "Inyandikorugero y'Amakuru yunganira y'Inyandikorugero y'Urwego ntarengwa ntiyabonetse!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "Inkomoko y'Amakuru yunganira y'Inyandikorugero y'Urwego ntarengwa ntiyabonetse!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "Inkingi zo kwinjiza Inyandikorugero y'Urwego ntarengwa ntizihura n'imiterere y'ububiko bw'amakuru"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "winjijwe"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "Inyandikorugero y'Urwego ntarengwa '%s' %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "wavuguruwe"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "Injiza"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "Inyandikorugero y'Urwego ntarengwa '%s' %s byanze!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "Kuvugurura"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "Habonetse amakosa mu gihe cyo kugerageza kuzana amakuru y'Inyandikorugero y'Urwego ntarengwa."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "Amakuru yo kwinjiza Inyandikorugero y'Urwego ntarengwa ntabwo yabonetse nk'amakuru ya XML."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "Amakuru yo kwinjiza Inyandikorugero y'Urwego ntarengwa ntabwo yari meza mu gihe cyo kwinjiza Inyandikorugero y'Urwego ntarengwa."
+
+#: includes/polling.php
+msgid "SNMP not in use"
+msgstr "SNMP ntikoreshwa"
+
+#: includes/polling.php
+msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
+msgstr "Itangazo ry'Ibikoresho: <DESCRIPTION> (<HOSTNAME>) cyavuye mu miterere yo guhagarara"
+
+#: includes/polling.php
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
+msgstr "<br>Imiterere ya sisitemu <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Ahantu: <SITE><br>Iherereye: <LOCATION><br>Igisubizo cya ping kiriho: <CUR_TIME> ms<br>Ikigereranyo cy'igisubizo cya sisitemu : <AVG_TIME> ms<br>Uko sisitemu iboneka: <AVAILABILITY><br>Igenzura ryose kuva hasibwe: <TOT_POLL><br>Igenzura ryose ryanze: <FAIL_POLL><br>Itariki ya nyuma yagenzuwe IKORA: <LAST_FAIL><br>Ibikoresho byari BYAHAGAZE mu gihe cya: <DOWNTIME><br><br>Amakuru ya SNMP:<br>Izina - <SNMP_HOSTNAME><br>Iherereye - <SNMP_LOCATION><br>Igihe imaze ikora - <UPTIMETEXT> (<UPTIME> ms)<br>Sisitemu - <SNMP_SYSTEM><br><br>ICYITONDERWA: <NOTES>"
+
+#: includes/polling.php
+msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
+msgstr "Ikosa ry'Ibikoresho: <DESCRIPTION> (<HOSTNAME>) CYAHAGAZE"
+
+#: includes/polling.php
+msgid "DOWN"
+msgstr "NTIKORA"
+
+#: includes/polling.php
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
+msgstr "Ikosa rya Sisitemu : <DESCRIPTION> (<HOSTNAME>) iri <DOWN/UP><br>Ahantu: <SITE><br>Aho iherereye: <LOCATION><br>Impamvu: <MESSAGE><br><br>Impuzandengo y'igisubizo cya sisitemu : <AVG_TIME> ms<br>Kuboneka kwa sisitemu: <AVAILABILITY><br>Igenzura ryose kuva hasibwe: <TOT_POLL><br>Igenzura ryose ryananiwe: <FAIL_POLL><br>Itariki ya nyuma yagenzuwe IHAGAZE : <LAST_FAIL><br>Ibikoresho byari BIKORA mu gihe cya: <DOWNTIME><br>ICYITONDERWA: <NOTES>"
+
+#: includes/settings.php
+msgid "(actions)"
+msgstr "(ibikorwa)"
+
+#: includes/settings.php
+msgid "(edit)"
+msgstr "(hindura)"
+
+#: includes/settings.php
+msgid "(save)"
+msgstr "(bika)"
+
+#: includes/settings.php
+msgid "(add)"
+msgstr "(ongeraho)"
+
+#: includes/settings.php
+msgid "Threshold Logs"
+msgstr "Inyandikamateka z'Urwego ntarengwa"
+
+#: includes/settings.php
+msgid "Thresholds - Failures"
+msgstr "Inzego ntarengwa - Gutsindwa"
+
+#: includes/settings.php
+msgid "Thresholds - Normal"
+msgstr "Inzego ntarengwa - Bisanzwe"
+
+#: includes/settings.php
+msgid "Thresholds - Recovering"
+msgstr "Inzego ntarengwa - Birimo gusubira ku murongo"
+
+#: includes/settings.php
+msgid "Recent Thresholds"
+msgstr "Inzego ntarengwa ziheruka"
+
+#: includes/settings.php
+msgid "Recent Device Failures"
+msgstr "Amakosa aheruka y'igikoresho"
+
+#: includes/settings.php thold_templates.php
+msgid "Threshold Templates"
+msgstr "Inyandikorugero z'Urwego ntarengwa"
+
+#: includes/settings.php
+msgid "Threshold Template Import"
+msgstr "Kwinjiza Inyandikorugero y'Urwego ntarengwa"
+
+#: includes/settings.php notify_lists.php
+msgid "Notification Lists"
+msgstr "Intonde z'imenyesha"
+
+#: includes/settings.php
+msgid "Notification Lists (edit)"
+msgstr "Intonde z'imenyesha (hindura)"
+
+#: includes/settings.php
+msgid "Notification Queue"
+msgstr "Umurongo w'imenyesha"
+
+#: includes/settings.php
+msgid "Management"
+msgstr "Imicungire"
+
+#: includes/settings.php notify_lists.php thold_templates.php
+msgid "Templates"
+msgstr "Inyandikorugero"
+
+#: includes/settings.php thold_graph.php
+msgid "Threshold"
+msgstr "Urwego ntarengwa"
+
+#: includes/settings.php
+msgid "A template with that Data Source already exists!"
+msgstr "Inyandikorugero ifite iyo Nkomoko y'Amakuru isanzwe ihari!"
+
+#: includes/settings.php
+msgid "Configure Thresholds"
+msgstr "Gena Inzego ntarengwa"
+
+#: includes/settings.php
+msgid "Configure Threshold Templates"
+msgstr "Gena Inyandikorugero z'Inzego ntarengwa"
+
+#: includes/settings.php
+msgid "Manage Notification Lists"
+msgstr "Gucunga Urutonde rw'Imenyesha"
+
+#: includes/settings.php
+msgid "View Thresholds"
+msgstr "Reba inzego ntarengwa"
+
+#: includes/settings.php
+msgid "Normal User"
+msgstr "Ukoresha Usanzwe"
+
+#: includes/settings.php
+msgid "Template Editor"
+msgstr "Umuhinduzi w'Inyandikorugero"
+
+#: includes/settings.php
+msgid "General Administration"
+msgstr "Ubuyobozi Rusange"
+
+#: includes/settings.php
+msgid "Device Up/Down Notification Settings"
+msgstr "Amagenamiterere y'Imenyekanisha ryo Gukora/Guhagarara kw'Igikoresho"
+
+#: includes/settings.php
+msgid "Threshold Up/Down Email Notification"
+msgstr "Imenyesha rya Imeyili ryo Hejuru/Hasi ry'Urwego ntarengwa"
+
+#: includes/settings.php notify_lists.php
+msgid "Global List"
+msgstr "Urutonde rusange"
+
+#: includes/settings.php
+msgid "List Below"
+msgstr "Urutonde ruri hasi"
+
+#: includes/settings.php
+msgid "Global and List Below"
+msgstr "Rusange n'urutonde ruri hasi"
+
+#: includes/settings.php
+msgid "Which Type of Notification List(s) should be used for Device Up/Down events?"
+msgstr "Ni ubuhe bwoko bw'intonde z'imenyekanisha bugomba gukoreshwa ku bikorwa byo kuzamuka/kumanuka kw'Igikoresho?"
+
+#: includes/settings.php notify_queue.php
+msgid "Notification List"
+msgstr "Urutonde rw'abamenyeshwa"
+
+#: includes/settings.php
+msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
+msgstr "Ni izihe ntonde z'imenyekanisha zigomba kumenyeshwa ibikorwa byo kuzamuka/kumanuka kw'Igikoresho?"
+
+#: includes/settings.php
+msgid "Host Failure Count"
+msgstr "Umubare w'inshuro Mwakirizi yananiranywe"
+
+#: includes/settings.php
+msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
+msgstr "Umubare w'Ibihe by'Ikusanyamakuru uyu Mwakirizi agomba kumara Yahagaze mbere y'uko Thold yandika ikosa ikamenyesha ko Mwakirizi Yahagaze. Igenamiterere ry'ibanze ni 0 (koresha igenamiterere rya Cacti)"
+
+#: includes/settings.php
+msgid "Use Cacti Setting"
+msgstr "Koresha igenamiterere rya Cacti"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Polling Interval"
+msgstr "Intera y'ikusanyamakuru %d"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Polling Intervals"
+msgstr "Intera z'ikusanyamakuru %d"
+
+#: includes/settings.php
+msgid "Alerting/Thold"
+msgstr "Itanga ry'integuza/Thold"
+
+#: includes/settings.php notify_lists.php
+msgid "General"
+msgstr "Rusange"
+
+#: includes/settings.php
+msgid "Disable All Thresholds"
+msgstr "Hagarika Inzego ntarengwa Zose"
+
+#: includes/settings.php
+msgid "Checking this box will disable Alerting on all Thresholds.  This can be used when it is necessary to perform maintenance on your network."
+msgstr "Guhitamo aka gasanduku bizahagarika Gutanga Intabaza ku nzego ntarengwa zose. Ibi bishobora gukoreshwa igihe ari ngombwa gukora imirimo yo gusana ku muyoboro wawe."
+
+#: includes/settings.php
+msgid "Auto Create Thresholds"
+msgstr "Kurema inzego ntarengwa mu buryo bwikora"
+
+#: includes/settings.php
+msgid "If selected, when running either automation, or when creating/saving a Device, all Thresholds associated with the Device Template will be created."
+msgstr "Niba bihiswemo, igihe ukoresha imikorere yikora, cyangwa igihe uhanga/ubika Igikoresho, Inzego ntarengwa zose zifitanye isano n'Inyandikorugero y'Igikoresho zizahangwa."
+
+#: includes/settings.php
+msgid "Consider Unknown Data as Zero"
+msgstr "Fata Amakuru Atazwi nka Zeru"
+
+#: includes/settings.php
+msgid "When checking Thresholds, if a Data Source returns Unknown Data ('U'), consider the value as zero for the Threshold check. You can also enable log this issue."
+msgstr "Mu gihe hasuzumwa Inzego ntarengwa, niba Inkomoko y'Amakuru igaruye Amakuru atazwi ('U'), fata ako gaciro nka zeru mu isuzuma ry'Urwego ntarengwa. Ushobora no gufungura ibika ry'icyo kibazo muri raporo."
+
+#: includes/settings.php
+msgid "Default Management Status"
+msgstr "Imiterere mburabuzi y'imicungire"
+
+#: includes/settings.php
+msgid "Default Threshold management filter status."
+msgstr "Imiterere mburabuzi y'akayunguruzo k'imicungire y'urwego ntarengwa."
+
+#: includes/settings.php notify_lists.php thold.php
+msgid "Any"
+msgstr "Icyo ari cyo cyose"
+
+#: includes/settings.php thold.php thold_graph.php
+msgid "Breached or Triggered"
+msgstr "Byarenze cyangwa Byakanguwe"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+msgid "Breached"
+msgstr "Byarenze"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+msgid "Triggered"
+msgstr "Byatewe imbarutso"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Enabled"
+msgstr "Byafunguwe"
+
+#: includes/settings.php
+msgid "Empty ifHighSpeed Default"
+msgstr "Ubusa bwa ifHighSpeed Mburabuzi"
+
+#: includes/settings.php
+msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces."
+msgstr "Mu gihe habarwa Inzego ntarengwa z'interuro, niba ifHighSpeed na ifSpeed bigarutse ari zeru, koresha iri genamiterere rya ifHighSpeed rikurikira aho kubikoresha. Agaciro gasanzwe ka ifHighSpeed kazaba 10000 ku miyoboro ya 10GE."
+
+#: includes/settings.php
+msgid "Notification Preferences"
+msgstr "Ibyifuzo by'imenyesha"
+
+#: includes/settings.php
+msgid "Disable Legacy Notifications"
+msgstr "Hagarika Imenyekanisha rya Kera"
+
+#: includes/settings.php
+msgid "Checking this box will disable Legacy Alerting on all Thresholds.  Legacy Alerting is defined as any Specific Email Alerts not associated with a Notification List."
+msgstr "Guhitamo aka gasanduku bizahagarika Gutanga Intabaza kwa kera ku nzego ntarengwa zose. Gutanga Intabaza kwa kera gusobanurwa nk'Intabaza zihariye z'Imeyili zidahujwe n'Urutonde rwo kumenyesha."
+
+#: includes/settings.php
+msgid "Threshold Notification Templated"
+msgstr "Imenyesha ry'Urwego ntarengwa rishingiye ku nyandikorugero"
+
+#: includes/settings.php
+msgid "If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template."
+msgstr "Niba bihiswemo, igihe uhanga Inyandikorugero y'Urwego ntarengwa, Amagenamiterere yayo y'Imenyesha mu buryo busanzwe azagengwa n'Inyandikorugero y'Urwego ntarengwa."
+
+#: includes/settings.php
+msgid "Enable Command Execution"
+msgstr "Fungura Ishyirwa mu Bikorwa ry'Amabwiriza"
+
+#: includes/settings.php
+msgid "Checking this box will enable the ability to run commands on Threshold breach and restoral events."
+msgstr "Guhitamo aka gasanduku bizafungura ubushobozi bwo gukoresha amabwiriza igihe habaye kurenga ku Rwego ntarengwa n'igihe bisubiye ku murongo."
+
+#: includes/settings.php
+msgid "Enable Per Thold Notification"
+msgstr "Fungura Imenyesha kuri Buri Thold"
+
+#: includes/settings.php
+msgid "Checking this box will enable the ability to maintain custom Email bodies for Thresholds."
+msgstr "Guhitamo aka gasanduku bizafungura ubushobozi bwo kubika inyandiko zihariye z'Imeyili ku nzego ntarengwa."
+
+#: includes/settings.php
+msgid "Enable Notification Queue"
+msgstr "Fungura Umurongo w'Amamenyesha"
+
+#: includes/settings.php
+msgid "Checking this box will switch Thold from performing inline Notification to using either the Notification Daemon, or notifications performed out of band by the Notification poller."
+msgstr "Guhitamo aka gasanduku bizahindura Thold ive mu gutanga imenyekanisha ako kanya ijye mu gukoresha Notification Daemon, cyangwa imenyekanisha rikorwa mu buryo butandukanye n'ikusanyamakuru ryo kumenyesha."
+
+#: includes/settings.php
+msgid "Enable Sending Alert Emails to Warning Notification Lists"
+msgstr "Fungura Kohereza Ameyili y'Impuruza ku Ntonde z'Amamenyesha y'Iburira"
+
+#: includes/settings.php
+msgid "Check this box if you wish Warning Notification List recipients to receive Alert Emails in addition to the Alert Notification list receivers.  This case is applicable when Warning Notifications goes to Administrators and Alert Notifications go to Management."
+msgstr "Hitamo aka gasanduku niba wifuza ko abari ku rutonde rwo kumenyeshwa Iburira bahabwa Imeyili z'intabaza ziyongera ku bo ku rutonde rwo kumenyeshwa Intabaza. Ibi bikora iyo imenyekanisha ry'Iburira rijya ku bayobozi ba sisitemu naho imenyekanisha ry'Intabaza rikajya ku buyobozi bukuru."
+
+#: includes/settings.php
+msgid "Threshold Daemon"
+msgstr "Daemon y'Urwego ntarengwa"
+
+#: includes/settings.php
+msgid "Enable Threshold Daemon"
+msgstr "Fungura Serivisi y'Urwego ntarengwa"
+
+#: includes/settings.php
+msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
+msgstr "Guhitamo aka gasanduku bizafungura ikoreshwa rya Threshold daemon yihariye. Ibi bishobora gukoreshwa mu kongera imikorere ya sisitemu na/cyangwa kugabanya igenzura ry'Urwego ntarengwa kuri seriveri yihariye."
+
+#: includes/settings.php
+msgid "Force Threshold Daemon Debug"
+msgstr "Hatira Igenzura ry'amakosa ya Daemon y'Urwego ntarengwa"
+
+#: includes/settings.php
+msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
+msgstr "Guhitamo aka gasanduku bizafungura ikurikirana ry'amakosa rya Threshold Daemon igihe ikora iturutse kuri SystemD cyangwa mu murongo w'amabwiriza. Iri hinduka rihita rikora kandi rizatangira gukurikizwa ako kanya umuzenguruko ukurikira w'Urwego ntarengwa utangiye."
+
+#: includes/settings.php
+msgid "Daemon Down Notification Frequency"
+msgstr "Inshuro z'imenyesha igihe Daemon yahagaze"
+
+#: includes/settings.php
+msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
+msgstr "Niba bigaragaye ko Thold Daemon yahagaze, ohereza imenyesha rya Imeyili kuri iki gipimo cy'inshuro."
+
+#: includes/settings.php
+#, php-format
+msgid "Every %d Hour"
+msgstr "Buri isaha %d"
+
+#: includes/settings.php
+msgid "Daemon Threads"
+msgstr "Imirongo y'ibikorwa ya Daemon"
+
+#: includes/settings.php
+msgid "The number of daemon threads to be handled by the Threshold Daemon."
+msgstr "Umubare w'imirongo y'ibikorwa ya daemon izayoborwa na Daemon y'Urwego ntarengwa."
+
+#: includes/settings.php
+msgid "1 Process"
+msgstr "Igikorwa 1"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Processes"
+msgstr "Ibikorwa %d"
+
+#: includes/settings.php
+msgid "Logging"
+msgstr "Inyandiko z'ibikorwa"
+
+#: includes/settings.php
+msgid "Log Threshold Breaches"
+msgstr "Andika mu ikayi ibirenga urwego ntarengwa"
+
+#: includes/settings.php
+msgid "Enable logging of all Threshold failures to the Cacti Log."
+msgstr "Fungura kwandika ugutsindwa kose kw'Urwego ntarengwa mu nyandiko y'ibikorwa ya Cacti."
+
+#: includes/settings.php
+msgid "Show Data Source in Log"
+msgstr "Erekana Inkomoko y'Amakuru mu nyandiko y'ibikorwa"
+
+#: includes/settings.php
+msgid "Show the Data Source name in the Log if not present."
+msgstr "Erekana izina ry'Inkomoko y'Amakuru mu nyandiko y'ibikorwa niba ritarimo."
+
+#: includes/settings.php
+msgid "Log Threshold Changes"
+msgstr "Andika mu ikayi impinduka z'urwego ntarengwa"
+
+#: includes/settings.php
+msgid "Enable logging of all Threshold changes to the Cacti Log."
+msgstr "Fungura kwandika impinduka zose z'Urwego ntarengwa mu nyandiko y'ibikorwa ya Cacti."
+
+#: includes/settings.php
+msgid "Debug Log"
+msgstr "Inyandiko y'amakuru yo gukemura ibibazo"
+
+#: includes/settings.php
+msgid "Enable logging of debug messages with Threshold"
+msgstr "Fungura kwandika ubutumwa bwo gukosora amakosa hamwe n'Urwego ntarengwa"
+
+#: includes/settings.php
+msgid "Alert Log Retention"
+msgstr "Igihe cyo kubika Inyandiko z'Integuza"
+
+#: includes/settings.php
+msgid "Keep Threshold Logs for this number of days."
+msgstr "Bika inyandiko z'urwego ntarengwa mu gihe cy'iyi minsi."
+
+#: includes/settings.php
+msgid "Log action Consider Unknown Data as Zero"
+msgstr "Andika mu ikayi igikorwa cyo gufata amakuru atazwi nka zeru"
+
+#: includes/settings.php
+msgid "When 'Consider Unknown Data as Zero' is enabled, log when it occurs"
+msgstr "Iyo 'Fata Amakuru Atazwi nka Zeru' yafunguwe, wandike igihe bibayeho"
+
+#: includes/settings.php thold.php thold_templates.php
+msgid "Syslog Settings"
+msgstr "Amagenamiterere ya Syslog"
+
+#: includes/settings.php
+msgid "Syslog Enabled"
+msgstr "Syslog yafunguwe"
+
+#: includes/settings.php
+msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Niba bihiswemo, igihe uhanga Urwego ntarengwa rushya, mu buryo busanzwe ibikorwa bishya by'Urwego ntarengwa bizajya byoherezwa kuri syslog yawe y'imbere. Iri genamiterere ni iribanze. Amagenamiterere y'Urwego ntarengwa ni yo agena igenzura nyaryo rya syslog."
+
+#: includes/settings.php
+msgid "Default Priority/Level"
+msgstr "Uburemere/Urwego mburabuzi"
+
+#: includes/settings.php
+msgid "This is the default Priority/Level that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Urwo ni Urwego rw'Ibanze/Urwego rusanzwe Thold izakoresha mu kohereza ubutumwa bwa syslog. Iri genamiterere ni iryateganyijwe mbere. Amagenamiterere y'Urwego ntarengwa ni yo agena ubugenzuzi nyabwo bwa syslog."
+
+#: includes/settings.php
+msgid "Default Facility"
+msgstr "Icyiciro mburabuzi"
+
+#: includes/settings.php
+msgid "This is the default Facility that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Iki ni Igice (Facility) gisanzwe Thold izakoresha mu kohereza ubutumwa bwa syslog. Iri genamiterere ni iryateganyijwe mbere. Amagenamiterere y'Urwego ntarengwa ni yo agena ubugenzuzi nyabwo bwa syslog."
+
+#: includes/settings.php
+msgid "Alert Presets"
+msgstr "Amagenamiterere yibanze y'Integuza"
+
+#: includes/settings.php
+msgid "Weekend exemptions"
+msgstr "Amasonerwa yo mu mpera z'icyumweru"
+
+#: includes/settings.php
+msgid "If this is checked, Thold will not run on weekends."
+msgstr "Niba ibi bihiswemo, Thold ntizakora mu mpera z'icyumweru."
+
+#: includes/settings.php
+msgid "Default Trigger Count"
+msgstr "Umubare mburabuzi w'inshuro zikoreshwa mu gutangiza"
+
+#: includes/settings.php
+msgid "Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised."
+msgstr "Umubare mburabuzi w'inshuro zikurikiranya Inkomoko y'Amakuru igomba kurenga Urwego ntarengwa kugira ngo impuruza itangwe."
+
+#: includes/settings.php
+msgid "Re-Alerting"
+msgstr "Kongera gutabaza"
+
+#: includes/settings.php
+msgid "Repeat Alert after specified number of poller cycles."
+msgstr "Subiramo Impuguro nyuma y'umubare wagenwe w'inshuro z'ikusanyamakuru."
+
+#: includes/settings.php
+msgid "Baseline Presets"
+msgstr "Ibyateguwe by'umurongo fatizo"
+
+#: includes/settings.php
+msgid "Baseline Time Range Default"
+msgstr "Igihe mburabuzi cy'umurongo fatizo"
+
+#: includes/settings.php
+msgid "This is the default value used in creating Thresholds or templates."
+msgstr "Iki ni igipimo gisanzwe gikoreshwa mu kurema Inzego ntarengwa cyangwa inyandikorugero."
+
+#: includes/settings.php
+msgid "Baseline Trigger Count"
+msgstr "Umubare w'ibitera impuruza ku murongo fatizo"
+
+#: includes/settings.php
+msgid "Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised."
+msgstr "Umubare mburabuzi w'inshuro zikurikiranya Inkomoko y'Amakuru igomba kurenga Urwego ntarengwa rw'ishingiro rwabazwe kugira ngo impuruza itangwe."
+
+#: includes/settings.php
+msgid "Baseline Deviation Percentage"
+msgstr "Ijanisha ry'itandukaniro ku murongo fatizo"
+
+#: includes/settings.php
+msgid "SNMP Notification Options"
+msgstr "Amahitamo y'imenyesha rya SNMP"
+
+#: includes/settings.php
+msgid "SNMP Notifications"
+msgstr "Amenyesha ya SNMP"
+
+#: includes/settings.php
+msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
+msgstr "Ubutumwa bw'imiterere y'Urwego ntarengwa (informs/traps) buzoherezwa ku bakira amamenyesha ya SNMP. Ibi bikubiyemo Impuruza, Amaburira n'ubutumwa bwo gusubira ku murongo ku buryo busanzwe. Icyitonderwa: Iki gikorwa gisaba umugereka wa Cacti SNMPAgent."
+
+#: includes/settings.php
+msgid "Disable Warning Notifications"
+msgstr "Hagarika Imenyekanisha ry'Iburira"
+
+#: includes/settings.php
+msgid "If this is checked, Threshold will not send a notification when a warning Threshold has been breached."
+msgstr "Niba ibi bihiswemo, Urwego ntarengwa ntiruzohereza imenyesha igihe Urwego ntarengwa rw'iburira rwarenzwe."
+
+#: includes/settings.php
+msgid "Disable Restoration Notifications"
+msgstr "Hagarika Imenyekanisha ryo Gusubira mu Miterere"
+
+#: includes/settings.php
+msgid "If this is checked, Threshold will not send a notification when the Threshold has returned to normal status."
+msgstr "Niba ibi bihiswemo, Urwego ntarengwa ntiruzohereza imenyesha igihe Urwego ntarengwa rwasubiye mu miterere isanzwe."
+
+#: includes/settings.php
+msgid "Emailing Options"
+msgstr "Amahitamo yo kohereza imeri"
+
+#: includes/settings.php
+msgid "Send Emails with Urgent Priority"
+msgstr "Ohereza Imeyili zifite Uburemere bwihutirwa"
+
+#: includes/settings.php
+msgid "Allows you to set Emails with urgent priority"
+msgstr "Bigufasha gushyiraho Imeyili zifite ubwihutirwa bukomeye"
+
+#: includes/settings.php
+msgid "Send Alerts as Text"
+msgstr "Ohereza Impuruza nk'Inyandiko"
+
+#: includes/settings.php
+msgid "If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email."
+msgstr "Niba bihiswemo, ibi bizatuma Impuruza zose zoherezwa nk'Imeyili z'inyandiko isanzwe zidafite Igishushanyo. Ibisanzwe ni Imeyili za HTML zifite Igishushanyo gishyizwe muri Imeyili."
+
+#: includes/settings.php
+msgid "Send Email separately for each address"
+msgstr "Ohereza Imeyili ukwazo kuri buri aderesi"
+
+#: includes/settings.php
+msgid "If checked, this will cause all Emails to be sent separately for each address."
+msgstr "Niba bihiswemo, ibi bizatuma Imeyili zose zoherezwa ukwayo kuri buri aderesi."
+
+#: includes/settings.php
+msgid "From Email Address"
+msgstr "Aderesi ya imeri yohereza"
+
+#: includes/settings.php
+msgid "This is the Email address that the Threshold will appear from."
+msgstr "Iyi ni aderesi ya Imeyili Urwego ntarengwa ruzagaragaraho ko ruvuyeho."
+
+#: includes/settings.php
+msgid "From Name"
+msgstr "Izina ry'ohereza"
+
+#: includes/settings.php
+msgid "This is the actual name that the Threshold will appear from."
+msgstr "Iri ni izina nyaryo Urwego ntarengwa ruzagaragaraho ko ruvuyeho."
+
+#: includes/settings.php
+msgid "Device Notification Options"
+msgstr "Amahitamo y'imenyesha ry'Igikoresho"
+
+#: includes/settings.php
+msgid "Enable Notifications"
+msgstr "Fungura Amamenyesha"
+
+#: includes/settings.php
+msgid "Enable Dead/Recovering host notification"
+msgstr "Fungura imenyesha rya mwakirizi wapfuye/uri gukira"
+
+#: includes/settings.php
+msgid "Single Email Notification"
+msgstr "Imenyekanisha rya Imeyili Imwe"
+
+#: includes/settings.php
+msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
+msgstr "Bishyigikiwe gusa ku rutonde rw'amamenyesha n'umurongo w'amamenyesha. Niba hari amamenyesha y'Igikoresho cyahagaze mu cyiciro kimwe cyo gutunganya. Ohereza Imeyili imwe gusa ku bakira b'urutonde rw'amamenyesha ku Bikoresho byose."
+
+#: includes/settings.php
+msgid "Single Email Notification Subject"
+msgstr "Umutwe w'Imenyekanisha rya Imeyili Imwe"
+
+#: includes/settings.php
+msgid "This is the Email Subject to be used for all Single Email Notification Emails for both Up and Down Devices."
+msgstr "Uyu ni Umutwe w'Imeyili ugomba gukoreshwa kuri Imeyili zose z'Imenyekanisha rya Imeyili Imwe haba ku Bikoresho Bikora cyangwa Ibihagaze."
+
+#: includes/settings.php
+msgid "Device Notification Delay Options"
+msgstr "Amahitamo yo gutinza imenyesha ry'Igikoresho"
+
+#: includes/settings.php
+msgid "Notification Delay"
+msgstr "Ikerereza ry'imenyesha"
+
+#: includes/settings.php
+msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
+msgstr "Niba haje umubare munini w'Amamenyesha y'Ibikoresho Byazimye, Cacti ishobora guhagarika by'agateganyo kohereza ayo Mamenyesha mu gihe runaka kugira ngo irebe niba ikibazo ari icy'akanya gato mbere yo kuyohereza.  Hitamo urwego ntarengwa rw'Amamenyesha y'Ibikoresho Byazimye mbere y'uko Ihagarika ritangira."
+
+#: includes/settings.php
+msgid "If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?"
+msgstr "Niba uhisemo gutinza Imenyesha ku bw'umuvuduko mwinshi w'Imenyesha ry'Ibikoresho byahagaze, witeguye gutegereza igihe kingana iki mbere yo kwemerera ko imenyesha rikorwa?"
+
+#: includes/settings.php
+msgid "Device Notification Email Options"
+msgstr "Amahitamo ya Imeyili y'imenyesha ry'Igikoresho"
+
+#: includes/settings.php
+msgid "Global Notification Email"
+msgstr "Imeyili rusange y'amenyesha"
+
+#: includes/settings.php
+msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
+msgstr "Iyi ni Aderesi ya Imeyili Amamenyekanisha y'Ibikoresho Byapfuye azoherezwaho niba Urutonde Rusange rw'Amamenyekanisha rwahiswemo."
+
+#: includes/settings.php
+msgid "Down Subject"
+msgstr "Umutwe w'ubutumwa bw'ihagarara"
+
+#: includes/settings.php
+msgid "This is the Email subject that will be used for Down Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060NOTES&#062"
+msgstr "Uyu ni umutwe w'Imeyili uzakoreshwa ku Butumwa bw'Igikoresho Gihagaze. Hari utumenyetso dusanzwe dusimbura dushobora gukoreshwa turimo:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (igihe cyahise gikora mu gihe ari ubutumwa bw'ihagarara) &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
+msgstr "Ikosa ry'Igikoresho: <DESCRIPTION> (<HOSTNAME>) CYAHAGAZE (DOWN)"
+
+#: includes/settings.php
+msgid "Down Message"
+msgstr "Ubutumwa bw'ihagarara"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Ubu ni ubutumwa buzagaragara nk'igice nyamukuru cy'Ubutumwa bwose bw'Ibikoresho Bikora / Bihagaze (Ntarengwa y'Inyuguti 1024). HTML iremewe, ariko izakurwamo ku Imeyili z'umwandiko gusa. Hari utumenyetso dusanzwe dusimbura dushobora gukoreshwa turimo:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (igihe cyahise gikora mu gihe ari ubutumwa bw'ihagarara) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
+msgstr "Ikosa rya Sisitemu : <DESCRIPTION> (<HOSTNAME>) iri <DOWN/UP><br><br>Ahantu: <SITE><br>Aho iherereye: <LOCATION><br>Impamvu: <MESSAGE><br>Impuzandengo y'igisubizo cya sisitemu: <AVG_TIME> ms<br>Kuboneka kwa sisitemu: <AVAILABILITY><br>Igenzura ryose kuva hasibwe: <TOT_POLL><br>Igenzura ryose ryananiwe: <FAIL_POLL><br>Itariki ya nyuma yagenzuwe IHAGAZE : <LAST_FAIL><br>Igikoresho cyari GIKORA mu gihe cya: <DOWNTIME><br>IBYITONDERWA: <NOTES><br>IBYITONDERWA by'Igikoresho: <DNOTES>"
+
+#: includes/settings.php
+msgid "Recovering Subject"
+msgstr "Umutwe wo kugarura"
+
+#: includes/settings.php
+msgid "This is the Email subject that will be used for Recovering Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
+msgstr "Uyu ni umutwe w'Imeyili uzakoreshwa ku Butumwa bw'Igikoresho Kirimo Gukira. Hari utumenyetso dusanzwe dusimbura dushobora gukoreshwa turimo:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
+msgstr "Itangazo ry'Igikoresho: <DESCRIPTION> (<HOSTNAME>) cyavuye mu miterere ya DOWN"
+
+#: includes/settings.php
+msgid "Recovering Message"
+msgstr "Ubutumwa bwo kugarura"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Ubu ni ubutumwa buzagaragara nk'igice nyamukuru cy'Ubutumwa bwose bw'Ibikoresho Bikora / Bihagaze (Ntarengwa y'Inyuguti 1024). HTML iremewe, ariko izakurwamo ku Imeyili z'umwandiko gusa. Hari utumenyetso dusanzwe dusimbura dushobora gukoreshwa turimo:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
+msgstr "<br>Imiterere ya sisitemu <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Ahantu: <SITE><br>Iherereye: <LOCATION><br>Igisubizo cya ping kiriho: <CUR_TIME> ms<br>Ikigereranyo cy'igisubizo cya sisitemu : <AVG_TIME> ms<br>Uko sisitemu iboneka: <AVAILABILITY><br>Igenzura ryose kuva hasibwe: <TOT_POLL><br>Igenzura ryose ryanze: <FAIL_POLL><br>Itariki ya nyuma yagenzuwe IKORA: <LAST_FAIL><br>Igikoresho cyari CYAHAGAZE mu gihe cya: <DOWNTIME><br><br>Amakuru ya Snmp:<br>Izina - <SNMP_HOSTNAME><br>Iherereye - <SNMP_LOCATION><br>Igihe imaze ikora - <UPTIMETEXT> (<UPTIME> ms)<br>Sisitemu - <SNMP_SYSTEM><br><br>ICYITONDERWA: <NOTES><br>Inyandiko ku Gikoresho: <DNOTES>"
+
+#: includes/settings.php
+msgid "Status Change Command"
+msgstr "Ibwiriza ryo guhindura imiterere"
+
+#: includes/settings.php
+msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+msgstr "Iyo Igikoresho gihinduye imiterere ku ruhande rwa Cacti (kuva kuri UP kijya kuri DOWN cyangwa kuva kuri DOWN kijya kuri RECOVERING/UP), koresha iri tegeko rikurikira. Iri tegeko NTIRIGOMBA kuba ririmo ibintu byongerwa ku murongo w'amabwiriza. Ariko rero, ibipimo bikurikira bishobora gukurwa mu bidukikije bya porogaramu:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+
+#: includes/settings.php
+msgid "Alert/Warning Message Defaults"
+msgstr "Ubutumwa busanzwe bw'Integuza/Iburira"
+
+#: includes/settings.php
+msgid "Threshold Alert Message"
+msgstr "Ubutumwa bw'Imenyesha ry'Urwego ntarengwa"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Ubu ni ubutumwa buzagaragara hejuru y'amamenyesha yose y'Urwego ntarengwa (Inyuguti 1024 NTARENGWA).  HTML iremewe, ariko izakurwaho kuri Imeyili z'inyandiko gusa.  Hariho utumenyetso dusanzwe dusimbura dushobora gukoreshwa turimo:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Hatangajwe iburira rigomba kwitabwaho. <br><br><strong>Igikoresho</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Ubutumwa</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/settings.php
+msgid "Threshold Warning Message"
+msgstr "Ubutumwa bw'Iburira bw'Urwego ntarengwa"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Ubu ni ubutumwa buzagaragara hejuru y'amaburira yose y'Urwego ntarengwa (Inyuguti 1024 NTARENGWA).  HTML iremewe, ariko izakurwaho kuri Imeyili z'inyandiko gusa.  Hariho utumenyetso dusanzwe dusimbura dushobora gukoreshwa turimo:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Hatanzwe Iburira risaba ko uritaho. <br><br><strong>Igikoresho</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Ubutumwa</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/settings.php
+msgid "Threshold Restoral Message"
+msgstr "Ubutumwa bwo Kugaruka ku Rwego ntarengwa"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Ubu ni ubutumwa buzagaragara hejuru y'amamenyesha yose yo kugaruka ku rwego rw'Urwego ntarengwa (Inyuguti 1024 NTARENGWA).  HTML iremewe, ariko izakurwaho kuri Imeyili z'inyandiko gusa.  Hariho utumenyetso dusanzwe dusimbura dushobora gukoreshwa turimo:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Urwego ntarengwa rwasubiye ku miterere isanzwe. <br><br><strong>Igikoresho</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Ubutumwa</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/tab.php
+msgid "Thold"
+msgstr "Thold"
+
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "Urwego ntarengwa rusanzwe ruhari - Nta Rwego ntarengwa rwaremwe"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "Hanga Urwego ntarengwa uhereye ku Nyandikorugero"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "Umujyanama wo Gushyiraho Urwego ntarengwa [ Hitamo Ubwoko bw'Urwego ntarengwa ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "Umujyanama wo Gushyiraho Urwego ntarengwa [ Injiza Amakuru Yihariye hanyuma ukande 'Hanga' kugira ngo ushyireho Urwego ntarengwa n'Igishushanyo byawe ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "Umujyanama wo Gushyiraho Urwego ntarengwa [ Hitamo Imirongo y'Ibibazo by'Amakuru Ihari ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "Umujyanama wo Gushyiraho Urwego ntarengwa [ Hitamo Igikoresho ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "Umujyanama wo Gushyiraho Urwego ntarengwa [ Hitamo Inyandikorugero y'Igishushanyo ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "Umujyanama wo Gushyiraho Urwego ntarengwa [ Hitamo Inyandikorugero y'Urwego ntarengwa ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "Umujyanama wo Gushyiraho Urwego ntarengwa [ Kanda 'Hanga' kugira ngo ushyireho Urwego ntarengwa rwawe ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "Umujyanama wo Gushyiraho Urwego ntarengwa [ Hitamo Inkomoko y'Amakuru ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "Umujyanama wo Gushyiraho Urwego ntarengwa [ Hitamo Igishushanyo ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "Ibipimo byo Gushyiraho Urwego ntarengwa"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "Ubwoko bwo guhanga"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "Hitamo Ubwoko bw'Urwego ntarengwa bukoreshwa mu kurema uru Rwego ntarengwa."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "Hitamo Ubwoko bw'Urwego ntarengwa"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "Kitagira Inyandikorugero"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "Inyandikorugero y'Urwego ntarengwa"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "Hitamo Inyandikorugero y'Urwego ntarengwa Igishushanyo n'Urwego ntarengwa bizashingiraho."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "Hitamo Inyandikorugero y'Urwego ntarengwa"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "Inyandikorugero y'igishushanyo"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "Hitamo Inyandikorugero y'Igishushanyo izakoreshwa ku Gishushanyo kigomba kuremwa."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "Hitamo Inyandikorugero y'Igishushanyo"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "Igikoresho"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "Hitamo Igikoresho cyo gukoresha ku Rwego ntarengwa n'Igishushanyo bigiye guhangwa."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "Hitamo Igikoresho"
+
+#: includes/webapi.php
+msgid "Select an Available Item"
+msgstr "Hitamo Ikintu kiboneka"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "Ikintu cyo gushakisha amakuru"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "Hitamo umurongo ukwiriye muri Data Query ku Gishushanyo n'Urwego ntarengwa."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "Ibisobanuro by'ihangwa"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "Icyitonderwa cy'Ingenzi:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "Uru Rwego ntarengwa ruzakorerwa Inyandikorugero. Igihe ukoresha amahitamo y'Inyandikorugero y'Urwego ntarengwa, uzasabwa amakuru y'Inyandikorugero y'Urwego ntarengwa, Inyandikorugero y'Igishushanyo, Igikoresho ndetse bishoboke n'Ayikigize cyo Kubaza Amakuru mbere yo guhabwa ubutumwa bwa 'Rema' aho, niba hari amakuru y'Igishushanyo cyangwa Inkomoko y'Amakuru ashobora gusimburwa ku rwego rw'Inyandikorugero y'Igishushanyo n'Inkomoko y'Amakuru, uzayasabwa. Hanyuma, ukanze buto ya 'Rema', Igishushanyo n'Urwego ntarengwa byombi bizaremwa icyarimwe."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "Igishushanyo"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "Hitamo Igishushanyo cy'Urwego ntarengwa."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "Hitamo Igishushanyo"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "Inkomoko y'Amakuru"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "Hitamo Inkomoko y'Amakuru y'Urwego ntarengwa."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "Hitamo Inkomoko y'Amakuru"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "Hanga"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "Uru Rwego ntarengwa <b>NTIRUZAKORERWA</b> Inyandikorugero kandi ruzakora gusa ku Bishushanyo bisanzweho. Niba wifuza Kurema Igishushanyo n'Urwego ntarengwa icyarimwe, hitamo Inyandikorugero y'Urwego ntarengwa mu rutonde rumanuka maze ukomeze kugeza aho buto ya 'Rema' igaragarira."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "Uru Rwego ntarengwa <b>NTIRUZAKORERWA</b> Inyandikorugero. Ushobora guhitamo Ukurikije Igishushanyo aho uzahitamo Igikoresho, Igishushanyo n'Inkomoko y'Amakuru bisanzweho mbere yo kurema Urwego ntarengwa rwawe, cyangwa ugahitamo Inyandikorugero y'Urwego ntarengwa bizagufasha kurema icyarimwe Urwego ntarengwa rudakorewe Inyandikorugero n'Igishushanyo bijyana"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "Igishushanyo Cyahiswemo"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "Igishushanyo cyakozwe: %s"
+
+#: notify_lists.php
+msgid "Duplicate"
+msgstr "Kora kopi"
+
+#: notify_lists.php
+msgid "Associate"
+msgstr "Huza"
+
+#: notify_lists.php
+msgid "Disassociate"
+msgstr "Kuraho ihuzwa"
+
+#: notify_lists.php thold_graph.php
+msgid "Devices"
+msgstr "Ibikoresho"
+
+#: notify_lists.php
+#, php-format
+msgid "ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s"
+msgstr "IKOSA: Ntushobora gushyira Imeyili yawe ku mirongo ya Kuri (To) na BCC icyarimwe. Imeyili iri hasi ntiyemewe!<br><br>%s"
+
+#: notify_lists.php
+msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
+msgstr "Kanda 'Komeza' kugira ngo usibe Intonde z'Imenyesha.  Ibikoresho cyangwa Inzego ntarengwa byari bihujwe n'izo Ntonde bizasubizwa ku miterere isanzwe."
+
+#: notify_lists.php
+msgid "Delete Notification List(s)"
+msgstr "Siba Urutonde rw'imenyesha"
+
+#: notify_lists.php
+msgid "Click 'Continue' to Duplicate the following Notification List(s)."
+msgstr "Kanda 'Komeza' kugira ngo utubure Intonde z'Imenyesha zikurikira."
+
+#: notify_lists.php
+msgid "New List Name"
+msgstr "Izina Rishya ry'Urutonde"
+
+#: notify_lists.php
+msgid "New Notification List"
+msgstr "Urutonde Rushya rw'Amenyesha"
+
+#: notify_lists.php
+msgid "Duplicate Notification List(s)"
+msgstr "Tubura urutonde rw'imenyesha"
+
+#: notify_lists.php
+#, php-format
+msgid "%s Threshold Template(s)"
+msgstr "Inyandikorugero z'Urwego ntarengwa %s"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
+msgstr "Kanda 'Komeza' kugira ngo uhuze Urutonde rw'Imenyesha '%s' n'Inyandikorugero z'Inzego ntarengwa ziri hasi."
+
+#: notify_lists.php
+msgid "Warning Membership:"
+msgstr "Ubunyamuryango bw'iburira:"
+
+#: notify_lists.php
+msgid "No Change"
+msgstr "Nta Mpinduka"
+
+#: notify_lists.php
+msgid "Notification List Only"
+msgstr "Urutonde rw'imenyesha gusa"
+
+#: notify_lists.php
+msgid "Notification List, Retain Other Settings"
+msgstr "Urutonde rw'imenyesha, Guma ku yandi magenamiterere"
+
+#: notify_lists.php
+msgid "Alert Membership:"
+msgstr "Ubunyamuryango bw'Integuza:"
+
+#: notify_lists.php
+msgid "Associate Notification List(s)"
+msgstr "Huza intonde z'imenyesha"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
+msgstr "Kanda 'Komeza' kugira ngo utandukanye Urutonde rw'Imenyesha '%s' n'Inyandikorugero z'Inzego ntarengwa ziri hasi."
+
+#: notify_lists.php
+msgid "Remove List"
+msgstr "Kuraho Urutonde"
+
+#: notify_lists.php
+msgid "Disassociate Notification List(s)"
+msgstr "Kuraho ihuzwa n'urutonde rw'imenyesha"
+
+#: notify_lists.php
+#, php-format
+msgid "%s Threshold(s)"
+msgstr "Urwego/Inzego ntarengwa %s"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
+msgstr "Kanda 'Komeza' kugira ngo uhuze Urutonde rw'Imenyesha '%s' n'Inzego ntarengwa ziri hasi."
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
+msgstr "Kanda 'Komeza' kugira ngo utandukanye Urutonde rw'Imenyesha '%s' n'Inzego ntarengwa ziri hasi."
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
+msgstr "Kanda 'Komeza' kugira ngo uhuze Urutonde rw'Imenyesha '%s' n'Ibikoresho biri hasi."
+
+#: notify_lists.php
+msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
+msgstr "Ushobora kandi no guhuza Inzego ntarengwa z'Ibikoresho. Icyakora, izi Nzego ntarengwa z'Igikoresho zizemerera ko Urutonde rwo Kumenyesha Urwego ntarengwa rusimbuzwa."
+
+#: notify_lists.php
+msgid "Resulting Membership:"
+msgstr "Ubunyamuryango buvamo:"
+
+#: notify_lists.php
+msgid "Notification and Global Lists"
+msgstr "Intonde z'imenyesha n'intonde rusange"
+
+#: notify_lists.php
+msgid "Device Threshold Warning Membership:"
+msgstr "Ubunyamuryango bw'Iburira ry'Urwego ntarengwa rw'Igikoresho:"
+
+#: notify_lists.php
+msgid "Device Threshold Alert Membership:"
+msgstr "Ubunyamuryango bw'Impuruza y'Urwego ntarengwa rw'Igikoresho:"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
+msgstr "Kanda 'Komeza' kugira ngo utandukanye Urutonde rw'Imenyesha '%s' n'Ibikoresho biri hasi."
+
+#: notify_lists.php
+msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
+msgstr "Ushobora kandi no gutandukanya Inzego ntarengwa z'Ibikoresho. Icyakora, izi Nzego ntarengwa z'Igikoresho zizemerera ko Urutonde rwo Kumenyesha Urwego ntarengwa rusimbuzwa."
+
+#: notify_lists.php
+#, php-format
+msgid "[edit: %s]"
+msgstr "[hindura: %s]"
+
+#: notify_lists.php
+msgid "[new]"
+msgstr "[bishya]"
+
+#: notify_lists.php
+msgid "List General Settings"
+msgstr "Amagenamiterere rusange y'urutonde"
+
+#: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
+msgid "Name"
+msgstr "Izina"
+
+#: notify_lists.php
+msgid "Enter a name for this Notification List."
+msgstr "Andika izina ry'uru rutonde rw'imenyekanisha."
+
+#: notify_lists.php thold_graph.php
+msgid "Description"
+msgstr "Ibisobanuro"
+
+#: notify_lists.php
+msgid "Enter a description for this Notification List."
+msgstr "Andika ibisobanuro by'uru rutonde rw'imenyekanisha."
+
+#: notify_lists.php
+msgid "To disable all notifications from this Notification List, you can simply disable it here."
+msgstr "Kugira ngo uhagarike amamenyesha yose aturuka kuri uru Rutonde rw'Amamenyesha, ushobora kuruhagarika hano gusa."
+
+#: notify_lists.php
+msgid "To Email Addresses"
+msgstr "Aderesi za Imeyili z'Abahabwa"
+
+#: notify_lists.php
+msgid "Enter a comma separated list of Email addresses for this Notification List."
+msgstr "Andika urutonde rw'aderesi z'Imeyili zitandukanyijwe n'akitso kuri uru rutonde rw'imenyekanisha."
+
+#: notify_lists.php
+msgid "BCC Email Addresses"
+msgstr "Aderesi za Imeyili za BCC"
+
+#: notify_lists.php
+msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
+msgstr "Andika urutonde rw'aderesi z'Imeyili zitandukanyijwe n'akitso kuri uru rutonde rw'imenyekanisha kugira ngo zohererezwe kopi mu ibanga."
+
+#: notify_lists.php
+msgid "Email Style/Format File"
+msgstr "Dosiye y'Imiterere/Uburyo bw'Imeyili"
+
+#: notify_lists.php thold.php thold_templates.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "Hitamo idosiye yihariye ya html n'iya CSS yo gukoresha.  Iyi dosiye irimo byombi, html na CSS, byo gukikiza raporo yawe.  Niba irimo ibirenze CSS gusa, ugomba gushyira akamenyetso kihariye <REPORT> imbere muri iyo dosiye.  Aka kamenyetso k'imiterere kazasimburwa n'ibikubiye muri raporo.  Izi dosiye ziherereye mu bubiko bwa 'formats'."
+
+#: notify_lists.php
+msgid "Associated Devices"
+msgstr "Ibikoresho bihujwe"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Search"
+msgstr "Shakisha"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "Site"
+msgstr "Ahantu"
+
+#: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
+msgid "None"
+msgstr "Nta na kimwe"
+
+#: notify_lists.php
+msgid "Device Template"
+msgstr "Inyandikorugero y'igikoresho"
+
+#: notify_lists.php
+msgid "Associated"
+msgstr "Bihujwe"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Go"
+msgstr "Komeza"
+
+#: notify_lists.php notify_queue.php
+msgid "Set/Refresh Filters"
+msgstr "Gushyiraho/Kuvugurura muyunguruzi"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Clear"
+msgstr "Siba"
+
+#: notify_lists.php notify_queue.php
+msgid "Clear Filters"
+msgstr "Gusiba muyunguruzi"
+
+#: notify_lists.php thold.php thold_graph.php thold_templates.php
+msgid "ID"
+msgstr "ID"
+
+#: notify_lists.php setup.php thold.php thold_graph.php
+msgid "Status"
+msgstr "Imiterere"
+
+#: notify_lists.php
+msgid "Associated Lists"
+msgstr "Intonde zihujwe"
+
+#: notify_lists.php thold_graph.php
+msgid "Graphs"
+msgstr "Ibishushanyo"
+
+#: notify_lists.php thold_graph.php
+msgid "Data Sources"
+msgstr "Inkomoko z'Amakuru"
+
+#: notify_lists.php notify_queue.php thold_graph.php
+msgid "Hostname"
+msgstr "Izina ku muyoboro"
+
+#: notify_lists.php
+msgid "Current List Only"
+msgstr "Urutonde ruriho ubu gusa"
+
+#: notify_lists.php
+msgid "Current and Global List(s)"
+msgstr "Urutonde ruriho ubu n'intonde rusange"
+
+#: notify_lists.php
+msgid "No Associated Devices Found"
+msgstr "Nta Bikoresho Bifitanye Isano Byabonetse"
+
+#: notify_lists.php
+msgid "Associated Thresholds"
+msgstr "Inzego ntarengwa zihujwe"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "Template"
+msgstr "Inyandikorugero"
+
+#: notify_lists.php
+msgid "State"
+msgstr "Intara cyangwa Leta"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "All"
+msgstr "Byose"
+
+#: notify_lists.php
+msgid "Warning Lists"
+msgstr "Intonde z'iburira"
+
+#: notify_lists.php
+msgid "Alert Lists"
+msgstr "Intonde z'Integuza"
+
+#: notify_lists.php thold.php thold_graph.php thold_templates.php
+msgid "Type"
+msgstr "Ubwoko"
+
+#: notify_lists.php thold.php
+msgid "Templated"
+msgstr "Gifite inyandikorugero"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "No"
+msgstr "Oya"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Yes"
+msgstr "Yego"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "baseline-LOW"
+msgstr "urwego-shingiro-HASI"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "baseline-HIGH"
+msgstr "urwego-shingiro-HEJURU"
+
+#: notify_lists.php
+msgid "Select Users"
+msgstr "Hitamo Abakoresha"
+
+#: notify_lists.php
+msgid "Specific Emails"
+msgstr "Imeyili Zihariye"
+
+#: notify_lists.php
+msgid "Current List"
+msgstr "Urutonde ruriho ubu"
+
+#: notify_lists.php
+msgid "Unknown Threshold"
+msgstr "Urwego ntarengwa Rutazwi"
+
+#: notify_lists.php
+msgid "Log Only"
+msgstr "Inyandiko y'ibikorwa gusa"
+
+#: notify_lists.php
+msgid "Editable"
+msgstr "Bishobora guhindurwa"
+
+#: notify_lists.php
+msgid "Read Only"
+msgstr "Gusoma Gusa"
+
+#: notify_lists.php
+msgid "No Thresholds Found"
+msgstr "Nta nzego ntarengwa zabonetse"
+
+#: notify_lists.php
+msgid "Associated Templates"
+msgstr "Inyandikorugero zihujwe"
+
+#: notify_lists.php notify_queue.php
+msgid "Rows"
+msgstr "Imirongo"
+
+#: notify_lists.php
+msgid "Unknown Template"
+msgstr "Inyandikorugero itazwi"
+
+#: notify_lists.php thold_templates.php
+msgid "No Threshold Templates"
+msgstr "Nta nyandikorugero z'urwego ntarengwa"
+
+#: notify_lists.php
+msgid "Lists"
+msgstr "Intonde"
+
+#: notify_lists.php
+msgid "List Name"
+msgstr "Izina ry'urutonde"
+
+#: notify_lists.php
+msgid "Emails"
+msgstr "Ameyili"
+
+#: notify_lists.php
+msgid "No Notification Lists"
+msgstr "Nta rutonde rw'imenyesha"
+
+#: notify_queue.php
+msgid "Notification has been Suspended.  Press the Resume button to resume it"
+msgstr "Imenyesha ryahagaritswe by'agateganyo. Kanda buto yo gusubukura kugira ngo urisubukure"
+
+#: notify_queue.php
+msgid "Notification has been Resumed.  Press the Suspend button to suspend it"
+msgstr "Imenyesha ryasubukuwe. Kanda buto yo guhagarika by'agateganyo kugira ngo urihagarike"
+
+#: notify_queue.php
+msgid "Pending Notifications have been removed from the database.  Previously sent notification not purged will remain until they age out."
+msgstr "Imenyesha ritegereje ryakuwe mu bubiko bw'amakuru. Imenyesha ryoherejwe mbere ritasibwe rizagumaho kugeza igihe rishaje."
+
+#: notify_queue.php
+msgid "Click 'Continue' to delete the following Notification."
+msgid_plural "Click 'Continue' to delete all following Notifications."
+msgstr[0] "Kanda 'Komeza' kugira ngo usibe Imenyesha rikurikira."
+msgstr[1] "Kanda 'Komeza' kugira ngo usibe Amenyesha akurikira yose."
+
+#: notify_queue.php
+msgid "Delete Notification"
+msgid_plural "Delete Notifications"
+msgstr[0] "Siba Imenyesha"
+msgstr[1] "Siba Amenyesha"
+
+#: notify_queue.php
+#, php-format
+msgid "Event Notifications [ Notifications Suspended by User: %s, %s ago ]"
+msgstr "Amenyesha y'ibikorwa [ Amenyesha yahagaritswe n'ukoresha: %s, hashize %s ]"
+
+#: notify_queue.php
+msgid "Event Notifications"
+msgstr "Amenyesha y'ibikorwa"
+
+#: notify_queue.php
+msgid "Topic"
+msgstr "Ingingo"
+
+#: notify_queue.php
+msgid "Processed"
+msgstr "Byatunganyijwe"
+
+#: notify_queue.php
+msgid "Suspend"
+msgstr "Hagarika by'agateganyo"
+
+#: notify_queue.php
+msgid "Suspend Notification Processing"
+msgstr "Hagarika by'agateganyo itunganywa ry'amamenyesha"
+
+#: notify_queue.php
+msgid "Resume"
+msgstr "Subukura"
+
+#: notify_queue.php
+msgid "Resume Notification Processing"
+msgstr "Subukura itunganywa ry'imenyesha"
+
+#: notify_queue.php
+msgid "Purge"
+msgstr "Siba burundu"
+
+#: notify_queue.php
+msgid "Purge Notification Queue"
+msgstr "Siba burundu umurongo w'imenyesha"
+
+#: notify_queue.php
+msgid "Notifications"
+msgstr "Imenyesha"
+
+#: notify_queue.php
+msgid "The supported notification topic."
+msgstr "Insanganyamatsiko y'imenyesha yemewe."
+
+#: notify_queue.php thold_graph.php
+msgid "Event Description"
+msgstr "Ibisobanuro by'igikorwa"
+
+#: notify_queue.php
+msgid "The name of the object as defined by the caller."
+msgstr "Izina ry'igikoresho nk'uko ryasobanuwe n'uwahamagaye."
+
+#: notify_queue.php
+msgid "The hostname that was the source of this event."
+msgstr "Izina rya mwakirizi ryari inkomoko y'iki gikorwa."
+
+#: notify_queue.php
+msgid "The Notification List used if any."
+msgstr "Urutonde rw'imenyesha rukoreshwa niba ruhari."
+
+#: notify_queue.php
+msgid "Object ID"
+msgstr "ID y'ikintu"
+
+#: notify_queue.php
+msgid "The Object ID defined by the caller.  Generally its unique 'id'."
+msgstr "ID y'ikintu yagenwe n'uhamagara. Muri rusange ni 'id' yihariye yacyo."
+
+#: notify_queue.php
+msgid "Event Time"
+msgstr "Igihe cy'igikorwa"
+
+#: notify_queue.php
+msgid "The time of the event as defined by the caller."
+msgstr "Igihe cy'igikorwa nk'uko cyagenwe n'uwahamagaye."
+
+#: notify_queue.php
+msgid "Has the Notification Event been processed."
+msgstr "Ese igikorwa cyo kumenyesha cyatunganyijwe?"
+
+#: notify_queue.php
+msgid "Errors"
+msgstr "Amakosa"
+
+#: notify_queue.php
+msgid "Did this notification result in an error.  Hover on the error column for details."
+msgstr "Iri menyekanisha ryateye ikosa?  Tunga imbeba ku nkingi y'ikosa kugira ngo ubone ibisobanuro birambuye."
+
+#: notify_queue.php
+msgid "Attempts"
+msgstr "Ibigeragezo"
+
+#: notify_queue.php
+msgid "The number of delivery attempts made for this notification."
+msgstr "Umubare w'inshuro zo kugerageza kohereza iri menyesha."
+
+#: notify_queue.php
+msgid "Next Attempt"
+msgstr "Igerageza Rikurikira"
+
+#: notify_queue.php
+msgid "When a failed notification is eligible for its next retry."
+msgstr "Igihe imenyekanisha ryananiwe ryemerewe kongera kugeragezwa ubutaha."
+
+#: notify_queue.php
+msgid "Run Time"
+msgstr "Igihe cyo gukora"
+
+#: notify_queue.php
+msgid "The time in seconds it took to process the event."
+msgstr "Igihe mu masegonda byatwaye kugira ngo igikorwa gitunganywe."
+
+#: notify_queue.php
+msgid "Not Specified"
+msgstr "Ntibyagaragajwe"
+
+#: notify_queue.php
+msgid "No Notifications"
+msgstr "Nta menyesha"
+
+#: setup.php
+msgid "Toggle Threshold VRULES Off"
+msgstr "Zimya VRULES z'Urwego ntarengwa"
+
+#: setup.php
+msgid "Toggle Threshold VRULES On"
+msgstr "Cana VRULES z'Urwego ntarengwa"
+
+#: setup.php
+msgid "Create Threshold"
+msgstr "Kora Urwego ntarengwa"
+
+#: setup.php
+#, php-format
+msgid "Alert Hi for %s (%s)"
+msgstr "Integuza yo Hejuru kuri %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s)"
+msgstr "Integuza yo Hasi kuri %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s)"
+msgstr "Iburira ryo hejuru kuri %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Low for %s (%s)"
+msgstr "Iburira ryo hasi kuri %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Hi for %s (%s %%)"
+msgstr "Integuza yo Hejuru kuri %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s %%)"
+msgstr "Integuza yo Hasi kuri %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s %%)"
+msgstr "Iburira ryo hejuru kuri %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Warning Low for %s (%s %%)"
+msgstr "Iburira ryo hasi kuri %s (%s %%)"
+
+#: setup.php
+msgid "Threshold Alert/Warning Values"
+msgstr "Indangagaciro z'Imenyesha/Iburira ry'Urwego ntarengwa"
+
+#: setup.php
+msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
+msgstr "Kanda 'Komeza' kugira ngo ushyireho Inzego ntarengwa zose zikwiye kuri iki Gikoresho/ibi Bikoresho."
+
+#: setup.php
+msgid "Create Threshold from Data Source"
+msgstr "Kora Urwego ntarengwa kuva ku Nkomoko y'Amakuru"
+
+#: setup.php
+msgid "Auto-create Thresholds"
+msgstr "Kurema inzego ntarengwa mu buryo bwikora"
+
+#: setup.php
+#, php-format
+msgid "Created %s thresholds"
+msgstr "Hahanzwe inzego ntarengwa %s"
+
+#: setup.php
+msgid "No Threshold(s) Created.  Threshold(s) Template not found."
+msgstr "Nta rwego ntarengwa rwashyizweho.  Inyandikorugero y'urwego ntarengwa ntiyabonetse."
+
+#: setup.php
+msgid "The following Data Sources have no Threshold Templates associated with them"
+msgstr "Inkomoko z'Amakuru zikurikira nta Nyandikorugero z'Urwego ntarengwa zifitanye isano na zo"
+
+#: setup.php
+msgid "Click 'Continue' to create Thresholds for these Data Sources?"
+msgstr "Kanda 'Komeza' kugira ngo uhange Inzego ntarengwa z'izi Nkomoko z'Amakuru?"
+
+#: setup.php
+msgid "Available Threshold Templates"
+msgstr "Inyandikorugero z'Urwego ntarengwa zihari"
+
+#: setup.php
+msgid "There are no Threshold Templates associated with the following Data Sources"
+msgstr "Nta Nyandikorugero z'Urwego ntarengwa zihujwe n'Inkomoko z'Amakuru zikurikira"
+
+#: setup.php
+msgid "The following Graphs have no Threshold Templates associated with them"
+msgstr "Ibishushanyo bikurikira nta Nyandikorugero z'Urwego ntarengwa bifitanye isano na byo"
+
+#: setup.php
+msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
+msgstr "Kanda 'Komeza' niba wifuza gushyiraho Urwego ntarengwa kuri ibi Bishushanyo"
+
+#: setup.php
+msgid "There are no Threshold Templates associated with the following Graphs"
+msgstr "Nta Nyandikorugero z'Urwego ntarengwa zihujwe n'Ibishushanyo bikurikira"
+
+#: setup.php
+msgid "Associated Threshold Templates"
+msgstr "Inyandikorugero z'ibipimo ntarengwa zijyanye"
+
+#: setup.php
+msgid "Threshold Exists"
+msgstr "Urwego ntarengwa rurahari"
+
+#: setup.php
+msgid "Threshold Does Not Exist"
+msgstr "Urwego ntarengwa ntirubaho"
+
+#: setup.php
+msgid "Delete Threshold Template Association"
+msgstr "Siba Ihuriro ry'Inyandikorugero y'Urwego ntarengwa"
+
+#: setup.php
+msgid "No Associated Threshold Templates."
+msgstr "Nta Nyandikorugero z'Urwego ntarengwa Zifitanye Isano."
+
+#: setup.php
+msgid "Add Threshold Template"
+msgstr "Ongeraho Inyandikorugero y'Urwego ntarengwa"
+
+#: setup.php
+msgid "Add"
+msgstr "Ongeraho"
+
+#: setup.php
+msgid "Add Threshold Template to Device"
+msgstr "Ongeraho Inyandikorugero y'Urwego ntarengwa ku Gikoresho"
+
+#: setup.php
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device."
+msgstr "Kanda 'Komeza' kugira ngo usibe Inyandikorugero y'Urwego ntarengwa ikurikira izatandukanywa n'Igikoresho."
+
+#: setup.php
+#, php-format
+msgid "Threshold Template Name: %s"
+msgstr "Izina ry'Inyandikorugero y'Urwego ntarengwa: %s"
+
+#: setup.php
+msgid "Remove Threshold Template"
+msgstr "Kuraho inyandikorugero y'urugero ntarengwa"
+
+#: setup.php
+msgid "Add Threshold Template to Device Template"
+msgstr "Ongeraho Inyandikorugero y'Urwego ntarengwa ku Nyandikorugero y'Igikoresho"
+
+#: setup.php
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
+msgstr "Kanda 'Komeza' kugira ngo usibe Inyandikorugero y'Urwego ntarengwa ikurikira izatandukanywa n'Inyandikorugero y'Igikoresho."
+
+#: thold.php
+msgid "Either No Templates or Threshold(s) Already Exists - No Thresholds were created."
+msgstr "Nta Nyandikorugero zihari cyangwa Inzego ntarengwa zisanzwe zihari - Nta Nzego ntarengwa zahanzwe."
+
+#: thold.php
+msgid "You are not authorized to modify one or more of the Thresholds selected"
+msgstr "Ntabwo ufite uburenganzira bwo guhindura rumwe cyangwa nyinshi mu Nzego ntarengwa zahiswemo"
+
+#: thold.php
+msgid "Click 'Delete' to delete the following Threshold(s)."
+msgstr "Kanda 'Siba' kugira ngo usibe Urwego/Inzego ntarengwa zikurikira."
+
+#: thold.php
+msgid "Delete Threshold(s)"
+msgstr "Siba Urwego/Inzego ntarengwa"
+
+#: thold.php
+msgid "Click 'Continue' to enable the following Threshold(s)."
+msgstr "Kanda 'Komeza' kugira ngo ufungure Urwego/Inzego ntarengwa zikurikira."
+
+#: thold.php
+msgid "Enable Threshold(s)"
+msgstr "Fungura Inzego ntarengwa"
+
+#: thold.php
+msgid "Click 'Continue' to disable the following Threshold(s)."
+msgstr "Kanda 'Komeza' kugira ngo uhagarike Urwego/Inzego ntarengwa zikurikira."
+
+#: thold.php
+msgid "Disable Threshold(s)"
+msgstr "Hagarika Urwego/Inzego ntarengwa"
+
+#: thold.php
+msgid "Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
+msgstr "Kanda 'Komeza' kugira ngo wongere ushyireho Izina/Amazina yatanzwe ku Rwego/Inzego ntarengwa zikurikira."
+
+#: thold.php
+msgid "Apply Suggestion"
+msgstr "Koresha Igitekerezo"
+
+#: thold.php
+msgid "Click 'Continue' to update the following Threshold(s) with their associate Template's details."
+msgstr "Kanda 'Komeza' kugira ngo uvugurure Urwego/Inzego ntarengwa zikurikira hamwe n'amakuru arambuye y'Inyandikorugero yabyo bijyana."
+
+#: thold.php
+msgid "Reapply Template"
+msgstr "Ongera ushyireho Inyandikorugero"
+
+#: thold.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
+msgstr "Kanda 'Komeza' kugira ngo wemeze ko wabonye Inzego ntarengwa zikurikira.  Inzego ntarengwa zitabyemera, cyangwa zitaratanze impuruza, zizirengagizwa."
+
+#: thold.php
+msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
+msgstr "Kanda 'Komeza' kugira ngo usubukure Amamenyesha ku Rwego/Inzego ntarengwa zikurikira. Inzego ntarengwa zitabyemera, cyangwa zitarasohoka zizirengagizwa."
+
+#: thold.php
+msgid "Resume Notifications for Threshold(s)"
+msgstr "Subukura imenyesha ku rwego/inzego ntarengwa"
+
+#: thold.php
+msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
+msgstr "Kanda 'Komeza' kugira ngo uhagarike by'agateganyo Amamenyesha ku Rwego/Inzego ntarengwa zikurikira. Inzego ntarengwa zitabyemera, cyangwa zitarasohoka zizirengagizwa."
+
+#: thold.php
+msgid "Suspend Notification for Threshold(s)"
+msgstr "Hagarika by'agateganyo imenyesha ry'Urwego (Inzego) ntarengwa"
+
+#: thold.php thold_templates.php
+msgid "Invalid action detected, can not proceed"
+msgstr "Igikorwa kitari cyo cyabonetse, ntibishoboka gukomeza"
+
+#: thold.php
+msgid "Threshold Management"
+msgstr "Imicungire y'Urwego ntarengwa"
+
+#: thold.php
+msgid "Apply Filters"
+msgstr "Koresha Utuyunguruzo"
+
+#: thold.php
+msgid "Return to Defaults"
+msgstr "Subira ku migenere y'ibanze"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Data Template"
+msgstr "Inyandikorugero y'amakuru"
+
+#: thold.php thold_graph.php
+msgid "Disabled at Template"
+msgstr "Byahagaritswe ku Nyandikorugero"
+
+#: thold.php thold_graph.php
+msgid "Disabled at Threshold"
+msgstr "Byahagaritswe ku Rwego ntarengwa"
+
+#: thold.php thold_graph.php
+msgid "Ack Required"
+msgstr "Kwemeza birakenewe"
+
+#: thold.php thold_graph.php
+msgid "By Status"
+msgstr "Ukurikije Imiterere"
+
+#: thold.php thold_graph.php
+msgid "The current threshold status. Click a status pill to filter the list to that status."
+msgstr "Imiterere y'urwego ntarengwa iriho ubu. Kanda ku kamenyetso k'imiterere kugira ngo uyungurure urutonde kuri iyo miterere."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "External ID"
+msgstr "Indango yo hanze"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function."
+msgstr "Ubwoko bw'Urwego ntarengwa. Ku bwoko bw'Ibanze: [TIP] bisobanura Igihe Cyashize hamwe na MIN, MAX, AVG, na LAST bitarenze umunsi umwe muri icyo gihe. [AOT] bisobanura Impuzandengo mu Gihe cyose. Niba hari utudomo tubiri dukurikiwe na MIN, MAX, AVG, LAST, Agaciro katurutse muri uwo Mumaro wo Guhuza."
+
+#: thold.php
+msgid "DSName"
+msgstr "Izina rya DS"
+
+#: thold.php thold_graph.php
+msgid "Current"
+msgstr "Ibiriho ubu"
+
+#: thold.php thold_graph.php
+msgid "The last measured value for the Data Source"
+msgstr "Agaciro ka nyuma kapimwe k'Inkomoko y'Amakuru"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "High"
+msgstr "Hejuru"
+
+#: thold.php thold_graph.php
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
+msgstr "Agaciro ko hejuru k'Iburira / Imenyekanisha.  ICYITONDERWA: Agaciro k'umurongo fatizo kari ku ijanisha, ubundi bwose ni agaciro kagaragara gashobora guhindurwa na cdef."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Low"
+msgstr "Hasi"
+
+#: thold.php thold_graph.php
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
+msgstr "Agaciro ko hasi k'Iburira / Imenyekanisha.  ICYITONDERWA: Agaciro k'umurongo fatizo kari ku ijanisha, ubundi bwose ni agaciro kagaragara gashobora guhindurwa na cdef."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Trigger"
+msgstr "Imbarutso"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Duration"
+msgstr "Igihe byamaze"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Repeat"
+msgstr "Subiramo"
+
+#: thold.php thold_graph.php
+msgid "In State"
+msgstr "Mu mimerere"
+
+#: thold.php thold_graph.php
+msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
+msgstr "Igihe gishize kuva Urwego ntarengwa rurenzwe cyangwa rukangutse"
+
+#: thold.php thold_graph.php
+msgid "Acknowledgment required for this Threshold"
+msgstr "Kwemeza birakenewe kuri uru Rwego ntarengwa"
+
+#: thold.php thold_graph.php
+msgid "No [Template:Thold]"
+msgstr "Oya [Inyandikorugero:Thold]"
+
+#: thold.php thold_graph.php
+msgid "No [Template]"
+msgstr "Oya [Inyandikorugero]"
+
+#: thold.php thold_graph.php
+msgid "No [Thold]"
+msgstr "Oya [Thold]"
+
+#: thold.php thold_graph.php
+#, php-format
+msgid "%d Triggers"
+msgstr "Imbarutso %d"
+
+#: thold.php thold_graph.php
+msgid "No Thresholds"
+msgstr "Nta nzego ntarengwa"
+
+#: thold.php
+msgid "Threshold Deleted, can not Edit!"
+msgstr "Urwego ntarengwa rwasibwe, ntushobora guhindura!"
+
+#: thold.php
+msgid "Graph Data"
+msgstr "Amakuru y'igishushanyo"
+
+#: thold.php
+msgid "Edit Threshold Template"
+msgstr "Hindura Inyandikorugero y'Urwego ntarengwa"
+
+#: thold.php
+msgid "Data Source Description:"
+msgstr "Ibisobanuro by'Inkomoko y'Amakuru:"
+
+#: thold.php
+msgid "Associated Graph (Graphs using this RRD):"
+msgstr "Igishushanyo gihujwe (Ibishushanyo bikoresha iyi RRD):"
+
+#: thold.php
+msgid "Last:"
+msgstr "Iya nyuma:"
+
+#: thold.php
+msgid "WHi:"
+msgstr "WHi:"
+
+#: thold.php
+msgid "WLo:"
+msgstr "WLo:"
+
+#: thold.php
+msgid "AHi:"
+msgstr "AHi:"
+
+#: thold.php
+msgid "ALo:"
+msgstr "ALo:"
+
+#: thold.php
+msgid "BL Up:"
+msgstr "BL Hejuru:"
+
+#: thold.php
+msgid "BL Down:"
+msgstr "BL Hasi:"
+
+#: thold.php
+#, php-format
+msgid "Unknown Template ID %d"
+msgstr "Indangamubare y'Inyandikorugero Itazwi %d"
+
+#: thold.php
+msgid "Not Templated"
+msgstr "Nta nyandikorugero"
+
+#: thold.php
+#, php-format
+msgid "Data Source Item [ %s ] - Current value: [ %s ]"
+msgstr "Ikintu cy'Inkomoko y'Amakuru [ %s ] - Agaciro kariho: [ %s ]"
+
+#: thold.php thold_templates.php
+#, php-format
+msgid "Replacement Fields: %s"
+msgstr "Imyanya yo Gusimbuza: %s"
+
+#: thold.php thold_templates.php
+#, php-format
+msgid "Data Sources: %s"
+msgstr "Inkomoko z'Amakuru: %s"
+
+#: thold.php
+msgid "Template/Enabled Information"
+msgstr "Amakuru y'Inyandikorugero/Byafunguwe"
+
+#: thold.php
+msgid "Template Propagation Enabled"
+msgstr "Ikwirakwiza ry'Inyandikorugero Ryafunguwe"
+
+#: thold.php
+msgid "Whether or not these settings will be propagated from the Threshold template."
+msgstr "Niba aya magenamiterere azakwirakwizwa cyangwa atazakwirakwizwa avuye mu Nyandikorugero y'Urwego ntarengwa."
+
+#: thold.php thold_templates.php
+msgid "Template Name"
+msgstr "Izina ry'inyandikorugero"
+
+#: thold.php
+msgid "Name of the Threshold Template the Threshold was created from."
+msgstr "Izina ry'Inyandikorugero y'Urwego ntarengwa yakoreshejwe mu gukora Urwego ntarengwa."
+
+#: thold.php
+msgid "Enabled at Template Level"
+msgstr "Byafunguwe ku rwego rw'Inyandikorugero"
+
+#: thold.php
+msgid "A Threshold must be enabled both at the Template Level and the Threshold level to be checked."
+msgstr "Urwego ntarengwa rugomba kuba rufunguye haba ku Rwego rw'Inyandikorugero no ku Rwego rw'Urwego ntarengwa kugira ngo rugenzurwe."
+
+#: thold.php
+msgid "Enabled at Threshold Level"
+msgstr "Byafunguwe ku rwego rw'Urwego ntarengwa"
+
+#: thold.php thold_templates.php
+msgid "General Settings"
+msgstr "Igenamiterere rusange"
+
+#: thold.php
+msgid "Name (Displayed)"
+msgstr "Izina (Rigaragazwa)"
+
+#: thold.php
+msgid "Provide the Thresholds a meaningful name"
+msgstr "Ha Inzego ntarengwa izina rifite ireme"
+
+#: thold.php
+msgid "Name (Format)"
+msgstr "Izina (Imiterere)"
+
+#: thold.php thold_templates.php
+msgid "Warning HRULE Color"
+msgstr "Ibara rya HRULE ry'iburira"
+
+#: thold.php thold_templates.php
+msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
+msgstr "Nyamuneka hitamo Ibara rya HRULE y'Igishushanyo ku Nzego ntarengwa z'Iburira. Hitamo 'Nta na kimwe' kugira ngo hatabaho HRULE. Ikitonderwa: Iki kiranga gishyigikiwe ku bwoko bw'Ihinduramakuru 'Agaciro nyako' na 'Ijanisha' gusa kuri ubu."
+
+#: thold.php thold_templates.php
+msgid "Alert HRULE Color"
+msgstr "Ibara rya HRULE ry'Integuza"
+
+#: thold.php thold_templates.php
+msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
+msgstr "Nyamuneka hitamo Ibara rya HRULE y'Igishushanyo ku Nzego ntarengwa z'Integuza. Hitamo 'Nta na kimwe' kugira ngo hatabaho HRULE. Ikitonderwa: Iki kiranga gishyigikiwe ku bwoko bw'Ihinduramakuru 'Agaciro nyako' na 'Ijanisha' gusa kuri ubu."
+
+#: thold.php thold_templates.php
+msgid "Graph Timespan"
+msgstr "Igihe cya Grafu"
+
+#: thold.php thold_templates.php
+msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
+msgstr "Igihe cyo kurangiriraho cy'Igishushanyo kizashyirwaho ku gihe cyo gutangizwa.  Igihe cyo gutangiriraho cy'Igishushanyo kizaba ari Igihe cyo kurangiriraho ukuvamo Igihe Igishushanyo kimara."
+
+#: thold.php thold_templates.php
+msgid "Skip Scaling on HRULEs"
+msgstr "Simbuka igena ry'ibipimo kuri HRULEs"
+
+#: thold.php thold_templates.php
+msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
+msgstr "Niba bihiswemo, Igipimo kiri ku Gishushanyo ntikizahungabanywa na HRULEs z'Impuruza cyangwa z'Iburira."
+
+#: thold.php thold_templates.php
+msgid "Weekend Exemption"
+msgstr "Isonerwa ryo mu mpera z'icyumweru"
+
+#: thold.php thold_templates.php
+msgid "If this is checked, this Threshold will not alert on weekends."
+msgstr "Niba ibi bihiswemo, uru Rwego ntarengwa ntiruzatanga impuruza mu mpera z'icyumweru."
+
+#: thold.php thold_templates.php
+msgid "Disable Restoration Email"
+msgstr "Hagarika Imeyili yo Gusubira mu Miterere"
+
+#: thold.php thold_templates.php
+msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
+msgstr "Niba ibi bihiswemo, Urwego ntarengwa ntiruzohereza impuruza igihe Urwego ntarengwa rwasubiye mu miterere isanzwe."
+
+#: thold.php thold_templates.php
+msgid "Acknowledgment Options"
+msgstr "Amahitamo yo kwemeza"
+
+#: thold.php thold_templates.php
+msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
+msgstr "Hari inzego eshatu zo Kwemeza igenzura zigena uko ugomba gusubiza igihe habaye kurenga Urwego ntarengwa. Izo ni:<br><br><ul><li><i>Ntibisabwa</i> - Iyo uhisemo aya mahitamo, nta Kwemeza igenzura gusabwa igihe habaye kurenga Urwego ntarengwa.</li><li><i>Imenyekanisha Rishobora Guhagarikwa</i> - Muri aya mahitamo, umaze Kwemeza cyangwa Guhagarika Imenyekanisha ku Rwego ntarengwa, ntuzongera kwakira amamenyekanisha igihe rurenzweho. Ushobora nyuma Kongera Gukomeza Imenyekanisha igihe rucyirenzweho.</li><li><i>Kwemeza Guhoraho</i> - Muri aya mahitamo, na nyuma y'uko Urwego ntarengwa rugarutse ku miterere isanzwe, ugomba Kwemeza Urwego ntarengwa kandi ugatanga Ubutumwa bw'Ukoresha butari itegeko.</li></ul>"
+
+#: thold.php thold_templates.php
+msgid "None Required"
+msgstr "Nta na kimwe gisabwa"
+
+#: thold.php thold_templates.php
+msgid "Suspendible Notification"
+msgstr "Imenyesha rishobora guhagarikwa by'agateganyo"
+
+#: thold.php thold_templates.php
+msgid "Persistent Acknowledgment"
+msgstr "Iyemera rihoraho"
+
+#: thold.php thold_templates.php
+msgid "Threshold Type"
+msgstr "Ubwoko bw'Urwego ntarengwa"
+
+#: thold.php thold_templates.php
+msgid "The type of Threshold that will be monitored."
+msgstr "Ubwoko bw'Urwego ntarengwa buzakurikiranwa."
+
+#: thold.php thold_templates.php
+msgid "Re-Alert Cycle"
+msgstr "Uruziga rwo kongera gutabaza"
+
+#: thold.php
+msgid "Repeat alert after this amount of time has passed since the last alert."
+msgstr "Subiramo impuguro nyuma y'uko iki gihe gishize uhereye ku mpuguro ya nyuma."
+
+#: thold.php thold_templates.php
+msgid "Warning - High / Low Settings"
+msgstr "Iburira - Amagenamiterere yo Hejuru / Hasi"
+
+#: thold.php thold_templates.php
+msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
+msgstr "Agaciro k'imibare ku Nzego ntarengwa zo Hejuru no Hasi gashobora kugira izi mpera ku mibare iruta 1: 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', naho ku mibare iri munsi ya 1: 'm', 'u', 'p', 'f'."
+
+#: thold.php thold_templates.php
+msgid "High Threshold"
+msgstr "Urwego ntarengwa rwo hejuru"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Niba bishyizweho kandi agaciro k'Inkomoko y'Amakuru kakarenga uyu mubare, iburira rizatangwa. ICYITONDERWA: Aka gaciro kagomba kuba ari umubare utarimo impinduka (RAW). Agaciro kagaragara ku Gishushanyo gashobora guhindurwa na cdef."
+
+#: thold.php thold_templates.php
+msgid "Low Threshold"
+msgstr "Urwego ntarengwa rwo hasi"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Niba bishyizweho kandi agaciro k'Inkomoko y'Amakuru kakajya munsi y'uyu mubare, iburira rizatangwa. ICYITONDERWA: Aka gaciro kagomba kuba ari umubare utarimo impinduka (RAW). Agaciro kagaragara ku Gishushanyo gashobora guhindurwa na cdef."
+
+#: thold.php
+msgid "Breach Duration"
+msgstr "Igihe cyo kurenga urwego"
+
+#: thold.php
+msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Igihe Inkomoko y'Amakuru igomba kumara irenze Urwego ntarengwa kugira ngo iburira ritangwe. ICYITONDERWA: Iyi mibare igomba kuba umubare utagira icyo uhinduwaho (RAW). Agaciro kagaragara ku Gishushanyo gashobora guhindurwa na cdef."
+
+#: thold.php thold_templates.php
+msgid "Alert - High / Low Settings"
+msgstr "Integuza - Amagenamiterere yo Hejuru / Hasi"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Niba bishyizweho kandi agaciro k'Inkomoko y'Amakuru kakarenga uyu mubare, impuruza izatangwa. ICYITONDERWA: Aka gaciro kagomba kuba ari umubare utarimo impinduka (RAW). Agaciro kagaragara ku Gishushanyo gashobora guhindurwa na cdef."
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Niba bishyizweho kandi agaciro k'Inkomoko y'Amakuru kakajya munsi y'uyu mubare, impuruza izatangwa. ICYITONDERWA: Aka gaciro kagomba kuba ari umubare utarimo impinduka (RAW). Agaciro kagaragara ku Gishushanyo gashobora guhindurwa na cdef."
+
+#: thold.php
+msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
+msgstr "Igihe Inkomoko y'Amakuru igomba kumara irenze Urwego ntarengwa kugira ngo impuruza itangwe."
+
+#: thold.php thold_templates.php
+msgid "Warning - Time Based Settings"
+msgstr "Iburira - Amagenamiterere ashingiye ku gihe"
+
+#: thold.php
+msgid "Breach Count"
+msgstr "Umubare wo kurenga urwego"
+
+#: thold.php
+msgid "The number of times the Data Source must be in breach of the Threshold."
+msgstr "Umubare w'inshuro Inkomoko y'Amakuru igomba kuba yarenze Urwego ntarengwa."
+
+#: thold.php
+msgid "Breach Window"
+msgstr "Intera y'igihe yo kurenga urwego"
+
+#: thold.php thold_templates.php
+msgid "The amount of time in the past to check for Threshold breaches."
+msgstr "Igihe cyashize cyo kugenzura irengwa ry'Urwego ntarengwa."
+
+#: thold.php thold_templates.php
+msgid "Alert - Time Based Settings"
+msgstr "Integuza - Amagenamiterere ashingiye ku gihe"
+
+#: thold.php
+msgid "Baseline Settings"
+msgstr "Amagenamiterere y'umurongo fatizo"
+
+#: thold.php thold_templates.php
+msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
+msgstr "Ubwoko bw'Urwego fatizo.  [TIP] ni Igihe mu Hashize, [AOT] ni Impuzandengo mu Gihe.  Ihinduka mu Ijanisha ni agaciro k'ijanisha uhereye ku gaciro k'amateka.  Agaciro Nyako ni itandukaniro riri hejuru cyangwa munsi y'Urwego fatizo kuri ako gaciro k'amateka.  Ku bwoko bw'Urwego fatizo bwa [TIP], MIN, MAX, AVG, na LAST bizava mu gihe kitarenze umunsi umwe kuri icyo gihe."
+
+#: thold.php thold_templates.php
+msgid "Consolidation Function"
+msgstr "Umumaro w'ihuriro ry'amakuru"
+
+#: thold.php thold_templates.php
+msgid "Average"
+msgstr "Impuzandengo"
+
+#: thold.php thold_templates.php
+msgid "Minimum"
+msgstr "Gito gishoboka"
+
+#: thold.php thold_templates.php
+msgid "Maximum"
+msgstr "Igipimo cyo hejuru"
+
+#: thold.php thold_templates.php
+msgid "Last"
+msgstr "Cya nyuma"
+
+#: thold.php thold_templates.php
+msgid "The Consolidation function to use for the Baseline Type value calculation."
+msgstr "Imikorere yo guhuriza hamwe ikoreshwa mu kubara agaciro k'Ubwoko bw'Umurongo fatizo."
+
+#: thold.php thold_templates.php
+msgid "Time Range"
+msgstr "Intera y'Igihe"
+
+#: thold.php thold_templates.php
+msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
+msgstr "Bigena igihe cyahise (bishingiye ku bushobozi bwa rrd) kizakoreshwa nk'icyitegererezo cyangwa igihe cyo gukoresha ku Mpuzandengo Igenda igihe hakoreshwa ubwoko bw'Urwego ntarengwa rw'Impuzandengo Igenda"
+
+#: thold.php thold_templates.php
+msgid "Deviation UP"
+msgstr "Itandukira rya UP"
+
+#: thold.php
+#, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Bigena ikinyuranyo cyemewe ku Rwego ntarengwa rwo hejuru. Niba bitashyizweho, Urwego ntarengwa rwo hejuru ntiruzagenzurwa na gato. Igipimo ni agaciro nyako ku bwoko bwa 'Agaciro Nyako', n'ijanisha kuri '%% Ikinyuranyo' na '%% Impuzandengo Igenda'"
+
+#: thold.php thold_templates.php
+msgid "Deviation DOWN"
+msgstr "Itandukira rya DOWN"
+
+#: thold.php
+#, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Bigena ikinyuranyo cyemewe ku Rwego ntarengwa rwo hasi. Niba bitashyizweho, Urwego ntarengwa rwo hasi ntiruzagenzurwa na gato. Igipimo ni agaciro nyako ku bwoko bwa 'Agaciro Nyako', n'ijanisha kuri '%% Ikinyuranyo' na '%% Impuzandengo Igenda'"
+
+#: thold.php thold_templates.php
+msgid "Trigger Count"
+msgstr "Umubare w'Imbarutso"
+
+#: thold.php
+#, php-format
+msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
+msgstr "Umubare w'inshuro zikurikirana Inkomoko y'Amakuru igomba kurenga Urwego ntarengwa fatizo kugira ngo impuruza itangwe.<br>Siga harimo ubusa kugira ngo ukoreshe agaciro mbanziriza (<b>Mbanziriza: inshuro %s</b>)"
+
+#: thold.php thold_templates.php
+msgid "Data Manipulation"
+msgstr "Gutunganya amakuru"
+
+#: thold.php thold_templates.php
+msgid "Data Type"
+msgstr "Ubwoko bw'amakuru"
+
+#: thold.php thold_templates.php
+msgid "Special formatting for the given data."
+msgstr "Imiterere yihariye ku makuru yatanzwe."
+
+#: thold.php thold_templates.php
+msgid "Threshold CDEF"
+msgstr "CDEF y'Urwego ntarengwa"
+
+#: thold.php thold_templates.php
+msgid "Apply this CDEF before returning the data."
+msgstr "Koresha iyi CDEF mbere yo kugarura amakuru."
+
+#: thold.php
+msgid "Percent Data Source"
+msgstr "Ijanisha ry'Inkomoko y'Amakuru"
+
+#: thold.php
+msgid "Second Data Source Item to use as total value to calculate percentage from."
+msgstr "Ikintu cya Kabiri cy'Inkomoko y'Amakuru cyo gukoresha nk'agaciro rusange ko kubariraho ijanisha."
+
+#: thold.php thold_templates.php
+msgid "Show Units"
+msgstr "Erekana ingero"
+
+#: thold.php thold_templates.php
+msgid "Display units for very large or small numbers."
+msgstr "Erekana ibipimo ku mibare minini cyane cyangwa mito cyane."
+
+#: thold.php thold_templates.php
+msgid "Force Units Suffix"
+msgstr "Hatira Umugereka w'Ibipimo"
+
+#: thold.php thold_templates.php
+msgid "If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters."
+msgstr "Niba wifuza kwerekana umugereka w'igipimo utegetswe ku mapaji anyuranye y'Urwego ntarengwa n'Imenyesha, wandike hano. Ingano ntigomba kurenza inyuguti 10."
+
+#: thold.php thold_templates.php
+msgid "Decimal Digits to Display"
+msgstr "Imibare y'ibice by'ikumi igomba kugaragazwa"
+
+#: thold.php thold_templates.php
+msgid "The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2."
+msgstr "Umubare w'imibare iri nyuma y'akitso yerekanwa ku Rwego ntarengwa n'Agaciro k'ubu. Igenamiterere ry'ibanze ni iyikoresha cyangwa 2."
+
+#: thold.php
+#, php-format
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Imvugo ya RPN ni imvugo ya RPN ihuza na RRDtool.  Imyandikire irimo imikoro yose iri hasi hamwe n'imvugo zisimbura z'Igikoresho n'iz'Ibaza ry'Amakuru nka <span class=\"deviceUp\">|query_ifSpeed|</span>.  Kugira ngo ukoreshe Inkomoko y'Amakuru mu mvugo ya RPN, ugomba gukoresha imyandikire: <span class=\"deviceUp\">|ds:dsname|</span>.  Urugero, <span class=\"deviceUp\">|ds:traffic_in|</span> izabona agaciro k'ubu k'Inkomoko y'Amakuru ya traffic_in muri dosiye ya RRD ihujwe n'Igishushanyo. Inkomoko y'Amakuru iyo ari yo yose y'Igishushanyo ishobora kongerwamo.<br><br>Ibimenyetso by'imibare: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Imikoro: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Ibimenyetso by'urujya n'uruza: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Imikoro yo kugereranya: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+
+#: thold.php thold_templates.php
+msgid "Upper Data Source"
+msgstr "Inkomoko y'Amakuru yo hejuru"
+
+#: thold.php
+msgid "Upper data source to calculate the total value."
+msgstr "Inkomoko y'Amakuru yo hejuru yo kubara agaciro kose."
+
+#: thold.php thold_templates.php
+msgid "Notification Settings"
+msgstr "Igenamiterere ry'imenyesha"
+
+#: thold.php
+msgid "Alert Subject"
+msgstr "Umutwe w'Integuza"
+
+#: thold.php
+msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Uyu ni umutwe w'Imeyili uzagaragara mu Imeyili (Ntarengwa y'Inyuguti 128). Siga harimo ubusa kugira ngo hakoreshwe ibisanzwe. Hari utumenyetso dusanzwe dusimbura dushobora gukoreshwa turimo:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php
+msgid "Alert Body"
+msgstr "Umubiri w'Integuza"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Ubu ni ubutumwa buzagaragara hejuru y'amamenyesha yose y'Urwego ntarengwa (Inyuguti 1024 NTARENGWA).  HTML iremewe, ariko izakurwaho kuri imeyili z'inyandiko gusa.  Hariho utumenyetso dusanzwe dusimbura dushobora gukoreshwa turimo:<br>urugero: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Subject"
+msgstr "Umutwe w'iburira"
+
+#: thold.php
+msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Uyu ni umutwe w'Imeyili y'Iburira uzagaragara mu Imeyili nyuma yo guhindukira ku Iburira (Ntarengwa y'Inyuguti 128). Siga harimo ubusa kugira ngo hakoreshwe ibisanzwe. Hari utumenyetso dusanzwe dusimbura dushobora gukoreshwa turimo:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Body"
+msgstr "Ibirimo by'iburira"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Ubu ni ubutumwa buzagaragara hejuru y'Amaburira yose y'Urwego ntarengwa (Inyuguti 1024 NTARENGWA).  HTML iremewe, ariko izakurwaho kuri imeyili z'inyandiko gusa.  Hariho utumenyetso dusanzwe dusimbura dushobora gukoreshwa turimo:<br>urugero: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold.php thold_templates.php
+msgid "Restoral Subject"
+msgstr "Umutwe w'ubutumwa bw'igarura"
+
+#: thold.php
+msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Uyu ni umutwe w'Imeyili uzagaragara mu Imeyili nyuma yo Gusubira ku miterere Isanzwe (Ntarengwa y'Inyuguti 128). Siga harimo ubusa kugira ngo hakoreshwe ibisanzwe. Hari utumenyetso dusanzwe dusimbura dushobora gukoreshwa turimo:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php
+msgid "Restoral Email Body"
+msgstr "Igice cy'imeyili y'igarura"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Ubu ni ubutumwa buzagaragara hejuru y'amamenyesha yose yo kugaruka ku rwego rw'Urwego ntarengwa (Inyuguti 1024 NTARENGWA).  HTML iremewe, ariko izakurwaho kuri Imeyili z'inyandiko gusa.  Hariho utumenyetso dusanzwe dusimbura dushobora gukoreshwa turimo:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Notification List"
+msgstr "Urutonde rw'imenyesha ry'iburira"
+
+#: thold.php thold_templates.php
+msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
+msgstr "Ushobora guhitamo Urutonde rwo Kumenyesha kugira ngo rwakire Amaburira y'iyi Nkomoko y'Amakuru"
+
+#: thold.php thold_templates.php
+msgid "Alert Notification List"
+msgstr "Urutonde rw'Imenyesha ry'Integuza"
+
+#: thold.php thold_templates.php
+msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
+msgstr "Ushobora guhitamo Urutonde rwo Kumenyesha kugira ngo rwakire Impuruza z'iyi Nkomoko y'Amakuru"
+
+#: thold.php thold_templates.php
+msgid "Style/Format File"
+msgstr "Idosiye y'imigaragarire/imiterere"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Event Category"
+msgstr "Imenyesha rya SNMP - Icyiciro cy'igikorwa"
+
+#: thold.php thold_templates.php
+msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+msgstr "Kugira ngo wemerere NMS gushyira mu byiciro amamenyesha atandukanye ya SNMP ku buryo bworoshye, nyamuneka uzuza icyiciro amamenyesha ya SNMP y'iyi Nyandikorugero agomba gukoresha. Urugero: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+
+#: thold.php thold_templates.php
+msgid "SNMP Event Description"
+msgstr "Isobanuro ry'igikorwa cya SNMP"
+
+#: thold.php thold_templates.php
+msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+msgstr "Ushobora guhindura ibisobanuro by'igikorwa byoherezwa ku bakira ibimenyetso bya SNMP ukoresheje ibihuzanzego by'imihindagurikire. Imihindagurikire isimbura isanzwe y'Igikoresho (|host_*|), iy'Ikibazo cy'Amakuru (|query_*|) ishobora gukoreshwa hamwe na varbinds zikurikira:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Alert Event Severity"
+msgstr "Imenyesha rya SNMP - Uburemere bw'igikorwa cy'impuruza"
+
+#: thold.php
+msgid "Severity to be used for alerts. (low impact -> critical impact)"
+msgstr "Uburemere buzakoreshwa ku mpuruza. (ingaruka nke -> ingaruka zikabije)"
+
+#: thold.php thold_templates.php
+msgid "Medium"
+msgstr "Biringaniye"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Warning Event Severity"
+msgstr "Imenyesha rya SNMP - Uburemere bw'igikorwa cy'iburira"
+
+#: thold.php thold_templates.php
+msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
+msgstr "Uburemere buzakoreshwa ku maburira. (Ingaruka nke -> Ingaruka zikabije).<br>Icyitonderwa: Uburemere bw'amaburira bugomba kungana cyangwa kuba munsi y'uburemere bwagenwe ku mpuruza."
+
+#: thold.php thold_templates.php
+msgid "Notify accounts"
+msgstr "Konti zo kumenyesha"
+
+#: thold.php
+msgid "This is a listing of accounts that will be notified when this Threshold is breached."
+msgstr "Uru ni urutonde rwa konti zizamenyeshwa igihe uru Rwego ntarengwa rurenzweho."
+
+#: thold.php thold_templates.php
+msgid "Alert Emails"
+msgstr "Imeyili z'Integuza"
+
+#: thold.php
+msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
+msgstr "Ushobora kugaragaza hano izindi Imeyili zakira impuruza z'iyi nkomoko y'amakuru (zitandukanyijwe n'akitso)"
+
+#: thold.php thold_templates.php
+msgid "Warning Emails"
+msgstr "Imeyili z'iburira"
+
+#: thold.php
+msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
+msgstr "Ushobora kugaragaza hano izindi Imeyili zakira amaburira y'iyi nkomoko y'amakuru (zitandukanyijwe n'akitso)"
+
+#: thold.php thold_templates.php
+msgid "If checked, Threshold notification will be sent to your local syslog."
+msgstr "Niba bihiswemo, imenyesha ry'Urwego ntarengwa rizoherezwa kuri syslog yawe y'imbere."
+
+#: thold.php thold_templates.php
+msgid "Priority/Level"
+msgstr "Icyihutirwa/Urwego"
+
+#: thold.php thold_templates.php
+msgid "This is the Priority Level that will be logged into your syslog messages."
+msgstr "Urwo ni Urwego rw'Ibanze ruzandikwa mu butumwa bwawe bwa syslog."
+
+#: thold.php thold_templates.php
+msgid "Facility"
+msgstr "Ikigo"
+
+#: thold.php thold_templates.php
+msgid "This is the Facility that will be used for this Threshold."
+msgstr "Iki ni Igice (Facility) kizakoreshwa kuri uru Rwego ntarengwa."
+
+#: thold.php thold_templates.php
+msgid "Event Triggering (Shell Command)"
+msgstr "Gutangiza igikorwa (Itegeko rya Shell)"
+
+#: thold.php thold_templates.php
+msgid "High Trigger Command"
+msgstr "Itegeko ritangiza urwego rwo hejuru"
+
+#: thold.php thold_templates.php
+msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Niba bishyizweho, kandi Urwego ntarengwa rwo hejuru rukarengwa, iri tegeko rizakoreshwa. Nyamuneka andika itegeko rikora. Byongeye kandi, hari utumenyetso twinshi tw'isimbuza tuboneka dushobora gukoreshwa mu kugeza amakuru avuye ku Rwego ntarengwa kuri script. Ushobora kubikora nk'ibipimo ku murongo w'amabwiriza, cyangwa byaba byiza kurushaho, muri environment ya script. Uduciro twose tw'isimbuza tuzagaragara muri environment ya script dutangiwe na THOLD_. Bityo, urugero CURRENTVALUE izaba THOLD_CURRENTVALUE, n'ibindi. Ibihindagurika birimo: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Hanyuma, isimbuza rya Mwakirizi, Ikibazo cy'Amakuru n'Iyinjiza ry'Amakuru rishobora gukorwa. Urugero, niba ufite amakuru yihariye y'iyinjiza ry'amakuru yitwa pending, kugira ngo ukore isimbuza koresha |pending|. Ku bijyanye n'Ikibazo cy'Amakuru, n'isimbuza rya Mwakirizi koresha uburyo bwa Cacti |query_xxxx|, na |host_xxxx| uko bikurikirana."
+
+#: thold.php thold_templates.php
+msgid "Low Trigger Command"
+msgstr "Itegeko ry'impuruza yo hasi"
+
+#: thold.php thold_templates.php
+msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Niba bishyizweho, kandi Urwego ntarengwa rwo hasi rukarengwa, iri tegeko rizakoreshwa. Nyamuneka andika itegeko rikora. Byongeye kandi, hari utumenyetso twinshi tw'isimbuza tuboneka dushobora gukoreshwa mu kugeza amakuru avuye ku Rwego ntarengwa kuri script. Ushobora kubikora nk'ibipimo ku murongo w'amabwiriza, cyangwa byaba byiza kurushaho, muri environment ya script. Uduciro twose tw'isimbuza tuzagaragara muri environment ya script dutangiwe na THOLD_. Bityo, urugero CURRENTVALUE izaba THOLD_CURRENTVALUE, n'ibindi. Ibihindagurika birimo: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Hanyuma, isimbuza rya Mwakirizi, Ikibazo cy'Amakuru n'iyinjiza ry'amakuru rishobora gukorwa. Urugero, niba ufite amakuru yihariye y'iyinjiza ry'amakuru yitwa pending, kugira ngo ukore isimbuza koresha |pending|. Ku bijyanye n'Ikibazo cy'Amakuru, n'isimbuza rya Mwakirizi koresha uburyo bwa Cacti |query_xxxx|, na |host_xxxx| uko bikurikirana."
+
+#: thold.php thold_templates.php
+msgid "Norm Trigger Command"
+msgstr "Itegeko ritangiza risanzwe"
+
+#: thold.php thold_templates.php
+msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Niba bishyizweho, igihe thold isubiye ku gaciro gasanzwe, iri tegeko rizakoreshwa. Nyamuneka andika itegeko rikora. Byongeye kandi, hari utumenyetso twinshi tw'isimbuza tuboneka dushobora gukoreshwa mu kugeza amakuru avuye ku Rwego ntarengwa kuri script. Ushobora kubikora nk'ibipimo ku murongo w'amabwiriza, cyangwa byaba byiza kurushaho, muri environment ya script. Uduciro twose tw'isimbuza tuzagaragara muri environment ya script dutangiwe na THOLD_. Bityo, urugero CURRENTVALUE izaba THOLD_CURRENTVALUE, n'ibindi. Ibihindagurika birimo: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Hanyuma, isimbuza rya Mwakirizi, Ikibazo cy'Amakuru n'iyinjiza ry'amakuru rishobora gukorwa. Urugero, niba ufite amakuru yihariye y'iyinjiza ry'amakuru yitwa pending, kugira ngo ukore isimbuza koresha |pending|. Ku bijyanye n'Ikibazo cy'Amakuru, n'isimbuza rya Mwakirizi koresha uburyo bwa Cacti |query_xxxx|, na |host_xxxx| uko bikurikirana."
+
+#: thold.php thold_templates.php
+msgid "Other Settings"
+msgstr "Irindi genamiterere"
+
+#: thold.php
+msgid "Enter an Eternal ID for this Threshold."
+msgstr "Andika indangamimerere ihoraho kuri uru Rwego ntarengwa."
+
+#: thold.php thold_templates.php
+msgid "Operator Notes"
+msgstr "Inyandiko z'ugenzura"
+
+#: thold.php thold_templates.php
+msgid "Enter instructions here for an operator who may be receiving the Threshold message."
+msgstr "Andika hano amabwiriza agenewe ukoresha sisitemu ushobora kwakira ubutumwa bw'Urwego ntarengwa."
+
+#: thold.php
+msgid "Select Users(s)"
+msgstr "Hitamo Umukoresha (Abakoresha)"
+
+#: thold.php
+msgid "Users Selected"
+msgstr "Abakoresha bahiswemo"
+
+#: thold.php
+msgid "All Users Selected"
+msgstr "Abakoresha bose batoranyijwe"
+
+#: thold_graph.php
+msgid "The Threshold has been Ascknowledged."
+msgstr "Urwego ntarengwa rwemejwe ko rwabonywe."
+
+#: thold_graph.php
+msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
+msgstr "Urwego ntarengwa ntiruzongera gutanga Impuruza, Imenyesha, cyangwa ngo rukore amabwiriza."
+
+#: thold_graph.php
+msgid "The Threshold will restart generating Alerts."
+msgstr "Urwego ntarengwa ruzongera gutangira gutanga Impuruza."
+
+#: thold_graph.php
+msgid "Threshold Status"
+msgstr "Imiterere y'Urwego ntarengwa"
+
+#: thold_graph.php
+msgid "Actions"
+msgstr "Ibikorwa"
+
+#: thold_graph.php
+msgid "Ack Detail"
+msgstr "Ibisobanuro byo kwemeza"
+
+#: thold_graph.php
+msgid "Edit Threshold"
+msgstr "Hindura Urwego ntarengwa"
+
+#: thold_graph.php
+msgid "Disable Threshold"
+msgstr "Hagarika Urwego ntarengwa"
+
+#: thold_graph.php
+msgid "Enable Threshold"
+msgstr "Fungura Urwego ntarengwa"
+
+#: thold_graph.php
+msgid "To enable the Threshold, enable the Template first"
+msgstr "Kugira ngo ufungure Urwego ntarengwa, banza ufungure Inyandikorugero"
+
+#: thold_graph.php
+msgid "View Graph"
+msgstr "Reba igishushanyo"
+
+#: thold_graph.php
+msgid "View Threshold History"
+msgstr "Reba amateka y'urwego ntarengwa"
+
+#: thold_graph.php
+msgid "Suspend Notifications until the Threshold clears"
+msgstr "Hagarika by'agateganyo amamenyesha kugeza igihe Urwego ntarengwa rusubiriye mu buryo"
+
+#: thold_graph.php
+msgid "Resume Notifications for this breached Threshold"
+msgstr "Subukura imenyesha kuri uru Rwego ntarengwa rwarenze"
+
+#: thold_graph.php
+msgid "Acknowledgement Message"
+msgstr "Ubutumwa bwo kwemeza"
+
+#: thold_graph.php
+msgid "Date"
+msgstr "Itariki"
+
+#: thold_graph.php
+msgid "Comment Not Found"
+msgstr "Igitekerezo nticyabonetse"
+
+#: thold_graph.php
+msgid "Ack History"
+msgstr "Amateka yo kwemeza"
+
+#: thold_graph.php
+msgid "No name set"
+msgstr "Nta zina ryashyizweho"
+
+#: thold_graph.php
+msgid "Hover over icons for help"
+msgstr "Zengurutsa imbeba hejuru y'udushusho kugira ngo ubone ubufasha"
+
+#: thold_graph.php
+msgid "A description for the Device"
+msgstr "Ibisobanuro by'Igikoresho"
+
+#: thold_graph.php
+msgid "A Cacti unique identifier for the Device"
+msgstr "Ikirango kihariye cya Cacti cy'Igikoresho"
+
+#: thold_graph.php
+msgid "The number of Graphs for this Device"
+msgstr "Umubare w'Ibishushanyo by'iki Gikoresho"
+
+#: thold_graph.php
+msgid "The number of Data Sources for this Device"
+msgstr "Umubare w'Inkomoko z'Amakuru z'iki Gikoresho"
+
+#: thold_graph.php
+msgid "The status for this Device as of the last time it was polled"
+msgstr "Imiterere y'iki Gikoresho guhera igihe cyakusanyirijwe amakuru bwa nyuma"
+
+#: thold_graph.php
+msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
+msgstr "Igihe cya nyuma Cacti yabonyemo ikibazo kuri iki Gikoresho. Rishobora kuba rinini kuruta igihe Igikoresho kimaze gikora (Uptime), niba cyongeye gutangizwa hagati y'inshuro Cacti ikusanyirizamo amakuru"
+
+#: thold_graph.php
+msgid "Uptime"
+msgstr "Igihe kimaze gikora"
+
+#: thold_graph.php
+msgid "The official uptime of the Device as reported by SNMP"
+msgstr "Igihe nyacyo Igikoresho kimaze gikora nk'uko bitangazwa na SNMP"
+
+#: thold_graph.php
+msgid "The official hostname for this Device"
+msgstr "Izina nyaryo rya mwakirizi ry'iki Gikoresho"
+
+#: thold_graph.php
+msgid "Current (ms)"
+msgstr "Iy'ubu (ms)"
+
+#: thold_graph.php
+msgid "The current response time for the Cacti Availability check"
+msgstr "Igihe cyo gusubiza kiriho ubu ku igenzura ry'Ububoneke bwa Cacti"
+
+#: thold_graph.php
+msgid "Average (ms)"
+msgstr "Ikigereranyo (ms)"
+
+#: thold_graph.php
+msgid "The average response time for the Cacti Availability check"
+msgstr "Impuzandengo y'igihe cyo gusubiza ku igenzura ry'Ububoneke bwa Cacti"
+
+#: thold_graph.php
+msgid "Availability"
+msgstr "Kuboneka"
+
+#: thold_graph.php
+msgid "The overall Availability of this Device since the last counter reset in Cacti"
+msgstr "Ukuboneka rusange kw'iki Gikoresho kuva igihe ibara ryasubirwagamo bwa nyuma muri Cacti"
+
+#: thold_graph.php
+msgid "Edit Device"
+msgstr "Hindura igikoresho"
+
+#: thold_graph.php
+msgid "View Graphs"
+msgstr "Kureba Ibishushanyo"
+
+#: thold_graph.php
+msgid "No Devices"
+msgstr "Nta Bikoresho"
+
+#: thold_graph.php
+msgid "Not Up"
+msgstr "Ntigikora"
+
+#: thold_graph.php
+msgid "No Export Rows Found."
+msgstr "Nta mirongo yo kohereza hanze yabonetse."
+
+#: thold_graph.php
+#, php-format
+msgid "Threshold Log for [ %s ]"
+msgstr "Inyandikamateka y'Urwego ntarengwa ya [ %s ]"
+
+#: thold_graph.php
+msgid "Log Entries"
+msgstr "Ibyinjijwe mu nyandiko y'ibikorwa"
+
+#: thold_graph.php
+msgid "Time"
+msgstr "Igihe"
+
+#: thold_graph.php
+msgid "Alert Value"
+msgstr "Agaciro k'Integuza"
+
+#: thold_graph.php
+msgid "Measured Value"
+msgstr "Agaciro kapimwe"
+
+#: thold_graph.php
+msgid "No Threshold Logs Found"
+msgstr "Nta nyandiko z'urwego ntarengwa zabonetse"
+
+#: thold_graph.php
+msgid "Entries"
+msgstr "Ibyinjijwe"
+
+#: thold_templates.php
+msgid "You are not authorised to modify one or more of the Thresholds selected"
+msgstr "Ntabwo ufite uburenganzira bwo guhindura rumwe cyangwa nyinshi mu Nzego ntarengwa zahiswemo"
+
+#: thold_templates.php
+#, php-format
+msgid "%s (%d Thresholds)"
+msgstr "%s (Inzego ntarengwa %d)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to export the following Threshold Template(s)."
+msgstr "Kanda 'Komeza' kugira ngo wohereze hanze Inyandikorugero y'/z'Urwego ntarengwa ikurikira/zikurikira."
+
+#: thold_templates.php
+msgid "Export Template(s)"
+msgstr "Kohereza Inyandikorugero"
+
+#: thold_templates.php
+msgid "Click 'Continue' to delete the following Threshold Template(s)."
+msgstr "Kanda 'Komeza' kugira ngo usibe Inyandikorugero y'/z'Urwego ntarengwa ikurikira/zikurikira."
+
+#: thold_templates.php
+msgid "Delete Template(s)"
+msgstr "Siba Inyandikorugero"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Reapply Suggested Names to Thresholds of the following Threshold Template(s)."
+msgstr "Kanda 'Komeza' kugira ngo wongere ushyireho Amazina yatanzwe ku Nzego ntarengwa z'Inyandikorugero y'/z'Urwego ntarengwa ikurikira/zikurikira."
+
+#: thold_templates.php
+msgid "Reapply Suggested Names to Template(s)"
+msgstr "Ongera ushyire amazina asabwa ku Inyandikorugero"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Enable the selected Template(s) and Threshold(s)."
+msgstr "Kanda 'Komeza' kugira ngo ufungure Inyandikorugero n'Urwego/Inzego ntarengwa byatoranyijwe."
+
+#: thold_templates.php
+msgid "Enable Template(s)"
+msgstr "Fungura Inyandikorugero"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
+msgstr "Kanda 'Komeza' kugira ngo uhagarike Inyandikorugero n'Inzego ntarengwa byahiswemo."
+
+#: thold_templates.php
+msgid "Disable Template(s)"
+msgstr "Hagarika Inyandikorugero"
+
+#: thold_templates.php
+msgid "Threshold Template Creation Wizard"
+msgstr "Ubufasha bwo Kurema Inyandikorugero y'Urwego ntarengwa"
+
+#: thold_templates.php
+msgid "Please select a Data Template"
+msgstr "Nyamuneka hitamo Inyandikorugero y'Amakuru"
+
+#: thold_templates.php
+msgid "Please select a Data Source"
+msgstr "Nyamuneka hitamo Inkomoko y'Amakuru"
+
+#: thold_templates.php
+msgid "Please press 'Create' to create your Threshold Template"
+msgstr "Nyamuneka kanda 'Hanga' kugira ngo uhange Inyandikorugero y'Urwego ntarengwa yawe"
+
+#: thold_templates.php
+msgid "The Threshold Template requested can not be found"
+msgstr "Inyandikorugero y'Urwego ntarengwa yasabwe ntishobora kuboneka"
+
+#: thold_templates.php
+msgid "Provide the Threshold Template a meaningful name."
+msgstr "Ha Inyandikorugero y'Urwego ntarengwa izina rifite ireme."
+
+#: thold_templates.php
+msgid "Suggested Threshold Name"
+msgstr "Izina ry'Urwego ntarengwa riteganyijwe"
+
+#: thold_templates.php
+msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
+msgstr "Tanga izina ryifuzwa ku Rwego ntarengwa rwakozwe hakoreshejwe iyi Nyandikorugero. Ibimenyetso bisimbura bisanzwe by'Igikoresho (|host_*|), Ububazo bw'Amakuru (|query_*|) n'Ibyinjizwa (|input_*|) bishobora gukoreshwa kimwe na |graph_title| ku Mutwe w'Igishushanyo."
+
+#: thold_templates.php
+msgid "Data Template that you are using. (This cannot be changed)"
+msgstr "Inyandikorugero y'amakuru urimo ukoresha. (Ibi ntibishobora guhindurwa)"
+
+#: thold_templates.php
+msgid "Data Field"
+msgstr "Umwanya w'amakuru"
+
+#: thold_templates.php
+msgid "Data Field that you are using. (This cannot be changed)"
+msgstr "Umwanya w'amakuru urimo ukoresha. (Ibi ntibishobora guhindurwa)"
+
+#: thold_templates.php
+msgid "Whether or not this Threshold will be checked and alerted upon."
+msgstr "Niba uru Rwego ntarengwa ruzasuzumwa kandi rukatanga impuruza cyangwa rutazabikora."
+
+#: thold_templates.php
+msgid "Repeat alert after this amount of time has pasted since the last alert."
+msgstr "Subiramo impuguro nyuma y'uko iki gihe gishize uhereye ku mpuguro ya nyuma."
+
+#: thold_templates.php
+msgid "Min Trigger Duration"
+msgstr "Igihe gito cyo kubyutsa"
+
+#: thold_templates.php
+msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
+msgstr "Igihe Inkomoko y'Amakuru igomba kumara iri mu miterere yo kurenga kugira ngo impuruza itangwe."
+
+#: thold_templates.php
+msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
+msgstr "Umubare w'inshuro Inkomoko y'Amakuru igomba kuba yarenze urwego mbere yo gutanga iburira."
+
+#: thold_templates.php
+msgid "Time Period Length"
+msgstr "Uburebure bw'Igihe"
+
+#: thold_templates.php
+msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
+msgstr "Umubare w'inshuro Inkomoko y'Amakuru igomba kuba yarenze urwego mbere yo gutanga impuruza."
+
+#: thold_templates.php
+msgid "Baseline Monitoring"
+msgstr "Igenzura ry'umurongo fatizo"
+
+#: thold_templates.php
+#, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Bigena ikinyuranyo cyemewe ku Rwego ntarengwa rwo hejuru. Niba bitashyizweho, Urwego ntarengwa rwo hejuru ntiruzagenzurwa na gato. Igipimo ni agaciro nyako ku bwoko bwa 'Agaciro Nyako', n'ijanisha kuri '%% Ikinyuranyo' na '%% Impuzandengo Igenda'"
+
+#: thold_templates.php
+#, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Bigena ikinyuranyo cyemewe ku Rwego ntarengwa rwo hasi. Niba bitashyizweho, Urwego ntarengwa rwo hasi ntiruzagenzurwa na gato. Igipimo ni agaciro nyako ku bwoko bwa 'Agaciro Nyako', n'ijanisha kuri '%% Ikinyuranyo' na '%% Impuzandengo Igenda'"
+
+#: thold_templates.php
+#, php-format
+msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
+msgstr "Umubare w'inshuro zikurikirana Inkomoko y'Amakuru igomba kuba mu miterere yarengeje urwego kugira ngo impuruza itangwe.<br>Siga harimo ubusa kugira ngo ukoreshe agaciro mbanziriza (Mbanziriza: inshuro %s"
+
+#: thold_templates.php
+msgid "Percent Datasource"
+msgstr "Ijanisha ry'Inkomoko y'Amakuru"
+
+#: thold_templates.php
+msgid "Second Datasource Item to use as total value to calculate percentage from."
+msgstr "Ikintu cya Kabiri cy'Inkomoko y'Amakuru cyo gukoresha nk'agaciro rusange ko kubariraho ijanisha."
+
+#: thold_templates.php
+#, php-format
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Imvugo ya RPN ni imvugo ya RPN ihuza na RRDtool.  Imyandikire irimo imikoro yose iri hasi hamwe n'imvugo zisimbura z'Igikoresho n'iz'Ibaza ry'Amakuru nka <span style=\"color:blue;\">|query_ifSpeed|</span>.  Kugira ngo ukoreshe Inkomoko y'Amakuru mu mvugo ya RPN, ugomba gukoresha imyandikire: <span style=\"color:blue;\">|ds:dsname|</span>.  Urugero, <span style=\"color:blue;\">|ds:traffic_in|</span> izabona agaciro k'ubu k'Inkomoko y'Amakuru ya traffic_in muri dosiye ya RRD ihujwe n'Igishushanyo. Inkomoko y'Amakuru iyo ari yo yose y'Igishushanyo ishobora kongerwamo.<br>Ibimenyetso by'imibare: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Imikoro: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Ibimenyetso by'urujya n'uruza: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Imikoro yo kugereranya: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+
+#: thold_templates.php
+msgid "Upper data source to use to calculate the total value."
+msgstr "Inkomoko y'Amakuru yo hejuru yo gukoresha mu kubara agaciro kose."
+
+#: thold_templates.php
+msgid "Alert Email Subject"
+msgstr "Umutwe w'Imeyili y'Integuza"
+
+#: thold_templates.php
+msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Uyu ni umutwe w'Imeyili uzagaragara mu Imeyili (Ntarengwa y'Inyuguti 128). Siga harimo ubusa kugira ngo hakoreshwe ibisanzwe. Hari utumenyetso dusanzwe dusimbura dushobora gukoreshwa turimo:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "Alert Email Body"
+msgstr "Umubiri w'Imeyili y'Integuza"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Ubu ni ubutumwa buzagaragara hejuru y'amamenyesha yose y'Urwego ntarengwa (Inyuguti 1024 NTARENGWA).  HTML iremewe, ariko izakurwaho kuri imeyili z'inyandiko gusa.  Hariho utumenyetso dusanzwe dusimbura dushobora gukoreshwa turimo:<br>urugero: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold_templates.php
+msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Uyu ni umutwe w'Iburira uzagaragara mu Imeyili (Ntarengwa y'Inyuguti 128). Siga harimo ubusa kugira ngo hakoreshwe ibisanzwe. Hari utumenyetso dusanzwe dusimbura dushobora gukoreshwa turimo:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Ubu ni ubutumwa buzagaragara hejuru y'Amaburira yose y'Urwego ntarengwa (Inyuguti 1024 NTARENGWA).  HTML iremewe, ariko izakurwaho kuri imeyili z'inyandiko gusa.  Hariho utumenyetso dusanzwe dusimbura dushobora gukoreshwa turimo:<br>urugero: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold_templates.php
+msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Uyu ni umutwe w'Imeyili uzagaragara mu Imeyili nyuma yo Gusubira ku miterere Isanzwe (Ntarengwa y'Inyuguti 128). Siga harimo ubusa kugira ngo hakoreshwe ibisanzwe. Hari utumenyetso dusanzwe dusimbura dushobora gukoreshwa turimo:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "Restoral Body"
+msgstr "Igice cy'ubutumwa bw'igarura"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Ubu ni ubutumwa buzagaragara hejuru y'amamenyesha yose yo kugaruka ku rwego rw'Urwego ntarengwa (Inyuguti 1024 NTARENGWA).  HTML iremewe, ariko izakurwaho kuri Imeyili z'inyandiko gusa.  Hariho utumenyetso dusanzwe dusimbura dushobora gukoreshwa turimo:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: thold_templates.php
+msgid "Notification List Read Only"
+msgstr "Urutonde rw'imenyesha rwo gusoma gusa"
+
+#: thold_templates.php
+msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
+msgstr "Niba bihiswemo, Intonde z'Imenyekanisha ry'Urwego ntarengwa ziri mu Nyandikorugero zizasimbura iz'Urwego ntarengwa."
+
+#: thold_templates.php
+msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
+msgstr "Uburemere buzakoreshwa ku mpuruza. (Ingaruka nke -> Ingaruka zikabije)"
+
+#: thold_templates.php
+msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
+msgstr "Uru ni urutonde rwa konti zizamenyeshwa igihe uru Rwego ntarengwa rurenzweho.<br><br><br><br>"
+
+#: thold_templates.php
+msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
+msgstr "Ushobora kugaragaza hano izindi Imeyili zakira impuruza z'iyi Nkomoko y'Amakuru (zitandukanyijwe n'akitso)"
+
+#: thold_templates.php
+msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
+msgstr "Ushobora kugaragaza hano izindi Imeyili zakira amaburira y'iyi Nkomoko y'Amakuru (zitandukanyijwe n'akitso)"
+
+#: thold_templates.php
+msgid "Enter an Eternal ID for this Thold Template."
+msgstr "Andika indangamimerere ihoraho kuri iyi Nyandikorugero ya Thold."
+
+#: thold_templates.php
+#, php-format
+msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "Amezi %d, Iminsi %d, Amasaha %d, Iminota %d, Amasegonda %d (Impuzandengo)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
+msgstr "Amezi %d, Iminsi %d, Amasaha %d, Iminota %d, Amasegonda %d"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "Iminsi %d, Amasaha %d, Iminota %d, Amasegonda %d (Impuzandengo)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
+msgstr "Iminsi %d, Amasaha %d, Iminota %d, Amasegonda %d"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "Amasaha %d, Iminota %d, Amasegonda %d (Impuzandengo)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Hours, %d Minutes, %d Seconds"
+msgstr "Amasaha %d, Iminota %d, Amasegonda %d"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Minutes, %d Seconds (Average)"
+msgstr "Iminota %d, Amasegonda %d (Impuzandengo)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Minutes, %d Seconds"
+msgstr "Iminota %d, Amasegonda %d"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Seconds (Average)"
+msgstr "Amasegonda %d (Impuzandengo)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Seconds"
+msgstr "Amasegonda %d"
+
+#: thold_templates.php
+msgid "DS Name"
+msgstr "Izina rya DS"
+
+#: thold_templates.php
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
+msgstr "Agaciro ko hejuru k'Iburira / Imenyekanisha.  ICYITONDERWA: Agaciro k'umurongo fatizo kari ku ijanisha, ubundi bwose ni agaciro MBISI katigeze gahindurwa na cdef."
+
+#: thold_templates.php
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
+msgstr "Agaciro ko hasi k'Iburira / Imenyekanisha.  ICYITONDERWA: Agaciro k'umurongo fatizo kari ku ijanisha, ubundi bwose ni agaciro MBISI katigeze gahindurwa na cdef."
+
+#: thold_templates.php
+msgid "Import Template from Local File"
+msgstr "Kwinjiza inyandikorugero uvanye muri dosiye yo ku mashini"
+
+#: thold_templates.php
+msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
+msgstr "Niba dosiye ya XML irimo amakuru y'Inyandikorugero y'Urwego ntarengwa iri ku mashini yawe y'imbere, yihitemo hano."
+
+#: thold_templates.php
+msgid "Import Template from Text"
+msgstr "Injiza Inyandikorugero uvuye mu Nyandiko"
+
+#: thold_templates.php
+msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
+msgstr "Niba ufite dosiye ya XML irimo amakuru y'Inyandikorugero y'Urwego ntarengwa nk'inyandiko, ushobora kuyomeka muri aka gasanduku kugira ngo uyinjize."
+
+#: thold_templates.php
+msgid "Import Results"
+msgstr "Ibisubizo byo kwinjiza"
+
+#: thold_templates.php
+msgid "Cacti has imported the following items:"
+msgstr "Cacti yatumije ibi bikurikira:"
+
+#: thold_templates.php
+msgid "Import Threshold Templates"
+msgstr "Injiza Inyandikorugero z'Urwego ntarengwa"
+
+#: thold_templates.php
+msgid "The file is too big."
+msgstr "Dosiye ni nini cyane."
+
+#: thold_templates.php
+msgid "Incomplete file transfer."
+msgstr "Ihererekanya rya dosiye ntiryuzuye."
+
+#: thold_templates.php
+msgid "No file uploaded."
+msgstr "Nta dosiye yashyizweho."
+
+#: thold_templates.php
+msgid "Temporary folder missing."
+msgstr "Ububiko bw'agateganyo burabura."
+
+#: thold_templates.php
+msgid "Failed to write file to disk"
+msgstr "Kwandika dosiye kuri disiki byanze"
+
+#: thold_templates.php
+msgid "File upload stopped by extension"
+msgstr "Iyoherezwa rya dosiye ryahagaritswe n'umugereka wa dosiye"
+
+#: thold_templates.php
+msgid "Invalid file extension."
+msgstr "Umugereka wa dosiye ntiwemewe."
+
+#: thold_templates.php
+msgid "NOTE:"
+msgstr "ICYITONDERWA:"
+
+#: thold_templates.php
+msgid "ERROR:"
+msgstr "IKOSA:"
+
