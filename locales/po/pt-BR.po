@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Portuguese (Brazil) <https://translate.cacti.net/projects/cacti/thold/pt_BR/>\nLanguage: pt-BR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Portuguese (Brazil) <https://translate.cacti.net/projects/cacti/thold/pt_BR/>\nLanguage: pt-BR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -68,7 +68,7 @@ msgstr "%d Meses"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Year Ago"
-msgstr "%d Ano"
+msgstr "De %d ano atrás"
 
 #: includes/arrays.php
 #, php-format
@@ -325,12 +325,12 @@ msgstr "Cada %d Pollings"
 #: includes/arrays.php
 #, php-format
 msgid "%d Polling"
-msgstr "%d Polling"
+msgstr "%d Coleta"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Pollings"
-msgstr "%d Pollings"
+msgstr "%d Coletas"
 
 #: includes/arrays.php
 msgid "High / Low"
@@ -430,7 +430,7 @@ msgstr "Reaplicar Nomes Sugeridos"
 
 #: includes/arrays.php
 msgid "Propagate Template"
-msgstr "Propagate Template"
+msgstr "Propagar modelo"
 
 #: includes/arrays.php thold_graph.php
 msgid "Export"
@@ -863,7 +863,7 @@ msgstr "Listas de notas (processar)"
 
 #: includes/settings.php
 msgid "Notification Queue"
-msgstr "Lista de notificação"
+msgstr "Fila de notificação"
 
 #: includes/settings.php
 msgid "Management"
@@ -875,7 +875,7 @@ msgstr "Modelos"
 
 #: includes/settings.php thold_graph.php
 msgid "Threshold"
-msgstr "Threshold"
+msgstr "Limiar"
 
 #: includes/settings.php
 msgid "A template with that Data Source already exists!"
@@ -1115,7 +1115,7 @@ msgstr "Se o Thold Daemon estiver fora do ar, envie uma notificação por e-mail
 #: includes/settings.php
 #, php-format
 msgid "Every %d Hour"
-msgstr "Cada %d Horas"
+msgstr "Cada %d Hora"
 
 #: includes/settings.php
 msgid "Daemon Threads"
@@ -1372,7 +1372,7 @@ msgstr "Opções de notificação de dispositivos"
 
 #: includes/settings.php
 msgid "Notification Delay"
-msgstr "Lista de notificação"
+msgstr "Atraso de notificação"
 
 #: includes/settings.php
 msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
@@ -2114,7 +2114,7 @@ msgstr "Retomar processamento de notificações"
 
 #: notify_queue.php
 msgid "Purge"
-msgstr "Limpar"
+msgstr "Purgar"
 
 #: notify_queue.php
 msgid "Purge Notification Queue"
@@ -2122,7 +2122,7 @@ msgstr "Limpar fila de notificações"
 
 #: notify_queue.php
 msgid "Notifications"
-msgstr "Lista de notificação"
+msgstr "Notificações"
 
 #: notify_queue.php
 msgid "The supported notification topic."
@@ -2229,7 +2229,7 @@ msgstr "Alerta baixo para%s (%s)"
 #: setup.php
 #, php-format
 msgid "Warning Hi for %s (%s)"
-msgstr "Alerta Alto para %s (%s)"
+msgstr "Aviso Alto para %s (%s)"
 
 #: setup.php
 #, php-format
@@ -2532,7 +2532,7 @@ msgstr "Confirmação necessária para este Limiar"
 
 #: thold.php thold_graph.php
 msgid "No [Template:Thold]"
-msgstr "Não Template"
+msgstr "Sem [Template:Thold]"
 
 #: thold.php thold_graph.php
 msgid "No [Template]"
@@ -2841,7 +2841,7 @@ msgstr "Função de consolidação"
 
 #: thold.php thold_templates.php
 msgid "Average"
-msgstr "Média (ms)"
+msgstr "Média"
 
 #: thold.php thold_templates.php
 msgid "Minimum"
