@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Arabic (Saudi Arabia) <https://translate.cacti.net/projects/cacti/thold/ar_SA/>\nLanguage: ar-SA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Arabic (Saudi Arabia) <https://translate.cacti.net/projects/cacti/thold/ar_SA/>\nLanguage: ar-SA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -77,7 +77,7 @@ msgstr "منذ %d سنوات"
 
 #: includes/arrays.php thold_graph.php
 msgid "Down"
-msgstr "معطل"
+msgstr "متوقف"
 
 #: includes/arrays.php thold_graph.php
 msgid "Error"
@@ -699,7 +699,7 @@ msgstr "قيد الانتظار"
 
 #: includes/functions.php
 msgid "Errored"
-msgstr "خطأ"
+msgstr "به خطأ"
 
 #: includes/functions.php includes/polling.php thold.php thold_graph.php
 msgid "N/A"
@@ -745,7 +745,7 @@ msgstr "لا تتطابق أعمدة استيراد قالب العتبة مع �
 
 #: includes/functions.php
 msgid "Imported"
-msgstr "استيراد"
+msgstr "مستورد"
 
 #: includes/functions.php
 #, php-format
@@ -754,7 +754,7 @@ msgstr "نموذج العتبة \"%s\" %s!"
 
 #: includes/functions.php
 msgid "Updated"
-msgstr "تحديث"
+msgstr "تم التحديث"
 
 #: includes/functions.php thold_templates.php
 msgid "Import"
@@ -799,7 +799,7 @@ msgstr "خطأ في الأجهزة: <DESCRIPTION> (<HOSTNAME>) لأسفل</HOSTN
 
 #: includes/polling.php
 msgid "DOWN"
-msgstr "معطل"
+msgstr "متوقف"
 
 #: includes/polling.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
@@ -2528,7 +2528,7 @@ msgstr "كرر"
 
 #: thold.php thold_graph.php
 msgid "In State"
-msgstr "الحالة"
+msgstr "في الحالة"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
