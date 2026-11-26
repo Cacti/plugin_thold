@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Spanish <https://translate.cacti.net/projects/cacti/thold/es/>\nLanguage: es-ES\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Spanish <https://translate.cacti.net/projects/cacti/thold/es/>\nLanguage: es-ES\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -68,7 +68,7 @@ msgstr "%d Meses"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Year Ago"
-msgstr "%d Año"
+msgstr "Desde hace %d año"
 
 #: includes/arrays.php
 #, php-format
@@ -581,7 +581,7 @@ msgstr "%% Desv. [AOT:%s]"
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [AOT:%s]"
-msgstr "Abs Val [AOT:%s]"
+msgstr "Val. abs. [AOT:%s]"
 
 #: includes/functions.php
 msgid "The Device ID was not set while trying to create Graph and Threshold"
@@ -745,7 +745,7 @@ msgstr "Las columnas de importación de la plantilla de umbral no coinciden con 
 
 #: includes/functions.php
 msgid "Imported"
-msgstr "Importar"
+msgstr "Importado"
 
 #: includes/functions.php
 #, php-format
@@ -754,7 +754,7 @@ msgstr "Plantilla de umbral '%s' %s!"
 
 #: includes/functions.php
 msgid "Updated"
-msgstr "Actualizar"
+msgstr "Actualizado"
 
 #: includes/functions.php thold_templates.php
 msgid "Import"
@@ -823,7 +823,7 @@ msgstr "(añadir)"
 
 #: includes/settings.php
 msgid "Threshold Logs"
-msgstr "Umbrales"
+msgstr "Registros de umbrales"
 
 #: includes/settings.php
 msgid "Thresholds - Failures"
@@ -1136,7 +1136,7 @@ msgstr "Procesos %d"
 
 #: includes/settings.php
 msgid "Logging"
-msgstr "Registro"
+msgstr "Registro de actividad"
 
 #: includes/settings.php
 msgid "Log Threshold Breaches"
@@ -2162,7 +2162,7 @@ msgstr "La hora del evento definida por quien realiza la llamada."
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
-msgstr "¿Se ha procesado el evento de notificación?"
+msgstr "Indica si se ha procesado el evento de notificación."
 
 #: notify_queue.php
 msgid "Errors"
@@ -2532,7 +2532,7 @@ msgstr "Reconocimiento requerido para este Umbral"
 
 #: thold.php thold_graph.php
 msgid "No [Template:Thold]"
-msgstr "Sin plantilla"
+msgstr "No [Plantilla:Thold]"
 
 #: thold.php thold_graph.php
 msgid "No [Template]"
@@ -2540,7 +2540,7 @@ msgstr "No hay plantillas"
 
 #: thold.php thold_graph.php
 msgid "No [Thold]"
-msgstr "Umbrales"
+msgstr "No [Thold]"
 
 #: thold.php thold_graph.php
 #, php-format
