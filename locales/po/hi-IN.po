@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hindi <https://translate.cacti.net/projects/cacti/thold/hi/>\nLanguage: hi-IN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hindi <https://translate.cacti.net/projects/cacti/thold/hi/>\nLanguage: hi-IN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -614,7 +614,7 @@ msgstr "रिकॉर्ड अपडेट किया गया"
 #: includes/functions.php
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "थ्रेशोल्ड '%2$d' पर लिंक किया गया ग्राफ़ टेम्पलेट आइटम '%1$d' खोजने में विफल"
+msgstr "लिंक किया गया ग्राफ़ टेम्पलेट आइटम '%d' थ्रेशोल्ड '%d' पर नहीं मिला"
 
 #: includes/functions.php
 #, php-format
@@ -1665,7 +1665,7 @@ msgstr "बनाया गया ग्राफ़: %s"
 
 #: notify_lists.php
 msgid "Duplicate"
-msgstr "प्रतिलिपि"
+msgstr "डुप्लीकेट"
 
 #: notify_lists.php
 msgid "Associate"
@@ -1839,7 +1839,7 @@ msgstr "इस अधिसूचना सूची से सभी अधि�
 
 #: notify_lists.php
 msgid "To Email Addresses"
-msgstr "ईमेल पता"
+msgstr "ईमेल पते (To)"
 
 #: notify_lists.php
 msgid "Enter a comma separated list of Email addresses for this Notification List."
@@ -1847,7 +1847,7 @@ msgstr "इस अधिसूचना सूची के लिए ईमे�
 
 #: notify_lists.php
 msgid "BCC Email Addresses"
-msgstr "ईमेल पता"
+msgstr "ईमेल पते (BCC)"
 
 #: notify_lists.php
 msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
@@ -1889,7 +1889,7 @@ msgstr "संबद्ध"
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
 msgid "Go"
-msgstr "लागू करें"
+msgstr "जाएं"
 
 #: notify_lists.php notify_queue.php
 msgid "Set/Refresh Filters"
@@ -2229,12 +2229,12 @@ msgstr "%s के लिए निम्न अलर्ट (%s)"
 #: setup.php
 #, php-format
 msgid "Warning Hi for %s (%s)"
-msgstr "%1$s के लिए उच्च चेतावनी (%2$s)"
+msgstr "%s के लिए उच्च चेतावनी (%s)"
 
 #: setup.php
 #, php-format
 msgid "Warning Low for %s (%s)"
-msgstr "%1$s के लिए निम्न चेतावनी (%2$s)"
+msgstr "%s के लिए निम्न चेतावनी (%s)"
 
 #: setup.php
 #, php-format
@@ -2949,7 +2949,7 @@ msgstr "थ्रेशोल्ड और वर्तमान मानों
 #: thold.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "RPN एक्सप्रेशन एक RRDtool संगत RPN एक्सप्रेशन है। इसके सिंटैक्स में नीचे दिए गए सभी फ़ंक्शन के साथ-साथ डिवाइस और डेटा क्वेरी प्रतिस्थापन एक्सप्रेशन जैसे <span class=\"deviceUp\">|query_ifSpeed|</span> भी शामिल हैं। RPN एक्सप्रेशन में किसी डेटा स्रोत का उपयोग करने के लिए, आपको इस सिंटैक्स का उपयोग करना होगा: <span class=\"deviceUp\">|ds:dsname|</span>। उदाहरण के लिए, <span class=\"deviceUp\">|ds:traffic_in|</span> ग्राफ़ से जुड़ी RRD फ़ाइल(फ़ाइलों) के लिए traffic_in डेटा स्रोत का वर्तमान मान प्राप्त करेगा। ग्राफ़ के किसी भी डेटा स्रोत को शामिल किया जा सकता है।<br><br>गणितीय ऑपरेटर: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>फ़ंक्शन: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>फ़्लो ऑपरेटर: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>तुलना फ़ंक्शन: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%1$s %2$s"
+msgstr "RPN एक्सप्रेशन एक RRDtool संगत RPN एक्सप्रेशन है। इसके सिंटैक्स में नीचे दिए गए सभी फ़ंक्शन के साथ-साथ डिवाइस और डेटा क्वेरी प्रतिस्थापन एक्सप्रेशन जैसे <span class=\"deviceUp\">|query_ifSpeed|</span> भी शामिल हैं। RPN एक्सप्रेशन में किसी डेटा स्रोत का उपयोग करने के लिए, आपको इस सिंटैक्स का उपयोग करना होगा: <span class=\"deviceUp\">|ds:dsname|</span>। उदाहरण के लिए, <span class=\"deviceUp\">|ds:traffic_in|</span> ग्राफ़ से जुड़ी RRD फ़ाइल(फ़ाइलों) के लिए traffic_in डेटा स्रोत का वर्तमान मान प्राप्त करेगा। ग्राफ़ के किसी भी डेटा स्रोत को शामिल किया जा सकता है।<br><br>गणितीय ऑपरेटर: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>फ़ंक्शन: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>फ़्लो ऑपरेटर: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>तुलना फ़ंक्शन: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
@@ -3363,7 +3363,7 @@ msgstr "आप चयनित थ्रेसहोल्ड में से �
 #: thold_templates.php
 #, php-format
 msgid "%s (%d Thresholds)"
-msgstr "%1$s (%2$d थ्रेशोल्ड)"
+msgstr "%s (%d थ्रेशोल्ड)"
 
 #: thold_templates.php
 msgid "Click 'Continue' to export the following Threshold Template(s)."
@@ -3507,7 +3507,7 @@ msgstr "प्रतिशत से गणना करने के लिए 
 #: thold_templates.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "RPN एक्सप्रेशन एक RRDtool संगत RPN एक्सप्रेशन है। इसके सिंटैक्स में नीचे दिए गए सभी फ़ंक्शन के साथ-साथ डिवाइस और डेटा क्वेरी प्रतिस्थापन एक्सप्रेशन जैसे <span style=\"color:blue;\">|query_ifSpeed|</span> भी शामिल हैं। RPN एक्सप्रेशन में किसी डेटा स्रोत का उपयोग करने के लिए, आपको इस सिंटैक्स का उपयोग करना होगा: <span style=\"color:blue;\">|ds:dsname|</span>। उदाहरण के लिए, <span style=\"color:blue;\">|ds:traffic_in|</span> ग्राफ़ से जुड़ी RRD फ़ाइल(फ़ाइलों) के लिए traffic_in डेटा स्रोत का वर्तमान मान प्राप्त करेगा। ग्राफ़ के किसी भी डेटा स्रोत को शामिल किया जा सकता है।<br>गणितीय ऑपरेटर: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>फ़ंक्शन: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>फ़्लो ऑपरेटर: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>तुलना फ़ंक्शन: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%1$s %2$s"
+msgstr "RPN एक्सप्रेशन एक RRDtool संगत RPN एक्सप्रेशन है। इसके सिंटैक्स में नीचे दिए गए सभी फ़ंक्शन के साथ-साथ डिवाइस और डेटा क्वेरी प्रतिस्थापन एक्सप्रेशन जैसे <span style=\"color:blue;\">|query_ifSpeed|</span> भी शामिल हैं। RPN एक्सप्रेशन में किसी डेटा स्रोत का उपयोग करने के लिए, आपको इस सिंटैक्स का उपयोग करना होगा: <span style=\"color:blue;\">|ds:dsname|</span>। उदाहरण के लिए, <span style=\"color:blue;\">|ds:traffic_in|</span> ग्राफ़ से जुड़ी RRD फ़ाइल(फ़ाइलों) के लिए traffic_in डेटा स्रोत का वर्तमान मान प्राप्त करेगा। ग्राफ़ के किसी भी डेटा स्रोत को शामिल किया जा सकता है।<br>गणितीय ऑपरेटर: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>फ़ंक्शन: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>फ़्लो ऑपरेटर: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>तुलना फ़ंक्शन: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold_templates.php
 msgid "Upper data source to use to calculate the total value."
@@ -3580,42 +3580,42 @@ msgstr "इस Thold टेम्पलेट के लिए एक Eternal ID
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "%1$d महीने, %2$d दिन, %3$d घंटे, %4$d मिनट, %5$d सेकंड (औसत)"
+msgstr "%d महीने, %d दिन, %d घंटे, %d मिनट, %d सेकंड (औसत)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "%1$d महीने, %2$d दिन, %3$d घंटे, %4$d मिनट, %5$d सेकंड"
+msgstr "%d महीने, %d दिन, %d घंटे, %d मिनट, %d सेकंड"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "%1$d दिन, %2$d घंटे, %3$d मिनट, %4$d सेकंड (औसत)"
+msgstr "%d दिन, %d घंटे, %d मिनट, %d सेकंड (औसत)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "%1$d दिन, %2$d घंटे, %3$d मिनट, %4$d सेकंड"
+msgstr "%d दिन, %d घंटे, %d मिनट, %d सेकंड"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "%1$d घंटे, %2$d मिनट, %3$d सेकंड (औसत)"
+msgstr "%d घंटे, %d मिनट, %d सेकंड (औसत)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
-msgstr "%1$d घंटे, %2$d मिनट, %3$d सेकंड"
+msgstr "%d घंटे, %d मिनट, %d सेकंड"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds (Average)"
-msgstr "%1$d मिनट, %2$d सेकंड (औसत)"
+msgstr "%d मिनट, %d सेकंड (औसत)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds"
-msgstr "%1$d मिनट, %2$d सेकंड"
+msgstr "%d मिनट, %d सेकंड"
 
 #: thold_templates.php
 #, php-format
