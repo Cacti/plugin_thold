@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -28,52 +28,52 @@ msgstr "%d წელი"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hour Ago"
-msgstr ""
+msgstr "%d საათის წინიდან"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hours Ago"
-msgstr ""
+msgstr "%d საათის წინიდან"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Day Ago"
-msgstr ""
+msgstr "%d დღის წინიდან"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Days Ago"
-msgstr ""
+msgstr "%d დღის წინიდან"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Week Ago"
-msgstr ""
+msgstr "%d კვირის წინიდან"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Weeks Ago"
-msgstr ""
+msgstr "%d კვირის წინიდან"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Month Ago"
-msgstr ""
+msgstr "%d თვის წინიდან"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Months Ago"
-msgstr ""
+msgstr "%d თვის წინიდან"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Year Ago"
-msgstr ""
+msgstr "%d წლის წინიდან"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Years Ago"
-msgstr ""
+msgstr "%d წლის წინიდან"
 
 #: includes/arrays.php thold_graph.php
 msgid "Down"
@@ -138,7 +138,7 @@ msgstr "თავიდან დატრიგერება"
 
 #: includes/arrays.php
 msgid "Notify - Restoral"
-msgstr ""
+msgstr "შეტყობინება - აღდგენა"
 
 #: includes/arrays.php
 msgid "Restoral"
@@ -146,7 +146,7 @@ msgstr "აღმდგენი"
 
 #: includes/arrays.php
 msgid "Event - Alert Trigger"
-msgstr ""
+msgstr "მოვლენა - განგაშის ტრიგერი"
 
 #: includes/arrays.php
 msgid "Alert Event"
@@ -154,7 +154,7 @@ msgstr "განგაშის მოვლენა"
 
 #: includes/arrays.php
 msgid "Event - Warning Trigger"
-msgstr ""
+msgstr "მოვლენა - გაფრთხილების ტრიგერი"
 
 #: includes/arrays.php
 msgid "Warning Event"
@@ -206,7 +206,7 @@ msgstr "ცნობა"
 
 #: includes/arrays.php thold.php thold_graph.php
 msgid "Ok"
-msgstr "დიახ"
+msgstr "კარგი"
 
 #: includes/arrays.php
 msgid "Emergency"
@@ -347,38 +347,38 @@ msgstr "დროზე დაფუძნებული"
 #: includes/arrays.php
 #, php-format
 msgid "%% Deviation Min/Max [TIP]"
-msgstr ""
+msgstr "%% გადახრა მინ/მაქს [TIP]"
 
 #: includes/arrays.php
 #, php-format
 msgid "%% Deviation CF [TIP]"
-msgstr ""
+msgstr "%% გადახრა CF [TIP]"
 
 #: includes/arrays.php
 msgid "Absolute Val Min/Max [TIP]"
-msgstr ""
+msgstr "აბსოლუტური მნიშვნელობა მინ/მაქს [TIP]"
 
 #: includes/arrays.php
 msgid "Absolute Val of CF [TIP]"
-msgstr ""
+msgstr "CF-ის აბსოლუტური მნიშვნელობა [TIP]"
 
 #: includes/arrays.php
 #, php-format
 msgid "%% Deviation Avg [AOT]"
-msgstr ""
+msgstr "%% გადახრა საშუალოდან [AOT]"
 
 #: includes/arrays.php
 #, php-format
 msgid "%% Deviation Avg of CF [AOT]"
-msgstr ""
+msgstr "%% გადახრა CF-ის საშუალოდან [AOT]"
 
 #: includes/arrays.php
 msgid "Absolute Val Avg [AOT]"
-msgstr ""
+msgstr "საშუალოს აბსოლუტური მნიშვნელობა [AOT]"
 
 #: includes/arrays.php
 msgid "Absolute Val Avg of CF [AOT]"
-msgstr ""
+msgstr "CF-ის საშუალოს აბსოლუტური მნიშვნელობა [AOT]"
 
 #: includes/arrays.php
 msgid "Exact Value"
@@ -398,7 +398,7 @@ msgstr "RPM გამოსახულება"
 
 #: includes/arrays.php
 msgid "Upper + Lower bytes"
-msgstr ""
+msgstr "ზედა + ქვედა ბაიტები"
 
 #: includes/arrays.php
 msgid "Acknowledge"
@@ -454,11 +454,11 @@ msgstr "ზღვრის ბრძანება"
 
 #: includes/arrays.php
 msgid "Down Host Cmd"
-msgstr ""
+msgstr "გათიშული ჰოსტის ბრძანება"
 
 #: includes/arrays.php
 msgid "Up Host Cmd"
-msgstr ""
+msgstr "ჩართული ჰოსტის ბრძანება"
 
 #: includes/arrays.php
 msgid "Auto"
@@ -483,25 +483,23 @@ msgid "> %d Devices"
 msgstr "> %d მოწყობილობა"
 
 #: includes/arrays.php
-#, fuzzy, php-format
-#| msgid "> %d Devices"
+#, php-format
 msgid "> %d %% of Devices Globally"
-msgstr "> %d მოწყობილობა"
+msgstr "> მოწყობილობების %d %% გლობალურად"
 
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices in a Site"
-msgstr ""
+msgstr "> %d მოწყობილობა საიტზე"
 
 #: includes/arrays.php
-#, fuzzy, php-format
-#| msgid "> %d Devices"
+#, php-format
 msgid "> %d %% of Devices in a Site"
-msgstr "> %d მოწყობილობა"
+msgstr "> მოწყობილობების %d %% ობიექტზე"
 
 #: includes/functions.php
 msgid "< 1 Minute"
-msgstr ""
+msgstr "< 1 წუთი"
 
 #: includes/functions.php
 msgid "Since Created"
@@ -542,7 +540,7 @@ msgstr "გვერდები:"
 
 #: includes/functions.php
 msgid "Only logging, maint device"
-msgstr ""
+msgstr "მხოლოდ ჟურნალირება, მოვლის რეჟიმში მყოფი მოწყობილობა"
 
 #: includes/functions.php notify_lists.php notify_queue.php thold.php
 #: thold_graph.php thold_templates.php
@@ -551,19 +549,19 @@ msgstr "ნაგულისხმევი"
 
 #: includes/functions.php
 msgid "Link to Graph in Cacti"
-msgstr ""
+msgstr "ბმული გრაფიკზე Cacti-ში"
 
 #: includes/functions.php
 msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr ""
+msgstr "<html><body>გამოგზავნილია განგაში, რომელიც თქვენს ყურადღებას მოითხოვს.<br><br><b>მოწყობილობა</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>შეტყობინება</b>: <SUBJECT><br><br><GRAPH></body></html>"
 
 #: includes/functions.php
 msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr ""
+msgstr "<html><body>გამოგზავნილია გაფრთხილება, რომელიც თქვენს ყურადღებას მოითხოვს.<br><br><b>მოწყობილობა</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>შეტყობინება</b>: <SUBJECT><br><br><GRAPH></body></html>"
 
 #: includes/functions.php
 msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr ""
+msgstr "<html><body>ზღვარი დაუბრუნდა ნორმალურ სტატუსს.<br><br><strong>მოწყობილობა</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>შეტყობინება</strong>: <SUBJECT><br><br><GRAPH></body></html>"
 
 #: includes/functions.php
 #, php-format
@@ -576,10 +574,9 @@ msgid "Abs Val [TIP:%s]"
 msgstr "აბს მნ [მინიშნ:%s]"
 
 #: includes/functions.php
-#, fuzzy, php-format
-#| msgid "%% Dev [TIP:%s]"
+#, php-format
 msgid "%% Dev [AOT:%s]"
-msgstr "%% მოწყ [TIP:%s]"
+msgstr "%% მოწყ [AOT:%s]"
 
 #: includes/functions.php
 #, php-format
@@ -588,23 +585,23 @@ msgstr "აბს. მნ. [AOT:%s]"
 
 #: includes/functions.php
 msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr ""
+msgstr "გრაფიკისა და ზღვრის შექმნის მცდელობისას მოწყობილობის ID არ იყო დაყენებული"
 
 #: includes/functions.php
 msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr ""
+msgstr "გრაფიკისა და ზღვრის შექმნის მცდელობისას ზღვრის შაბლონის ID ვერ მოიძებნა"
 
 #: includes/functions.php
 msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr ""
+msgstr "გრაფიკისა და ზღვრის შექმნის მცდელობისას ზღვრის შაბლონის ID არ იყო დაყენებული"
 
 #: includes/functions.php
 msgid "The Graph Creation failed for Threshold Template"
-msgstr ""
+msgstr "ზღვრის შაბლონისთვის გრაფიკის შექმნა ვერ მოხერხდა"
 
 #: includes/functions.php
 msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr ""
+msgstr "ზღვარი ავტომატურად შეიქმნა მოწყობილობის შაბლონის შესაბამისობის გამო"
 
 #: includes/functions.php
 msgid "Permission Denied"
@@ -617,7 +614,7 @@ msgstr "ჩანაწერი განახლდა"
 #: includes/functions.php
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr ""
+msgstr "დაკავშირებული გრაფიკის შაბლონის ელემენტი '%d' ვერ მოიძებნა ზღვარზე '%d'"
 
 #: includes/functions.php
 #, php-format
@@ -626,55 +623,55 @@ msgstr "შეიქმნა ზღვარი: %s"
 
 #: includes/functions.php
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr ""
+msgstr "თქვენ უნდა მიუთითოთ „მაღალი განგაშის ზღვარი“ ან „დაბალი განგაშის ზღვარი“, ან ორივე!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr ""
+msgstr "შეუძლებელი ზღვარი: „მაღალი განგაშის ზღვარი“ ნაკლებია „დაბალი განგაშის ზღვარზე“!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr ""
+msgstr "შეუძლებელი ზღვარი: „მაღალი გაფრთხილების ზღვარი“ ნაკლებია „დაბალი გაფრთხილების ზღვარზე“!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr ""
+msgstr "შეუძლებელი ზღვარი: „მაღალი გაფრთხილების ზღვარი“ აღემატება „მაღალი განგაშის ზღვარს“!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr ""
+msgstr "შეუძლებელი ზღვარი: „დაბალი განგაშის ზღვარი“ აღემატება „დაბალი გაფრთხილების ზღვარს“!"
 
 #: includes/functions.php
 msgid "Time reference in the past must be set to positive integer value!"
-msgstr ""
+msgstr "წარსულის დროის მითითება უნდა იყოს დადებითი მთელი რიცხვი!"
 
 #: includes/functions.php
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr ""
+msgstr "თქვენ უნდა მიუთითოთ „საბაზისო გადახრა ზემოთ“ ან „საბაზისო გადახრა ქვემოთ“, ან ორივე!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr ""
+msgstr "შეუძლებელი ზღვარი: „მაღალი განგაშის ზღვარი“ ნაკლებია „დაბალი განგაშის ზღვარზე“"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr ""
+msgstr "შეუძლებელი ზღვარი: განგაშის ტრიგერის რაოდენობა უნდა იყოს 1-ზე მეტი ან ტოლი!"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr ""
+msgstr "შეუძლებელი ზღვარი: განგაშის ტრიგერის რაოდენობა უნდა იყოს ტრიგერის რაოდენობაზე ნაკლები ან ტოლი, ან 1-ის ტოლი!"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr ""
+msgstr "შეუძლებელი ზღვარი: გაფრთხილების ტრიგერის რაოდენობა უნდა იყოს 1-ზე მეტი ან ტოლი!"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr ""
+msgstr "შეუძლებელი ზღვარი: გაფრთხილების ტრიგერის რაოდენობა უნდა იყოს ტრიგერის რაოდენობაზე ნაკლები ან ტოლი, ან 1-ის ტოლი!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr ""
+msgstr "შეუძლებელი ზღვარი: „დაბალი გაფრთხილების ზღვარი“ ნაკლებია „დაბალი განგაშის ზღვარზე“!"
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
@@ -682,15 +679,15 @@ msgstr "უცნობი ზღვრის ტიპი!"
 
 #: includes/functions.php
 msgid "No Thresholds Templates associated with the Device's Template."
-msgstr ""
+msgstr "მოწყობილობის შაბლონთან დაკავშირებული ზღვრების შაბლონები არ არის."
 
 #: includes/functions.php setup.php
 msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
-msgstr ""
+msgstr "ზღვარ(ებ)ი არ შექმნილა. ისინი ან უკვე არსებობს, ან შესაფერისი დამთხვევა ვერ მოიძებნა."
 
 #: includes/functions.php
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr ""
+msgstr "ელფოსტის გაგზავნის შეცდომა: <b>TO</b> მისამართი არ არის დაყენებული!!<br>თუ იყენებთ ბმულს <i>სატესტო წერილი</i>, გთხოვთ დააყენოთ <b>განგაშის ელფოსტა</b> პარამეტრი."
 
 #: includes/functions.php
 msgid "Done"
@@ -718,7 +715,7 @@ msgstr "ზღვრის მიღება"
 
 #: includes/functions.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
-msgstr ""
+msgstr "დააწკაპუნეთ „გაგრძელება“-ზე შემდეგი ზღვრ(ებ)ის დასადასტურებლად."
 
 #: includes/functions.php thold.php
 msgid "Acknowledge Threshold(s)"
@@ -736,15 +733,15 @@ msgstr "გაგრძელება"
 
 #: includes/functions.php
 msgid "Threshold Template Subordinate Data Template Not Found!"
-msgstr ""
+msgstr "ზღვრის შაბლონის დაქვემდებარებული მონაცემთა შაბლონი ვერ მოიძებნა!"
 
 #: includes/functions.php
 msgid "Threshold Template Subordinate Data Source Not Found!"
-msgstr ""
+msgstr "ზღვრის შაბლონის დაქვემდებარებული მონაცემთა წყარო ვერ მოიძებნა!"
 
 #: includes/functions.php
 msgid "Threshold Template import columns do not match the database schema"
-msgstr ""
+msgstr "ზღვრის შაბლონის იმპორტის სვეტები არ შეესაბამება მონაცემთა ბაზის სქემას"
 
 #: includes/functions.php
 msgid "Imported"
@@ -753,7 +750,7 @@ msgstr "შემოტანილია"
 #: includes/functions.php
 #, php-format
 msgid "Threshold Template '%s' %s!"
-msgstr ""
+msgstr "ზღვრის შაბლონი '%s' %s!"
 
 #: includes/functions.php
 msgid "Updated"
@@ -766,7 +763,7 @@ msgstr "შემოტანა"
 #: includes/functions.php
 #, php-format
 msgid "Threshold Template '%s' %s Failed!"
-msgstr ""
+msgstr "ზღვრის შაბლონი '%s' %s ვერ მოხერხდა!"
 
 #: includes/functions.php
 msgid "Update"
@@ -774,31 +771,31 @@ msgstr "განახლება"
 
 #: includes/functions.php
 msgid "Errors encountered while attempting to import Threshold Template data."
-msgstr ""
+msgstr "ზღვრის შაბლონის მონაცემების იმპორტის მცდელობისას დაფიქსირდა შეცდომები."
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not found to be XML data."
-msgstr ""
+msgstr "ზღვრის შაბლონის იმპორტის მონაცემები არ აღმოჩნდა XML მონაცემები."
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr ""
+msgstr "ზღვრის შაბლონის იმპორტისას ზღვრის შაბლონის საიმპორტო მონაცემები არასწორი იყო."
 
 #: includes/polling.php
 msgid "SNMP not in use"
-msgstr ""
+msgstr "SNMP არ გამოიყენება"
 
 #: includes/polling.php
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
-msgstr ""
+msgstr "მოწყობილობების შეტყობინება: <DESCRIPTION> (<HOSTNAME>) დაბრუნდა DOWN მდგომარეობიდან"
 
 #: includes/polling.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
-msgstr ""
+msgstr "<br>სისტემის <DESCRIPTION> (<HOSTNAME>) სტატუსი: <DOWN/UP><br><br>საიტი: <SITE><br>მდებარეობა: <LOCATION><br>მიმდინარე ping პასუხი: <CUR_TIME> ms<br>საშუალო სისტემური პასუხი: <AVG_TIME> ms<br>სისტემის ხელმისაწვდომობა: <AVAILABILITY><br>სულ შემოწმება გასუფთავების შემდეგ: <TOT_POLL><br>სულ წარუმატებელი შემოწმება: <FAIL_POLL><br>UP სტატუსის ბოლო შემოწმების თარიღი: <LAST_FAIL><br>მოწყობილობა ადრე DOWN იყო: <DOWNTIME><br><br>SNMP ინფორმაცია:<br>სახელი - <SNMP_HOSTNAME><br>მდებარეობა - <SNMP_LOCATION><br>მუშაობის დრო - <UPTIMETEXT> (<UPTIME> ms)<br>სისტემა - <SNMP_SYSTEM><br><br>შენიშვნა: <NOTES>"
 
 #: includes/polling.php
 msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
-msgstr ""
+msgstr "მოწყობილობების შეცდომა: <DESCRIPTION> (<HOSTNAME>) არის DOWN მდგომარეობაში"
 
 #: includes/polling.php
 msgid "DOWN"
@@ -806,7 +803,7 @@ msgstr "გამორთ"
 
 #: includes/polling.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
-msgstr ""
+msgstr "სისტემური შეცდომა: <DESCRIPTION> (<HOSTNAME>) არის <DOWN/UP><br>საიტი: <SITE><br>მდებარეობა: <LOCATION><br>მიზეზი: <MESSAGE><br><br>საშუალო სისტემური პასუხი: <AVG_TIME> ms<br>სისტემის ხელმისაწვდომობა: <AVAILABILITY><br>სულ შემოწმება გასუფთავების შემდეგ: <TOT_POLL><br>სულ წარუმატებელი შემოწმება: <FAIL_POLL><br>DOWN სტატუსის ბოლო შემოწმების თარიღი: <LAST_FAIL><br>მოწყობილობა ადრე UP იყო: <DOWNTIME><br>შენიშვნა: <NOTES>"
 
 #: includes/settings.php
 msgid "(actions)"
@@ -834,11 +831,11 @@ msgstr "ზღვრები - ჩავარდნები"
 
 #: includes/settings.php
 msgid "Thresholds - Normal"
-msgstr ""
+msgstr "ზღვრები - ნორმალური"
 
 #: includes/settings.php
 msgid "Thresholds - Recovering"
-msgstr ""
+msgstr "ზღვრები - აღდგენის პროცესში"
 
 #: includes/settings.php
 msgid "Recent Thresholds"
@@ -862,7 +859,7 @@ msgstr "გაფრთხილების სიები"
 
 #: includes/settings.php
 msgid "Notification Lists (edit)"
-msgstr ""
+msgstr "შეტყობინებების სიები (რედაქტირება)"
 
 #: includes/settings.php
 msgid "Notification Queue"
@@ -882,7 +879,7 @@ msgstr "ზღვარი"
 
 #: includes/settings.php
 msgid "A template with that Data Source already exists!"
-msgstr ""
+msgstr "ამ მონაცემთა წყაროთი შაბლონი უკვე არსებობს!"
 
 #: includes/settings.php
 msgid "Configure Thresholds"
@@ -914,11 +911,11 @@ msgstr "ზოგადი ადმინისტრირება"
 
 #: includes/settings.php
 msgid "Device Up/Down Notification Settings"
-msgstr ""
+msgstr "მოწყობილობის ჩართვა/გათიშვის შეტყობინებების პარამეტრები"
 
 #: includes/settings.php
 msgid "Threshold Up/Down Email Notification"
-msgstr ""
+msgstr "ზღვრის აწევა/დაწევის ელფოსტის შეტყობინება"
 
 #: includes/settings.php notify_lists.php
 msgid "Global List"
@@ -930,11 +927,11 @@ msgstr "სია ქვემოთ"
 
 #: includes/settings.php
 msgid "Global and List Below"
-msgstr ""
+msgstr "გლობალური და ქვემოთ მოცემული სია"
 
 #: includes/settings.php
 msgid "Which Type of Notification List(s) should be used for Device Up/Down events?"
-msgstr ""
+msgstr "რა ტიპის შეტყობინებების სია (სიები) უნდა იქნას გამოყენებული მოწყობილობის ჩართვის/გათიშვის მოვლენებისთვის?"
 
 #: includes/settings.php notify_queue.php
 msgid "Notification List"
@@ -942,7 +939,7 @@ msgstr "გაფრთხილებების სია"
 
 #: includes/settings.php
 msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
-msgstr ""
+msgstr "რომელ შეტყობინებების სიას (სიებს) უნდა გაეგზავნოს შეტყობინება მოწყობილობის ჩართვა/გათიშვის მოვლენების შესახებ?"
 
 #: includes/settings.php
 msgid "Host Failure Count"
@@ -950,7 +947,7 @@ msgstr "ჰოსტის ჩავარდნების რაოდენ�
 
 #: includes/settings.php
 msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
-msgstr ""
+msgstr "გამოკითხვის ინტერვალების რაოდენობა, რომლის განმავლობაშიც ეს ჰოსტი უნდა იყოს გათიშული, სანამ Thold ჩაიწერს შეცდომას და გამოაცხადებს ჰოსტს გათიშულად. ნაგულისხმევია 0 (Cacti-ს პარამეტრის გამოყენება)"
 
 #: includes/settings.php
 msgid "Use Cacti Setting"
@@ -964,7 +961,7 @@ msgstr "%d გამოთხოვის ინტერვალი"
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Intervals"
-msgstr ""
+msgstr "გამოკითხვის %d ინტერვალი"
 
 #: includes/settings.php
 msgid "Alerting/Thold"
@@ -980,7 +977,7 @@ msgstr "ყველა ზღვრის გამორთვა"
 
 #: includes/settings.php
 msgid "Checking this box will disable Alerting on all Thresholds.  This can be used when it is necessary to perform maintenance on your network."
-msgstr ""
+msgstr "ამ ველის მონიშვნა გამორთავს განგაშის შეტყობინებებს ყველა ზღვარზე. ეს გამოიყენება მაშინ, როდესაც საჭიროა ქსელში ტექნიკური მომსახურების ჩატარება."
 
 #: includes/settings.php
 msgid "Auto Create Thresholds"
@@ -988,23 +985,23 @@ msgstr "ზღვრების ავტომატური შექმნ�
 
 #: includes/settings.php
 msgid "If selected, when running either automation, or when creating/saving a Device, all Thresholds associated with the Device Template will be created."
-msgstr ""
+msgstr "თუ არჩეულია, ავტომატიზაციის გაშვებისას ან მოწყობილობის შექმნის/შენახვისას შეიქმნება მოწყობილობის შაბლონთან დაკავშირებული ყველა ზღვარი."
 
 #: includes/settings.php
 msgid "Consider Unknown Data as Zero"
-msgstr ""
+msgstr "უცნობი მონაცემების ნულად მიჩნევა"
 
 #: includes/settings.php
 msgid "When checking Thresholds, if a Data Source returns Unknown Data ('U'), consider the value as zero for the Threshold check. You can also enable log this issue."
-msgstr ""
+msgstr "ზღვრების შემოწმებისას, თუ მონაცემთა წყარო აბრუნებს უცნობ მონაცემს ('U'), ზღვრის შემოწმებისთვის მნიშვნელობა ჩაითვლება ნულად. ასევე შეგიძლიათ ჩართოთ ამ შემთხვევის ჟურნალში ჩაწერა."
 
 #: includes/settings.php
 msgid "Default Management Status"
-msgstr ""
+msgstr "მართვის ნაგულისხმევი სტატუსი"
 
 #: includes/settings.php
 msgid "Default Threshold management filter status."
-msgstr ""
+msgstr "ზღვრების მართვის ფილტრის ნაგულისხმევი სტატუსი."
 
 #: includes/settings.php notify_lists.php thold.php
 msgid "Any"
@@ -1033,7 +1030,7 @@ msgstr "ცარიელი ifHighSpeed ნაგულისხმევი"
 
 #: includes/settings.php
 msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces."
-msgstr ""
+msgstr "გამოსახულების ზღვრების გამოთვლისას, თუ ifHighSpeed და ifSpeed ნულს აბრუნებს, სანაცვლოდ გამოიყენეთ შემდეგი ifHighSpeed პარამეტრი. ნაგულისხმევი ifHighSpeed იქნება 10000 10GE ინტერფეისებისთვის."
 
 #: includes/settings.php
 msgid "Notification Preferences"
@@ -1045,7 +1042,7 @@ msgstr "მოძველებული გაფრთხილებებ�
 
 #: includes/settings.php
 msgid "Checking this box will disable Legacy Alerting on all Thresholds.  Legacy Alerting is defined as any Specific Email Alerts not associated with a Notification List."
-msgstr ""
+msgstr "ამ ველის მონიშვნა გამორთავს მოძველებულ განგაშს ყველა ზღვარზე. მოძველებული განგაში გულისხმობს ნებისმიერ კონკრეტულ ელფოსტის განგაშს, რომელიც არ არის დაკავშირებული შეტყობინებების სიასთან."
 
 #: includes/settings.php
 msgid "Threshold Notification Templated"
@@ -1053,39 +1050,39 @@ msgstr "ზღვრის გაფრთხილება დაშაბლ�
 
 #: includes/settings.php
 msgid "If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template."
-msgstr ""
+msgstr "თუ მონიშნულია, ზღვრის შაბლონის შექმნისას მისი შეტყობინებების პარამეტრები ნაგულისხმევად ეკუთვნის ზღვრის შაბლონს."
 
 #: includes/settings.php
 msgid "Enable Command Execution"
-msgstr ""
+msgstr "ბრძანებების შესრულების ჩართვა"
 
 #: includes/settings.php
 msgid "Checking this box will enable the ability to run commands on Threshold breach and restoral events."
-msgstr ""
+msgstr "ამ ველის მონიშვნა ჩართავს ბრძანებების გაშვების შესაძლებლობას ზღვრის დარღვევისა და აღდგენის მოვლენებზე."
 
 #: includes/settings.php
 msgid "Enable Per Thold Notification"
-msgstr ""
+msgstr "თითოეული Thold-ის შეტყობინების ჩართვა"
 
 #: includes/settings.php
 msgid "Checking this box will enable the ability to maintain custom Email bodies for Thresholds."
-msgstr ""
+msgstr "ამ ველის მონიშვნა ჩართავს ზღვრებისთვის მორგებული ელფოსტის ტექსტების მართვის შესაძლებლობას."
 
 #: includes/settings.php
 msgid "Enable Notification Queue"
-msgstr ""
+msgstr "შეტყობინებების რიგის ჩართვა"
 
 #: includes/settings.php
 msgid "Checking this box will switch Thold from performing inline Notification to using either the Notification Daemon, or notifications performed out of band by the Notification poller."
-msgstr ""
+msgstr "ამ ველის მონიშვნა გადართავს Thold-ს ჩაშენებული შეტყობინებების გაგზავნიდან შეტყობინებების დემონის გამოყენებაზე ან შეტყობინებების გამომკითხავის მიერ დამოუკიდებლად შესრულებულ შეტყობინებებზე."
 
 #: includes/settings.php
 msgid "Enable Sending Alert Emails to Warning Notification Lists"
-msgstr ""
+msgstr "განგაშის ელფოსტების გაფრთხილების შეტყობინებების სიებში გაგზავნის ჩართვა"
 
 #: includes/settings.php
 msgid "Check this box if you wish Warning Notification List recipients to receive Alert Emails in addition to the Alert Notification list receivers.  This case is applicable when Warning Notifications goes to Administrators and Alert Notifications go to Management."
-msgstr ""
+msgstr "მონიშნეთ ეს ველი, თუ გსურთ, რომ გაფრთხილების შეტყობინებების სიის მიმღებებმა მიიღონ განგაშის ელფოსტები განგაშის შეტყობინებების სიის მიმღებებთან ერთად. ეს გამოსადეგია, როდესაც გაფრთხილების შეტყობინებები იგზავნება ადმინისტრატორებთან, ხოლო განგაშის შეტყობინებები — ხელმძღვანელობასთან."
 
 #: includes/settings.php
 msgid "Threshold Daemon"
@@ -1097,23 +1094,23 @@ msgstr "ზღვრის დემონის ჩართვა"
 
 #: includes/settings.php
 msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
-msgstr ""
+msgstr "ამ ველის მონიშვნა ჩართავს გამოყოფილი ზღვრების დემონის გამოყენებას. ეს შეიძლება გამოყენებულ იქნას სისტემის წარმადობის გასაზრდელად და/ან ზღვრების მონიტორინგის ცალკე სერვერზე გასანაწილებლად."
 
 #: includes/settings.php
 msgid "Force Threshold Daemon Debug"
-msgstr ""
+msgstr "ზღვრების დემონის გამართვის იძულებითი ჩართვა"
 
 #: includes/settings.php
 msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
-msgstr ""
+msgstr "ამ ველის მონიშვნა ჩართავს ზღვრების დემონის გამართვის რეჟიმს SystemD-დან ან ბრძანების სტრიქონიდან მუშაობისას. ეს ცვლილება დინამიკურია და ძალაში შევა ზღვრების შემდეგი ციკლის დაწყებისთანავე."
 
 #: includes/settings.php
 msgid "Daemon Down Notification Frequency"
-msgstr ""
+msgstr "დემონის გათიშვის შეტყობინების სიხშირე"
 
 #: includes/settings.php
 msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
-msgstr ""
+msgstr "თუ აღმოჩნდება, რომ Thold დემონი გათიშულია, გაგზავნოს ელფოსტის შეტყობინება ამ სიხშირით."
 
 #: includes/settings.php
 #, php-format
@@ -1126,7 +1123,7 @@ msgstr "დემონის ნაკადები"
 
 #: includes/settings.php
 msgid "The number of daemon threads to be handled by the Threshold Daemon."
-msgstr ""
+msgstr "დემონის ნაკადების რაოდენობა, რომლებსაც დაამუშავებს ზღვრების დემონი."
 
 #: includes/settings.php
 msgid "1 Process"
@@ -1143,19 +1140,19 @@ msgstr "ჟურნალი"
 
 #: includes/settings.php
 msgid "Log Threshold Breaches"
-msgstr ""
+msgstr "ზღვრის დარღვევების ჟურნალში ჩაწერა"
 
 #: includes/settings.php
 msgid "Enable logging of all Threshold failures to the Cacti Log."
-msgstr ""
+msgstr "ყველა ზღვრული ხარვეზის Cacti-ს ჟურნალში ჩაწერის ჩართვა."
 
 #: includes/settings.php
 msgid "Show Data Source in Log"
-msgstr ""
+msgstr "მონაცემთა წყაროს ჩვენება ჟურნალში"
 
 #: includes/settings.php
 msgid "Show the Data Source name in the Log if not present."
-msgstr ""
+msgstr "მონაცემთა წყაროს სახელის ჩვენება ჟურნალში, თუ ის არ არის მითითებული."
 
 #: includes/settings.php
 msgid "Log Threshold Changes"
@@ -1163,7 +1160,7 @@ msgstr "ჟურნალის ზღვრის ცვლილებებ�
 
 #: includes/settings.php
 msgid "Enable logging of all Threshold changes to the Cacti Log."
-msgstr ""
+msgstr "ზღვრების ყველა ცვლილების Cacti-ს ჟურნალში ჩაწერის ჩართვა."
 
 #: includes/settings.php
 msgid "Debug Log"
@@ -1171,7 +1168,7 @@ msgstr "გამართვის ჟურნალი"
 
 #: includes/settings.php
 msgid "Enable logging of debug messages with Threshold"
-msgstr ""
+msgstr "ზღვრების გამართვის შეტყობინებების ჟურნალში ჩაწერის ჩართვა"
 
 #: includes/settings.php
 msgid "Alert Log Retention"
@@ -1179,15 +1176,15 @@ msgstr "განგაშის ჟურნალის შენარჩუ�
 
 #: includes/settings.php
 msgid "Keep Threshold Logs for this number of days."
-msgstr ""
+msgstr "ზღვრების ჟურნალების შენახვა მითითებული დღეების განმავლობაში."
 
 #: includes/settings.php
 msgid "Log action Consider Unknown Data as Zero"
-msgstr ""
+msgstr "ქმედების „უცნობი მონაცემების ნულად მიჩნევა“ ჟურნალში ჩაწერა"
 
 #: includes/settings.php
 msgid "When 'Consider Unknown Data as Zero' is enabled, log when it occurs"
-msgstr ""
+msgstr "როდესაც ჩართულია „უცნობი მონაცემების ნულად მიჩნევა“, ჩაწეროს ჟურნალში მისი მოხდენისას"
 
 #: includes/settings.php thold.php thold_templates.php
 msgid "Syslog Settings"
@@ -1199,7 +1196,7 @@ msgstr "Syslog ჩართულია"
 
 #: includes/settings.php
 msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
-msgstr ""
+msgstr "თუ მონიშნულია, ახალი ზღვრის შექმნისას ნაგულისხმევად ზღვრის ახალი მოვლენები გაიგზავნება თქვენს ლოკალურ syslog-ში. ეს პარამეტრი წინასწარი განსაზღვრაა. syslog-ის ფაქტობრივ მართვას ზღვრის პარამეტრები განსაზღვრავს."
 
 #: includes/settings.php
 msgid "Default Priority/Level"
@@ -1207,7 +1204,7 @@ msgstr "ნაგულისხმევი პრიორიტეტი/დ�
 
 #: includes/settings.php
 msgid "This is the default Priority/Level that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
-msgstr ""
+msgstr "ეს არის ნაგულისხმევი პრიორიტეტი/დონე, რომელსაც Thold გამოიყენებს syslog შეტყობინებების გასაგზავნად. ეს პარამეტრი წინასწარი განსაზღვრაა. syslog-ის ფაქტობრივ მართვას ზღვრის პარამეტრები განსაზღვრავს."
 
 #: includes/settings.php
 msgid "Default Facility"
@@ -1215,7 +1212,7 @@ msgstr "ნაგულისხმევი ობიექტი"
 
 #: includes/settings.php
 msgid "This is the default Facility that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
-msgstr ""
+msgstr "ეს არის ნაგულისხმევი კატეგორია (Facility), რომელსაც Thold გამოიყენებს syslog შეტყობინებების გასაგზავნად. ეს პარამეტრი წინასწარი განსაზღვრაა. syslog-ის ფაქტობრივ მართვას ზღვრის პარამეტრები განსაზღვრავს."
 
 #: includes/settings.php
 msgid "Alert Presets"
@@ -1227,7 +1224,7 @@ msgstr "შაბათკვირის გამონაკლისებ�
 
 #: includes/settings.php
 msgid "If this is checked, Thold will not run on weekends."
-msgstr ""
+msgstr "თუ ეს მონიშნულია, Thold არ იმუშავებს შაბათ-კვირას."
 
 #: includes/settings.php
 msgid "Default Trigger Count"
@@ -1235,7 +1232,7 @@ msgstr "ნაგულისხმევი ტრიგერების რ�
 
 #: includes/settings.php
 msgid "Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised."
-msgstr ""
+msgstr "თანმიმდევრული ჯერების ნაგულისხმევი რაოდენობა, რომლის განმავლობაშიც მონაცემთა წყარომ უნდა დაარღვიოს ზღვარი განგაშის გამოსაწვევად."
 
 #: includes/settings.php
 msgid "Re-Alerting"
@@ -1243,7 +1240,7 @@ msgstr "განგაში თავიდან"
 
 #: includes/settings.php
 msgid "Repeat Alert after specified number of poller cycles."
-msgstr ""
+msgstr "განგაშის გამეორება გამომკითხავის მითითებული რაოდენობის ციკლის შემდეგ."
 
 #: includes/settings.php
 msgid "Baseline Presets"
@@ -1251,19 +1248,19 @@ msgstr "საბაზისო ხაზის პრესეტები"
 
 #: includes/settings.php
 msgid "Baseline Time Range Default"
-msgstr ""
+msgstr "საბაზისო ხაზის დროის ნაგულისხმევი დიაპაზონი"
 
 #: includes/settings.php
 msgid "This is the default value used in creating Thresholds or templates."
-msgstr ""
+msgstr "ეს არის ნაგულისხმევი მნიშვნელობა, რომელიც გამოიყენება ზღვრების ან შაბლონების შექმნისას."
 
 #: includes/settings.php
 msgid "Baseline Trigger Count"
-msgstr ""
+msgstr "საბაზისო ხაზის გააქტიურების მრიცხველი"
 
 #: includes/settings.php
 msgid "Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised."
-msgstr ""
+msgstr "თანმიმდევრული ჯერების ნაგულისხმევი რაოდენობა, რომლის განმავლობაშიც მონაცემთა წყარომ უნდა დაარღვიოს გამოთვლილი საბაზისო ზღვარი განგაშის გამოსაწვევად."
 
 #: includes/settings.php
 msgid "Baseline Deviation Percentage"
@@ -1279,7 +1276,7 @@ msgstr "SNMP გაფრთხილებები"
 
 #: includes/settings.php
 msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
-msgstr ""
+msgstr "ზღვრის სტატუსის შეტყობინებები (inform/trap) გაიგზავნება SNMP შეტყობინებების მიმღებებთან. ნაგულისხმევად ეს მოიცავს განგაშის, გაფრთხილებისა და აღდგენის trap-ებს. შენიშვნა: ეს ფუნქცია მოითხოვს Cacti SNMPAgent პლაგინს."
 
 #: includes/settings.php
 msgid "Disable Warning Notifications"
@@ -1287,7 +1284,7 @@ msgstr "გაფრთხილების შეტყობინებე�
 
 #: includes/settings.php
 msgid "If this is checked, Threshold will not send a notification when a warning Threshold has been breached."
-msgstr ""
+msgstr "თუ ეს მონიშნულია, ზღვარი არ გაგზავნის შეტყობინებას გამაფრთხილებელი ზღვრის დარღვევისას."
 
 #: includes/settings.php
 msgid "Disable Restoration Notifications"
@@ -1295,7 +1292,7 @@ msgstr "აღდგების გაფრთხილებების გ�
 
 #: includes/settings.php
 msgid "If this is checked, Threshold will not send a notification when the Threshold has returned to normal status."
-msgstr ""
+msgstr "თუ ეს მონიშნულია, ზღვარი არ გაგზავნის შეტყობინებას, როდესაც ზღვარი ნორმალურ სტატუსს დაუბრუნდება."
 
 #: includes/settings.php
 msgid "Emailing Options"
@@ -1303,27 +1300,27 @@ msgstr "ელფოსტის მორგება"
 
 #: includes/settings.php
 msgid "Send Emails with Urgent Priority"
-msgstr ""
+msgstr "ელფოსტების სასწრაფო პრიორიტეტით გაგზავნა"
 
 #: includes/settings.php
 msgid "Allows you to set Emails with urgent priority"
-msgstr ""
+msgstr "საშუალებას გაძლევთ ელფოსტებს დაუყენოთ სასწრაფო პრიორიტეტი"
 
 #: includes/settings.php
 msgid "Send Alerts as Text"
-msgstr ""
+msgstr "განგაშების ტექსტურ ფორმატში გაგზავნა"
 
 #: includes/settings.php
 msgid "If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email."
-msgstr ""
+msgstr "თუ მონიშნულია, ყველა განგაში გაიგზავნება ჩვეულებრივი ტექსტური ელფოსტის სახით გრაფიკის გარეშე. ნაგულისხმევია HTML ელფოსტები, რომლებშიც გრაფიკი ჩაშენებულია წერილში."
 
 #: includes/settings.php
 msgid "Send Email separately for each address"
-msgstr ""
+msgstr "ელფოსტის ცალ-ცალკე გაგზავნა თითოეული მისამართისთვის"
 
 #: includes/settings.php
 msgid "If checked, this will cause all Emails to be sent separately for each address."
-msgstr ""
+msgstr "თუ მონიშნულია, ყველა ელფოსტა გაიგზავნება ცალ-ცალკე თითოეული მისამართისთვის."
 
 #: includes/settings.php
 msgid "From Email Address"
@@ -1331,7 +1328,7 @@ msgstr "ელფოსტის მისამართიდან"
 
 #: includes/settings.php
 msgid "This is the Email address that the Threshold will appear from."
-msgstr ""
+msgstr "ეს არის ელფოსტის მისამართი, საიდანაც გამოჩნდება ზღვრის შეტყობინება."
 
 #: includes/settings.php
 msgid "From Name"
@@ -1339,7 +1336,7 @@ msgstr "რა სახელისგან"
 
 #: includes/settings.php
 msgid "This is the actual name that the Threshold will appear from."
-msgstr ""
+msgstr "ეს არის ფაქტობრივი სახელი, საიდანაც გამოჩნდება ზღვრის შეტყობინება."
 
 #: includes/settings.php
 msgid "Device Notification Options"
@@ -1351,31 +1348,27 @@ msgstr "გაფრთხილებების ჩართვა"
 
 #: includes/settings.php
 msgid "Enable Dead/Recovering host notification"
-msgstr ""
+msgstr "გათიშული/აღდგენადი ჰოსტის შეტყობინების ჩართვა"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Enable Notifications"
 msgid "Single Email Notification"
-msgstr "გაფრთხილებების ჩართვა"
+msgstr "ერთიანი ელფოსტით შეტყობინება"
 
 #: includes/settings.php
 msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
-msgstr ""
+msgstr "მხარდაჭერილია მხოლოდ შეტყობინებების სიებისა და შეტყობინებების რიგისთვის. თუ დამუშავების ერთ ციკლში არის გათიშული მოწყობილობების შეტყობინებები, შეტყობინებების სიის მიმღებებს გაუგზავნეთ მხოლოდ ერთი ელფოსტა ყველა მოწყობილობისთვის."
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Purge Notification Queue"
 msgid "Single Email Notification Subject"
-msgstr "გაფრთხილებების სიის გასუფთავება"
+msgstr "ერთიანი ელფოსტით შეტყობინების თემა"
 
 #: includes/settings.php
 msgid "This is the Email Subject to be used for all Single Email Notification Emails for both Up and Down Devices."
-msgstr ""
+msgstr "ეს არის ელფოსტის თემა, რომელიც გამოყენებული იქნება ყველა ერთიანი შეტყობინების წერილისთვის, როგორც ჩართული, ისე გათიშული მოწყობილობებისთვის."
 
 #: includes/settings.php
 msgid "Device Notification Delay Options"
-msgstr ""
+msgstr "მოწყობილობის შეტყობინების დაყოვნების პარამეტრები"
 
 #: includes/settings.php
 msgid "Notification Delay"
@@ -1383,15 +1376,15 @@ msgstr "გაფრთხილების დაყოვნება"
 
 #: includes/settings.php
 msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
-msgstr ""
+msgstr "თუ შემოვა გათიშული მოწყობილობების შეტყობინებების დიდი ნაკადი, Cacti-ს შეუძლია შეაჩეროს მათი გაგზავნა გარკვეული დროით, რათა გაგზავნამდე შეამოწმოს, ხომ არ არის პრობლემა დროებითი. აირჩიეთ გათიშული მოწყობილობების შეტყობინებების ზღვარი პაუზის გააქტიურებამდე."
 
 #: includes/settings.php
 msgid "If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?"
-msgstr ""
+msgstr "თუ აირჩევთ შეტყობინებების დაყოვნებას გათიშული მოწყობილობების შეტყობინებების დიდი ნაკადისას, რამდენ ხანს გსურთ დაცდა შეტყობინებების დამუშავების დაშვებამდე?"
 
 #: includes/settings.php
 msgid "Device Notification Email Options"
-msgstr ""
+msgstr "მოწყობილობის შეტყობინების ელფოსტის პარამეტრები"
 
 #: includes/settings.php
 msgid "Global Notification Email"
@@ -1399,7 +1392,7 @@ msgstr "გლობალური გაფრთხილების ელ�
 
 #: includes/settings.php
 msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
-msgstr ""
+msgstr "ეს არის ელფოსტის მისამართი, რომელზეც გაიგზავნება გათიშული მოწყობილობის შეტყობინებები, თუ არჩეულია შეტყობინებების გლობალური სია."
 
 #: includes/settings.php
 msgid "Down Subject"
@@ -1407,11 +1400,11 @@ msgstr "გათიშულის თემა"
 
 #: includes/settings.php
 msgid "This is the Email subject that will be used for Down Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060NOTES&#062"
-msgstr ""
+msgstr "ეს არის ელფოსტის თემა, რომელიც გამოყენებული იქნება გათიშული მოწყობილობის შეტყობინებებისთვის. არსებობს რამდენიმე გავრცელებული ჩასანაცვლებელი ტეგი, რომელთა გამოყენებაც შესაძლებელია:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (წინა აქტიური მდგომარეობის ხანგრძლივობა გათიშვის შეტყობინების შემთხვევაში) &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
-msgstr ""
+msgstr "მოწყობილობის შეცდომა: <DESCRIPTION> (<HOSTNAME>) გათიშულია"
 
 #: includes/settings.php
 msgid "Down Message"
@@ -1419,11 +1412,11 @@ msgstr "გათიშვის შეტყობინება"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
-msgstr ""
+msgstr "ეს არის შეტყობინება, რომელიც გამოჩნდება მოწყობილობის ჩართვის / გათიშვის ყველა შეტყობინების ძირითად ტექსტში (მაქს. 1024 სიმბოლო). HTML დაშვებულია, მაგრამ წაიშლება მხოლოდ ტექსტური ელფოსტებისთვის. არსებობს რამდენიმე გავრცელებული ჩასანაცვლებელი ტეგი, რომელთა გამოყენებაც შესაძლებელია:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (წინა აქტიური მდგომარეობის ხანგრძლივობა გათიშვის შეტყობინების შემთხვევაში) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
-msgstr ""
+msgstr "სისტემის შეცდომა: <DESCRIPTION> (<HOSTNAME>) არის <DOWN/UP><br><br>ობიექტი: <SITE><br>მდებარეობა: <LOCATION><br>მიზეზი: <MESSAGE><br>სისტემის საშუალო პასუხი: <AVG_TIME> ms<br>სისტემის ხელმისაწვდომობა: <AVAILABILITY><br>სულ შემოწმება გასუფთავების შემდეგ: <TOT_POLL><br>სულ წარუმატებელი შემოწმება: <FAIL_POLL><br>გათიშულად შემოწმების ბოლო თარიღი: <LAST_FAIL><br>მოწყობილობა მანამდე მუშაობდა: <DOWNTIME><br>შენიშვნები: <NOTES><br>მოწყობილობის შენიშვნები: <DNOTES>"
 
 #: includes/settings.php
 msgid "Recovering Subject"
@@ -1431,11 +1424,11 @@ msgstr "აღდგენის მიმდინარეობის თე�
 
 #: includes/settings.php
 msgid "This is the Email subject that will be used for Recovering Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
-msgstr ""
+msgstr "ეს არის ელფოსტის თემა, რომელიც გამოყენებული იქნება აღდგენილი მოწყობილობის შეტყობინებებისთვის. არსებობს რამდენიმე გავრცელებული ჩასანაცვლებელი ტეგი, რომელთა გამოყენებაც შესაძლებელია:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
-msgstr ""
+msgstr "მოწყობილობის შეტყობინება: <DESCRIPTION> (<HOSTNAME>) დაბრუნდა გათიშული მდგომარეობიდან"
 
 #: includes/settings.php
 msgid "Recovering Message"
@@ -1443,11 +1436,11 @@ msgstr "აღდგენის შეტყობინება"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
-msgstr ""
+msgstr "ეს არის შეტყობინება, რომელიც გამოჩნდება მოწყობილობის ყველა ჩართული/გათიშული შეტყობინების ძირითად ტექსტში (მაქს. 1024 სიმბოლო). HTML დაშვებულია, მაგრამ წაიშლება მხოლოდ ტექსტური ელფოსტებისთვის. არსებობს რამდენიმე გავრცელებული ჩანაცვლების ტეგი, რომელთა გამოყენებაც შესაძლებელია:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
-msgstr ""
+msgstr "<br>სისტემა <DESCRIPTION> (<HOSTNAME>) სტატუსი: <DOWN/UP><br><br>ობიექტი: <SITE><br>მდებარეობა: <LOCATION><br>მიმდინარე ping პასუხი: <CUR_TIME> ms<br>სისტემის საშუალო პასუხი: <AVG_TIME> ms<br>სისტემის ხელმისაწვდომობა: <AVAILABILITY><br>სულ შემოწმება გასუფთავების შემდეგ: <TOT_POLL><br>სულ წარუმატებელი შემოწმება: <FAIL_POLL><br>ჩართულად შემოწმების ბოლო თარიღი: <LAST_FAIL><br>მოწყობილობა მანამდე გათიშული იყო: <DOWNTIME><br><br>SNMP ინფორმაცია:<br>სახელი - <SNMP_HOSTNAME><br>მდებარეობა - <SNMP_LOCATION><br>მუშაობის დრო - <UPTIMETEXT> (<UPTIME> ms)<br>სისტემა - <SNMP_SYSTEM><br><br>შენიშვნა: <NOTES><br>მოწყობილობის შენიშვნები: <DNOTES>"
 
 #: includes/settings.php
 msgid "Status Change Command"
@@ -1455,7 +1448,7 @@ msgstr "სტატუსის შეცვლის ბრძანება"
 
 #: includes/settings.php
 msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
-msgstr ""
+msgstr "როდესაც მოწყობილობა იცვლის მდგომარეობას Cacti-ს თვალსაზრისით (UP-დან DOWN-ზე ან DOWN-დან RECOVERING/UP-ზე), გაუშვით შემდეგი ბრძანება. ეს ბრძანება არ უნდა შეიცავდეს ბრძანების სტრიქონის არგუმენტებს. თუმცა, სკრიპტის გარემოდან შესაძლებელია შემდეგი ცვლადების მიღება:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
 
 #: includes/settings.php
 msgid "Alert/Warning Message Defaults"
@@ -1467,11 +1460,11 @@ msgstr "ზღვრის განგაშის შეტყობინე�
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr ""
+msgstr "ეს არის შეტყობინება, რომელიც გამოჩნდება ზღვრების ყველა განგაშის ზედა ნაწილში (მაქს. 1024 სიმბოლო). HTML დაშვებულია, მაგრამ წაიშლება მხოლოდ ტექსტური ელფოსტებისთვის. არსებობს რამდენიმე გავრცელებული ჩანაცვლების ტეგი, რომელთა გამოყენებაც შესაძლებელია:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 #060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
-msgstr ""
+msgstr "გამოიცა განგაში, რომელიც მოითხოვს თქვენს ყურადღებას.<br><br><strong>მოწყობილობა</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>შეტყობინება</strong>: <SUBJECT><br><br><GRAPH>"
 
 #: includes/settings.php
 msgid "Threshold Warning Message"
@@ -1479,11 +1472,11 @@ msgstr "ზღვრის გაფრთხილების შეტყო�
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr ""
+msgstr "ეს არის შეტყობინება, რომელიც გამოჩნდება ზღვრების ყველა გაფრთხილების ზედა ნაწილში (მაქს. 1024 სიმბოლო). HTML დაშვებულია, მაგრამ წაიშლება მხოლოდ ტექსტური ელფოსტებისთვის. არსებობს რამდენიმე გავრცელებული ჩანაცვლების ტეგი, რომელთა გამოყენებაც შესაძლებელია:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 #060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
-msgstr ""
+msgstr "გამოიცა გაფრთხილება, რომელიც მოითხოვს თქვენს ყურადღებას.<br><br><strong>მოწყობილობა</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>შეტყობინება</strong>: <SUBJECT><br><br><GRAPH>"
 
 #: includes/settings.php
 msgid "Threshold Restoral Message"
@@ -1491,11 +1484,11 @@ msgstr "ზღვრის აღდგენის შეტყობინე�
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr ""
+msgstr "ეს არის შეტყობინება, რომელიც გამოჩნდება ზღვრების აღდგენის ყველა შეტყობინების ზედა ნაწილში (მაქს. 1024 სიმბოლო). HTML დაშვებულია, მაგრამ წაიშლება მხოლოდ ტექსტური ელფოსტებისთვის. არსებობს რამდენიმე გავრცელებული ჩანაცვლების ტეგი, რომელთა გამოყენებაც შესაძლებელია:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 #060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
-msgstr ""
+msgstr "ზღვარი დაუბრუნდა ნორმალურ სტატუსს.<br><br><strong>მოწყობილობა</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>შეტყობინება</strong>: <SUBJECT><br><br><GRAPH>"
 
 #: includes/tab.php
 msgid "Thold"
@@ -1503,47 +1496,47 @@ msgstr "ზღვარი"
 
 #: includes/webapi.php
 msgid "Threshold(s) Already Exists - No Thresholds Created"
-msgstr ""
+msgstr "ზღვარ(ებ)ი უკვე არსებობს - ზღვრები არ შექმნილა"
 
 #: includes/webapi.php setup.php
 msgid "Create Threshold from Template"
-msgstr ""
+msgstr "ზღვრის შექმნა შაბლონიდან"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
-msgstr ""
+msgstr "ზღვრის შექმნის ოსტატი [ აირჩიეთ ზღვრის ტიპი ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr ""
+msgstr "ზღვრის შექმნის ოსტატი [ შეიყვანეთ მომხმარებლის მონაცემები და დააჭირეთ 'შექმნა'-ს თქვენი ზღვრისა და გრაფიკის შესაქმნელად ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
-msgstr ""
+msgstr "ზღვრის შექმნის ოსტატი [ აირჩიეთ მონაცემთა მოთხოვნის ხელმისაწვდომი სტრიქონები ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select a Device ]"
-msgstr ""
+msgstr "ზღვრის შექმნის ოსტატი [ აირჩიეთ მოწყობილობა ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select a Graph Template ]"
-msgstr ""
+msgstr "ზღვრის შექმნის ოსტატი [ აირჩიეთ გრაფიკის შაბლონი ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
-msgstr ""
+msgstr "ზღვრის შექმნის ოსტატი [ აირჩიეთ ზღვრის შაბლონი ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr ""
+msgstr "ზღვრის შექმნის ოსტატი [ დააჭირეთ 'შექმნა'-ს თქვენი ზღვრის შესაქმნელად ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select a Data Source ]"
-msgstr ""
+msgstr "ზღვრის შექმნის ოსტატი [ აირჩიეთ მონაცემთა წყარო ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select a Graph ]"
-msgstr ""
+msgstr "ზღვრის შექმნის ოსტატი [ აირჩიეთ გრაფიკი ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Criteria"
@@ -1555,11 +1548,11 @@ msgstr "ტიპის შექმნა"
 
 #: includes/webapi.php
 msgid "Select a Threshold Type to use for creating this Threshold."
-msgstr ""
+msgstr "აირჩიეთ ზღვრის ტიპი ამ ზღვრის შესაქმნელად."
 
 #: includes/webapi.php
 msgid "Select a Threshold Type"
-msgstr ""
+msgstr "აირჩიეთ ზღვრის ტიპი"
 
 #: includes/webapi.php
 msgid "Non Templated"
@@ -1571,11 +1564,11 @@ msgstr "შეზღუდვის შაბლონი"
 
 #: includes/webapi.php
 msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
-msgstr ""
+msgstr "აირჩიეთ ზღვრის შაბლონი, რომელსაც დაეფუძნება გრაფიკი და ზღვარი."
 
 #: includes/webapi.php setup.php
 msgid "Select a Threshold Template"
-msgstr ""
+msgstr "აირჩიეთ ზღვრის შაბლონი"
 
 #: includes/webapi.php
 msgid "Graph Template"
@@ -1583,11 +1576,11 @@ msgstr "გრაფიკის შაბლონი"
 
 #: includes/webapi.php
 msgid "Select a Graph Template to use for the Graph to be created."
-msgstr ""
+msgstr "აირჩიეთ გრაფიკის შაბლონი შესაქმნელი გრაფიკისთვის."
 
 #: includes/webapi.php
 msgid "Select a Graph Template"
-msgstr ""
+msgstr "აირჩიეთ გრაფიკის შაბლონი"
 
 #: includes/webapi.php thold_graph.php
 msgid "Device"
@@ -1595,15 +1588,15 @@ msgstr "მოწყობილობა"
 
 #: includes/webapi.php
 msgid "Select a Device to use for the Threshold and Graph to be created."
-msgstr ""
+msgstr "აირჩიეთ მოწყობილობა შესაქმნელი ზღვრისა და გრაფიკისთვის."
 
 #: includes/webapi.php
 msgid "Select a Device"
-msgstr ""
+msgstr "აირჩიეთ მოწყობილობა"
 
 #: includes/webapi.php
 msgid "Select an Available Item"
-msgstr ""
+msgstr "აირჩიეთ ხელმისაწვდომი ელემენტი"
 
 #: includes/webapi.php
 msgid "Data Query Item"
@@ -1611,7 +1604,7 @@ msgstr "მონაცემის მოთხოვნის ელემე�
 
 #: includes/webapi.php
 msgid "Select the applicable row from the Data Query for the Graph and Threshold."
-msgstr ""
+msgstr "აირჩიეთ შესაბამისი მწკრივი მონაცემთა მოთხოვნიდან გრაფიკისა და ზღვრისთვის."
 
 #: includes/webapi.php
 msgid "Creation Notes"
@@ -1623,7 +1616,7 @@ msgstr "მნიშვნელოვანი შენიშვნა:"
 
 #: includes/webapi.php
 msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr ""
+msgstr "ეს ზღვარი იქნება შაბლონური. ზღვრის შაბლონის პარამეტრის გამოყენებისას მოგეთხოვებათ ზღვრის შაბლონის, გრაფიკის შაბლონის, მოწყობილობისა და შესაძლოა მონაცემთა მოთხოვნის ელემენტის ინფორმაციის მითითება, სანამ მიიღებთ 'შექმნა' მოთხოვნას, რა დროსაც, თუ გრაფიკისა და მონაცემთა წყაროს შაბლონის დონეზე დაშვებულია გრაფიკის ან მონაცემთა წყაროს გადასაფარი ინფორმაცია, ისიც მოგეთხოვებათ. შემდეგ, 'შექმნა' ღილაკზე დაჭერით, გრაფიკიც და ზღვარიც ერთდროულად შეიქმნება."
 
 #: includes/webapi.php
 msgid "Graph"
@@ -1631,7 +1624,7 @@ msgstr "გრაფიკი"
 
 #: includes/webapi.php
 msgid "Select the Graph for the Threshold."
-msgstr ""
+msgstr "აირჩიეთ გრაფიკი ზღვრისთვის."
 
 #: includes/webapi.php
 msgid "Select a Graph"
@@ -1643,11 +1636,11 @@ msgstr "მონაცემების წყარო"
 
 #: includes/webapi.php
 msgid "Select a Data Source for the Threshold."
-msgstr ""
+msgstr "აირჩიეთ მონაცემთა წყარო ზღვრისთვის."
 
 #: includes/webapi.php
 msgid "Select a Data Source"
-msgstr ""
+msgstr "აირჩიეთ მონაცემთა წყარო"
 
 #: includes/webapi.php thold_templates.php
 msgid "Create"
@@ -1655,11 +1648,11 @@ msgstr "შექმნა"
 
 #: includes/webapi.php
 msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr ""
+msgstr "ეს ზღვარი <b>არ</b> იქნება შაბლონური და იმუშავებს მხოლოდ არსებულ გრაფიკებზე. თუ გსურთ გრაფიკისა და ზღვრის ერთდროულად შექმნა, ჩამოსაშლელი სიიდან აირჩიეთ 'ზღვრის შაბლონი' და გააგრძელეთ, სანამ 'შექმნა' ღილაკი არ გამოჩნდება."
 
 #: includes/webapi.php
 msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr ""
+msgstr "ეს ზღვარი <b>არ</b> იქნება შაბლონური. შეგიძლიათ აირჩიოთ 'გრაფიკის მიხედვით', სადაც ზღვრის შექმნამდე აირჩევთ არსებულ მოწყობილობას, გრაფიკსა და მონაცემთა წყაროს, ან შეგიძლიათ აირჩიოთ 'ზღვრის შაბლონი', რაც საშუალებას მოგცემთ ერთდროულად შექმნათ არაშაბლონური ზღვარი და შესაბამისი გრაფიკი"
 
 #: includes/webapi.php
 msgid "Selected Graph"
@@ -1689,11 +1682,11 @@ msgstr "მოწყობილობები"
 #: notify_lists.php
 #, php-format
 msgid "ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s"
-msgstr ""
+msgstr "შეცდომა: თქვენი ელფოსტის მისამართი არ შეიძლება იყოს ერთდროულად To და BCC ველებში. ქვემოთ მოცემული ელფოსტა არასწორია!<br><br>%s"
 
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
-msgstr ""
+msgstr "დააწკაპუნეთ „გაგრძელება“-ზე შეტყობინებების სიის(სიების) წასაშლელად. სიასთან(სიებთან) დაკავშირებული ნებისმიერი მოწყობილობა ან ზღვარი დაუბრუნდება ნაგულისხმევ მნიშვნელობას."
 
 #: notify_lists.php
 msgid "Delete Notification List(s)"
@@ -1701,7 +1694,7 @@ msgstr "გაფრთხილების სიების წაშლა"
 
 #: notify_lists.php
 msgid "Click 'Continue' to Duplicate the following Notification List(s)."
-msgstr ""
+msgstr "დააწკაპუნეთ „გაგრძელება“-ზე შემდეგი შეტყობინებების სიის(სიების) დუბლირებისთვის."
 
 #: notify_lists.php
 msgid "New List Name"
@@ -1723,7 +1716,7 @@ msgstr "%s ზღვრის შაბლონი"
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
-msgstr ""
+msgstr "დააწკაპუნეთ „გაგრძელება“-ზე შეტყობინებების სიის „%s“ ქვემოთ მოცემულ ზღვრის შაბლონთან(შაბლონებთან) დასაკავშირებლად."
 
 #: notify_lists.php
 msgid "Warning Membership:"
@@ -1739,7 +1732,7 @@ msgstr "მხოლოდ გაფრთხილებების სია"
 
 #: notify_lists.php
 msgid "Notification List, Retain Other Settings"
-msgstr ""
+msgstr "შეტყობინებების სია, სხვა პარამეტრების შენარჩუნება"
 
 #: notify_lists.php
 msgid "Alert Membership:"
@@ -1752,7 +1745,7 @@ msgstr "გაფრთხილების სიების მინიჭ�
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
-msgstr ""
+msgstr "დააწკაპუნეთ „გაგრძელება“-ზე შეტყობინებების სიის „%s“ ქვემოთ მოცემული ზღვრების შაბლონიდან(შაბლონებიდან) კავშირის გასაუქმებლად."
 
 #: notify_lists.php
 msgid "Remove List"
@@ -1770,21 +1763,21 @@ msgstr "%s ზღვარი"
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
-msgstr ""
+msgstr "დააწკაპუნეთ „გაგრძელება“-ზე შეტყობინებების სიის „%s“ ქვემოთ მოცემულ ზღვართან(ზღვრებთან) დასაკავშირებლად."
 
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
-msgstr ""
+msgstr "დააწკაპუნეთ „გაგრძელება“-ზე შეტყობინებების სიის „%s“ ქვემოთ მოცემული ზღვრიდან(ზღვრებიდან) კავშირის გასაუქმებლად."
 
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
-msgstr ""
+msgstr "დააწკაპუნეთ „გაგრძელება“-ზე შეტყობინებების სიის „%s“ ქვემოთ მოცემულ მოწყობილობასთან(მოწყობილობებთან) დასაკავშირებლად."
 
 #: notify_lists.php
 msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
-msgstr ""
+msgstr "ასევე შეგიძლიათ დააკავშიროთ მოწყობილობების ზღვრებიც. თუმცა, მოწყობილობის ეს ზღვრები დაუშვებს ზღვრის შეტყობინებების სიის გადაწერას."
 
 #: notify_lists.php
 msgid "Resulting Membership:"
@@ -1792,24 +1785,24 @@ msgstr "მიღებული წევრობა:"
 
 #: notify_lists.php
 msgid "Notification and Global Lists"
-msgstr ""
+msgstr "შეტყობინებებისა და გლობალური სიები"
 
 #: notify_lists.php
 msgid "Device Threshold Warning Membership:"
-msgstr ""
+msgstr "მოწყობილობის ზღვრის გაფრთხილების წევრობა:"
 
 #: notify_lists.php
 msgid "Device Threshold Alert Membership:"
-msgstr ""
+msgstr "მოწყობილობის ზღვრის განგაშის წევრობა:"
 
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
-msgstr ""
+msgstr "დააწკაპუნეთ „გაგრძელება“-ზე შეტყობინებების სიის „%s“ ქვემოთ მოცემული მოწყობილობიდან(მოწყობილობებიდან) კავშირის გასაუქმებლად."
 
 #: notify_lists.php
 msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
-msgstr ""
+msgstr "ასევე შეგიძლიათ გააუქმოთ მოწყობილობების ზღვრების კავშირიც. თუმცა, მოწყობილობის ეს ზღვრები დაუშვებს ზღვრის შეტყობინებების სიის გადაწერას."
 
 #: notify_lists.php
 #, php-format
@@ -1830,7 +1823,7 @@ msgstr "სახელი"
 
 #: notify_lists.php
 msgid "Enter a name for this Notification List."
-msgstr ""
+msgstr "შეიყვანეთ სახელი ამ შეტყობინებების სიისთვის."
 
 #: notify_lists.php thold_graph.php
 msgid "Description"
@@ -1838,11 +1831,11 @@ msgstr "აღწერა"
 
 #: notify_lists.php
 msgid "Enter a description for this Notification List."
-msgstr ""
+msgstr "შეიყვანეთ აღწერა ამ შეტყობინებების სიისთვის."
 
 #: notify_lists.php
 msgid "To disable all notifications from this Notification List, you can simply disable it here."
-msgstr ""
+msgstr "ამ შეტყობინებების სიიდან ყველა შეტყობინების გამოსართავად, შეგიძლიათ უბრალოდ გამორთოთ ის აქ."
 
 #: notify_lists.php
 msgid "To Email Addresses"
@@ -1850,23 +1843,23 @@ msgstr "ელფოსტის მისამართებზე"
 
 #: notify_lists.php
 msgid "Enter a comma separated list of Email addresses for this Notification List."
-msgstr ""
+msgstr "შეიყვანეთ მძიმით გამოყოფილი ელფოსტის მისამართების სია ამ შეტყობინებების სიისთვის."
 
 #: notify_lists.php
 msgid "BCC Email Addresses"
-msgstr ""
+msgstr "BCC ელფოსტის მისამართები"
 
 #: notify_lists.php
 msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
-msgstr ""
+msgstr "შეიყვანეთ მძიმით გამოყოფილი ელფოსტის მისამართების სია ამ შეტყობინებების სიისთვის ფარული ასლის (BCC) გასაგზავნად."
 
 #: notify_lists.php
 msgid "Email Style/Format File"
-msgstr ""
+msgstr "ელფოსტის სტილის/ფორმატის ფაილი"
 
 #: notify_lists.php thold.php thold_templates.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr ""
+msgstr "აირჩიეთ გამოსაყენებელი მორგებული html გარსი (wrapper) და CSS ფაილი. ეს ფაილი შეიცავს როგორც html-ს, ასევე CSS-ს თქვენი ანგარიშის გასაფორმებლად. თუ იგი მხოლოდ CSS-ზე მეტს შეიცავს, ფაილში უნდა მოათავსოთ სპეციალური <REPORT> ტეგი. ეს ფორმატის ტეგი ჩანაცვლდება ანგარიშის შიგთავსით. ეს ფაილები განთავსებულია 'formats' დირექტორიაში."
 
 #: notify_lists.php
 msgid "Associated Devices"
@@ -1941,7 +1934,7 @@ msgstr "მხოლოდ მიმდინარე სია"
 
 #: notify_lists.php
 msgid "Current and Global List(s)"
-msgstr ""
+msgstr "მიმდინარე და გლობალური სია(ები)"
 
 #: notify_lists.php
 msgid "No Associated Devices Found"
@@ -2064,32 +2057,32 @@ msgstr "გაფრთხილების სიების გარეშ�
 
 #: notify_queue.php
 msgid "Notification has been Suspended.  Press the Resume button to resume it"
-msgstr ""
+msgstr "შეტყობინება შეჩერებულია. მის განსაახლებლად დააჭირეთ ღილაკს „განახლება“"
 
 #: notify_queue.php
 msgid "Notification has been Resumed.  Press the Suspend button to suspend it"
-msgstr ""
+msgstr "შეტყობინება განახლებულია. მის შესაჩერებლად დააჭირეთ ღილაკს „შეჩერება“"
 
 #: notify_queue.php
 msgid "Pending Notifications have been removed from the database.  Previously sent notification not purged will remain until they age out."
-msgstr ""
+msgstr "მოლოდინში მყოფი შეტყობინებები მონაცემთა ბაზიდან წაიშალა. ადრე გაგზავნილი, წაუშლელი შეტყობინებები დარჩება ვადის გასვლამდე."
 
 #: notify_queue.php
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "შემდეგი შეტყობინების წასაშლელად დააწკაპუნეთ „გაგრძელება“-ზე."
+msgstr[1] "ყველა შემდეგი შეტყობინების წასაშლელად დააწკაპუნეთ „გაგრძელება“-ზე."
 
 #: notify_queue.php
 msgid "Delete Notification"
 msgid_plural "Delete Notifications"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "შეტყობინების წაშლა"
+msgstr[1] "შეტყობინებების წაშლა"
 
 #: notify_queue.php
 #, php-format
 msgid "Event Notifications [ Notifications Suspended by User: %s, %s ago ]"
-msgstr ""
+msgstr "მოვლენის შეტყობინებები [ შეტყობინებები შეჩერებულია მომხმარებლის მიერ: %s, %s წინ ]"
 
 #: notify_queue.php
 msgid "Event Notifications"
@@ -2133,7 +2126,7 @@ msgstr "ცნობები"
 
 #: notify_queue.php
 msgid "The supported notification topic."
-msgstr ""
+msgstr "მხარდაჭერილი შეტყობინების თემა."
 
 #: notify_queue.php thold_graph.php
 msgid "Event Description"
@@ -2141,15 +2134,15 @@ msgstr "მოვლენის აღწერა"
 
 #: notify_queue.php
 msgid "The name of the object as defined by the caller."
-msgstr ""
+msgstr "ობიექტის სახელი გამომძახებლის მიერ განსაზღვრული სახით."
 
 #: notify_queue.php
 msgid "The hostname that was the source of this event."
-msgstr ""
+msgstr "ჰოსტის სახელი, რომელიც ამ მოვლენის წყარო იყო."
 
 #: notify_queue.php
 msgid "The Notification List used if any."
-msgstr ""
+msgstr "გამოყენებული შეტყობინებების სია, ასეთის არსებობის შემთხვევაში."
 
 #: notify_queue.php
 msgid "Object ID"
@@ -2157,7 +2150,7 @@ msgstr "ობიექტის ID"
 
 #: notify_queue.php
 msgid "The Object ID defined by the caller.  Generally its unique 'id'."
-msgstr ""
+msgstr "გამომძახებლის მიერ განსაზღვრული ობიექტის ID. ჩვეულებრივ, მისი უნიკალური 'id'."
 
 #: notify_queue.php
 msgid "Event Time"
@@ -2165,11 +2158,11 @@ msgstr "მოვლენის დრო"
 
 #: notify_queue.php
 msgid "The time of the event as defined by the caller."
-msgstr ""
+msgstr "მოვლენის დრო გამომძახებლის მიერ განსაზღვრული სახით."
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
-msgstr ""
+msgstr "დამუშავდა თუ არა შეტყობინების მოვლენა."
 
 #: notify_queue.php
 msgid "Errors"
@@ -2177,7 +2170,7 @@ msgstr "შეცდომები"
 
 #: notify_queue.php
 msgid "Did this notification result in an error.  Hover on the error column for details."
-msgstr ""
+msgstr "გამოიწვია თუ არა ამ შეტყობინებამ შეცდომა. დეტალებისთვის მიიტანეთ კურსორი შეცდომის სვეტზე."
 
 #: notify_queue.php
 msgid "Attempts"
@@ -2185,7 +2178,7 @@ msgstr "მცდელობები"
 
 #: notify_queue.php
 msgid "The number of delivery attempts made for this notification."
-msgstr ""
+msgstr "ამ შეტყობინების მიწოდების მცდელობების რაოდენობა."
 
 #: notify_queue.php
 msgid "Next Attempt"
@@ -2193,7 +2186,7 @@ msgstr "შემდეგი მცდელობა"
 
 #: notify_queue.php
 msgid "When a failed notification is eligible for its next retry."
-msgstr ""
+msgstr "როდის იქნება წარუმატებელი შეტყობინება ხელახალი მცდელობისთვის მზად."
 
 #: notify_queue.php
 msgid "Run Time"
@@ -2201,11 +2194,11 @@ msgstr "შესრულების დრო"
 
 #: notify_queue.php
 msgid "The time in seconds it took to process the event."
-msgstr ""
+msgstr "მოვლენის დამუშავებისთვის საჭირო დრო წამებში."
 
 #: notify_queue.php
 msgid "Not Specified"
-msgstr "მითითებული არაა"
+msgstr "მითითებული არ არის"
 
 #: notify_queue.php
 msgid "No Notifications"
@@ -2213,11 +2206,11 @@ msgstr "შენიშვნების გარეშე"
 
 #: setup.php
 msgid "Toggle Threshold VRULES Off"
-msgstr ""
+msgstr "ზღვრის VRULES-ის გამორთვა"
 
 #: setup.php
 msgid "Toggle Threshold VRULES On"
-msgstr ""
+msgstr "ზღვრის VRULES-ის ჩართვა"
 
 #: setup.php
 msgid "Create Threshold"
@@ -2226,42 +2219,42 @@ msgstr "ზღვრის შექმნა"
 #: setup.php
 #, php-format
 msgid "Alert Hi for %s (%s)"
-msgstr ""
+msgstr "მაღალი განგაშის ზღვარი: %s (%s)"
 
 #: setup.php
 #, php-format
 msgid "Alert Low for %s (%s)"
-msgstr ""
+msgstr "დაბალი განგაშის ზღვარი: %s (%s)"
 
 #: setup.php
 #, php-format
 msgid "Warning Hi for %s (%s)"
-msgstr ""
+msgstr "მაღალი გაფრთხილების ზღვარი: %s (%s)"
 
 #: setup.php
 #, php-format
 msgid "Warning Low for %s (%s)"
-msgstr ""
+msgstr "დაბალი გაფრთხილების ზღვარი: %s (%s)"
 
 #: setup.php
 #, php-format
 msgid "Alert Hi for %s (%s %%)"
-msgstr ""
+msgstr "განგაშის ზედა ზღვარი %s-სთვის (%s %%)"
 
 #: setup.php
 #, php-format
 msgid "Alert Low for %s (%s %%)"
-msgstr ""
+msgstr "განგაშის ქვედა ზღვარი %s-სთვის (%s %%)"
 
 #: setup.php
 #, php-format
 msgid "Warning Hi for %s (%s %%)"
-msgstr ""
+msgstr "გაფრთხილების ზედა ზღვარი %s-სთვის (%s %%)"
 
 #: setup.php
 #, php-format
 msgid "Warning Low for %s (%s %%)"
-msgstr ""
+msgstr "გაფრთხილების ქვედა ზღვარი %s-სთვის (%s %%)"
 
 #: setup.php
 msgid "Threshold Alert/Warning Values"
@@ -2269,11 +2262,11 @@ msgstr "ზღვრის განგაშის/გაფრთხილე�
 
 #: setup.php
 msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
-msgstr ""
+msgstr "ამ მოწყობილობა(ებ)ზე ყველა შესაბამისი ზღვრის გამოსაყენებლად დააწკაპუნეთ „გაგრძელება“-ზე."
 
 #: setup.php
 msgid "Create Threshold from Data Source"
-msgstr ""
+msgstr "ზღვრის შექმნა მონაცემთა წყაროდან"
 
 #: setup.php
 msgid "Auto-create Thresholds"
@@ -2286,39 +2279,39 @@ msgstr "შეიქმნა %s ზღვარი"
 
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
-msgstr ""
+msgstr "ზღვარ(ებ)ი არ შექმნილა. ზღვრის(ების) შაბლონი ვერ მოიძებნა."
 
 #: setup.php
 msgid "The following Data Sources have no Threshold Templates associated with them"
-msgstr ""
+msgstr "შემდეგ მონაცემთა წყაროებს არ აქვთ დაკავშირებული ზღვრის შაბლონები"
 
 #: setup.php
 msgid "Click 'Continue' to create Thresholds for these Data Sources?"
-msgstr ""
+msgstr "დააწკაპუნეთ „გაგრძელება“-ზე ამ მონაცემთა წყაროებისთვის ზღვრების შესაქმნელად?"
 
 #: setup.php
 msgid "Available Threshold Templates"
-msgstr ""
+msgstr "ხელმისაწვდომი ზღვრის შაბლონები"
 
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Data Sources"
-msgstr ""
+msgstr "შემდეგ მონაცემთა წყაროებთან დაკავშირებული ზღვრის შაბლონები არ არსებობს"
 
 #: setup.php
 msgid "The following Graphs have no Threshold Templates associated with them"
-msgstr ""
+msgstr "შემდეგ გრაფიკებს არ აქვთ დაკავშირებული ზღვრის შაბლონები"
 
 #: setup.php
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
-msgstr ""
+msgstr "დააჭირეთ „გაგრძელება“-ს, თუ გსურთ შექმნათ ზღვარ(ებ)ი ამ გრაფიკ(ებ)ისთვის"
 
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Graphs"
-msgstr ""
+msgstr "შემდეგ გრაფიკებთან დაკავშირებული ზღვრის შაბლონები არ არსებობს"
 
 #: setup.php
 msgid "Associated Threshold Templates"
-msgstr ""
+msgstr "დაკავშირებული ზღვრის შაბლონები"
 
 #: setup.php
 msgid "Threshold Exists"
@@ -2326,15 +2319,15 @@ msgstr "ზღვარი არსებობს"
 
 #: setup.php
 msgid "Threshold Does Not Exist"
-msgstr ""
+msgstr "ზღვარი არ არსებობს"
 
 #: setup.php
 msgid "Delete Threshold Template Association"
-msgstr ""
+msgstr "ზღვრის შაბლონის კავშირის წაშლა"
 
 #: setup.php
 msgid "No Associated Threshold Templates."
-msgstr ""
+msgstr "დაკავშირებული ზღვრის შაბლონები არ არის."
 
 #: setup.php
 msgid "Add Threshold Template"
@@ -2346,16 +2339,16 @@ msgstr "დამატება"
 
 #: setup.php
 msgid "Add Threshold Template to Device"
-msgstr ""
+msgstr "ზღვრის შაბლონის დამატება მოწყობილობაზე"
 
 #: setup.php
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device."
-msgstr ""
+msgstr "დააწკაპუნეთ „გაგრძელება“-ზე შემდეგი ზღვრის შაბლონის წასაშლელად და მოწყობილობასთან კავშირის გასაუქმებლად."
 
 #: setup.php
 #, php-format
 msgid "Threshold Template Name: %s"
-msgstr ""
+msgstr "ზღვრის შაბლონის სახელი: %s"
 
 #: setup.php
 msgid "Remove Threshold Template"
@@ -2363,23 +2356,23 @@ msgstr "ზღვრის შაბლონის წაშლა"
 
 #: setup.php
 msgid "Add Threshold Template to Device Template"
-msgstr ""
+msgstr "ზღვრის შაბლონის დამატება მოწყობილობის შაბლონზე"
 
 #: setup.php
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
-msgstr ""
+msgstr "დააწკაპუნეთ „გაგრძელება“-ზე შემდეგი ზღვრის შაბლონის წასაშლელად და მოწყობილობის შაბლონთან კავშირის გასაუქმებლად."
 
 #: thold.php
 msgid "Either No Templates or Threshold(s) Already Exists - No Thresholds were created."
-msgstr ""
+msgstr "შაბლონები არ არსებობს ან ზღვარ(ებ)ი უკვე არსებობს - ზღვრები არ შექმნილა."
 
 #: thold.php
 msgid "You are not authorized to modify one or more of the Thresholds selected"
-msgstr ""
+msgstr "თქვენ არ გაქვთ უფლებამოსილება შეცვალოთ ერთი ან მეტი არჩეული ზღვარი"
 
 #: thold.php
 msgid "Click 'Delete' to delete the following Threshold(s)."
-msgstr ""
+msgstr "შემდეგი ზღვრის(ების) წასაშლელად დააწკაპუნეთ „წაშლა“-ზე."
 
 #: thold.php
 msgid "Delete Threshold(s)"
@@ -2387,7 +2380,7 @@ msgstr "ზღვრების წაშლა"
 
 #: thold.php
 msgid "Click 'Continue' to enable the following Threshold(s)."
-msgstr ""
+msgstr "შემდეგი ზღვრის(ების) ჩასართავად დააწკაპუნეთ „გაგრძელება“-ზე."
 
 #: thold.php
 msgid "Enable Threshold(s)"
@@ -2395,7 +2388,7 @@ msgstr "შეზღუდვების ჩართვა"
 
 #: thold.php
 msgid "Click 'Continue' to disable the following Threshold(s)."
-msgstr ""
+msgstr "შემდეგი ზღვრის(ების) გამოსართავად დააწკაპუნეთ „გაგრძელება“-ზე."
 
 #: thold.php
 msgid "Disable Threshold(s)"
@@ -2403,7 +2396,7 @@ msgstr "შეზღუდვების გამორთვა"
 
 #: thold.php
 msgid "Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
-msgstr ""
+msgstr "შემდეგი ზღვრის(ების)თვის შემოთავაზებული სახელ(ებ)ის ხელახლა გამოსაყენებლად დააწკაპუნეთ „გაგრძელება“-ზე."
 
 #: thold.php
 msgid "Apply Suggestion"
@@ -2411,7 +2404,7 @@ msgstr "მინიშნების გადატარება"
 
 #: thold.php
 msgid "Click 'Continue' to update the following Threshold(s) with their associate Template's details."
-msgstr ""
+msgstr "შემდეგი ზღვრის(ების) დაკავშირებული შაბლონის დეტალებით განსაახლებლად დააწკაპუნეთ „გაგრძელება“-ზე."
 
 #: thold.php
 msgid "Reapply Template"
@@ -2419,27 +2412,27 @@ msgstr "შაბლონის თავიდან გადატარე�
 
 #: thold.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
-msgstr ""
+msgstr "შემდეგი ზღვრის(ების) დასადასტურებლად დააწკაპუნეთ „გაგრძელება“-ზე. ზღვრები, რომლებიც ამას არ უშვებენ ან არ არიან ამოქმედებული, იგნორირებული იქნება."
 
 #: thold.php
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
-msgstr ""
+msgstr "შემდეგი ზღვრის(ების)თვის შეტყობინებების განსაახლებლად დააწკაპუნეთ „გაგრძელება“-ზე. ზღვრები, რომლებიც ამას არ უშვებენ ან არ არიან ამოქმედებული, იგნორირებული იქნება."
 
 #: thold.php
 msgid "Resume Notifications for Threshold(s)"
-msgstr ""
+msgstr "შეტყობინებების განახლება ზღვრის(ების)თვის"
 
 #: thold.php
 msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
-msgstr ""
+msgstr "შემდეგი ზღვრის(ების)თვის შეტყობინებების შესაჩერებლად დააწკაპუნეთ „გაგრძელება“-ზე. ზღვრები, რომლებიც ამას არ უშვებენ ან არ არიან ამოქმედებული, იგნორირებული იქნება."
 
 #: thold.php
 msgid "Suspend Notification for Threshold(s)"
-msgstr ""
+msgstr "შეტყობინების შეჩერება ზღვრის(ების)თვის"
 
 #: thold.php thold_templates.php
 msgid "Invalid action detected, can not proceed"
-msgstr ""
+msgstr "აღმოჩენილია არასწორი მოქმედება, გაგრძელება შეუძლებელია"
 
 #: thold.php
 msgid "Threshold Management"
@@ -2470,14 +2463,12 @@ msgid "Ack Required"
 msgstr "დადასტურება აუცილებელია"
 
 #: thold.php thold_graph.php
-#, fuzzy
-#| msgid "Status"
 msgid "By Status"
-msgstr "სტატუსი"
+msgstr "სტატუსის მიხედვით"
 
 #: thold.php thold_graph.php
 msgid "The current threshold status. Click a status pill to filter the list to that status."
-msgstr ""
+msgstr "ზღვრის მიმდინარე სტატუსი. დააწკაპუნეთ სტატუსის ნიშანზე სიის ამ სტატუსით გასაფილტრად."
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "External ID"
@@ -2485,7 +2476,7 @@ msgstr "გარე ID"
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function."
-msgstr ""
+msgstr "ზღვრის ტიპი. საბაზისო ტიპებისთვის: [TIP] აღნიშნავს წარსულში არსებულ დროს MIN, MAX, AVG და LAST მნიშვნელობებით ამ პერიოდიდან არაუმეტეს ერთი დღის ინტერვალში. [AOT] აღნიშნავს საშუალოს მთელი დროის პერიოდზე. თუ ორწერტილს მოსდევს MIN, MAX, AVG, LAST, მნიშვნელობა მიღებულია ამ კონსოლიდაციის ფუნქციიდან."
 
 #: thold.php
 msgid "DSName"
@@ -2497,7 +2488,7 @@ msgstr "მიმდინარე"
 
 #: thold.php thold_graph.php
 msgid "The last measured value for the Data Source"
-msgstr ""
+msgstr "მონაცემთა წყაროს ბოლოს გაზომილი მნიშვნელობა"
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "High"
@@ -2505,7 +2496,7 @@ msgstr "მაღალი"
 
 #: thold.php thold_graph.php
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
-msgstr ""
+msgstr "მაღალი გაფრთხილების / განგაშის მნიშვნელობები. შენიშვნა: საბაზისო მნიშვნელობები პროცენტებშია, ყველა სხვა მნიშვნელობა არის საჩვენებელი მნიშვნელობები, რომლებიც შეიძლება შეიცვალოს cdef-ით."
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "Low"
@@ -2513,7 +2504,7 @@ msgstr "დაბალი"
 
 #: thold.php thold_graph.php
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
-msgstr ""
+msgstr "დაბალი გაფრთხილების / განგაშის მნიშვნელობები. შენიშვნა: საბაზისო მნიშვნელობები პროცენტებშია, ყველა სხვა მნიშვნელობა არის საჩვენებელი მნიშვნელობები, რომლებიც შეიძლება შეიცვალოს cdef-ით."
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "Trigger"
@@ -2533,11 +2524,11 @@ msgstr "მდგომარეობაში"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr ""
+msgstr "დრო, რომელიც გავიდა ზღვრის დარღვევის ან ამოქმედების შემდეგ"
 
 #: thold.php thold_graph.php
 msgid "Acknowledgment required for this Threshold"
-msgstr ""
+msgstr "ამ ზღვრისთვის საჭიროა დადასტურება"
 
 #: thold.php thold_graph.php
 msgid "No [Template:Thold]"
@@ -2562,7 +2553,7 @@ msgstr "შეზღუდვების გარეშე"
 
 #: thold.php
 msgid "Threshold Deleted, can not Edit!"
-msgstr ""
+msgstr "ზღვარი წაშლილია, რედაქტირება შეუძლებელია!"
 
 #: thold.php
 msgid "Graph Data"
@@ -2574,11 +2565,11 @@ msgstr "ზღვრის შაბლონის ჩასწორება"
 
 #: thold.php
 msgid "Data Source Description:"
-msgstr ""
+msgstr "მონაცემთა წყაროს აღწერა:"
 
 #: thold.php
 msgid "Associated Graph (Graphs using this RRD):"
-msgstr ""
+msgstr "დაკავშირებული გრაფიკი (გრაფიკები, რომლებიც იყენებენ ამ RRD-ს):"
 
 #: thold.php
 msgid "Last:"
@@ -2611,7 +2602,7 @@ msgstr "BL Down:"
 #: thold.php
 #, php-format
 msgid "Unknown Template ID %d"
-msgstr ""
+msgstr "უცნობი შაბლონის ID %d"
 
 #: thold.php
 msgid "Not Templated"
@@ -2620,7 +2611,7 @@ msgstr "არადაშაბლონებულები"
 #: thold.php
 #, php-format
 msgid "Data Source Item [ %s ] - Current value: [ %s ]"
-msgstr ""
+msgstr "მონაცემთა წყაროს ელემენტი [ %s ] - მიმდინარე მნიშვნელობა: [ %s ]"
 
 #: thold.php thold_templates.php
 #, php-format
@@ -2642,7 +2633,7 @@ msgstr "შაბლონის გავრცელება ჩართუ�
 
 #: thold.php
 msgid "Whether or not these settings will be propagated from the Threshold template."
-msgstr ""
+msgstr "გავრცელდება თუ არა ეს პარამეტრები ზღვრის შაბლონიდან."
 
 #: thold.php thold_templates.php
 msgid "Template Name"
@@ -2650,19 +2641,19 @@ msgstr "საბლონის სახელი"
 
 #: thold.php
 msgid "Name of the Threshold Template the Threshold was created from."
-msgstr ""
+msgstr "ზღვრის შაბლონის სახელი, საიდანაც შეიქმნა ეს ზღვარი."
 
 #: thold.php
 msgid "Enabled at Template Level"
-msgstr ""
+msgstr "ჩართულია შაბლონის დონეზე"
 
 #: thold.php
 msgid "A Threshold must be enabled both at the Template Level and the Threshold level to be checked."
-msgstr ""
+msgstr "შემოწმებისთვის ზღვარი ჩართული უნდა იყოს როგორც შაბლონის დონეზე, ისე ზღვრის დონეზე."
 
 #: thold.php
 msgid "Enabled at Threshold Level"
-msgstr ""
+msgstr "ჩართულია ზღვრის დონეზე"
 
 #: thold.php thold_templates.php
 msgid "General Settings"
@@ -2674,7 +2665,7 @@ msgstr "სახელი (ნაჩვენები)"
 
 #: thold.php
 msgid "Provide the Thresholds a meaningful name"
-msgstr ""
+msgstr "მიანიჭეთ ზღვრებს შინაარსიანი სახელი"
 
 #: thold.php
 msgid "Name (Format)"
@@ -2686,7 +2677,7 @@ msgstr "ფრთხილად HRULE ფერი"
 
 #: thold.php thold_templates.php
 msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
-msgstr ""
+msgstr "გთხოვთ, აირჩიოთ ფერი გრაფიკის HRULE ხაზისთვის გაფრთხილების ზღვრებისთვის. HRULE-ის გარეშე აირჩიეთ „არცერთი“. შენიშვნა: ეს ფუნქცია ამჟამად მხარდაჭერილია მხოლოდ მონაცემთა მანიპულაციის „ზუსტი მნიშვნელობა“ და „პროცენტი“ ტიპებისთვის."
 
 #: thold.php thold_templates.php
 msgid "Alert HRULE Color"
@@ -2694,7 +2685,7 @@ msgstr "განგაშის HRULE ფერი"
 
 #: thold.php thold_templates.php
 msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
-msgstr ""
+msgstr "გთხოვთ, აირჩიოთ ფერი გრაფიკის HRULE ხაზისთვის განგაშის ზღვრებისთვის. HRULE-ის გარეშე აირჩიეთ „არცერთი“. შენიშვნა: ეს ფუნქცია ამჟამად მხარდაჭერილია მხოლოდ მონაცემთა მანიპულაციის „ზუსტი მნიშვნელობა“ და „პროცენტი“ ტიპებისთვის."
 
 #: thold.php thold_templates.php
 msgid "Graph Timespan"
@@ -2702,15 +2693,15 @@ msgstr "გრაფიკის ინტერვალი"
 
 #: thold.php thold_templates.php
 msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
-msgstr ""
+msgstr "გრაფიკის დასრულების დრო დაყენდება ამოქმედების მომენტზე. გრაფიკის დაწყების დრო იქნება დასრულების დროს გამოკლებული გრაფიკის დროის ინტერვალი."
 
 #: thold.php thold_templates.php
 msgid "Skip Scaling on HRULEs"
-msgstr ""
+msgstr "HRULE-ებზე მასშტაბირების გამოტოვება"
 
 #: thold.php thold_templates.php
 msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
-msgstr ""
+msgstr "თუ მონიშნულია, გრაფიკის მასშტაბზე გავლენას არ მოახდენს არც განგაშის და არც გაფრთხილების HRULE-ები."
 
 #: thold.php thold_templates.php
 msgid "Weekend Exemption"
@@ -2718,7 +2709,7 @@ msgstr "შაბათკვირის ამოღება"
 
 #: thold.php thold_templates.php
 msgid "If this is checked, this Threshold will not alert on weekends."
-msgstr ""
+msgstr "თუ ეს მონიშნულია, ეს ზღვარი შაბათ-კვირას განგაშს არ გააგზავნის."
 
 #: thold.php thold_templates.php
 msgid "Disable Restoration Email"
@@ -2726,7 +2717,7 @@ msgstr "აღდგენის ელფოსტის გამორთვ�
 
 #: thold.php thold_templates.php
 msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
-msgstr ""
+msgstr "თუ ეს მონიშნულია, ზღვარი არ გააგზავნის განგაშს ნორმალურ სტატუსში დაბრუნებისას."
 
 #: thold.php thold_templates.php
 msgid "Acknowledgment Options"
@@ -2734,7 +2725,7 @@ msgstr "დადასტურების პარამეტრები"
 
 #: thold.php thold_templates.php
 msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
-msgstr ""
+msgstr "არსებობს დადასტურების სამი დონე, რომლებიც აკონტროლებს, როგორ უნდა უპასუხოთ ზღვრის დარღვევის მდგომარეობას. ესენია:<br><br><ul><li><i>არ არის საჭირო</i> - ამ პარამეტრის არჩევისას ზღვრის დარღვევისთვის დადასტურება საჭირო არ არის.</li><li><i>შეჩერებადი შეტყობინება</i> - ამ პარამეტრით, მას შემდეგ რაც დაადასტურებთ ან შეაჩერებთ ზღვრის შეტყობინებებს, დარღვევის პერიოდში შეტყობინებებს აღარ მიიღებთ. შემდგომში შეგიძლიათ განაახლოთ შეტყობინებები დარღვევის განმავლობაში.</li><li><i>მუდმივი დადასტურება</i> - ამ პარამეტრით, ზღვრის ნორმალურ მდგომარეობაში დაბრუნების შემდეგაც კი უნდა დაადასტუროთ ზღვარი და მიუთითოთ არასავალდებულო ოპერატორის შეტყობინება.</li></ul>"
 
 #: thold.php thold_templates.php
 msgid "None Required"
@@ -2754,7 +2745,7 @@ msgstr "ზღვრის ტიპი"
 
 #: thold.php thold_templates.php
 msgid "The type of Threshold that will be monitored."
-msgstr ""
+msgstr "ზღვრის ტიპი, რომლის მონიტორინგიც განხორციელდება."
 
 #: thold.php thold_templates.php
 msgid "Re-Alert Cycle"
@@ -2762,15 +2753,15 @@ msgstr "თავიდან განგაშის ციკლი"
 
 #: thold.php
 msgid "Repeat alert after this amount of time has passed since the last alert."
-msgstr ""
+msgstr "განგაშის გამეორება ბოლო განგაშიდან ამ დროის გასვლის შემდეგ."
 
 #: thold.php thold_templates.php
 msgid "Warning - High / Low Settings"
-msgstr ""
+msgstr "გაფრთხილება - მაღალი / დაბალი პარამეტრები"
 
 #: thold.php thold_templates.php
 msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
-msgstr ""
+msgstr "მაღალი და დაბალი ზღვრების რიცხვითი მნიშვნელობები შეიძლება შეიცავდეს შემდეგ სუფიქსებს: 1-ზე მეტი რიცხვებისთვის 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', ხოლო 1-ზე ნაკლები რიცხვებისთვის 'm', 'u', 'p', 'f'."
 
 #: thold.php thold_templates.php
 msgid "High Threshold"
@@ -2778,7 +2769,7 @@ msgstr "მაღალი ზღვარი"
 
 #: thold.php thold_templates.php
 msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr ""
+msgstr "თუ დაყენებულია და მონაცემთა წყაროს მნიშვნელობა ამ რიცხვს გადააჭარბებს, გაფრთხილება ამოქმედდება. შენიშვნა: ეს მნიშვნელობა უნდა იყოს RAW რიცხვი. გრაფიკზე ნაჩვენები მნიშვნელობა შეიძლება შეიცვალოს cdef-ით."
 
 #: thold.php thold_templates.php
 msgid "Low Threshold"
@@ -2786,7 +2777,7 @@ msgstr "ქვედა ზღვარი"
 
 #: thold.php thold_templates.php
 msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr ""
+msgstr "თუ დაყენებულია და მონაცემთა წყაროს მნიშვნელობა ამ რიცხვზე დაბლა დაეცემა, გააქტიურდება გაფრთხილება. შენიშვნა: ეს მნიშვნელობა უნდა იყოს დაუმუშავებელი (RAW) რიცხვი. გრაფიკზე ნაჩვენები მნიშვნელობა შესაძლოა შეცვლილი იყოს cdef-ით."
 
 #: thold.php
 msgid "Breach Duration"
@@ -2794,27 +2785,27 @@ msgstr "დარღვევის ხანგრძლივობა"
 
 #: thold.php
 msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr ""
+msgstr "დროის ხანგრძლივობა, რომლის განმავლობაშიც მონაცემთა წყარო უნდა არღვევდეს ზღვარს გაფრთხილების გამოსაწვევად. შენიშვნა: ეს მნიშვნელობა უნდა იყოს დაუმუშავებელი (RAW) რიცხვი. გრაფიკზე ნაჩვენები მნიშვნელობა შესაძლოა შეცვლილი იყოს cdef-ით."
 
 #: thold.php thold_templates.php
 msgid "Alert - High / Low Settings"
-msgstr ""
+msgstr "განგაში - მაღალი / დაბალი მნიშვნელობის პარამეტრები"
 
 #: thold.php thold_templates.php
 msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr ""
+msgstr "თუ დაყენებულია და მონაცემთა წყაროს მნიშვნელობა ამ რიცხვს გადააჭარბებს, გააქტიურდება განგაში. შენიშვნა: ეს მნიშვნელობა უნდა იყოს დაუმუშავებელი (RAW) რიცხვი. გრაფიკზე ნაჩვენები მნიშვნელობა შესაძლოა შეცვლილი იყოს cdef-ით."
 
 #: thold.php thold_templates.php
 msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr ""
+msgstr "თუ დაყენებულია და მონაცემთა წყაროს მნიშვნელობა ამ რიცხვზე დაბლა დაეცემა, გააქტიურდება განგაში. შენიშვნა: ეს მნიშვნელობა უნდა იყოს დაუმუშავებელი (RAW) რიცხვი. გრაფიკზე ნაჩვენები მნიშვნელობა შესაძლოა შეცვლილი იყოს cdef-ით."
 
 #: thold.php
 msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
-msgstr ""
+msgstr "დროის ხანგრძლივობა, რომლის განმავლობაშიც მონაცემთა წყარო უნდა არღვევდეს ზღვარს განგაშის გამოსაწვევად."
 
 #: thold.php thold_templates.php
 msgid "Warning - Time Based Settings"
-msgstr ""
+msgstr "გაფრთხილება - დროზე დაფუძნებული პარამეტრები"
 
 #: thold.php
 msgid "Breach Count"
@@ -2822,7 +2813,7 @@ msgstr "დარღვევების რაოდენობა"
 
 #: thold.php
 msgid "The number of times the Data Source must be in breach of the Threshold."
-msgstr ""
+msgstr "რაოდენობა, რამდენჯერაც მონაცემთა წყარომ უნდა დაარღვიოს ზღვარი."
 
 #: thold.php
 msgid "Breach Window"
@@ -2830,11 +2821,11 @@ msgstr "დარღვევის ფანჯარა"
 
 #: thold.php thold_templates.php
 msgid "The amount of time in the past to check for Threshold breaches."
-msgstr ""
+msgstr "წარსული დროის ხანგრძლივობა ზღვრის დარღვევების შესამოწმებლად."
 
 #: thold.php thold_templates.php
 msgid "Alert - Time Based Settings"
-msgstr ""
+msgstr "განგაში - დროზე დაფუძნებული პარამეტრები"
 
 #: thold.php
 msgid "Baseline Settings"
@@ -2842,7 +2833,7 @@ msgstr "საბაზისო ხაზის მორგება"
 
 #: thold.php thold_templates.php
 msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
-msgstr ""
+msgstr "საბაზისო ხაზის ტიპი. [TIP] არის დრო წარსულში (Time in Past), [AOT] არის საშუალო დროში (Average over Time). პროცენტული გადახრა არის პროცენტული მნიშვნელობა ისტორიული მნიშვნელობიდან. აბსოლუტური მნიშვნელობა არის გადახრა საბაზისო ხაზზე ზემოთ ან ქვემოთ ამ ისტორიულ მნიშვნელობასთან შედარებით. [TIP] საბაზისო ხაზის ტიპებისთვის MIN, MAX, AVG და LAST მიიღება დროის იმ მომენტში არაუმეტეს ერთდღიანი პერიოდიდან."
 
 #: thold.php thold_templates.php
 msgid "Consolidation Function"
@@ -2866,7 +2857,7 @@ msgstr "ბოლო"
 
 #: thold.php thold_templates.php
 msgid "The Consolidation function to use for the Baseline Type value calculation."
-msgstr ""
+msgstr "კონსოლიდაციის ფუნქცია, რომელიც გამოიყენება საბაზისო ხაზის ტიპის მნიშვნელობის გამოსათვლელად."
 
 #: thold.php thold_templates.php
 msgid "Time Range"
@@ -2874,7 +2865,7 @@ msgstr "დროის შუალედი"
 
 #: thold.php thold_templates.php
 msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
-msgstr ""
+msgstr "განსაზღვრავს წერტილს წარსულში (rrd გარჩევადობაზე დაყრდნობით), რომელიც გამოყენებული იქნება ეტალონად, ან ხანგრძლივობას მცურავი საშუალოსთვის მცურავი საშუალოს ტიპის ზღვრის გამოყენებისას"
 
 #: thold.php thold_templates.php
 msgid "Deviation UP"
@@ -2883,7 +2874,7 @@ msgstr "ჩართულობის აცდენა"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr ""
+msgstr "განსაზღვრავს დასაშვებ გადახრას ზედა ზღვრისთვის. თუ არ არის დაყენებული, ზედა ზღვარი საერთოდ არ შემოწმდება. საზომი ერთეული არის აბსოლუტური მნიშვნელობა ტიპისთვის „აბსოლუტური მნიშვნელობა“, ხოლო პროცენტი ორივესთვის: „%% გადახრა“ და „%% მცურავი საშუალო“"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2892,7 +2883,7 @@ msgstr "გადახრა ქვემოთ"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr ""
+msgstr "განსაზღვრავს დასაშვებ გადახრას ქვედა ზღვრისთვის. თუ არ არის დაყენებული, ქვედა ზღვარი საერთოდ არ შემოწმდება. საზომი ერთეული არის აბსოლუტური მნიშვნელობა ტიპისთვის „აბსოლუტური მნიშვნელობა“, ხოლო პროცენტი ორივესთვის: „%% გადახრა“ და „%% მცურავი საშუალო“"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -2901,7 +2892,7 @@ msgstr "ტრიგერების რაოდენობა"
 #: thold.php
 #, php-format
 msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
-msgstr ""
+msgstr "მიყოლებითი შემთხვევების რაოდენობა, როდესაც მონაცემთა წყარო უნდა არღვევდეს საბაზისო ზღვარს განგაშის გამოსაწვევად.<br>დატოვეთ ცარიელი ნაგულისხმევი მნიშვნელობის გამოსაყენებლად (<b>ნაგულისხმევი: %s ციკლი</b>)"
 
 #: thold.php thold_templates.php
 msgid "Data Manipulation"
@@ -2913,7 +2904,7 @@ msgstr "მონაცემების ტიპი"
 
 #: thold.php thold_templates.php
 msgid "Special formatting for the given data."
-msgstr ""
+msgstr "სპეციალური ფორმატირება მოცემული მონაცემებისთვის."
 
 #: thold.php thold_templates.php
 msgid "Threshold CDEF"
@@ -2921,15 +2912,15 @@ msgstr "ზღვრული CDEF"
 
 #: thold.php thold_templates.php
 msgid "Apply this CDEF before returning the data."
-msgstr ""
+msgstr "ამ CDEF-ის გამოყენება მონაცემების დაბრუნებამდე."
 
 #: thold.php
 msgid "Percent Data Source"
-msgstr ""
+msgstr "პროცენტული მონაცემთა წყარო"
 
 #: thold.php
 msgid "Second Data Source Item to use as total value to calculate percentage from."
-msgstr ""
+msgstr "მონაცემთა წყაროს მეორე ელემენტი, რომელიც გამოიყენება ჯამურ მნიშვნელობად პროცენტის გამოსათვლელად."
 
 #: thold.php thold_templates.php
 msgid "Show Units"
@@ -2937,7 +2928,7 @@ msgstr "ერთეულების ჩვენება"
 
 #: thold.php thold_templates.php
 msgid "Display units for very large or small numbers."
-msgstr ""
+msgstr "ერთეულების ჩვენება ძალიან დიდი ან მცირე რიცხვებისთვის."
 
 #: thold.php thold_templates.php
 msgid "Force Units Suffix"
@@ -2945,20 +2936,20 @@ msgstr "ნაძალადევი ერთეულის სუფიქ�
 
 #: thold.php thold_templates.php
 msgid "If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters."
-msgstr ""
+msgstr "თუ გსურთ ზღვრის სხვადასხვა გვერდზე და შეტყობინებებში იძულებითი ერთეულის სუფიქსის ჩვენება, შეიყვანეთ იგი აქ. ზომა შეზღუდულია არაუმეტეს 10 სიმბოლოთი."
 
 #: thold.php thold_templates.php
 msgid "Decimal Digits to Display"
-msgstr ""
+msgstr "საჩვენებელი ათობითი ნიშნების რაოდენობა"
 
 #: thold.php thold_templates.php
 msgid "The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2."
-msgstr ""
+msgstr "ათობითი ნიშნების რაოდენობა, რომელიც ნაჩვენები იქნება ზღვრისა და მიმდინარე მნიშვნელობებისთვის. ნაგულისხმევია auto ან 2."
 
 #: thold.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr ""
+msgstr "RPN გამოსახულება არის RRDtool-თან თავსებადი RPN გამოსახულება. სინტაქსი მოიცავს ყველა ქვემოთ მოცემულ ფუნქციას, ასევე მოწყობილობისა და მონაცემთა მოთხოვნის ჩანაცვლების გამოსახულებებს, როგორიცაა <span class=\"deviceUp\">|query_ifSpeed|</span>. RPN გამოსახულებაში მონაცემთა წყაროს გამოსაყენებლად უნდა გამოიყენოთ სინტაქსი: <span class=\"deviceUp\">|ds:dsname|</span>. მაგალითად, <span class=\"deviceUp\">|ds:traffic_in|</span> მიიღებს traffic_in მონაცემთა წყაროს მიმდინარე მნიშვნელობას გრაფიკთან დაკავშირებული RRD ფაილ(ებ)იდან. გრაფიკის ნებისმიერი მონაცემთა წყაროს ჩართვაა შესაძლებელი.<br><br>მათემატიკური ოპერატორები: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>ფუნქციები: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>ნაკადის ოპერატორები: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>შედარების ფუნქციები: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
@@ -2966,7 +2957,7 @@ msgstr "ზედა მონაცემების წყარო"
 
 #: thold.php
 msgid "Upper data source to calculate the total value."
-msgstr ""
+msgstr "ზედა მონაცემთა წყარო ჯამური მნიშვნელობის გამოსათვლელად."
 
 #: thold.php thold_templates.php
 msgid "Notification Settings"
@@ -2978,7 +2969,7 @@ msgstr "განგაშის თემა"
 
 #: thold.php
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr ""
+msgstr "ეს არის ელფოსტის თემა, რომელიც გამოჩნდება წერილში (მაქს. 128 სიმბოლო). ნაგულისხმევისთვის დატოვეთ ცარიელი. არსებობს რამდენიმე გავრცელებული ჩასანაცვლებელი ტეგი, რომელთა გამოყენებაც შესაძლებელია:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
 
 #: thold.php
 msgid "Alert Body"
@@ -2986,7 +2977,7 @@ msgstr "განგაშის სხეული"
 
 #: thold.php
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr ""
+msgstr "ეს არის შეტყობინება, რომელიც გამოჩნდება ზღვრის ყველა განგაშის ზედა ნაწილში (მაქს. 1024 სიმბოლო). HTML დაშვებულია, მაგრამ წაიშლება მხოლოდ ტექსტური ელფოსტებისთვის. არსებობს რამდენიმე გავრცელებული ჩასანაცვლებელი ტეგი, რომელთა გამოყენებაც შესაძლებელია:<br>მაგ., &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Subject"
@@ -2994,7 +2985,7 @@ msgstr "გაფრთხილების თემა"
 
 #: thold.php
 msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr ""
+msgstr "ეს არის გაფრთხილების ელფოსტის თემა, რომელიც გამოჩნდება წერილში 'გაფრთხილება'-ზე გადასვლის შემდეგ (მაქს. 128 სიმბოლო). ნაგულისხმევისთვის დატოვეთ ცარიელი. არსებობს რამდენიმე გავრცელებული ჩასანაცვლებელი ტეგი, რომელთა გამოყენებაც შესაძლებელია:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Body"
@@ -3002,7 +2993,7 @@ msgstr "გაფრთხილების სხეული"
 
 #: thold.php
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr ""
+msgstr "ეს არის შეტყობინება, რომელიც გამოჩნდება ზღვრის ყველა გაფრთხილების ზედა ნაწილში (მაქს. 1024 სიმბოლო). HTML დაშვებულია, მაგრამ წაიშლება მხოლოდ ტექსტური ელფოსტებისთვის. არსებობს რამდენიმე გავრცელებული ჩასანაცვლებელი ტეგი, რომელთა გამოყენებაც შესაძლებელია:<br>მაგ., &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold.php thold_templates.php
 msgid "Restoral Subject"
@@ -3010,7 +3001,7 @@ msgstr "აღდგენის თემა"
 
 #: thold.php
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr ""
+msgstr "ეს არის ელფოსტის თემა, რომელიც გამოჩნდება წერილში ნორმალურ მდგომარეობაში აღდგენის შემდეგ (მაქს. 128 სიმბოლო). ნაგულისხმევისთვის დატოვეთ ცარიელი. არსებობს რამდენიმე გავრცელებული ჩასანაცვლებელი ტეგი, რომელთა გამოყენებაც შესაძლებელია:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
 
 #: thold.php
 msgid "Restoral Email Body"
@@ -3018,7 +3009,7 @@ msgstr "აღდგენის ელფოსტის სხეული"
 
 #: thold.php
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr ""
+msgstr "ეს არის შეტყობინება, რომელიც გამოჩნდება ზღვრის აღდგენის ყველა შეტყობინების ზედა ნაწილში (მაქს. 1024 სიმბოლო). HTML დაშვებულია, მაგრამ წაიშლება მხოლოდ ტექსტური ელფოსტებისთვის. არსებობს რამდენიმე გავრცელებული ჩასანაცვლებელი ტეგი, რომელთა გამოყენებაც შესაძლებელია:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Notification List"
@@ -3026,7 +3017,7 @@ msgstr "გაფრთხილების შეტყობინები�
 
 #: thold.php thold_templates.php
 msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
-msgstr ""
+msgstr "შეგიძლიათ აირჩიოთ შეტყობინებების სია ამ მონაცემთა წყაროსთვის გაფრთხილებების მისაღებად"
 
 #: thold.php thold_templates.php
 msgid "Alert Notification List"
@@ -3034,7 +3025,7 @@ msgstr "განგაშის გაფრთხილების სია"
 
 #: thold.php thold_templates.php
 msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
-msgstr ""
+msgstr "შეგიძლიათ აირჩიოთ შეტყობინებების სია ამ მონაცემთა წყაროსთვის განგაშების მისაღებად"
 
 #: thold.php thold_templates.php
 msgid "Style/Format File"
@@ -3042,11 +3033,11 @@ msgstr "ფაილის სტილი/ფორმატი"
 
 #: thold.php thold_templates.php
 msgid "SNMP Notification - Event Category"
-msgstr ""
+msgstr "SNMP შეტყობინება - მოვლენის კატეგორია"
 
 #: thold.php thold_templates.php
 msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
-msgstr ""
+msgstr "იმისათვის, რომ NMS-მა უფრო მარტივად დაახარისხოს სხვადასხვა SNMP შეტყობინება, გთხოვთ შეავსოთ კატეგორია, რომელიც ამ შაბლონის SNMP შეტყობინებებმა უნდა გამოიყენოს. მაგ.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
 
 #: thold.php thold_templates.php
 msgid "SNMP Event Description"
@@ -3054,15 +3045,15 @@ msgstr "SNMP მოვლენის აღწერა"
 
 #: thold.php thold_templates.php
 msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
-msgstr ""
+msgstr "შეგიძლიათ მოარგოთ SNMP შეტყობინებების მიმღებებისთვის გასაგზავნი მოვლენის აღწერა ცვლადების მიბმის გამოყენებით. შესაძლებელია სტანდარტული მოწყობილობის (|host_*|) და მონაცემთა მოთხოვნის (|query_*|) ჩანაცვლების ცვლადების, ასევე შემდეგი varbind-ების გამოყენება:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
 
 #: thold.php thold_templates.php
 msgid "SNMP Notification - Alert Event Severity"
-msgstr ""
+msgstr "SNMP შეტყობინება - განგაშის მოვლენის კრიტიკულობა"
 
 #: thold.php
 msgid "Severity to be used for alerts. (low impact -> critical impact)"
-msgstr ""
+msgstr "განგაშებისთვის გამოსაყენებელი კრიტიკულობის დონე. (დაბალი გავლენა -> კრიტიკული გავლენა)"
 
 #: thold.php thold_templates.php
 msgid "Medium"
@@ -3070,11 +3061,11 @@ msgstr "საშუალო"
 
 #: thold.php thold_templates.php
 msgid "SNMP Notification - Warning Event Severity"
-msgstr ""
+msgstr "SNMP შეტყობინება - გაფრთხილების მოვლენის კრიტიკულობა"
 
 #: thold.php thold_templates.php
 msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
-msgstr ""
+msgstr "გაფრთხილებებისთვის გამოსაყენებელი კრიტიკულობა. (დაბალი ზეგავლენა -> კრიტიკული ზეგავლენა).<br>შენიშვნა: გაფრთხილებების კრიტიკულობა უნდა იყოს განგაშებისთვის განსაზღვრული კრიტიკულობის ტოლი ან მასზე დაბალი."
 
 #: thold.php thold_templates.php
 msgid "Notify accounts"
@@ -3082,7 +3073,7 @@ msgstr "გაფრთხილება ანგარიშებისთ�
 
 #: thold.php
 msgid "This is a listing of accounts that will be notified when this Threshold is breached."
-msgstr ""
+msgstr "ეს არის ანგარიშების სია, რომლებსაც ეცნობებათ ამ ზღვრის დარღვევისას."
 
 #: thold.php thold_templates.php
 msgid "Alert Emails"
@@ -3090,7 +3081,7 @@ msgstr "განგაშის ელფოსტები"
 
 #: thold.php
 msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
-msgstr ""
+msgstr "აქ შეგიძლიათ მიუთითოთ დამატებითი ელფოსტის მისამართები ამ მონაცემთა წყაროსთვის განგაშების მისაღებად (მძიმით გამოყოფილი)"
 
 #: thold.php thold_templates.php
 msgid "Warning Emails"
@@ -3098,11 +3089,11 @@ msgstr "გაფრთხილების ელფოსტები"
 
 #: thold.php
 msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
-msgstr ""
+msgstr "აქ შეგიძლიათ მიუთითოთ დამატებითი ელფოსტის მისამართები ამ მონაცემთა წყაროსთვის გაფრთხილებების მისაღებად (მძიმით გამოყოფილი)"
 
 #: thold.php thold_templates.php
 msgid "If checked, Threshold notification will be sent to your local syslog."
-msgstr ""
+msgstr "თუ მონიშნულია, ზღვრის შეტყობინება გაიგზავნება თქვენს ლოკალურ syslog-ში."
 
 #: thold.php thold_templates.php
 msgid "Priority/Level"
@@ -3110,7 +3101,7 @@ msgstr "პრიორიტეტი/დონე"
 
 #: thold.php thold_templates.php
 msgid "This is the Priority Level that will be logged into your syslog messages."
-msgstr ""
+msgstr "ეს არის პრიორიტეტის დონე, რომელიც ჩაიწერება თქვენს syslog შეტყობინებებში."
 
 #: thold.php thold_templates.php
 msgid "Facility"
@@ -3118,11 +3109,11 @@ msgstr "ობიექტი"
 
 #: thold.php thold_templates.php
 msgid "This is the Facility that will be used for this Threshold."
-msgstr ""
+msgstr "ეს არის კატეგორია (Facility), რომელიც გამოყენებული იქნება ამ ზღვრისთვის."
 
 #: thold.php thold_templates.php
 msgid "Event Triggering (Shell Command)"
-msgstr ""
+msgstr "მოვლენის გააქტიურება (Shell ბრძანება)"
 
 #: thold.php thold_templates.php
 msgid "High Trigger Command"
@@ -3130,7 +3121,7 @@ msgstr "მაღალი ტრიგერის ბრძანება"
 
 #: thold.php thold_templates.php
 msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr ""
+msgstr "თუ დაყენებულია და მაღალი ზღვარი დაირღვევა, გაეშვება ეს ბრძანება. გთხოვთ შეიყვანოთ სწორი ბრძანება. გარდა ამისა, ხელმისაწვდომია რამდენიმე ჩანაცვლების ტეგი ზღვრიდან სკრიპტისთვის ინფორმაციის გადასაცემად. ეს შეგიძლიათ გააკეთოთ ბრძანების სტრიქონის არგუმენტების სახით, ან უმჯობესია, სკრიპტის გარემოში. ყველა ჩანაცვლების მნიშვნელობა გამოჩნდება სკრიპტის გარემოში THOLD_ პრეფიქსით. მაგალითად, CURRENTVALUE გახდება THOLD_CURRENTVALUE და ა.შ. ცვლადები მოიცავს: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. და ბოლოს, შესაძლებელია ჰოსტის, მონაცემთა მოთხოვნისა და მონაცემთა შეყვანის ჩანაცვლებაც. მაგალითად, თუ გაქვთ მონაცემთა შეყვანის მორგებული მონაცემი სახელად pending, ჩანაცვლებისთვის გამოიყენეთ |pending|. მონაცემთა მოთხოვნისა და ჰოსტის ჩანაცვლებისთვის გამოიყენეთ Cacti-ს შეთანხმებები: შესაბამისად |query_xxxx| და |host_xxxx|."
 
 #: thold.php thold_templates.php
 msgid "Low Trigger Command"
@@ -3138,7 +3129,7 @@ msgstr "დაბალი ტრიგერის ბრძანება"
 
 #: thold.php thold_templates.php
 msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr ""
+msgstr "თუ დაყენებულია და დაბალი ზღვარი დაირღვევა, გაეშვება ეს ბრძანება. გთხოვთ შეიყვანოთ სწორი ბრძანება. გარდა ამისა, ხელმისაწვდომია რამდენიმე ჩანაცვლების ტეგი ზღვრიდან სკრიპტისთვის ინფორმაციის გადასაცემად. ეს შეგიძლიათ გააკეთოთ ბრძანების სტრიქონის არგუმენტების სახით, ან უმჯობესია, სკრიპტის გარემოში. ყველა ჩანაცვლების მნიშვნელობა გამოჩნდება სკრიპტის გარემოში THOLD_ პრეფიქსით. მაგალითად, CURRENTVALUE გახდება THOLD_CURRENTVALUE და ა.შ. ცვლადები მოიცავს: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. და ბოლოს, შესაძლებელია ჰოსტის, მონაცემთა მოთხოვნისა და მონაცემთა შეყვანის ჩანაცვლებაც. მაგალითად, თუ გაქვთ მონაცემთა შეყვანის მორგებული მონაცემი სახელად pending, ჩანაცვლებისთვის გამოიყენეთ |pending|. მონაცემთა მოთხოვნისა და ჰოსტის ჩანაცვლებისთვის გამოიყენეთ Cacti-ს შეთანხმებები: შესაბამისად |query_xxxx| და |host_xxxx|."
 
 #: thold.php thold_templates.php
 msgid "Norm Trigger Command"
@@ -3146,7 +3137,7 @@ msgstr "ნორმალურობის ტრიგერის ბრძ�
 
 #: thold.php thold_templates.php
 msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr ""
+msgstr "თუ დაყენებულია, როდესაც ზღვარი ნორმალურ მნიშვნელობას დაუბრუნდება, გაეშვება ეს ბრძანება. გთხოვთ შეიყვანოთ სწორი ბრძანება. გარდა ამისა, ხელმისაწვდომია რამდენიმე ჩანაცვლების ტეგი ზღვრიდან სკრიპტისთვის ინფორმაციის გადასაცემად. ეს შეგიძლიათ გააკეთოთ ბრძანების სტრიქონის არგუმენტების სახით, ან უმჯობესია, სკრიპტის გარემოში. ყველა ჩანაცვლების მნიშვნელობა გამოჩნდება სკრიპტის გარემოში THOLD_ პრეფიქსით. მაგალითად, CURRENTVALUE გახდება THOLD_CURRENTVALUE და ა.შ. ცვლადები მოიცავს: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. და ბოლოს, შესაძლებელია ჰოსტის, მონაცემთა მოთხოვნისა და მონაცემთა შეყვანის ჩანაცვლებაც. მაგალითად, თუ გაქვთ მონაცემთა შეყვანის მორგებული მონაცემი სახელად pending, ჩანაცვლებისთვის გამოიყენეთ |pending|. მონაცემთა მოთხოვნისა და ჰოსტის ჩანაცვლებისთვის გამოიყენეთ Cacti-ს შეთანხმებები: შესაბამისად |query_xxxx| და |host_xxxx|."
 
 #: thold.php thold_templates.php
 msgid "Other Settings"
@@ -3154,7 +3145,7 @@ msgstr "სხვა პარამეტრები"
 
 #: thold.php
 msgid "Enter an Eternal ID for this Threshold."
-msgstr ""
+msgstr "შეიყვანეთ მუდმივი ID ამ ზღვრისთვის."
 
 #: thold.php thold_templates.php
 msgid "Operator Notes"
@@ -3162,7 +3153,7 @@ msgstr "ოპერატორის შენიშვნები"
 
 #: thold.php thold_templates.php
 msgid "Enter instructions here for an operator who may be receiving the Threshold message."
-msgstr ""
+msgstr "აქ შეიყვანეთ ინსტრუქციები ოპერატორისთვის, რომელიც შესაძლოა მიიღებს ზღვრის შეტყობინებას."
 
 #: thold.php
 msgid "Select Users(s)"
@@ -3178,15 +3169,15 @@ msgstr "ყველა მონიშნული მომხმარებ�
 
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
-msgstr ""
+msgstr "ზღვარი დადასტურებულია."
 
 #: thold_graph.php
 msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
-msgstr ""
+msgstr "ზღვარი აღარ გამოიწვევს განგაშებს, შეტყობინებებს და აღარ გაუშვებს ბრძანებებს."
 
 #: thold_graph.php
 msgid "The Threshold will restart generating Alerts."
-msgstr ""
+msgstr "ზღვარი განაახლებს განგაშების გენერირებას."
 
 #: thold_graph.php
 msgid "Threshold Status"
@@ -3214,7 +3205,7 @@ msgstr "ზღვრის ჩართვა"
 
 #: thold_graph.php
 msgid "To enable the Threshold, enable the Template first"
-msgstr ""
+msgstr "ზღვრის ჩასართავად ჯერ ჩართეთ შაბლონი"
 
 #: thold_graph.php
 msgid "View Graph"
@@ -3226,11 +3217,11 @@ msgstr "ზღვრის ისტორიის ნახვა"
 
 #: thold_graph.php
 msgid "Suspend Notifications until the Threshold clears"
-msgstr ""
+msgstr "შეტყობინებების შეჩერება ზღვრის დარღვევის მოხსნამდე"
 
 #: thold_graph.php
 msgid "Resume Notifications for this breached Threshold"
-msgstr ""
+msgstr "შეტყობინებების განახლება ამ დარღვეული ზღვრისთვის"
 
 #: thold_graph.php
 msgid "Acknowledgement Message"
@@ -3250,35 +3241,35 @@ msgstr "დასტურის ისტორია"
 
 #: thold_graph.php
 msgid "No name set"
-msgstr ""
+msgstr "სახელი არ არის მითითებული"
 
 #: thold_graph.php
 msgid "Hover over icons for help"
-msgstr ""
+msgstr "დახმარებისთვის მიიტანეთ კურსორი ხატულებთან"
 
 #: thold_graph.php
 msgid "A description for the Device"
-msgstr ""
+msgstr "მოწყობილობის აღწერა"
 
 #: thold_graph.php
 msgid "A Cacti unique identifier for the Device"
-msgstr ""
+msgstr "მოწყობილობის უნიკალური Cacti იდენტიფიკატორი"
 
 #: thold_graph.php
 msgid "The number of Graphs for this Device"
-msgstr ""
+msgstr "ამ მოწყობილობის გრაფიკების რაოდენობა"
 
 #: thold_graph.php
 msgid "The number of Data Sources for this Device"
-msgstr ""
+msgstr "ამ მოწყობილობის მონაცემთა წყაროების რაოდენობა"
 
 #: thold_graph.php
 msgid "The status for this Device as of the last time it was polled"
-msgstr ""
+msgstr "ამ მოწყობილობის სტატუსი ბოლო გამოკითხვის მდგომარეობით"
 
 #: thold_graph.php
 msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
-msgstr ""
+msgstr "ბოლო დრო, როდესაც Cacti-მ ამ მოწყობილობაზე პრობლემა აღმოაჩინა. ის შეიძლება აღემატებოდეს მოწყობილობის უწყვეტი მუშაობის დროს, თუ იგი გადაიტვირთა Cacti-ს გამოკითხვის ციკლებს შორის"
 
 #: thold_graph.php
 msgid "Uptime"
@@ -3286,11 +3277,11 @@ msgstr "ჩართულობის დრო"
 
 #: thold_graph.php
 msgid "The official uptime of the Device as reported by SNMP"
-msgstr ""
+msgstr "SNMP-ის მიერ გადმოცემული მოწყობილობის ოფიციალური უწყვეტი მუშაობის დრო"
 
 #: thold_graph.php
 msgid "The official hostname for this Device"
-msgstr ""
+msgstr "ამ მოწყობილობის ოფიციალური ჰოსტის სახელი"
 
 #: thold_graph.php
 msgid "Current (ms)"
@@ -3298,7 +3289,7 @@ msgstr "მიმდინარე (მწმ)"
 
 #: thold_graph.php
 msgid "The current response time for the Cacti Availability check"
-msgstr ""
+msgstr "Cacti-ს ხელმისაწვდომობის შემოწმების მიმდინარე რეაგირების დრო"
 
 #: thold_graph.php
 msgid "Average (ms)"
@@ -3306,7 +3297,7 @@ msgstr "საშუალო (მწმ)"
 
 #: thold_graph.php
 msgid "The average response time for the Cacti Availability check"
-msgstr ""
+msgstr "Cacti-ს ხელმისაწვდომობის შემოწმების საშუალო რეაგირების დრო"
 
 #: thold_graph.php
 msgid "Availability"
@@ -3314,7 +3305,7 @@ msgstr "წვდომადობა"
 
 #: thold_graph.php
 msgid "The overall Availability of this Device since the last counter reset in Cacti"
-msgstr ""
+msgstr "ამ მოწყობილობის საერთო ხელმისაწვდომობა Cacti-ში მთვლელის ბოლო განულების შემდეგ"
 
 #: thold_graph.php
 msgid "Edit Device"
@@ -3334,12 +3325,12 @@ msgstr "ჩართული არაა"
 
 #: thold_graph.php
 msgid "No Export Rows Found."
-msgstr ""
+msgstr "საექსპორტო სტრიქონები ვერ მოიძებნა."
 
 #: thold_graph.php
 #, php-format
 msgid "Threshold Log for [ %s ]"
-msgstr ""
+msgstr "ზღვრის ჟურნალი [ %s ]"
 
 #: thold_graph.php
 msgid "Log Entries"
@@ -3359,7 +3350,7 @@ msgstr "გაზომილი მნიშვნელობა"
 
 #: thold_graph.php
 msgid "No Threshold Logs Found"
-msgstr ""
+msgstr "ზღვრის ჟურნალები ვერ მოიძებნა"
 
 #: thold_graph.php
 msgid "Entries"
@@ -3367,16 +3358,16 @@ msgstr "ჩანაწერები"
 
 #: thold_templates.php
 msgid "You are not authorised to modify one or more of the Thresholds selected"
-msgstr ""
+msgstr "თქვენ არ გაქვთ უფლება, შეცვალოთ ერთი ან მეტი არჩეული ზღვარი"
 
 #: thold_templates.php
 #, php-format
 msgid "%s (%d Thresholds)"
-msgstr ""
+msgstr "%s (%d ზღვარი)"
 
 #: thold_templates.php
 msgid "Click 'Continue' to export the following Threshold Template(s)."
-msgstr ""
+msgstr "დააწკაპუნეთ 'გაგრძელება'-ზე შემდეგი ზღვრის შაბლონ(ებ)ის ექსპორტისთვის."
 
 #: thold_templates.php
 msgid "Export Template(s)"
@@ -3384,7 +3375,7 @@ msgstr "შაბლონების გატანა"
 
 #: thold_templates.php
 msgid "Click 'Continue' to delete the following Threshold Template(s)."
-msgstr ""
+msgstr "დააწკაპუნეთ 'გაგრძელება'-ზე შემდეგი ზღვრის შაბლონ(ებ)ის წასაშლელად."
 
 #: thold_templates.php
 msgid "Delete Template(s)"
@@ -3392,15 +3383,15 @@ msgstr "შაბლონ(ებ)-ის წაშლა"
 
 #: thold_templates.php
 msgid "Click 'Continue' to Reapply Suggested Names to Thresholds of the following Threshold Template(s)."
-msgstr ""
+msgstr "დააწკაპუნეთ 'გაგრძელება'-ზე შემდეგი ზღვრის შაბლონ(ებ)ის ზღვრებზე შემოთავაზებული სახელების ხელახლა გამოსაყენებლად."
 
 #: thold_templates.php
 msgid "Reapply Suggested Names to Template(s)"
-msgstr ""
+msgstr "შემოთავაზებული სახელების ხელახლა გამოყენება შაბლონ(ებ)ზე"
 
 #: thold_templates.php
 msgid "Click 'Continue' to Enable the selected Template(s) and Threshold(s)."
-msgstr ""
+msgstr "დააწკაპუნეთ 'გაგრძელება'-ზე არჩეული შაბლონ(ებ)ისა და ზღვრ(ებ)ის ჩასართავად."
 
 #: thold_templates.php
 msgid "Enable Template(s)"
@@ -3408,7 +3399,7 @@ msgstr "შაბლონების ჩართვა"
 
 #: thold_templates.php
 msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
-msgstr ""
+msgstr "დააწკაპუნეთ 'გაგრძელება'-ზე არჩეული შაბლონ(ებ)ისა და ზღვრ(ებ)ის გამოსართავად."
 
 #: thold_templates.php
 msgid "Disable Template(s)"
@@ -3416,39 +3407,39 @@ msgstr "შაბლონ(ებ)-ის გამორთვა"
 
 #: thold_templates.php
 msgid "Threshold Template Creation Wizard"
-msgstr ""
+msgstr "ზღვრის შაბლონის შექმნის ოსტატი"
 
 #: thold_templates.php
 msgid "Please select a Data Template"
-msgstr ""
+msgstr "გთხოვთ, აირჩიოთ მონაცემთა შაბლონი"
 
 #: thold_templates.php
 msgid "Please select a Data Source"
-msgstr ""
+msgstr "გთხოვთ, აირჩიოთ მონაცემთა წყარო"
 
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
-msgstr ""
+msgstr "გთხოვთ, დააჭიროთ 'შექმნა'-ს თქვენი ზღვრის შაბლონის შესაქმნელად"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
-msgstr ""
+msgstr "მოთხოვნილი ზღვრის შაბლონი ვერ მოიძებნა"
 
 #: thold_templates.php
 msgid "Provide the Threshold Template a meaningful name."
-msgstr ""
+msgstr "მიუთითეთ ზღვრის შაბლონისთვის შინაარსიანი სახელი."
 
 #: thold_templates.php
 msgid "Suggested Threshold Name"
-msgstr ""
+msgstr "შემოთავაზებული ზღვრის სახელი"
 
 #: thold_templates.php
 msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
-msgstr ""
+msgstr "მიუთითეთ შემოთავაზებული სახელი ამ შაბლონით შექმნილი ზღვრისთვის. შესაძლებელია მოწყობილობის (|host_*|), მონაცემთა მოთხოვნის (|query_*|) და შეყვანის (|input_*|) სტანდარტული ჩანაცვლების ცვლადების გამოყენება, ასევე |graph_title|-ის გამოყენება გრაფიკის სათაურისთვის."
 
 #: thold_templates.php
 msgid "Data Template that you are using. (This cannot be changed)"
-msgstr ""
+msgstr "მონაცემთა შაბლონი, რომელსაც იყენებთ. (ამის შეცვლა შეუძლებელია)"
 
 #: thold_templates.php
 msgid "Data Field"
@@ -3456,15 +3447,15 @@ msgstr "მონაცემების ველი"
 
 #: thold_templates.php
 msgid "Data Field that you are using. (This cannot be changed)"
-msgstr ""
+msgstr "მონაცემთა ველი, რომელსაც იყენებთ. (ამის შეცვლა შეუძლებელია)"
 
 #: thold_templates.php
 msgid "Whether or not this Threshold will be checked and alerted upon."
-msgstr ""
+msgstr "შემოწმდება თუ არა ეს ზღვარი და გაიცემა თუ არა მასზე განგაში."
 
 #: thold_templates.php
 msgid "Repeat alert after this amount of time has pasted since the last alert."
-msgstr ""
+msgstr "განგაშის გამეორება ბოლო განგაშიდან ამ დროის გასვლის შემდეგ."
 
 #: thold_templates.php
 msgid "Min Trigger Duration"
@@ -3472,11 +3463,11 @@ msgstr "მინ. ტრიგერის ხანგრძლივობა
 
 #: thold_templates.php
 msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
-msgstr ""
+msgstr "დროის ხანგრძლივობა, რომლის განმავლობაშიც მონაცემთა წყარო უნდა იმყოფებოდეს დარღვევის მდგომარეობაში განგაშის ასამოქმედებლად."
 
 #: thold_templates.php
 msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
-msgstr ""
+msgstr "ჯერადობა, რამდენჯერაც მონაცემთა წყარო უნდა იმყოფებოდეს დარღვევის მდგომარეობაში გაფრთხილების გაცემამდე."
 
 #: thold_templates.php
 msgid "Time Period Length"
@@ -3484,7 +3475,7 @@ msgstr "დროის შუალედის სიგრძე"
 
 #: thold_templates.php
 msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
-msgstr ""
+msgstr "ჯერადობა, რამდენჯერაც მონაცემთა წყარო უნდა იმყოფებოდეს დარღვევის მდგომარეობაში განგაშის გაცემამდე."
 
 #: thold_templates.php
 msgid "Baseline Monitoring"
@@ -3493,17 +3484,17 @@ msgstr "საბაზისო მონიტორინგი"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr ""
+msgstr "განსაზღვრავს დასაშვებ გადახრას ზედა ზღვრისთვის. თუ არ არის მითითებული, ზედა ზღვარი საერთოდ არ შემოწმდება. გაზომვის ერთეულია აბსოლუტური მნიშვნელობა 'აბსოლუტური მნიშვნელობა' ტიპისთვის და პროცენტი როგორც '%% გადახრა', ისე '%% მცურავი საშუალო' ტიპებისთვის"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr ""
+msgstr "განსაზღვრავს დასაშვებ გადახრას ქვედა ზღვრისთვის. თუ არ არის მითითებული, ქვედა ზღვარი საერთოდ არ შემოწმდება. გაზომვის ერთეულია აბსოლუტური მნიშვნელობა 'აბსოლუტური მნიშვნელობა' ტიპისთვის და პროცენტი როგორც '%% გადახრა', ისე '%% მცურავი საშუალო' ტიპებისთვის"
 
 #: thold_templates.php
 #, php-format
 msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
-msgstr ""
+msgstr "მიყოლებით ჯერადობა, რამდენჯერაც მონაცემთა წყარო უნდა იმყოფებოდეს დარღვევის მდგომარეობაში განგაშის ასამოქმედებლად.<br>დატოვეთ ცარიელი ნაგულისხმევი მნიშვნელობის გამოსაყენებლად (ნაგულისხმევი: %s ციკლი"
 
 #: thold_templates.php
 msgid "Percent Datasource"
@@ -3511,16 +3502,16 @@ msgstr "მონაცემთა წყაროს პროცენტი"
 
 #: thold_templates.php
 msgid "Second Datasource Item to use as total value to calculate percentage from."
-msgstr ""
+msgstr "მონაცემთა წყაროს მეორე ელემენტი, რომელიც გამოიყენება ჯამურ მნიშვნელობად პროცენტის გამოსათვლელად."
 
 #: thold_templates.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr ""
+msgstr "RPN გამოსახულება არის RRDtool-თან თავსებადი RPN გამოსახულება. სინტაქსი მოიცავს ქვემოთ მოცემულ ყველა ფუნქციას, ასევე მოწყობილობისა და მონაცემთა მოთხოვნის ჩანაცვლების გამოსახულებებს, როგორიცაა <span style=\"color:blue;\">|query_ifSpeed|</span>. RPN გამოსახულებაში მონაცემთა წყაროს გამოსაყენებლად უნდა გამოიყენოთ სინტაქსი: <span style=\"color:blue;\">|ds:dsname|</span>. მაგალითად, <span style=\"color:blue;\">|ds:traffic_in|</span> მიიღებს traffic_in მონაცემთა წყაროს მიმდინარე მნიშვნელობას გრაფიკთან დაკავშირებული RRD ფაილ(ებ)იდან. შესაძლებელია გრაფიკის ნებისმიერი მონაცემთა წყაროს ჩართვა.<br>მათემატიკური ოპერატორები: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>ფუნქციები: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>ნაკადის ოპერატორები: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>შედარების ფუნქციები: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold_templates.php
 msgid "Upper data source to use to calculate the total value."
-msgstr ""
+msgstr "ზედა მონაცემთა წყარო, რომელიც გამოიყენება ჯამური მნიშვნელობის გამოსათვლელად."
 
 #: thold_templates.php
 msgid "Alert Email Subject"
@@ -3528,7 +3519,7 @@ msgstr "განგაშის ელფოსტის თემა"
 
 #: thold_templates.php
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr ""
+msgstr "ეს არის ელფოსტის თემა, რომელიც გამოჩნდება ელფოსტაში (მაქს. 128 სიმბოლო). ნაგულისხმევისთვის დატოვეთ ცარიელი. არსებობს რამდენიმე გავრცელებული ჩანაცვლების ტეგი, რომელთა გამოყენებაც შესაძლებელია:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "Alert Email Body"
@@ -3536,19 +3527,19 @@ msgstr "განგაშის ელფოსტის სხეული"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr ""
+msgstr "ეს არის შეტყობინება, რომელიც გამოჩნდება ყველა ზღვრის განგაშის ზედა ნაწილში (მაქს. 1024 სიმბოლო). HTML დაშვებულია, მაგრამ წაიშლება მხოლოდ ტექსტური ელფოსტებისთვის. არსებობს რამდენიმე გავრცელებული ჩანაცვლების ტეგი, რომელთა გამოყენებაც შესაძლებელია:<br>მაგ. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold_templates.php
 msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr ""
+msgstr "ეს არის გაფრთხილების თემა, რომელიც გამოჩნდება ელფოსტაში (მაქს. 128 სიმბოლო). ნაგულისხმევისთვის დატოვეთ ცარიელი. არსებობს რამდენიმე გავრცელებული ჩანაცვლების ტეგი, რომელთა გამოყენებაც შესაძლებელია:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#062"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr ""
+msgstr "ეს არის შეტყობინება, რომელიც გამოჩნდება ყველა ზღვრის გაფრთხილების ზედა ნაწილში (მაქს. 1024 სიმბოლო). HTML დაშვებულია, მაგრამ წაიშლება მხოლოდ ტექსტური ელფოსტებისთვის. არსებობს რამდენიმე გავრცელებული ჩანაცვლების ტეგი, რომელთა გამოყენებაც შესაძლებელია:<br>მაგ. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold_templates.php
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr ""
+msgstr "ეს არის ელფოსტის თემა, რომელიც გამოჩნდება ელფოსტაში ნორმალურ მდგომარეობაში აღდგენის შემდეგ (მაქს. 128 სიმბოლო). ნაგულისხმევისთვის დატოვეთ ცარიელი. არსებობს რამდენიმე გავრცელებული ჩანაცვლების ტეგი, რომელთა გამოყენებაც შესაძლებელია:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "Restoral Body"
@@ -3556,75 +3547,75 @@ msgstr "აღდგენის სხეული"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr ""
+msgstr "ეს არის შეტყობინება, რომელიც გამოჩნდება ზღვრის აღდგენის ყველა შეტყობინების ზედა ნაწილში (მაქს. 1024 სიმბოლო). HTML დაშვებულია, მაგრამ წაიშლება მხოლოდ ტექსტური ელფოსტებისთვის. არსებობს რამდენიმე გავრცელებული ჩანაცვლების ტეგი, რომელთა გამოყენებაც შესაძლებელია:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 
 #: thold_templates.php
 msgid "Notification List Read Only"
-msgstr ""
+msgstr "შეტყობინებების სია მხოლოდ წაკითხვისთვის"
 
 #: thold_templates.php
 msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
-msgstr ""
+msgstr "თუ მონიშნულია, შაბლონში არსებული ზღვრის შეტყობინებების სიები გადააწერს თვით ზღვრის სიებს."
 
 #: thold_templates.php
 msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
-msgstr ""
+msgstr "განგაშებისთვის გამოსაყენებელი კრიტიკულობის დონე. (დაბალი გავლენა -> კრიტიკული გავლენა)"
 
 #: thold_templates.php
 msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
-msgstr ""
+msgstr "ეს არის იმ ანგარიშების ჩამონათვალი, რომლებსაც ეცნობება ამ ზღვრის დარღვევისას.<br><br><br><br>"
 
 #: thold_templates.php
 msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
-msgstr ""
+msgstr "აქ შეგიძლიათ მიუთითოთ დამატებითი ელფოსტის მისამართები ამ მონაცემთა წყაროსთვის განგაშების მისაღებად (მძიმით გამოყოფილი)"
 
 #: thold_templates.php
 msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
-msgstr ""
+msgstr "აქ შეგიძლიათ მიუთითოთ დამატებითი ელფოსტის მისამართები ამ მონაცემთა წყაროსთვის გაფრთხილებების მისაღებად (მძიმით გამოყოფილი)"
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr ""
+msgstr "შეიყვანეთ მუდმივი ID ამ Thold შაბლონისთვის."
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr ""
+msgstr "%d თვე, %d დღე, %d საათი, %d წუთი, %d წამი (საშუალო)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr ""
+msgstr "%d თვე, %d დღე, %d საათი, %d წუთი, %d წამი"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr ""
+msgstr "%d დღე, %d საათი, %d წუთი, %d წამი (საშუალო)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr ""
+msgstr "%d დღე, %d საათი, %d წუთი, %d წამი"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
-msgstr ""
+msgstr "%d საათი, %d წუთი, %d წამი (საშუალო)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
-msgstr ""
+msgstr "%d საათი, %d წუთი, %d წამი"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds (Average)"
-msgstr ""
+msgstr "%d წუთი, %d წამი (საშუალო)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds"
-msgstr ""
+msgstr "%d წუთი, %d წამი"
 
 #: thold_templates.php
 #, php-format
@@ -3642,27 +3633,27 @@ msgstr "DS სახელი"
 
 #: thold_templates.php
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
-msgstr ""
+msgstr "მაღალი გაფრთხილების / განგაშის მნიშვნელობები. შენიშვნა: საბაზისო მნიშვნელობები პროცენტებშია, ყველა სხვა მნიშვნელობა კი არის დაუმუშავებელი (RAW) მნიშვნელობა, რომელიც არ არის შეცვლილი cdef-ით."
 
 #: thold_templates.php
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
-msgstr ""
+msgstr "დაბალი გაფრთხილების / განგაშის მნიშვნელობები. შენიშვნა: საბაზისო მნიშვნელობები პროცენტებშია, ყველა სხვა მნიშვნელობა კი არის დაუმუშავებელი (RAW) მნიშვნელობა, რომელიც არ არის შეცვლილი cdef-ით."
 
 #: thold_templates.php
 msgid "Import Template from Local File"
-msgstr ""
+msgstr "შაბლონის იმპორტი ლოკალური ფაილიდან"
 
 #: thold_templates.php
 msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
-msgstr ""
+msgstr "თუ ზღვრის შაბლონის მონაცემების შემცველი XML ფაილი მდებარეობს თქვენს ლოკალურ კომპიუტერზე, აირჩიეთ იგი აქ."
 
 #: thold_templates.php
 msgid "Import Template from Text"
-msgstr ""
+msgstr "შაბლონის იმპორტი ტექსტიდან"
 
 #: thold_templates.php
 msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
-msgstr ""
+msgstr "თუ გაქვთ ზღვრის შაბლონის მონაცემების შემცველი XML ფაილი ტექსტის სახით, შეგიძლიათ ჩასვათ იგი ამ ველში იმპორტისთვის."
 
 #: thold_templates.php
 msgid "Import Results"
@@ -3670,15 +3661,15 @@ msgstr "შემოტანის შედეგები"
 
 #: thold_templates.php
 msgid "Cacti has imported the following items:"
-msgstr ""
+msgstr "Cacti-მ შემოიტანა შემდეგი ელემენტები:"
 
 #: thold_templates.php
 msgid "Import Threshold Templates"
-msgstr ""
+msgstr "ზღვრის შაბლონების იმპორტი"
 
 #: thold_templates.php
 msgid "The file is too big."
-msgstr ""
+msgstr "ფაილი ძალიან დიდია."
 
 #: thold_templates.php
 msgid "Incomplete file transfer."
@@ -3694,11 +3685,11 @@ msgstr "დროებითი საქაღალდე აკლია."
 
 #: thold_templates.php
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "ფაილის დისკზე ჩაწერა ვერ მოხერხდა"
 
 #: thold_templates.php
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "ფაილის ატვირთვა შეჩერდა გაფართოების მიერ"
 
 #: thold_templates.php
 msgid "Invalid file extension."
