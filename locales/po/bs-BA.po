@@ -1,0 +1,3716 @@
+# Bosnian translation for Cacti.
+# Copyright (C) 2004-2026 The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-13 09:23-0400\n"
+"PO-Revision-Date: 2026-11-26 18:57+0000\n"
+"Last-Translator: Thomas Vincent <thomasvincent@gmail.com>\n"
+"Language-Team: Bosnian <developers@cacti.net>\n"
+"Language: bs-BA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+
+#: includes/arrays.php
+msgid "Indefinitely"
+msgstr "Neograničeno"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "%d mjesec"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "%d mjeseci"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "%d godina"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Hour Ago"
+msgstr "Od prije %d sat"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Hours Ago"
+msgstr "Od prije %d sati"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Day Ago"
+msgstr "Od prije %d dan"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Days Ago"
+msgstr "Od prije %d dana"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Week Ago"
+msgstr "Od prije %d sedmicu"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Weeks Ago"
+msgstr "Od prije %d sedmica"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Month Ago"
+msgstr "Od prije %d mjesec"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Months Ago"
+msgstr "Od prije %d mjeseci"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Year Ago"
+msgstr "Od prije %d godinu"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Years Ago"
+msgstr "Od prije %d godina"
+
+#: includes/arrays.php thold_graph.php
+msgid "Down"
+msgstr "Nedostupan"
+
+#: includes/arrays.php thold_graph.php
+msgid "Error"
+msgstr "Greška"
+
+#: includes/arrays.php thold_graph.php
+msgid "Recovering"
+msgstr "Oporavlja se"
+
+#: includes/arrays.php thold_graph.php
+msgid "Up"
+msgstr "Dostupan"
+
+#: includes/arrays.php thold_graph.php
+msgid "Unknown"
+msgstr "Nepoznato"
+
+#: includes/arrays.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php
+msgid "Disabled"
+msgstr "Onemogućeno"
+
+#: includes/arrays.php thold_graph.php
+msgid "Not Monitored"
+msgstr "Ne prati se"
+
+#: includes/arrays.php
+msgid "Notify - Alert"
+msgstr "Obavještenje - Uzbuna"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Alert"
+msgstr "Uzbuna"
+
+#: includes/arrays.php
+msgid "Notify - Alert2Warning"
+msgstr "Obavještenje - Uzbuna u upozorenje"
+
+#: includes/arrays.php
+msgid "Alert2Warn"
+msgstr "Uzbuna u upozorenje"
+
+#: includes/arrays.php
+msgid "Notify - Warning"
+msgstr "Obavještenje - Upozorenje"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Warning"
+msgstr "Upozorenje"
+
+#: includes/arrays.php
+msgid "Notify - Re-Trigger"
+msgstr "Obavještenje - Ponovno okidanje"
+
+#: includes/arrays.php
+msgid "Re-Trigger"
+msgstr "Ponovno okidanje"
+
+#: includes/arrays.php
+msgid "Notify - Restoral"
+msgstr "Obavještenje - Oporavak"
+
+#: includes/arrays.php
+msgid "Restoral"
+msgstr "Oporavak"
+
+#: includes/arrays.php
+msgid "Event - Alert Trigger"
+msgstr "Događaj - Okidač uzbune"
+
+#: includes/arrays.php
+msgid "Alert Event"
+msgstr "Događaj uzbune"
+
+#: includes/arrays.php
+msgid "Event - Warning Trigger"
+msgstr "Događaj - Okidač upozorenja"
+
+#: includes/arrays.php
+msgid "Warning Event"
+msgstr "Događaj upozorenja"
+
+#: includes/arrays.php
+msgid "Event - Restoral"
+msgstr "Događaj - Oporavak"
+
+#: includes/arrays.php thold_graph.php
+msgid "Restoral Event"
+msgstr "Događaj oporavka"
+
+#: includes/arrays.php
+msgid "Event - Acknowledge"
+msgstr "Događaj - Potvrda"
+
+#: includes/arrays.php
+msgid "Acknowledge Event"
+msgstr "Događaj potvrde"
+
+#: includes/arrays.php
+msgid "Restore"
+msgstr "Vrati"
+
+#: includes/arrays.php
+msgid "Alert Trigger"
+msgstr "Okidač uzbune"
+
+#: includes/arrays.php
+msgid "Warn Trigger"
+msgstr "Okidač upozorenja"
+
+#: includes/arrays.php
+msgid "Alert-Warn"
+msgstr "Uzbuna-Upozorenje"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Acknowledgment"
+msgstr "Potvrda"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Baseline Alert"
+msgstr "Uzbuna osnovne linije"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Notice"
+msgstr "Napomena"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Ok"
+msgstr "U redu"
+
+#: includes/arrays.php
+msgid "Emergency"
+msgstr "Hitno"
+
+#: includes/arrays.php thold.php thold_templates.php
+msgid "Critical"
+msgstr "Kritično"
+
+#: includes/arrays.php
+msgid "Info"
+msgstr "Info"
+
+#: includes/arrays.php
+msgid "Debug"
+msgstr "Otklanjanje grešaka"
+
+#: includes/arrays.php includes/functions.php
+msgid "Never"
+msgstr "Nikada"
+
+#: includes/arrays.php
+msgid "Every Minute"
+msgstr "Svake minute"
+
+#: includes/arrays.php includes/settings.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "Svakih %d minuta"
+
+#: includes/arrays.php
+msgid "Every Hour"
+msgstr "Svaki sat"
+
+#: includes/arrays.php includes/settings.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "Svakih %d sati"
+
+#: includes/arrays.php
+msgid "Every Day"
+msgstr "Svaki dan"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Days"
+msgstr "Svakih %d dana"
+
+#: includes/arrays.php
+msgid "Every Week"
+msgstr "Svake sedmice"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Weeks"
+msgstr "Svakih %d sedmica"
+
+#: includes/arrays.php
+msgid "Every Month"
+msgstr "Svakog mjeseca"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Minute"
+msgstr "%d minuta"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Minutes"
+msgstr "%d minuta"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Hour"
+msgstr "%d sat"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Hours"
+msgstr "%d sati"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Day"
+msgstr "%d dan"
+
+#: includes/arrays.php thold_graph.php
+#, php-format
+msgid "%d Days"
+msgstr "%d dana"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Week"
+msgstr "%d sedmica"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Weeks"
+msgstr "%d sedmica"
+
+#: includes/arrays.php
+#, php-format
+msgid "%0.1f Hours"
+msgstr "%0.1f sati"
+
+#: includes/arrays.php
+msgid "Every Polling"
+msgstr "Svako anketiranje"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Pollings"
+msgstr "Svakih %d anketiranja"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Polling"
+msgstr "%d anketiranje"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Pollings"
+msgstr "%d anketiranja"
+
+#: includes/arrays.php
+msgid "High / Low"
+msgstr "Visoko / Nisko"
+
+#: includes/arrays.php
+msgid "Baseline Deviation"
+msgstr "Odstupanje od osnovne linije"
+
+#: includes/arrays.php
+msgid "Time Based"
+msgstr "Vremenski zasnovano"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Min/Max [TIP]"
+msgstr "%% Odstupanje Min/Max [TIP]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation CF [TIP]"
+msgstr "%% Odstupanje CF [TIP]"
+
+#: includes/arrays.php
+msgid "Absolute Val Min/Max [TIP]"
+msgstr "Apsolutna vrijednost Min/Max [TIP]"
+
+#: includes/arrays.php
+msgid "Absolute Val of CF [TIP]"
+msgstr "Apsolutna vrijednost CF [TIP]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Avg [AOT]"
+msgstr "%% Odstupanje prosjeka [AOT]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Avg of CF [AOT]"
+msgstr "%% Odstupanje prosjeka CF [AOT]"
+
+#: includes/arrays.php
+msgid "Absolute Val Avg [AOT]"
+msgstr "Apsolutna vrijednost prosjeka [AOT]"
+
+#: includes/arrays.php
+msgid "Absolute Val Avg of CF [AOT]"
+msgstr "Apsolutna vrijednost prosjeka CF [AOT]"
+
+#: includes/arrays.php
+msgid "Exact Value"
+msgstr "Tačna vrijednost"
+
+#: includes/arrays.php
+msgid "CDEF"
+msgstr "CDEF"
+
+#: includes/arrays.php
+msgid "Percentage"
+msgstr "Procenat"
+
+#: includes/arrays.php thold.php thold_templates.php
+msgid "RPN Expression"
+msgstr "RPN izraz"
+
+#: includes/arrays.php
+msgid "Upper + Lower bytes"
+msgstr "Gornji + donji bajtovi"
+
+#: includes/arrays.php
+msgid "Acknowledge"
+msgstr "Potvrdi"
+
+#: includes/arrays.php
+msgid "Suspend Notifications"
+msgstr "Obustavi obavještenja"
+
+#: includes/arrays.php
+msgid "Resume Notifications"
+msgstr "Nastavi obavještenja"
+
+#: includes/arrays.php notify_lists.php notify_queue.php setup.php
+msgid "Delete"
+msgstr "Obriši"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Omogući"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Onemogući"
+
+#: includes/arrays.php
+msgid "Reapply Suggested Names"
+msgstr "Ponovo primijeni predložene nazive"
+
+#: includes/arrays.php
+msgid "Propagate Template"
+msgstr "Proširi šablon"
+
+#: includes/arrays.php thold_graph.php
+msgid "Export"
+msgstr "Izvezi"
+
+#: includes/arrays.php
+msgid "Threshold Mail"
+msgstr "E-pošta za prag"
+
+#: includes/arrays.php
+msgid "Down Host Mail"
+msgstr "E-pošta za nedostupan host"
+
+#: includes/arrays.php
+msgid "Up Host Mail"
+msgstr "E-pošta za dostupan host"
+
+#: includes/arrays.php
+msgid "Threshold Cmd"
+msgstr "Komanda za prag"
+
+#: includes/arrays.php
+msgid "Down Host Cmd"
+msgstr "Komanda za nedostupan host"
+
+#: includes/arrays.php
+msgid "Up Host Cmd"
+msgstr "Komanda za dostupan host"
+
+#: includes/arrays.php
+msgid "Auto"
+msgstr "Automatski"
+
+#: includes/arrays.php
+msgid "0 Digits"
+msgstr "0 cifara"
+
+#: includes/arrays.php
+msgid "1 Digit"
+msgstr "1 cifra"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Digits"
+msgstr "%d cifara"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d Devices"
+msgstr "> %d uređaja"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d %% of Devices Globally"
+msgstr "> %d %% uređaja globalno"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d Devices in a Site"
+msgstr "> %d uređaja na lokaciji"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d %% of Devices in a Site"
+msgstr "> %d %% uređaja na lokaciji"
+
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "< 1 minuta"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "Od kreiranja"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "Pragovi"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "Zapisnik"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "Status uređaja"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "Vrijeme:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "Korisnik:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "Sistem:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "Zamjene:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "Stranice:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr "Samo zapisivanje, uređaj na održavanju"
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "Podrazumijevano"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "Veza ka grafikonu u Cacti"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Izdata je uzbuna koja zahtijeva vašu pažnju.<br><br><b>Uređaj</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Poruka</b>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Izdato je upozorenje koje zahtijeva vašu pažnju.<br><br><b>Uređaj</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Poruka</b>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Prag se vratio u normalno stanje. <br><br><strong>Uređaj</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Poruka</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "%% Odstup [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "Aps vrij [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [AOT:%s]"
+msgstr "%% Odstup [AOT:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "Aps vrij [AOT:%s]"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "ID uređaja nije bio postavljen prilikom pokušaja kreiranja grafikona i praga"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "ID šablona praga nije pronađen prilikom pokušaja kreiranja grafikona i praga"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "ID šablona praga nije bio postavljen prilikom pokušaja kreiranja grafikona i praga"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "Kreiranje grafikona nije uspjelo za šablon praga"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "Prag je automatski kreiran zbog mapiranja šablona uređaja"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "Pristup odbijen"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "Zapis ažuriran"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "Nije pronađena povezana stavka šablona grafikona '%d' na pragu '%d'"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "Kreiran prag: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "Morate navesti ili 'Visoki prag uzbune' ili 'Niski prag uzbune' ili oba!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Nemoguć prag: 'Visoki prag uzbune' je manji od 'Niskog praga uzbune'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "Nemoguć prag: 'Visoki prag upozorenja' je manji od 'Niskog praga upozorenja'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "Nemoguć prag: 'Visoki prag upozorenja' je veći od 'Visokog praga uzbune'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "Nemoguć prag: 'Niski prag uzbune' je veći od 'Niskog praga upozorenja'!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "Vremenska referenca u prošlosti mora biti postavljena na pozitivan cijeli broj!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "Morate navesti ili 'Odstupanje od bazne linije GORE' ili 'Odstupanje od bazne linije DOLJE' ili oba!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "Nemoguć prag: 'Visoki prag uzbune' je manji od 'Niskog praga uzbune'"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr "Nemoguć prag: Broj okidača uzbune mora biti veći ili jednak 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Nemoguć prag: Broj okidača uzbune mora biti manji ili jednak broju okidača ili jednak 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr "Nemoguć prag: Broj okidača upozorenja mora biti veći ili jednak 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Nemoguć prag: Broj okidača upozorenja mora biti manji ili jednak broju okidača ili jednak 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Nemoguć prag: 'Niski prag upozorenja' je manji od 'Niskog praga uzbune'!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "Nepoznat tip praga!"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "Nema šablona pragova povezanih sa šablonom uređaja."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "Nijedan prag nije kreiran. Ili već postoje, ili nisu pronađena odgovarajuća poklapanja."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "Greška slanja pošte: Nije postavljena adresa <b>ZA</b>!!<br>Ako koristite vezu <i>Testna pošta</i>, podesite postavku <b>E-pošta za uzbune</b>."
+
+#: includes/functions.php
+msgid "Done"
+msgstr "Gotovo"
+
+#: includes/functions.php
+msgid "Pending"
+msgstr "Na čekanju"
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "Sa greškom"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "N/D"
+
+#: includes/functions.php
+msgid "Success"
+msgstr "Uspješno"
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "Potvrdi prag"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "Kliknite 'Nastavi' da potvrdite sljedeće prag(ove)."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "Potvrdi prag(ove)"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "Otkaži"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "Nastavi"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "Podređeni šablon podataka šablona praga nije pronađen!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "Podređeni izvor podataka šablona praga nije pronađen!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "Kolone uvoza šablona praga ne odgovaraju šemi baze podataka"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "Uvezeno"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "Šablon praga '%s' %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "Ažurirano"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "Uvezi"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "Šablon praga '%s' %s nije uspio!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "Ažuriranje"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "Pojavile su se greške prilikom pokušaja uvoza podataka šablona praga."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "Utvrđeno je da podaci za uvoz šablona praga nisu XML podaci."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "Podaci za uvoz šablona praga nisu bili ispravni prilikom uvoza šablona praga."
+
+#: includes/polling.php
+msgid "SNMP not in use"
+msgstr "SNMP se ne koristi"
+
+#: includes/polling.php
+msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
+msgstr "Obavještenje o uređajima: <DESCRIPTION> (<HOSTNAME>) se vratio iz stanja NEDOSTUPAN"
+
+#: includes/polling.php
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
+msgstr "<br>Status sistema <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Sajt: <SITE><br>Lokacija: <LOCATION><br>Trenutni ping odziv: <CUR_TIME> ms<br>Prosječan odziv sistema: <AVG_TIME> ms<br>Dostupnost sistema: <AVAILABILITY><br>Ukupno provjera od čišćenja: <TOT_POLL><br>Ukupno neuspjelih provjera: <FAIL_POLL><br>Posljednji datum provjere DOSTUPAN: <LAST_FAIL><br>Uređaji prethodno NEDOSTUPNI tokom: <DOWNTIME><br><br>SNMP informacije:<br>Naziv - <SNMP_HOSTNAME><br>Lokacija - <SNMP_LOCATION><br>Vrijeme neprekidnog rada - <UPTIMETEXT> (<UPTIME> ms)<br>Sistem - <SNMP_SYSTEM><br><br>NAPOMENA: <NOTES>"
+
+#: includes/polling.php
+msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
+msgstr "Greška uređaja: <DESCRIPTION> (<HOSTNAME>) je NEDOSTUPAN"
+
+#: includes/polling.php
+msgid "DOWN"
+msgstr "NEDOSTUPAN"
+
+#: includes/polling.php
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
+msgstr "Greška sistema: <DESCRIPTION> (<HOSTNAME>) je <DOWN/UP><br>Sajt: <SITE><br>Lokacija: <LOCATION><br>Razlog: <MESSAGE><br><br>Prosječan odziv sistema: <AVG_TIME> ms<br>Dostupnost sistema: <AVAILABILITY><br>Ukupno provjera od čišćenja: <TOT_POLL><br>Ukupno neuspjelih provjera: <FAIL_POLL><br>Posljednji datum provjere NEDOSTUPAN: <LAST_FAIL><br>Uređaji prethodno DOSTUPNI tokom: <DOWNTIME><br>NAPOMENA: <NOTES>"
+
+#: includes/settings.php
+msgid "(actions)"
+msgstr "(radnje)"
+
+#: includes/settings.php
+msgid "(edit)"
+msgstr "(uredi)"
+
+#: includes/settings.php
+msgid "(save)"
+msgstr "(sačuvaj)"
+
+#: includes/settings.php
+msgid "(add)"
+msgstr "(dodaj)"
+
+#: includes/settings.php
+msgid "Threshold Logs"
+msgstr "Zapisnici pragova"
+
+#: includes/settings.php
+msgid "Thresholds - Failures"
+msgstr "Pragovi - Neuspjesi"
+
+#: includes/settings.php
+msgid "Thresholds - Normal"
+msgstr "Pragovi - Normalno"
+
+#: includes/settings.php
+msgid "Thresholds - Recovering"
+msgstr "Pragovi - Oporavak"
+
+#: includes/settings.php
+msgid "Recent Thresholds"
+msgstr "Nedavni pragovi"
+
+#: includes/settings.php
+msgid "Recent Device Failures"
+msgstr "Nedavni kvarovi uređaja"
+
+#: includes/settings.php thold_templates.php
+msgid "Threshold Templates"
+msgstr "Šabloni pragova"
+
+#: includes/settings.php
+msgid "Threshold Template Import"
+msgstr "Uvoz šablona praga"
+
+#: includes/settings.php notify_lists.php
+msgid "Notification Lists"
+msgstr "Liste obavještenja"
+
+#: includes/settings.php
+msgid "Notification Lists (edit)"
+msgstr "Liste obavještenja (uređivanje)"
+
+#: includes/settings.php
+msgid "Notification Queue"
+msgstr "Red čekanja obavještenja"
+
+#: includes/settings.php
+msgid "Management"
+msgstr "Upravljanje"
+
+#: includes/settings.php notify_lists.php thold_templates.php
+msgid "Templates"
+msgstr "Šabloni"
+
+#: includes/settings.php thold_graph.php
+msgid "Threshold"
+msgstr "Prag"
+
+#: includes/settings.php
+msgid "A template with that Data Source already exists!"
+msgstr "Šablon s tim izvorom podataka već postoji!"
+
+#: includes/settings.php
+msgid "Configure Thresholds"
+msgstr "Konfiguriši pragove"
+
+#: includes/settings.php
+msgid "Configure Threshold Templates"
+msgstr "Konfiguriši šablone pragova"
+
+#: includes/settings.php
+msgid "Manage Notification Lists"
+msgstr "Upravljaj listama obavještenja"
+
+#: includes/settings.php
+msgid "View Thresholds"
+msgstr "Prikaži pragove"
+
+#: includes/settings.php
+msgid "Normal User"
+msgstr "Obični korisnik"
+
+#: includes/settings.php
+msgid "Template Editor"
+msgstr "Uređivač šablona"
+
+#: includes/settings.php
+msgid "General Administration"
+msgstr "Opšta administracija"
+
+#: includes/settings.php
+msgid "Device Up/Down Notification Settings"
+msgstr "Postavke obavještenja za dostupan/nedostupan uređaj"
+
+#: includes/settings.php
+msgid "Threshold Up/Down Email Notification"
+msgstr "E-mail obavještenje za aktivan/neaktivan prag"
+
+#: includes/settings.php notify_lists.php
+msgid "Global List"
+msgstr "Globalna lista"
+
+#: includes/settings.php
+msgid "List Below"
+msgstr "Lista ispod"
+
+#: includes/settings.php
+msgid "Global and List Below"
+msgstr "Globalna i lista ispod"
+
+#: includes/settings.php
+msgid "Which Type of Notification List(s) should be used for Device Up/Down events?"
+msgstr "Koju vrstu liste/lista obavještenja treba koristiti za događaje dostupnosti i nedostupnosti uređaja?"
+
+#: includes/settings.php notify_queue.php
+msgid "Notification List"
+msgstr "Lista obavještenja"
+
+#: includes/settings.php
+msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
+msgstr "Koju listu/liste obavještenja treba obavijestiti o događajima dostupnosti i nedostupnosti uređaja?"
+
+#: includes/settings.php
+msgid "Host Failure Count"
+msgstr "Broj neuspjeha hosta"
+
+#: includes/settings.php
+msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
+msgstr "Broj intervala anketiranja tokom kojih ovaj host mora biti nedostupan prije nego što Thold zabilježi grešku i prijavi host kao nedostupan. Podrazumijevano je 0 (koristi Cacti postavku)"
+
+#: includes/settings.php
+msgid "Use Cacti Setting"
+msgstr "Koristi Cacti postavku"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Polling Interval"
+msgstr "%d interval anketiranja"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Polling Intervals"
+msgstr "%d intervala anketiranja"
+
+#: includes/settings.php
+msgid "Alerting/Thold"
+msgstr "Alarmiranje/Thold"
+
+#: includes/settings.php notify_lists.php
+msgid "General"
+msgstr "Opšte"
+
+#: includes/settings.php
+msgid "Disable All Thresholds"
+msgstr "Onemogući sve pragove"
+
+#: includes/settings.php
+msgid "Checking this box will disable Alerting on all Thresholds.  This can be used when it is necessary to perform maintenance on your network."
+msgstr "Označavanjem ovog polja onemogućit ćete alarmiranje na svim pragovima. Ovo se može koristiti kada je potrebno izvršiti održavanje na vašoj mreži."
+
+#: includes/settings.php
+msgid "Auto Create Thresholds"
+msgstr "Automatski kreiraj pragove"
+
+#: includes/settings.php
+msgid "If selected, when running either automation, or when creating/saving a Device, all Thresholds associated with the Device Template will be created."
+msgstr "Ako je odabrano, prilikom pokretanja automatizacije ili prilikom kreiranja/čuvanja uređaja, bit će kreirani svi pragovi povezani sa šablonom uređaja."
+
+#: includes/settings.php
+msgid "Consider Unknown Data as Zero"
+msgstr "Smatraj nepoznate podatke nulom"
+
+#: includes/settings.php
+msgid "When checking Thresholds, if a Data Source returns Unknown Data ('U'), consider the value as zero for the Threshold check. You can also enable log this issue."
+msgstr "Prilikom provjere pragova, ako izvor podataka vrati nepoznate podatke ('U'), smatraj vrijednost nulom za provjeru praga. Također možete omogućiti bilježenje ovog problema u zapisnik."
+
+#: includes/settings.php
+msgid "Default Management Status"
+msgstr "Podrazumijevani status upravljanja"
+
+#: includes/settings.php
+msgid "Default Threshold management filter status."
+msgstr "Podrazumijevani status filtera za upravljanje pragovima."
+
+#: includes/settings.php notify_lists.php thold.php
+msgid "Any"
+msgstr "Bilo koji"
+
+#: includes/settings.php thold.php thold_graph.php
+msgid "Breached or Triggered"
+msgstr "Prekoračen ili aktiviran"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+msgid "Breached"
+msgstr "Prekršeno"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+msgid "Triggered"
+msgstr "Aktivirano"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Enabled"
+msgstr "Omogućeno"
+
+#: includes/settings.php
+msgid "Empty ifHighSpeed Default"
+msgstr "Podrazumijevana vrijednost za prazan ifHighSpeed"
+
+#: includes/settings.php
+msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces."
+msgstr "Prilikom izračunavanja pragova izraza, ako se ifHighSpeed i ifSpeed vrate kao nula, umjesto toga koristi sljedeću postavku za ifHighSpeed. Podrazumijevani ifHighSpeed bit će 10000 za 10GE interfejse."
+
+#: includes/settings.php
+msgid "Notification Preferences"
+msgstr "Postavke obavještenja"
+
+#: includes/settings.php
+msgid "Disable Legacy Notifications"
+msgstr "Onemogući zastarjela obavještenja"
+
+#: includes/settings.php
+msgid "Checking this box will disable Legacy Alerting on all Thresholds.  Legacy Alerting is defined as any Specific Email Alerts not associated with a Notification List."
+msgstr "Označavanjem ovog polja onemogućit ćete zastarjelo alarmiranje na svim pragovima. Zastarjelo alarmiranje se definiše kao svako specifično e-mail upozorenje koje nije povezano s listom obavještenja."
+
+#: includes/settings.php
+msgid "Threshold Notification Templated"
+msgstr "Šablonska obavještenja praga"
+
+#: includes/settings.php
+msgid "If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template."
+msgstr "Ako je označeno, prilikom kreiranja šablona praga, njegove postavke obavještenja će podrazumijevano biti u vlasništvu šablona praga."
+
+#: includes/settings.php
+msgid "Enable Command Execution"
+msgstr "Omogući izvršavanje komandi"
+
+#: includes/settings.php
+msgid "Checking this box will enable the ability to run commands on Threshold breach and restoral events."
+msgstr "Označavanjem ovog polja omogućit ćete pokretanje naredbi prilikom događaja prekoračenja i oporavka praga."
+
+#: includes/settings.php
+msgid "Enable Per Thold Notification"
+msgstr "Omogući obavještenje za pojedinačni Thold"
+
+#: includes/settings.php
+msgid "Checking this box will enable the ability to maintain custom Email bodies for Thresholds."
+msgstr "Označavanjem ovog polja omogućit ćete održavanje prilagođenih tijela e-mail poruka za pragove."
+
+#: includes/settings.php
+msgid "Enable Notification Queue"
+msgstr "Omogući red čekanja obavještenja"
+
+#: includes/settings.php
+msgid "Checking this box will switch Thold from performing inline Notification to using either the Notification Daemon, or notifications performed out of band by the Notification poller."
+msgstr "Označavanjem ovog polja prebacit ćete Thold sa izvršavanja obavještenja u okviru istog procesa na korištenje daemona za obavještenja ili obavještenja koja van opsega izvršava anketar obavještenja."
+
+#: includes/settings.php
+msgid "Enable Sending Alert Emails to Warning Notification Lists"
+msgstr "Omogući slanje e-mailova alarma listama obavještenja za upozorenja"
+
+#: includes/settings.php
+msgid "Check this box if you wish Warning Notification List recipients to receive Alert Emails in addition to the Alert Notification list receivers.  This case is applicable when Warning Notifications goes to Administrators and Alert Notifications go to Management."
+msgstr "Označite ovo polje ako želite da primaoci sa liste obavještenja za upozorenja primaju e-mailove alarma pored primalaca sa liste obavještenja za alarme. Ovaj slučaj je primjenjiv kada obavještenja za upozorenja idu administratorima, a obavještenja za alarme rukovodstvu."
+
+#: includes/settings.php
+msgid "Threshold Daemon"
+msgstr "Daemon za pragove"
+
+#: includes/settings.php
+msgid "Enable Threshold Daemon"
+msgstr "Omogući daemon za pragove"
+
+#: includes/settings.php
+msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
+msgstr "Označavanjem ovog polja omogućit ćete korištenje namjenskog daemona za pragove. Ovo se može koristiti za povećanje performansi sistema i/ili za raspodjelu praćenja pragova na zaseban server."
+
+#: includes/settings.php
+msgid "Force Threshold Daemon Debug"
+msgstr "Forsiraj otklanjanje grešaka daemona za pragove"
+
+#: includes/settings.php
+msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
+msgstr "Označavanjem ovog polja omogućit ćete otklanjanje grešaka daemona za pragove prilikom rada iz SystemD okruženja ili putem komandne linije. Ova promjena je dinamična i stupit će na snagu čim započne sljedeća petlja pragova."
+
+#: includes/settings.php
+msgid "Daemon Down Notification Frequency"
+msgstr "Učestalost obavještenja o padu daemona"
+
+#: includes/settings.php
+msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
+msgstr "Ako se utvrdi da je Thold daemon pao, pošalji e-mail obavještenje s ovom učestalošću."
+
+#: includes/settings.php
+#, php-format
+msgid "Every %d Hour"
+msgstr "Svakih %d sati"
+
+#: includes/settings.php
+msgid "Daemon Threads"
+msgstr "Niti daemona"
+
+#: includes/settings.php
+msgid "The number of daemon threads to be handled by the Threshold Daemon."
+msgstr "Broj niti daemona kojima će upravljati daemon za pragove."
+
+#: includes/settings.php
+msgid "1 Process"
+msgstr "1 proces"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Processes"
+msgstr "%d procesa"
+
+#: includes/settings.php
+msgid "Logging"
+msgstr "Evidentiranje"
+
+#: includes/settings.php
+msgid "Log Threshold Breaches"
+msgstr "Bilježi prekoračenja pragova u zapisnik"
+
+#: includes/settings.php
+msgid "Enable logging of all Threshold failures to the Cacti Log."
+msgstr "Omogući bilježenje svih neuspjeha pragova u Cacti zapisnik."
+
+#: includes/settings.php
+msgid "Show Data Source in Log"
+msgstr "Prikaži izvor podataka u zapisniku"
+
+#: includes/settings.php
+msgid "Show the Data Source name in the Log if not present."
+msgstr "Prikaži naziv izvora podataka u zapisniku ako nije prisutan."
+
+#: includes/settings.php
+msgid "Log Threshold Changes"
+msgstr "Bilježi promjene pragova u zapisnik"
+
+#: includes/settings.php
+msgid "Enable logging of all Threshold changes to the Cacti Log."
+msgstr "Omogući bilježenje svih promjena pragova u Cacti zapisnik."
+
+#: includes/settings.php
+msgid "Debug Log"
+msgstr "Zapisnik otklanjanja grešaka"
+
+#: includes/settings.php
+msgid "Enable logging of debug messages with Threshold"
+msgstr "Omogući bilježenje poruka za otklanjanje grešaka uz prag"
+
+#: includes/settings.php
+msgid "Alert Log Retention"
+msgstr "Zadržavanje zapisnika alarma"
+
+#: includes/settings.php
+msgid "Keep Threshold Logs for this number of days."
+msgstr "Čuvaj zapisnike pragova ovoliko dana."
+
+#: includes/settings.php
+msgid "Log action Consider Unknown Data as Zero"
+msgstr "Zabilježi radnju Smatraj nepoznate podatke nulom"
+
+#: includes/settings.php
+msgid "When 'Consider Unknown Data as Zero' is enabled, log when it occurs"
+msgstr "Kada je omogućeno 'Smatraj nepoznate podatke nulom', zabilježi kada se to dogodi"
+
+#: includes/settings.php thold.php thold_templates.php
+msgid "Syslog Settings"
+msgstr "Syslog postavke"
+
+#: includes/settings.php
+msgid "Syslog Enabled"
+msgstr "Syslog omogućen"
+
+#: includes/settings.php
+msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Ako je označeno, prilikom kreiranja novog praga, novi događaji praga će se podrazumijevano slati u vaš lokalni syslog. Ova postavka je unaprijed definisana vrijednost. Postavke praga određuju stvarnu syslog kontrolu."
+
+#: includes/settings.php
+msgid "Default Priority/Level"
+msgstr "Podrazumijevani prioritet/nivo"
+
+#: includes/settings.php
+msgid "This is the default Priority/Level that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Ovo je podrazumijevani prioritet/nivo koji će Thold koristiti za slanje syslog poruka. Ova postavka je unaprijed definisana vrijednost. Postavke praga određuju stvarnu syslog kontrolu."
+
+#: includes/settings.php
+msgid "Default Facility"
+msgstr "Podrazumijevana kategorija"
+
+#: includes/settings.php
+msgid "This is the default Facility that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Ovo je podrazumijevana kategorija koju će Thold koristiti za slanje syslog poruka. Ova postavka je unaprijed definisana vrijednost. Postavke praga određuju stvarnu syslog kontrolu."
+
+#: includes/settings.php
+msgid "Alert Presets"
+msgstr "Unaprijed definisane postavke alarma"
+
+#: includes/settings.php
+msgid "Weekend exemptions"
+msgstr "Izuzeci za vikend"
+
+#: includes/settings.php
+msgid "If this is checked, Thold will not run on weekends."
+msgstr "Ako je ovo označeno, Thold se neće pokretati vikendom."
+
+#: includes/settings.php
+msgid "Default Trigger Count"
+msgstr "Podrazumijevani broj okidanja"
+
+#: includes/settings.php
+msgid "Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised."
+msgstr "Podrazumijevani broj uzastopnih puta kada izvor podataka mora prekršiti prag da bi se aktivirao alarm."
+
+#: includes/settings.php
+msgid "Re-Alerting"
+msgstr "Ponovno alarmiranje"
+
+#: includes/settings.php
+msgid "Repeat Alert after specified number of poller cycles."
+msgstr "Ponovi alarm nakon navedenog broja ciklusa polera."
+
+#: includes/settings.php
+msgid "Baseline Presets"
+msgstr "Unaprijed zadane postavke osnovne linije"
+
+#: includes/settings.php
+msgid "Baseline Time Range Default"
+msgstr "Podrazumijevani vremenski raspon osnovne linije"
+
+#: includes/settings.php
+msgid "This is the default value used in creating Thresholds or templates."
+msgstr "Ovo je podrazumijevana vrijednost koja se koristi pri kreiranju pragova ili šablona."
+
+#: includes/settings.php
+msgid "Baseline Trigger Count"
+msgstr "Broj okidanja osnovne linije"
+
+#: includes/settings.php
+msgid "Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised."
+msgstr "Podrazumijevani broj uzastopnih puta kada izvor podataka mora prekršiti izračunati prag osnovne linije da bi se aktivirao alarm."
+
+#: includes/settings.php
+msgid "Baseline Deviation Percentage"
+msgstr "Procenat odstupanja osnovne linije"
+
+#: includes/settings.php
+msgid "SNMP Notification Options"
+msgstr "Opcije SNMP obavještenja"
+
+#: includes/settings.php
+msgid "SNMP Notifications"
+msgstr "SNMP obavještenja"
+
+#: includes/settings.php
+msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
+msgstr "Poruke o statusu praga (informs/traps) bit će poslane primaocima SNMP obavještenja. Ovo podrazumijevano uključuje alarme, upozorenja i trapove za oporavak. Napomena: Ova funkcija zahtijeva dodatak Cacti SNMPAgent."
+
+#: includes/settings.php
+msgid "Disable Warning Notifications"
+msgstr "Onemogući obavještenja za upozorenja"
+
+#: includes/settings.php
+msgid "If this is checked, Threshold will not send a notification when a warning Threshold has been breached."
+msgstr "Ako je ovo označeno, Prag neće poslati obavještenje kada se prekrši prag upozorenja."
+
+#: includes/settings.php
+msgid "Disable Restoration Notifications"
+msgstr "Onemogući obavještenja o oporavku"
+
+#: includes/settings.php
+msgid "If this is checked, Threshold will not send a notification when the Threshold has returned to normal status."
+msgstr "Ako je ovo označeno, Prag neće poslati obavještenje kada se prag vrati u normalan status."
+
+#: includes/settings.php
+msgid "Emailing Options"
+msgstr "Opcije e-pošte"
+
+#: includes/settings.php
+msgid "Send Emails with Urgent Priority"
+msgstr "Šalji e-poruke sa hitnim prioritetom"
+
+#: includes/settings.php
+msgid "Allows you to set Emails with urgent priority"
+msgstr "Omogućava vam da postavite e-poruke sa hitnim prioritetom"
+
+#: includes/settings.php
+msgid "Send Alerts as Text"
+msgstr "Šalji alarme kao tekst"
+
+#: includes/settings.php
+msgid "If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email."
+msgstr "Ako je označeno, svi alarmi bit će poslani kao e-poruke u obliku običnog teksta bez grafikona. Podrazumijevano su to HTML e-poruke sa grafikonom ugrađenim u e-poruku."
+
+#: includes/settings.php
+msgid "Send Email separately for each address"
+msgstr "Pošalji e-mail odvojeno za svaku adresu"
+
+#: includes/settings.php
+msgid "If checked, this will cause all Emails to be sent separately for each address."
+msgstr "Ako je označeno, svi e-mailovi će biti poslani odvojeno za svaku adresu."
+
+#: includes/settings.php
+msgid "From Email Address"
+msgstr "Adresa e-pošte pošiljaoca"
+
+#: includes/settings.php
+msgid "This is the Email address that the Threshold will appear from."
+msgstr "Ovo je adresa e-pošte koja će se prikazivati kao pošiljalac za prag."
+
+#: includes/settings.php
+msgid "From Name"
+msgstr "Ime pošiljaoca"
+
+#: includes/settings.php
+msgid "This is the actual name that the Threshold will appear from."
+msgstr "Ovo je stvarno ime koje će se prikazivati kao pošiljalac za prag."
+
+#: includes/settings.php
+msgid "Device Notification Options"
+msgstr "Opcije obavještenja za uređaj"
+
+#: includes/settings.php
+msgid "Enable Notifications"
+msgstr "Omogući obavještenja"
+
+#: includes/settings.php
+msgid "Enable Dead/Recovering host notification"
+msgstr "Omogući obavještenje o nedostupnom/oporavljenom hostu"
+
+#: includes/settings.php
+msgid "Single Email Notification"
+msgstr "Obavještenje jednom e-porukom"
+
+#: includes/settings.php
+msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
+msgstr "Podržano samo za liste obavještenja i red čekanja obavještenja. Ako postoji više obavještenja o nedostupnim uređajima u jednom ciklusu obrade, pošalji samo jednu e-poruku primaocima s liste obavještenja za sve uređaje."
+
+#: includes/settings.php
+msgid "Single Email Notification Subject"
+msgstr "Naslov obavještenja jednom e-porukom"
+
+#: includes/settings.php
+msgid "This is the Email Subject to be used for all Single Email Notification Emails for both Up and Down Devices."
+msgstr "Ovo je naslov e-pošte koji će se koristiti za sve e-poruke obavještenja jednom e-porukom i za dostupne i za nedostupne uređaje."
+
+#: includes/settings.php
+msgid "Device Notification Delay Options"
+msgstr "Opcije odgode obavještenja za uređaj"
+
+#: includes/settings.php
+msgid "Notification Delay"
+msgstr "Odgoda obavještenja"
+
+#: includes/settings.php
+msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
+msgstr "Ako stigne veliki priliv obavještenja o nedostupnim uređajima, Cacti može pauzirati slanje tih obavještenja na određeni vremenski period kako bi provjerio da li je problem privremen prije nego što ih pošalje. Odaberite prag obavještenja o nedostupnim uređajima prije aktiviranja pauze."
+
+#: includes/settings.php
+msgid "If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?"
+msgstr "Ako odlučite odgoditi obavještenja kod velikog priliva obavještenja o nedostupnim uređajima, koliko dugo ste spremni čekati prije nego što dozvolite obradu obavještenja?"
+
+#: includes/settings.php
+msgid "Device Notification Email Options"
+msgstr "Opcije e-pošte obavještenja za uređaj"
+
+#: includes/settings.php
+msgid "Global Notification Email"
+msgstr "Globalna e-pošta za obavještenja"
+
+#: includes/settings.php
+msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
+msgstr "Ovo je adresa e-pošte na koju će se slati obavještenja o nedostupnim uređajima ako je odabrana Globalna lista obavještenja."
+
+#: includes/settings.php
+msgid "Down Subject"
+msgstr "Naslov za nedostupnost"
+
+#: includes/settings.php
+msgid "This is the Email subject that will be used for Down Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060NOTES&#062"
+msgstr "Ovo je naslov e-pošte koji će se koristiti za poruke o nedostupnim uređajima. Postoji nekoliko uobičajenih oznaka za zamjenu koje se mogu koristiti i uključuju:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (trajanje prethodnog dostupnog stanja u slučaju poruke o nedostupnosti) &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
+msgstr "Greška uređaja: <DESCRIPTION> (<HOSTNAME>) je NEDOSTUPAN"
+
+#: includes/settings.php
+msgid "Down Message"
+msgstr "Poruka za nedostupnost"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Ovo je poruka koja će biti prikazana kao tijelo poruke svih poruka o dostupnim / nedostupnim uređajima (maks. 1024 znaka). HTML je dozvoljen, ali će biti uklonjen za e-poruke samo sa tekstom. Postoji nekoliko uobičajenih oznaka za zamjenu koje se mogu koristiti i uključuju:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (trajanje prethodnog dostupnog stanja u slučaju poruke o nedostupnosti) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
+msgstr "Greška sistema: <DESCRIPTION> (<HOSTNAME>) je <DOWN/UP><br><br>Mjesto: <SITE><br>Lokacija: <LOCATION><br>Razlog: <MESSAGE><br>Prosječan odziv sistema: <AVG_TIME> ms<br>Dostupnost sistema: <AVAILABILITY><br>Ukupno provjera od resetovanja: <TOT_POLL><br>Ukupno neuspjelih provjera: <FAIL_POLL><br>Zadnji datum provjere NEDOSTUPNOSTI: <LAST_FAIL><br>Uređaj je prethodno bio dostupan: <DOWNTIME><br>NAPOMENE: <NOTES><br>NAPOMENE uređaja: <DNOTES>"
+
+#: includes/settings.php
+msgid "Recovering Subject"
+msgstr "Naslov za oporavak"
+
+#: includes/settings.php
+msgid "This is the Email subject that will be used for Recovering Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
+msgstr "Ovo je naslov e-pošte koji će se koristiti za poruke o oporavku uređaja. Postoji nekoliko uobičajenih oznaka za zamjenu koje se mogu koristiti i uključuju:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
+msgstr "Obavještenje o uređaju: <DESCRIPTION> (<HOSTNAME>) se vratio iz stanja DOWN"
+
+#: includes/settings.php
+msgid "Recovering Message"
+msgstr "Poruka o oporavku"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Ovo je poruka koja će biti prikazana kao tijelo poruke svih poruka za uređaj u stanju UP / Down (najviše 1024 znaka). HTML je dozvoljen, ali će biti uklonjen za e-poštu samo u tekstualnom formatu. Postoji nekoliko uobičajenih zamjenskih oznaka koje se mogu koristiti i uključuju:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
+msgstr "<br>Status sistema <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Sajt: <SITE><br>Lokacija: <LOCATION><br>Trenutni ping odziv: <CUR_TIME> ms<br>Prosječni odziv sistema: <AVG_TIME> ms<br>Dostupnost sistema: <AVAILABILITY><br>Ukupno provjera od resetovanja: <TOT_POLL><br>Ukupno neuspjelih provjera: <FAIL_POLL><br>Posljednji datum provjere u stanju UP: <LAST_FAIL><br>Uređaj je prethodno bio u stanju DOWN: <DOWNTIME><br><br>SNMP informacije:<br>Naziv - <SNMP_HOSTNAME><br>Lokacija - <SNMP_LOCATION><br>Vrijeme rada - <UPTIMETEXT> (<UPTIME> ms)<br>Sistem - <SNMP_SYSTEM><br><br>NAPOMENA: <NOTES><br>Napomene uređaja: <DNOTES>"
+
+#: includes/settings.php
+msgid "Status Change Command"
+msgstr "Komanda pri promjeni statusa"
+
+#: includes/settings.php
+msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+msgstr "Kada uređaj promijeni stanje iz perspektive Cacti sistema (iz UP u DOWN ili iz DOWN u RECOVERING/UP), pokrenite sljedeću naredbu. Ova naredba NE smije uključivati argumente komandne linije. Međutim, sljedeće varijable se mogu preuzeti iz okruženja skripte:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+
+#: includes/settings.php
+msgid "Alert/Warning Message Defaults"
+msgstr "Podrazumijevane poruke alarma/upozorenja"
+
+#: includes/settings.php
+msgid "Threshold Alert Message"
+msgstr "Poruka alarma praga"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Ovo je poruka koja će biti prikazana na vrhu svih alarma praga (najviše 1024 znaka). HTML je dozvoljen, ali će biti uklonjen za e-poštu samo u tekstualnom formatu. Postoji nekoliko uobičajenih zamjenskih oznaka koje se mogu koristiti i uključuju:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Izdat je alarm koji zahtijeva vašu pažnju. <br><br><strong>Uređaj</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Poruka</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/settings.php
+msgid "Threshold Warning Message"
+msgstr "Poruka upozorenja praga"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Ovo je poruka koja će biti prikazana na vrhu svih upozorenja praga (najviše 1024 znaka). HTML je dozvoljen, ali će biti uklonjen za e-poštu samo u tekstualnom formatu. Postoji nekoliko uobičajenih zamjenskih oznaka koje se mogu koristiti i uključuju:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Izdato je upozorenje koje zahtijeva vašu pažnju. <br><br><strong>Uređaj</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Poruka</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/settings.php
+msgid "Threshold Restoral Message"
+msgstr "Poruka o oporavku praga"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Ovo je poruka koja će biti prikazana na vrhu svih obavještenja o oporavku praga (maksimalno 1024 znaka). HTML je dozvoljen, ali će biti uklonjen za e-poštu samo u tekstualnom formatu. Postoji nekoliko uobičajenih oznaka zamjene koje se mogu koristiti, uključujući:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Prag se vratio u normalan status. <br><br><strong>Uređaj</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Poruka</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/tab.php
+msgid "Thold"
+msgstr "Thold"
+
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "Prag(ovi) već postoje - Nijedan prag nije kreiran"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "Kreiraj prag iz šablona"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "Čarobnjak za kreiranje praga [ Odaberite tip praga ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "Čarobnjak za kreiranje praga [ Unesite prilagođene podatke i pritisnite 'Kreiraj' da biste kreirali svoj prag i grafikon ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "Čarobnjak za kreiranje praga [ Odaberite dostupne redove upita podataka ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "Čarobnjak za kreiranje praga [ Odaberite uređaj ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "Čarobnjak za kreiranje praga [ Odaberite šablon grafikona ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "Čarobnjak za kreiranje praga [ Odaberite šablon praga ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "Čarobnjak za kreiranje praga [ Pritisnite 'Kreiraj' da biste kreirali svoj prag ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "Čarobnjak za kreiranje praga [ Odaberite izvor podataka ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "Čarobnjak za kreiranje praga [ Odaberite grafikon ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "Kriteriji za kreiranje praga"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "Tip kreiranja"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "Odaberite tip praga koji će se koristiti za kreiranje ovog praga."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "Odaberite tip praga"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "Bez šablona"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "Šablon praga"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "Odaberite šablon praga na kojem će se zasnivati grafikon i prag."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "Odaberite šablon praga"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "Šablon grafikona"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "Odaberite šablon grafikona koji će se koristiti za grafikon koji se kreira."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "Odaberite šablon grafikona"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "Uređaj"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "Odaberite uređaj koji će se koristiti za prag i grafikon koji se kreiraju."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "Odaberite uređaj"
+
+#: includes/webapi.php
+msgid "Select an Available Item"
+msgstr "Odaberite dostupnu stavku"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "Stavka upita podataka"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "Odaberite odgovarajući red iz upita podataka za grafikon i prag."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "Napomene o kreiranju"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "Važna napomena:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "Ovaj prag će koristiti šablon. Kada koristite opciju Šablon praga, od vas će biti zatraženi Šablon praga, Šablon grafikona, Uređaj i eventualno informacije o stavci upita podataka prije nego što dobijete upit 'Kreiraj', kada će vam, ako su na nivou šablona grafikona i šablona izvora podataka dozvoljene bilo kakve informacije o grafikonu ili izvoru podataka koje se mogu nadjačati, one biti zatražene. Zatim će, pritiskom na dugme 'Kreiraj', i grafikon i prag biti kreirani istovremeno."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "Grafikon"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "Odaberite grafikon za prag."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "Odaberite grafikon"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "Izvor podataka"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "Odaberite izvor podataka za prag."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "Odaberite izvor podataka"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "Kreiraj"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "Ovaj prag <b>NEĆE</b> koristiti šablon i radit će samo na postojećim grafikonima. Ako želite istovremeno kreirati i grafikon i prag, odaberite Šablon praga iz padajućeg menija i nastavite dok se ne pojavi dugme 'Kreiraj'."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "Ovaj prag <b>NEĆE</b> koristiti šablon. Možete odabrati ili Po grafikonu, gdje ćete zatim odabrati postojeći uređaj, grafikon i izvor podataka prije kreiranja praga, ili možete odabrati Šablon praga, što će vam omogućiti da istovremeno kreirate prag bez šablona i odgovarajući grafikon"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "Odabrani grafikon"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "Kreiran grafikon: %s"
+
+#: notify_lists.php
+msgid "Duplicate"
+msgstr "Dupliciraj"
+
+#: notify_lists.php
+msgid "Associate"
+msgstr "Pridruži"
+
+#: notify_lists.php
+msgid "Disassociate"
+msgstr "Odvoji"
+
+#: notify_lists.php thold_graph.php
+msgid "Devices"
+msgstr "Uređaji"
+
+#: notify_lists.php
+#, php-format
+msgid "ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s"
+msgstr "GREŠKA: Ne možete imati svoju adresu e-pošte i u polju Za i u polju BCC. Adresa e-pošte ispod nije važeća!<br><br>%s"
+
+#: notify_lists.php
+msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
+msgstr "Kliknite 'Nastavi' da obrišete listu(e) obavještenja. Svi uređaji ili pragovi povezani s listom(ama) bit će vraćeni na podrazumijevano."
+
+#: notify_lists.php
+msgid "Delete Notification List(s)"
+msgstr "Obriši listu(e) obavještenja"
+
+#: notify_lists.php
+msgid "Click 'Continue' to Duplicate the following Notification List(s)."
+msgstr "Kliknite 'Nastavi' da duplicirate sljedeću(e) listu(e) obavještenja."
+
+#: notify_lists.php
+msgid "New List Name"
+msgstr "Naziv nove liste"
+
+#: notify_lists.php
+msgid "New Notification List"
+msgstr "Nova lista obavještenja"
+
+#: notify_lists.php
+msgid "Duplicate Notification List(s)"
+msgstr "Dupliciraj listu(e) obavještenja"
+
+#: notify_lists.php
+#, php-format
+msgid "%s Threshold Template(s)"
+msgstr "%s šablon(a) praga"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
+msgstr "Kliknite 'Nastavi' da povežete listu obavještenja '%s' sa šablonom(ima) praga ispod."
+
+#: notify_lists.php
+msgid "Warning Membership:"
+msgstr "Članstvo za upozorenja:"
+
+#: notify_lists.php
+msgid "No Change"
+msgstr "Bez promjene"
+
+#: notify_lists.php
+msgid "Notification List Only"
+msgstr "Samo lista obavještenja"
+
+#: notify_lists.php
+msgid "Notification List, Retain Other Settings"
+msgstr "Lista obavještenja, zadrži ostale postavke"
+
+#: notify_lists.php
+msgid "Alert Membership:"
+msgstr "Članstvo za alarme:"
+
+#: notify_lists.php
+msgid "Associate Notification List(s)"
+msgstr "Poveži listu(e) obavještenja"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
+msgstr "Kliknite 'Nastavi' da prekinete vezu liste obavještenja '%s' sa šablonom(ima) praga ispod."
+
+#: notify_lists.php
+msgid "Remove List"
+msgstr "Ukloni listu"
+
+#: notify_lists.php
+msgid "Disassociate Notification List(s)"
+msgstr "Prekini vezu liste(a) obavještenja"
+
+#: notify_lists.php
+#, php-format
+msgid "%s Threshold(s)"
+msgstr "%s prag(ova)"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
+msgstr "Kliknite 'Nastavi' da povežete listu obavještenja '%s' s pragom(ovima) ispod."
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
+msgstr "Kliknite 'Nastavi' da prekinete vezu liste obavještenja '%s' s pragom(ovima) ispod."
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
+msgstr "Kliknite 'Nastavi' da povežete listu obavještenja '%s' s uređajem(ima) ispod."
+
+#: notify_lists.php
+msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
+msgstr "Također možete povezati i pragove uređaja. Međutim, ovi pragovi uređaja će omogućiti da lista obavještenja praga bude prepisana."
+
+#: notify_lists.php
+msgid "Resulting Membership:"
+msgstr "Rezultirajuće članstvo:"
+
+#: notify_lists.php
+msgid "Notification and Global Lists"
+msgstr "Liste obavještenja i globalne liste"
+
+#: notify_lists.php
+msgid "Device Threshold Warning Membership:"
+msgstr "Članstvo za upozorenja praga uređaja:"
+
+#: notify_lists.php
+msgid "Device Threshold Alert Membership:"
+msgstr "Članstvo uređaja u alarmima praga:"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
+msgstr "Kliknite 'Nastavi' da odvojite listu obavještenja '%s' od uređaja u nastavku."
+
+#: notify_lists.php
+msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
+msgstr "Također možete odvojiti i pragove uređaja. Međutim, ti pragovi uređaja će omogućiti prepisivanje liste obavještenja praga."
+
+#: notify_lists.php
+#, php-format
+msgid "[edit: %s]"
+msgstr "[uredi: %s]"
+
+#: notify_lists.php
+msgid "[new]"
+msgstr "[novo]"
+
+#: notify_lists.php
+msgid "List General Settings"
+msgstr "Opće postavke liste"
+
+#: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
+msgid "Name"
+msgstr "Naziv"
+
+#: notify_lists.php
+msgid "Enter a name for this Notification List."
+msgstr "Unesite naziv za ovu listu obavještenja."
+
+#: notify_lists.php thold_graph.php
+msgid "Description"
+msgstr "Opis"
+
+#: notify_lists.php
+msgid "Enter a description for this Notification List."
+msgstr "Unesite opis za ovu listu obavještenja."
+
+#: notify_lists.php
+msgid "To disable all notifications from this Notification List, you can simply disable it here."
+msgstr "Da biste onemogućili sva obavještenja iz ove liste obavještenja, jednostavno je možete onemogućiti ovdje."
+
+#: notify_lists.php
+msgid "To Email Addresses"
+msgstr "E-mail adrese primaoca"
+
+#: notify_lists.php
+msgid "Enter a comma separated list of Email addresses for this Notification List."
+msgstr "Unesite listu e-mail adresa odvojenih zarezom za ovu listu obavještenja."
+
+#: notify_lists.php
+msgid "BCC Email Addresses"
+msgstr "BCC e-mail adrese"
+
+#: notify_lists.php
+msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
+msgstr "Unesite listu e-mail adresa odvojenih zarezom za skrivenu kopiju ove liste obavještenja."
+
+#: notify_lists.php
+msgid "Email Style/Format File"
+msgstr "Datoteka stila/formata e-maila"
+
+#: notify_lists.php thold.php thold_templates.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "Odaberite prilagođeni html omotač i CSS datoteku koju želite koristiti. Ova datoteka sadrži i html i CSS koji obuhvataju vaš izvještaj. Ako sadrži više od samog CSS-a, potrebno je da unutar datoteke postavite posebnu oznaku <REPORT>. Ova oznaka formata će biti zamijenjena sadržajem izvještaja. Ove datoteke se nalaze u direktoriju 'formats'."
+
+#: notify_lists.php
+msgid "Associated Devices"
+msgstr "Povezani uređaji"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Search"
+msgstr "Pretraži"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "Site"
+msgstr "Lokacija"
+
+#: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
+msgid "None"
+msgstr "Nijedan"
+
+#: notify_lists.php
+msgid "Device Template"
+msgstr "Šablon uređaja"
+
+#: notify_lists.php
+msgid "Associated"
+msgstr "Povezano"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Go"
+msgstr "Idi"
+
+#: notify_lists.php notify_queue.php
+msgid "Set/Refresh Filters"
+msgstr "Postavi/osvježi filtere"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Clear"
+msgstr "Očisti"
+
+#: notify_lists.php notify_queue.php
+msgid "Clear Filters"
+msgstr "Očisti filtere"
+
+#: notify_lists.php thold.php thold_graph.php thold_templates.php
+msgid "ID"
+msgstr "ID"
+
+#: notify_lists.php setup.php thold.php thold_graph.php
+msgid "Status"
+msgstr "Status"
+
+#: notify_lists.php
+msgid "Associated Lists"
+msgstr "Povezane liste"
+
+#: notify_lists.php thold_graph.php
+msgid "Graphs"
+msgstr "Grafikoni"
+
+#: notify_lists.php thold_graph.php
+msgid "Data Sources"
+msgstr "Izvori podataka"
+
+#: notify_lists.php notify_queue.php thold_graph.php
+msgid "Hostname"
+msgstr "Naziv hosta"
+
+#: notify_lists.php
+msgid "Current List Only"
+msgstr "Samo trenutna lista"
+
+#: notify_lists.php
+msgid "Current and Global List(s)"
+msgstr "Trenutna i globalna lista/liste"
+
+#: notify_lists.php
+msgid "No Associated Devices Found"
+msgstr "Nisu pronađeni povezani uređaji"
+
+#: notify_lists.php
+msgid "Associated Thresholds"
+msgstr "Povezani pragovi"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "Template"
+msgstr "Šablon"
+
+#: notify_lists.php
+msgid "State"
+msgstr "Savezna država"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "All"
+msgstr "Sve"
+
+#: notify_lists.php
+msgid "Warning Lists"
+msgstr "Liste upozorenja"
+
+#: notify_lists.php
+msgid "Alert Lists"
+msgstr "Liste alarma"
+
+#: notify_lists.php thold.php thold_graph.php thold_templates.php
+msgid "Type"
+msgstr "Tip"
+
+#: notify_lists.php thold.php
+msgid "Templated"
+msgstr "Sa šablonom"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "No"
+msgstr "Ne"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Yes"
+msgstr "Da"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "baseline-LOW"
+msgstr "referentno-NISKO"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "baseline-HIGH"
+msgstr "referentno-VISOKO"
+
+#: notify_lists.php
+msgid "Select Users"
+msgstr "Odaberite korisnike"
+
+#: notify_lists.php
+msgid "Specific Emails"
+msgstr "Određeni e-mailovi"
+
+#: notify_lists.php
+msgid "Current List"
+msgstr "Trenutna lista"
+
+#: notify_lists.php
+msgid "Unknown Threshold"
+msgstr "Nepoznat prag"
+
+#: notify_lists.php
+msgid "Log Only"
+msgstr "Samo dnevnik"
+
+#: notify_lists.php
+msgid "Editable"
+msgstr "Može se uređivati"
+
+#: notify_lists.php
+msgid "Read Only"
+msgstr "Samo za čitanje"
+
+#: notify_lists.php
+msgid "No Thresholds Found"
+msgstr "Pragovi nisu pronađeni"
+
+#: notify_lists.php
+msgid "Associated Templates"
+msgstr "Povezani šabloni"
+
+#: notify_lists.php notify_queue.php
+msgid "Rows"
+msgstr "Redovi"
+
+#: notify_lists.php
+msgid "Unknown Template"
+msgstr "Nepoznat šablon"
+
+#: notify_lists.php thold_templates.php
+msgid "No Threshold Templates"
+msgstr "Nema šablona pragova"
+
+#: notify_lists.php
+msgid "Lists"
+msgstr "Liste"
+
+#: notify_lists.php
+msgid "List Name"
+msgstr "Naziv liste"
+
+#: notify_lists.php
+msgid "Emails"
+msgstr "E-mailovi"
+
+#: notify_lists.php
+msgid "No Notification Lists"
+msgstr "Nema lista obavještenja"
+
+#: notify_queue.php
+msgid "Notification has been Suspended.  Press the Resume button to resume it"
+msgstr "Obavještenje je obustavljeno. Pritisnite dugme Nastavi da ga nastavite"
+
+#: notify_queue.php
+msgid "Notification has been Resumed.  Press the Suspend button to suspend it"
+msgstr "Obavještenje je nastavljeno. Pritisnite dugme Obustavi da ga obustavite"
+
+#: notify_queue.php
+msgid "Pending Notifications have been removed from the database.  Previously sent notification not purged will remain until they age out."
+msgstr "Obavještenja na čekanju su uklonjena iz baze podataka. Prethodno poslana obavještenja koja nisu očišćena ostat će dok ne isteknu."
+
+#: notify_queue.php
+msgid "Click 'Continue' to delete the following Notification."
+msgid_plural "Click 'Continue' to delete all following Notifications."
+msgstr[0] "Kliknite na 'Nastavi' da obrišete sljedeće obavještenje."
+msgstr[1] "Kliknite na 'Nastavi' da obrišete sva sljedeća obavještenja."
+msgstr[2] "Kliknite na 'Nastavi' da obrišete sva sljedeća obavještenja."
+
+#: notify_queue.php
+msgid "Delete Notification"
+msgid_plural "Delete Notifications"
+msgstr[0] "Obriši obavještenje"
+msgstr[1] "Obriši obavještenja"
+msgstr[2] "Obriši obavještenja"
+
+#: notify_queue.php
+#, php-format
+msgid "Event Notifications [ Notifications Suspended by User: %s, %s ago ]"
+msgstr "Obavještenja o događajima [ Obavještenja obustavio korisnik: %s, prije %s ]"
+
+#: notify_queue.php
+msgid "Event Notifications"
+msgstr "Obavještenja o događajima"
+
+#: notify_queue.php
+msgid "Topic"
+msgstr "Tema"
+
+#: notify_queue.php
+msgid "Processed"
+msgstr "Obrađeno"
+
+#: notify_queue.php
+msgid "Suspend"
+msgstr "Obustavi"
+
+#: notify_queue.php
+msgid "Suspend Notification Processing"
+msgstr "Obustavi obradu obavještenja"
+
+#: notify_queue.php
+msgid "Resume"
+msgstr "Nastavi"
+
+#: notify_queue.php
+msgid "Resume Notification Processing"
+msgstr "Nastavi obradu obavještenja"
+
+#: notify_queue.php
+msgid "Purge"
+msgstr "Očisti"
+
+#: notify_queue.php
+msgid "Purge Notification Queue"
+msgstr "Očisti red obavještenja"
+
+#: notify_queue.php
+msgid "Notifications"
+msgstr "Obavještenja"
+
+#: notify_queue.php
+msgid "The supported notification topic."
+msgstr "Podržana tema obavještenja."
+
+#: notify_queue.php thold_graph.php
+msgid "Event Description"
+msgstr "Opis događaja"
+
+#: notify_queue.php
+msgid "The name of the object as defined by the caller."
+msgstr "Naziv objekta kako ga je definisao pozivalac."
+
+#: notify_queue.php
+msgid "The hostname that was the source of this event."
+msgstr "Naziv hosta koji je bio izvor ovog događaja."
+
+#: notify_queue.php
+msgid "The Notification List used if any."
+msgstr "Korištena lista obavještenja, ako postoji."
+
+#: notify_queue.php
+msgid "Object ID"
+msgstr "ID objekta"
+
+#: notify_queue.php
+msgid "The Object ID defined by the caller.  Generally its unique 'id'."
+msgstr "ID objekta koji je definisao pozivalac. Obično je to njegov jedinstveni 'id'."
+
+#: notify_queue.php
+msgid "Event Time"
+msgstr "Vrijeme događaja"
+
+#: notify_queue.php
+msgid "The time of the event as defined by the caller."
+msgstr "Vrijeme događaja kako ga je definisao pozivalac."
+
+#: notify_queue.php
+msgid "Has the Notification Event been processed."
+msgstr "Da li je događaj obavještenja obrađen."
+
+#: notify_queue.php
+msgid "Errors"
+msgstr "Greške"
+
+#: notify_queue.php
+msgid "Did this notification result in an error.  Hover on the error column for details."
+msgstr "Da li je ovo obavještenje rezultiralo greškom. Pređite kursorom preko kolone greške za detalje."
+
+#: notify_queue.php
+msgid "Attempts"
+msgstr "Pokušaji"
+
+#: notify_queue.php
+msgid "The number of delivery attempts made for this notification."
+msgstr "Broj pokušaja isporuke izvršenih za ovo obavještenje."
+
+#: notify_queue.php
+msgid "Next Attempt"
+msgstr "Sljedeći pokušaj"
+
+#: notify_queue.php
+msgid "When a failed notification is eligible for its next retry."
+msgstr "Kada neuspjelo obavještenje ispunjava uslove za sljedeći pokušaj."
+
+#: notify_queue.php
+msgid "Run Time"
+msgstr "Vrijeme izvršavanja"
+
+#: notify_queue.php
+msgid "The time in seconds it took to process the event."
+msgstr "Vrijeme u sekundama potrebno za obradu događaja."
+
+#: notify_queue.php
+msgid "Not Specified"
+msgstr "Nije navedeno"
+
+#: notify_queue.php
+msgid "No Notifications"
+msgstr "Nema obavještenja"
+
+#: setup.php
+msgid "Toggle Threshold VRULES Off"
+msgstr "Isključi VRULES za pragove"
+
+#: setup.php
+msgid "Toggle Threshold VRULES On"
+msgstr "Uključi VRULES za pragove"
+
+#: setup.php
+msgid "Create Threshold"
+msgstr "Kreiraj prag"
+
+#: setup.php
+#, php-format
+msgid "Alert Hi for %s (%s)"
+msgstr "Visoki alarm za %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s)"
+msgstr "Niski alarm za %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s)"
+msgstr "Visoko upozorenje za %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Low for %s (%s)"
+msgstr "Nisko upozorenje za %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Hi for %s (%s %%)"
+msgstr "Visoki alarm za %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s %%)"
+msgstr "Niski alarm za %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s %%)"
+msgstr "Visoko upozorenje za %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Warning Low for %s (%s %%)"
+msgstr "Nisko upozorenje za %s (%s %%)"
+
+#: setup.php
+msgid "Threshold Alert/Warning Values"
+msgstr "Vrijednosti alarma/upozorenja praga"
+
+#: setup.php
+msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
+msgstr "Kliknite 'Nastavi' da primijenite sve odgovarajuće pragove na ove uređaje."
+
+#: setup.php
+msgid "Create Threshold from Data Source"
+msgstr "Kreiraj prag iz izvora podataka"
+
+#: setup.php
+msgid "Auto-create Thresholds"
+msgstr "Automatski kreiraj pragove"
+
+#: setup.php
+#, php-format
+msgid "Created %s thresholds"
+msgstr "Kreirano %s pragova"
+
+#: setup.php
+msgid "No Threshold(s) Created.  Threshold(s) Template not found."
+msgstr "Nije kreiran nijedan prag. Šablon(i) praga nije pronađen."
+
+#: setup.php
+msgid "The following Data Sources have no Threshold Templates associated with them"
+msgstr "Sljedeći izvori podataka nemaju pridružene šablone pragova"
+
+#: setup.php
+msgid "Click 'Continue' to create Thresholds for these Data Sources?"
+msgstr "Kliknite 'Nastavi' da kreirate pragove za ove izvore podataka?"
+
+#: setup.php
+msgid "Available Threshold Templates"
+msgstr "Dostupni šabloni pragova"
+
+#: setup.php
+msgid "There are no Threshold Templates associated with the following Data Sources"
+msgstr "Nema šablona pragova pridruženih sljedećim izvorima podataka"
+
+#: setup.php
+msgid "The following Graphs have no Threshold Templates associated with them"
+msgstr "Sljedeći grafikoni nemaju pridružene šablone pragova"
+
+#: setup.php
+msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
+msgstr "Pritisnite 'Nastavi' ako želite kreirati prag(ove) za ove grafikon(e)"
+
+#: setup.php
+msgid "There are no Threshold Templates associated with the following Graphs"
+msgstr "Nema šablona pragova pridruženih sljedećim grafikonima"
+
+#: setup.php
+msgid "Associated Threshold Templates"
+msgstr "Povezani šabloni praga"
+
+#: setup.php
+msgid "Threshold Exists"
+msgstr "Prag postoji"
+
+#: setup.php
+msgid "Threshold Does Not Exist"
+msgstr "Prag ne postoji"
+
+#: setup.php
+msgid "Delete Threshold Template Association"
+msgstr "Obriši pridruživanje šablona praga"
+
+#: setup.php
+msgid "No Associated Threshold Templates."
+msgstr "Nema pridruženih šablona pragova."
+
+#: setup.php
+msgid "Add Threshold Template"
+msgstr "Dodaj šablon praga"
+
+#: setup.php
+msgid "Add"
+msgstr "Dodaj"
+
+#: setup.php
+msgid "Add Threshold Template to Device"
+msgstr "Dodaj šablon praga uređaju"
+
+#: setup.php
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device."
+msgstr "Kliknite 'Nastavi' da obrišete, čime će sljedeći šablon praga biti odvojen od uređaja."
+
+#: setup.php
+#, php-format
+msgid "Threshold Template Name: %s"
+msgstr "Naziv šablona praga: %s"
+
+#: setup.php
+msgid "Remove Threshold Template"
+msgstr "Ukloni šablon praga"
+
+#: setup.php
+msgid "Add Threshold Template to Device Template"
+msgstr "Dodaj šablon praga šablonu uređaja"
+
+#: setup.php
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
+msgstr "Kliknite 'Nastavi' da obrišete, čime će sljedeći šablon praga biti odvojen od šablona uređaja."
+
+#: thold.php
+msgid "Either No Templates or Threshold(s) Already Exists - No Thresholds were created."
+msgstr "Ili nema šablona ili prag(ovi) već postoje - nijedan prag nije kreiran."
+
+#: thold.php
+msgid "You are not authorized to modify one or more of the Thresholds selected"
+msgstr "Nemate ovlaštenje da izmijenite jedan ili više odabranih pragova"
+
+#: thold.php
+msgid "Click 'Delete' to delete the following Threshold(s)."
+msgstr "Kliknite 'Obriši' da obrišete sljedeći(e) prag(ove)."
+
+#: thold.php
+msgid "Delete Threshold(s)"
+msgstr "Obriši prag(ove)"
+
+#: thold.php
+msgid "Click 'Continue' to enable the following Threshold(s)."
+msgstr "Kliknite 'Nastavi' da omogućite sljedeći(e) prag(ove)."
+
+#: thold.php
+msgid "Enable Threshold(s)"
+msgstr "Omogući prag(ove)"
+
+#: thold.php
+msgid "Click 'Continue' to disable the following Threshold(s)."
+msgstr "Kliknite 'Nastavi' da onemogućite sljedeći(e) prag(ove)."
+
+#: thold.php
+msgid "Disable Threshold(s)"
+msgstr "Onemogući prag(ove)"
+
+#: thold.php
+msgid "Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
+msgstr "Kliknite 'Nastavi' da ponovo primijenite predloženi(e) naziv(e) na sljedeći(e) prag(ove)."
+
+#: thold.php
+msgid "Apply Suggestion"
+msgstr "Primijeni prijedlog"
+
+#: thold.php
+msgid "Click 'Continue' to update the following Threshold(s) with their associate Template's details."
+msgstr "Kliknite 'Nastavi' da ažurirate sljedeći(e) prag(ove) detaljima njihovog pridruženog šablona."
+
+#: thold.php
+msgid "Reapply Template"
+msgstr "Ponovo primijeni šablon"
+
+#: thold.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
+msgstr "Kliknite 'Nastavi' da potvrdite sljedeći(e) prag(ove). Pragovi koji to ne dozvoljavaju, ili koji nisu aktivirani, bit će zanemareni."
+
+#: thold.php
+msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
+msgstr "Kliknite 'Nastavi' da nastavite obavještenja za sljedeći(e) prag(ove). Pragovi koji to ne dozvoljavaju, ili koji nisu aktivirani bit će zanemareni."
+
+#: thold.php
+msgid "Resume Notifications for Threshold(s)"
+msgstr "Nastavi obavještenja za prag(ove)"
+
+#: thold.php
+msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
+msgstr "Kliknite 'Nastavi' da obustavite obavještenja za sljedeći(e) prag(ove). Pragovi koji to ne dozvoljavaju, ili koji nisu aktivirani bit će zanemareni."
+
+#: thold.php
+msgid "Suspend Notification for Threshold(s)"
+msgstr "Obustavi obavještenje za prag(ove)"
+
+#: thold.php thold_templates.php
+msgid "Invalid action detected, can not proceed"
+msgstr "Otkrivena je nevažeća radnja, nije moguće nastaviti"
+
+#: thold.php
+msgid "Threshold Management"
+msgstr "Upravljanje pragovima"
+
+#: thold.php
+msgid "Apply Filters"
+msgstr "Primijeni filtere"
+
+#: thold.php
+msgid "Return to Defaults"
+msgstr "Vrati na podrazumijevano"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Data Template"
+msgstr "Šablon podataka"
+
+#: thold.php thold_graph.php
+msgid "Disabled at Template"
+msgstr "Onemogućeno na šablonu"
+
+#: thold.php thold_graph.php
+msgid "Disabled at Threshold"
+msgstr "Onemogućeno na pragu"
+
+#: thold.php thold_graph.php
+msgid "Ack Required"
+msgstr "Potrebna potvrda"
+
+#: thold.php thold_graph.php
+msgid "By Status"
+msgstr "Po statusu"
+
+#: thold.php thold_graph.php
+msgid "The current threshold status. Click a status pill to filter the list to that status."
+msgstr "Trenutni status praga. Kliknite na oznaku statusa da filtrirate listu prema tom statusu."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "External ID"
+msgstr "Eksterni ID"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function."
+msgstr "Tip praga. Za bazne tipove: [TIP] se odnosi na vrijeme u prošlosti sa MIN, MAX, AVG i LAST iz perioda ne dužeg od jednog dana. [AOT] se odnosi na prosjek tokom cijelog vremenskog perioda. Ako postoji dvotačka nakon koje slijedi MIN, MAX, AVG, LAST, vrijednost potiče iz te funkcije konsolidacije."
+
+#: thold.php
+msgid "DSName"
+msgstr "Naziv DS"
+
+#: thold.php thold_graph.php
+msgid "Current"
+msgstr "Trenutno"
+
+#: thold.php thold_graph.php
+msgid "The last measured value for the Data Source"
+msgstr "Posljednja izmjerena vrijednost za izvor podataka"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "High"
+msgstr "Visok"
+
+#: thold.php thold_graph.php
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
+msgstr "Vrijednosti visokog upozorenja / alarma. NAPOMENA: Bazne vrijednosti su u procentima, sve ostale vrijednosti su prikazne vrijednosti koje mogu biti izmijenjene pomoću cdef."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Low"
+msgstr "Nizak"
+
+#: thold.php thold_graph.php
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
+msgstr "Vrijednosti niskog upozorenja / alarma. NAPOMENA: Bazne vrijednosti su u procentima, sve ostale vrijednosti su prikazne vrijednosti koje mogu biti izmijenjene pomoću cdef."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Trigger"
+msgstr "Okidač"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Duration"
+msgstr "Trajanje"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Repeat"
+msgstr "Ponavljanje"
+
+#: thold.php thold_graph.php
+msgid "In State"
+msgstr "U stanju"
+
+#: thold.php thold_graph.php
+msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
+msgstr "Količina vremena koja je prošla otkako je prag prekoračen ili aktiviran"
+
+#: thold.php thold_graph.php
+msgid "Acknowledgment required for this Threshold"
+msgstr "Potrebna je potvrda za ovaj prag"
+
+#: thold.php thold_graph.php
+msgid "No [Template:Thold]"
+msgstr "Ne [Šablon:Thold]"
+
+#: thold.php thold_graph.php
+msgid "No [Template]"
+msgstr "Ne [Šablon]"
+
+#: thold.php thold_graph.php
+msgid "No [Thold]"
+msgstr "Ne [Thold]"
+
+#: thold.php thold_graph.php
+#, php-format
+msgid "%d Triggers"
+msgstr "%d aktiviranja"
+
+#: thold.php thold_graph.php
+msgid "No Thresholds"
+msgstr "Nema pragova"
+
+#: thold.php
+msgid "Threshold Deleted, can not Edit!"
+msgstr "Prag je obrisan, nije moguće urediti!"
+
+#: thold.php
+msgid "Graph Data"
+msgstr "Podaci grafikona"
+
+#: thold.php
+msgid "Edit Threshold Template"
+msgstr "Uredi šablon praga"
+
+#: thold.php
+msgid "Data Source Description:"
+msgstr "Opis izvora podataka:"
+
+#: thold.php
+msgid "Associated Graph (Graphs using this RRD):"
+msgstr "Pridruženi grafikon (grafikoni koji koriste ovaj RRD):"
+
+#: thold.php
+msgid "Last:"
+msgstr "Posljednje:"
+
+#: thold.php
+msgid "WHi:"
+msgstr "WHi:"
+
+#: thold.php
+msgid "WLo:"
+msgstr "WLo:"
+
+#: thold.php
+msgid "AHi:"
+msgstr "AHi:"
+
+#: thold.php
+msgid "ALo:"
+msgstr "ALo:"
+
+#: thold.php
+msgid "BL Up:"
+msgstr "BL gore:"
+
+#: thold.php
+msgid "BL Down:"
+msgstr "BL dolje:"
+
+#: thold.php
+#, php-format
+msgid "Unknown Template ID %d"
+msgstr "Nepoznat ID šablona %d"
+
+#: thold.php
+msgid "Not Templated"
+msgstr "Bez šablona"
+
+#: thold.php
+#, php-format
+msgid "Data Source Item [ %s ] - Current value: [ %s ]"
+msgstr "Stavka izvora podataka [ %s ] - Trenutna vrijednost: [ %s ]"
+
+#: thold.php thold_templates.php
+#, php-format
+msgid "Replacement Fields: %s"
+msgstr "Polja za zamjenu: %s"
+
+#: thold.php thold_templates.php
+#, php-format
+msgid "Data Sources: %s"
+msgstr "Izvori podataka: %s"
+
+#: thold.php
+msgid "Template/Enabled Information"
+msgstr "Informacije o šablonu/omogućenosti"
+
+#: thold.php
+msgid "Template Propagation Enabled"
+msgstr "Propagacija šablona omogućena"
+
+#: thold.php
+msgid "Whether or not these settings will be propagated from the Threshold template."
+msgstr "Da li će se ove postavke propagirati iz šablona praga."
+
+#: thold.php thold_templates.php
+msgid "Template Name"
+msgstr "Naziv šablona"
+
+#: thold.php
+msgid "Name of the Threshold Template the Threshold was created from."
+msgstr "Naziv šablona praga iz kojeg je prag kreiran."
+
+#: thold.php
+msgid "Enabled at Template Level"
+msgstr "Omogućeno na nivou šablona"
+
+#: thold.php
+msgid "A Threshold must be enabled both at the Template Level and the Threshold level to be checked."
+msgstr "Prag mora biti omogućen i na nivou šablona i na nivou praga da bi se provjeravao."
+
+#: thold.php
+msgid "Enabled at Threshold Level"
+msgstr "Omogućeno na nivou praga"
+
+#: thold.php thold_templates.php
+msgid "General Settings"
+msgstr "Opće postavke"
+
+#: thold.php
+msgid "Name (Displayed)"
+msgstr "Naziv (prikazani)"
+
+#: thold.php
+msgid "Provide the Thresholds a meaningful name"
+msgstr "Dajte pragovima smislen naziv"
+
+#: thold.php
+msgid "Name (Format)"
+msgstr "Naziv (format)"
+
+#: thold.php thold_templates.php
+msgid "Warning HRULE Color"
+msgstr "Boja HRULE upozorenja"
+
+#: thold.php thold_templates.php
+msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
+msgstr "Odaberite boju za HRULE na grafikonu za pragove upozorenja. Odaberite 'Ništa' ako ne želite HRULE. Napomena: Ova funkcija je trenutno podržana samo za tipove manipulacije podacima 'Tačna vrijednost' i 'Procenat'."
+
+#: thold.php thold_templates.php
+msgid "Alert HRULE Color"
+msgstr "Boja HRULE uzbune"
+
+#: thold.php thold_templates.php
+msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
+msgstr "Odaberite boju za HRULE na grafikonu za pragove uzbune. Odaberite 'Ništa' ako ne želite HRULE. Napomena: Ova funkcija je trenutno podržana samo za tipove manipulacije podacima 'Tačna vrijednost' i 'Procenat'."
+
+#: thold.php thold_templates.php
+msgid "Graph Timespan"
+msgstr "Vremenski raspon grafikona"
+
+#: thold.php thold_templates.php
+msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
+msgstr "Krajnje vrijeme grafikona bit će postavljeno na vrijeme pokretanja. Početno vrijeme grafikona bit će krajnje vrijeme umanjeno za vremenski raspon grafikona."
+
+#: thold.php thold_templates.php
+msgid "Skip Scaling on HRULEs"
+msgstr "Preskoči skaliranje za HRULE"
+
+#: thold.php thold_templates.php
+msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
+msgstr "Ako je označeno, HRULE za uzbunu i upozorenje neće uticati na skalu na grafikonu."
+
+#: thold.php thold_templates.php
+msgid "Weekend Exemption"
+msgstr "Izuzetak za vikend"
+
+#: thold.php thold_templates.php
+msgid "If this is checked, this Threshold will not alert on weekends."
+msgstr "Ako je ovo označeno, ovaj prag neće slati uzbune vikendom."
+
+#: thold.php thold_templates.php
+msgid "Disable Restoration Email"
+msgstr "Onemogući e-poštu o oporavku"
+
+#: thold.php thold_templates.php
+msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
+msgstr "Ako je ovo označeno, prag neće poslati uzbunu kada se prag vrati u normalno stanje."
+
+#: thold.php thold_templates.php
+msgid "Acknowledgment Options"
+msgstr "Opcije potvrđivanja"
+
+#: thold.php thold_templates.php
+msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
+msgstr "Postoje tri nivoa potvrđivanja koji određuju kako morate reagovati na stanje prekoračenja praga. To su:<br><br><ul><li><i>Nije potrebno</i> - Kada odaberete ovu opciju, potvrda nije potrebna za prekoračenje praga.</li><li><i>Obustavljivo obavještenje</i> - Sa ovom opcijom, nakon što potvrdite ili obustavite obavještenja na pragu, više nećete primati obavještenja dok je prag prekoračen. Naknadno možete nastaviti obavještenja dok je prekoračen.</li><li><i>Trajna potvrda</i> - Sa ovom opcijom, čak i nakon što se prag vrati u normalu, morate potvrditi prag i navesti neobaveznu poruku operatera.</li></ul>"
+
+#: thold.php thold_templates.php
+msgid "None Required"
+msgstr "Nije potrebno"
+
+#: thold.php thold_templates.php
+msgid "Suspendible Notification"
+msgstr "Obustavljivo obavještenje"
+
+#: thold.php thold_templates.php
+msgid "Persistent Acknowledgment"
+msgstr "Trajna potvrda"
+
+#: thold.php thold_templates.php
+msgid "Threshold Type"
+msgstr "Tip praga"
+
+#: thold.php thold_templates.php
+msgid "The type of Threshold that will be monitored."
+msgstr "Tip praga koji će se pratiti."
+
+#: thold.php thold_templates.php
+msgid "Re-Alert Cycle"
+msgstr "Ciklus ponovnog upozorenja"
+
+#: thold.php
+msgid "Repeat alert after this amount of time has passed since the last alert."
+msgstr "Ponovi uzbunu nakon što prođe ovoliko vremena od posljednje uzbune."
+
+#: thold.php thold_templates.php
+msgid "Warning - High / Low Settings"
+msgstr "Upozorenje - gornje / donje postavke"
+
+#: thold.php thold_templates.php
+msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
+msgstr "Numeričke vrijednosti za gornje i donje pragove mogu sadržavati sljedeće sufikse za brojeve veće od 1: 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', a za brojeve manje od 1: 'm', 'u', 'p', 'f'."
+
+#: thold.php thold_templates.php
+msgid "High Threshold"
+msgstr "Gornji prag"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Ako je postavljeno i vrijednost izvora podataka pređe iznad ovog broja, pokrenut će se upozorenje. NAPOMENA: Ova vrijednost mora biti SIROVI broj. Vrijednost prikazana na grafikonu može biti izmijenjena pomoću cdef."
+
+#: thold.php thold_templates.php
+msgid "Low Threshold"
+msgstr "Donji prag"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Ako je postavljeno i vrijednost izvora podataka padne ispod ovog broja, pokrenut će se upozorenje. NAPOMENA: Ova vrijednost mora biti SIROVI broj. Vrijednost prikazana na grafikonu može biti izmijenjena pomoću cdef."
+
+#: thold.php
+msgid "Breach Duration"
+msgstr "Trajanje prekoračenja"
+
+#: thold.php
+msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Količina vremena tokom koje izvor podataka mora prekoračivati prag da bi se podiglo upozorenje. NAPOMENA: Ova vrijednost mora biti SIROVI broj. Vrijednost prikazana na grafikonu može biti izmijenjena pomoću cdef."
+
+#: thold.php thold_templates.php
+msgid "Alert - High / Low Settings"
+msgstr "Uzbuna - gornje / donje postavke"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Ako je postavljeno i vrijednost izvora podataka pređe iznad ovog broja, pokrenut će se uzbuna. NAPOMENA: Ova vrijednost mora biti SIROVI broj. Vrijednost prikazana na grafikonu može biti izmijenjena pomoću cdef."
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Ako je postavljeno i vrijednost izvora podataka padne ispod ovog broja, pokrenut će se uzbuna. NAPOMENA: Ova vrijednost mora biti SIROVI broj. Vrijednost prikazana na grafikonu može biti izmijenjena pomoću cdef."
+
+#: thold.php
+msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
+msgstr "Količina vremena tokom koje izvor podataka mora prekoračivati prag da bi se podigla uzbuna."
+
+#: thold.php thold_templates.php
+msgid "Warning - Time Based Settings"
+msgstr "Upozorenje - postavke zasnovane na vremenu"
+
+#: thold.php
+msgid "Breach Count"
+msgstr "Broj prekoračenja"
+
+#: thold.php
+msgid "The number of times the Data Source must be in breach of the Threshold."
+msgstr "Broj puta koliko izvor podataka mora prekoračiti prag."
+
+#: thold.php
+msgid "Breach Window"
+msgstr "Prozor prekoračenja"
+
+#: thold.php thold_templates.php
+msgid "The amount of time in the past to check for Threshold breaches."
+msgstr "Količina vremena u prošlosti za koju se provjeravaju prekoračenja praga."
+
+#: thold.php thold_templates.php
+msgid "Alert - Time Based Settings"
+msgstr "Uzbuna - postavke zasnovane na vremenu"
+
+#: thold.php
+msgid "Baseline Settings"
+msgstr "Postavke referentne vrijednosti"
+
+#: thold.php thold_templates.php
+msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
+msgstr "Tip referentne vrijednosti. [TIP] je vrijeme u prošlosti, [AOT] je prosjek tokom vremena. Procentualno odstupanje je procentualna vrijednost u odnosu na historijsku vrijednost. Apsolutna vrijednost je odstupanje iznad ili ispod referentne vrijednosti u odnosu na tu historijsku vrijednost. Za [TIP] tipove referentne vrijednosti, MIN, MAX, AVG i LAST će dolaziti iz vremenskog perioda ne dužeg od jednog dana u tom trenutku."
+
+#: thold.php thold_templates.php
+msgid "Consolidation Function"
+msgstr "Funkcija konsolidacije"
+
+#: thold.php thold_templates.php
+msgid "Average"
+msgstr "Prosjek"
+
+#: thold.php thold_templates.php
+msgid "Minimum"
+msgstr "Minimum"
+
+#: thold.php thold_templates.php
+msgid "Maximum"
+msgstr "Maksimum"
+
+#: thold.php thold_templates.php
+msgid "Last"
+msgstr "Posljednji"
+
+#: thold.php thold_templates.php
+msgid "The Consolidation function to use for the Baseline Type value calculation."
+msgstr "Funkcija konsolidacije koja će se koristiti za izračunavanje vrijednosti tipa referentne vrijednosti."
+
+#: thold.php thold_templates.php
+msgid "Time Range"
+msgstr "Vremenski raspon"
+
+#: thold.php thold_templates.php
+msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
+msgstr "Određuje tačku u prošlosti (zasnovanu na rrd rezoluciji) koja će se koristiti kao referenca ili trajanje koje će se koristiti za klizni prosjek kada se koristi prag tipa kliznog prosjeka"
+
+#: thold.php thold_templates.php
+msgid "Deviation UP"
+msgstr "Odstupanje NAVIŠE"
+
+#: thold.php
+#, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Određuje dozvoljeno odstupanje za gornju granicu praga. Ako nije postavljeno, gornja granica praga se uopće neće provjeravati. Jedinica mjere je apsolutna vrijednost za tip 'Apsolutna vrijednost', a procenat za oba tipa '%% Odstupanje' i '%% Pokretni prosjek'"
+
+#: thold.php thold_templates.php
+msgid "Deviation DOWN"
+msgstr "Odstupanje NANIŽE"
+
+#: thold.php
+#, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Određuje dozvoljeno odstupanje za donju granicu praga. Ako nije postavljeno, donja granica praga se uopće neće provjeravati. Jedinica mjere je apsolutna vrijednost za tip 'Apsolutna vrijednost', a procenat za oba tipa '%% Odstupanje' i '%% Pokretni prosjek'"
+
+#: thold.php thold_templates.php
+msgid "Trigger Count"
+msgstr "Broj okidanja"
+
+#: thold.php
+#, php-format
+msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
+msgstr "Broj uzastopnih prekoračenja osnovnog praga od strane izvora podataka da bi se aktivirao alarm.<br>Ostavite prazno za korištenje podrazumijevane vrijednosti (<b>Podrazumijevano: %s ciklusa</b>)"
+
+#: thold.php thold_templates.php
+msgid "Data Manipulation"
+msgstr "Manipulacija podacima"
+
+#: thold.php thold_templates.php
+msgid "Data Type"
+msgstr "Tip podataka"
+
+#: thold.php thold_templates.php
+msgid "Special formatting for the given data."
+msgstr "Posebno formatiranje za date podatke."
+
+#: thold.php thold_templates.php
+msgid "Threshold CDEF"
+msgstr "CDEF praga"
+
+#: thold.php thold_templates.php
+msgid "Apply this CDEF before returning the data."
+msgstr "Primijeni ovaj CDEF prije vraćanja podataka."
+
+#: thold.php
+msgid "Percent Data Source"
+msgstr "Izvor podataka za procenat"
+
+#: thold.php
+msgid "Second Data Source Item to use as total value to calculate percentage from."
+msgstr "Druga stavka izvora podataka koja se koristi kao ukupna vrijednost za izračunavanje procenta."
+
+#: thold.php thold_templates.php
+msgid "Show Units"
+msgstr "Prikaži jedinice"
+
+#: thold.php thold_templates.php
+msgid "Display units for very large or small numbers."
+msgstr "Prikaži jedinice za veoma velike ili male brojeve."
+
+#: thold.php thold_templates.php
+msgid "Force Units Suffix"
+msgstr "Prisilni sufiks jedinica"
+
+#: thold.php thold_templates.php
+msgid "If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters."
+msgstr "Ako želite prikazati prisilni sufiks jedinice na raznim stranicama praga i u obavještenjima, unesite ga ovdje. Veličina je ograničena na najviše 10 znakova."
+
+#: thold.php thold_templates.php
+msgid "Decimal Digits to Display"
+msgstr "Decimalne cifre za prikaz"
+
+#: thold.php thold_templates.php
+msgid "The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2."
+msgstr "Broj decimalnih cifara za prikaz za vrijednosti praga i trenutne vrijednosti. Podrazumijevano je automatski ili 2."
+
+#: thold.php
+#, php-format
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "RPN izraz je RPN izraz kompatibilan sa RRDtool. Sintaksa uključuje sve funkcije u nastavku pored zamjenskih izraza za uređaje i upite podataka kao što je <span class=\"deviceUp\">|query_ifSpeed|</span>. Da biste koristili izvor podataka u RPN izrazu, morate koristiti sintaksu: <span class=\"deviceUp\">|ds:dsname|</span>. Na primjer, <span class=\"deviceUp\">|ds:traffic_in|</span> će preuzeti trenutnu vrijednost izvora podataka traffic_in za RRD datoteke povezane sa grafikonom. Može se uključiti bilo koji izvor podataka za grafikon.<br><br>Matematički operatori: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Funkcije: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Operatori toka: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Funkcije poređenja: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+
+#: thold.php thold_templates.php
+msgid "Upper Data Source"
+msgstr "Gornji izvor podataka"
+
+#: thold.php
+msgid "Upper data source to calculate the total value."
+msgstr "Gornji izvor podataka za izračunavanje ukupne vrijednosti."
+
+#: thold.php thold_templates.php
+msgid "Notification Settings"
+msgstr "Postavke obavještenja"
+
+#: thold.php
+msgid "Alert Subject"
+msgstr "Predmet alarma"
+
+#: thold.php
+msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Ovo je predmet e-pošte koji će biti prikazan u e-pošti (najviše 128 znakova). Ostavite prazno za podrazumijevanu vrijednost. Postoji nekoliko uobičajenih zamjenskih oznaka koje se mogu koristiti, uključujući:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php
+msgid "Alert Body"
+msgstr "Tijelo alarma"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Ovo je poruka koja će biti prikazana na vrhu svih alarma pragova (najviše 1024 znaka). HTML je dozvoljen, ali će biti uklonjen za e-poštu samo u tekstualnom formatu. Postoji nekoliko uobičajenih zamjenskih oznaka koje se mogu koristiti, uključujući:<br>npr. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Subject"
+msgstr "Predmet upozorenja"
+
+#: thold.php
+msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Ovo je predmet e-pošte upozorenja koji će biti prikazan u e-pošti nakon prelaska u stanje upozorenja (najviše 128 znakova). Ostavite prazno za podrazumijevanu vrijednost. Postoji nekoliko uobičajenih zamjenskih oznaka koje se mogu koristiti, uključujući:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Body"
+msgstr "Tijelo upozorenja"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Ovo je poruka koja će biti prikazana na vrhu svih upozorenja pragova (najviše 1024 znaka). HTML je dozvoljen, ali će biti uklonjen za e-poštu samo u tekstualnom formatu. Postoji nekoliko uobičajenih zamjenskih oznaka koje se mogu koristiti, uključujući:<br>npr. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold.php thold_templates.php
+msgid "Restoral Subject"
+msgstr "Predmet oporavka"
+
+#: thold.php
+msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Ovo je predmet e-pošte koji će biti prikazan u e-pošti nakon povratka u normalno stanje (maks. 128 znakova). Ostavite prazno za podrazumijevano. Postoji nekoliko uobičajenih zamjenskih oznaka koje se mogu koristiti, uključujući:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php
+msgid "Restoral Email Body"
+msgstr "Sadržaj e-pošte za povratak u normalno stanje"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Ovo je poruka koja će biti prikazana na vrhu svih obavještenja o povratku praga u normalno stanje (maks. 1024 znaka). HTML je dozvoljen, ali će biti uklonjen za e-poštu samo u tekstualnom formatu. Postoji nekoliko uobičajenih zamjenskih oznaka koje se mogu koristiti, uključujući:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Notification List"
+msgstr "Lista obavještenja za upozorenja"
+
+#: thold.php thold_templates.php
+msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
+msgstr "Možete odabrati listu obavještenja za primanje upozorenja za ovaj izvor podataka"
+
+#: thold.php thold_templates.php
+msgid "Alert Notification List"
+msgstr "Lista obavještenja za alarme"
+
+#: thold.php thold_templates.php
+msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
+msgstr "Možete odabrati listu obavještenja za primanje alarma za ovaj izvor podataka"
+
+#: thold.php thold_templates.php
+msgid "Style/Format File"
+msgstr "Datoteka stila/formata"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Event Category"
+msgstr "SNMP obavještenje - Kategorija događaja"
+
+#: thold.php thold_templates.php
+msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+msgstr "Kako biste omogućili NMS-u da lakše kategorizira različita SNMP obavještenja, unesite kategoriju koju bi SNMP obavještenja za ovaj šablon trebala koristiti. Npr.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+
+#: thold.php thold_templates.php
+msgid "SNMP Event Description"
+msgstr "Opis SNMP događaja"
+
+#: thold.php thold_templates.php
+msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+msgstr "Možete prilagoditi opis događaja koji se šalje primaocima SNMP obavještenja korištenjem vezanih varijabli (varbind). Mogu se koristiti standardne zamjenske varijable uređaja (|host_*|) i upita podataka (|query_*|), kao i sljedeće vezane varijable:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Alert Event Severity"
+msgstr "SNMP obavještenje - Ozbiljnost događaja alarma"
+
+#: thold.php
+msgid "Severity to be used for alerts. (low impact -> critical impact)"
+msgstr "Ozbiljnost koja će se koristiti za alarme. (nizak uticaj -> kritičan uticaj)"
+
+#: thold.php thold_templates.php
+msgid "Medium"
+msgstr "Srednje"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Warning Event Severity"
+msgstr "SNMP obavještenje - Ozbiljnost događaja upozorenja"
+
+#: thold.php thold_templates.php
+msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
+msgstr "Ozbiljnost koja će se koristiti za upozorenja. (Nizak uticaj -> Kritičan uticaj).<br>Napomena: Ozbiljnost upozorenja mora biti jednaka ili niža od ozbiljnosti definisane za alarme."
+
+#: thold.php thold_templates.php
+msgid "Notify accounts"
+msgstr "Obavijesti naloge"
+
+#: thold.php
+msgid "This is a listing of accounts that will be notified when this Threshold is breached."
+msgstr "Ovo je lista naloga koji će biti obaviješteni kada ovaj prag bude prekoračen."
+
+#: thold.php thold_templates.php
+msgid "Alert Emails"
+msgstr "Adrese e-pošte za alarme"
+
+#: thold.php
+msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
+msgstr "Ovdje možete navesti dodatne adrese e-pošte za primanje alarma za ovaj izvor podataka (odvojene zarezom)"
+
+#: thold.php thold_templates.php
+msgid "Warning Emails"
+msgstr "Adrese e-pošte za upozorenja"
+
+#: thold.php
+msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
+msgstr "Ovdje možete navesti dodatne adrese e-pošte za primanje upozorenja za ovaj izvor podataka (odvojene zarezom)"
+
+#: thold.php thold_templates.php
+msgid "If checked, Threshold notification will be sent to your local syslog."
+msgstr "Ako je označeno, obavještenje o pragu će biti poslano na vaš lokalni syslog."
+
+#: thold.php thold_templates.php
+msgid "Priority/Level"
+msgstr "Prioritet/Nivo"
+
+#: thold.php thold_templates.php
+msgid "This is the Priority Level that will be logged into your syslog messages."
+msgstr "Ovo je nivo prioriteta koji će biti zabilježen u vašim syslog porukama."
+
+#: thold.php thold_templates.php
+msgid "Facility"
+msgstr "Kategorija"
+
+#: thold.php thold_templates.php
+msgid "This is the Facility that will be used for this Threshold."
+msgstr "Ovo je kategorija (Facility) koja će se koristiti za ovaj prag."
+
+#: thold.php thold_templates.php
+msgid "Event Triggering (Shell Command)"
+msgstr "Okidanje događaja (naredba ljuske)"
+
+#: thold.php thold_templates.php
+msgid "High Trigger Command"
+msgstr "Naredba okidača za visoki prag"
+
+#: thold.php thold_templates.php
+msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Ako je postavljeno i ako je visoki prag prekoračen, ova naredba će biti pokrenuta. Unesite važeću naredbu. Pored toga, dostupno je nekoliko zamjenskih oznaka koje se mogu koristiti za prosljeđivanje informacija s praga u skriptu. To možete učiniti kao argumente na komandnoj liniji ili, po mogućnosti, u okruženju skripte. Sve zamjenske vrijednosti će se pojaviti u okruženju skripte s prefiksom THOLD_. Tako će, na primjer, CURRENTVALUE postati THOLD_CURRENTVALUE i tako dalje. Varijable uključuju: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Konačno, mogu se izvršiti zamjene za host, upit podataka i unos podataka. Na primjer, ako imate prilagođeni podatak unosa podataka pod nazivom pending, za zamjenu koristite |pending|. Za zamjenu upita podataka i hosta koristite Cacti konvencije |query_xxxx| i |host_xxxx| respektivno."
+
+#: thold.php thold_templates.php
+msgid "Low Trigger Command"
+msgstr "Naredba okidača za niski prag"
+
+#: thold.php thold_templates.php
+msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Ako je postavljeno i ako je donji prag prekršen, ova komanda će se pokrenuti. Molimo unesite važeću komandu. Pored toga, dostupno je nekoliko oznaka za zamjenu koje se mogu koristiti za prosljeđivanje informacija od praga do skripte. To možete učiniti kao argumente u komandnoj liniji ili, po mogućnosti, u okruženju skripte. Sve zamjenske vrijednosti će se pojaviti u okruženju skripte s prefiksom THOLD_. Tako će, na primjer, CURRENTVALUE postati THOLD_CURRENTVALUE i tako dalje. Varijable uključuju: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Konačno, mogu se izvršiti zamjene za host, upit za podatke i unos podataka. Na primjer, ako imate prilagođeni podatak unosa podataka pod nazivom pending, za izvršavanje zamjene koristite |pending|. Za zamjenu upita za podatke i hosta koristite Cacti konvencije |query_xxxx|, odnosno |host_xxxx|."
+
+#: thold.php thold_templates.php
+msgid "Norm Trigger Command"
+msgstr "Komanda okidača za normalno stanje"
+
+#: thold.php thold_templates.php
+msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Ako je postavljeno, kada se prag vrati na normalnu vrijednost, ova komanda će se pokrenuti. Molimo unesite važeću komandu. Pored toga, dostupno je nekoliko oznaka za zamjenu koje se mogu koristiti za prosljeđivanje informacija od praga do skripte. To možete učiniti kao argumente u komandnoj liniji ili, po mogućnosti, u okruženju skripte. Sve zamjenske vrijednosti će se pojaviti u okruženju skripte s prefiksom THOLD_. Tako će, na primjer, CURRENTVALUE postati THOLD_CURRENTVALUE i tako dalje. Varijable uključuju: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Konačno, mogu se izvršiti zamjene za host, upit za podatke i unos podataka. Na primjer, ako imate prilagođeni podatak unosa podataka pod nazivom pending, za izvršavanje zamjene koristite |pending|. Za zamjenu upita za podatke i hosta koristite Cacti konvencije |query_xxxx|, odnosno |host_xxxx|."
+
+#: thold.php thold_templates.php
+msgid "Other Settings"
+msgstr "Ostale postavke"
+
+#: thold.php
+msgid "Enter an Eternal ID for this Threshold."
+msgstr "Unesite eksterni ID za ovaj prag."
+
+#: thold.php thold_templates.php
+msgid "Operator Notes"
+msgstr "Napomene operatera"
+
+#: thold.php thold_templates.php
+msgid "Enter instructions here for an operator who may be receiving the Threshold message."
+msgstr "Ovdje unesite uputstva za operatera koji može primiti poruku o pragu."
+
+#: thold.php
+msgid "Select Users(s)"
+msgstr "Odaberite korisnika(e)"
+
+#: thold.php
+msgid "Users Selected"
+msgstr "Odabrani korisnici"
+
+#: thold.php
+msgid "All Users Selected"
+msgstr "Svi korisnici su odabrani"
+
+#: thold_graph.php
+msgid "The Threshold has been Ascknowledged."
+msgstr "Prag je potvrđen."
+
+#: thold_graph.php
+msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
+msgstr "Prag više neće generisati upozorenja, obavještenja niti izvršavati komande."
+
+#: thold_graph.php
+msgid "The Threshold will restart generating Alerts."
+msgstr "Prag će ponovo početi generisati upozorenja."
+
+#: thold_graph.php
+msgid "Threshold Status"
+msgstr "Status praga"
+
+#: thold_graph.php
+msgid "Actions"
+msgstr "Radnje"
+
+#: thold_graph.php
+msgid "Ack Detail"
+msgstr "Detalji potvrde"
+
+#: thold_graph.php
+msgid "Edit Threshold"
+msgstr "Uredi prag"
+
+#: thold_graph.php
+msgid "Disable Threshold"
+msgstr "Onemogući prag"
+
+#: thold_graph.php
+msgid "Enable Threshold"
+msgstr "Omogući prag"
+
+#: thold_graph.php
+msgid "To enable the Threshold, enable the Template first"
+msgstr "Da biste omogućili prag, prvo omogućite šablon"
+
+#: thold_graph.php
+msgid "View Graph"
+msgstr "Prikaži grafikon"
+
+#: thold_graph.php
+msgid "View Threshold History"
+msgstr "Prikaži historiju praga"
+
+#: thold_graph.php
+msgid "Suspend Notifications until the Threshold clears"
+msgstr "Obustavi obavještenja dok se prag ne razriješi"
+
+#: thold_graph.php
+msgid "Resume Notifications for this breached Threshold"
+msgstr "Nastavi obavještenja za ovaj prekršeni prag"
+
+#: thold_graph.php
+msgid "Acknowledgement Message"
+msgstr "Poruka potvrde"
+
+#: thold_graph.php
+msgid "Date"
+msgstr "Datum"
+
+#: thold_graph.php
+msgid "Comment Not Found"
+msgstr "Komentar nije pronađen"
+
+#: thold_graph.php
+msgid "Ack History"
+msgstr "Historija potvrda"
+
+#: thold_graph.php
+msgid "No name set"
+msgstr "Naziv nije postavljen"
+
+#: thold_graph.php
+msgid "Hover over icons for help"
+msgstr "Pređite kursorom preko ikona za pomoć"
+
+#: thold_graph.php
+msgid "A description for the Device"
+msgstr "Opis za uređaj"
+
+#: thold_graph.php
+msgid "A Cacti unique identifier for the Device"
+msgstr "Jedinstveni Cacti identifikator za uređaj"
+
+#: thold_graph.php
+msgid "The number of Graphs for this Device"
+msgstr "Broj grafikona za ovaj uređaj"
+
+#: thold_graph.php
+msgid "The number of Data Sources for this Device"
+msgstr "Broj izvora podataka za ovaj uređaj"
+
+#: thold_graph.php
+msgid "The status for this Device as of the last time it was polled"
+msgstr "Status ovog uređaja od posljednjeg prikupljanja podataka"
+
+#: thold_graph.php
+msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
+msgstr "Posljednji put kada je Cacti pronašao problem s ovim uređajem. Može biti veće od vremena neprekidnog rada uređaja ako je ponovo pokrenut između Cacti ciklusa prikupljanja podataka"
+
+#: thold_graph.php
+msgid "Uptime"
+msgstr "Vrijeme neprekidnog rada"
+
+#: thold_graph.php
+msgid "The official uptime of the Device as reported by SNMP"
+msgstr "Zvanično vrijeme neprekidnog rada uređaja kako je prijavio SNMP"
+
+#: thold_graph.php
+msgid "The official hostname for this Device"
+msgstr "Zvanični naziv hosta za ovaj uređaj"
+
+#: thold_graph.php
+msgid "Current (ms)"
+msgstr "Trenutno (ms)"
+
+#: thold_graph.php
+msgid "The current response time for the Cacti Availability check"
+msgstr "Trenutno vrijeme odziva za Cacti provjeru dostupnosti"
+
+#: thold_graph.php
+msgid "Average (ms)"
+msgstr "Prosječno (ms)"
+
+#: thold_graph.php
+msgid "The average response time for the Cacti Availability check"
+msgstr "Prosječno vrijeme odziva za Cacti provjeru dostupnosti"
+
+#: thold_graph.php
+msgid "Availability"
+msgstr "Dostupnost"
+
+#: thold_graph.php
+msgid "The overall Availability of this Device since the last counter reset in Cacti"
+msgstr "Ukupna dostupnost ovog uređaja od posljednjeg resetovanja brojača u sistemu Cacti"
+
+#: thold_graph.php
+msgid "Edit Device"
+msgstr "Uredi uređaj"
+
+#: thold_graph.php
+msgid "View Graphs"
+msgstr "Pregled grafikona"
+
+#: thold_graph.php
+msgid "No Devices"
+msgstr "Nema uređaja"
+
+#: thold_graph.php
+msgid "Not Up"
+msgstr "Nije aktivan"
+
+#: thold_graph.php
+msgid "No Export Rows Found."
+msgstr "Nisu pronađeni redovi za izvoz."
+
+#: thold_graph.php
+#, php-format
+msgid "Threshold Log for [ %s ]"
+msgstr "Zapisnik praga za [ %s ]"
+
+#: thold_graph.php
+msgid "Log Entries"
+msgstr "Unosi dnevnika"
+
+#: thold_graph.php
+msgid "Time"
+msgstr "Vrijeme"
+
+#: thold_graph.php
+msgid "Alert Value"
+msgstr "Vrijednost upozorenja"
+
+#: thold_graph.php
+msgid "Measured Value"
+msgstr "Izmjerena vrijednost"
+
+#: thold_graph.php
+msgid "No Threshold Logs Found"
+msgstr "Nisu pronađeni zapisnici praga"
+
+#: thold_graph.php
+msgid "Entries"
+msgstr "Unosi"
+
+#: thold_templates.php
+msgid "You are not authorised to modify one or more of the Thresholds selected"
+msgstr "Nemate ovlaštenje za izmjenu jednog ili više odabranih pragova"
+
+#: thold_templates.php
+#, php-format
+msgid "%s (%d Thresholds)"
+msgstr "%s (%d pragova)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to export the following Threshold Template(s)."
+msgstr "Kliknite 'Nastavi' da biste izvezli sljedeći(e) šablon(e) praga."
+
+#: thold_templates.php
+msgid "Export Template(s)"
+msgstr "Izvezi šablon(e)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to delete the following Threshold Template(s)."
+msgstr "Kliknite 'Nastavi' da biste obrisali sljedeći(e) šablon(e) praga."
+
+#: thold_templates.php
+msgid "Delete Template(s)"
+msgstr "Obriši šablon(e)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Reapply Suggested Names to Thresholds of the following Threshold Template(s)."
+msgstr "Kliknite 'Nastavi' da biste ponovo primijenili predložene nazive na pragove sljedećeg(ih) šablona praga."
+
+#: thold_templates.php
+msgid "Reapply Suggested Names to Template(s)"
+msgstr "Ponovo primijeni predložene nazive na šablon(e)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Enable the selected Template(s) and Threshold(s)."
+msgstr "Kliknite 'Nastavi' da biste omogućili odabrani(e) šablon(e) i prag(ove)."
+
+#: thold_templates.php
+msgid "Enable Template(s)"
+msgstr "Omogući šablon(e)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
+msgstr "Kliknite 'Nastavi' da biste onemogućili odabrani(e) šablon(e) i prag(ove)."
+
+#: thold_templates.php
+msgid "Disable Template(s)"
+msgstr "Onemogući šablon(e)"
+
+#: thold_templates.php
+msgid "Threshold Template Creation Wizard"
+msgstr "Čarobnjak za kreiranje šablona praga"
+
+#: thold_templates.php
+msgid "Please select a Data Template"
+msgstr "Molimo odaberite šablon podataka"
+
+#: thold_templates.php
+msgid "Please select a Data Source"
+msgstr "Molimo odaberite izvor podataka"
+
+#: thold_templates.php
+msgid "Please press 'Create' to create your Threshold Template"
+msgstr "Molimo pritisnite 'Kreiraj' da biste kreirali svoj šablon praga"
+
+#: thold_templates.php
+msgid "The Threshold Template requested can not be found"
+msgstr "Traženi šablon praga se ne može pronaći"
+
+#: thold_templates.php
+msgid "Provide the Threshold Template a meaningful name."
+msgstr "Dajte šablonu praga smislen naziv."
+
+#: thold_templates.php
+msgid "Suggested Threshold Name"
+msgstr "Predloženi naziv praga"
+
+#: thold_templates.php
+msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
+msgstr "Unesite predloženi naziv za prag kreiran pomoću ovog šablona. Mogu se koristiti standardne varijable za zamjenu za uređaj (|host_*|), upit podataka (|query_*|) i unos (|input_*|), kao i |graph_title| za naslov grafikona."
+
+#: thold_templates.php
+msgid "Data Template that you are using. (This cannot be changed)"
+msgstr "Šablon podataka koji koristite. (Ovo se ne može promijeniti)"
+
+#: thold_templates.php
+msgid "Data Field"
+msgstr "Polje podataka"
+
+#: thold_templates.php
+msgid "Data Field that you are using. (This cannot be changed)"
+msgstr "Polje podataka koje koristite. (Ovo se ne može promijeniti)"
+
+#: thold_templates.php
+msgid "Whether or not this Threshold will be checked and alerted upon."
+msgstr "Da li će se ovaj prag provjeravati i da li će se za njega slati alarmi."
+
+#: thold_templates.php
+msgid "Repeat alert after this amount of time has pasted since the last alert."
+msgstr "Ponovi alarm nakon što protekne ovoliko vremena od posljednjeg alarma."
+
+#: thold_templates.php
+msgid "Min Trigger Duration"
+msgstr "Minimalno trajanje okidača"
+
+#: thold_templates.php
+msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
+msgstr "Vrijeme tokom kojeg izvor podataka mora biti u stanju prekoračenja da bi se pokrenuo alarm."
+
+#: thold_templates.php
+msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
+msgstr "Broj puta koliko izvor podataka mora biti u stanju prekoračenja prije izdavanja upozorenja."
+
+#: thold_templates.php
+msgid "Time Period Length"
+msgstr "Dužina vremenskog perioda"
+
+#: thold_templates.php
+msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
+msgstr "Broj puta koliko izvor podataka mora biti u stanju prekoračenja prije pokretanja alarma."
+
+#: thold_templates.php
+msgid "Baseline Monitoring"
+msgstr "Praćenje osnovne linije"
+
+#: thold_templates.php
+#, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Određuje dozvoljeno odstupanje za gornju granicu praga. Ako nije postavljeno, gornja granica praga se uopće neće provjeravati. Jedinica mjere je apsolutna vrijednost za tip 'Apsolutna vrijednost', a procenat za oba tipa '%% Odstupanje' i '%% Klizni prosjek'"
+
+#: thold_templates.php
+#, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Određuje dozvoljeno odstupanje za donju granicu praga. Ako nije postavljeno, donja granica praga se uopće neće provjeravati. Jedinica mjere je apsolutna vrijednost za tip 'Apsolutna vrijednost', a procenat za oba tipa '%% Odstupanje' i '%% Klizni prosjek'"
+
+#: thold_templates.php
+#, php-format
+msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
+msgstr "Broj uzastopnih puta koliko izvor podataka mora biti u stanju prekoračenja da bi se pokrenuo alarm.<br>Ostavite prazno da biste koristili podrazumijevanu vrijednost (Podrazumijevano: %s ciklusa"
+
+#: thold_templates.php
+msgid "Percent Datasource"
+msgstr "Izvor podataka za procenat"
+
+#: thold_templates.php
+msgid "Second Datasource Item to use as total value to calculate percentage from."
+msgstr "Druga stavka izvora podataka koja se koristi kao ukupna vrijednost za izračunavanje procenta."
+
+#: thold_templates.php
+#, php-format
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "RPN izraz je RPN izraz kompatibilan sa alatom RRDtool. Sintaksa uključuje sve funkcije u nastavku, pored izraza za zamjenu za uređaj i upit podataka kao što je <span style=\"color:blue;\">|query_ifSpeed|</span>. Da biste koristili izvor podataka u RPN izrazu, morate koristiti sintaksu: <span style=\"color:blue;\">|ds:dsname|</span>. Na primjer, <span style=\"color:blue;\">|ds:traffic_in|</span> će dohvatiti trenutnu vrijednost izvora podataka traffic_in za RRD datoteku/datoteke povezane sa grafikonom. Može se uključiti bilo koji izvor podataka za grafikon.<br>Matematički operatori: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Funkcije: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Operatori toka: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Funkcije poređenja: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+
+#: thold_templates.php
+msgid "Upper data source to use to calculate the total value."
+msgstr "Gornji izvor podataka koji se koristi za izračunavanje ukupne vrijednosti."
+
+#: thold_templates.php
+msgid "Alert Email Subject"
+msgstr "Predmet e-pošte za alarm"
+
+#: thold_templates.php
+msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Ovo je predmet e-pošte koji će biti prikazan u e-poruci (maks. 128 znakova). Ostavite prazno za podrazumijevanu vrijednost. Postoji nekoliko uobičajenih oznaka za zamjenu koje se mogu koristiti, uključujući:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "Alert Email Body"
+msgstr "Tijelo e-pošte za alarm"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Ovo je poruka koja će biti prikazana na vrhu svih alarma praga (maks. 1024 znaka). HTML je dozvoljen, ali će biti uklonjen za e-poruke u obliku običnog teksta. Postoji nekoliko uobičajenih oznaka za zamjenu koje se mogu koristiti, uključujući:<br>npr. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold_templates.php
+msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Ovo je predmet upozorenja koji će biti prikazan u e-poruci (maks. 128 znakova). Ostavite prazno za podrazumijevanu vrijednost. Postoji nekoliko uobičajenih oznaka za zamjenu koje se mogu koristiti, uključujući:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Ovo je poruka koja će biti prikazana na vrhu svih upozorenja praga (maksimalno 1024 znaka). HTML je dozvoljen, ali će biti uklonjen za isključivo tekstualne e-poruke. Postoji nekoliko uobičajenih oznaka za zamjenu koje se mogu koristiti, uključujući:<br>npr. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold_templates.php
+msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Ovo je predmet e-poruke koji će biti prikazan u e-poruci nakon povratka u normalno stanje (maksimalno 128 znakova). Ostavite prazno za podrazumijevano. Postoji nekoliko uobičajenih oznaka za zamjenu koje se mogu koristiti, uključujući:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "Restoral Body"
+msgstr "Tijelo poruke o oporavku"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Ovo je poruka koja će biti prikazana na vrhu svih obavještenja o oporavku praga (maksimalno 1024 znaka). HTML je dozvoljen, ali će biti uklonjen za isključivo tekstualne e-poruke. Postoji nekoliko uobičajenih oznaka za zamjenu koje se mogu koristiti, uključujući:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: thold_templates.php
+msgid "Notification List Read Only"
+msgstr "Lista obavještenja samo za čitanje"
+
+#: thold_templates.php
+msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
+msgstr "Ako je označeno, liste obavještenja praga u šablonu će prepisati liste samog praga."
+
+#: thold_templates.php
+msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
+msgstr "Ozbiljnost koja će se koristiti za alarme. (Nizak uticaj -> Kritičan uticaj)"
+
+#: thold_templates.php
+msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
+msgstr "Ovo je lista naloga koji će biti obaviješteni kada ovaj prag bude prekoračen.<br><br><br><br>"
+
+#: thold_templates.php
+msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
+msgstr "Ovdje možete navesti dodatne adrese e-pošte za primanje alarma za ovaj izvor podataka (odvojene zarezom)"
+
+#: thold_templates.php
+msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
+msgstr "Ovdje možete navesti dodatne adrese e-pošte za primanje upozorenja za ovaj izvor podataka (odvojene zarezom)"
+
+#: thold_templates.php
+msgid "Enter an Eternal ID for this Thold Template."
+msgstr "Unesite vječni ID za ovaj Thold šablon."
+
+#: thold_templates.php
+#, php-format
+msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "%d mjeseci, %d dana, %d sati, %d minuta, %d sekundi (Prosjek)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
+msgstr "%d mjeseci, %d dana, %d sati, %d minuta, %d sekundi"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "%d dana, %d sati, %d minuta, %d sekundi (Prosjek)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
+msgstr "%d dana, %d sati, %d minuta, %d sekundi"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "%d sati, %d minuta, %d sekundi (Prosjek)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Hours, %d Minutes, %d Seconds"
+msgstr "%d sati, %d minuta, %d sekundi"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Minutes, %d Seconds (Average)"
+msgstr "%d minuta, %d sekundi (Prosjek)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Minutes, %d Seconds"
+msgstr "%d minuta, %d sekundi"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Seconds (Average)"
+msgstr "%d sekundi (Prosjek)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Seconds"
+msgstr "%d sekundi"
+
+#: thold_templates.php
+msgid "DS Name"
+msgstr "DS naziv"
+
+#: thold_templates.php
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
+msgstr "Vrijednosti visokog upozorenja / alarma. NAPOMENA: Osnovne vrijednosti su izražene u procentima, sve ostale vrijednosti su RAW vrijednosti koje nisu izmijenjene putem cdef."
+
+#: thold_templates.php
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
+msgstr "Vrijednosti niskog upozorenja / alarma. NAPOMENA: Osnovne vrijednosti su izražene u procentima, sve ostale vrijednosti su RAW vrijednosti koje nisu izmijenjene putem cdef."
+
+#: thold_templates.php
+msgid "Import Template from Local File"
+msgstr "Uvezi šablon iz lokalne datoteke"
+
+#: thold_templates.php
+msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
+msgstr "Ako se XML datoteka koja sadrži podatke šablona praga nalazi na vašem lokalnom računaru, odaberite je ovdje."
+
+#: thold_templates.php
+msgid "Import Template from Text"
+msgstr "Uvezi šablon iz teksta"
+
+#: thold_templates.php
+msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
+msgstr "Ako imate XML datoteku s podacima šablona praga u obliku teksta, možete je zalijepiti u ovo polje da biste je uvezli."
+
+#: thold_templates.php
+msgid "Import Results"
+msgstr "Rezultati uvoza"
+
+#: thold_templates.php
+msgid "Cacti has imported the following items:"
+msgstr "Cacti je uvezao sljedeće stavke:"
+
+#: thold_templates.php
+msgid "Import Threshold Templates"
+msgstr "Uvezi šablone praga"
+
+#: thold_templates.php
+msgid "The file is too big."
+msgstr "Datoteka je prevelika."
+
+#: thold_templates.php
+msgid "Incomplete file transfer."
+msgstr "Nepotpun prijenos datoteke."
+
+#: thold_templates.php
+msgid "No file uploaded."
+msgstr "Nijedna datoteka nije otpremljena."
+
+#: thold_templates.php
+msgid "Temporary folder missing."
+msgstr "Nedostaje privremeni direktorij."
+
+#: thold_templates.php
+msgid "Failed to write file to disk"
+msgstr "Pisanje datoteke na disk nije uspjelo"
+
+#: thold_templates.php
+msgid "File upload stopped by extension"
+msgstr "Otpremanje datoteke zaustavljeno je zbog ekstenzije"
+
+#: thold_templates.php
+msgid "Invalid file extension."
+msgstr "Nevažeća ekstenzija datoteke."
+
+#: thold_templates.php
+msgid "NOTE:"
+msgstr "NAPOMENA:"
+
+#: thold_templates.php
+msgid "ERROR:"
+msgstr "GREŠKA:"
