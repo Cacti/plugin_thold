@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Bulgarian <https://translate.cacti.net/projects/cacti/thold/bg/>\nLanguage: bg-BG\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Bulgarian <https://translate.cacti.net/projects/cacti/thold/bg/>\nLanguage: bg-BG\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -85,7 +85,7 @@ msgstr "Грешка"
 
 #: includes/arrays.php thold_graph.php
 msgid "Recovering"
-msgstr "Възстановяване"
+msgstr "Възстановява се"
 
 #: includes/arrays.php thold_graph.php
 msgid "Up"
@@ -178,11 +178,11 @@ msgstr "потвърждавам"
 
 #: includes/arrays.php
 msgid "Restore"
-msgstr "Възстановяване"
+msgstr "Възстанови"
 
 #: includes/arrays.php
 msgid "Alert Trigger"
-msgstr "Alert Trigger"
+msgstr "Тригер за тревога"
 
 #: includes/arrays.php
 msgid "Warn Trigger"
@@ -581,7 +581,7 @@ msgstr "%% Откл. [AOT:%s]"
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [AOT:%s]"
-msgstr "Abs Val [AOT:%s]"
+msgstr "Абс. стойност [AOT:%s]"
 
 #: includes/functions.php
 msgid "The Device ID was not set while trying to create Graph and Threshold"
@@ -703,11 +703,11 @@ msgstr "Грешка"
 
 #: includes/functions.php includes/polling.php thold.php thold_graph.php
 msgid "N/A"
-msgstr "Няма"
+msgstr "Неприложимо"
 
 #: includes/functions.php
 msgid "Success"
-msgstr "Готово"
+msgstr "Успех"
 
 #: includes/functions.php thold_graph.php
 msgid "Acknowledge Threshold"
@@ -951,7 +951,7 @@ msgstr "Броят на интервалите за проверка, през �
 
 #: includes/settings.php
 msgid "Use Cacti Setting"
-msgstr "Основни настройки"
+msgstr "Използвай настройката на Cacti"
 
 #: includes/settings.php
 #, php-format
@@ -1005,7 +1005,7 @@ msgstr "Състояние на филтъра за управление по п
 
 #: includes/settings.php notify_lists.php thold.php
 msgid "Any"
-msgstr "Всички"
+msgstr "Всеки"
 
 #: includes/settings.php thold.php thold_graph.php
 msgid "Breached or Triggered"
@@ -2162,7 +2162,7 @@ msgstr "Времето на събитието, както е определен
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
-msgstr "Обработено ли е събитието за уведомяване?"
+msgstr "Показва дали събитието за уведомяване е обработено."
 
 #: notify_queue.php
 msgid "Errors"
@@ -2829,7 +2829,7 @@ msgstr "Предупреждение - Настройки, базирани на
 
 #: thold.php
 msgid "Baseline Settings"
-msgstr "Основни настройки"
+msgstr "Настройки на базовата линия"
 
 #: thold.php thold_templates.php
 msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
