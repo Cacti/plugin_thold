@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: French <https://translate.cacti.net/projects/cacti/thold/fr/>\nLanguage: fr-FR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: French <https://translate.cacti.net/projects/cacti/thold/fr/>\nLanguage: fr-FR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -28,12 +28,12 @@ msgstr "%d an"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hour Ago"
-msgstr "Toutes les %d Heures"
+msgstr "Depuis %d heure"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hours Ago"
-msgstr "Toutes les %d Heures"
+msgstr "Depuis %d heures"
 
 #: includes/arrays.php
 #, php-format
@@ -58,12 +58,12 @@ msgstr "Toutes les %d semaines"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Month Ago"
-msgstr "%d mois"
+msgstr "Depuis %d mois"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Months Ago"
-msgstr "%d mois"
+msgstr "Depuis %d mois"
 
 #: includes/arrays.php
 #, php-format
@@ -85,7 +85,7 @@ msgstr "Erreur"
 
 #: includes/arrays.php thold_graph.php
 msgid "Recovering"
-msgstr "Récupération"
+msgstr "En cours de récupération"
 
 #: includes/arrays.php thold_graph.php
 msgid "Up"
@@ -863,7 +863,7 @@ msgstr "Listes de notification (modifier)"
 
 #: includes/settings.php
 msgid "Notification Queue"
-msgstr "Liste de notification"
+msgstr "File d'attente de notification"
 
 #: includes/settings.php
 msgid "Management"
@@ -1009,7 +1009,7 @@ msgstr "N'importe lequel"
 
 #: includes/settings.php thold.php thold_graph.php
 msgid "Breached or Triggered"
-msgstr "Avertir Déclencheur"
+msgstr "Franchi ou déclenché"
 
 #: includes/settings.php notify_lists.php thold.php thold_graph.php
 msgid "Breached"
@@ -1372,7 +1372,7 @@ msgstr "Options de notification de l'appareil"
 
 #: includes/settings.php
 msgid "Notification Delay"
-msgstr "Liste de notification"
+msgstr "Délai de notification"
 
 #: includes/settings.php
 msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
@@ -1669,7 +1669,7 @@ msgstr "Dupliquer"
 
 #: notify_lists.php
 msgid "Associate"
-msgstr "Associé"
+msgstr "Associer"
 
 #: notify_lists.php
 msgid "Disassociate"
@@ -2049,7 +2049,7 @@ msgstr "Nom de la liste"
 
 #: notify_lists.php
 msgid "Emails"
-msgstr "Emails"
+msgstr "Courriels"
 
 #: notify_lists.php
 msgid "No Notification Lists"
@@ -2114,7 +2114,7 @@ msgstr "Reprendre le traitement des notifications"
 
 #: notify_queue.php
 msgid "Purge"
-msgstr "Supprimer"
+msgstr "Purger"
 
 #: notify_queue.php
 msgid "Purge Notification Queue"
@@ -2122,7 +2122,7 @@ msgstr "Purger la file d'attente des notifications"
 
 #: notify_queue.php
 msgid "Notifications"
-msgstr "Liste de notification"
+msgstr "Notifications"
 
 #: notify_queue.php
 msgid "The supported notification topic."
@@ -2162,7 +2162,7 @@ msgstr "L'heure de l'événement telle que définie par l'appelant."
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
-msgstr "L’événement de notification a-t-il été traité ?"
+msgstr "Indique si l'événement de notification a été traité."
 
 #: notify_queue.php
 msgid "Errors"
@@ -2520,7 +2520,7 @@ msgstr "Répéter"
 
 #: thold.php thold_graph.php
 msgid "In State"
-msgstr "État"
+msgstr "Actif depuis"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
