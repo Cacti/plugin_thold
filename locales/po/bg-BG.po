@@ -1859,7 +1859,7 @@ msgstr "Файл за стил/формат на имейл"
 
 #: notify_lists.php thold.php thold_templates.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "Изберете потребителската html обвивка и CSS файла, който да използвате. Този файл съдържа както html, така и CSS за пренасяне на отчета. Ако съдържа повече от просто CSS, трябва да поставите специален <REPORT> вътре във файла. Този етикет за формат ще бъде заменен от съдържанието на отчета. Тези файлове се намират в директорията &#39;formats&#39;."
+msgstr "Изберете потребителската html обвивка и CSS файла, който да използвате. Този файл съдържа както html, така и CSS за пренасяне на отчета. Ако съдържа повече от просто CSS, трябва да поставите специален <REPORT> вътре във файла. Този етикет за формат ще бъде заменен от съдържанието на отчета. Тези файлове се намират в директорията 'formats'."
 
 #: notify_lists.php
 msgid "Associated Devices"

@@ -271,7 +271,7 @@ msgstr "כל חודש"
 #: includes/arrays.php
 #, php-format
 msgid "%d Minute"
-msgstr "‫%d דקה"
+msgstr "%d דקה"
 
 #: includes/arrays.php
 #, php-format
@@ -281,7 +281,7 @@ msgstr "דקות %d"
 #: includes/arrays.php
 #, php-format
 msgid "%d Hour"
-msgstr "‫%d שעה"
+msgstr "%d שעה"
 
 #: includes/arrays.php
 #, php-format
@@ -623,15 +623,15 @@ msgstr "סף שנוצר: %s"
 
 #: includes/functions.php
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "עליך לציין 'סף התראה גבוהה' או 'סף התראה נמוכה' או שניהם! <br> הרשומה לא עודכנה!"
+msgstr "עליך לציין 'סף התראה גבוהה' או 'סף התראה נמוכה' או שניהם!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "סף בלתי אפשרי: 'סף גבוה' קטן או שווה ל'סף נמוך ' <br> הרשומה לא עודכנה!"
+msgstr "סף בלתי אפשרי: 'סף גבוה' קטן או שווה ל'סף נמוך '!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "סף בלתי אפשרי: 'סף אזהרה גבוה' קטן או שווה ל 'סף אזהרה נמוך' <br> הרשומה לא עודכנה!"
+msgstr "סף בלתי אפשרי: 'סף אזהרה גבוה' קטן או שווה ל 'סף אזהרה נמוך'!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
@@ -647,7 +647,7 @@ msgstr "התייחסות זמן בעבר חייבת להיות מוגדרת כמ
 
 #: includes/functions.php
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "אתה חייב לציין או 'Baseline deviation UP' או 'Baseline Stiation DOWN' או שניהם! <br> הרשומה לא עודכנה!"
+msgstr "אתה חייב לציין או 'Baseline deviation UP' או 'Baseline Stiation DOWN' או שניהם!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
@@ -1859,7 +1859,7 @@ msgstr "קובץ סגנון/פורמט דוא\"ל"
 
 #: notify_lists.php thold.php thold_templates.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "בחר את עטיפת ה- HTML המותאמת אישית ואת קובץ ה- CSS לשימוש. קובץ זה מכיל הן HTML והן CSS לעטוף את הדוח שלך. אם הוא מכיל יותר מ CSS פשוט, אתה צריך מקום מיוחד <REPORT> בתוך הקובץ. תג פורמט זה יוחלף בתוכן הדוח. קבצים אלה נמצאים בספריה &#39;פורמטים&#39;."
+msgstr "בחר את עטיפת ה- HTML המותאמת אישית ואת קובץ ה- CSS לשימוש. קובץ זה מכיל הן HTML והן CSS לעטוף את הדוח שלך. אם הוא מכיל יותר מ CSS פשוט, אתה צריך מקום מיוחד <REPORT> בתוך הקובץ. תג פורמט זה יוחלף בתוכן הדוח. קבצים אלה נמצאים בספריה 'פורמטים'."
 
 #: notify_lists.php
 msgid "Associated Devices"
@@ -3531,7 +3531,7 @@ msgstr "גוף דוא\"ל התראה"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "זוהי ההודעה שתוצג בחלק העליון של כל התראות הסף (255 כ&quot;ס מקס). HTML מותר, אך יוסר עבור הודעות טקסט בלבד. ישנם מספר מתארים שניתן להשתמש בהם. <br> למשל. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822&gt; &lt;BREACHED_ITEMS &gt;"
+msgstr "זוהי ההודעה שתוצג בחלק העליון של כל התראות הסף (255 כ\"ס מקס). HTML מותר, אך יוסר עבור הודעות טקסט בלבד. ישנם מספר מתארים שניתן להשתמש בהם. <br> למשל. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822&gt; &lt;BREACHED_ITEMS &gt;"
 
 #: thold_templates.php
 msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
@@ -3539,7 +3539,7 @@ msgstr "זהו נושא האזהרה שיוצג בהודעת הדוא\"ל (מק�
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "זוהי ההודעה שתוצג בחלק העליון של כל אזהרות הסף (255 כ&quot;ס MAX). HTML מותר, אך יוסר עבור הודעות טקסט בלבד. ישנם מספר מתארים שניתן להשתמש בהם. <br> למשל. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822&gt; &lt;BREACHED_ITEMS &gt;"
+msgstr "זוהי ההודעה שתוצג בחלק העליון של כל אזהרות הסף (255 כ\"ס MAX). HTML מותר, אך יוסר עבור הודעות טקסט בלבד. ישנם מספר מתארים שניתן להשתמש בהם. <br> למשל. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822&gt; &lt;BREACHED_ITEMS &gt;"
 
 #: thold_templates.php
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"

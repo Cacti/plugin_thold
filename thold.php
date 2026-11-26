@@ -985,7 +985,7 @@ function list_tholds() {
 			'display' => __('Ack Required', 'thold'),
 			'sort'    => '',
 			'align'   => 'right',
-			'tip'     => __('Acknowledgment required for this Threshold')
+			'tip'     => __('Acknowledgment required for this Threshold', 'thold')
 		]
 	];
 
@@ -1799,7 +1799,7 @@ function thold_edit() {
 			'friendly_name' => __('Graph Timespan'),
 			'method'        => 'drop_array',
 			'default'       => GT_LAST_DAY,
-			'description'   => __('The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan.'),
+			'description'   => __('The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan.', 'thold'),
 			'array'         => $graph_timespans,
 			'value'         => isset($thold_data['graph_timespan']) ? $thold_data['graph_timespan'] : '',
 		],
@@ -1825,8 +1825,8 @@ function thold_edit() {
 			'value'         => isset($thold_data['restored_alert']) ? $thold_data['restored_alert'] : ''
 		],
 		'acknowledgment' => [
-			'friendly_name' => __('Acknowledgment Options'),
-			'description'   => __('There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>'),
+			'friendly_name' => __('Acknowledgment Options', 'thold'),
+			'description'   => __('There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>', 'thold'),
 			'method'        => 'radio',
 			'value'         => $acknowledgment,
 			'default'       => 'none',
@@ -2060,10 +2060,10 @@ function thold_edit() {
 			'value'         => isset($thold_data['data_type']) ? $thold_data['data_type'] : ''
 		],
 		'cdef' => [
-			'friendly_name' => __('Threshold CDEF'),
+			'friendly_name' => __('Threshold CDEF', 'thold'),
 			'method'        => 'drop_array',
 			'default'       => 'NULL',
-			'description'   => __('Apply this CDEF before returning the data.'),
+			'description'   => __('Apply this CDEF before returning the data.', 'thold'),
 			'value'         => isset($thold_data['cdef']) ? $thold_data['cdef'] : 0,
 			'array'         => thold_cdef_select_usable_names()
 		],
@@ -2689,19 +2689,19 @@ function thold_edit() {
 
 		$('#notify_accounts').multiselect({
 			minWidth: '400',
-			noneSelectedText: '<?php print __('Select Users(s)', 'thold'); ?>',
+			noneSelectedText: <?php print json_encode(__('Select Users(s)', 'thold')); ?>,
 			selectedText: function(numChecked, numTotal, checkedItems) {
-				myReturn = numChecked + ' <?php print __('Users Selected', 'thold'); ?>';
+				myReturn = numChecked + ' ' + <?php print json_encode(__('Users Selected', 'thold')); ?>;
 				$.each(checkedItems, function(index, value) {
 					if (value.value == '0') {
-						myReturn='<?php print __('All Users Selected', 'thold'); ?>';
+						myReturn=<?php print json_encode(__('All Users Selected', 'thold')); ?>;
 						return false;
 					}
 				});
 				return myReturn;
 			},
-			checkAllText: '<?php print __('All', 'thold'); ?>',
-			uncheckAllText: '<?php print __('None', 'thold'); ?>',
+			checkAllText: <?php print json_encode(__('All', 'thold')); ?>,
+			uncheckAllText: <?php print json_encode(__('None', 'thold')); ?>,
 			uncheckall: function() {
 				$(this).multiselect('widget').find(':checkbox:first').each(function() {
 					$(this).prop('checked', true);
@@ -2738,7 +2738,7 @@ function thold_edit() {
 				}
 			}
 		}).multiselectfilter( {
-			label: '<?php print __('Search', 'thold'); ?>', width: '150'
+			label: <?php print json_encode(__('Search', 'thold')); ?>, width: '150'
 		});
 
 		templateEnableDisable();

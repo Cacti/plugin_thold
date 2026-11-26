@@ -623,15 +623,15 @@ msgstr "Đã tạo ngưỡng: %s"
 
 #: includes/functions.php
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "Bạn phải chỉ định 'Ngưỡng cảnh báo cao' hoặc 'Ngưỡng cảnh báo thấp' hoặc cả hai! <br> GHI CHÚ KHÔNG CẬP NHẬT!"
+msgstr "Bạn phải chỉ định 'Ngưỡng cảnh báo cao' hoặc 'Ngưỡng cảnh báo thấp' hoặc cả hai!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Ngưỡng không thể: 'Ngưỡng cao' nhỏ hơn hoặc bằng 'Ngưỡng thấp' <br> GHI CHÚ KHÔNG CẬP NHẬT!"
+msgstr "Ngưỡng không thể: 'Ngưỡng cao' nhỏ hơn hoặc bằng 'Ngưỡng thấp'!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "Ngưỡng không thể: 'Ngưỡng cảnh báo cao' nhỏ hơn hoặc bằng 'Ngưỡng cảnh báo thấp' <br> GHI CHÚ KHÔNG CẬP NHẬT!"
+msgstr "Ngưỡng không thể: 'Ngưỡng cảnh báo cao' nhỏ hơn hoặc bằng 'Ngưỡng cảnh báo thấp'!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
@@ -647,7 +647,7 @@ msgstr "Tham chiếu thời gian trong quá khứ phải được đặt thành 
 
 #: includes/functions.php
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "Bạn phải chỉ định 'Độ lệch đường cơ sở LÊN' hoặc 'Độ lệch đường cơ sở XUỐNG' hoặc cả hai! <br> GHI CHÚ KHÔNG CẬP NHẬT!"
+msgstr "Bạn phải chỉ định 'Độ lệch đường cơ sở LÊN' hoặc 'Độ lệch đường cơ sở XUỐNG' hoặc cả hai!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
@@ -1859,7 +1859,7 @@ msgstr "Tệp kiểu/định dạng Email"
 
 #: notify_lists.php thold.php thold_templates.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "Chọn trình bao bọc html và tệp CSS tùy chỉnh để sử dụng. Tệp này chứa cả html và CSS để bao quanh báo cáo của bạn. Nếu nó chứa nhiều hơn chỉ đơn giản là CSS, bạn cần đặt một đặc biệt <REPORT> thẻ bên trong của tập tin. Thẻ định dạng này sẽ được thay thế bởi nội dung báo cáo. Các tệp này được đặt trong thư mục &#39;định dạng&#39;."
+msgstr "Chọn trình bao bọc html và tệp CSS tùy chỉnh để sử dụng. Tệp này chứa cả html và CSS để bao quanh báo cáo của bạn. Nếu nó chứa nhiều hơn chỉ đơn giản là CSS, bạn cần đặt một đặc biệt <REPORT> thẻ bên trong của tập tin. Thẻ định dạng này sẽ được thay thế bởi nội dung báo cáo. Các tệp này được đặt trong thư mục 'định dạng'."
 
 #: notify_lists.php
 msgid "Associated Devices"

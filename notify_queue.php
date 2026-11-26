@@ -165,12 +165,12 @@ function form_actions() {
 		if (get_nfilter_request_var('drp_action') == '1') { // delete
 			print "<tr>
 				<td class='textArea'>
-					<p>" . __n('Click \'Continue\' to delete the following Notification.', 'Click \'Continue\' to delete all following Notifications.', cacti_sizeof($notify_array)) . "</p>
+					<p>" . __n('Click \'Continue\' to delete the following Notification.', 'Click \'Continue\' to delete all following Notifications.', cacti_sizeof($notify_array), 'thold') . "</p>
 					<div class='itemlist'><ul>$notify_list</ul></div>
 				</td>
 			</tr>";
 
-			$save_html = "<input type='button' class='ui-button ui-corner-all ui-widget cactiReturnTo' value='" . __esc('Cancel') . "'>&nbsp;<input type='submit' class='ui-button ui-corner-all ui-widget' value='" . __esc('Continue') . "' title='" . __n('Delete Notification', 'Delete Notifications', cacti_sizeof($notify_array)) . "'>";
+			$save_html = "<input type='button' class='ui-button ui-corner-all ui-widget cactiReturnTo' value='" . __esc('Cancel') . "'>&nbsp;<input type='submit' class='ui-button ui-corner-all ui-widget' value='" . __esc('Continue') . "' title='" . __n('Delete Notification', 'Delete Notifications', cacti_sizeof($notify_array), 'thold') . "'>";
 		}
 	} else {
 		raise_message(40);
@@ -343,9 +343,9 @@ function notify_queue() {
 						<span>
 							<input type='button' class='ui-button ui-corner-all ui-widget' id='refresh' value='<?php print __esc('Go'); ?>' title='<?php print __esc('Set/Refresh Filters'); ?>'>
 							<input type='button' class='ui-button ui-corner-all ui-widget' id='clear' value='<?php print __esc('Clear'); ?>' title='<?php print __esc('Clear Filters'); ?>'>
-							<?php if ($state == 0) {?><input type='button' class='ui-button ui-corner-all ui-widget' id='suspend' value='<?php print __esc('Suspend'); ?>' title='<?php print __esc('Suspend Notification Processing'); ?>'><?php } else {?>
-							<input type='button' class='ui-button ui-corner-all ui-widget' id='resume' value='<?php print __esc('Resume'); ?>' title='<?php print __esc('Resume Notification Processing'); ?>'><?php }?>
-							<input type='button' class='ui-button ui-corner-all ui-widget' id='purge' value='<?php print __esc('Purge'); ?>' title='<?php print __esc('Purge Notification Queue'); ?>'>
+							<?php if ($state == 0) {?><input type='button' class='ui-button ui-corner-all ui-widget' id='suspend' value='<?php print __esc('Suspend', 'thold'); ?>' title='<?php print __esc('Suspend Notification Processing', 'thold'); ?>'><?php } else {?>
+							<input type='button' class='ui-button ui-corner-all ui-widget' id='resume' value='<?php print __esc('Resume', 'thold'); ?>' title='<?php print __esc('Resume Notification Processing', 'thold'); ?>'><?php }?>
+							<input type='button' class='ui-button ui-corner-all ui-widget' id='purge' value='<?php print __esc('Purge'); ?>' title='<?php print __esc('Purge Notification Queue', 'thold'); ?>'>
 						</span>
 					</td>
 				</tr>

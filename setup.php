@@ -1142,7 +1142,7 @@ function thold_data_source_action_execute($action) {
 				}
 
 				if (strlen($message)) {
-					thold_raise_message(__('Created %s thresholds', $created) . '<br>' . $message, MESSAGE_LEVEL_INFO);
+					thold_raise_message(__('Created %s thresholds', $created, 'thold') . '<br>' . $message, MESSAGE_LEVEL_INFO);
 				} else {
 					thold_raise_message(__('No Threshold(s) Created.  Either they already exist, or no suitable matches found.', 'thold'), MESSAGE_LEVEL_INFO);
 				}
@@ -1349,7 +1349,7 @@ function thold_graphs_action_execute($action) {
 				}
 
 				if (strlen($message)) {
-					thold_raise_message(__('Created %s thresholds', $created) . '<br>' . $message, MESSAGE_LEVEL_INFO);
+					thold_raise_message(__('Created %s thresholds', $created, 'thold') . '<br>' . $message, MESSAGE_LEVEL_INFO);
 				} else {
 					thold_raise_message(__('No Threshold(s) Created.  Either they already exist, or no suitable matches found.', 'thold'), MESSAGE_LEVEL_INFO);
 				}
@@ -1694,13 +1694,13 @@ function thold_device_edit_pre_bottom() {
 				<table>
 					<tr style='line-height:10px;'>
 						<td class='nowrap templateAdd' style='padding-right:15px;'>
-							<?php print __('Add Threshold Template'); ?>
+							<?php print __('Add Threshold Template', 'thold'); ?>
 						</td>
 						<td class='noHide'>
 							<?php form_dropdown('thold_template_id', $available_thold_templates, 'name', 'id', '', '', ''); ?>
 						</td>
 						<td class='noHide'>
-							<input id='add_tt' type='button' class='ui-button ui-corner-all ui-widget' value='<?php print __esc('Add'); ?>' title='<?php print __esc('Add Threshold Template to Device'); ?>' onClick='addThresholdTemplate()'>
+							<input id='add_tt' type='button' class='ui-button ui-corner-all ui-widget' value='<?php print __esc('Add'); ?>' title='<?php print __esc('Add Threshold Template to Device', 'thold'); ?>' onClick='addThresholdTemplate()'>
 						</td>
 					</tr>
 				</table>

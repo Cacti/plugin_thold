@@ -623,15 +623,15 @@ msgstr "Oluşturulan eşik: %s"
 
 #: includes/functions.php
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "'Yüksek Uyarı Eşiği' veya 'Düşük Uyarı Eşiği' veya her ikisini de belirtmelisiniz! <br> KAYIT GÜNCELLEME!"
+msgstr "'Yüksek Uyarı Eşiği' veya 'Düşük Uyarı Eşiği' veya her ikisini de belirtmelisiniz!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "İmkansız eşikler: 'Düşük Eşik' e eşit veya daha küçük 'Yüksek Eşik' <br> KAYIT GÜNCELLEME!"
+msgstr "İmkansız eşikler: 'Düşük Eşik' e eşit veya daha küçük 'Yüksek Eşik'!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "İmkansız eşikler: 'Düşük Uyarı Eşiğine' eşit veya daha küçük 'Yüksek Uyarı Eşiği' <br> KAYIT GÜNCELLEME!"
+msgstr "İmkansız eşikler: 'Düşük Uyarı Eşiğine' eşit veya daha küçük 'Yüksek Uyarı Eşiği'!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
@@ -647,7 +647,7 @@ msgstr "Geçmişteki zaman başvurusu pozitif bir tamsayı değerine ayarlanmal�
 
 #: includes/functions.php
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "'Temel Sapma YUKARI' veya 'Temel Sapma AŞAĞI' veya her ikisini de belirtmelisiniz! <br> KAYIT GÜNCELLEME!"
+msgstr "'Temel Sapma YUKARI' veya 'Temel Sapma AŞAĞI' veya her ikisini de belirtmelisiniz!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
@@ -1859,7 +1859,7 @@ msgstr "E-posta Stili/Biçim Dosyası"
 
 #: notify_lists.php thold.php thold_templates.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "Kullanılacak özel html sarıcısını ve CSS dosyasını seçin. Bu dosya, raporunuzu sarmak için hem html hem de CSS içeriyor. CSS&#39;den daha fazlasını içeriyorsa, özel bir <REPORT> Dosyanın içindeki etiketi kullanın. Bu biçim etiketi rapor içeriği ile değiştirilecektir. Bu dosyalar &#39;formatları&#39; dizininde bulunur."
+msgstr "Kullanılacak özel html sarıcısını ve CSS dosyasını seçin. Bu dosya, raporunuzu sarmak için hem html hem de CSS içeriyor. CSS'den daha fazlasını içeriyorsa, özel bir <REPORT> Dosyanın içindeki etiketi kullanın. Bu biçim etiketi rapor içeriği ile değiştirilecektir. Bu dosyalar 'formatları' dizininde bulunur."
 
 #: notify_lists.php
 msgid "Associated Devices"

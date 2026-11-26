@@ -627,11 +627,11 @@ msgstr "Πρέπει να καθορίσετε είτε το 'Ανώτατο ό�
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Αδύνατα κατώτατα όρια: \"Υψηλό όριο\" μικρότερο ή ίσο με το \"Χαμηλό όριο\" <br> Η εγγραφή δεν ενημερώθηκε!"
+msgstr "Αδύνατα κατώτατα όρια: \"Υψηλό όριο\" μικρότερο ή ίσο με το \"Χαμηλό όριο\"!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
+msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης»!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
@@ -647,7 +647,7 @@ msgstr "Η χρονική αναφορά στο παρελθόν πρέπει ν
 
 #: includes/functions.php
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "Πρέπει να καθορίσετε είτε την \"Απόκλιση βασικής γραμμής UP\" είτε την \"Απόκλιση βασικής γραμμής κάτω\" ή και τα δύο! <br> Η εγγραφή δεν ενημερώθηκε!"
+msgstr "Πρέπει να καθορίσετε είτε την \"Απόκλιση βασικής γραμμής UP\" είτε την \"Απόκλιση βασικής γραμμής κάτω\" ή και τα δύο!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"

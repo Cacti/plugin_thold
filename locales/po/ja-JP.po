@@ -623,15 +623,15 @@ msgstr "作成されたしきい値: %s"
 
 #: includes/functions.php
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "'High Alert Threshold'または 'Low Alert Threshold'、あるいはその両方を指定する必要があります。 <br>記録は更新されていません！"
+msgstr "'High Alert Threshold'または 'Low Alert Threshold'、あるいはその両方を指定する必要があります！"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "不可能なしきい値：「低しきい値」以下の「高しきい値」 <br>記録は更新されていません！"
+msgstr "不可能なしきい値：「低しきい値」以下の「高しきい値」！"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "不可能なしきい値：「低警告しきい値」以下の「高警告しきい値」 <br>記録は更新されていません！"
+msgstr "不可能なしきい値：「低警告しきい値」以下の「高警告しきい値」！"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
@@ -647,7 +647,7 @@ msgstr "過去の時間参照は正の整数値に設定する必要がありま
 
 #: includes/functions.php
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "'Baseline Deviation UP'または 'Baseline Deviation DOWN'、あるいはその両方を指定する必要があります。 <br>記録は更新されていません！"
+msgstr "'Baseline Deviation UP'または 'Baseline Deviation DOWN'、あるいはその両方を指定する必要があります！"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
@@ -1616,7 +1616,7 @@ msgstr "重要："
 
 #: includes/webapi.php
 msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "このしきい値はテンプレート化され<b>ません</b> 。しきい値テンプレートオプションを使用する場合、上書き可能なグラフまたはデータソース情報がグラフで許可されている場合、その時点で「作成」プロンプトを受け取る前に、しきい値テンプレート、グラフテンプレート、デバイス、および場合によってはデータクエリアイテム情報の入力を求められます。データソーステンプレートレベルの場合は、入力を求められます。次に、「作成」ボタンを押すと、グラフとしきい値の両方が同時に作成されます。"
+msgstr "このしきい値はテンプレート化されます。しきい値テンプレートオプションを使用する場合、上書き可能なグラフまたはデータソース情報がグラフで許可されている場合、その時点で「作成」プロンプトを受け取る前に、しきい値テンプレート、グラフテンプレート、デバイス、および場合によってはデータクエリアイテム情報の入力を求められます。データソーステンプレートレベルの場合は、入力を求められます。次に、「作成」ボタンを押すと、グラフとしきい値の両方が同時に作成されます。"
 
 #: includes/webapi.php
 msgid "Graph"
@@ -1859,7 +1859,7 @@ msgstr "メールスタイル/フォーマットファイル"
 
 #: notify_lists.php thold.php thold_templates.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "使用するカスタムHTMLラッパーとCSSファイルを選択します。このファイルには、レポートをまとめるためのHTMLとCSSの両方が含まれています。それが単なるCSS以上のものを含んでいるなら、特別なものを置く必要があります<REPORT>ファイル内のタグ。このフォーマットタグはレポートの内容に置き換えられます。これらのファイルは &#39;format&#39;ディレクトリにあります。"
+msgstr "使用するカスタムHTMLラッパーとCSSファイルを選択します。このファイルには、レポートをまとめるためのHTMLとCSSの両方が含まれています。それが単なるCSS以上のものを含んでいるなら、特別なものを置く必要があります<REPORT>ファイル内のタグ。このフォーマットタグはレポートの内容に置き換えられます。これらのファイルは 'format'ディレクトリにあります。"
 
 #: notify_lists.php
 msgid "Associated Devices"

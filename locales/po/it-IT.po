@@ -623,15 +623,15 @@ msgstr "Soglia creata: %s"
 
 #: includes/functions.php
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "È necessario specificare 'High Alert Threshold' o 'Low Alert Threshold' o entrambe le opzioni <br>RECORD NOT UPDATED!"
+msgstr "È necessario specificare 'High Alert Threshold' o 'Low Alert Threshold' o entrambe le opzioni!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Soglie impossibili: 'High Threshold' inferiore o uguale a 'Low Threshold'<br>RECORD NOT UPDATED!"
+msgstr "Soglie impossibili: 'High Threshold' inferiore o uguale a 'Low Threshold'!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "Soglie impossibili: 'High Warning Threshold' inferiore o uguale a 'Low Warning Threshold'<br>RECORD NOT UPDATED!"
+msgstr "Soglie impossibili: 'High Warning Threshold' inferiore o uguale a 'Low Warning Threshold'!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
@@ -647,7 +647,7 @@ msgstr "Il riferimento temporale nel passato deve essere impostato su un valore 
 
 #: includes/functions.php
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "È necessario specificare 'Deviazione linea di base UP' o 'Deviazione linea di base DOWN' o entrambi <br>RECORDO NON AGGIORNATO!"
+msgstr "È necessario specificare 'Deviazione linea di base UP' o 'Deviazione linea di base DOWN' o entrambi!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"

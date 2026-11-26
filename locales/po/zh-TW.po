@@ -623,15 +623,15 @@ msgstr "已建立閾值：%s"
 
 #: includes/functions.php
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "您必須指定“高警報閾值”或“低警報閾值”或兩者！ <br>記錄沒有更新！"
+msgstr "您必須指定“高警報閾值”或“低警報閾值”或兩者！"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "不可能的閾值：“高閾值”小於或等於“低閾值” <br>記錄沒有更新！"
+msgstr "不可能的閾值：“高閾值”小於或等於“低閾值”！"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "不可能的閾值：'高警告閾值'小於或等於'低警告閾值' <br>記錄沒有更新！"
+msgstr "不可能的閾值：'高警告閾值'小於或等於'低警告閾值'！"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
@@ -647,7 +647,7 @@ msgstr "過去的時間參考必須設為正整數值！"
 
 #: includes/functions.php
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "您必須指定“Baseline Deviation UP”或“Baseline Deviation DOWN”或兩者！ <br>記錄沒有更新！"
+msgstr "您必須指定“Baseline Deviation UP”或“Baseline Deviation DOWN”或兩者！"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"

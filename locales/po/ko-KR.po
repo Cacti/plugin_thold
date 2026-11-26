@@ -623,11 +623,11 @@ msgstr "생성 된 임계 값 : %s"
 
 #: includes/functions.php
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "'높은 경고 임계 값'또는 '낮은 경고 임계 값'또는 둘 모두를 지정해야합니다! <br> 기록이 업데이트되지 않았습니다!"
+msgstr "'높은 경고 임계 값'또는 '낮은 경고 임계 값'또는 둘 모두를 지정해야합니다!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "불가능한 문턱 값 : '높은 문턱 값'이 '낮은 문턱 값'보다 작거나 같음 <br> 기록이 업데이트되지 않았습니다!"
+msgstr "불가능한 문턱 값 : '높은 문턱 값'이 '낮은 문턱 값'보다 작거나 같음!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
@@ -647,7 +647,7 @@ msgstr "과거 시간 참조는 양의 정수 값으로 설정해야 합니다!"
 
 #: includes/functions.php
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "'Baseline Deviation UP'또는 'Baseline Deviation DOWN'또는 둘 다를 지정해야합니다! <br> 기록이 업데이트되지 않았습니다!"
+msgstr "'Baseline Deviation UP'또는 'Baseline Deviation DOWN'또는 둘 다를 지정해야합니다!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
@@ -1859,7 +1859,7 @@ msgstr "이메일 스타일/형식 파일"
 
 #: notify_lists.php thold.php thold_templates.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "사용할 맞춤 HTML 래퍼 및 CSS 파일을 선택하십시오. 이 파일에는 보고서를 둘러 쌀 수있는 HTML과 CSS가 모두 들어 있습니다. 단순한 CSS 이상을 포함하고 있다면 특별한 <REPORT> 파일 안의 태그. 이 형식 태그는 보고서 내용으로 바뀝니다. 이 파일들은 &#39;formats&#39;디렉토리에 있습니다."
+msgstr "사용할 맞춤 HTML 래퍼 및 CSS 파일을 선택하십시오. 이 파일에는 보고서를 둘러 쌀 수있는 HTML과 CSS가 모두 들어 있습니다. 단순한 CSS 이상을 포함하고 있다면 특별한 <REPORT> 파일 안의 태그. 이 형식 태그는 보고서 내용으로 바뀝니다. 이 파일들은 'formats'디렉토리에 있습니다."
 
 #: notify_lists.php
 msgid "Associated Devices"

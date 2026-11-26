@@ -623,7 +623,7 @@ msgstr "Erstellter Schwellenwert: %s"
 
 #: includes/functions.php
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "Sie müssen entweder'High Alert Threshold' oder'Low Alert Threshold' oder beide angeben!<br>RECORD NOT UPDATED!"
+msgstr "Sie müssen entweder'High Alert Threshold' oder'Low Alert Threshold' oder beide angeben!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
@@ -631,7 +631,7 @@ msgstr "Unmöglicher Schwellenwert: 'Oberer Alarm-Schwellenwert' ist kleiner als
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "Unmögliche Schwellenwerte:'High Warning Threshold' kleiner oder gleich'Low Warning Threshold' <br>RECORD NOT UPDATED!"
+msgstr "Unmögliche Schwellenwerte:'High Warning Threshold' kleiner oder gleich'Low Warning Threshold'!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
@@ -647,7 +647,7 @@ msgstr "Die Zeitangabe in der Vergangenheit muss auf einen positiven ganzzahlige
 
 #: includes/functions.php
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "Sie müssen entweder'Basislinienabweichung UP' oder'Basislinienabweichung DOWN' oder beide angeben!<br>RECORD NOT UPDATED!"
+msgstr "Sie müssen entweder'Basislinienabweichung UP' oder'Basislinienabweichung DOWN' oder beide angeben!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"

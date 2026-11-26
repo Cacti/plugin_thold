@@ -791,7 +791,7 @@ msgstr "设备注意: <DESCRIPTION> (<HOSTNAME>) 从DOWN状态返回"
 
 #: includes/polling.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
-msgstr "<br>系统 <DESCRIPTION> (<HOSTNAME>) 状态： <DOWN/UP><br><br>当前ping响应：<CUR_TIME> ms<br>系统平均响应： <AVG_TIME> ms<br>系统可用性： <AVAILABILITY><br>自从清除以来的总检查： <TOT_POLL><br>总失败检查： <FAIL_POLL><br>上次检查正常日期： <LAST_FAIL><br>设备先前挂了于：<DOWNTIME><br><br>名称:<br>名称 - <SNMP_HOSTNAME><br>位置- <SNMP_LOCATION><br>正常运行时间 - <UPTIMETEXT> (<UPTIME> ms)<br>系统 - <SNMP_SYSTEM><br><br>注意: <NOTES>"
+msgstr "<br>系统 <DESCRIPTION> (<HOSTNAME>) 状态： <DOWN/UP><br><br>站点: <SITE><br>位置: <LOCATION><br>当前ping响应：<CUR_TIME> ms<br>系统平均响应： <AVG_TIME> ms<br>系统可用性： <AVAILABILITY><br>自从清除以来的总检查： <TOT_POLL><br>总失败检查： <FAIL_POLL><br>上次检查正常日期： <LAST_FAIL><br>设备先前挂了于：<DOWNTIME><br><br>名称:<br>名称 - <SNMP_HOSTNAME><br>位置- <SNMP_LOCATION><br>正常运行时间 - <UPTIMETEXT> (<UPTIME> ms)<br>系统 - <SNMP_SYSTEM><br><br>注意: <NOTES>"
 
 #: includes/polling.php
 msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
@@ -803,7 +803,7 @@ msgstr "离线"
 
 #: includes/polling.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
-msgstr "系统错误： <DESCRIPTION> (<HOSTNAME>)为 <DOWN/UP><br>原因： <MESSAGE><br><br>平均系统响应：<AVG_TIME> ms<br>系统可用性：<AVAILABILITY><br>自清除以来的总检查：<TOT_POLL><br>总失败检查：<FAIL_POLL><br>上次检查挂了日期： <LAST_FAIL><br>设备先前为： <DOWNTIME><br>注意：<NOTES>"
+msgstr "系统错误： <DESCRIPTION> (<HOSTNAME>)为 <DOWN/UP><br>站点: <SITE><br>位置: <LOCATION><br>原因： <MESSAGE><br><br>平均系统响应：<AVG_TIME> ms<br>系统可用性：<AVAILABILITY><br>自清除以来的总检查：<TOT_POLL><br>总失败检查：<FAIL_POLL><br>上次检查挂了日期： <LAST_FAIL><br>设备先前为： <DOWNTIME><br>注意：<NOTES>"
 
 #: includes/settings.php
 msgid "(actions)"
@@ -1416,7 +1416,7 @@ msgstr "这是将显示为所有正常/宕机设备消息正文的消息（最�
 
 #: includes/settings.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
-msgstr "系统错误: <DESCRIPTION> (<HOSTNAME>) 是 <DOWN/UP> <br>原因: <MESSAGE> <br> <br>平均系统响应: <AVG_TIME> ms <br>系统可用性: <AVAILABILITY> <br >清除之后的总检查: <TOT_POLL> <br>总失败检查: <FAIL_POLL> <br>上次日期检查DOWN: <LAST_FAIL> <br>设备以前为: <DOWNTIME> <br>注意:<NOTES>"
+msgstr "系统错误: <DESCRIPTION> (<HOSTNAME>) 是 <DOWN/UP><br><br>站点: <SITE><br>位置: <LOCATION><br>原因: <MESSAGE><br>平均系统响应: <AVG_TIME> ms<br>系统可用性: <AVAILABILITY><br>清除之后的总检查: <TOT_POLL><br>总失败检查: <FAIL_POLL><br>上次日期检查DOWN: <LAST_FAIL><br>设备以前为: <DOWNTIME><br>注意: <NOTES><br>设备备注: <DNOTES>"
 
 #: includes/settings.php
 msgid "Recovering Subject"
@@ -1716,7 +1716,7 @@ msgstr "%s 阈值模板"
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
-msgstr "点击“继续”，将通知列表 '<b>%s</b>'与下面的阈值模板相关联。"
+msgstr "点击“继续”，将通知列表 '%s'与下面的阈值模板相关联。"
 
 #: notify_lists.php
 msgid "Warning Membership:"
@@ -1745,7 +1745,7 @@ msgstr "准会员通知名单"
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
-msgstr "点击“继续”，从下面的阈值模板中取消关联通知列表 '<b>%s</b>'。"
+msgstr "点击“继续”，从下面的阈值模板中取消关联通知列表 '%s'。"
 
 #: notify_lists.php
 msgid "Remove List"
@@ -1763,17 +1763,17 @@ msgstr "%s 阈值"
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
-msgstr "点击“继续”将通知列表 '<b>%s</b>'与下面的阈值关联起来。"
+msgstr "点击“继续”将通知列表 '%s'与下面的阈值关联起来。"
 
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
-msgstr "点击“继续”，从下面的阈值中取消关联通知列表 '<b>%s</b>'."
+msgstr "点击“继续”，从下面的阈值中取消关联通知列表 '%s'."
 
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
-msgstr "点击“继续”将通知列表 '<b>%s</b>''与下面的设备关联。"
+msgstr "点击“继续”将通知列表 '%s''与下面的设备关联。"
 
 #: notify_lists.php
 msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
@@ -1798,7 +1798,7 @@ msgstr "阈值警报消息:"
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
-msgstr "点击“继续”以从下面的设备中取消关联通知列表'<b>%s</b>'."
+msgstr "点击“继续”以从下面的设备中取消关联通知列表'%s'."
 
 #: notify_lists.php
 msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
