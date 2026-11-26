@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Polish <https://translate.cacti.net/projects/cacti/thold/pl/>\nLanguage: pl-PL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Polish <https://translate.cacti.net/projects/cacti/thold/pl/>\nLanguage: pl-PL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -48,7 +48,7 @@ msgstr "Sprzed %d dni"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Week Ago"
-msgstr "%d Tydzień"
+msgstr "Sprzed %d tygodnia"
 
 #: includes/arrays.php
 #, php-format
@@ -68,7 +68,7 @@ msgstr "%d miesiące"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Year Ago"
-msgstr "%d rok"
+msgstr "Sprzed %d roku"
 
 #: includes/arrays.php
 #, php-format
@@ -190,7 +190,7 @@ msgstr "Ostrzeżenie Wyzwalacz"
 
 #: includes/arrays.php
 msgid "Alert-Warn"
-msgstr "Alert-Warn"
+msgstr "Alarm-Ostrzeżenie"
 
 #: includes/arrays.php thold.php thold_graph.php
 msgid "Acknowledgment"
@@ -244,7 +244,7 @@ msgstr "Co godzine"
 #: includes/arrays.php includes/settings.php
 #, php-format
 msgid "Every %d Hours"
-msgstr "Co %d godz."
+msgstr "Co %d godzin"
 
 #: includes/arrays.php
 msgid "Every Day"
@@ -311,7 +311,7 @@ msgstr "%d tygodni"
 #: includes/arrays.php
 #, php-format
 msgid "%0.1f Hours"
-msgstr "%0.1f godz."
+msgstr "%0.1f godzin"
 
 #: includes/arrays.php
 msgid "Every Polling"
@@ -325,7 +325,7 @@ msgstr "Każdy %d Pollings"
 #: includes/arrays.php
 #, php-format
 msgid "%d Polling"
-msgstr "%d Polling"
+msgstr "%d odpytywanie"
 
 #: includes/arrays.php
 #, php-format
@@ -475,7 +475,7 @@ msgstr "1 cyfra"
 #: includes/arrays.php
 #, php-format
 msgid "%d Digits"
-msgstr "%d dni"
+msgstr "%d cyfr"
 
 #: includes/arrays.php
 #, php-format
@@ -935,7 +935,7 @@ msgstr "Jakiego typu listy powiadomień powinny być używane dla zdarzeń Aktyw
 
 #: includes/settings.php notify_queue.php
 msgid "Notification List"
-msgstr "Powiadomienia"
+msgstr "Lista powiadomień"
 
 #: includes/settings.php
 msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
@@ -1026,7 +1026,7 @@ msgstr "Włączone"
 
 #: includes/settings.php
 msgid "Empty ifHighSpeed Default"
-msgstr "Empty ifHighSpeed Default"
+msgstr "Domyślna wartość dla pustego ifHighSpeed"
 
 #: includes/settings.php
 msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces."
@@ -1192,7 +1192,7 @@ msgstr "Ustawienia logu systemowego"
 
 #: includes/settings.php
 msgid "Syslog Enabled"
-msgstr "Syslog Enabled"
+msgstr "Syslog włączony"
 
 #: includes/settings.php
 msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
@@ -1872,7 +1872,7 @@ msgstr "Szukaj"
 
 #: notify_lists.php thold.php thold_graph.php
 msgid "Site"
-msgstr "Lokalizacja"
+msgstr "Obiekt"
 
 #: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
 msgid "None"
@@ -2168,7 +2168,7 @@ msgstr "Czy zdarzenie powiadomienia zostało przetworzone."
 
 #: notify_queue.php
 msgid "Errors"
-msgstr "Błąd"
+msgstr "Błędy"
 
 #: notify_queue.php
 msgid "Did this notification result in an error.  Hover on the error column for details."
@@ -2575,7 +2575,7 @@ msgstr "Wykres skojarzony (wykresy z wykorzystaniem tego RRD):"
 
 #: thold.php
 msgid "Last:"
-msgstr "Last:"
+msgstr "Ostatni:"
 
 #: thold.php
 msgid "WHi:"
@@ -3504,7 +3504,7 @@ msgstr "Procent Źródło danych"
 
 #: thold_templates.php
 msgid "Second Datasource Item to use as total value to calculate percentage from."
-msgstr "Second Datasource Item to use as total value to calculate percentage from."
+msgstr "Drugi element źródła danych używany jako wartość całkowita do obliczenia wartości procentowej."
 
 #: thold_templates.php
 #, php-format
