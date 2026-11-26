@@ -524,15 +524,15 @@ msgstr "時間:"
 
 #: includes/functions.php
 msgid "User:"
-msgstr "使用者："
+msgstr "使用者:"
 
 #: includes/functions.php
 msgid "System:"
-msgstr "系統："
+msgstr "系統:"
 
 #: includes/functions.php
 msgid "Swaps:"
-msgstr "互換："
+msgstr "互換:"
 
 #: includes/functions.php
 msgid "Pages:"
@@ -1436,7 +1436,7 @@ msgstr "恢復設備消息"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
-msgstr "這是將顯示為所有UP / Down設備消息（255 Char MAX）的消息正文的消息。允許使用HTML，但僅刪除純文本電子郵件。可以使用幾種描述符。 <br> &lt;HOSTNAME&gt; &lt;DESCRIPTION&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;DOWN / UP&gt; &lt;SNMP_HOSTNAME&gt; &lt;SNMP_LOCATION&gt; &lt;SNMP_CONTACT&gt; &lt;SNMP_SYSTEM&gt; &lt;LAST_FAIL&gt; &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;注意&gt;"
+msgstr "這是將顯示為所有UP / Down設備消息（255 Char MAX）的消息正文的消息。允許使用HTML，但僅刪除純文本電子郵件。可以使用幾種描述符。 <br> &#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN / UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060注意&#062"
 
 #: includes/settings.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
@@ -1460,7 +1460,7 @@ msgstr "閾值警報消息"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "這是將顯示在所有閾值警報（255 Char MAX）頂部的消息。允許使用HTML，但僅刪除純文本電子郵件。可以使用幾種描述符。 <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "這是將顯示在所有閾值警報（255 Char MAX）頂部的消息。允許使用HTML，但僅刪除純文本電子郵件。可以使用幾種描述符。 <br> &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
@@ -1472,7 +1472,7 @@ msgstr "閾值警告消息"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "這是將顯示在所有閾值警告（255 Char MAX）頂部的消息。允許使用HTML，但僅刪除純文本電子郵件。可以使用幾種描述符。 <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "這是將顯示在所有閾值警告（255 Char MAX）頂部的消息。允許使用HTML，但僅刪除純文本電子郵件。可以使用幾種描述符。 <br> &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
@@ -1612,7 +1612,7 @@ msgstr "創作筆記"
 
 #: includes/webapi.php
 msgid "Important Note:"
-msgstr "重要注意事项："
+msgstr "重要注意事项:"
 
 #: includes/webapi.php
 msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
@@ -1720,7 +1720,7 @@ msgstr "按一下「繼續」以將通知清單「%s」與下列閾值範本建�
 
 #: notify_lists.php
 msgid "Warning Membership:"
-msgstr "警告成員："
+msgstr "警告成員:"
 
 #: notify_lists.php
 msgid "No Change"
@@ -1736,7 +1736,7 @@ msgstr "通知清單，保留其他設定"
 
 #: notify_lists.php
 msgid "Alert Membership:"
-msgstr "警報會員："
+msgstr "警報會員:"
 
 #: notify_lists.php
 msgid "Associate Notification List(s)"
@@ -1781,7 +1781,7 @@ msgstr "您也可以關聯設備閾值。但是，這些設備閾值將必須允
 
 #: notify_lists.php
 msgid "Resulting Membership:"
-msgstr "結果會員資格："
+msgstr "結果會員資格:"
 
 #: notify_lists.php
 msgid "Notification and Global Lists"
@@ -1789,11 +1789,11 @@ msgstr "通知和全球列表"
 
 #: notify_lists.php
 msgid "Device Threshold Warning Membership:"
-msgstr "警告成員："
+msgstr "警告成員:"
 
 #: notify_lists.php
 msgid "Device Threshold Alert Membership:"
-msgstr "閾值警報消息："
+msgstr "閾值警報消息:"
 
 #: notify_lists.php
 #, php-format
@@ -2563,39 +2563,39 @@ msgstr "編輯閾值範本"
 
 #: thold.php
 msgid "Data Source Description:"
-msgstr "數據來源描述："
+msgstr "數據來源描述:"
 
 #: thold.php
 msgid "Associated Graph (Graphs using this RRD):"
-msgstr "關聯圖（使用此RRD的圖表）："
+msgstr "關聯圖（使用此RRD的圖表）:"
 
 #: thold.php
 msgid "Last:"
-msgstr "最後活躍："
+msgstr "最後活躍:"
 
 #: thold.php
 msgid "WHi:"
-msgstr "WHI："
+msgstr "WHI:"
 
 #: thold.php
 msgid "WLo:"
-msgstr "WLO："
+msgstr "WLO:"
 
 #: thold.php
 msgid "AHi:"
-msgstr "AHI："
+msgstr "AHI:"
 
 #: thold.php
 msgid "ALo:"
-msgstr "ALO："
+msgstr "ALO:"
 
 #: thold.php
 msgid "BL Up:"
-msgstr "BL Up："
+msgstr "BL Up:"
 
 #: thold.php
 msgid "BL Down:"
-msgstr "BL Down："
+msgstr "BL Down:"
 
 #: thold.php
 #, php-format
@@ -3525,7 +3525,7 @@ msgstr "警報郵件正文"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "這是將顯示在所有閾值警報（255 Char MAX）頂部的消息。允許使用HTML，但只會刪除純文本電子郵件。可以使用幾種描述符。 <br>例如。 &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822&gt; &lt;BREACHED_ITEMS &gt;"
+msgstr "這是將顯示在所有閾值警報（255 Char MAX）頂部的消息。允許使用HTML，但只會刪除純文本電子郵件。可以使用幾種描述符。 <br>例如。 &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS &#062"
 
 #: thold_templates.php
 msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
@@ -3533,7 +3533,7 @@ msgstr "這是將顯示在電子郵件中的警告主旨（最多 128 個字元�
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "這是將顯示在所有閾值警告（255 Char MAX）頂部的消息。允許使用HTML，但只會刪除純文本電子郵件。可以使用幾種描述符。 <br>例如。 &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822&gt; &lt;BREACHED_ITEMS &gt;"
+msgstr "這是將顯示在所有閾值警告（255 Char MAX）頂部的消息。允許使用HTML，但只會刪除純文本電子郵件。可以使用幾種描述符。 <br>例如。 &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS &#062"
 
 #: thold_templates.php
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
@@ -3695,11 +3695,11 @@ msgstr "文件擴展名無效。"
 
 #: thold_templates.php
 msgid "NOTE:"
-msgstr "備註："
+msgstr "備註:"
 
 #: thold_templates.php
 msgid "ERROR:"
-msgstr "錯誤："
+msgstr "錯誤:"
 
 #~ msgid "Off"
 #~ msgstr "關"

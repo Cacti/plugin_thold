@@ -1096,6 +1096,14 @@ function thold_user_admin_setup_sql_save($save) {
  *                          functions in this file; not used directly
  *                          here.
  */
+function thold_report_template_creation_result(int $created, string $message): void {
+	if (strlen($message)) {
+		thold_raise_message(__('Created %s thresholds', $created, 'thold') . '<br>' . $message, MESSAGE_LEVEL_INFO);
+	} else {
+		thold_raise_message(__('No Threshold(s) Created.  Either they already exist, or no suitable matches found.', 'thold'), MESSAGE_LEVEL_INFO);
+	}
+}
+
 function thold_data_source_action_execute($action) {
 	global $config, $form_array;
 
@@ -1141,11 +1149,7 @@ function thold_data_source_action_execute($action) {
 					}
 				}
 
-				if (strlen($message)) {
-					thold_raise_message(__('Created %s thresholds', $created, 'thold') . '<br>' . $message, MESSAGE_LEVEL_INFO);
-				} else {
-					thold_raise_message(__('No Threshold(s) Created.  Either they already exist, or no suitable matches found.', 'thold'), MESSAGE_LEVEL_INFO);
-				}
+				thold_report_template_creation_result($created, $message);
 			} else {
 				thold_raise_message(__('No Threshold(s) Created.  Threshold(s) Template not found.', 'thold'), MESSAGE_LEVEL_ERROR);
 			}
@@ -1348,11 +1352,7 @@ function thold_graphs_action_execute($action) {
 					}
 				}
 
-				if (strlen($message)) {
-					thold_raise_message(__('Created %s thresholds', $created, 'thold') . '<br>' . $message, MESSAGE_LEVEL_INFO);
-				} else {
-					thold_raise_message(__('No Threshold(s) Created.  Either they already exist, or no suitable matches found.', 'thold'), MESSAGE_LEVEL_INFO);
-				}
+				thold_report_template_creation_result($created, $message);
 			} else {
 				thold_raise_message(__('No Threshold(s) Created.  Threshold(s) Template not found.', 'thold'), MESSAGE_LEVEL_ERROR);
 			}

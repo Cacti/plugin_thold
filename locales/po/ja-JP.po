@@ -520,19 +520,19 @@ msgstr "デバイスステータス"
 
 #: includes/functions.php
 msgid "Time:"
-msgstr "時間："
+msgstr "時間:"
 
 #: includes/functions.php
 msgid "User:"
-msgstr "ユーザー："
+msgstr "ユーザー:"
 
 #: includes/functions.php
 msgid "System:"
-msgstr "システム："
+msgstr "システム:"
 
 #: includes/functions.php
 msgid "Swaps:"
-msgstr "スワップ："
+msgstr "スワップ:"
 
 #: includes/functions.php
 msgid "Pages:"
@@ -1460,7 +1460,7 @@ msgstr "しきい値アラートメッセージ"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "これは、すべてのしきい値アラート（255文字のMAX）の一番上に表示されるメッセージです。 HTMLは許可されていますが、テキストのみのEメールでは削除されます。使用できる記述子がいくつかあります。 <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "これは、すべてのしきい値アラート（255文字のMAX）の一番上に表示されるメッセージです。 HTMLは許可されていますが、テキストのみのEメールでは削除されます。使用できる記述子がいくつかあります。 <br> &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
@@ -1472,7 +1472,7 @@ msgstr "しきい値警告メッセージ"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "これは、すべてのしきい値警告（255 Char MAX）の一番上に表示されるメッセージです。 HTMLは許可されていますが、テキストのみのEメールでは削除されます。使用できる記述子がいくつかあります。 <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "これは、すべてのしきい値警告（255 Char MAX）の一番上に表示されるメッセージです。 HTMLは許可されていますが、テキストのみのEメールでは削除されます。使用できる記述子がいくつかあります。 <br> &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
@@ -1612,7 +1612,7 @@ msgstr "作成ノート"
 
 #: includes/webapi.php
 msgid "Important Note:"
-msgstr "重要："
+msgstr "重要:"
 
 #: includes/webapi.php
 msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
@@ -1720,7 +1720,7 @@ msgstr "「続行」をクリックして、通知リスト '%s' を以下のし
 
 #: notify_lists.php
 msgid "Warning Membership:"
-msgstr "警告会員："
+msgstr "警告会員:"
 
 #: notify_lists.php
 msgid "No Change"
@@ -1736,7 +1736,7 @@ msgstr "通知リスト、その他の設定を保持"
 
 #: notify_lists.php
 msgid "Alert Membership:"
-msgstr "アラートメンバーシップ："
+msgstr "アラートメンバーシップ:"
 
 #: notify_lists.php
 msgid "Associate Notification List(s)"
@@ -1781,7 +1781,7 @@ msgstr "また、デバイスのしきい値を関連付けることもできま
 
 #: notify_lists.php
 msgid "Resulting Membership:"
-msgstr "得られた会員："
+msgstr "得られた会員:"
 
 #: notify_lists.php
 msgid "Notification and Global Lists"
@@ -1789,11 +1789,11 @@ msgstr "通知リストとグローバルリスト"
 
 #: notify_lists.php
 msgid "Device Threshold Warning Membership:"
-msgstr "警告会員："
+msgstr "警告会員:"
 
 #: notify_lists.php
 msgid "Device Threshold Alert Membership:"
-msgstr "しきい値アラートメッセージ："
+msgstr "しきい値アラートメッセージ:"
 
 #: notify_lists.php
 #, php-format
@@ -2563,23 +2563,23 @@ msgstr "しきい値テンプレートを編集"
 
 #: thold.php
 msgid "Data Source Description:"
-msgstr "データソースの説明："
+msgstr "データソースの説明:"
 
 #: thold.php
 msgid "Associated Graph (Graphs using this RRD):"
-msgstr "関連付けられたグラフ（このRRDを使ったグラフ）："
+msgstr "関連付けられたグラフ（このRRDを使ったグラフ）:"
 
 #: thold.php
 msgid "Last:"
-msgstr "最後："
+msgstr "最後:"
 
 #: thold.php
 msgid "WHi:"
-msgstr "WHi："
+msgstr "WHi:"
 
 #: thold.php
 msgid "WLo:"
-msgstr "WLo："
+msgstr "WLo:"
 
 #: thold.php
 msgid "AHi:"
@@ -2587,15 +2587,15 @@ msgstr "アラート上限:"
 
 #: thold.php
 msgid "ALo:"
-msgstr "ALo："
+msgstr "ALo:"
 
 #: thold.php
 msgid "BL Up:"
-msgstr "BLアップ："
+msgstr "BLアップ:"
 
 #: thold.php
 msgid "BL Down:"
-msgstr "BLダウン："
+msgstr "BLダウン:"
 
 #: thold.php
 #, php-format
@@ -3659,7 +3659,7 @@ msgstr "読み込み結果"
 
 #: thold_templates.php
 msgid "Cacti has imported the following items:"
-msgstr "Cactiは以下の商品を輸入しています："
+msgstr "Cactiは以下の商品を輸入しています:"
 
 #: thold_templates.php
 msgid "Import Threshold Templates"
@@ -3695,7 +3695,7 @@ msgstr "無効なファイル拡張子。"
 
 #: thold_templates.php
 msgid "NOTE:"
-msgstr "メモ："
+msgstr "メモ:"
 
 #: thold_templates.php
 msgid "ERROR:"

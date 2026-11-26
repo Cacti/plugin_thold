@@ -1799,7 +1799,7 @@ function thold_edit() {
 			'friendly_name' => __('Graph Timespan'),
 			'method'        => 'drop_array',
 			'default'       => GT_LAST_DAY,
-			'description'   => __('The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan.', 'thold'),
+			'description'   => thold_graph_timespan_description(),
 			'array'         => $graph_timespans,
 			'value'         => isset($thold_data['graph_timespan']) ? $thold_data['graph_timespan'] : '',
 		],
@@ -1825,8 +1825,8 @@ function thold_edit() {
 			'value'         => isset($thold_data['restored_alert']) ? $thold_data['restored_alert'] : ''
 		],
 		'acknowledgment' => [
-			'friendly_name' => __('Acknowledgment Options', 'thold'),
-			'description'   => __('There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>', 'thold'),
+			'friendly_name' => thold_acknowledgment_field_labels()['friendly_name'],
+			'description'   => thold_acknowledgment_field_labels()['description'],
 			'method'        => 'radio',
 			'value'         => $acknowledgment,
 			'default'       => 'none',

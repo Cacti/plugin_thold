@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Cacti \n"
+"Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-13 09:23-0400\n"
+"POT-Creation-Date: 2026-11-26 03:35-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Cacti Developers <developers@cacti.net>\n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -791,6 +791,18 @@ msgstr ""
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr ""
+
+#: includes/functions.php
+msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
+msgstr ""
+
+#: includes/functions.php
+msgid "Acknowledgment Options"
+msgstr ""
+
+#: includes/functions.php
+msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
 msgstr ""
 
 #: includes/polling.php
@@ -2704,10 +2716,6 @@ msgid "Graph Timespan"
 msgstr ""
 
 #: thold.php thold_templates.php
-msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
-msgstr ""
-
-#: thold.php thold_templates.php
 msgid "Skip Scaling on HRULEs"
 msgstr ""
 
@@ -2729,14 +2737,6 @@ msgstr ""
 
 #: thold.php thold_templates.php
 msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
-msgstr ""
-
-#: thold.php thold_templates.php
-msgid "Acknowledgment Options"
-msgstr ""
-
-#: thold.php thold_templates.php
-msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
 msgstr ""
 
 #: thold.php thold_templates.php
