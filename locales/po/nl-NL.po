@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Dutch <https://translate.cacti.net/projects/cacti/thold/nl/>\nLanguage: nl-NL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Dutch <https://translate.cacti.net/projects/cacti/thold/nl/>\nLanguage: nl-NL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -68,7 +68,7 @@ msgstr "%d Maanden"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Year Ago"
-msgstr "%d Jaar"
+msgstr "Vanaf %d jaar geleden"
 
 #: includes/arrays.php
 #, php-format
@@ -118,7 +118,7 @@ msgstr "Waarschuwing - Alert2Waarschuwing"
 
 #: includes/arrays.php
 msgid "Alert2Warn"
-msgstr "Waarschuwing"
+msgstr "Alarm naar waarschuwing"
 
 #: includes/arrays.php
 msgid "Notify - Warning"
@@ -158,7 +158,7 @@ msgstr "Evenement - Waarschuwing Trigger"
 
 #: includes/arrays.php
 msgid "Warning Event"
-msgstr "Waarschuwing"
+msgstr "Waarschuwingsgebeurtenis"
 
 #: includes/arrays.php
 msgid "Event - Restoral"
@@ -190,7 +190,7 @@ msgstr "Waarschuwing Trigger"
 
 #: includes/arrays.php
 msgid "Alert-Warn"
-msgstr "Waarschuwing"
+msgstr "Alarm-Waarschuwing"
 
 #: includes/arrays.php thold.php thold_graph.php
 msgid "Acknowledgment"
@@ -729,7 +729,7 @@ msgstr "Annuleer"
 #: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
 #: thold_templates.php
 msgid "Continue"
-msgstr "Volgende"
+msgstr "Doorgaan"
 
 #: includes/functions.php
 msgid "Threshold Template Subordinate Data Template Not Found!"
@@ -754,7 +754,7 @@ msgstr "Drempelwaarde Sjabloon '%s' %s!"
 
 #: includes/functions.php
 msgid "Updated"
-msgstr "Bijwerken"
+msgstr "Bijgewerkt"
 
 #: includes/functions.php thold_templates.php
 msgid "Import"
@@ -1005,7 +1005,7 @@ msgstr "Default Threshold management filterstatus."
 
 #: includes/settings.php notify_lists.php thold.php
 msgid "Any"
-msgstr "Alle"
+msgstr "Elke"
 
 #: includes/settings.php thold.php thold_graph.php
 msgid "Breached or Triggered"
@@ -3273,7 +3273,7 @@ msgstr "De laatste keer dat Cacti een probleem met dit apparaat heeft gevonden. 
 
 #: thold_graph.php
 msgid "Uptime"
-msgstr "Uptime"
+msgstr "Bedrijfstijd"
 
 #: thold_graph.php
 msgid "The official uptime of the Device as reported by SNMP"
