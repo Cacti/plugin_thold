@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Japanese <https://translate.cacti.net/projects/cacti/thold/ja/>\nLanguage: ja-JP\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Japanese <https://translate.cacti.net/projects/cacti/thold/ja/>\nLanguage: ja-JP\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -733,11 +733,11 @@ msgstr "続ける"
 
 #: includes/functions.php
 msgid "Threshold Template Subordinate Data Template Not Found!"
-msgstr "しきい値テンプレート下位データテンプレートが見つかりません。"
+msgstr "しきい値テンプレートの下位データテンプレートが見つかりません！"
 
 #: includes/functions.php
 msgid "Threshold Template Subordinate Data Source Not Found!"
-msgstr "しきい値テンプレート下位データソースが見つかりません。"
+msgstr "しきい値テンプレートの下位データソースが見つかりません！"
 
 #: includes/functions.php
 msgid "Threshold Template import columns do not match the database schema"
@@ -879,7 +879,7 @@ msgstr "しきい値"
 
 #: includes/settings.php
 msgid "A template with that Data Source already exists!"
-msgstr "そのデータソースを持つテンプレートは既に存在します。"
+msgstr "そのデータソースを持つテンプレートは既に存在します！"
 
 #: includes/settings.php
 msgid "Configure Thresholds"
@@ -939,7 +939,7 @@ msgstr "通知リスト"
 
 #: includes/settings.php
 msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
-msgstr "Device Up / Downイベントについて通知される通知リストはどれですか。"
+msgstr "デバイスの Up/Down イベントについて通知する通知リストはどれですか？"
 
 #: includes/settings.php
 msgid "Host Failure Count"
@@ -1380,7 +1380,7 @@ msgstr "停止中デバイスの通知が大量に発生した際、Cacti は一
 
 #: includes/settings.php
 msgid "If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?"
-msgstr "停止中デバイスの通知が大量に発生した際に通知を遅延させる場合、通知が処理されるまで待機する時間を指定してください。"
+msgstr "停止中デバイスの通知が大量に発生した際に通知を遅延させる場合、通知が処理されるまでどのくらい待機しますか？"
 
 #: includes/settings.php
 msgid "Device Notification Email Options"
@@ -2285,7 +2285,7 @@ msgstr "次のデータソースには、関連付けられているしきい値
 
 #: setup.php
 msgid "Click 'Continue' to create Thresholds for these Data Sources?"
-msgstr "これらのデータソースのしきい値を作成するには、[続行]をクリックしますか。"
+msgstr "これらのデータソースのしきい値を作成するには、[続行]をクリックしますか？"
 
 #: setup.php
 msgid "Available Threshold Templates"
@@ -2881,7 +2881,7 @@ msgstr "偏差DOWN"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "下限しきい値の許容偏差を指定します。設定しない場合、下限しきい値はまったくチェックされません。測定単位は、「絶対値」タイプの場合は絶対値、「%% 偏差」および「%% 移動平均」の場合はパーセンテージです。"
+msgstr "下限しきい値の許容偏差を指定します。設定しない場合、下限しきい値はまったくチェックされません。測定単位は、「絶対値」タイプの場合は絶対値、「%% 偏差」および「%% 移動平均」の場合はパーセンテージです"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -3487,7 +3487,7 @@ msgstr "上限しきい値の許容偏差を指定します。設定しない場
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "下限しきい値の許容偏差を指定します。設定しない場合、下限しきい値はまったくチェックされません。測定単位は、「絶対値」タイプの場合は絶対値、「%% 偏差」および「%% 移動平均」の場合はパーセンテージです。"
+msgstr "下限しきい値の許容偏差を指定します。設定しない場合、下限しきい値はまったくチェックされません。測定単位は、「絶対値」タイプの場合は絶対値、「%% 偏差」および「%% 移動平均」の場合はパーセンテージです"
 
 #: thold_templates.php
 #, php-format
