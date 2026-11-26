@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Italian <https://translate.cacti.net/projects/cacti/thold/it/>\nLanguage: it-IT\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-26 05:53+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Italian <https://translate.cacti.net/projects/cacti/thold/it/>\nLanguage: it-IT\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -68,7 +68,7 @@ msgstr "%d Mesi"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Year Ago"
-msgstr "%d Anno"
+msgstr "Da %d anno fa"
 
 #: includes/arrays.php
 #, php-format
@@ -1236,7 +1236,7 @@ msgstr "Numero predefinito di volte consecutive in cui l'origine dati deve esser
 
 #: includes/settings.php
 msgid "Re-Alerting"
-msgstr "Re-Alerting"
+msgstr "Ripetizione avvisi"
 
 #: includes/settings.php
 msgid "Repeat Alert after specified number of poller cycles."
@@ -1556,7 +1556,7 @@ msgstr "Selezionare un tipo di soglia"
 
 #: includes/webapi.php
 msgid "Non Templated"
-msgstr "Non Templated"
+msgstr "Senza modello"
 
 #: includes/webapi.php
 msgid "Threshold Template"
@@ -1971,7 +1971,7 @@ msgstr "Tipo"
 
 #: notify_lists.php thold.php
 msgid "Templated"
-msgstr "Templated"
+msgstr "Con modello"
 
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
@@ -1985,7 +1985,7 @@ msgstr "Si"
 
 #: notify_lists.php thold.php thold_graph.php
 msgid "baseline-LOW"
-msgstr "baseline-LOW"
+msgstr "riferimento-BASSO"
 
 #: notify_lists.php thold.php thold_graph.php
 msgid "baseline-HIGH"
@@ -2166,7 +2166,7 @@ msgstr "Indica se l'evento di notifica è stato elaborato."
 
 #: notify_queue.php
 msgid "Errors"
-msgstr "Errore"
+msgstr "Errori"
 
 #: notify_queue.php
 msgid "Did this notification result in an error.  Hover on the error column for details."
@@ -2190,7 +2190,7 @@ msgstr "Quando una notifica non riuscita è idonea per il tentativo successivo."
 
 #: notify_queue.php
 msgid "Run Time"
-msgstr "Durata"
+msgstr "Tempo di esecuzione"
 
 #: notify_queue.php
 msgid "The time in seconds it took to process the event."
@@ -2520,7 +2520,7 @@ msgstr "Ripeti"
 
 #: thold.php thold_graph.php
 msgid "In State"
-msgstr "Stato"
+msgstr "Nello stato"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
@@ -2953,7 +2953,7 @@ msgstr "Un'espressione RPN è un'espressione RPN compatibile con RRDtool. La sin
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
-msgstr "Origine Dati"
+msgstr "Origine Dati Superiore"
 
 #: thold.php
 msgid "Upper data source to calculate the total value."
@@ -2997,7 +2997,7 @@ msgstr "Questo è il messaggio che verrà visualizzato all'inizio di tutti gli a
 
 #: thold.php thold_templates.php
 msgid "Restoral Subject"
-msgstr "Evento restaurativo"
+msgstr "Oggetto di ripristino"
 
 #: thold.php
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
