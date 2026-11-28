@@ -1,0 +1,3717 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-11-26 03:54-0800\n"
+"PO-Revision-Date: 2026-11-28 02:00+0000\n"
+"Last-Translator: Thomas Vincent <thomasvincent@gmail.com>\n"
+"Language-Team: Latvian <https://translate.cacti.net/projects/cacti/thold/lv/>\n"
+"Language: lv-LV\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
+
+#: includes/arrays.php
+msgid "Indefinitely"
+msgstr "Nenoteiktu laiku"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "%d mēnesis"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "%d mēneši"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "%d gads"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Hour Ago"
+msgstr "Sākot pirms %d stundas"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Hours Ago"
+msgstr "Sākot pirms %d stundām"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Day Ago"
+msgstr "Sākot pirms %d dienas"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Days Ago"
+msgstr "Sākot pirms %d dienām"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Week Ago"
+msgstr "Sākot pirms %d nedēļas"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Weeks Ago"
+msgstr "Sākot pirms %d nedēļām"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Month Ago"
+msgstr "Pirms %d mēneša"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Months Ago"
+msgstr "Pirms %d mēnešiem"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Year Ago"
+msgstr "Pirms %d gada"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Years Ago"
+msgstr "Pirms %d gadiem"
+
+#: includes/arrays.php thold_graph.php
+msgid "Down"
+msgstr "Nedarbojas"
+
+#: includes/arrays.php thold_graph.php
+msgid "Error"
+msgstr "Kļūda"
+
+#: includes/arrays.php thold_graph.php
+msgid "Recovering"
+msgstr "Atgūstas"
+
+#: includes/arrays.php thold_graph.php
+msgid "Up"
+msgstr "Darbojas"
+
+#: includes/arrays.php thold_graph.php
+msgid "Unknown"
+msgstr "Nezināms"
+
+#: includes/arrays.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php
+msgid "Disabled"
+msgstr "Atspējots"
+
+#: includes/arrays.php thold_graph.php
+msgid "Not Monitored"
+msgstr "Netiek pārraudzīts"
+
+#: includes/arrays.php
+msgid "Notify - Alert"
+msgstr "Paziņojums - Trauksme"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Alert"
+msgstr "Trauksme"
+
+#: includes/arrays.php
+msgid "Notify - Alert2Warning"
+msgstr "Paziņojums - Trauksme uz brīdinājumu"
+
+#: includes/arrays.php
+msgid "Alert2Warn"
+msgstr "Trauksme uz brīdinājumu"
+
+#: includes/arrays.php
+msgid "Notify - Warning"
+msgstr "Paziņojums - Brīdinājums"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Warning"
+msgstr "Brīdinājums"
+
+#: includes/arrays.php
+msgid "Notify - Re-Trigger"
+msgstr "Paziņojums - Atkārtota nostrāde"
+
+#: includes/arrays.php
+msgid "Re-Trigger"
+msgstr "Atkārtota nostrāde"
+
+#: includes/arrays.php
+msgid "Notify - Restoral"
+msgstr "Paziņojums - Atjaunošanās"
+
+#: includes/arrays.php
+msgid "Restoral"
+msgstr "Atjaunošanās"
+
+#: includes/arrays.php
+msgid "Event - Alert Trigger"
+msgstr "Notikums - Trauksmes nostrāde"
+
+#: includes/arrays.php
+msgid "Alert Event"
+msgstr "Trauksmes notikums"
+
+#: includes/arrays.php
+msgid "Event - Warning Trigger"
+msgstr "Notikums - Brīdinājuma nostrāde"
+
+#: includes/arrays.php
+msgid "Warning Event"
+msgstr "Brīdinājuma notikums"
+
+#: includes/arrays.php
+msgid "Event - Restoral"
+msgstr "Notikums - Atjaunošanās"
+
+#: includes/arrays.php thold_graph.php
+msgid "Restoral Event"
+msgstr "Atjaunošanās notikums"
+
+#: includes/arrays.php
+msgid "Event - Acknowledge"
+msgstr "Notikums - Apstiprināšana"
+
+#: includes/arrays.php
+msgid "Acknowledge Event"
+msgstr "Apstiprināšanas notikums"
+
+#: includes/arrays.php
+msgid "Restore"
+msgstr "Atjaunot"
+
+#: includes/arrays.php
+msgid "Alert Trigger"
+msgstr "Trauksmes nostrāde"
+
+#: includes/arrays.php
+msgid "Warn Trigger"
+msgstr "Brīdinājuma nostrāde"
+
+#: includes/arrays.php
+msgid "Alert-Warn"
+msgstr "Trauksme-Brīdinājums"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Acknowledgment"
+msgstr "Apstiprināšana"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Baseline Alert"
+msgstr "Bāzes līnijas trauksme"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Notice"
+msgstr "Paziņojums"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Ok"
+msgstr "Kārtībā"
+
+#: includes/arrays.php
+msgid "Emergency"
+msgstr "Ārkārtas"
+
+#: includes/arrays.php thold.php thold_templates.php
+msgid "Critical"
+msgstr "Kritisks"
+
+#: includes/arrays.php
+msgid "Info"
+msgstr "Informācija"
+
+#: includes/arrays.php
+msgid "Debug"
+msgstr "Atkļūdošana"
+
+#: includes/arrays.php includes/functions.php
+msgid "Never"
+msgstr "Nekad"
+
+#: includes/arrays.php
+msgid "Every Minute"
+msgstr "Katru minūti"
+
+#: includes/arrays.php includes/settings.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "Ik pēc %d minūtēm"
+
+#: includes/arrays.php
+msgid "Every Hour"
+msgstr "Katru stundu"
+
+#: includes/arrays.php includes/settings.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "Ik pēc %d stundām"
+
+#: includes/arrays.php
+msgid "Every Day"
+msgstr "Katru dienu"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Days"
+msgstr "Ik pēc %d dienām"
+
+#: includes/arrays.php
+msgid "Every Week"
+msgstr "Katru nedēļu"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Weeks"
+msgstr "Ik pēc %d nedēļām"
+
+#: includes/arrays.php
+msgid "Every Month"
+msgstr "Katru mēnesi"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Minute"
+msgstr "%d minūte"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Minutes"
+msgstr "%d minūtes"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Hour"
+msgstr "%d stunda"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Hours"
+msgstr "%d stundas"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Day"
+msgstr "%d diena"
+
+#: includes/arrays.php thold_graph.php
+#, php-format
+msgid "%d Days"
+msgstr "%d dienas"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Week"
+msgstr "%d nedēļa"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Weeks"
+msgstr "%d nedēļas"
+
+#: includes/arrays.php
+#, php-format
+msgid "%0.1f Hours"
+msgstr "%0.1f stundas"
+
+#: includes/arrays.php
+msgid "Every Polling"
+msgstr "Katrā aptaujā"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Pollings"
+msgstr "Ik pēc %d aptaujām"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Polling"
+msgstr "%d aptauja"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Pollings"
+msgstr "%d aptaujas"
+
+#: includes/arrays.php
+msgid "High / Low"
+msgstr "Augsts / Zems"
+
+#: includes/arrays.php
+msgid "Baseline Deviation"
+msgstr "Bāzes līnijas novirze"
+
+#: includes/arrays.php
+msgid "Time Based"
+msgstr "Uz laiku balstīts"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Min/Max [TIP]"
+msgstr "%% novirze Min/Max [TIP]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation CF [TIP]"
+msgstr "%% novirze CF [TIP]"
+
+#: includes/arrays.php
+msgid "Absolute Val Min/Max [TIP]"
+msgstr "Absolūtā vērtība Min/Max [TIP]"
+
+#: includes/arrays.php
+msgid "Absolute Val of CF [TIP]"
+msgstr "CF absolūtā vērtība [TIP]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Avg [AOT]"
+msgstr "%% novirze no vidējās [AOT]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Avg of CF [AOT]"
+msgstr "%% novirze no CF vidējās [AOT]"
+
+#: includes/arrays.php
+msgid "Absolute Val Avg [AOT]"
+msgstr "Absolūtā vidējā vērtība [AOT]"
+
+#: includes/arrays.php
+msgid "Absolute Val Avg of CF [AOT]"
+msgstr "CF absolūtā vidējā vērtība [AOT]"
+
+#: includes/arrays.php
+msgid "Exact Value"
+msgstr "Precīza vērtība"
+
+#: includes/arrays.php
+msgid "CDEF"
+msgstr "CDEF"
+
+#: includes/arrays.php
+msgid "Percentage"
+msgstr "Procenti"
+
+#: includes/arrays.php thold.php thold_templates.php
+msgid "RPN Expression"
+msgstr "RPN izteiksme"
+
+#: includes/arrays.php
+msgid "Upper + Lower bytes"
+msgstr "Augšējie + apakšējie baiti"
+
+#: includes/arrays.php
+msgid "Acknowledge"
+msgstr "Apstiprināt"
+
+#: includes/arrays.php
+msgid "Suspend Notifications"
+msgstr "Apturēt paziņojumus"
+
+#: includes/arrays.php
+msgid "Resume Notifications"
+msgstr "Atsākt paziņojumus"
+
+#: includes/arrays.php notify_lists.php notify_queue.php setup.php
+msgid "Delete"
+msgstr "Dzēst"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Iespējot"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Atspējot"
+
+#: includes/arrays.php
+msgid "Reapply Suggested Names"
+msgstr "Atkārtoti lietot ieteiktos nosaukumus"
+
+#: includes/arrays.php
+msgid "Propagate Template"
+msgstr "Izplatīt veidni"
+
+#: includes/arrays.php thold_graph.php
+msgid "Export"
+msgstr "Eksportēt"
+
+#: includes/arrays.php
+msgid "Threshold Mail"
+msgstr "Sliekšņa e-pasts"
+
+#: includes/arrays.php
+msgid "Down Host Mail"
+msgstr "Nedarbojoša resursdatora e-pasts"
+
+#: includes/arrays.php
+msgid "Up Host Mail"
+msgstr "Darbojoša resursdatora e-pasts"
+
+#: includes/arrays.php
+msgid "Threshold Cmd"
+msgstr "Sliekšņa komanda"
+
+#: includes/arrays.php
+msgid "Down Host Cmd"
+msgstr "Nedarbojoša resursdatora komanda"
+
+#: includes/arrays.php
+msgid "Up Host Cmd"
+msgstr "Darbojoša resursdatora komanda"
+
+#: includes/arrays.php
+msgid "Auto"
+msgstr "Automātiski"
+
+#: includes/arrays.php
+msgid "0 Digits"
+msgstr "0 cipari"
+
+#: includes/arrays.php
+msgid "1 Digit"
+msgstr "1 cipars"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Digits"
+msgstr "%d cipari"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d Devices"
+msgstr "> %d ierīces"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d %% of Devices Globally"
+msgstr "> %d %% ierīču globāli"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d Devices in a Site"
+msgstr "> %d ierīces atrašanās vietā"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d %% of Devices in a Site"
+msgstr "> %d %% ierīču atrašanās vietā"
+
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "< 1 minūte"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "Kopš izveides"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "Sliekšņi"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "Žurnāls"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "Ierīces statuss"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "Laiks:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "Lietotājs:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "Sistēma:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "Mijmaiņas:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "Lapas:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr "Tikai reģistrēšana žurnālā, ierīce apkopē"
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "Noklusējuma"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "Saite uz grafiku sistēmā Cacti"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Ir aktivizēta trauksme, kurai nepieciešama jūsu uzmanība.<br><br><b>Ierīce</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Ziņojums</b>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Ir izdots brīdinājums, kuram nepieciešama jūsu uzmanība.<br><br><b>Ierīce</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Ziņojums</b>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Slieksnis ir atgriezies normālā statusā. <br><br><strong>Ierīce</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Ziņojums</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "%% novirze [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "Abs. vērt. [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [AOT:%s]"
+msgstr "%% novirze [AOT:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "Abs. vērt. [AOT:%s]"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "Mēģinot izveidot grafiku un slieksni, nebija iestatīts ierīces ID"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "Mēģinot izveidot grafiku un slieksni, netika atrasts sliekšņa veidnes ID"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "Mēģinot izveidot grafiku un slieksni, nebija iestatīts sliekšņa veidnes ID"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "Grafika izveide sliekšņa veidnei neizdevās"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "Slieksnis tika automātiski izveidots ierīces veidnes kartēšanas dēļ"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "Piekļuve liegta"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "Ieraksts atjaunināts"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "Neizdevās atrast saistīto grafika veidnes vienumu '%d' slieksnim '%d'"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "Izveidots slieksnis: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "Jānorāda 'Augstais trauksmes slieksnis', 'Zemais trauksmes slieksnis' vai abi!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Neiespējams slieksnis: 'Augstais trauksmes slieksnis' ir mazāks nekā 'Zemais trauksmes slieksnis'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "Neiespējams slieksnis: 'Augstais brīdinājuma slieksnis' ir mazāks nekā 'Zemais brīdinājuma slieksnis'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "Neiespējams slieksnis: 'Augstais brīdinājuma slieksnis' ir lielāks nekā 'Augstais trauksmes slieksnis'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "Neiespējams slieksnis: 'Zemais trauksmes slieksnis' ir lielāks nekā 'Zemais brīdinājuma slieksnis'!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "Laika atsaucei pagātnē jābūt iestatītai kā pozitīvam veselam skaitlim!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "Jānorāda 'Bāzes līnijas novirze uz augšu', 'Bāzes līnijas novirze uz leju' vai abas!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "Neiespējams slieksnis: 'Augstais trauksmes slieksnis' ir mazāks nekā 'Zemais trauksmes slieksnis'"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr "Neiespējams slieksnis: trauksmes nostrādes skaitam jābūt lielākam par 1 vai vienādam ar 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Neiespējams slieksnis: trauksmes nostrādes skaitam jābūt mazākam vai vienādam ar nostrādes skaitu vai vienādam ar 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr "Neiespējams slieksnis: brīdinājuma nostrādes skaitam jābūt lielākam par 1 vai vienādam ar 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Neiespējams slieksnis: brīdinājuma nostrādes skaitam jābūt mazākam vai vienādam ar nostrādes skaitu vai vienādam ar 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Neiespējams slieksnis: 'Zemais brīdinājuma slieksnis' ir mazāks nekā 'Zemais trauksmes slieksnis'!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "Nezināms sliekšņa tips!"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "Ar ierīces veidni nav saistīta neviena sliekšņa veidne."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "Sliekšņi netika izveidoti. Tie jau pastāv vai netika atrasta neviena piemērota atbilstība."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "Pasta sūtītāja kļūda: nav iestatīta adrese <b>KAM</b>!!<br>Ja izmantojat saiti <i>Pārbaudes e-pasts</i>, lūdzu, iestatiet parametru <b>Trauksmes e-pasts</b>."
+
+#: includes/functions.php
+msgid "Done"
+msgstr "Pabeigts"
+
+#: includes/functions.php
+msgid "Pending"
+msgstr "Gaida"
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "Ar kļūdu"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "Nav pieejams"
+
+#: includes/functions.php
+msgid "Success"
+msgstr "Veiksmīgi"
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "Apstiprināt slieksni"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "Noklikšķiniet uz 'Turpināt', lai apstiprinātu šos sliekšņus."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "Apstiprināt sliekšņus"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "Atcelt"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "Turpināt"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "Sliekšņa veidnes pakārtotā datu veidne netika atrasta!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "Sliekšņa veidnes pakārtotais datu avots netika atrasts!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "Sliekšņa veidnes importa kolonnas neatbilst datubāzes shēmai"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "Importēts"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "Sliekšņa veidne '%s' %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "Atjaunināts"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "Importēt"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "Sliekšņa veidnes '%s' %s neizdevās!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "Atjaunināt"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "Mēģinot importēt sliekšņa veidnes datus, radās kļūdas."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "Sliekšņa veidnes importa dati neatbilst XML datu formātam."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "Importējot sliekšņa veidni, sliekšņa veidnes importa dati nebija pareizi."
+
+#: includes/functions.php
+msgid "Graph Timespan"
+msgstr "Grafika laika posms"
+
+#: includes/functions.php
+msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
+msgstr "Grafika beigu laiks tiks iestatīts nostrādes brīdī. Grafika sākuma laiks būs beigu laiks mīnus grafika laika posms."
+
+#: includes/functions.php
+msgid "Acknowledgment Options"
+msgstr "Apstiprināšanas opcijas"
+
+#: includes/functions.php
+msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
+msgstr "Ir trīs apstiprināšanas līmeņi, kas nosaka, kā jāreaģē uz sliekšņa pārkāpuma stāvokli. Tie ir:<br><br><ul><li><i>Nav nepieciešama</i> - izvēloties šo opciju, sliekšņa pārkāpumam apstiprināšana nav nepieciešama.</li><li><i>Apturami paziņojumi</i> - izmantojot šo opciju, tiklīdz apstiprināsiet slieksni vai apturēsiet tā paziņojumus, pārkāpuma laikā vairs nesaņemsiet paziņojumus. Pārkāpuma laikā vēlāk varat atsākt paziņojumus.</li><li><i>Pastāvīga apstiprināšana</i> - izmantojot šo opciju, pat pēc tam, kad slieksnis ir atgriezies normālā stāvoklī, jums ir jāapstiprina slieksnis un pēc izvēles jānorāda operatora ziņojums.</li></ul>"
+
+#: includes/functions.php
+msgid "None Required"
+msgstr "Nav nepieciešama"
+
+#: includes/functions.php
+msgid "Suspendible Notification"
+msgstr "Apturami paziņojumi"
+
+#: includes/functions.php
+msgid "Persistent Acknowledgment"
+msgstr "Pastāvīga apstiprināšana"
+
+#: includes/functions.php thold_templates.php
+msgid "Threshold CDEF"
+msgstr "Sliekšņa CDEF"
+
+#: includes/functions.php thold_templates.php
+msgid "Apply this CDEF before returning the data."
+msgstr "Pirms datu atgriešanas lietot šo CDEF."
+
+#: includes/polling.php
+msgid "SNMP not in use"
+msgstr "SNMP netiek izmantots"
+
+#: includes/polling.php
+msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
+msgstr "Ierīču paziņojums: <DESCRIPTION> (<HOSTNAME>) atgriezās no nedarbojoša stāvokļa"
+
+#: includes/polling.php
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
+msgstr "<br>Sistēmas <DESCRIPTION> (<HOSTNAME>) statuss: <DOWN/UP><br><br>Atrašanās vieta: <SITE><br>Novietojums: <LOCATION><br>Pašreizējā ping atbilde: <CUR_TIME> ms<br>Vidējā sistēmas atbilde: <AVG_TIME> ms<br>Sistēmas pieejamība: <AVAILABILITY><br>Kopējais pārbaužu skaits kopš notīrīšanas: <TOT_POLL><br>Kopējais neveiksmīgo pārbaužu skaits: <FAIL_POLL><br>Pēdējais datums, kad darbojas: <LAST_FAIL><br>Ierīce iepriekš nedarbojās: <DOWNTIME><br><br>SNMP informācija:<br>Nosaukums - <SNMP_HOSTNAME><br>Novietojums - <SNMP_LOCATION><br>Darbības laiks - <UPTIMETEXT> (<UPTIME> ms)<br>Sistēma - <SNMP_SYSTEM><br><br>PIEZĪME: <NOTES>"
+
+#: includes/polling.php
+msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
+msgstr "Ierīču kļūda: <DESCRIPTION> (<HOSTNAME>) nedarbojas"
+
+#: includes/polling.php
+msgid "DOWN"
+msgstr "NEDARBOJAS"
+
+#: includes/polling.php
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
+msgstr "Sistēmas kļūda: <DESCRIPTION> (<HOSTNAME>) statuss ir <DOWN/UP><br>Atrašanās vieta: <SITE><br>Novietojums: <LOCATION><br>Iemesls: <MESSAGE><br><br>Vidējā sistēmas atbilde: <AVG_TIME> ms<br>Sistēmas pieejamība: <AVAILABILITY><br>Kopējais pārbaužu skaits kopš notīrīšanas: <TOT_POLL><br>Kopējais neveiksmīgo pārbaužu skaits: <FAIL_POLL><br>Pēdējais datums, kad nedarbojās: <LAST_FAIL><br>Ierīce iepriekš darbojās: <DOWNTIME><br>PIEZĪME: <NOTES>"
+
+#: includes/settings.php
+msgid "(actions)"
+msgstr "(darbības)"
+
+#: includes/settings.php
+msgid "(edit)"
+msgstr "(rediģēt)"
+
+#: includes/settings.php
+msgid "(save)"
+msgstr "(saglabāt)"
+
+#: includes/settings.php
+msgid "(add)"
+msgstr "(pievienot)"
+
+#: includes/settings.php
+msgid "Threshold Logs"
+msgstr "Sliekšņu žurnāli"
+
+#: includes/settings.php
+msgid "Thresholds - Failures"
+msgstr "Sliekšņi - Kļūmes"
+
+#: includes/settings.php
+msgid "Thresholds - Normal"
+msgstr "Sliekšņi - Normāli"
+
+#: includes/settings.php
+msgid "Thresholds - Recovering"
+msgstr "Sliekšņi - Atgūstas"
+
+#: includes/settings.php
+msgid "Recent Thresholds"
+msgstr "Nesenie sliekšņi"
+
+#: includes/settings.php
+msgid "Recent Device Failures"
+msgstr "Nesenās ierīču kļūmes"
+
+#: includes/settings.php thold_templates.php
+msgid "Threshold Templates"
+msgstr "Sliekšņu veidnes"
+
+#: includes/settings.php
+msgid "Threshold Template Import"
+msgstr "Sliekšņa veidnes imports"
+
+#: includes/settings.php notify_lists.php
+msgid "Notification Lists"
+msgstr "Paziņojumu saraksti"
+
+#: includes/settings.php
+msgid "Notification Lists (edit)"
+msgstr "Paziņojumu saraksti (rediģēt)"
+
+#: includes/settings.php
+msgid "Notification Queue"
+msgstr "Paziņojumu rinda"
+
+#: includes/settings.php
+msgid "Management"
+msgstr "Pārvaldība"
+
+#: includes/settings.php notify_lists.php thold_templates.php
+msgid "Templates"
+msgstr "Veidnes"
+
+#: includes/settings.php thold_graph.php
+msgid "Threshold"
+msgstr "Slieksnis"
+
+#: includes/settings.php
+msgid "A template with that Data Source already exists!"
+msgstr "Veidne ar šādu datu avotu jau pastāv!"
+
+#: includes/settings.php
+msgid "Configure Thresholds"
+msgstr "Konfigurēt sliekšņus"
+
+#: includes/settings.php
+msgid "Configure Threshold Templates"
+msgstr "Konfigurēt sliekšņu veidnes"
+
+#: includes/settings.php
+msgid "Manage Notification Lists"
+msgstr "Pārvaldīt paziņojumu sarakstus"
+
+#: includes/settings.php
+msgid "View Thresholds"
+msgstr "Skatīt sliekšņus"
+
+#: includes/settings.php
+msgid "Normal User"
+msgstr "Parasts lietotājs"
+
+#: includes/settings.php
+msgid "Template Editor"
+msgstr "Veidņu redaktors"
+
+#: includes/settings.php
+msgid "General Administration"
+msgstr "Vispārējā administrēšana"
+
+#: includes/settings.php
+msgid "Device Up/Down Notification Settings"
+msgstr "Ierīces stāvokļa (darbojas/nedarbojas) paziņojumu iestatījumi"
+
+#: includes/settings.php
+msgid "Threshold Up/Down Email Notification"
+msgstr "Sliekšņa stāvokļa (darbojas/nedarbojas) e-pasta paziņojums"
+
+#: includes/settings.php notify_lists.php
+msgid "Global List"
+msgstr "Globālais saraksts"
+
+#: includes/settings.php
+msgid "List Below"
+msgstr "Saraksts zemāk"
+
+#: includes/settings.php
+msgid "Global and List Below"
+msgstr "Globālais un saraksts zemāk"
+
+#: includes/settings.php
+msgid "Which Type of Notification List(s) should be used for Device Up/Down events?"
+msgstr "Kāda veida paziņojumu sarakstus izmantot ierīces stāvokļa (darbojas/nedarbojas) notikumiem?"
+
+#: includes/settings.php notify_queue.php
+msgid "Notification List"
+msgstr "Paziņojumu saraksts"
+
+#: includes/settings.php
+msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
+msgstr "Kuriem paziņojumu sarakstiem jāpaziņo par ierīces stāvokļa (darbojas/nedarbojas) notikumiem?"
+
+#: includes/settings.php
+msgid "Host Failure Count"
+msgstr "Resursdatora kļūmju skaits"
+
+#: includes/settings.php
+msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
+msgstr "Aptaujas intervālu skaits, kuru laikā šim resursdatoram jānedarbojas, pirms Thold reģistrē kļūdu un ziņo, ka resursdators nedarbojas. Noklusējuma vērtība ir 0 (izmantot Cacti iestatījumu)"
+
+#: includes/settings.php
+msgid "Use Cacti Setting"
+msgstr "Izmantot Cacti iestatījumu"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Polling Interval"
+msgstr "%d aptaujas intervāls"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Polling Intervals"
+msgstr "%d aptaujas intervāli"
+
+#: includes/settings.php
+msgid "Alerting/Thold"
+msgstr "Trauksmes/Thold"
+
+#: includes/settings.php notify_lists.php
+msgid "General"
+msgstr "Vispārīgi"
+
+#: includes/settings.php
+msgid "Disable All Thresholds"
+msgstr "Atspējot visus sliekšņus"
+
+#: includes/settings.php
+msgid "Checking this box will disable Alerting on all Thresholds.  This can be used when it is necessary to perform maintenance on your network."
+msgstr "Atzīmējot šo izvēles rūtiņu, tiks atspējotas trauksmes visiem sliekšņiem. To var izmantot, ja tīklā nepieciešams veikt apkopes darbus."
+
+#: includes/settings.php
+msgid "Auto Create Thresholds"
+msgstr "Automātiski izveidot sliekšņus"
+
+#: includes/settings.php
+msgid "If selected, when running either automation, or when creating/saving a Device, all Thresholds associated with the Device Template will be created."
+msgstr "Ja šī opcija ir atlasīta, izpildot automatizāciju vai izveidojot/saglabājot ierīci, tiks izveidoti visi ar ierīces veidni saistītie sliekšņi."
+
+#: includes/settings.php
+msgid "Consider Unknown Data as Zero"
+msgstr "Uzskatīt nezināmus datus par nulli"
+
+#: includes/settings.php
+msgid "When checking Thresholds, if a Data Source returns Unknown Data ('U'), consider the value as zero for the Threshold check. You can also enable log this issue."
+msgstr "Pārbaudot sliekšņus, ja datu avots atgriež nezināmus datus ('U'), sliekšņa pārbaudē uzskatīt šo vērtību par nulli. Varat arī iespējot šīs problēmas reģistrēšanu žurnālā."
+
+#: includes/settings.php
+msgid "Default Management Status"
+msgstr "Noklusējuma pārvaldības statuss"
+
+#: includes/settings.php
+msgid "Default Threshold management filter status."
+msgstr "Noklusējuma sliekšņu pārvaldības filtra statuss."
+
+#: includes/settings.php notify_lists.php thold.php
+msgid "Any"
+msgstr "Jebkurš"
+
+#: includes/settings.php thold.php thold_graph.php
+msgid "Breached or Triggered"
+msgstr "Pārkāpts vai nostrādājis"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+msgid "Breached"
+msgstr "Pārkāpts"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+msgid "Triggered"
+msgstr "Aktivizēts"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Enabled"
+msgstr "Iespējots"
+
+#: includes/settings.php
+msgid "Empty ifHighSpeed Default"
+msgstr "Tukšas ifHighSpeed vērtības noklusējums"
+
+#: includes/settings.php
+msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces."
+msgstr "Aprēķinot izteiksmju sliekšņus, ja ifHighSpeed un ifSpeed atgriež nulli, tā vietā izmantot šo ifHighSpeed iestatījumu. Noklusējuma ifHighSpeed vērtība 10GE saskarnēm būs 10000."
+
+#: includes/settings.php
+msgid "Notification Preferences"
+msgstr "Paziņojumu preferences"
+
+#: includes/settings.php
+msgid "Disable Legacy Notifications"
+msgstr "Atspējot mantotos paziņojumus"
+
+#: includes/settings.php
+msgid "Checking this box will disable Legacy Alerting on all Thresholds.  Legacy Alerting is defined as any Specific Email Alerts not associated with a Notification List."
+msgstr "Atzīmējot šo izvēles rūtiņu, tiks atspējotas mantotās trauksmes visiem sliekšņiem. Mantotās trauksmes ir jebkuras konkrētas e-pasta trauksmes, kas nav saistītas ar paziņojumu sarakstu."
+
+#: includes/settings.php
+msgid "Threshold Notification Templated"
+msgstr "Sliekšņa paziņojumi no veidnes"
+
+#: includes/settings.php
+msgid "If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template."
+msgstr "Ja atzīmēts, izveidojot sliekšņa veidni, tās paziņojumu iestatījumi pēc noklusējuma piederēs sliekšņa veidnei."
+
+#: includes/settings.php
+msgid "Enable Command Execution"
+msgstr "Iespējot komandu izpildi"
+
+#: includes/settings.php
+msgid "Checking this box will enable the ability to run commands on Threshold breach and restoral events."
+msgstr "Atzīmējot šo izvēles rūtiņu, tiks iespējota komandu izpilde sliekšņa pārkāpuma un atjaunošanās notikumos."
+
+#: includes/settings.php
+msgid "Enable Per Thold Notification"
+msgstr "Iespējot atsevišķus paziņojumus katram slieksnim"
+
+#: includes/settings.php
+msgid "Checking this box will enable the ability to maintain custom Email bodies for Thresholds."
+msgstr "Atzīmējot šo izvēles rūtiņu, tiks iespējota pielāgotu e-pasta tekstu uzturēšana sliekšņiem."
+
+#: includes/settings.php
+msgid "Enable Notification Queue"
+msgstr "Iespējot paziņojumu rindu"
+
+#: includes/settings.php
+msgid "Checking this box will switch Thold from performing inline Notification to using either the Notification Daemon, or notifications performed out of band by the Notification poller."
+msgstr "Atzīmējot šo izvēles rūtiņu, Thold pārslēgsies no tūlītējas paziņojumu nosūtīšanas uz paziņojumu dēmona izmantošanu vai paziņojumu nosūtīšanu ārpus joslas, ko veic paziņojumu aptaujātājs."
+
+#: includes/settings.php
+msgid "Enable Sending Alert Emails to Warning Notification Lists"
+msgstr "Iespējot trauksmes e-pastu sūtīšanu brīdinājumu paziņojumu sarakstiem"
+
+#: includes/settings.php
+msgid "Check this box if you wish Warning Notification List recipients to receive Alert Emails in addition to the Alert Notification list receivers.  This case is applicable when Warning Notifications goes to Administrators and Alert Notifications go to Management."
+msgstr "Atzīmējiet šo izvēles rūtiņu, ja vēlaties, lai brīdinājumu paziņojumu saraksta saņēmēji saņemtu trauksmes e-pastus papildus trauksmes paziņojumu saraksta saņēmējiem. Šis gadījums ir piemērojams, ja brīdinājumu paziņojumi tiek sūtīti administratoriem, bet trauksmes paziņojumi tiek sūtīti vadībai."
+
+#: includes/settings.php
+msgid "Threshold Daemon"
+msgstr "Sliekšņu dēmons"
+
+#: includes/settings.php
+msgid "Enable Threshold Daemon"
+msgstr "Iespējot sliekšņu dēmonu"
+
+#: includes/settings.php
+msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
+msgstr "Atzīmējot šo izvēles rūtiņu, tiks iespējota atsevišķa sliekšņu dēmona izmantošana. To var izmantot, lai uzlabotu sistēmas veiktspēju un/vai sadalītu sliekšņu pārraudzību uz atsevišķu serveri."
+
+#: includes/settings.php
+msgid "Force Threshold Daemon Debug"
+msgstr "Piespiest sliekšņu dēmona atkļūdošanu"
+
+#: includes/settings.php
+msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
+msgstr "Atzīmējot šo izvēles rūtiņu, tiks iespējota sliekšņu dēmona atkļūdošana, darbojoties ar SystemD vai no komandrindas. Šī izmaiņa ir dinamiska un stāsies spēkā, tiklīdz sāksies nākamais sliekšņu pārbaudes cikls."
+
+#: includes/settings.php
+msgid "Daemon Down Notification Frequency"
+msgstr "Paziņojumu biežums par dēmona nedarbošanos"
+
+#: includes/settings.php
+msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
+msgstr "Ja tiek konstatēts, ka Thold dēmons nedarbojas, sūtīt e-pasta paziņojumu ar šādu biežumu."
+
+#: includes/settings.php
+#, php-format
+msgid "Every %d Hour"
+msgstr "Ik pēc %d stundas"
+
+#: includes/settings.php
+msgid "Daemon Threads"
+msgstr "Dēmona pavedieni"
+
+#: includes/settings.php
+msgid "The number of daemon threads to be handled by the Threshold Daemon."
+msgstr "Dēmona pavedienu skaits, ko apstrādās sliekšņu dēmons."
+
+#: includes/settings.php
+msgid "1 Process"
+msgstr "1 process"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Processes"
+msgstr "%d procesi"
+
+#: includes/settings.php
+msgid "Logging"
+msgstr "Žurnalēšana"
+
+#: includes/settings.php
+msgid "Log Threshold Breaches"
+msgstr "Žurnalēt sliekšņu pārkāpumus"
+
+#: includes/settings.php
+msgid "Enable logging of all Threshold failures to the Cacti Log."
+msgstr "Iespējot visu sliekšņu pārkāpumu žurnalēšanu Cacti žurnālā."
+
+#: includes/settings.php
+msgid "Show Data Source in Log"
+msgstr "Rādīt datu avotu žurnālā"
+
+#: includes/settings.php
+msgid "Show the Data Source name in the Log if not present."
+msgstr "Rādīt datu avota nosaukumu žurnālā, ja tas nav norādīts."
+
+#: includes/settings.php
+msgid "Log Threshold Changes"
+msgstr "Žurnalēt sliekšņu izmaiņas"
+
+#: includes/settings.php
+msgid "Enable logging of all Threshold changes to the Cacti Log."
+msgstr "Iespējot visu sliekšņu izmaiņu žurnalēšanu Cacti žurnālā."
+
+#: includes/settings.php
+msgid "Debug Log"
+msgstr "Atkļūdošanas žurnāls"
+
+#: includes/settings.php
+msgid "Enable logging of debug messages with Threshold"
+msgstr "Iespējot sliekšņu atkļūdošanas ziņojumu žurnalēšanu"
+
+#: includes/settings.php
+msgid "Alert Log Retention"
+msgstr "Trauksmju žurnāla glabāšanas ilgums"
+
+#: includes/settings.php
+msgid "Keep Threshold Logs for this number of days."
+msgstr "Saglabāt sliekšņu žurnālus norādīto dienu skaitu."
+
+#: includes/settings.php
+msgid "Log action Consider Unknown Data as Zero"
+msgstr "Žurnalēt darbību 'Uzskatīt nezināmus datus par nulli'"
+
+#: includes/settings.php
+msgid "When 'Consider Unknown Data as Zero' is enabled, log when it occurs"
+msgstr "Ja ir iespējota opcija 'Uzskatīt nezināmus datus par nulli', žurnalēt šādus gadījumus"
+
+#: includes/settings.php thold.php thold_templates.php
+msgid "Syslog Settings"
+msgstr "Syslog iestatījumi"
+
+#: includes/settings.php
+msgid "Syslog Enabled"
+msgstr "Syslog iespējots"
+
+#: includes/settings.php
+msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Ja atzīmēts, veidojot jaunu slieksni, jaunie sliekšņa notikumi pēc noklusējuma tiks sūtīti uz vietējo syslog. Šis iestatījums ir sagatave. Faktisko syslog vadību nosaka sliekšņa iestatījumi."
+
+#: includes/settings.php
+msgid "Default Priority/Level"
+msgstr "Noklusējuma prioritāte/līmenis"
+
+#: includes/settings.php
+msgid "This is the default Priority/Level that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Šī ir noklusējuma prioritāte/līmenis, ko Thold izmantos syslog ziņojumu sūtīšanai. Šis iestatījums ir sagatave. Faktisko syslog vadību nosaka sliekšņa iestatījumi."
+
+#: includes/settings.php
+msgid "Default Facility"
+msgstr "Noklusējuma kategorija"
+
+#: includes/settings.php
+msgid "This is the default Facility that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Šī ir noklusējuma kategorija, ko Thold izmantos syslog ziņojumu sūtīšanai. Šis iestatījums ir sagatave. Faktisko syslog vadību nosaka sliekšņa iestatījumi."
+
+#: includes/settings.php
+msgid "Alert Presets"
+msgstr "Trauksmju sagataves"
+
+#: includes/settings.php
+msgid "Weekend exemptions"
+msgstr "Nedēļas nogales izņēmumi"
+
+#: includes/settings.php
+msgid "If this is checked, Thold will not run on weekends."
+msgstr "Ja tas ir atzīmēts, Thold nedarbosies nedēļas nogalēs."
+
+#: includes/settings.php
+msgid "Default Trigger Count"
+msgstr "Noklusējuma nostrādes skaits"
+
+#: includes/settings.php
+msgid "Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised."
+msgstr "Noklusējuma secīgo reižu skaits, cik ilgi datu avotam jāpārkāpj slieksnis, lai tiktu izraisīta trauksme."
+
+#: includes/settings.php
+msgid "Re-Alerting"
+msgstr "Atkārtota trauksme"
+
+#: includes/settings.php
+msgid "Repeat Alert after specified number of poller cycles."
+msgstr "Atkārtot trauksmi pēc norādītā aptaujātāja ciklu skaita."
+
+#: includes/settings.php
+msgid "Baseline Presets"
+msgstr "Bāzes līnijas sagataves"
+
+#: includes/settings.php
+msgid "Baseline Time Range Default"
+msgstr "Noklusējuma bāzes līnijas laika diapazons"
+
+#: includes/settings.php
+msgid "This is the default value used in creating Thresholds or templates."
+msgstr "Šī ir noklusējuma vērtība, ko izmanto, izveidojot sliekšņus vai veidnes."
+
+#: includes/settings.php
+msgid "Baseline Trigger Count"
+msgstr "Bāzes līnijas nostrādes skaits"
+
+#: includes/settings.php
+msgid "Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised."
+msgstr "Noklusējuma secīgo reižu skaits, cik ilgi datu avotam jāpārkāpj aprēķinātais bāzes līnijas slieksnis, lai tiktu izraisīta trauksme."
+
+#: includes/settings.php
+msgid "Baseline Deviation Percentage"
+msgstr "Bāzes līnijas novirzes procenti"
+
+#: includes/settings.php
+msgid "SNMP Notification Options"
+msgstr "SNMP paziņojumu opcijas"
+
+#: includes/settings.php
+msgid "SNMP Notifications"
+msgstr "SNMP paziņojumi"
+
+#: includes/settings.php
+msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
+msgstr "Sliekšņu statusa ziņojumi (inform/trap) tiks sūtīti SNMP paziņojumu saņēmējiem. Pēc noklusējuma tas ietver trauksmju, brīdinājumu un atjaunošanās paziņojumus (traps). Piezīme: šai funkcijai ir nepieciešams Cacti SNMPAgent spraudnis."
+
+#: includes/settings.php
+msgid "Disable Warning Notifications"
+msgstr "Atspējot brīdinājumu paziņojumus"
+
+#: includes/settings.php
+msgid "If this is checked, Threshold will not send a notification when a warning Threshold has been breached."
+msgstr "Ja tas ir atzīmēts, Thold nesūtīs paziņojumu, kad tiek pārkāpts brīdinājuma slieksnis."
+
+#: includes/settings.php
+msgid "Disable Restoration Notifications"
+msgstr "Atspējot atjaunošanās paziņojumus"
+
+#: includes/settings.php
+msgid "If this is checked, Threshold will not send a notification when the Threshold has returned to normal status."
+msgstr "Ja tas ir atzīmēts, Thold nesūtīs paziņojumu, kad slieksnis būs atgriezies normālā statusā."
+
+#: includes/settings.php
+msgid "Emailing Options"
+msgstr "E-pasta sūtīšanas opcijas"
+
+#: includes/settings.php
+msgid "Send Emails with Urgent Priority"
+msgstr "Sūtīt e-pastus ar steidzamu prioritāti"
+
+#: includes/settings.php
+msgid "Allows you to set Emails with urgent priority"
+msgstr "Ļauj iestatīt e-pastiem steidzamu prioritāti"
+
+#: includes/settings.php
+msgid "Send Alerts as Text"
+msgstr "Sūtīt trauksmes kā tekstu"
+
+#: includes/settings.php
+msgid "If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email."
+msgstr "Ja atzīmēts, visas trauksmes tiks sūtītas kā vienkārša teksta e-pasti bez grafika. Noklusējums ir HTML e-pasti ar e-pastā iegultu grafiku."
+
+#: includes/settings.php
+msgid "Send Email separately for each address"
+msgstr "Sūtīt e-pastu atsevišķi katrai adresei"
+
+#: includes/settings.php
+msgid "If checked, this will cause all Emails to be sent separately for each address."
+msgstr "Ja atzīmēts, visi e-pasti tiks sūtīti atsevišķi katrai adresei."
+
+#: includes/settings.php
+msgid "From Email Address"
+msgstr "Sūtītāja e-pasta adrese"
+
+#: includes/settings.php
+msgid "This is the Email address that the Threshold will appear from."
+msgstr "Šī ir e-pasta adrese, kas tiks norādīta kā sliekšņa paziņojumu sūtītāja adrese."
+
+#: includes/settings.php
+msgid "From Name"
+msgstr "Sūtītāja vārds"
+
+#: includes/settings.php
+msgid "This is the actual name that the Threshold will appear from."
+msgstr "Šis ir nosaukums, kas tiks norādīts kā sliekšņa paziņojumu sūtītājs."
+
+#: includes/settings.php
+msgid "Device Notification Options"
+msgstr "Ierīces paziņojumu opcijas"
+
+#: includes/settings.php
+msgid "Enable Notifications"
+msgstr "Iespējot paziņojumus"
+
+#: includes/settings.php
+msgid "Enable Dead/Recovering host notification"
+msgstr "Iespējot paziņojumus par nedarbojošos/atgūstošos resursdatoru"
+
+#: includes/settings.php
+msgid "Single Email Notification"
+msgstr "Viens e-pasta paziņojums"
+
+#: includes/settings.php
+msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
+msgstr "Tiek atbalstīts tikai paziņojumu sarakstiem un paziņojumu rindai. Ja vienā apstrādes ciklā ir paziņojumi par nedarbojošām ierīcēm, paziņojumu saraksta saņēmējiem nosūtīt tikai vienu e-pastu par visām ierīcēm."
+
+#: includes/settings.php
+msgid "Single Email Notification Subject"
+msgstr "Viena e-pasta paziņojuma temats"
+
+#: includes/settings.php
+msgid "This is the Email Subject to be used for all Single Email Notification Emails for both Up and Down Devices."
+msgstr "Šis ir e-pasta temats, kas tiks izmantots visiem viena e-pasta paziņojumiem gan par darbojošām, gan par nedarbojošām ierīcēm."
+
+#: includes/settings.php
+msgid "Device Notification Delay Options"
+msgstr "Ierīces paziņojumu aizkaves opcijas"
+
+#: includes/settings.php
+msgid "Notification Delay"
+msgstr "Paziņojumu aizkave"
+
+#: includes/settings.php
+msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
+msgstr "Ja pienāk liels paziņojumu pieplūdums par nedarbojošām ierīcēm, Cacti var noteiktu laiku apturēt šo paziņojumu sūtīšanu, lai pārliecinātos, vai problēma nav īslaicīga, pirms tos nosūtīt. Izvēlieties nedarbojošo ierīču paziņojumu slieksni, pirms tiek aktivizēta pauze."
+
+#: includes/settings.php
+msgid "If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?"
+msgstr "Ja izvēlaties aizkavēt paziņojumus liela nedarbojošo ierīču paziņojumu pieplūduma gadījumā, cik ilgi vēlaties gaidīt, pirms atļaut paziņojumu apstrādi?"
+
+#: includes/settings.php
+msgid "Device Notification Email Options"
+msgstr "Ierīces e-pasta paziņojumu opcijas"
+
+#: includes/settings.php
+msgid "Global Notification Email"
+msgstr "Globālais paziņojumu e-pasts"
+
+#: includes/settings.php
+msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
+msgstr "Šī ir e-pasta adrese, uz kuru tiks sūtīti paziņojumi par nedarbojošām ierīcēm, ja ir izvēlēts globālais paziņojumu saraksts."
+
+#: includes/settings.php
+msgid "Down Subject"
+msgstr "Nedarbošanās paziņojuma temats"
+
+#: includes/settings.php
+msgid "This is the Email subject that will be used for Down Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060NOTES&#062"
+msgstr "Šis ir e-pasta temats, kas tiks izmantots ziņojumiem par nedarbojošām ierīcēm. Ir vairākas bieži izmantotas aizvietošanas birkas, kuras var iekļaut:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (iepriekšējā darbības stāvokļa ilgums nedarbošanās ziņojuma gadījumā) &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
+msgstr "Ierīces kļūda: <DESCRIPTION> (<HOSTNAME>) NEDARBOJAS"
+
+#: includes/settings.php
+msgid "Down Message"
+msgstr "Nedarbošanās ziņojums"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Šis ir ziņojums, kas tiks attēlots kā ziņojuma teksts visiem darbojošos/nedarbojošos ierīču ziņojumiem (maks. 1024 rakstzīmes). HTML ir atļauts, taču tiks noņemts tikai teksta e-pastos. Ir vairākas bieži izmantotas aizvietošanas birkas, kuras var iekļaut:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (iepriekšējā darbības stāvokļa ilgums nedarbošanās ziņojuma gadījumā) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
+msgstr "Sistēmas kļūda: <DESCRIPTION> (<HOSTNAME>) stāvoklis ir <DOWN/UP><br><br>Atrašanās vieta: <SITE><br>Novietojums: <LOCATION><br>Iemesls: <MESSAGE><br>Vidējais sistēmas reakcijas laiks: <AVG_TIME> ms<br>Sistēmas pieejamība: <AVAILABILITY><br>Kopējais pārbaužu skaits kopš notīrīšanas: <TOT_POLL><br>Kopējais neveiksmīgo pārbaužu skaits: <FAIL_POLL><br>Pēdējās pārbaudes datums stāvoklī Nedarbojas: <LAST_FAIL><br>Ierīce iepriekš darbojās: <DOWNTIME><br>PIEZĪMES: <NOTES><br>Ierīces PIEZĪMES: <DNOTES>"
+
+#: includes/settings.php
+msgid "Recovering Subject"
+msgstr "Atgūšanās paziņojuma temats"
+
+#: includes/settings.php
+msgid "This is the Email subject that will be used for Recovering Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
+msgstr "Šis ir e-pasta temats, kas tiks izmantots ziņojumiem par atgūstošām ierīcēm. Ir vairākas bieži izmantotas aizvietošanas birkas, kuras var iekļaut:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
+msgstr "Ierīces paziņojums: <DESCRIPTION> (<HOSTNAME>) atgriezās no nedarbošanās stāvokļa"
+
+#: includes/settings.php
+msgid "Recovering Message"
+msgstr "Atgūšanās ziņojums"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Šis ir ziņojums, kas tiks attēlots kā ziņojuma teksts visiem darbojošos/nedarbojošos ierīču ziņojumiem (maks. 1024 rakstzīmes). HTML ir atļauts, taču tiks noņemts tikai teksta e-pastos. Ir vairākas bieži izmantotas aizvietošanas birkas, kuras var iekļaut:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
+msgstr "<br>Sistēmas <DESCRIPTION> (<HOSTNAME>) statuss: <DOWN/UP><br><br>Atrašanās vieta: <SITE><br>Novietojums: <LOCATION><br>Pašreizējais ping reakcijas laiks: <CUR_TIME> ms<br>Vidējais sistēmas reakcijas laiks: <AVG_TIME> ms<br>Sistēmas pieejamība: <AVAILABILITY><br>Kopējais pārbaužu skaits kopš notīrīšanas: <TOT_POLL><br>Kopējais neveiksmīgo pārbaužu skaits: <FAIL_POLL><br>Pēdējās pārbaudes datums stāvoklī Darbojas: <LAST_FAIL><br>Ierīce iepriekš nedarbojās: <DOWNTIME><br><br>SNMP informācija:<br>Nosaukums - <SNMP_HOSTNAME><br>Novietojums - <SNMP_LOCATION><br>Darbības laiks - <UPTIMETEXT> (<UPTIME> ms)<br>Sistēma - <SNMP_SYSTEM><br><br>PIEZĪME: <NOTES><br>Ierīces piezīmes: <DNOTES>"
+
+#: includes/settings.php
+msgid "Status Change Command"
+msgstr "Statusa maiņas komanda"
+
+#: includes/settings.php
+msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+msgstr "Kad ierīce maina stāvokli Cacti skatījumā (no Darbojas uz Nedarbojas vai no Nedarbojas uz Atgūstas/Darbojas), izpildīt šo komandu. Šī komanda NEDRĪKST ietvert komandrindas argumentus. Tomēr no skripta vides var nolasīt šādus mainīgos:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+
+#: includes/settings.php
+msgid "Alert/Warning Message Defaults"
+msgstr "Trauksmes/brīdinājuma ziņojumu noklusējuma iestatījumi"
+
+#: includes/settings.php
+msgid "Threshold Alert Message"
+msgstr "Sliekšņa trauksmes ziņojums"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Šis ir ziņojums, kas tiks attēlots visu sliekšņu trauksmju augšdaļā (maks. 1024 rakstzīmes). HTML ir atļauts, taču tiks noņemts tikai teksta e-pastos. Ir vairākas bieži izmantotas aizvietošanas birkas, kuras var iekļaut:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Ir izdota trauksme, kurai nepieciešama jūsu uzmanība. <br><br><strong>Ierīce</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Ziņojums</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/settings.php
+msgid "Threshold Warning Message"
+msgstr "Sliekšņa brīdinājuma ziņojums"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Šis ir ziņojums, kas tiks attēlots visu sliekšņu brīdinājumu augšdaļā (maks. 1024 rakstzīmes). HTML ir atļauts, taču tiks noņemts tikai teksta e-pastos. Ir vairākas bieži izmantotas aizvietošanas birkas, kuras var iekļaut:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Ir izdots brīdinājums, kuram nepieciešama jūsu uzmanība. <br><br><strong>Ierīce</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Ziņojums</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/settings.php
+msgid "Threshold Restoral Message"
+msgstr "Sliekšņa atjaunošanās ziņojums"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Šis ir ziņojums, kas tiks attēlots visu sliekšņu atjaunošanās paziņojumu augšdaļā (maks. 1024 rakstzīmes). HTML ir atļauts, taču tiks noņemts tikai teksta e-pastos. Ir vairākas bieži izmantotas aizvietošanas birkas, kuras var iekļaut:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Slieksnis ir atgriezies normālā statusā. <br><br><strong>Ierīce</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Ziņojums</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/tab.php
+msgid "Thold"
+msgstr "Thold"
+
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "Slieksnis(-ņi) jau pastāv - netika izveidots neviens slieksnis"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "Izveidot slieksni no veidnes"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "Sliekšņa izveides vednis [ Izvēlieties sliekšņa tipu ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "Sliekšņa izveides vednis [ Ievadiet pielāgotus datus un nospiediet 'Izveidot', lai izveidotu slieksni un grafiku ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "Sliekšņa izveides vednis [ Izvēlieties pieejamās datu vaicājuma rindas ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "Sliekšņa izveides vednis [ Izvēlieties ierīci ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "Sliekšņa izveides vednis [ Izvēlieties grafika veidni ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "Sliekšņa izveides vednis [ Izvēlieties sliekšņa veidni ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "Sliekšņa izveides vednis [ Nospiediet 'Izveidot', lai izveidotu slieksni ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "Sliekšņa izveides vednis [ Izvēlieties datu avotu ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "Sliekšņa izveides vednis [ Izvēlieties grafiku ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "Sliekšņa izveides kritēriji"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "Izveides tips"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "Izvēlieties sliekšņa tipu, ko izmantot šī sliekšņa izveidei."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "Izvēlieties sliekšņa tipu"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "Bez veidnes"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "Sliekšņa veidne"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "Izvēlieties sliekšņa veidni, uz kuras tiks balstīts grafiks un slieksnis."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "Izvēlieties sliekšņa veidni"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "Grafika veidne"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "Izvēlieties grafika veidni, ko izmantot izveidojamajam grafikam."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "Izvēlieties grafika veidni"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "Ierīce"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "Izvēlieties ierīci, ko izmantot izveidojamajam slieksnim un grafikam."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "Izvēlieties ierīci"
+
+#: includes/webapi.php
+msgid "Select an Available Item"
+msgstr "Izvēlieties pieejamo vienumu"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "Datu vaicājuma vienums"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "Izvēlieties atbilstošo datu vaicājuma rindu grafikam un slieksnim."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "Izveides piezīmes"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "Svarīga piezīme:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "Šis slieksnis būs balstīts uz veidni. Izmantojot sliekšņa veidnes opciju, jums tiks pieprasīta sliekšņa veidne, grafika veidne, ierīce un, iespējams, datu vaicājuma vienuma informācija, pirms parādīsies uzvedne 'Izveidot'. Ja grafika un datu avota veidnes līmenī ir atļauta pārrakstāma grafika vai datu avota informācija, tā jums tiks pieprasīta šajā brīdī. Pēc tam, nospiežot pogu 'Izveidot', vienlaikus tiks izveidots gan grafiks, gan slieksnis."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "Grafiks"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "Izvēlieties grafiku slieksnim."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "Izvēlieties grafiku"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "Datu avots"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "Izvēlieties datu avotu slieksnim."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "Izvēlieties datu avotu"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "Izveidot"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "Šis slieksnis <b>NEBŪS</b> balstīts uz veidni un darbosies tikai esošajiem grafikiem. Ja vēlaties vienlaikus izveidot gan grafiku, gan slieksni, nolaižamajā sarakstā izvēlieties 'Sliekšņa veidne' un turpiniet, līdz parādās poga 'Izveidot'."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "Šis slieksnis <b>NEBŪS</b> balstīts uz veidni. Varat izvēlēties opciju 'Pēc grafika', kurā pirms sliekšņa izveides izvēlēsieties esošu ierīci, grafiku un datu avotu, vai izvēlēties 'Sliekšņa veidne', kas ļaus vienlaikus izveidot slieksni bez veidnes un tam atbilstošu grafiku"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "Izvēlētais grafiks"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "Izveidots grafiks: %s"
+
+#: notify_lists.php
+msgid "Duplicate"
+msgstr "Dublēt"
+
+#: notify_lists.php
+msgid "Associate"
+msgstr "Saistīt"
+
+#: notify_lists.php
+msgid "Disassociate"
+msgstr "Atsaistīt"
+
+#: notify_lists.php thold_graph.php
+msgid "Devices"
+msgstr "Ierīces"
+
+#: notify_lists.php
+#, php-format
+msgid "ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s"
+msgstr "KĻŪDA: e-pasta adrese nevar būt norādīta gan rindā Kam (To), gan BCC. Tālāk norādītā e-pasta adrese nav derīga!<br><br>%s"
+
+#: notify_lists.php
+msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
+msgstr "Noklikšķiniet uz 'Turpināt', lai dzēstu paziņojumu sarakstu(-s). Visas ierīces vai sliekšņi, kas saistīti ar šo(-iem) sarakstu(-iem), tiks atgriezti uz noklusējuma iestatījumiem."
+
+#: notify_lists.php
+msgid "Delete Notification List(s)"
+msgstr "Dzēst paziņojumu sarakstu(-s)"
+
+#: notify_lists.php
+msgid "Click 'Continue' to Duplicate the following Notification List(s)."
+msgstr "Noklikšķiniet uz 'Turpināt', lai dublētu šo(-s) paziņojumu sarakstu(-s)."
+
+#: notify_lists.php
+msgid "New List Name"
+msgstr "Jaunā saraksta nosaukums"
+
+#: notify_lists.php
+msgid "New Notification List"
+msgstr "Jauns paziņojumu saraksts"
+
+#: notify_lists.php
+msgid "Duplicate Notification List(s)"
+msgstr "Dublēt paziņojumu sarakstu(-s)"
+
+#: notify_lists.php
+#, php-format
+msgid "%s Threshold Template(s)"
+msgstr "%s sliekšņa veidni(-es)"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
+msgstr "Noklikšķiniet uz 'Turpināt', lai saistītu paziņojumu sarakstu '%s' ar tālāk norādīto(-ajām) sliekšņa veidni(-ēm)."
+
+#: notify_lists.php
+msgid "Warning Membership:"
+msgstr "Brīdinājumu piederība:"
+
+#: notify_lists.php
+msgid "No Change"
+msgstr "Bez izmaiņām"
+
+#: notify_lists.php
+msgid "Notification List Only"
+msgstr "Tikai paziņojumu saraksts"
+
+#: notify_lists.php
+msgid "Notification List, Retain Other Settings"
+msgstr "Paziņojumu saraksts, saglabāt citus iestatījumus"
+
+#: notify_lists.php
+msgid "Alert Membership:"
+msgstr "Trauksmju piederība:"
+
+#: notify_lists.php
+msgid "Associate Notification List(s)"
+msgstr "Saistīt paziņojumu sarakstu(-s)"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
+msgstr "Noklikšķiniet uz 'Turpināt', lai atsaistītu paziņojumu sarakstu '%s' no tālāk norādītās(-ajām) sliekšņa veidnes(-ēm)."
+
+#: notify_lists.php
+msgid "Remove List"
+msgstr "Noņemt sarakstu"
+
+#: notify_lists.php
+msgid "Disassociate Notification List(s)"
+msgstr "Atsaistīt paziņojumu sarakstu(-s)"
+
+#: notify_lists.php
+#, php-format
+msgid "%s Threshold(s)"
+msgstr "%s slieksni(-ņus)"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
+msgstr "Noklikšķiniet uz 'Turpināt', lai saistītu paziņojumu sarakstu '%s' ar tālāk norādīto(-ajiem) slieksni(-ņiem)."
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
+msgstr "Noklikšķiniet uz 'Turpināt', lai atsaistītu paziņojumu sarakstu '%s' no tālāk norādītā(-ajiem) sliekšņa(-ņiem)."
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
+msgstr "Noklikšķiniet uz 'Turpināt', lai saistītu paziņojumu sarakstu '%s' ar tālāk norādīto(-ajām) ierīci(-ēm)."
+
+#: notify_lists.php
+msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
+msgstr "Varat saistīt arī ierīces sliekšņus. Tomēr šie ierīces sliekšņi ļaus pārrakstīt sliekšņa paziņojumu sarakstu."
+
+#: notify_lists.php
+msgid "Resulting Membership:"
+msgstr "Rezultējošā piederība:"
+
+#: notify_lists.php
+msgid "Notification and Global Lists"
+msgstr "Paziņojumu un globālie saraksti"
+
+#: notify_lists.php
+msgid "Device Threshold Warning Membership:"
+msgstr "Ierīces sliekšņu brīdinājumu piederība:"
+
+#: notify_lists.php
+msgid "Device Threshold Alert Membership:"
+msgstr "Ierīces sliekšņu trauksmju piederība:"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
+msgstr "Noklikšķiniet uz 'Turpināt', lai atsaistītu paziņojumu sarakstu '%s' no tālāk norādītās(-ajām) ierīces(-ēm)."
+
+#: notify_lists.php
+msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
+msgstr "Varat atsaistīt arī ierīces sliekšņus. Tomēr šie ierīces sliekšņi ļaus pārrakstīt sliekšņa paziņojumu sarakstu."
+
+#: notify_lists.php
+#, php-format
+msgid "[edit: %s]"
+msgstr "[rediģēt: %s]"
+
+#: notify_lists.php
+msgid "[new]"
+msgstr "[jauns]"
+
+#: notify_lists.php
+msgid "List General Settings"
+msgstr "Saraksta vispārīgie iestatījumi"
+
+#: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
+msgid "Name"
+msgstr "Nosaukums"
+
+#: notify_lists.php
+msgid "Enter a name for this Notification List."
+msgstr "Ievadiet šī paziņojumu saraksta nosaukumu."
+
+#: notify_lists.php thold_graph.php
+msgid "Description"
+msgstr "Apraksts"
+
+#: notify_lists.php
+msgid "Enter a description for this Notification List."
+msgstr "Ievadiet šī paziņojumu saraksta aprakstu."
+
+#: notify_lists.php
+msgid "To disable all notifications from this Notification List, you can simply disable it here."
+msgstr "Lai atspējotu visus paziņojumus no šī paziņojumu saraksta, varat to vienkārši atspējot šeit."
+
+#: notify_lists.php
+msgid "To Email Addresses"
+msgstr "Saņēmēju (To) e-pasta adreses"
+
+#: notify_lists.php
+msgid "Enter a comma separated list of Email addresses for this Notification List."
+msgstr "Ievadiet ar komatu atdalītu e-pasta adrešu sarakstu šim paziņojumu sarakstam."
+
+#: notify_lists.php
+msgid "BCC Email Addresses"
+msgstr "BCC e-pasta adreses"
+
+#: notify_lists.php
+msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
+msgstr "Ievadiet ar komatu atdalītu e-pasta adrešu sarakstu slēptajai kopijai (BCC) šim paziņojumu sarakstam."
+
+#: notify_lists.php
+msgid "Email Style/Format File"
+msgstr "E-pasta stila/formāta fails"
+
+#: notify_lists.php thold.php thold_templates.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "Izvēlieties izmantojamo pielāgoto HTML ietvara un CSS failu. Šajā failā ir gan HTML, gan CSS jūsu atskaites noformēšanai. Ja tas satur vairāk nekā tikai CSS, failā jāievieto īpašs <REPORT> tags. Šis formāta tags tiks aizstāts ar atskaites saturu. Šie faili atrodas direktorijā 'formats'."
+
+#: notify_lists.php
+msgid "Associated Devices"
+msgstr "Saistītās ierīces"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Search"
+msgstr "Meklēt"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "Site"
+msgstr "Atrašanās vieta"
+
+#: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
+msgid "None"
+msgstr "Nav"
+
+#: notify_lists.php
+msgid "Device Template"
+msgstr "Ierīces veidne"
+
+#: notify_lists.php
+msgid "Associated"
+msgstr "Saistīts"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Go"
+msgstr "Atlasīt"
+
+#: notify_lists.php notify_queue.php
+msgid "Set/Refresh Filters"
+msgstr "Iestatīt/atsvaidzināt filtrus"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Clear"
+msgstr "Notīrīt"
+
+#: notify_lists.php notify_queue.php
+msgid "Clear Filters"
+msgstr "Notīrīt filtrus"
+
+#: notify_lists.php thold.php thold_graph.php thold_templates.php
+msgid "ID"
+msgstr "ID"
+
+#: notify_lists.php setup.php thold.php thold_graph.php
+msgid "Status"
+msgstr "Statuss"
+
+#: notify_lists.php
+msgid "Associated Lists"
+msgstr "Saistītie saraksti"
+
+#: notify_lists.php thold_graph.php
+msgid "Graphs"
+msgstr "Grafiki"
+
+#: notify_lists.php thold_graph.php
+msgid "Data Sources"
+msgstr "Datu avoti"
+
+#: notify_lists.php notify_queue.php thold_graph.php
+msgid "Hostname"
+msgstr "Resursdatora nosaukums"
+
+#: notify_lists.php
+msgid "Current List Only"
+msgstr "Tikai pašreizējais saraksts"
+
+#: notify_lists.php
+msgid "Current and Global List(s)"
+msgstr "Pašreizējais un globālais(-ie) saraksts(-i)"
+
+#: notify_lists.php
+msgid "No Associated Devices Found"
+msgstr "Netika atrasta neviena saistīta ierīce"
+
+#: notify_lists.php
+msgid "Associated Thresholds"
+msgstr "Saistītie sliekšņi"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "Template"
+msgstr "Veidne"
+
+#: notify_lists.php
+msgid "State"
+msgstr "Stāvoklis"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "All"
+msgstr "Visi"
+
+#: notify_lists.php
+msgid "Warning Lists"
+msgstr "Brīdinājumu saraksti"
+
+#: notify_lists.php
+msgid "Alert Lists"
+msgstr "Trauksmju saraksti"
+
+#: notify_lists.php thold.php thold_graph.php thold_templates.php
+msgid "Type"
+msgstr "Tips"
+
+#: notify_lists.php thold.php
+msgid "Templated"
+msgstr "Ar veidni"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "No"
+msgstr "Nē"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Yes"
+msgstr "Jā"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "baseline-LOW"
+msgstr "bāzes līnija - ZEMS"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "baseline-HIGH"
+msgstr "bāzes līnija-AUGSTS"
+
+#: notify_lists.php
+msgid "Select Users"
+msgstr "Atlasīt lietotājus"
+
+#: notify_lists.php
+msgid "Specific Emails"
+msgstr "Konkrētas e-pasta adreses"
+
+#: notify_lists.php
+msgid "Current List"
+msgstr "Pašreizējais saraksts"
+
+#: notify_lists.php
+msgid "Unknown Threshold"
+msgstr "Nezināms slieksnis"
+
+#: notify_lists.php
+msgid "Log Only"
+msgstr "Tikai žurnālā"
+
+#: notify_lists.php
+msgid "Editable"
+msgstr "Rediģējams"
+
+#: notify_lists.php
+msgid "Read Only"
+msgstr "Tikai lasāms"
+
+#: notify_lists.php
+msgid "No Thresholds Found"
+msgstr "Sliekšņi nav atrasti"
+
+#: notify_lists.php
+msgid "Associated Templates"
+msgstr "Saistītās veidnes"
+
+#: notify_lists.php notify_queue.php
+msgid "Rows"
+msgstr "Rindas"
+
+#: notify_lists.php
+msgid "Unknown Template"
+msgstr "Nezināma veidne"
+
+#: notify_lists.php thold_templates.php
+msgid "No Threshold Templates"
+msgstr "Nav sliekšņu veidņu"
+
+#: notify_lists.php
+msgid "Lists"
+msgstr "Saraksti"
+
+#: notify_lists.php
+msgid "List Name"
+msgstr "Saraksta nosaukums"
+
+#: notify_lists.php
+msgid "Emails"
+msgstr "E-pasta adreses"
+
+#: notify_lists.php
+msgid "No Notification Lists"
+msgstr "Nav paziņojumu sarakstu"
+
+#: notify_queue.php
+msgid "Notification has been Suspended.  Press the Resume button to resume it"
+msgstr "Paziņojumi ir apturēti. Nospiediet pogu Atsākt, lai tos atsāktu"
+
+#: notify_queue.php
+msgid "Notification has been Resumed.  Press the Suspend button to suspend it"
+msgstr "Paziņojumi ir atsākti. Nospiediet pogu Apturēt, lai tos apturētu"
+
+#: notify_queue.php
+msgid "Pending Notifications have been removed from the database.  Previously sent notification not purged will remain until they age out."
+msgstr "Gaidošie paziņojumi ir noņemti no datubāzes. Iepriekš nosūtītie paziņojumi, kas nav iztīrīti, saglabāsies līdz to derīguma termiņa beigām."
+
+#: notify_queue.php
+msgid "Click 'Continue' to delete the following Notification."
+msgid_plural "Click 'Continue' to delete all following Notifications."
+msgstr[0] "Noklikšķiniet uz 'Turpināt', lai dzēstu visus šos paziņojumus."
+msgstr[1] "Noklikšķiniet uz 'Turpināt', lai dzēstu šo paziņojumu."
+msgstr[2] "Noklikšķiniet uz 'Turpināt', lai dzēstu visus šos paziņojumus."
+
+#: notify_queue.php
+msgid "Delete Notification"
+msgid_plural "Delete Notifications"
+msgstr[0] "Dzēst paziņojumus"
+msgstr[1] "Dzēst paziņojumu"
+msgstr[2] "Dzēst paziņojumus"
+
+#: notify_queue.php
+#, php-format
+msgid "Event Notifications [ Notifications Suspended by User: %s, %s ago ]"
+msgstr "Notikumu paziņojumi [ Paziņojumus apturējis lietotājs: %s, pirms %s ]"
+
+#: notify_queue.php
+msgid "Event Notifications"
+msgstr "Notikumu paziņojumi"
+
+#: notify_queue.php
+msgid "Topic"
+msgstr "Tēma"
+
+#: notify_queue.php
+msgid "Processed"
+msgstr "Apstrādāts"
+
+#: notify_queue.php
+msgid "Suspend"
+msgstr "Apturēt"
+
+#: notify_queue.php
+msgid "Suspend Notification Processing"
+msgstr "Apturēt paziņojumu apstrādi"
+
+#: notify_queue.php
+msgid "Resume"
+msgstr "Atsākt"
+
+#: notify_queue.php
+msgid "Resume Notification Processing"
+msgstr "Atsākt paziņojumu apstrādi"
+
+#: notify_queue.php
+msgid "Purge"
+msgstr "Iztīrīt"
+
+#: notify_queue.php
+msgid "Purge Notification Queue"
+msgstr "Iztīrīt paziņojumu rindu"
+
+#: notify_queue.php
+msgid "Notifications"
+msgstr "Paziņojumi"
+
+#: notify_queue.php
+msgid "The supported notification topic."
+msgstr "Atbalstītā paziņojuma tēma."
+
+#: notify_queue.php thold_graph.php
+msgid "Event Description"
+msgstr "Notikuma apraksts"
+
+#: notify_queue.php
+msgid "The name of the object as defined by the caller."
+msgstr "Izsaucēja definētais objekta nosaukums."
+
+#: notify_queue.php
+msgid "The hostname that was the source of this event."
+msgstr "Resursdatora nosaukums, kas bija šī notikuma avots."
+
+#: notify_queue.php
+msgid "The Notification List used if any."
+msgstr "Izmantotais paziņojumu saraksts, ja tāds ir."
+
+#: notify_queue.php
+msgid "Object ID"
+msgstr "Objekta ID"
+
+#: notify_queue.php
+msgid "The Object ID defined by the caller.  Generally its unique 'id'."
+msgstr "Izsaucēja definētais objekta ID. Parasti tā unikālais 'id'."
+
+#: notify_queue.php
+msgid "Event Time"
+msgstr "Notikuma laiks"
+
+#: notify_queue.php
+msgid "The time of the event as defined by the caller."
+msgstr "Izsaucēja definētais notikuma laiks."
+
+#: notify_queue.php
+msgid "Has the Notification Event been processed."
+msgstr "Vai paziņojuma notikums ir apstrādāts."
+
+#: notify_queue.php
+msgid "Errors"
+msgstr "Kļūdas"
+
+#: notify_queue.php
+msgid "Did this notification result in an error.  Hover on the error column for details."
+msgstr "Vai šis paziņojums izraisīja kļūdu. Novietojiet kursoru virs kļūdas kolonnas, lai skatītu detalizētu informāciju."
+
+#: notify_queue.php
+msgid "Attempts"
+msgstr "Mēģinājumi"
+
+#: notify_queue.php
+msgid "The number of delivery attempts made for this notification."
+msgstr "Šim paziņojumam veikto piegādes mēģinājumu skaits."
+
+#: notify_queue.php
+msgid "Next Attempt"
+msgstr "Nākamais mēģinājums"
+
+#: notify_queue.php
+msgid "When a failed notification is eligible for its next retry."
+msgstr "Laiks, kad neizdevušos paziņojumu varēs mēģināt nosūtīt atkārtoti."
+
+#: notify_queue.php
+msgid "Run Time"
+msgstr "Izpildes laiks"
+
+#: notify_queue.php
+msgid "The time in seconds it took to process the event."
+msgstr "Laiks sekundēs, kas bija nepieciešams notikuma apstrādei."
+
+#: notify_queue.php
+msgid "Not Specified"
+msgstr "Nav norādīts"
+
+#: notify_queue.php
+msgid "No Notifications"
+msgstr "Nav paziņojumu"
+
+#: setup.php
+msgid "Toggle Threshold VRULES Off"
+msgstr "Izslēgt sliekšņu VRULES"
+
+#: setup.php
+msgid "Toggle Threshold VRULES On"
+msgstr "Ieslēgt sliekšņu VRULES"
+
+#: setup.php
+msgid "Create Threshold"
+msgstr "Izveidot slieksni"
+
+#: setup.php
+#, php-format
+msgid "Alert Hi for %s (%s)"
+msgstr "Augstā trauksme vienumam %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s)"
+msgstr "Zemā trauksme vienumam %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s)"
+msgstr "Augstais brīdinājums vienumam %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Low for %s (%s)"
+msgstr "Zemais brīdinājums vienumam %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Hi for %s (%s %%)"
+msgstr "Augstā trauksme vienumam %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s %%)"
+msgstr "Zemā trauksme vienumam %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s %%)"
+msgstr "Augstais brīdinājums vienumam %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Warning Low for %s (%s %%)"
+msgstr "Zemais brīdinājums vienumam %s (%s %%)"
+
+#: setup.php
+msgid "Threshold Alert/Warning Values"
+msgstr "Sliekšņa trauksmes/brīdinājuma vērtības"
+
+#: setup.php
+msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
+msgstr "Noklikšķiniet uz 'Turpināt', lai šai ierīcei (ierīcēm) lietotu visus atbilstošos sliekšņus."
+
+#: setup.php
+msgid "Create Threshold from Data Source"
+msgstr "Izveidot slieksni no datu avota"
+
+#: setup.php
+msgid "Auto-create Thresholds"
+msgstr "Automātiski izveidot sliekšņus"
+
+#: setup.php
+#, php-format
+msgid "Created %s thresholds"
+msgstr "Izveidoti %s sliekšņi"
+
+#: setup.php
+msgid "No Threshold(s) Created.  Threshold(s) Template not found."
+msgstr "Sliekšņi nav izveidoti. Sliekšņu veidne nav atrasta."
+
+#: setup.php
+msgid "The following Data Sources have no Threshold Templates associated with them"
+msgstr "Šiem datu avotiem nav piesaistītas sliekšņu veidnes"
+
+#: setup.php
+msgid "Click 'Continue' to create Thresholds for these Data Sources?"
+msgstr "Noklikšķināt uz 'Turpināt', lai šiem datu avotiem izveidotu sliekšņus?"
+
+#: setup.php
+msgid "Available Threshold Templates"
+msgstr "Pieejamās sliekšņu veidnes"
+
+#: setup.php
+msgid "There are no Threshold Templates associated with the following Data Sources"
+msgstr "Šiem datu avotiem nav piesaistītu sliekšņu veidņu"
+
+#: setup.php
+msgid "The following Graphs have no Threshold Templates associated with them"
+msgstr "Šiem grafikiem nav piesaistītas sliekšņu veidnes"
+
+#: setup.php
+msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
+msgstr "Nospiediet 'Turpināt', ja vēlaties izveidot slieksni (sliekšņus) šim grafikam (grafikiem)"
+
+#: setup.php
+msgid "There are no Threshold Templates associated with the following Graphs"
+msgstr "Šiem grafikiem nav piesaistītu sliekšņu veidņu"
+
+#: setup.php
+msgid "Associated Threshold Templates"
+msgstr "Saistītās sliekšņu veidnes"
+
+#: setup.php
+msgid "Threshold Exists"
+msgstr "Slieksnis pastāv"
+
+#: setup.php
+msgid "Threshold Does Not Exist"
+msgstr "Slieksnis nepastāv"
+
+#: setup.php
+msgid "Delete Threshold Template Association"
+msgstr "Dzēst sliekšņa veidnes sasaisti"
+
+#: setup.php
+msgid "No Associated Threshold Templates."
+msgstr "Nav saistītu sliekšņu veidņu."
+
+#: setup.php
+msgid "Add Threshold Template"
+msgstr "Pievienot sliekšņa veidni"
+
+#: setup.php
+msgid "Add"
+msgstr "Pievienot"
+
+#: setup.php
+msgid "Add Threshold Template to Device"
+msgstr "Pievienot sliekšņa veidni ierīcei"
+
+#: setup.php
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device."
+msgstr "Noklikšķiniet uz 'Turpināt', lai dzēstu un atsaistītu šo sliekšņa veidni no ierīces."
+
+#: setup.php
+#, php-format
+msgid "Threshold Template Name: %s"
+msgstr "Sliekšņa veidnes nosaukums: %s"
+
+#: setup.php
+msgid "Remove Threshold Template"
+msgstr "Noņemt sliekšņa veidni"
+
+#: setup.php
+msgid "Add Threshold Template to Device Template"
+msgstr "Pievienot sliekšņa veidni ierīces veidnei"
+
+#: setup.php
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
+msgstr "Noklikšķiniet uz 'Turpināt', lai dzēstu un atsaistītu šo sliekšņa veidni no ierīces veidnes."
+
+#: thold.php
+msgid "Either No Templates or Threshold(s) Already Exists - No Thresholds were created."
+msgstr "Nav veidņu vai sliekšņi jau pastāv - sliekšņi netika izveidoti."
+
+#: thold.php
+msgid "You are not authorized to modify one or more of the Thresholds selected"
+msgstr "Jums nav pilnvaru modificēt vienu vai vairākus atlasītos sliekšņus"
+
+#: thold.php
+msgid "Click 'Delete' to delete the following Threshold(s)."
+msgstr "Noklikšķiniet uz 'Dzēst', lai dzēstu šo slieksni (sliekšņus)."
+
+#: thold.php
+msgid "Delete Threshold(s)"
+msgstr "Dzēst slieksni (sliekšņus)"
+
+#: thold.php
+msgid "Click 'Continue' to enable the following Threshold(s)."
+msgstr "Noklikšķiniet uz 'Turpināt', lai iespējotu šo slieksni (sliekšņus)."
+
+#: thold.php
+msgid "Enable Threshold(s)"
+msgstr "Iespējot slieksni (sliekšņus)"
+
+#: thold.php
+msgid "Click 'Continue' to disable the following Threshold(s)."
+msgstr "Noklikšķiniet uz 'Turpināt', lai atspējotu šo slieksni (sliekšņus)."
+
+#: thold.php
+msgid "Disable Threshold(s)"
+msgstr "Atspējot slieksni (sliekšņus)"
+
+#: thold.php
+msgid "Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
+msgstr "Noklikšķiniet uz 'Turpināt', lai šim slieksnim (sliekšņiem) atkārtoti lietotu ieteikto nosaukumu (nosaukumus)."
+
+#: thold.php
+msgid "Apply Suggestion"
+msgstr "Lietot ieteikumu"
+
+#: thold.php
+msgid "Click 'Continue' to update the following Threshold(s) with their associate Template's details."
+msgstr "Noklikšķiniet uz 'Turpināt', lai atjauninātu šo slieksni (sliekšņus) ar saistītās veidnes datiem."
+
+#: thold.php
+msgid "Reapply Template"
+msgstr "Atkārtoti lietot veidni"
+
+#: thold.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
+msgstr "Noklikšķiniet uz 'Turpināt', lai apstiprinātu šo slieksni (sliekšņus). Sliekšņi, kas to neatļauj vai nav aktivizēti, tiks ignorēti."
+
+#: thold.php
+msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
+msgstr "Noklikšķiniet uz 'Turpināt', lai atsāktu paziņojumus šim slieksnim (sliekšņiem). Sliekšņi, kas to neatļauj vai nav aktivizēti, tiks ignorēti."
+
+#: thold.php
+msgid "Resume Notifications for Threshold(s)"
+msgstr "Atsākt paziņojumus slieksnim (sliekšņiem)"
+
+#: thold.php
+msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
+msgstr "Noklikšķiniet uz 'Turpināt', lai apturētu paziņojumus šim slieksnim (sliekšņiem). Sliekšņi, kas to neatļauj vai nav aktivizēti, tiks ignorēti."
+
+#: thold.php
+msgid "Suspend Notification for Threshold(s)"
+msgstr "Apturēt paziņojumu slieksnim (sliekšņiem)"
+
+#: thold.php thold_templates.php
+msgid "Invalid action detected, can not proceed"
+msgstr "Konstatēta nederīga darbība, nevar turpināt"
+
+#: thold.php
+msgid "Threshold Management"
+msgstr "Sliekšņu pārvaldība"
+
+#: thold.php
+msgid "Apply Filters"
+msgstr "Lietot filtrus"
+
+#: thold.php
+msgid "Return to Defaults"
+msgstr "Atgriezt noklusējuma vērtības"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Data Template"
+msgstr "Datu veidne"
+
+#: thold.php thold_graph.php
+msgid "Disabled at Template"
+msgstr "Atspējots veidnē"
+
+#: thold.php thold_graph.php
+msgid "Disabled at Threshold"
+msgstr "Atspējots slieksnī"
+
+#: thold.php thold_graph.php
+msgid "Ack Required"
+msgstr "Nepieciešams apstiprinājums"
+
+#: thold.php thold_graph.php
+msgid "By Status"
+msgstr "Pēc statusa"
+
+#: thold.php thold_graph.php
+msgid "The current threshold status. Click a status pill to filter the list to that status."
+msgstr "Pašreizējais sliekšņa statuss. Noklikšķiniet uz statusa birkas, lai filtrētu sarakstu pēc šī statusa."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "External ID"
+msgstr "Ārējais ID"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function."
+msgstr "Sliekšņa tips. Bāzes līnijas tipiem: [TIP] apzīmē laiku pagātnē ar MIN, MAX, AVG un LAST vērtībām no ne vairāk kā vienas dienas šajā periodā. [AOT] apzīmē vidējo vērtību visā laika periodā. Ja aiz kola ir norādīts MIN, MAX, AVG vai LAST, vērtība ir iegūta no šīs konsolidācijas funkcijas."
+
+#: thold.php
+msgid "DSName"
+msgstr "Datu avota nosaukums"
+
+#: thold.php thold_graph.php
+msgid "Current"
+msgstr "Pašreizējais"
+
+#: thold.php thold_graph.php
+msgid "The last measured value for the Data Source"
+msgstr "Pēdējā izmērītā datu avota vērtība"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "High"
+msgstr "Augsts"
+
+#: thold.php thold_graph.php
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
+msgstr "Augstās brīdinājuma / trauksmes vērtības. PIEZĪME: bāzes līnijas vērtības ir procentos, visas pārējās ir attēlojamās vērtības, kuras var modificēt CDEF."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Low"
+msgstr "Zems"
+
+#: thold.php thold_graph.php
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
+msgstr "Zemās brīdinājuma / trauksmes vērtības. PIEZĪME: bāzes līnijas vērtības ir procentos, visas pārējās ir attēlojamās vērtības, kuras var modificēt CDEF."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Trigger"
+msgstr "Aktivizēšana"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Duration"
+msgstr "Ilgums"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Repeat"
+msgstr "Atkārtošana"
+
+#: thold.php thold_graph.php
+msgid "In State"
+msgstr "Stāvoklī"
+
+#: thold.php thold_graph.php
+msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
+msgstr "Laiks, kas pagājis kopš sliekšņa pārkāpuma vai aktivizēšanas brīža"
+
+#: thold.php thold_graph.php
+msgid "Acknowledgment required for this Threshold"
+msgstr "Šim slieksnim nepieciešams apstiprinājums"
+
+#: thold.php thold_graph.php
+msgid "No [Template:Thold]"
+msgstr "Nē [Veidne:Thold]"
+
+#: thold.php thold_graph.php
+msgid "No [Template]"
+msgstr "Nē [Veidne]"
+
+#: thold.php thold_graph.php
+msgid "No [Thold]"
+msgstr "Nē [Thold]"
+
+#: thold.php thold_graph.php
+#, php-format
+msgid "%d Triggers"
+msgstr "%d aktivizēšanas reizes"
+
+#: thold.php thold_graph.php
+msgid "No Thresholds"
+msgstr "Nav sliekšņu"
+
+#: thold.php
+msgid "Threshold Deleted, can not Edit!"
+msgstr "Slieksnis ir dzēsts, to nevar rediģēt!"
+
+#: thold.php
+msgid "Graph Data"
+msgstr "Grafika dati"
+
+#: thold.php
+msgid "Edit Threshold Template"
+msgstr "Rediģēt sliekšņa veidni"
+
+#: thold.php
+msgid "Data Source Description:"
+msgstr "Datu avota apraksts:"
+
+#: thold.php
+msgid "Associated Graph (Graphs using this RRD):"
+msgstr "Saistītais grafiks (grafiki, kas izmanto šo RRD):"
+
+#: thold.php
+msgid "Last:"
+msgstr "Pēdējā:"
+
+#: thold.php
+msgid "WHi:"
+msgstr "Brīd. augst.:"
+
+#: thold.php
+msgid "WLo:"
+msgstr "Brīd. zem.:"
+
+#: thold.php
+msgid "AHi:"
+msgstr "Trauksm. augst.:"
+
+#: thold.php
+msgid "ALo:"
+msgstr "Trauksm. zem.:"
+
+#: thold.php
+msgid "BL Up:"
+msgstr "BL augšup:"
+
+#: thold.php
+msgid "BL Down:"
+msgstr "BL lejup:"
+
+#: thold.php
+#, php-format
+msgid "Unknown Template ID %d"
+msgstr "Nezināms veidnes ID %d"
+
+#: thold.php
+msgid "Not Templated"
+msgstr "Bez veidnes"
+
+#: thold.php
+#, php-format
+msgid "Data Source Item [ %s ] - Current value: [ %s ]"
+msgstr "Datu avota vienums [ %s ] - Pašreizējā vērtība: [ %s ]"
+
+#: thold.php thold_templates.php
+#, php-format
+msgid "Replacement Fields: %s"
+msgstr "Aizstāšanas lauki: %s"
+
+#: thold.php thold_templates.php
+#, php-format
+msgid "Data Sources: %s"
+msgstr "Datu avoti: %s"
+
+#: thold.php
+msgid "Template/Enabled Information"
+msgstr "Veidnes/iespējošanas informācija"
+
+#: thold.php
+msgid "Template Propagation Enabled"
+msgstr "Veidnes izplatīšana iespējota"
+
+#: thold.php
+msgid "Whether or not these settings will be propagated from the Threshold template."
+msgstr "Vai šie iestatījumi tiks izplatīti no sliekšņa veidnes."
+
+#: thold.php thold_templates.php
+msgid "Template Name"
+msgstr "Veidnes nosaukums"
+
+#: thold.php
+msgid "Name of the Threshold Template the Threshold was created from."
+msgstr "Sliekšņa veidnes nosaukums, no kuras slieksnis tika izveidots."
+
+#: thold.php
+msgid "Enabled at Template Level"
+msgstr "Iespējots veidnes līmenī"
+
+#: thold.php
+msgid "A Threshold must be enabled both at the Template Level and the Threshold level to be checked."
+msgstr "Lai slieksnis tiktu pārbaudīts, tam jābūt iespējotam gan veidnes līmenī, gan sliekšņa līmenī."
+
+#: thold.php
+msgid "Enabled at Threshold Level"
+msgstr "Iespējots sliekšņa līmenī"
+
+#: thold.php thold_templates.php
+msgid "General Settings"
+msgstr "Vispārīgie iestatījumi"
+
+#: thold.php
+msgid "Name (Displayed)"
+msgstr "Nosaukums (attēlotais)"
+
+#: thold.php
+msgid "Provide the Thresholds a meaningful name"
+msgstr "Piešķiriet sliekšņiem saprotamu nosaukumu"
+
+#: thold.php
+msgid "Name (Format)"
+msgstr "Nosaukums (formāts)"
+
+#: thold.php thold_templates.php
+msgid "Warning HRULE Color"
+msgstr "Brīdinājuma HRULE krāsa"
+
+#: thold.php thold_templates.php
+msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
+msgstr "Lūdzu, izvēlieties grafika HRULE krāsu brīdinājuma sliekšņiem. Izvēlieties 'Nav', lai neattēlotu HRULE. Piezīme: šī funkcija pašlaik tiek atbalstīta tikai datu apstrādes tipiem 'Precīza vērtība' un 'Procentuālā vērtība'."
+
+#: thold.php thold_templates.php
+msgid "Alert HRULE Color"
+msgstr "Trauksmes HRULE krāsa"
+
+#: thold.php thold_templates.php
+msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
+msgstr "Lūdzu, izvēlieties grafika HRULE krāsu trauksmes sliekšņiem. Izvēlieties 'Nav', lai neattēlotu HRULE. Piezīme: šī funkcija pašlaik tiek atbalstīta tikai datu apstrādes tipiem 'Precīza vērtība' un 'Procentuālā vērtība'."
+
+#: thold.php thold_templates.php
+msgid "Skip Scaling on HRULEs"
+msgstr "Izlaist mērogošanu HRULE līnijām"
+
+#: thold.php thold_templates.php
+msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
+msgstr "Ja atzīmēts, trauksmes un brīdinājuma HRULE līnijas neietekmēs grafika mērogu."
+
+#: thold.php thold_templates.php
+msgid "Weekend Exemption"
+msgstr "Brīvdienu izņēmums"
+
+#: thold.php thold_templates.php
+msgid "If this is checked, this Threshold will not alert on weekends."
+msgstr "Ja atzīmēts, šis slieksnis brīvdienās trauksmes neizraisīs."
+
+#: thold.php thold_templates.php
+msgid "Disable Restoration Email"
+msgstr "Atspējot atjaunošanās e-pastu"
+
+#: thold.php thold_templates.php
+msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
+msgstr "Ja atzīmēts, slieksnis nesūtīs trauksmi, kad tā stāvoklis atgriezīsies normā."
+
+#: thold.php thold_templates.php
+msgid "Threshold Type"
+msgstr "Sliekšņa tips"
+
+#: thold.php thold_templates.php
+msgid "The type of Threshold that will be monitored."
+msgstr "Pārraugāmā sliekšņa tips."
+
+#: thold.php thold_templates.php
+msgid "Re-Alert Cycle"
+msgstr "Atkārtotas trauksmes cikls"
+
+#: thold.php
+msgid "Repeat alert after this amount of time has passed since the last alert."
+msgstr "Atkārtot trauksmi, kad kopš pēdējās trauksmes pagājis šis laiks."
+
+#: thold.php thold_templates.php
+msgid "Warning - High / Low Settings"
+msgstr "Brīdinājums - augstā / zemā sliekšņa iestatījumi"
+
+#: thold.php thold_templates.php
+msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
+msgstr "Augstā un zemā sliekšņa skaitliskās vērtības var ietvert šādus sufiksus skaitļiem, kas lielāki par 1: 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', un skaitļiem, kas mazāki par 1: 'm', 'u', 'p', 'f'."
+
+#: thold.php thold_templates.php
+msgid "High Threshold"
+msgstr "Augstais slieksnis"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Ja iestatīts un datu avota vērtība pārsniedz šo skaitli, tiks aktivizēts brīdinājums. PIEZĪME: šai vērtībai jābūt neapstrādātam skaitlim. Grafikā attēloto vērtību var modificēt CDEF."
+
+#: thold.php thold_templates.php
+msgid "Low Threshold"
+msgstr "Zemais slieksnis"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Ja iestatīts un datu avota vērtība noslīd zem šī skaitļa, tiks aktivizēts brīdinājums. PIEZĪME: šai vērtībai jābūt neapstrādātam skaitlim. Grafikā attēloto vērtību var modificēt CDEF."
+
+#: thold.php
+msgid "Breach Duration"
+msgstr "Pārkāpuma ilgums"
+
+#: thold.php
+msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Laiks, cik ilgi datu avotam jāatrodas sliekšņa pārkāpuma stāvoklī, lai tiktu izdots brīdinājums. PIEZĪME: šai vērtībai jābūt neapstrādātam skaitlim. Grafikā attēloto vērtību var modificēt CDEF."
+
+#: thold.php thold_templates.php
+msgid "Alert - High / Low Settings"
+msgstr "Trauksme - augstā / zemā sliekšņa iestatījumi"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Ja iestatīts un datu avota vērtība pārsniedz šo skaitli, tiks aktivizēta trauksme. PIEZĪME: šai vērtībai jābūt neapstrādātam skaitlim. Grafikā attēloto vērtību var modificēt CDEF."
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Ja iestatīts un datu avota vērtība noslīd zem šī skaitļa, tiks aktivizēta trauksme. PIEZĪME: šai vērtībai jābūt neapstrādātam skaitlim. Grafikā attēloto vērtību var modificēt CDEF."
+
+#: thold.php
+msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
+msgstr "Laiks, cik ilgi datu avotam jāatrodas sliekšņa pārkāpuma stāvoklī, lai tiktu izdota trauksme."
+
+#: thold.php thold_templates.php
+msgid "Warning - Time Based Settings"
+msgstr "Brīdinājums - uz laiku balstīti iestatījumi"
+
+#: thold.php
+msgid "Breach Count"
+msgstr "Pārkāpumu skaits"
+
+#: thold.php
+msgid "The number of times the Data Source must be in breach of the Threshold."
+msgstr "Skaits, cik reižu datu avotam jāpārkāpj slieksnis."
+
+#: thold.php
+msgid "Breach Window"
+msgstr "Pārkāpuma logs"
+
+#: thold.php thold_templates.php
+msgid "The amount of time in the past to check for Threshold breaches."
+msgstr "Laika posms pagātnē, kurā tiek pārbaudīti sliekšņa pārkāpumi."
+
+#: thold.php thold_templates.php
+msgid "Alert - Time Based Settings"
+msgstr "Trauksme - uz laiku balstīti iestatījumi"
+
+#: thold.php
+msgid "Baseline Settings"
+msgstr "Bāzes līnijas iestatījumi"
+
+#: thold.php thold_templates.php
+msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
+msgstr "Bāzes līnijas tips. [TIP] ir laiks pagātnē, [AOT] ir vidējais rādītājs laika gaitā. Procentuālā novirze ir procentuāla vērtība no vēsturiskās vērtības. Absolūtā vērtība ir novirze virs vai zem bāzes līnijas attiecībā pret šo vēsturisko vērtību. [TIP] bāzes līnijas tipiem MIN, MAX, AVG un LAST tiek aprēķināti no ne vairāk kā vienas dienas laika perioda attiecīgajā brīdī."
+
+#: thold.php thold_templates.php
+msgid "Consolidation Function"
+msgstr "Konsolidācijas funkcija"
+
+#: thold.php thold_templates.php
+msgid "Average"
+msgstr "Vidējais"
+
+#: thold.php thold_templates.php
+msgid "Minimum"
+msgstr "Minimums"
+
+#: thold.php thold_templates.php
+msgid "Maximum"
+msgstr "Maksimums"
+
+#: thold.php thold_templates.php
+msgid "Last"
+msgstr "Pēdējais"
+
+#: thold.php thold_templates.php
+msgid "The Consolidation function to use for the Baseline Type value calculation."
+msgstr "Konsolidācijas funkcija, ko izmantot bāzes līnijas tipa vērtības aprēķinam."
+
+#: thold.php thold_templates.php
+msgid "Time Range"
+msgstr "Laika diapazons"
+
+#: thold.php thold_templates.php
+msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
+msgstr "Norāda laika punktu pagātnē (pamatojoties uz RRD izšķirtspēju), kas tiks izmantots kā atsauce, vai ilgumu slīdošajam vidējam, ja tiek izmantots slīdošā vidējā tipa slieksnis"
+
+#: thold.php thold_templates.php
+msgid "Deviation UP"
+msgstr "Novirze AUGŠUP"
+
+#: thold.php
+#, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Norāda pieļaujamo novirzi augšējās robežas slieksnim. Ja nav iestatīts, augšējās robežas slieksnis vispār netiks pārbaudīts. Mērvienība ir absolūtā vērtība tipam 'Absolūtā vērtība' un procentuālā vērtība gan tipam '%% novirze', gan tipam '%% slīdošais vidējais'"
+
+#: thold.php thold_templates.php
+msgid "Deviation DOWN"
+msgstr "Novirze UZ LEJU"
+
+#: thold.php
+#, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Norāda atļauto novirzi apakšējās robežas slieksnim. Ja nav iestatīts, apakšējās robežas slieksnis netiks pārbaudīts vispār. Mērvienība ir absolūtās vērtības tipam 'Absolūtā vērtība' un procenti tipiem '%% Novirze' un '%% Mainīgais vidējais'"
+
+#: thold.php thold_templates.php
+msgid "Trigger Count"
+msgstr "Nostrādāšanas skaits"
+
+#: thold.php
+#, php-format
+msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
+msgstr "Secīgo reižu skaits, kurās datu avotam jāpārkāpj bāzes līnijas slieksnis, lai tiktu izcelta trauksme.<br>Atstājiet tukšu, lai izmantotu noklusējuma vērtību (<b>Noklusējums: %s cikli</b>)"
+
+#: thold.php thold_templates.php
+msgid "Data Manipulation"
+msgstr "Datu apstrāde"
+
+#: thold.php thold_templates.php
+msgid "Data Type"
+msgstr "Datu tips"
+
+#: thold.php thold_templates.php
+msgid "Special formatting for the given data."
+msgstr "Īpaša formatēšana norādītajiem datiem."
+
+#: thold.php
+msgid "Percent Data Source"
+msgstr "Procentu datu avots"
+
+#: thold.php
+msgid "Second Data Source Item to use as total value to calculate percentage from."
+msgstr "Otrs datu avota vienums, ko izmantot kā kopējo vērtību procentu aprēķināšanai."
+
+#: thold.php thold_templates.php
+msgid "Show Units"
+msgstr "Rādīt mērvienības"
+
+#: thold.php thold_templates.php
+msgid "Display units for very large or small numbers."
+msgstr "Rādīt mērvienības ļoti lieliem vai maziem skaitļiem."
+
+#: thold.php thold_templates.php
+msgid "Force Units Suffix"
+msgstr "Piespiedu mērvienību sufikss"
+
+#: thold.php thold_templates.php
+msgid "If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters."
+msgstr "Ja dažādās sliekšņu lapās un paziņojumos vēlaties rādīt piespiedu mērvienības sufiksu, ievadiet to šeit. Garums ir ierobežots līdz 10 rakstzīmēm."
+
+#: thold.php thold_templates.php
+msgid "Decimal Digits to Display"
+msgstr "Rādāmie cipari aiz komata"
+
+#: thold.php thold_templates.php
+msgid "The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2."
+msgstr "Ciparu skaits aiz komata, ko rādīt sliekšņa un pašreizējām vērtībām. Noklusējums ir automātiski vai 2."
+
+#: thold.php
+#, php-format
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "RPN izteiksme ir ar RRDtool saderīga RPN izteiksme. Sintakse ietver visas zemāk norādītās funkcijas, kā arī ierīces un datu vaicājuma aizstāšanas izteiksmes, piemēram, <span class=\"deviceUp\">|query_ifSpeed|</span>. Lai RPN izteiksmē izmantotu datu avotu, jālieto sintakse: <span class=\"deviceUp\">|ds:dsname|</span>. Piemēram, <span class=\"deviceUp\">|ds:traffic_in|</span> iegūs datu avota traffic_in pašreizējo vērtību no RRD datnes(-ēm), kas saistīta(-as) ar grafiku. Var iekļaut jebkuru grafika datu avotu.<br><br>Matemātiskie operatori: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Funkcijas: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Plūsmas operatori: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Salīdzināšanas funkcijas: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+
+#: thold.php thold_templates.php
+msgid "Upper Data Source"
+msgstr "Augšējais datu avots"
+
+#: thold.php
+msgid "Upper data source to calculate the total value."
+msgstr "Augšējais datu avots kopējās vērtības aprēķināšanai."
+
+#: thold.php thold_templates.php
+msgid "Notification Settings"
+msgstr "Paziņojumu iestatījumi"
+
+#: thold.php
+msgid "Alert Subject"
+msgstr "Trauksmes temats"
+
+#: thold.php
+msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Šis ir e-pasta temats, kas tiks rādīts e-pastā (maks. 128 rakstzīmes). Atstājiet tukšu, lai izmantotu noklusējumu. Ir pieejami vairāki bieži lietoti aizstāšanas tagi, tostarp:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php
+msgid "Alert Body"
+msgstr "Trauksmes saturs"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Šis ir ziņojums, kas tiks rādīts visu sliekšņa trauksmju augšdaļā (maks. 1024 rakstzīmes). HTML ir atļauts, taču teksta e-pastos tas tiks noņemts. Ir pieejami vairāki bieži lietoti aizstāšanas tagi, tostarp:<br>piem., &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Subject"
+msgstr "Brīdinājuma temats"
+
+#: thold.php
+msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Šis ir brīdinājuma e-pasta temats, kas tiks rādīts e-pastā pēc stāvokļa maiņas uz brīdinājumu (maks. 128 rakstzīmes). Atstājiet tukšu, lai izmantotu noklusējumu. Ir pieejami vairāki bieži lietoti aizstāšanas tagi, tostarp:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Body"
+msgstr "Brīdinājuma saturs"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Šis ir ziņojums, kas tiks rādīts visu sliekšņa brīdinājumu augšdaļā (maks. 1024 rakstzīmes). HTML ir atļauts, taču teksta e-pastos tas tiks noņemts. Ir pieejami vairāki bieži lietoti aizstāšanas tagi, tostarp:<br>piem., &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold.php thold_templates.php
+msgid "Restoral Subject"
+msgstr "Atjaunošanās temats"
+
+#: thold.php
+msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Šis ir e-pasta temats, kas tiks rādīts e-pastā pēc atjaunošanās normālā stāvoklī (maks. 128 rakstzīmes). Atstājiet tukšu, lai izmantotu noklusējumu. Ir pieejami vairāki bieži lietoti aizstāšanas tagi, tostarp:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php
+msgid "Restoral Email Body"
+msgstr "Atjaunošanās e-pasta saturs"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Šis ir ziņojums, kas tiks rādīts visu sliekšņa atjaunošanās paziņojumu augšdaļā (maks. 1024 rakstzīmes). HTML ir atļauts, taču teksta e-pastos tas tiks noņemts. Ir pieejami vairāki bieži lietoti aizstāšanas tagi, tostarp:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Notification List"
+msgstr "Brīdinājumu paziņojumu saraksts"
+
+#: thold.php thold_templates.php
+msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
+msgstr "Varat izvēlēties paziņojumu sarakstu, lai saņemtu brīdinājumus par šo datu avotu"
+
+#: thold.php thold_templates.php
+msgid "Alert Notification List"
+msgstr "Trauksmju paziņojumu saraksts"
+
+#: thold.php thold_templates.php
+msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
+msgstr "Varat izvēlēties paziņojumu sarakstu, lai saņemtu trauksmes par šo datu avotu"
+
+#: thold.php thold_templates.php
+msgid "Style/Format File"
+msgstr "Stila/formāta datne"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Event Category"
+msgstr "SNMP paziņojums - Notikuma kategorija"
+
+#: thold.php thold_templates.php
+msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+msgstr "Lai NMS varētu vieglāk kategorizēt dažādus SNMP paziņojumus, lūdzu, ievadiet kategoriju, kas jāizmanto šīs veidnes SNMP paziņojumiem. Piem., \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+
+#: thold.php thold_templates.php
+msgid "SNMP Event Description"
+msgstr "SNMP notikuma apraksts"
+
+#: thold.php thold_templates.php
+msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+msgstr "Varat pielāgot notikuma aprakstu, kas tiek nosūtīts SNMP paziņojumu saņēmējiem, izmantojot mainīgo piesaistes. Var izmantot standarta ierīces (|host_*|) un datu vaicājuma (|query_*|) aizstāšanas mainīgos, kā arī šādas mainīgo piesaistes:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Alert Event Severity"
+msgstr "SNMP paziņojums - Trauksmes notikuma smaguma pakāpe"
+
+#: thold.php
+msgid "Severity to be used for alerts. (low impact -> critical impact)"
+msgstr "Trauksmēm izmantojamā smaguma pakāpe. (zema ietekme -> kritiska ietekme)"
+
+#: thold.php thold_templates.php
+msgid "Medium"
+msgstr "Vidējs"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Warning Event Severity"
+msgstr "SNMP paziņojums - Brīdinājuma notikuma smaguma pakāpe"
+
+#: thold.php thold_templates.php
+msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
+msgstr "Brīdinājumiem izmantojamā smaguma pakāpe. (Zema ietekme -> Kritiska ietekme).<br>Piezīme: Brīdinājumu smaguma pakāpei jābūt vienādai vai zemākai par trauksmēm noteikto smaguma pakāpi."
+
+#: thold.php thold_templates.php
+msgid "Notify accounts"
+msgstr "Paziņot kontiem"
+
+#: thold.php
+msgid "This is a listing of accounts that will be notified when this Threshold is breached."
+msgstr "Šis ir kontu saraksts, kuriem tiks nosūtīts paziņojums, kad šis slieksnis tiks pārkāpts."
+
+#: thold.php thold_templates.php
+msgid "Alert Emails"
+msgstr "Trauksmju e-pasta adreses"
+
+#: thold.php
+msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
+msgstr "Šeit varat norādīt papildu e-pasta adreses, uz kurām saņemt trauksmes par šo datu avotu (atdalītas ar komatu)"
+
+#: thold.php thold_templates.php
+msgid "Warning Emails"
+msgstr "Brīdinājumu e-pasta adreses"
+
+#: thold.php
+msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
+msgstr "Šeit varat norādīt papildu e-pasta adreses, uz kurām saņemt brīdinājumus par šo datu avotu (atdalītas ar komatu)"
+
+#: thold.php thold_templates.php
+msgid "If checked, Threshold notification will be sent to your local syslog."
+msgstr "Ja atzīmēts, sliekšņa paziņojums tiks nosūtīts uz vietējo Syslog."
+
+#: thold.php thold_templates.php
+msgid "Priority/Level"
+msgstr "Prioritāte/līmenis"
+
+#: thold.php thold_templates.php
+msgid "This is the Priority Level that will be logged into your syslog messages."
+msgstr "Šis ir prioritātes līmenis, kas tiks reģistrēts Syslog ziņojumos."
+
+#: thold.php thold_templates.php
+msgid "Facility"
+msgstr "Kategorija"
+
+#: thold.php thold_templates.php
+msgid "This is the Facility that will be used for this Threshold."
+msgstr "Šī ir kategorija, kas tiks izmantota šim slieksnim."
+
+#: thold.php thold_templates.php
+msgid "Event Triggering (Shell Command)"
+msgstr "Notikumu izsaukšana (čaulas komanda)"
+
+#: thold.php thold_templates.php
+msgid "High Trigger Command"
+msgstr "Augstā sliekšņa nostrādāšanas komanda"
+
+#: thold.php thold_templates.php
+msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Ja iestatīts un tiek pārkāpts augstais slieksnis, tiks izpildīta šī komanda. Lūdzu, ievadiet derīgu komandu. Turklāt ir pieejami vairāki aizstāšanas tagi, kurus var izmantot, lai nodotu informāciju no sliekšņa skriptam. To var izdarīt kā argumentus komandrindā vai, vēlams, skripta vidē. Visas aizstāšanas vērtības parādīsies skripta vidē ar prefiksu THOLD_. Piemēram, CURRENTVALUE kļūs par THOLD_CURRENTVALUE utt. Mainīgie ietver: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Visbeidzot, var veikt resursdatora, datu vaicājuma un datu ievades aizstāšanu. Piemēram, ja jums ir datu ievades pielāgotie dati ar nosaukumu pending, aizstāšanai izmantojiet |pending|. Datu vaicājuma un resursdatora aizstāšanai izmantojiet Cacti konvencijas attiecīgi |query_xxxx| un |host_xxxx|."
+
+#: thold.php thold_templates.php
+msgid "Low Trigger Command"
+msgstr "Zemā sliekšņa nostrādāšanas komanda"
+
+#: thold.php thold_templates.php
+msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Ja iestatīts un tiek pārkāpts zemais slieksnis, tiks izpildīta šī komanda. Lūdzu, ievadiet derīgu komandu. Turklāt ir pieejami vairāki aizstāšanas tagi, kurus var izmantot, lai nodotu informāciju no sliekšņa skriptam. To var izdarīt kā argumentus komandrindā vai, vēlams, skripta vidē. Visas aizstāšanas vērtības parādīsies skripta vidē ar prefiksu THOLD_. Piemēram, CURRENTVALUE kļūs par THOLD_CURRENTVALUE utt. Mainīgie ietver: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Visbeidzot, var veikt resursdatora, datu vaicājuma un datu ievades aizstāšanu. Piemēram, ja jums ir datu ievades pielāgotie dati ar nosaukumu pending, aizstāšanai izmantojiet |pending|. Datu vaicājuma un resursdatora aizstāšanai izmantojiet Cacti konvencijas attiecīgi |query_xxxx| un |host_xxxx|."
+
+#: thold.php thold_templates.php
+msgid "Norm Trigger Command"
+msgstr "Normalizēšanās nostrādāšanas komanda"
+
+#: thold.php thold_templates.php
+msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Ja iestatīts, kad slieksnis atgriežas normālā vērtībā, tiks izpildīta šī komanda. Lūdzu, ievadiet derīgu komandu. Turklāt ir pieejami vairāki aizstāšanas tagi, kurus var izmantot, lai nodotu informāciju no sliekšņa skriptam. To var izdarīt kā argumentus komandrindā vai, vēlams, skripta vidē. Visas aizstāšanas vērtības parādīsies skripta vidē ar prefiksu THOLD_. Piemēram, CURRENTVALUE kļūs par THOLD_CURRENTVALUE utt. Mainīgie ietver: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Visbeidzot, var veikt resursdatora, datu vaicājuma un datu ievades aizstāšanu. Piemēram, ja jums ir datu ievades pielāgotie dati ar nosaukumu pending, aizstāšanai izmantojiet |pending|. Datu vaicājuma un resursdatora aizstāšanai izmantojiet Cacti konvencijas attiecīgi |query_xxxx| un |host_xxxx|."
+
+#: thold.php thold_templates.php
+msgid "Other Settings"
+msgstr "Citi iestatījumi"
+
+#: thold.php
+msgid "Enter an Eternal ID for this Threshold."
+msgstr "Ievadiet šī sliekšņa ārējo ID."
+
+#: thold.php thold_templates.php
+msgid "Operator Notes"
+msgstr "Operatora piezīmes"
+
+#: thold.php thold_templates.php
+msgid "Enter instructions here for an operator who may be receiving the Threshold message."
+msgstr "Šeit ievadiet norādījumus operatoram, kurš var saņemt sliekšņa ziņojumu."
+
+#: thold.php
+msgid "Select Users(s)"
+msgstr "Atlasīt lietotāju(-us)"
+
+#: thold.php
+msgid "Users Selected"
+msgstr "Atlasītie lietotāji"
+
+#: thold.php
+msgid "All Users Selected"
+msgstr "Atlasīti visi lietotāji"
+
+#: thold_graph.php
+msgid "The Threshold has been Ascknowledged."
+msgstr "Slieksnis ir apstiprināts."
+
+#: thold_graph.php
+msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
+msgstr "Slieksnis vairs neģenerēs trauksmes, paziņojumus un neizpildīs komandas."
+
+#: thold_graph.php
+msgid "The Threshold will restart generating Alerts."
+msgstr "Slieksnis atsāks ģenerēt trauksmes."
+
+#: thold_graph.php
+msgid "Threshold Status"
+msgstr "Sliekšņa statuss"
+
+#: thold_graph.php
+msgid "Actions"
+msgstr "Darbības"
+
+#: thold_graph.php
+msgid "Ack Detail"
+msgstr "Apstiprinājuma detaļas"
+
+#: thold_graph.php
+msgid "Edit Threshold"
+msgstr "Rediģēt slieksni"
+
+#: thold_graph.php
+msgid "Disable Threshold"
+msgstr "Atspējot slieksni"
+
+#: thold_graph.php
+msgid "Enable Threshold"
+msgstr "Iespējot slieksni"
+
+#: thold_graph.php
+msgid "To enable the Threshold, enable the Template first"
+msgstr "Lai iespējotu slieksni, vispirms iespējojiet veidni"
+
+#: thold_graph.php
+msgid "View Graph"
+msgstr "Skatīt grafiku"
+
+#: thold_graph.php
+msgid "View Threshold History"
+msgstr "Skatīt sliekšņa vēsturi"
+
+#: thold_graph.php
+msgid "Suspend Notifications until the Threshold clears"
+msgstr "Apturēt paziņojumus, līdz sliekšņa pārkāpums tiek novērsts"
+
+#: thold_graph.php
+msgid "Resume Notifications for this breached Threshold"
+msgstr "Atsākt paziņojumus par šo pārkāpto slieksni"
+
+#: thold_graph.php
+msgid "Acknowledgement Message"
+msgstr "Apstiprinājuma ziņojums"
+
+#: thold_graph.php
+msgid "Date"
+msgstr "Datums"
+
+#: thold_graph.php
+msgid "Comment Not Found"
+msgstr "Komentārs nav atrasts"
+
+#: thold_graph.php
+msgid "Ack History"
+msgstr "Apstiprinājumu vēsture"
+
+#: thold_graph.php
+msgid "No name set"
+msgstr "Nosaukums nav iestatīts"
+
+#: thold_graph.php
+msgid "Hover over icons for help"
+msgstr "Novietojiet kursoru virs ikonām, lai saņemtu palīdzību"
+
+#: thold_graph.php
+msgid "A description for the Device"
+msgstr "Ierīces apraksts"
+
+#: thold_graph.php
+msgid "A Cacti unique identifier for the Device"
+msgstr "Unikāls Cacti identifikators ierīcei"
+
+#: thold_graph.php
+msgid "The number of Graphs for this Device"
+msgstr "Grafiku skaits šai ierīcei"
+
+#: thold_graph.php
+msgid "The number of Data Sources for this Device"
+msgstr "Datu avotu skaits šai ierīcei"
+
+#: thold_graph.php
+msgid "The status for this Device as of the last time it was polled"
+msgstr "Šīs ierīces statuss pēdējās aptaujas brīdī"
+
+#: thold_graph.php
+msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
+msgstr "Pēdējā reize, kad Cacti konstatēja problēmu ar šo ierīci. Tas var būt lielāks par ierīces darbības laiku, ja tā tika restartēta starp Cacti aptaujas cikliem"
+
+#: thold_graph.php
+msgid "Uptime"
+msgstr "Darbības laiks"
+
+#: thold_graph.php
+msgid "The official uptime of the Device as reported by SNMP"
+msgstr "Oficiālais ierīces darbības laiks saskaņā ar SNMP"
+
+#: thold_graph.php
+msgid "The official hostname for this Device"
+msgstr "Oficiālais šīs ierīces resursdatora nosaukums"
+
+#: thold_graph.php
+msgid "Current (ms)"
+msgstr "Pašreizējais (ms)"
+
+#: thold_graph.php
+msgid "The current response time for the Cacti Availability check"
+msgstr "Pašreizējais reakcijas laiks Cacti pieejamības pārbaudei"
+
+#: thold_graph.php
+msgid "Average (ms)"
+msgstr "Vidējais (ms)"
+
+#: thold_graph.php
+msgid "The average response time for the Cacti Availability check"
+msgstr "Vidējais reakcijas laiks Cacti pieejamības pārbaudei"
+
+#: thold_graph.php
+msgid "Availability"
+msgstr "Pieejamība"
+
+#: thold_graph.php
+msgid "The overall Availability of this Device since the last counter reset in Cacti"
+msgstr "Kopējā šīs ierīces pieejamība kopš pēdējās skaitītāja atiestatīšanas Cacti"
+
+#: thold_graph.php
+msgid "Edit Device"
+msgstr "Rediģēt ierīci"
+
+#: thold_graph.php
+msgid "View Graphs"
+msgstr "Skatīt grafikus"
+
+#: thold_graph.php
+msgid "No Devices"
+msgstr "Nav ierīču"
+
+#: thold_graph.php
+msgid "Not Up"
+msgstr "Nav statusā Darbojas"
+
+#: thold_graph.php
+msgid "No Export Rows Found."
+msgstr "Nav atrasta neviena eksportējamā rinda."
+
+#: thold_graph.php
+#, php-format
+msgid "Threshold Log for [ %s ]"
+msgstr "Sliekšņa [ %s ] žurnāls"
+
+#: thold_graph.php
+msgid "Log Entries"
+msgstr "Žurnāla ieraksti"
+
+#: thold_graph.php
+msgid "Time"
+msgstr "Laiks"
+
+#: thold_graph.php
+msgid "Alert Value"
+msgstr "Trauksmes vērtība"
+
+#: thold_graph.php
+msgid "Measured Value"
+msgstr "Izmērītā vērtība"
+
+#: thold_graph.php
+msgid "No Threshold Logs Found"
+msgstr "Sliekšņu žurnāli nav atrasti"
+
+#: thold_graph.php
+msgid "Entries"
+msgstr "Ieraksti"
+
+#: thold_templates.php
+msgid "You are not authorised to modify one or more of the Thresholds selected"
+msgstr "Jums nav tiesību mainīt vienu vai vairākus atlasītos sliekšņus"
+
+#: thold_templates.php
+#, php-format
+msgid "%s (%d Thresholds)"
+msgstr "%s (%d sliekšņi)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to export the following Threshold Template(s)."
+msgstr "Noklikšķiniet uz 'Turpināt', lai eksportētu šādu(-as) sliekšņu veidni(-es)."
+
+#: thold_templates.php
+msgid "Export Template(s)"
+msgstr "Eksportēt veidni(-es)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to delete the following Threshold Template(s)."
+msgstr "Noklikšķiniet uz 'Turpināt', lai dzēstu šādu(-as) sliekšņu veidni(-es)."
+
+#: thold_templates.php
+msgid "Delete Template(s)"
+msgstr "Dzēst veidni(-es)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Reapply Suggested Names to Thresholds of the following Threshold Template(s)."
+msgstr "Noklikšķiniet uz 'Turpināt', lai atkārtoti piemērotu ieteiktos nosaukumus šādas(-u) sliekšņu veidnes(-ņu) sliekšņiem."
+
+#: thold_templates.php
+msgid "Reapply Suggested Names to Template(s)"
+msgstr "Atkārtoti piemērot ieteiktos nosaukumus veidnei(-ēm)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Enable the selected Template(s) and Threshold(s)."
+msgstr "Noklikšķiniet uz 'Turpināt', lai iespējotu atlasīto(-ās) veidni(-es) un slieksni(-ņus)."
+
+#: thold_templates.php
+msgid "Enable Template(s)"
+msgstr "Iespējot veidni(-es)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
+msgstr "Noklikšķiniet uz 'Turpināt', lai atspējotu atlasīto(-ās) veidni(-es) un slieksni(-ņus)."
+
+#: thold_templates.php
+msgid "Disable Template(s)"
+msgstr "Atspējot veidni(-es)"
+
+#: thold_templates.php
+msgid "Threshold Template Creation Wizard"
+msgstr "Sliekšņa veidnes izveides vednis"
+
+#: thold_templates.php
+msgid "Please select a Data Template"
+msgstr "Lūdzu, atlasiet datu veidni"
+
+#: thold_templates.php
+msgid "Please select a Data Source"
+msgstr "Lūdzu, atlasiet datu avotu"
+
+#: thold_templates.php
+msgid "Please press 'Create' to create your Threshold Template"
+msgstr "Lūdzu, nospiediet 'Izveidot', lai izveidotu sliekšņa veidni"
+
+#: thold_templates.php
+msgid "The Threshold Template requested can not be found"
+msgstr "Pieprasīto sliekšņa veidni nevar atrast"
+
+#: thold_templates.php
+msgid "Provide the Threshold Template a meaningful name."
+msgstr "Norādiet jēgpilnu nosaukumu sliekšņa veidnei."
+
+#: thold_templates.php
+msgid "Suggested Threshold Name"
+msgstr "Ieteiktais sliekšņa nosaukums"
+
+#: thold_templates.php
+msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
+msgstr "Norādiet ieteikto nosaukumu slieksnim, kas izveidots, izmantojot šo veidni. Var izmantot standarta ierīces (|host_*|), datu vaicājuma (|query_*|) un ievades (|input_*|) aizstāšanas mainīgos, kā arī |graph_title| grafika virsrakstam."
+
+#: thold_templates.php
+msgid "Data Template that you are using. (This cannot be changed)"
+msgstr "Datu veidne, ko izmantojat. (To nevar mainīt)"
+
+#: thold_templates.php
+msgid "Data Field"
+msgstr "Datu lauks"
+
+#: thold_templates.php
+msgid "Data Field that you are using. (This cannot be changed)"
+msgstr "Datu lauks, ko izmantojat. (To nevar mainīt)"
+
+#: thold_templates.php
+msgid "Whether or not this Threshold will be checked and alerted upon."
+msgstr "Vai šis slieksnis tiks pārbaudīts un par to tiks sūtītas trauksmes."
+
+#: thold_templates.php
+msgid "Repeat alert after this amount of time has pasted since the last alert."
+msgstr "Atkārtot trauksmi pēc tam, kad kopš pēdējās trauksmes pagājis šis laiks."
+
+#: thold_templates.php
+msgid "Min Trigger Duration"
+msgstr "Minimālais nostrādāšanas ilgums"
+
+#: thold_templates.php
+msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
+msgstr "Laika posms, kurā datu avotam jāatrodas pārkāpuma stāvoklī, lai tiktu izcelta trauksme."
+
+#: thold_templates.php
+msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
+msgstr "Reižu skaits, kurās datu avotam jāatrodas pārkāpuma stāvoklī pirms brīdinājuma izdošanas."
+
+#: thold_templates.php
+msgid "Time Period Length"
+msgstr "Laika perioda ilgums"
+
+#: thold_templates.php
+msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
+msgstr "Reižu skaits, kurās datu avotam jāatrodas pārkāpuma stāvoklī pirms trauksmes izdošanas."
+
+#: thold_templates.php
+msgid "Baseline Monitoring"
+msgstr "Bāzes līnijas uzraudzība"
+
+#: thold_templates.php
+#, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Norāda atļauto novirzi augšējās robežas slieksnim. Ja nav iestatīts, augšējās robežas slieksnis netiks pārbaudīts vispār. Mērvienība ir absolūtās vērtības tipam 'Absolūtā vērtība' un procenti tipiem '%% Novirze' un '%% Mainīgais vidējais'"
+
+#: thold_templates.php
+#, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Norāda atļauto novirzi apakšējās robežas slieksnim. Ja nav iestatīts, apakšējās robežas slieksnis netiks pārbaudīts vispār. Mērvienība ir absolūtās vērtības tipam 'Absolūtā vērtība' un procenti tipiem '%% Novirze' un '%% Mainīgais vidējais'"
+
+#: thold_templates.php
+#, php-format
+msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
+msgstr "Secīgo reižu skaits, kurās datu avotam jāatrodas pārkāpuma stāvoklī, lai tiktu izcelta trauksme.<br>Atstājiet tukšu, lai izmantotu noklusējuma vērtību (Noklusējums: %s cikli)"
+
+#: thold_templates.php
+msgid "Percent Datasource"
+msgstr "Procentu datu avots"
+
+#: thold_templates.php
+msgid "Second Datasource Item to use as total value to calculate percentage from."
+msgstr "Otrs datu avota vienums, ko izmantot kā kopējo vērtību procentu aprēķināšanai."
+
+#: thold_templates.php
+#, php-format
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "RPN izteiksme ir ar RRDtool saderīga RPN izteiksme. Sintakse ietver visas zemāk norādītās funkcijas, kā arī ierīces un datu vaicājuma aizstāšanas izteiksmes, piemēram, <span style=\"color:blue;\">|query_ifSpeed|</span>. Lai RPN izteiksmē izmantotu datu avotu, jālieto sintakse: <span style=\"color:blue;\">|ds:dsname|</span>. Piemēram, <span style=\"color:blue;\">|ds:traffic_in|</span> iegūs datu avota traffic_in pašreizējo vērtību no RRD datnes(-ēm), kas saistīta(-as) ar grafiku. Var iekļaut jebkuru grafika datu avotu.<br>Matemātiskie operatori: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Funkcijas: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Plūsmas operatori: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Salīdzināšanas funkcijas: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+
+#: thold_templates.php
+msgid "Upper data source to use to calculate the total value."
+msgstr "Augšējais datu avots, ko izmantot kopējās vērtības aprēķināšanai."
+
+#: thold_templates.php
+msgid "Alert Email Subject"
+msgstr "Trauksmes e-pasta temats"
+
+#: thold_templates.php
+msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Šis ir e-pasta temats, kas tiks rādīts e-pastā (maks. 128 rakstzīmes). Atstājiet tukšu, lai izmantotu noklusējumu. Ir pieejami vairāki bieži lietoti aizstāšanas tagi, tostarp:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "Alert Email Body"
+msgstr "Trauksmes e-pasta saturs"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Šis ir ziņojums, kas tiks rādīts visu sliekšņa trauksmju augšdaļā (maks. 1024 rakstzīmes). HTML ir atļauts, taču teksta e-pastos tas tiks noņemts. Ir pieejami vairāki bieži lietoti aizstāšanas tagi, tostarp:<br>piem., &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold_templates.php
+msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Šis ir brīdinājuma temats, kas tiks rādīts e-pastā (maks. 128 rakstzīmes). Atstājiet tukšu, lai izmantotu noklusējumu. Ir pieejami vairāki bieži lietoti aizstāšanas tagi, tostarp:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Šis ir ziņojums, kas tiks rādīts visu sliekšņa brīdinājumu augšdaļā (maks. 1024 rakstzīmes). HTML ir atļauts, taču teksta e-pastos tas tiks noņemts. Ir pieejami vairāki bieži lietoti aizstāšanas tagi, tostarp:<br>piem., &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold_templates.php
+msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Šis ir e-pasta temats, kas tiks rādīts e-pastā pēc atjaunošanās normālā stāvoklī (maks. 128 rakstzīmes). Atstājiet tukšu, lai izmantotu noklusējumu. Ir pieejami vairāki bieži lietoti aizstāšanas tagi, tostarp:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "Restoral Body"
+msgstr "Atjaunošanās saturs"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Šis ir ziņojums, kas tiks rādīts visu sliekšņa atjaunošanās paziņojumu augšdaļā (maks. 1024 rakstzīmes). HTML ir atļauts, taču teksta e-pastos tas tiks noņemts. Ir pieejami vairāki bieži lietoti aizstāšanas tagi, tostarp:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: thold_templates.php
+msgid "Notification List Read Only"
+msgstr "Paziņojumu saraksts tikai lasīšanai"
+
+#: thold_templates.php
+msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
+msgstr "Ja atzīmēts, veidnes sliekšņa paziņojumu saraksti pārrakstīs sliekšņa paziņojumu sarakstus."
+
+#: thold_templates.php
+msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
+msgstr "Trauksmēm izmantojamā smaguma pakāpe. (Zema ietekme -> Kritiska ietekme)"
+
+#: thold_templates.php
+msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
+msgstr "Šis ir kontu saraksts, kuriem tiks nosūtīts paziņojums, kad šis slieksnis tiks pārkāpts.<br><br><br><br>"
+
+#: thold_templates.php
+msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
+msgstr "Šeit varat norādīt papildu e-pasta adreses, uz kurām saņemt trauksmes par šo datu avotu (atdalītas ar komatu)"
+
+#: thold_templates.php
+msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
+msgstr "Šeit varat norādīt papildu e-pasta adreses, uz kurām saņemt brīdinājumus par šo datu avotu (atdalītas ar komatu)"
+
+#: thold_templates.php
+msgid "Enter an Eternal ID for this Thold Template."
+msgstr "Ievadiet šīs sliekšņa veidnes ārējo ID."
+
+#: thold_templates.php
+#, php-format
+msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "%d mēneši, %d dienas, %d stundas, %d minūtes, %d sekundes (vidēji)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
+msgstr "%d mēneši, %d dienas, %d stundas, %d minūtes, %d sekundes"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "%d dienas, %d stundas, %d minūtes, %d sekundes (vidēji)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
+msgstr "%d dienas, %d stundas, %d minūtes, %d sekundes"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "%d stundas, %d minūtes, %d sekundes (vidēji)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Hours, %d Minutes, %d Seconds"
+msgstr "%d stundas, %d minūtes, %d sekundes"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Minutes, %d Seconds (Average)"
+msgstr "%d minūtes, %d sekundes (vidēji)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Minutes, %d Seconds"
+msgstr "%d minūtes, %d sekundes"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Seconds (Average)"
+msgstr "%d sekundes (vidēji)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Seconds"
+msgstr "%d sekundes"
+
+#: thold_templates.php
+msgid "DS Name"
+msgstr "Datu avota nosaukums"
+
+#: thold_templates.php
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
+msgstr "Augstā brīdinājuma / trauksmes vērtības. PIEZĪME: Bāzes līnijas vērtības ir procentos, visas pārējās vērtības ir neapstrādātas (RAW) vērtības, kuras nav mainītas ar CDEF."
+
+#: thold_templates.php
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
+msgstr "Zemā brīdinājuma / trauksmes vērtības. PIEZĪME: Bāzes līnijas vērtības ir procentos, visas pārējās vērtības ir neapstrādātas (RAW) vērtības, kuras nav mainītas ar CDEF."
+
+#: thold_templates.php
+msgid "Import Template from Local File"
+msgstr "Importēt veidni no vietējās datnes"
+
+#: thold_templates.php
+msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
+msgstr "Ja XML datne ar sliekšņa veidnes datiem atrodas jūsu lokālajā datorā, atlasiet to šeit."
+
+#: thold_templates.php
+msgid "Import Template from Text"
+msgstr "Importēt veidni no teksta"
+
+#: thold_templates.php
+msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
+msgstr "Ja jums ir XML datne ar sliekšņa veidnes datiem teksta veidā, varat to ielīmēt šajā laukā, lai importētu."
+
+#: thold_templates.php
+msgid "Import Results"
+msgstr "Importēšanas rezultāti"
+
+#: thold_templates.php
+msgid "Cacti has imported the following items:"
+msgstr "Cacti ir importējis šādus vienumus:"
+
+#: thold_templates.php
+msgid "Import Threshold Templates"
+msgstr "Importēt sliekšņu veidnes"
+
+#: thold_templates.php
+msgid "The file is too big."
+msgstr "Datne ir pārāk liela."
+
+#: thold_templates.php
+msgid "Incomplete file transfer."
+msgstr "Nepilnīga faila pārsūtīšana."
+
+#: thold_templates.php
+msgid "No file uploaded."
+msgstr "Nav augšupielādēts neviens fails."
+
+#: thold_templates.php
+msgid "Temporary folder missing."
+msgstr "Trūkst pagaidu mapes."
+
+#: thold_templates.php
+msgid "Failed to write file to disk"
+msgstr "Neizdevās ierakstīt failu diskā"
+
+#: thold_templates.php
+msgid "File upload stopped by extension"
+msgstr "Faila augšupielādi apturēja paplašinājums"
+
+#: thold_templates.php
+msgid "Invalid file extension."
+msgstr "Nederīgs faila paplašinājums."
+
+#: thold_templates.php
+msgid "NOTE:"
+msgstr "PIEZĪME:"
+
+#: thold_templates.php
+msgid "ERROR:"
+msgstr "KĻŪDA:"
